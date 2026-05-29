@@ -19,6 +19,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added a `.githooks/pre-commit` hook template for automatic docs sync before commits.
 - Added `odracir install-hooks` to configure the local repository to use project hooks.
 - Added `--papers-dir` to scan existing custom paper storage folders.
+- Added `odracir extract` for page-level PDF text extraction into `.odracir/texts/`.
+- Added `WORKFLOW.md` to document the operating workflow and the distinction between tools, agent tools, and future skills.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -27,16 +29,16 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `.githooks/pre-commit` hook 模板，用于在提交前自动同步文档。
 - 添加 `odracir install-hooks`，用于配置本地仓库使用项目 hook。
 - 添加 `--papers-dir`，用于扫描已有的自定义论文存储文件夹。
+- 添加 `odracir extract`，用于将 PDF 正文按页提取到 `.odracir/texts/`。
+- 添加 `WORKFLOW.md`，用于记录工作流程，以及 tool、agent tool 和未来 skill 的区别。
 
 ### Planned / 计划
 
-- Add PDF text extraction.
 - Evolve the first `odracir_index.json` schema after real paper processing.
 - Add paper translation and structured summary tools.
 - Add retrieval over paper records and extracted text.
 - Add a research conversation agent that can use folder-level evidence.
 
-- 添加 PDF 文本提取能力。
 - 在真实论文处理后继续演进第一版 `odracir_index.json` schema。
 - 添加论文翻译和结构化摘要工具。
 - 添加基于论文记录和提取文本的检索能力。

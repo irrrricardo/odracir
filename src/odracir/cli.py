@@ -9,6 +9,7 @@ import sys
 
 from odracir.agent import OdracirAgent
 from odracir.docs_sync import sync_project_docs
+from odracir.pdf_extraction import PdfTextExtractor
 from odracir.research_folder import ResearchFolderHarness
 
 
@@ -16,6 +17,9 @@ def main() -> None:
     argv = sys.argv[1:]
     if argv and argv[0] == "scan":
         _scan(argv[1:])
+        return
+    if argv and argv[0] == "extract":
+        _extract(argv[1:])
         return
     if argv and argv[0] == "sync-docs":
         _sync_docs(argv[1:])
@@ -64,6 +68,40 @@ def _scan(argv: list[str]) -> None:
         f"{result.new_papers} new, "
         f"{result.updated_papers} updated, "
         f"{result.missing_papers} missing"
+    )
+
+
+def _extract(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(description="Extract PDF text for a research folder.")
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only extract one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs to extract.")
+    parser.add_argument("--force", action="store_true", help="Re-extract even if artifacts exist.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    result = PdfTextExtractor(args.folder, papers_dir=args.papers_dir).extract_index(
+        force=args.force,
+        limit=args.limit,
+        paper_id=args.paper,
+    )
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+
+    print(f"Research folder: {result.root}")
+    print(f"Index: {result.index_path}")
+    print(
+        "PDF text extraction: "
+        f"{result.total_pdf_papers} total, "
+        f"{result.extracted} extracted, "
+        f"{result.skipped} skipped, "
+        f"{result.failed} failed"
     )
 
 

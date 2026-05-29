@@ -4,21 +4,24 @@
 
 [版本记录](CHANGELOG.md)
 
+[工作流](WORKFLOW.md)
+
 <!-- ODRACIR_STATUS_START -->
 ## 项目状态
 
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有研究文件夹 harness 的单 agent 原型
-- 当前重点：论文收纳、文件夹级 JSON 记忆、文档同步
-- 最近同步：`2026-05-30T02:02:29+08:00`
+- 阶段：带有研究文件夹 harness 和 PDF 文本提取的单 agent 原型
+- 当前重点：论文收纳、PDF 文本提取、文件夹级 JSON 记忆、文档同步
+- 最近同步：`2026-05-30T02:29:32+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
+- `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -210,6 +213,14 @@ odracir scan "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World 
 
 这个命令会把研究索引保存在 `Mecidal World Model` 文件夹中，同时从已有的 `Paper Storage` 文件夹读取 PDF。
 
+提取 PDF 正文：
+
+```powershell
+odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+这个命令会把按页提取的正文 artifact 写入 `.odracir/texts/`，并在 `odracir_index.json` 中更新提取状态、页数、文本长度和 artifact 路径。
+
 刷新自动生成的文档状态区块：
 
 ```powershell
@@ -227,15 +238,16 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有研究文件夹 harness 的单 agent 原型
-- 当前重点：论文收纳、文件夹级 JSON 记忆、文档同步
-- 最近同步：`2026-05-30T02:02:29+08:00`
+- 阶段：带有研究文件夹 harness 和 PDF 文本提取的单 agent 原型
+- 当前重点：论文收纳、PDF 文本提取、文件夹级 JSON 记忆、文档同步
+- 最近同步：`2026-05-30T02:29:32+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
+- `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -255,7 +267,7 @@ odracir install-hooks
 
 1. 将第一版保持为单 agent 加小型工具注册表。
 2. 使用研究文件夹 harness 创建并更新 `odracir_index.json`。
-3. 添加 PDF 文本提取。
+3. 将 PDF 正文提取到 `.odracir/texts/` 下的本地 artifact。
 4. 验证并演进第一版 `odracir_index.json` schema。
 5. 添加论文翻译和结构化摘要工具。
 6. 添加基于 JSON 索引和论文文本的检索。

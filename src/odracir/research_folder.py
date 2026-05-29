@@ -6,10 +6,9 @@ import hashlib
 import json
 import re
 from dataclasses import asdict, dataclass
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
-from zoneinfo import ZoneInfo
 
 
 DEFAULT_INDEX_NAME = "odracir_index.json"
@@ -233,7 +232,7 @@ class ResearchFolderHarness:
 
 
 def _now_iso() -> str:
-    return datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds")
+    return datetime.now(_china_tz()).isoformat(timespec="seconds")
 
 
 def _relative_posix(path: Path, root: Path) -> str:
@@ -257,3 +256,7 @@ def _paper_id(path: Path, root: Path, used_ids: set[str]) -> str:
 
     rel_hash = hashlib.sha1(_relative_posix(path, root).encode("utf-8")).hexdigest()[:8]
     return f"{base}-{rel_hash}"
+
+
+def _china_tz() -> timezone:
+    return timezone(timedelta(hours=8), name="Asia/Shanghai")
