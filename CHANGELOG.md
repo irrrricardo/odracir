@@ -10,18 +10,34 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ## [Unreleased] / 未发布
 
+### Added / 新增
+
+- Added a research-folder harness that creates `papers/`, `notes/`, and `code/`, scans paper files, and maintains `odracir_index.json`.
+- Added an `odracir scan <research-folder>` command.
+- Added generated README project-status blocks.
+- Added an `odracir sync-docs` command.
+- Added a `.githooks/pre-commit` hook template for automatic docs sync before commits.
+- Added `odracir install-hooks` to configure the local repository to use project hooks.
+- Added `--papers-dir` to scan existing custom paper storage folders.
+
+- 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
+- 添加 `odracir scan <research-folder>` 命令。
+- 添加 README 自动生成项目状态区块。
+- 添加 `odracir sync-docs` 命令。
+- 添加 `.githooks/pre-commit` hook 模板，用于在提交前自动同步文档。
+- 添加 `odracir install-hooks`，用于配置本地仓库使用项目 hook。
+- 添加 `--papers-dir`，用于扫描已有的自定义论文存储文件夹。
+
 ### Planned / 计划
 
-- Add a research-folder scanner.
 - Add PDF text extraction.
-- Design the first `odracir_index.json` schema.
+- Evolve the first `odracir_index.json` schema after real paper processing.
 - Add paper translation and structured summary tools.
 - Add retrieval over paper records and extracted text.
 - Add a research conversation agent that can use folder-level evidence.
 
-- 添加研究文件夹扫描器。
 - 添加 PDF 文本提取能力。
-- 设计第一版 `odracir_index.json` schema。
+- 在真实论文处理后继续演进第一版 `odracir_index.json` schema。
 - 添加论文翻译和结构化摘要工具。
 - 添加基于论文记录和提取文本的检索能力。
 - 添加能够使用文件夹级证据的科研交流 agent。

@@ -4,6 +4,26 @@
 
 [版本记录](CHANGELOG.md)
 
+<!-- ODRACIR_STATUS_START -->
+## 项目状态
+
+此区块由 `odracir sync-docs` 自动生成。
+
+- 版本：`0.1.0`
+- 阶段：带有研究文件夹 harness 的单 agent 原型
+- 当前重点：论文收纳、文件夹级 JSON 记忆、文档同步
+- 最近同步：`2026-05-30T02:02:29+08:00`
+
+当前命令：
+
+- `odracir "message"`：与当前 Odracir agent 对话。
+- `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
+- `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
+- `odracir sync-docs`：刷新自动生成的文档状态区块。
+
+<!-- ODRACIR_STATUS_END -->
+
+
 Odracir 是一个个人化的 agentic system，用于快速进入、理解并实现某个新的科研领域。它的目标是帮助一个人收纳论文、翻译和总结论文、提取结构化知识、围绕该领域与 agent 交流，并逐步把科研理解转化成可执行的计划和代码。
 
 当前项目计划通过 OpenAI-compatible 的客户端接口调用 DeepSeek API。
@@ -37,6 +57,8 @@ research-folder/
 ```
 
 你把选好的论文放入 `papers/`。Odracir 读取它们，生成翻译和摘要，提取结构化信息，并更新 `odracir_index.json`，让这个文件夹逐渐变成一个本地科研记忆。
+
+当前 harness 已经实现这个流程的第一层：创建文件夹布局，扫描 `papers/`，并用文件元数据和等待后续 agent 填写的空研究字段创建或更新 `odracir_index.json`。
 
 ## 计划功能
 
@@ -172,12 +194,69 @@ odracir "帮我规划一个用于阅读扩散模型论文的科研助手。"
 python -m odracir.cli "帮我总结当前项目目标。"
 ```
 
+扫描一个研究文件夹：
+
+```powershell
+odracir scan D:\Research\diffusion-models
+```
+
+这个命令会在需要时创建文件夹，确保 `papers/`、`notes/` 和 `code/` 存在，并写入或更新 `odracir_index.json`。
+
+扫描一个已有的自定义论文文件夹：
+
+```powershell
+odracir scan "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+这个命令会把研究索引保存在 `Mecidal World Model` 文件夹中，同时从已有的 `Paper Storage` 文件夹读取 PDF。
+
+刷新自动生成的文档状态区块：
+
+```powershell
+odracir sync-docs
+```
+
+## 文档同步
+
+README 文件里包含一个由程序生成的项目状态区块，位于这些标记之间：
+
+```text
+<!-- ODRACIR_STATUS_START -->
+## 项目状态
+
+此区块由 `odracir sync-docs` 自动生成。
+
+- 版本：`0.1.0`
+- 阶段：带有研究文件夹 harness 的单 agent 原型
+- 当前重点：论文收纳、文件夹级 JSON 记忆、文档同步
+- 最近同步：`2026-05-30T02:02:29+08:00`
+
+当前命令：
+
+- `odracir "message"`：与当前 Odracir agent 对话。
+- `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
+- `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
+- `odracir sync-docs`：刷新自动生成的文档状态区块。
+
+<!-- ODRACIR_STATUS_END -->
+```
+
+只有这个区块会被自动管理。Markdown 文件里的其他内容仍然保持手写，这样项目叙事不会变成失控的自动生成文本。
+
+如果希望每次提交前自动同步：
+
+```powershell
+odracir install-hooks
+```
+
+这个命令会配置 git 使用 `.githooks/pre-commit`。该 hook 会运行文档同步命令，并在 commit 创建前把更新后的 README 文件重新加入暂存区。
+
 ## 开发路线图
 
 1. 将第一版保持为单 agent 加小型工具注册表。
-2. 添加研究文件夹扫描器。
+2. 使用研究文件夹 harness 创建并更新 `odracir_index.json`。
 3. 添加 PDF 文本提取。
-4. 设计并验证第一版 `odracir_index.json` schema。
+4. 验证并演进第一版 `odracir_index.json` schema。
 5. 添加论文翻译和结构化摘要工具。
 6. 添加基于 JSON 索引和论文文本的检索。
 7. 添加能够引用文件夹证据的交流 agent。
