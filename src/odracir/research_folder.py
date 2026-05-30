@@ -6,14 +6,15 @@ import hashlib
 import json
 import re
 from dataclasses import asdict, dataclass
-from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+
+from odracir.schemas import INDEX_SCHEMA_VERSION, require_valid_project_index
+from odracir.time_utils import now_iso
 
 
 DEFAULT_INDEX_NAME = "odracir_index.json"
 PAPER_EXTENSIONS = {".pdf", ".txt", ".md"}
-SCHEMA_VERSION = "0.1"
 
 
 @dataclass(frozen=True)
@@ -58,7 +59,7 @@ class ResearchFolderHarness:
     def sync_index(self) -> ResearchFolderSyncResult:
         self.ensure_layout()
 
-        now = _now_iso()
+        now = now_iso()
         index = self.load_index()
         existing_papers = index.get("papers", [])
         existing_by_source = {
@@ -107,7 +108,7 @@ class ResearchFolderHarness:
 
         index.update(
             {
-                "schema_version": SCHEMA_VERSION,
+                "schema_version": INDEX_SCHEMA_VERSION,
                 "folder_name": self.root.name,
                 "generated_by": "odracir",
                 "updated_at": now,
@@ -138,7 +139,7 @@ class ResearchFolderHarness:
     def load_index(self) -> dict[str, Any]:
         if not self.index_path.exists():
             return {
-                "schema_version": SCHEMA_VERSION,
+                "schema_version": INDEX_SCHEMA_VERSION,
                 "folder_name": self.root.name,
                 "generated_by": "odracir",
                 "updated_at": None,
@@ -152,9 +153,11 @@ class ResearchFolderHarness:
             raise ValueError(f"{self.index_path} must contain a JSON object.")
 
         data.setdefault("papers", [])
+        require_valid_project_index(data)
         return data
 
     def write_index(self, index: dict[str, Any]) -> None:
+        require_valid_project_index(index)
         with self.index_path.open("w", encoding="utf-8", newline="\n") as file:
             json.dump(index, file, ensure_ascii=False, indent=2)
             file.write("\n")
@@ -177,6 +180,8 @@ class ResearchFolderHarness:
             "file_size_bytes": paper_path.stat().st_size,
             "sha256": file_hash,
             "status": "indexed",
+            "text_extraction_status": "not_started",
+            "chunking_status": "not_started",
             "translation_status": "not_started",
             "summary_status": "not_started",
             "research_area": "",
@@ -213,8 +218,12 @@ class ResearchFolderHarness:
         record["file_size_bytes"] = paper_path.stat().st_size
         record["sha256"] = file_hash
         record["status"] = "indexed"
+        if existing.get("sha256") != file_hash:
+            _invalidate_generated_fields(record)
         record.setdefault("translation_status", "not_started")
         record.setdefault("summary_status", "not_started")
+        record.setdefault("text_extraction_status", "not_started")
+        record.setdefault("chunking_status", "not_started")
         record.setdefault("research_area", "")
         record.setdefault("core_problem", "")
         record.setdefault("main_contribution", "")
@@ -231,8 +240,35 @@ class ResearchFolderHarness:
         return record
 
 
-def _now_iso() -> str:
-    return datetime.now(_china_tz()).isoformat(timespec="seconds")
+def _invalidate_generated_fields(record: dict[str, Any]) -> None:
+    record["text_extraction_status"] = "not_started"
+    for field in (
+        "text_extraction_sha256",
+        "text_extraction_error",
+        "text_artifact",
+        "page_count",
+        "text_char_count",
+        "empty_text_page_count",
+        "needs_ocr",
+        "ocr_reason",
+        "text_extracted_at",
+        "text_parser",
+        "text_parser_version",
+    ):
+        record.pop(field, None)
+
+    record["chunking_status"] = "not_started"
+    for field in (
+        "chunking_sha256",
+        "chunk_artifact",
+        "chunk_count",
+        "chunked_at",
+        "chunking_error",
+    ):
+        record.pop(field, None)
+
+    record["summary_status"] = "not_started"
+    record["translation_status"] = "not_started"
 
 
 def _relative_posix(path: Path, root: Path) -> str:
@@ -256,7 +292,3 @@ def _paper_id(path: Path, root: Path, used_ids: set[str]) -> str:
 
     rel_hash = hashlib.sha1(_relative_posix(path, root).encode("utf-8")).hexdigest()[:8]
     return f"{base}-{rel_hash}"
-
-
-def _china_tz() -> timezone:
-    return timezone(timedelta(hours=8), name="Asia/Shanghai")

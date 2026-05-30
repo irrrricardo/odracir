@@ -22,6 +22,13 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `odracir extract` for page-level PDF text extraction into `.odracir/texts/`.
 - Added `WORKFLOW.md` to document the operating workflow and the distinction between tools, agent tools, and future skills.
 - Added `ARCHITECTURE.md` with module boundaries, data lifecycle, scientific data model, pipeline states, phased roadmap, and acceptance criteria.
+- Added typed schemas and index validation for project, paper, extraction, text, and chunk artifacts.
+- Added `odracir status` for processing-state, OCR-need, and failure reporting.
+- Added deterministic page-traceable chunking and the `odracir chunk` command.
+- Added source-change invalidation for generated downstream artifacts.
+- Added a replaceable parser registry with `pymupdf` as the initial backend.
+- Documented the external parser strategy for Docling, OCRmyPDF, GROBID, and MinerU.
+- Added failure-mode tests for invalid PDFs, likely scanned PDFs, schema errors, source changes, and stable chunk IDs.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -33,6 +40,13 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `odracir extract`，用于将 PDF 正文按页提取到 `.odracir/texts/`。
 - 添加 `WORKFLOW.md`，用于记录工作流程，以及 tool、agent tool 和未来 skill 的区别。
 - 添加 `ARCHITECTURE.md`，用于记录模块边界、数据生命周期、科学化数据模型、流水线状态、分阶段路线图和验收标准。
+- 添加项目、论文、提取、正文和 chunk artifact 的类型化 schema 与索引校验。
+- 添加 `odracir status`，用于报告处理状态、OCR 需求和失败项。
+- 添加确定性的按页可追溯 chunking 和 `odracir chunk` 命令。
+- 添加源文件变化后对下游生成 artifact 的失效传播。
+- 添加可替换解析器注册表，并将 `pymupdf` 作为首个后端。
+- 记录 Docling、OCRmyPDF、GROBID 和 MinerU 的外部解析器接入策略。
+- 添加损坏 PDF、疑似扫描件、schema 错误、源文件变化和稳定 chunk ID 的失败模式测试。
 
 ### Planned / 计划
 

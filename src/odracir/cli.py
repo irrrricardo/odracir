@@ -8,9 +8,11 @@ import subprocess
 import sys
 
 from odracir.agent import OdracirAgent
+from odracir.chunking import TextChunker
 from odracir.docs_sync import sync_project_docs
 from odracir.pdf_extraction import PdfTextExtractor
 from odracir.research_folder import ResearchFolderHarness
+from odracir.status import build_research_status, format_research_status
 
 
 def main() -> None:
@@ -20,6 +22,12 @@ def main() -> None:
         return
     if argv and argv[0] == "extract":
         _extract(argv[1:])
+        return
+    if argv and argv[0] == "status":
+        _status(argv[1:])
+        return
+    if argv and argv[0] == "chunk":
+        _chunk(argv[1:])
         return
     if argv and argv[0] == "sync-docs":
         _sync_docs(argv[1:])
@@ -81,11 +89,16 @@ def _extract(argv: list[str]) -> None:
     )
     parser.add_argument("--paper", default=None, help="Only extract one paper id.")
     parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs to extract.")
+    parser.add_argument("--parser", default="pymupdf", help="Registered PDF parser name.")
     parser.add_argument("--force", action="store_true", help="Re-extract even if artifacts exist.")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
     args = parser.parse_args(argv)
 
-    result = PdfTextExtractor(args.folder, papers_dir=args.papers_dir).extract_index(
+    result = PdfTextExtractor(
+        args.folder,
+        papers_dir=args.papers_dir,
+        parser_name=args.parser,
+    ).extract_index(
         force=args.force,
         limit=args.limit,
         paper_id=args.paper,
@@ -117,6 +130,64 @@ def _sync_docs(argv: list[str]) -> None:
             print(f"- {path}")
     else:
         print("Docs already up to date.")
+
+
+def _status(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(description="Report research-folder processing status.")
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--no-refresh", action="store_true", help="Read status without rescanning.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    report = build_research_status(
+        args.folder,
+        papers_dir=args.papers_dir,
+        refresh=not args.no_refresh,
+    )
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_research_status(report))
+
+
+def _chunk(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(description="Chunk extracted PDF text for a research folder.")
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only chunk one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs to chunk.")
+    parser.add_argument("--force", action="store_true", help="Re-chunk even if artifacts exist.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    result = TextChunker(args.folder, papers_dir=args.papers_dir).chunk_index(
+        force=args.force,
+        limit=args.limit,
+        paper_id=args.paper,
+    )
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+
+    print(f"Research folder: {result.root}")
+    print(f"Index: {result.index_path}")
+    print(
+        "Text chunking: "
+        f"{result.eligible_papers} eligible, "
+        f"{result.chunked} chunked, "
+        f"{result.skipped} skipped, "
+        f"{result.blocked} blocked, "
+        f"{result.failed} failed"
+    )
 
 
 def _install_hooks() -> None:

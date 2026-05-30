@@ -479,3 +479,55 @@ The next implementation sprint should remain narrow:
 This sprint creates the contract needed before DeepSeek-based summaries are added.
 
 这一轮会建立接入 DeepSeek 总结之前所需的数据契约。
+
+## 11. Implementation Progress / 实现进度
+
+Completed on 2026-05-30:
+
+已于 2026-05-30 完成：
+
+- Added typed index, paper, extraction, text artifact, and chunk artifact schemas.
+- Added `odracir status <research-folder>` with OCR and failure reporting.
+- Added deterministic page-traceable chunking and `odracir chunk <research-folder>`.
+- Added source-change invalidation for extraction, chunking, summary, and translation states.
+- Added a replaceable parser registry with `pymupdf` as the first backend.
+- Added failure-mode tests for scanned PDFs, invalid PDFs, schema violations, source changes, and stable chunk IDs.
+
+- 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
+- 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
+- 添加确定性的按页可追溯 chunking 和 `odracir chunk <research-folder>`。
+- 添加源文件变化后对提取、chunking、摘要和翻译状态的失效传播。
+- 添加可替换解析器注册表，并将 `pymupdf` 作为首个后端。
+- 添加扫描件、损坏 PDF、schema 违规、源文件变化和稳定 chunk ID 的失败模式测试。
+
+## 12. External Parser Strategy / 外部解析器策略
+
+Odracir should reuse mature open-source parsers behind adapters. The normalized artifact schema remains the contract consumed by chunking, retrieval, skills, and agents.
+
+Odracir 应该通过适配器复用成熟开源解析器。Chunking、检索、skill 和 agent 继续消费统一 artifact schema，不直接依赖特定解析器格式。
+
+```text
+source document
+-> parser registry
+   -> pymupdf: lightweight default
+   -> docling: planned complex-layout and multi-format adapter
+   -> ocrmypdf: planned preprocessing route for needs_ocr
+   -> grobid: planned scholarly metadata service
+   -> mineru: optional heavier backend for benchmark cases
+-> normalized local artifact
+-> stable traceable chunks
+```
+
+Next implementation sprint:
+
+下一轮实现：
+
+1. Add an optional Docling adapter and benchmark it against `pymupdf` on the Medical World Model folder.
+2. Add OCRmyPDF capability detection and an explicit OCR preprocessing command.
+3. Define the DeepSeek provider adapter and evidence-aware summary artifact schema.
+4. Add lexical retrieval over `.odracir/chunks/` before introducing embeddings.
+
+1. 添加可选 Docling 适配器，并在 Medical World Model 文件夹上与 `pymupdf` 对比。
+2. 添加 OCRmyPDF 能力检测和显式 OCR 预处理命令。
+3. 定义 DeepSeek provider adapter 和注重证据的摘要 artifact schema。
+4. 在引入 embedding 前，先对 `.odracir/chunks/` 添加关键词检索。

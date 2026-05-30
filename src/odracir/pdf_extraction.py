@@ -5,14 +5,17 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import asdict, dataclass
-from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+from odracir.parsers import ParserRegistration, ParserRegistry
 from odracir.research_folder import ResearchFolderHarness
+from odracir.schemas import ExtractionStatus, TEXT_SCHEMA_VERSION
+from odracir.time_utils import now_iso
 
 
-TEXT_SCHEMA_VERSION = "0.1"
+MIN_TEXT_CHARS_PER_PAGE = 40
+OCR_PAGE_RATIO_THRESHOLD = 0.8
 
 
 @dataclass(frozen=True)
@@ -31,10 +34,19 @@ class PdfExtractionSummary:
 class PdfTextExtractor:
     """Extract page-level text artifacts and update folder-level paper records."""
 
-    def __init__(self, root: str | Path, papers_dir: str | Path | None = None) -> None:
+    def __init__(
+        self,
+        root: str | Path,
+        papers_dir: str | Path | None = None,
+        *,
+        parser_name: str = "pymupdf",
+        parser_registry: ParserRegistry | None = None,
+    ) -> None:
         self.harness = ResearchFolderHarness(root, papers_dir=papers_dir)
         self.root = self.harness.root
         self.texts_dir = self.root / ".odracir" / "texts"
+        self.parser_name = parser_name
+        self.parser_registry = parser_registry or build_pdf_parser_registry()
 
     def extract_index(
         self,
@@ -70,7 +82,7 @@ class PdfTextExtractor:
 
             source_path = self.root / str(paper["source_file"])
             try:
-                artifact = extract_pdf_text(source_path)
+                artifact = self.parser_registry.parse(source_path, self.parser_name)
             except Exception as exc:  # noqa: BLE001 - keep batch extraction resilient.
                 failed += 1
                 _mark_failed(paper, exc)
@@ -85,7 +97,7 @@ class PdfTextExtractor:
             )
             extracted += 1
 
-        index["updated_at"] = _now_iso()
+        index["updated_at"] = now_iso()
         self.harness.write_index(index)
 
         return PdfExtractionSummary(
@@ -136,7 +148,7 @@ def extract_pdf_text(source_path: Path) -> dict[str, Any]:
 
     pages: list[dict[str, Any]] = []
     metadata: dict[str, Any]
-    parser_version = getattr(fitz, "version", None)
+    parser_version = str(getattr(fitz, "version", "unknown"))
 
     with fitz.open(source_path) as document:
         metadata = dict(document.metadata or {})
@@ -151,16 +163,39 @@ def extract_pdf_text(source_path: Path) -> dict[str, Any]:
             )
 
     text_char_count = sum(page["char_count"] for page in pages)
+    empty_text_page_count = sum(
+        1 for page in pages if page["char_count"] < MIN_TEXT_CHARS_PER_PAGE
+    )
+    needs_ocr, ocr_reason = _detect_ocr_need(
+        page_count=len(pages),
+        text_char_count=text_char_count,
+        empty_text_page_count=empty_text_page_count,
+    )
     return {
         "parser": "pymupdf",
         "parser_version": parser_version,
-        "extracted_at": _now_iso(),
+        "extracted_at": now_iso(),
         "page_count": len(pages),
         "text_char_count": text_char_count,
-        "needs_ocr": text_char_count == 0,
+        "empty_text_page_count": empty_text_page_count,
+        "needs_ocr": needs_ocr,
+        "ocr_reason": ocr_reason,
         "metadata": metadata,
         "pages": pages,
     }
+
+
+def build_pdf_parser_registry() -> ParserRegistry:
+    """Build the default registry while keeping future parser adapters pluggable."""
+    registry = ParserRegistry()
+    registry.register(
+        ParserRegistration(
+            name="pymupdf",
+            file_types=("pdf",),
+            parse=extract_pdf_text,
+        )
+    )
+    return registry
 
 
 def _mark_extracted(
@@ -170,22 +205,32 @@ def _mark_extracted(
     root: Path,
     artifact: dict[str, Any],
 ) -> None:
-    status = "needs_ocr" if artifact["needs_ocr"] else "extracted"
+    status = (
+        ExtractionStatus.NEEDS_OCR.value
+        if artifact["needs_ocr"]
+        else ExtractionStatus.EXTRACTED.value
+    )
     paper["text_extraction_status"] = status
     paper["text_extraction_sha256"] = paper.get("sha256")
     paper["text_artifact"] = artifact_path.relative_to(root).as_posix()
     paper["page_count"] = artifact["page_count"]
     paper["text_char_count"] = artifact["text_char_count"]
+    paper["empty_text_page_count"] = artifact["empty_text_page_count"]
     paper["needs_ocr"] = artifact["needs_ocr"]
+    paper["ocr_reason"] = artifact["ocr_reason"]
     paper["text_extracted_at"] = artifact["extracted_at"]
     paper["text_parser"] = artifact["parser"]
-    paper["updated_at"] = _now_iso()
+    paper["text_parser_version"] = artifact["parser_version"]
+    paper.pop("text_extraction_error", None)
+    _invalidate_downstream(paper)
+    paper["updated_at"] = now_iso()
 
 
 def _mark_failed(paper: dict[str, Any], exc: Exception) -> None:
-    paper["text_extraction_status"] = "failed"
+    paper["text_extraction_status"] = ExtractionStatus.FAILED.value
     paper["text_extraction_error"] = str(exc)
-    paper["updated_at"] = _now_iso()
+    _invalidate_downstream(paper)
+    paper["updated_at"] = now_iso()
 
 
 def _safe_name(value: str) -> str:
@@ -193,9 +238,27 @@ def _safe_name(value: str) -> str:
     return safe or "paper"
 
 
-def _now_iso() -> str:
-    return datetime.now(_china_tz()).isoformat(timespec="seconds")
+def _detect_ocr_need(
+    *,
+    page_count: int,
+    text_char_count: int,
+    empty_text_page_count: int,
+) -> tuple[bool, str]:
+    if page_count == 0:
+        return True, "pdf_has_no_pages"
+    if text_char_count == 0:
+        return True, "no_extractable_text"
+    if empty_text_page_count / page_count >= OCR_PAGE_RATIO_THRESHOLD:
+        return True, "most_pages_have_little_extractable_text"
+    return False, ""
 
 
-def _china_tz() -> timezone:
-    return timezone(timedelta(hours=8), name="Asia/Shanghai")
+def _invalidate_downstream(paper: dict[str, Any]) -> None:
+    paper["chunking_status"] = "not_started"
+    paper.pop("chunking_sha256", None)
+    paper.pop("chunk_artifact", None)
+    paper.pop("chunk_count", None)
+    paper.pop("chunked_at", None)
+    paper.pop("chunking_error", None)
+    paper["summary_status"] = "not_started"
+    paper["translation_status"] = "not_started"

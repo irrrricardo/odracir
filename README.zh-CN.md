@@ -14,9 +14,9 @@
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有研究文件夹 harness 和 PDF 文本提取的单 agent 原型
-- 当前重点：论文收纳、PDF 文本提取、文件夹级 JSON 记忆、文档同步
-- 最近同步：`2026-05-30T15:49:56+08:00`
+- 阶段：带有解析器注册表、状态报告和可追溯 chunking 的模块化单 agent 原型
+- 当前重点：可靠收纳、标准化 PDF 正文 artifact、OCR 检测和按页可追溯 chunk
+- 最近同步：`2026-05-30T16:10:08+08:00`
 
 当前命令：
 
@@ -24,6 +24,8 @@
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
+- `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
+- `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -223,6 +225,20 @@ odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal Wor
 
 这个命令会把按页提取的正文 artifact 写入 `.odracir/texts/`，并在 `odracir_index.json` 中更新提取状态、页数、文本长度和 artifact 路径。
 
+查看处理状态、OCR 需求和失败项：
+
+```powershell
+odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+为成功提取的 PDF 创建稳定、按页可追溯的 chunk：
+
+```powershell
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+Chunk artifact 会写入 `.odracir/chunks/`。重复运行时，未变化的正文 artifact 会被跳过。
+
 刷新自动生成的文档状态区块：
 
 ```powershell
@@ -240,9 +256,9 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有研究文件夹 harness 和 PDF 文本提取的单 agent 原型
-- 当前重点：论文收纳、PDF 文本提取、文件夹级 JSON 记忆、文档同步
-- 最近同步：`2026-05-30T15:49:56+08:00`
+- 阶段：带有解析器注册表、状态报告和可追溯 chunking 的模块化单 agent 原型
+- 当前重点：可靠收纳、标准化 PDF 正文 artifact、OCR 检测和按页可追溯 chunk
+- 最近同步：`2026-05-30T16:10:08+08:00`
 
 当前命令：
 
@@ -250,6 +266,8 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
+- `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
+- `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -270,13 +288,15 @@ odracir install-hooks
 1. 将第一版保持为单 agent 加小型工具注册表。
 2. 使用研究文件夹 harness 创建并更新 `odracir_index.json`。
 3. 将 PDF 正文提取到 `.odracir/texts/` 下的本地 artifact。
-4. 验证并演进第一版 `odracir_index.json` schema。
-5. 添加论文翻译和结构化摘要工具。
-6. 添加基于 JSON 索引和论文文本的检索。
-7. 添加能够引用文件夹证据的交流 agent。
-8. 添加阅读路径、复现和实验规划工具。
-9. 在科研记忆稳定后添加代码辅助工具。
-10. 只有当单 agent 的 prompt 变得过大或职责冲突时，才拆分为多个 agent。
+4. 验证类型化 `odracir_index.json` schema，并检查处理状态。
+5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
+6. 在解析器注册表后面添加可选的 Docling 和 OCRmyPDF 适配器。
+7. 添加论文翻译和结构化摘要工具。
+8. 添加基于 JSON 索引和论文文本的检索。
+9. 添加能够引用文件夹证据的交流 agent。
+10. 添加阅读路径、复现和实验规划工具。
+11. 在科研记忆稳定后添加代码辅助工具。
+12. 只有当单 agent 的 prompt 变得过大或职责冲突时，才拆分为多个 agent。
 
 ## 设计原则
 

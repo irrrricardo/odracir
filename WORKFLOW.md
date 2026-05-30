@@ -14,7 +14,9 @@ research folder
 -> update odracir_index.json
 -> extract PDF page text
 -> write .odracir/texts/*.json
--> update odracir_index.json extraction fields
+-> report extraction state and likely OCR needs
+-> create stable page-traceable chunks
+-> write .odracir/chunks/*.json
 -> later: summarize, translate, retrieve, chat, plan, code
 ```
 
@@ -26,7 +28,9 @@ research folder
 -> 更新 odracir_index.json
 -> 提取 PDF 按页正文
 -> 写入 .odracir/texts/*.json
--> 回写 odracir_index.json 的提取状态字段
+-> 报告提取状态和可能需要 OCR 的文件
+-> 创建稳定、按页可追溯的 chunk
+-> 写入 .odracir/chunks/*.json
 -> 后续：总结、翻译、检索、交流、规划、代码实现
 ```
 
@@ -68,11 +72,37 @@ odracir extract <research-folder> --papers-dir <paper-folder>
 odracir extract <research-folder> --papers-dir <paper-folder>
 ```
 
+Inspect processing status:
+
+```powershell
+odracir status <research-folder> --papers-dir <paper-folder>
+```
+
+检查处理状态：
+
+```powershell
+odracir status <research-folder> --papers-dir <paper-folder>
+```
+
+Chunk extracted text:
+
+```powershell
+odracir chunk <research-folder> --papers-dir <paper-folder>
+```
+
+切分已提取正文：
+
+```powershell
+odracir chunk <research-folder> --papers-dir <paper-folder>
+```
+
 For the Medical World Model folder:
 
 ```powershell
 odracir scan "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
 odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
 ```
 
 ## Artifact Layout / Artifact 布局
@@ -125,6 +155,21 @@ agent: chooses which skill/tool to use for the user's goal
 harness: runs the workflow, records state, handles retries, writes artifacts
 ```
 
+## Parser Backends / 解析器后端
+
+PDF parsing is a replaceable deterministic tool. Odracir now uses a parser registry and keeps `pymupdf` as the default lightweight backend. Later adapters should preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
+
+PDF 解析是一个可替换的确定性工具。Odracir 现在使用解析器注册表，并将 `pymupdf` 保留为默认轻量后端。后续适配器应该遵守标准化 artifact 契约，而不是让后端专属格式泄漏到 agent 中。
+
+Recommended external projects:
+
+推荐评估的外部项目：
+
+- [Docling](https://github.com/docling-project/docling): preferred next adapter for complex layout and multiple document formats.
+- [OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF): preprocessing route for PDFs reported as `needs_ocr`.
+- [GROBID](https://github.com/kermitt2/grobid): optional service for scholarly metadata, references, and citation structures.
+- [MinerU](https://github.com/opendatalab/MinerU): heavier optional backend to benchmark on Chinese, formula-heavy, or complex-layout papers.
+
 ## Future Skill Strategy / 后续 Skill 策略
 
 Odracir should not make one giant prompt for every discipline. It should keep a stable core workflow and add discipline-specific skills.
@@ -143,18 +188,18 @@ Possible future skills:
 
 ## Near-Term Roadmap / 近期路线图
 
-1. Keep scan and extract reliable.
-2. Add chunking over extracted text.
+1. Keep scan, extract, status, and chunk reliable.
+2. Benchmark Docling and OCRmyPDF adapters on real papers.
 3. Add DeepSeek-based structured paper summaries.
 4. Add Chinese translation for abstract, method, conclusion, and selected key passages.
-5. Add retrieval over `odracir_index.json` and `.odracir/texts/`.
+5. Add retrieval over `odracir_index.json` and `.odracir/chunks/`.
 6. Add discipline-specific skills only after the generic extraction and memory loop is stable.
 
-1. 先让 scan 和 extract 稳定。
-2. 添加对提取文本的 chunking。
+1. 先让 scan、extract、status 和 chunk 稳定。
+2. 在真实论文上评估 Docling 和 OCRmyPDF 适配器。
 3. 添加基于 DeepSeek 的结构化论文总结。
 4. 添加摘要、方法、结论和关键段落的中文翻译。
-5. 添加对 `odracir_index.json` 和 `.odracir/texts/` 的检索。
+5. 添加对 `odracir_index.json` 和 `.odracir/chunks/` 的检索。
 6. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
 
 ## Execution Log / 执行记录
@@ -208,3 +253,37 @@ Result:
 - 失败：0 篇。
 - 输出索引：`D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\odracir_index.json`。
 - 文本 artifact：`D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\.odracir\texts\`。
+
+Medical World Model status and chunking validation:
+
+```powershell
+odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+Medical World Model 状态与 chunking 验证：
+
+```powershell
+odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+Result:
+
+- Status before chunking: 9 extracted PDFs, 9 with `chunking_status=not_started`, 0 OCR needs, 0 failures.
+- First chunk run: 9 chunked, 0 blocked, 0 failures.
+- Second chunk run: 0 regenerated, 9 skipped.
+- Status after chunking: 9 extracted PDFs and 9 chunked PDFs.
+- Chunk artifacts: `D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\.odracir\chunks\`.
+- Chunk count: 128 total chunks, with 6 to 23 chunks per paper.
+
+结果：
+
+- Chunking 前状态：9 篇 PDF 已提取，9 篇为 `chunking_status=not_started`，0 篇需要 OCR，0 篇失败。
+- 第一次 chunk：9 篇完成，0 篇阻塞，0 篇失败。
+- 第二次 chunk：0 篇重复生成，9 篇跳过。
+- Chunking 后状态：9 篇 PDF 已提取，9 篇 PDF 已完成 chunking。
+- Chunk artifact：`D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\.odracir\chunks\`。
+- Chunk 数量：共 128 个，每篇论文包含 6 至 23 个 chunk。
