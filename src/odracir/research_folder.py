@@ -9,6 +9,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+from odracir.processing_state import invalidate_text_extraction
 from odracir.schemas import INDEX_SCHEMA_VERSION, require_valid_project_index
 from odracir.time_utils import now_iso
 
@@ -241,34 +242,7 @@ class ResearchFolderHarness:
 
 
 def _invalidate_generated_fields(record: dict[str, Any]) -> None:
-    record["text_extraction_status"] = "not_started"
-    for field in (
-        "text_extraction_sha256",
-        "text_extraction_error",
-        "text_artifact",
-        "page_count",
-        "text_char_count",
-        "empty_text_page_count",
-        "needs_ocr",
-        "ocr_reason",
-        "text_extracted_at",
-        "text_parser",
-        "text_parser_version",
-    ):
-        record.pop(field, None)
-
-    record["chunking_status"] = "not_started"
-    for field in (
-        "chunking_sha256",
-        "chunk_artifact",
-        "chunk_count",
-        "chunked_at",
-        "chunking_error",
-    ):
-        record.pop(field, None)
-
-    record["summary_status"] = "not_started"
-    record["translation_status"] = "not_started"
+    invalidate_text_extraction(record)
 
 
 def _relative_posix(path: Path, root: Path) -> str:

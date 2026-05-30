@@ -493,6 +493,8 @@ Completed on 2026-05-30:
 - Added a replaceable parser registry with `pymupdf` as the first backend.
 - Added failure-mode tests for scanned PDFs, invalid PDFs, schema violations, source changes, and stable chunk IDs.
 - Added inspectable lexical retrieval over chunks and exposed it as `search_research_chunks`.
+- Added a DeepSeek provider adapter and evidence-aware map-reduce summary harness.
+- Added summary input hashes, provider/model/prompt metadata, usage recording, and source-chunk citation allowlisting.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -501,6 +503,8 @@ Completed on 2026-05-30:
 - 添加可替换解析器注册表，并将 `pymupdf` 作为首个后端。
 - 添加扫描件、损坏 PDF、schema 违规、源文件变化和稳定 chunk ID 的失败模式测试。
 - 添加可独立检查的 chunk 关键词检索，并将其暴露为 `search_research_chunks`。
+- 添加 DeepSeek provider adapter 和注重证据的 map-reduce 摘要 harness。
+- 添加摘要输入 hash、provider/模型/prompt 元数据、用量记录和源 chunk 引用白名单校验。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
@@ -526,10 +530,10 @@ Next implementation sprint:
 
 1. Add an optional Docling adapter and benchmark it against `pymupdf` on the Medical World Model folder.
 2. Add OCRmyPDF capability detection and an explicit OCR preprocessing command.
-3. Define the DeepSeek provider adapter and evidence-aware summary artifact schema.
+3. Benchmark DeepSeek summaries on selected papers and refine prompts before folder-wide runs.
 4. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
 
 1. 添加可选 Docling 适配器，并在 Medical World Model 文件夹上与 `pymupdf` 对比。
 2. 添加 OCRmyPDF 能力检测和显式 OCR 预处理命令。
-3. 定义 DeepSeek provider adapter 和注重证据的摘要 artifact schema。
+3. 在选定论文上评估 DeepSeek 摘要，并在整文件夹运行前优化 prompt。
 4. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。

@@ -9,6 +9,7 @@ from typing import Any, TypedDict
 INDEX_SCHEMA_VERSION = "0.2"
 TEXT_SCHEMA_VERSION = "0.2"
 CHUNK_SCHEMA_VERSION = "0.1"
+SUMMARY_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -56,6 +57,13 @@ class PaperRecord(TypedDict, total=False):
     chunked_at: str
     translation_status: str
     summary_status: str
+    summary_artifact: str
+    summary_input_sha256: str
+    summary_provider: str
+    summary_model: str
+    summary_prompt_version: str
+    summary_error: str
+    summarized_at: str
 
 
 class ProjectIndex(TypedDict, total=False):
@@ -113,6 +121,28 @@ class ChunkArtifact(TypedDict):
     chunked_at: str
     chunk_count: int
     chunks: list[ChunkRecord]
+
+
+class EvidenceFinding(TypedDict, total=False):
+    claim: str
+    citations: list[str]
+    inference: bool
+
+
+class SummaryArtifact(TypedDict, total=False):
+    schema_version: str
+    paper_id: str
+    source_file: str
+    source_sha256: str
+    chunk_artifact: str
+    chunk_artifact_sha256: str
+    provider: str
+    model: str
+    prompt_version: str
+    summarized_at: str
+    usage: dict[str, int]
+    map_summaries: list[dict[str, Any]]
+    summary: dict[str, Any]
 
 
 def validate_project_index(index: dict[str, Any]) -> list[str]:

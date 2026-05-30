@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from odracir.parsers import ParserRegistration, ParserRegistry
+from odracir.processing_state import invalidate_chunking
 from odracir.research_folder import ResearchFolderHarness
 from odracir.schemas import ExtractionStatus, TEXT_SCHEMA_VERSION
 from odracir.time_utils import now_iso
@@ -254,11 +255,4 @@ def _detect_ocr_need(
 
 
 def _invalidate_downstream(paper: dict[str, Any]) -> None:
-    paper["chunking_status"] = "not_started"
-    paper.pop("chunking_sha256", None)
-    paper.pop("chunk_artifact", None)
-    paper.pop("chunk_count", None)
-    paper.pop("chunked_at", None)
-    paper.pop("chunking_error", None)
-    paper["summary_status"] = "not_started"
-    paper["translation_status"] = "not_started"
+    invalidate_chunking(paper)

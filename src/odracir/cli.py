@@ -9,11 +9,14 @@ import sys
 
 from odracir.agent import OdracirAgent
 from odracir.chunking import TextChunker
+from odracir.config import load_config
 from odracir.docs_sync import sync_project_docs
 from odracir.pdf_extraction import PdfTextExtractor
+from odracir.providers import DeepSeekProvider
 from odracir.research_folder import ResearchFolderHarness
 from odracir.retrieval import format_search_report, search_chunks
 from odracir.status import build_research_status, format_research_status
+from odracir.summarization import EvidenceSummaryGenerator
 
 
 def main() -> None:
@@ -32,6 +35,9 @@ def main() -> None:
         return
     if argv and argv[0] == "search":
         _search(argv[1:])
+        return
+    if argv and argv[0] == "summarize":
+        _summarize(argv[1:])
         return
     if argv and argv[0] == "sync-docs":
         _sync_docs(argv[1:])
@@ -212,6 +218,46 @@ def _search(argv: list[str]) -> None:
         print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_search_report(report))
+
+
+def _summarize(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(description="Generate evidence-aware paper summaries.")
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only summarize one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument("--force", action="store_true", help="Regenerate current summaries.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    provider = DeepSeekProvider(load_config())
+    result = EvidenceSummaryGenerator(
+        args.folder,
+        provider,
+        papers_dir=args.papers_dir,
+    ).summarize_index(
+        force=args.force,
+        limit=args.limit,
+        paper_id=args.paper,
+    )
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+
+    print(f"Research folder: {result.root}")
+    print(f"Index: {result.index_path}")
+    print(
+        "Paper summaries: "
+        f"{result.eligible_papers} eligible, "
+        f"{result.summarized} summarized, "
+        f"{result.skipped} skipped, "
+        f"{result.blocked} blocked, "
+        f"{result.failed} failed"
+    )
 
 
 if __name__ == "__main__":

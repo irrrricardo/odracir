@@ -9,6 +9,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+from odracir.processing_state import invalidate_summary
 from odracir.research_folder import ResearchFolderHarness
 from odracir.schemas import CHUNK_SCHEMA_VERSION, ChunkingStatus
 from odracir.time_utils import now_iso
@@ -260,8 +261,7 @@ def _mark_chunked(
     paper["chunk_count"] = chunk_count
     paper["chunked_at"] = now_iso()
     paper.pop("chunking_error", None)
-    paper["summary_status"] = "not_started"
-    paper["translation_status"] = "not_started"
+    invalidate_summary(paper)
     paper["updated_at"] = now_iso()
 
 

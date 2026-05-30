@@ -14,9 +14,9 @@
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有解析器注册表、可追溯 chunk 和本地检索的模块化单 agent 原型
-- 当前重点：可靠收纳、OCR 检测、按页可追溯 chunk 和带证据检索
-- 最近同步：`2026-05-30T16:25:14+08:00`
+- 阶段：带有可追溯检索和摘要 harness 的模块化科研原型
+- 当前重点：可靠 artifact、带证据检索和受控的 DeepSeek 摘要运行
+- 最近同步：`2026-05-30T16:35:31+08:00`
 
 当前命令：
 
@@ -27,6 +27,7 @@
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
+- `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -161,6 +162,8 @@ src/odracir/
   config.py     # DeepSeek provider 配置
   tools.py      # 工具注册和示例工具
   retrieval.py  # 带论文、页码和 chunk 引用的本地关键词检索
+  providers.py  # 可替换 LLM provider 适配器
+  summarization.py # 注重证据的 map-reduce 论文摘要
   cli.py        # 命令行入口
 tests/
   test_tools.py
@@ -247,6 +250,14 @@ Chunk artifact 会写入 `.odracir/chunks/`。重复运行时，未变化的正�
 odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
 ```
 
+为一篇明确选择的论文生成带引用摘要：
+
+```powershell
+odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --paper <paper-id>
+```
+
+这个命令会显式调用 DeepSeek，并产生 API 用量。Odracir 会把结果写入 `.odracir/summaries/`，记录 provider、模型、prompt 版本、输入 hash、token 用量和引用；后续重复运行时会跳过未变化摘要。
+
 刷新自动生成的文档状态区块：
 
 ```powershell
@@ -264,9 +275,9 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有解析器注册表、可追溯 chunk 和本地检索的模块化单 agent 原型
-- 当前重点：可靠收纳、OCR 检测、按页可追溯 chunk 和带证据检索
-- 最近同步：`2026-05-30T16:25:14+08:00`
+- 阶段：带有可追溯检索和摘要 harness 的模块化科研原型
+- 当前重点：可靠 artifact、带证据检索和受控的 DeepSeek 摘要运行
+- 最近同步：`2026-05-30T16:35:31+08:00`
 
 当前命令：
 
@@ -277,6 +288,7 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
+- `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -300,7 +312,7 @@ odracir install-hooks
 4. 验证类型化 `odracir_index.json` schema，并检查处理状态。
 5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
 6. 在解析器注册表后面添加可选的 Docling 和 OCRmyPDF 适配器。
-7. 添加论文翻译和结构化摘要工具。
+7. 运行受控的 DeepSeek 摘要基准，并添加选择性翻译。
 8. 使用可选 embedding 和更丰富排序扩展本地 chunk 检索。
 9. 添加能够引用文件夹证据的交流 agent。
 10. 添加阅读路径、复现和实验规划工具。

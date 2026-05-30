@@ -32,6 +32,9 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `odracir search` for inspectable lexical retrieval with paper, page, and chunk citations.
 - Exposed the same retrieval capability to the LLM as `search_research_chunks`.
 - Updated the Odracir system prompt from an agent-building example toward an evidence-aware research companion.
+- Added a DeepSeek provider adapter for OpenAI-compatible chat and JSON completions.
+- Added `odracir summarize` for evidence-aware map-reduce summaries over traceable chunks.
+- Added summary metadata, usage recording, source-chunk citation allowlisting, idempotent skipping, and downstream invalidation.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -53,6 +56,9 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `odracir search`，用于返回论文、页码和 chunk 引用的可检查关键词检索。
 - 将同一检索能力作为 `search_research_chunks` 暴露给 LLM。
 - 将 Odracir 系统 prompt 从 agent 构建示例更新为注重证据的科研 companion。
+- 添加用于 OpenAI-compatible chat 和 JSON completion 的 DeepSeek provider adapter。
+- 添加 `odracir summarize`，用于基于可追溯 chunk 生成注重证据的 map-reduce 摘要。
+- 添加摘要元数据、用量记录、源 chunk 引用白名单校验、幂等跳过和下游失效传播。
 
 ### Planned / 计划
 

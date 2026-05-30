@@ -24,6 +24,7 @@ def test_status_reports_ocr_and_extraction_failure(tmp_path) -> None:
 
     assert report.pdf_papers == 2
     assert report.extraction_statuses == {"failed": 1, "needs_ocr": 1}
+    assert report.summary_statuses == {"not_started": 2}
     assert report.needs_ocr[0]["source_file"] == "papers/scanned.pdf"
     assert report.failures[0]["stage"] == "extract"
     assert "Needs OCR: 1" in output

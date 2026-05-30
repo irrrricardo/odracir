@@ -18,7 +18,9 @@ research folder
 -> create stable page-traceable chunks
 -> write .odracir/chunks/*.json
 -> search chunks with paper/page citations
--> later: summarize, translate, chat, plan, code
+-> explicitly summarize chosen papers through DeepSeek
+-> write .odracir/summaries/*.json
+-> later: translate, chat, plan, code
 ```
 
 当前本地工作流是：
@@ -33,7 +35,9 @@ research folder
 -> 创建稳定、按页可追溯的 chunk
 -> 写入 .odracir/chunks/*.json
 -> 检索 chunk，并返回论文与页码引用
--> 后续：总结、翻译、交流、规划、代码实现
+-> 通过 DeepSeek 显式总结选定论文
+-> 写入 .odracir/summaries/*.json
+-> 后续：翻译、交流、规划、代码实现
 ```
 
 ## Commands / 命令
@@ -103,6 +107,26 @@ Search traceable chunks:
 ```powershell
 odracir search <research-folder> "<query>" --limit 5
 ```
+
+Generate an evidence-aware summary for a chosen paper:
+
+```powershell
+odracir summarize <research-folder> --papers-dir <paper-folder> --paper <paper-id>
+```
+
+为选定论文生成注重证据的摘要：
+
+```powershell
+odracir summarize <research-folder> --papers-dir <paper-folder> --paper <paper-id>
+```
+
+`summarize` calls DeepSeek and consumes API usage. Use `--paper` or `--limit` for supervised runs before processing a whole folder.
+
+`summarize` 会调用 DeepSeek 并产生 API 用量。批量处理前，请使用 `--paper` 或 `--limit` 进行受控运行。
+
+The provider adapter follows DeepSeek's official [OpenAI-compatible API](https://api-docs.deepseek.com/) and [JSON Output](https://api-docs.deepseek.com/guides/json_mode) guidance.
+
+Provider adapter 遵循 DeepSeek 官方的 [OpenAI-compatible API](https://api-docs.deepseek.com/) 与 [JSON Output](https://api-docs.deepseek.com/guides/json_mode) 指南。
 
 检索可追溯 chunk：
 
@@ -205,14 +229,14 @@ Possible future skills:
 
 1. Keep scan, extract, status, and chunk reliable.
 2. Benchmark Docling and OCRmyPDF adapters on real papers.
-3. Add DeepSeek-based structured paper summaries.
+3. Benchmark and refine DeepSeek-based structured paper summaries.
 4. Add Chinese translation for abstract, method, conclusion, and selected key passages.
 5. Extend retrieval over `odracir_index.json` and `.odracir/chunks/` with optional embeddings.
 6. Add discipline-specific skills only after the generic extraction and memory loop is stable.
 
 1. 先让 scan、extract、status 和 chunk 稳定。
 2. 在真实论文上评估 Docling 和 OCRmyPDF 适配器。
-3. 添加基于 DeepSeek 的结构化论文总结。
+3. 对基于 DeepSeek 的结构化论文总结进行基准评估和优化。
 4. 添加摘要、方法、结论和关键段落的中文翻译。
 5. 使用可选 embedding 扩展对 `odracir_index.json` 和 `.odracir/chunks/` 的检索。
 6. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
@@ -330,3 +354,13 @@ Result:
 - `world model` 返回了 EHRWorld 的页码级引用。
 - `clinical` 返回了 ClinAgent 的页码级引用。
 - 同一个检索函数已作为 `search_research_chunks` 暴露给 LLM。
+
+Medical World Model summary readiness check:
+
+- Status reports `summaries: not_started=9`.
+- `odracir summarize` was not run automatically because it calls DeepSeek and consumes API usage.
+
+Medical World Model 摘要就绪检查：
+
+- 状态报告显示 `summaries: not_started=9`。
+- 未自动运行 `odracir summarize`，因为它会调用 DeepSeek 并产生 API 用量。

@@ -5,9 +5,8 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from openai import OpenAI
-
 from odracir.config import DeepSeekConfig, load_config
+from odracir.providers import DeepSeekProvider
 from odracir.tools import OPENAI_TOOLS, execute_tool
 
 
@@ -23,12 +22,14 @@ Keep final answers concise and actionable.
 
 
 class OdracirAgent:
-    def __init__(self, config: DeepSeekConfig | None = None) -> None:
-        self.config = config or load_config()
-        self.client = OpenAI(
-            api_key=self.config.api_key,
-            base_url=self.config.base_url,
-        )
+    def __init__(
+        self,
+        config: DeepSeekConfig | None = None,
+        *,
+        provider: DeepSeekProvider | None = None,
+    ) -> None:
+        self.provider = provider or DeepSeekProvider(config or load_config())
+        self.config = self.provider.config
 
     def run(self, user_message: str) -> str:
         messages: list[dict[str, Any]] = [
@@ -37,12 +38,10 @@ class OdracirAgent:
         ]
 
         for _ in range(self.config.max_tool_turns):
-            response = self.client.chat.completions.create(
-                model=self.config.model,
+            response = self.provider.chat_completion(
                 messages=messages,
                 tools=OPENAI_TOOLS,
                 tool_choice="auto",
-                extra_body=self._extra_body(),
             )
             assistant_message = response.choices[0].message
             messages.append(assistant_message.model_dump(exclude_none=True))
@@ -61,8 +60,7 @@ class OdracirAgent:
                     }
                 )
 
-        final_response = self.client.chat.completions.create(
-            model=self.config.model,
+        final_response = self.provider.chat_completion(
             messages=[
                 *messages,
                 {
@@ -70,15 +68,8 @@ class OdracirAgent:
                     "content": "Use the available tool results and give the final answer now.",
                 },
             ],
-            extra_body=self._extra_body(),
         )
         return final_response.choices[0].message.content or ""
-
-    def _extra_body(self) -> dict[str, Any] | None:
-        if not self.config.thinking:
-            return None
-
-        return {"thinking": {"type": self.config.thinking}}
 
     @staticmethod
     def _parse_tool_arguments(raw_arguments: str | None) -> dict[str, Any]:
