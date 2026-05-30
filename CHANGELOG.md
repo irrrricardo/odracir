@@ -21,6 +21,7 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `--papers-dir` to scan existing custom paper storage folders.
 - Added `odracir extract` for page-level PDF text extraction into `.odracir/texts/`.
 - Added `WORKFLOW.md` to document the operating workflow and the distinction between tools, agent tools, and future skills.
+- Added `ARCHITECTURE.md` with module boundaries, data lifecycle, scientific data model, pipeline states, phased roadmap, and acceptance criteria.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -31,6 +32,7 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `--papers-dir`，用于扫描已有的自定义论文存储文件夹。
 - 添加 `odracir extract`，用于将 PDF 正文按页提取到 `.odracir/texts/`。
 - 添加 `WORKFLOW.md`，用于记录工作流程，以及 tool、agent tool 和未来 skill 的区别。
+- 添加 `ARCHITECTURE.md`，用于记录模块边界、数据生命周期、科学化数据模型、流水线状态、分阶段路线图和验收标准。
 
 ### Planned / 计划
 
