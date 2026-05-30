@@ -12,6 +12,7 @@ from odracir.chunking import TextChunker
 from odracir.docs_sync import sync_project_docs
 from odracir.pdf_extraction import PdfTextExtractor
 from odracir.research_folder import ResearchFolderHarness
+from odracir.retrieval import format_search_report, search_chunks
 from odracir.status import build_research_status, format_research_status
 
 
@@ -28,6 +29,9 @@ def main() -> None:
         return
     if argv and argv[0] == "chunk":
         _chunk(argv[1:])
+        return
+    if argv and argv[0] == "search":
+        _search(argv[1:])
         return
     if argv and argv[0] == "sync-docs":
         _sync_docs(argv[1:])
@@ -193,6 +197,21 @@ def _chunk(argv: list[str]) -> None:
 def _install_hooks() -> None:
     subprocess.run(["git", "config", "core.hooksPath", ".githooks"], check=True)
     print("Configured git to use hooks from .githooks.")
+
+
+def _search(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(description="Search traceable research chunks.")
+    parser.add_argument("folder", help="Research folder path.")
+    parser.add_argument("query", nargs="+", help="Search query.")
+    parser.add_argument("--limit", type=int, default=5, help="Maximum number of hits.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    report = search_chunks(args.folder, " ".join(args.query), limit=args.limit)
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_search_report(report))
 
 
 if __name__ == "__main__":

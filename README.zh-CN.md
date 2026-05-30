@@ -14,9 +14,9 @@
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有解析器注册表、状态报告和可追溯 chunking 的模块化单 agent 原型
-- 当前重点：可靠收纳、标准化 PDF 正文 artifact、OCR 检测和按页可追溯 chunk
-- 最近同步：`2026-05-30T16:10:08+08:00`
+- 阶段：带有解析器注册表、可追溯 chunk 和本地检索的模块化单 agent 原型
+- 当前重点：可靠收纳、OCR 检测、按页可追溯 chunk 和带证据检索
+- 最近同步：`2026-05-30T16:25:14+08:00`
 
 当前命令：
 
@@ -26,6 +26,7 @@
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
+- `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -159,6 +160,7 @@ src/odracir/
   agent.py      # agent loop：模型调用、工具调用、最终回答
   config.py     # DeepSeek provider 配置
   tools.py      # 工具注册和示例工具
+  retrieval.py  # 带论文、页码和 chunk 引用的本地关键词检索
   cli.py        # 命令行入口
 tests/
   test_tools.py
@@ -239,6 +241,12 @@ odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World
 
 Chunk artifact 会写入 `.odracir/chunks/`。重复运行时，未变化的正文 artifact 会被跳过。
 
+检索本地 chunk，并返回可检查的论文与页码引用：
+
+```powershell
+odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
+```
+
 刷新自动生成的文档状态区块：
 
 ```powershell
@@ -256,9 +264,9 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有解析器注册表、状态报告和可追溯 chunking 的模块化单 agent 原型
-- 当前重点：可靠收纳、标准化 PDF 正文 artifact、OCR 检测和按页可追溯 chunk
-- 最近同步：`2026-05-30T16:10:08+08:00`
+- 阶段：带有解析器注册表、可追溯 chunk 和本地检索的模块化单 agent 原型
+- 当前重点：可靠收纳、OCR 检测、按页可追溯 chunk 和带证据检索
+- 最近同步：`2026-05-30T16:25:14+08:00`
 
 当前命令：
 
@@ -268,6 +276,7 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
+- `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
@@ -292,7 +301,7 @@ odracir install-hooks
 5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
 6. 在解析器注册表后面添加可选的 Docling 和 OCRmyPDF 适配器。
 7. 添加论文翻译和结构化摘要工具。
-8. 添加基于 JSON 索引和论文文本的检索。
+8. 使用可选 embedding 和更丰富排序扩展本地 chunk 检索。
 9. 添加能够引用文件夹证据的交流 agent。
 10. 添加阅读路径、复现和实验规划工具。
 11. 在科研记忆稳定后添加代码辅助工具。

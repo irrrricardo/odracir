@@ -29,6 +29,9 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added a replaceable parser registry with `pymupdf` as the initial backend.
 - Documented the external parser strategy for Docling, OCRmyPDF, GROBID, and MinerU.
 - Added failure-mode tests for invalid PDFs, likely scanned PDFs, schema errors, source changes, and stable chunk IDs.
+- Added `odracir search` for inspectable lexical retrieval with paper, page, and chunk citations.
+- Exposed the same retrieval capability to the LLM as `search_research_chunks`.
+- Updated the Odracir system prompt from an agent-building example toward an evidence-aware research companion.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -47,6 +50,9 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加可替换解析器注册表，并将 `pymupdf` 作为首个后端。
 - 记录 Docling、OCRmyPDF、GROBID 和 MinerU 的外部解析器接入策略。
 - 添加损坏 PDF、疑似扫描件、schema 错误、源文件变化和稳定 chunk ID 的失败模式测试。
+- 添加 `odracir search`，用于返回论文、页码和 chunk 引用的可检查关键词检索。
+- 将同一检索能力作为 `search_research_chunks` 暴露给 LLM。
+- 将 Odracir 系统 prompt 从 agent 构建示例更新为注重证据的科研 companion。
 
 ### Planned / 计划
 

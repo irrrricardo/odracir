@@ -6,6 +6,8 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
+from odracir.retrieval import search_chunks
+
 
 ToolHandler = Callable[..., dict[str, Any]]
 
@@ -32,8 +34,8 @@ def get_project_context() -> dict[str, Any]:
     return {
         "project_name": "odracir",
         "provider": "DeepSeek API",
-        "current_stage": "minimal single-agent prototype",
-        "recommended_next_milestone": "replace example tools with one real business API",
+        "current_stage": "local-first research prototype with traceable chunk retrieval",
+        "recommended_next_milestone": "add evidence-aware structured summaries over chunks",
     }
 
 
@@ -48,6 +50,11 @@ def draft_agent_steps(goal: str) -> dict[str, Any]:
             "Only then split responsibilities into multiple agents if needed.",
         ],
     }
+
+
+def search_research_chunks(folder: str, query: str, limit: int = 5) -> dict[str, Any]:
+    """Search local paper chunks and return inspectable evidence references."""
+    return search_chunks(folder, query, limit=limit).as_dict()
 
 
 TOOL_SPECS = [
@@ -76,6 +83,35 @@ TOOL_SPECS = [
             "additionalProperties": False,
         },
         handler=draft_agent_steps,
+    ),
+    ToolSpec(
+        name="search_research_chunks",
+        description=(
+            "Search local research-paper chunks and return ranked excerpts with paper, "
+            "page, and chunk citations."
+        ),
+        parameters={
+            "type": "object",
+            "properties": {
+                "folder": {
+                    "type": "string",
+                    "description": "Absolute or relative research-folder path.",
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Terms or phrase to find in extracted paper chunks.",
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "Maximum number of ranked hits to return.",
+                    "minimum": 1,
+                    "default": 5,
+                },
+            },
+            "required": ["folder", "query"],
+            "additionalProperties": False,
+        },
+        handler=search_research_chunks,
     ),
 ]
 

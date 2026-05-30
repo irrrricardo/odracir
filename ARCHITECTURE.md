@@ -492,6 +492,7 @@ Completed on 2026-05-30:
 - Added source-change invalidation for extraction, chunking, summary, and translation states.
 - Added a replaceable parser registry with `pymupdf` as the first backend.
 - Added failure-mode tests for scanned PDFs, invalid PDFs, schema violations, source changes, and stable chunk IDs.
+- Added inspectable lexical retrieval over chunks and exposed it as `search_research_chunks`.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -499,6 +500,7 @@ Completed on 2026-05-30:
 - 添加源文件变化后对提取、chunking、摘要和翻译状态的失效传播。
 - 添加可替换解析器注册表，并将 `pymupdf` 作为首个后端。
 - 添加扫描件、损坏 PDF、schema 违规、源文件变化和稳定 chunk ID 的失败模式测试。
+- 添加可独立检查的 chunk 关键词检索，并将其暴露为 `search_research_chunks`。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
@@ -525,9 +527,9 @@ Next implementation sprint:
 1. Add an optional Docling adapter and benchmark it against `pymupdf` on the Medical World Model folder.
 2. Add OCRmyPDF capability detection and an explicit OCR preprocessing command.
 3. Define the DeepSeek provider adapter and evidence-aware summary artifact schema.
-4. Add lexical retrieval over `.odracir/chunks/` before introducing embeddings.
+4. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
 
 1. 添加可选 Docling 适配器，并在 Medical World Model 文件夹上与 `pymupdf` 对比。
 2. 添加 OCRmyPDF 能力检测和显式 OCR 预处理命令。
 3. 定义 DeepSeek provider adapter 和注重证据的摘要 artifact schema。
-4. 在引入 embedding 前，先对 `.odracir/chunks/` 添加关键词检索。
+4. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。
