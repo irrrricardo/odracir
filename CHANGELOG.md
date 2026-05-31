@@ -53,6 +53,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `odracir benchmark-parsers` for read-only parser comparisons over indexed PDFs.
 - Added parser benchmark summaries for success counts, timing, extracted characters, baseline deltas, and isolated backend failures.
 - Normalized PyMuPDF provenance to record its release version instead of the library's version tuple.
+- Added `odracir recommend-parsers` for cached advisory routing recommendations without changing extraction artifacts.
+- Added conservative review thresholds, explicit OCR routing, cache invalidation by PDF hash/parser version/policy version, and isolated candidate-parser failures.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -95,6 +97,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `odracir benchmark-parsers`，用于对已索引 PDF 执行只读 parser 比较。
 - 添加 parser benchmark 汇总，包括成功数、耗时、提取字符数、相对默认后端差异和隔离后的后端失败。
 - 将 PyMuPDF provenance 规范化为发行版本号，而不是记录整个库版本 tuple。
+- 添加 `odracir recommend-parsers`，用于缓存建议式 parser 路由，而不修改 extraction artifact。
+- 添加保守审阅阈值、显式 OCR 分流、基于 PDF hash/parser 版本/策略版本的缓存失效，以及候选 parser 失败隔离。
 
 ### Planned / 计划
 
@@ -102,13 +106,13 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Benchmark paper translation and structured summaries on reviewed examples.
 - Benchmark and refine richer retrieval and cited answers over reviewed folder-level questions.
 - Add a research-companion agent that reuses the audited retrieval and answer paths.
-- Review representative PyMuPDF4LLM output quality and define selective parser-routing rules.
+- Review cached parser-routing recommendations and representative PyMuPDF4LLM output quality before accepting per-paper overrides.
 
 - 在真实论文处理后继续演进第一版 `odracir_index.json` schema。
 - 在人工审阅样例上评估论文翻译和结构化摘要。
 - 在人工审阅的文件夹级问题上评估和优化更丰富的检索与带引用问答。
 - 添加复用已审计检索和问答路径的科研 companion agent。
-- 人工审阅代表性 PyMuPDF4LLM 输出质量，并定义选择性 parser 路由规则。
+- 审阅缓存的 parser 路由建议和代表性 PyMuPDF4LLM 输出质量，再接受逐篇 parser override。
 
 ## [0.1.0] - 2026-05-30 / 初始版本
 

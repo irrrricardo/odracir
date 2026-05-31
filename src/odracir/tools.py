@@ -39,7 +39,7 @@ def get_project_context() -> dict[str, Any]:
             "summaries, translations, and evidence-backed questions"
         ),
         "recommended_next_milestone": (
-            "benchmark supervised outputs and add discipline-specific skill manifests"
+            "review parser recommendations and add discipline-specific skill manifests"
         ),
     }
 

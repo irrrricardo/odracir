@@ -14,9 +14,9 @@
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带引用问答和只读 parser benchmark 的模块化科研原型
-- 当前重点：受控输出审阅、选择性 parser 路由和 skill manifest
-- 最近同步：`2026-05-31T16:42:04+08:00`
+- 阶段：带引用问答和缓存 parser 建议的模块化科研原型
+- 当前重点：受控 parser 审阅、skill manifest 和显式 OCR 验证
+- 最近同步：`2026-05-31T23:15:52+08:00`
 
 当前命令：
 
@@ -25,6 +25,7 @@
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
 - `odracir capabilities`：检查可选解析器和预处理器是否可用。
 - `odracir benchmark-parsers <research-folder> --limit 1`：在不修改科研 artifact 的情况下比较 parser 后端。
+- `odracir recommend-parsers <research-folder>`：在不修改 extraction artifact 的情况下缓存 parser 审阅建议。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
@@ -174,6 +175,7 @@ src/odracir/
   pymupdf4llm_adapter.py # 可选的版式感知 Markdown PDF 解析器
   ocr.py        # 显式 OCRmyPDF derivative 预处理
   parser_benchmark.py # 只读 parser 比较
+  parser_routing.py # 带缓存的 parser 审阅建议
   summarization.py # 注重证据的 map-reduce 论文摘要
   translation.py # 可追溯的选择性 chunk 翻译
   question_answering.py # 检索优先、带引用的科研问答
@@ -261,6 +263,14 @@ odracir extract <research-folder> --paper <paper-id> --parser docling --force
 pip install -e ".[pymupdf4llm]"
 odracir benchmark-parsers <research-folder> --papers-dir <paper-folder> --limit 1
 ```
+
+完成 benchmark 后，缓存保守的审阅建议：
+
+```powershell
+odracir recommend-parsers <research-folder> --papers-dir <paper-folder>
+```
+
+建议会写入 `.odracir/parser-routing/`。默认策略继续选择 `pymupdf`；只有人工审阅某篇论文后，才显式运行 `extract --parser pymupdf4llm --force`。候选后端只有在至少多提取 1,000 个字符且文本增幅至少达到 3% 时，才会进入审阅队列。
 
 人工审阅比较结果后，可以选择性使用版式感知 Markdown 后端：
 
@@ -350,9 +360,9 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带引用问答和只读 parser benchmark 的模块化科研原型
-- 当前重点：受控输出审阅、选择性 parser 路由和 skill manifest
-- 最近同步：`2026-05-31T16:42:04+08:00`
+- 阶段：带引用问答和缓存 parser 建议的模块化科研原型
+- 当前重点：受控 parser 审阅、skill manifest 和显式 OCR 验证
+- 最近同步：`2026-05-31T23:15:52+08:00`
 
 当前命令：
 
@@ -361,6 +371,7 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
 - `odracir capabilities`：检查可选解析器和预处理器是否可用。
 - `odracir benchmark-parsers <research-folder> --limit 1`：在不修改科研 artifact 的情况下比较 parser 后端。
+- `odracir recommend-parsers <research-folder>`：在不修改 extraction artifact 的情况下缓存 parser 审阅建议。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
@@ -393,7 +404,7 @@ odracir install-hooks
 3. 将 PDF 正文提取到 `.odracir/texts/` 下的本地 artifact。
 4. 验证类型化 `odracir_index.json` schema，并检查处理状态。
 5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
-6. 人工审阅代表性 PyMuPDF4LLM benchmark 输出，并定义选择性 parser 路由规则。
+6. 审阅缓存的 parser 路由建议，并检查代表性 PyMuPDF4LLM 输出，再接受逐篇 parser override。
 7. 运行受控的 DeepSeek 摘要和选择性翻译基准。
 8. 在添加可选 embedding 前，先评估和优化带引用的 `odracir ask` 路径。
 9. 安装系统依赖后，在扫描版 fixture 上验证显式 OCRmyPDF 路径。

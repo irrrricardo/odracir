@@ -14,6 +14,7 @@ from odracir.config import load_config
 from odracir.docs_sync import sync_project_docs
 from odracir.ocr import OcrmyPdfPreprocessor
 from odracir.parser_benchmark import ParserBenchmarkHarness, format_parser_benchmark
+from odracir.parser_routing import ParserRoutingAdvisor, format_parser_routing
 from odracir.pdf_extraction import PdfTextExtractor
 from odracir.providers import DeepSeekProvider
 from odracir.question_answering import (
@@ -50,6 +51,9 @@ def main() -> None:
         return
     if argv and argv[0] == "benchmark-parsers":
         _benchmark_parsers(argv[1:])
+        return
+    if argv and argv[0] == "recommend-parsers":
+        _recommend_parsers(argv[1:])
         return
     if argv and argv[0] == "status":
         _status(argv[1:])
@@ -265,6 +269,40 @@ def _benchmark_parsers(argv: list[str]) -> None:
         print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_parser_benchmark(report))
+
+
+def _recommend_parsers(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Generate cached, advisory parser recommendations from benchmarks."
+    )
+    parser.add_argument("folder", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only recommend for one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument("--force", action="store_true", help="Regenerate cached recommendations.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        report = ParserRoutingAdvisor(
+            args.folder,
+            papers_dir=args.papers_dir,
+        ).recommend(
+            paper_id=args.paper,
+            limit=args.limit,
+            force=args.force,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_parser_routing(report))
 
 
 def _sync_docs(argv: list[str]) -> None:

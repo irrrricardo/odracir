@@ -12,6 +12,8 @@ The current local workflow is:
 research folder
 -> scan paper storage
 -> update odracir_index.json
+-> optionally cache advisory parser-routing recommendations
+-> write .odracir/parser-routing/*.json
 -> extract PDF page text
 -> write .odracir/texts/*.json
 -> report extraction state and likely OCR needs
@@ -35,6 +37,8 @@ research folder
 研究文件夹
 -> 扫描论文存储目录
 -> 更新 odracir_index.json
+-> 可选：缓存 parser 路由审阅建议
+-> 写入 .odracir/parser-routing/*.json
 -> 提取 PDF 按页正文
 -> 写入 .odracir/texts/*.json
 -> 报告提取状态和可能需要 OCR 的文件
@@ -129,6 +133,22 @@ odracir benchmark-parsers <research-folder> --papers-dir <paper-folder> --limit 
 pip install -e ".[pymupdf4llm]"
 odracir benchmark-parsers <research-folder> --papers-dir <paper-folder> --limit 1
 ```
+
+Cache conservative parser review recommendations without modifying extraction artifacts:
+
+```powershell
+odracir recommend-parsers <research-folder> --papers-dir <paper-folder>
+```
+
+在不修改 extraction artifact 的情况下，缓存保守的 parser 审阅建议：
+
+```powershell
+odracir recommend-parsers <research-folder> --papers-dir <paper-folder>
+```
+
+The advisory policy keeps `pymupdf` selected by default. A paper becomes a `review_candidate` only when `pymupdf4llm` adds at least 1,000 characters and at least 3% more text. The result is cached under `.odracir/parser-routing/`; source PDF changes, parser package upgrades, or policy changes invalidate the cache.
+
+建议策略默认继续选择 `pymupdf`。只有当 `pymupdf4llm` 至少多提取 1,000 个字符且文本增幅至少达到 3% 时，论文才会成为 `review_candidate`。结果会缓存到 `.odracir/parser-routing/`；源 PDF 变化、parser 包升级或策略变化都会使缓存失效。
 
 After reviewing representative outputs, selectively extract with the layout-aware backend:
 
@@ -294,6 +314,7 @@ research-folder/
     translations/
     answers/
     chunks/
+    parser-routing/
 ```
 
 The index should point to artifacts instead of storing full text directly.
@@ -328,9 +349,9 @@ harness: runs the workflow, records state, handles retries, writes artifacts
 
 ## Parser Backends / 解析器后端
 
-PDF parsing is a replaceable deterministic tool. Odracir uses a parser registry, keeps `pymupdf` as the default lightweight backend, and exposes optional `pymupdf4llm` and `docling` adapters. `pymupdf4llm` adds layout-aware Markdown conversion but is intentionally selective because it is slower and carries AGPL/commercial licensing considerations. OCRmyPDF is an explicit preprocessor rather than a parser. Additional projects should enter through adapters or service clients only after representative benchmarks. Backends preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
+PDF parsing is a replaceable deterministic tool. Odracir uses a parser registry, keeps `pymupdf` as the default lightweight backend, and exposes optional `pymupdf4llm` and `docling` adapters. `pymupdf4llm` adds layout-aware Markdown conversion but is intentionally selective because it is slower and carries AGPL/commercial licensing considerations. `odracir recommend-parsers` turns read-only benchmark evidence into cached advisory review candidates; it never switches extraction artifacts automatically. OCRmyPDF is an explicit preprocessor rather than a parser. Additional projects should enter through adapters or service clients only after representative benchmarks. Backends preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
 
-PDF 解析是一个可替换的确定性工具。Odracir 使用解析器注册表，将 `pymupdf` 保留为默认轻量后端，并暴露可选 `pymupdf4llm` 和 `docling` adapter。`pymupdf4llm` 增加版式感知 Markdown 转换，但由于速度更慢且存在 AGPL/商业许可证注意事项，只应选择性使用。OCRmyPDF 是显式预处理器，而不是 parser。其他项目只有在代表性样例基准证明有价值后，才应通过 adapter 或服务客户端接入。各后端遵守标准化 artifact 契约，不会让后端专属格式泄漏到 agent 中。
+PDF 解析是一个可替换的确定性工具。Odracir 使用解析器注册表，将 `pymupdf` 保留为默认轻量后端，并暴露可选 `pymupdf4llm` 和 `docling` adapter。`pymupdf4llm` 增加版式感知 Markdown 转换，但由于速度更慢且存在 AGPL/商业许可证注意事项，只应选择性使用。`odracir recommend-parsers` 会把只读 benchmark 证据转化为带缓存的审阅候选，但绝不会自动切换 extraction artifact。OCRmyPDF 是显式预处理器，而不是 parser。其他项目只有在代表性样例基准证明有价值后，才应通过 adapter 或服务客户端接入。各后端遵守标准化 artifact 契约，不会让后端专属格式泄漏到 agent 中。
 
 Recommended external projects:
 
@@ -363,7 +384,7 @@ Possible future skills:
 ## Near-Term Roadmap / 近期路线图
 
 1. Keep scan, extract, status, and chunk reliable.
-2. Review representative PyMuPDF4LLM benchmark outputs and define selective parser-routing rules.
+2. Review cached parser-routing recommendations and representative PyMuPDF4LLM outputs before accepting per-paper overrides.
 3. Benchmark and refine DeepSeek-based structured paper summaries.
 4. Benchmark selective Chinese translation on reviewed abstract, method, conclusion, and chosen-passage examples.
 5. Benchmark the cited `odracir ask` route and add optional embeddings only when retrieval evidence justifies them.
@@ -372,7 +393,7 @@ Possible future skills:
 8. Add discipline-specific skills only after the generic extraction and memory loop is stable.
 
 1. 先让 scan、extract、status 和 chunk 稳定。
-2. 人工审阅代表性 PyMuPDF4LLM benchmark 输出，并定义选择性 parser 路由规则。
+2. 审阅缓存的 parser 路由建议和代表性 PyMuPDF4LLM 输出，再接受逐篇 parser override。
 3. 对基于 DeepSeek 的结构化论文总结进行基准评估和优化。
 4. 在人工审阅的摘要、方法、结论和选定段落样例上评估选择性中文翻译。
 5. 评估带引用的 `odracir ask` 路径；只有检索证据证明有必要时，才添加可选 embedding。
@@ -615,3 +636,39 @@ Result:
 - `pymupdf4llm`：总耗时 139.505 秒，提取 629,117 个字符。
 - PyMuPDF4LLM 多提取 33,836 个字符，但明显更慢，因此继续作为选择性后端。
 - benchmark 前后 `odracir_index.json` 的 SHA-256 完全一致。
+
+Cached advisory parser routing:
+
+```powershell
+odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+带缓存的建议式 parser 路由：
+
+```powershell
+odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+Result:
+
+- Added cached, advisory `odracir recommend-parsers` without automatic extraction mutation.
+- The conservative policy marks a paper for review only when `pymupdf4llm` adds at least 1,000 characters and at least 3% more text.
+- Real-folder recommendations: 8 `review_candidate`, 1 `keep_baseline`.
+- `medos-ai-xr-cobot-world-model-for-clinical-perception-and-action` stayed on `pymupdf` because the candidate added only 147 characters, or 0.34%.
+- The second run hit the cache and completed in approximately 0.85 seconds.
+- The recommendation artifact was written to `.odracir/parser-routing/2d1c6407b8199c2995e6.json`.
+- The `odracir_index.json` SHA-256 remained identical before and after recommendation generation.
+- No DeepSeek API call was made.
+
+结果：
+
+- 添加带缓存、建议式的 `odracir recommend-parsers`，不会自动修改 extraction artifact。
+- 保守策略只有在 `pymupdf4llm` 至少多提取 1,000 个字符且文本增幅至少达到 3% 时，才将论文标记为待审阅。
+- 真实目录建议：8 篇 `review_candidate`，1 篇 `keep_baseline`。
+- `medos-ai-xr-cobot-world-model-for-clinical-perception-and-action` 继续使用 `pymupdf`，因为候选后端只增加 147 个字符，即 0.34%。
+- 第二次运行命中缓存，约 0.85 秒完成。
+- 推荐 artifact 写入 `.odracir/parser-routing/2d1c6407b8199c2995e6.json`。
+- 生成推荐前后，`odracir_index.json` 的 SHA-256 完全一致。
+- 未调用 DeepSeek API。

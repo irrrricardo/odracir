@@ -120,6 +120,7 @@ This is a target layout, not an instruction to create empty folders immediately.
 ```text
 source file
 -> scan manifest
+-> optional cached parser-routing recommendations
 -> normalized extraction artifact
 -> traceable chunks
    -> structured summary artifact
@@ -132,6 +133,7 @@ source file
 ```text
 原始文件
 -> 扫描清单
+-> 可选：缓存 parser 路由建议
 -> 标准化提取 artifact
 -> 可追溯 chunk
    -> 结构化总结 artifact
@@ -151,6 +153,7 @@ research-folder/
   .odracir/
     project.json
     jobs/
+    parser-routing/
     texts/
     chunks/
     summaries/
@@ -509,6 +512,7 @@ Completed on 2026-05-30:
 - Added answer context limits, cache revalidation, and citation allowlisting for structured claims and inline answer citations.
 - Added an optional PyMuPDF4LLM adapter for layout-aware page-level Markdown extraction while keeping OCR explicit.
 - Added read-only `odracir benchmark-parsers` so parser tradeoffs can be measured without modifying research artifacts.
+- Added cached advisory `odracir recommend-parsers` routing with conservative review thresholds and no automatic extraction mutation.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -529,6 +533,7 @@ Completed on 2026-05-30:
 - 添加问答上下文上限、缓存重新校验，以及对结构化 claims 和正文内联引用的白名单校验。
 - 添加可选 PyMuPDF4LLM adapter，用于版式感知的按页 Markdown 提取，同时保持 OCR 路径显式可审计。
 - 添加只读 `odracir benchmark-parsers`，用于在不修改科研 artifact 的情况下测量 parser 差异。
+- 添加带缓存的建议式 `odracir recommend-parsers` 路由，使用保守审阅阈值，并且不会自动修改 extraction artifact。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
@@ -543,6 +548,7 @@ source document
    -> docling: optional complex-layout PDF adapter
    -> ocrmypdf: explicit derivative preprocessing route for needs_ocr
    -> pymupdf4llm: optional layout-aware Markdown adapter with read-only benchmarks
+   -> parser-routing: cached advisory review queue before per-paper overrides
    -> grobid: planned scholarly metadata service
    -> mineru: optional heavier parsing service for benchmark cases
    -> marker: optional rich conversion benchmark with licensing review
@@ -557,14 +563,14 @@ Next implementation sprint:
 
 1. Install the optional Docling adapter and benchmark it against `pymupdf` on selected complex-layout papers.
 2. Install OCRmyPDF system dependencies and validate the explicit OCR route on a scanned PDF fixture.
-3. Review PyMuPDF4LLM output quality on representative complex-layout papers and define selective routing rules.
+3. Review cached parser-routing recommendations and PyMuPDF4LLM output quality before accepting per-paper overrides.
 4. Benchmark DeepSeek summaries, selective translations, and cited answers on selected papers before folder-wide runs.
 5. Add GROBID as a service adapter when scholarly metadata and citation graphs become the next concrete need.
 6. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
 
 1. 安装可选 Docling adapter，并在选定复杂版式论文上与 `pymupdf` 对比。
 2. 安装 OCRmyPDF 系统依赖，并在扫描版 PDF fixture 上验证显式 OCR 路径。
-3. 人工审阅代表性复杂版式论文的 PyMuPDF4LLM 输出质量，并定义选择性路由规则。
+3. 审阅缓存的 parser 路由建议和代表性复杂版式论文的 PyMuPDF4LLM 输出质量，再接受逐篇 override。
 4. 在选定论文上评估 DeepSeek 摘要、选择性翻译和带引用问答，再考虑整文件夹运行。
 5. 当学术元数据和引用图谱成为下一项明确需求时，将 GROBID 作为服务 adapter 接入。
 6. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。
