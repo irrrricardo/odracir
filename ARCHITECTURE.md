@@ -123,6 +123,7 @@ source file
 -> optional cached parser-routing recommendations
 -> normalized extraction artifact
 -> traceable chunks
+   -> selected versioned research-skill manifest
    -> structured summary artifact
    -> translation artifact
 -> retrieval index
@@ -136,6 +137,7 @@ source file
 -> 可选：缓存 parser 路由建议
 -> 标准化提取 artifact
 -> 可追溯 chunk
+   -> 选定版本化科研 skill manifest
    -> 结构化总结 artifact
    -> 翻译 artifact
 -> 检索索引
@@ -513,6 +515,8 @@ Completed on 2026-05-30:
 - Added an optional PyMuPDF4LLM adapter for layout-aware page-level Markdown extraction while keeping OCR explicit.
 - Added read-only `odracir benchmark-parsers` so parser tradeoffs can be measured without modifying research artifacts.
 - Added cached advisory `odracir recommend-parsers` routing with conservative review thresholds and no automatic extraction mutation.
+- Added a versioned research-skill registry with `generic` and the first `biomedical-paper` manifest.
+- Added biomedical summary schema extensions with citation-or-inference validation, skill provenance, cache invalidation, CLI inspection, and no-cost summary dry runs.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -534,6 +538,8 @@ Completed on 2026-05-30:
 - 添加可选 PyMuPDF4LLM adapter，用于版式感知的按页 Markdown 提取，同时保持 OCR 路径显式可审计。
 - 添加只读 `odracir benchmark-parsers`，用于在不修改科研 artifact 的情况下测量 parser 差异。
 - 添加带缓存的建议式 `odracir recommend-parsers` 路由，使用保守审阅阈值，并且不会自动修改 extraction artifact。
+- 添加版本化科研 skill registry，包含 `generic` 和首个 `biomedical-paper` manifest。
+- 添加生物医学摘要 schema 扩展，包括 citation-or-inference 校验、skill provenance、缓存失效、CLI 检查和无费用摘要 dry-run。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
@@ -564,13 +570,13 @@ Next implementation sprint:
 1. Install the optional Docling adapter and benchmark it against `pymupdf` on selected complex-layout papers.
 2. Install OCRmyPDF system dependencies and validate the explicit OCR route on a scanned PDF fixture.
 3. Review cached parser-routing recommendations and PyMuPDF4LLM output quality before accepting per-paper overrides.
-4. Benchmark DeepSeek summaries, selective translations, and cited answers on selected papers before folder-wide runs.
+4. Review biomedical summary dry runs, then benchmark DeepSeek summaries, selective translations, and cited answers on selected papers before folder-wide runs.
 5. Add GROBID as a service adapter when scholarly metadata and citation graphs become the next concrete need.
 6. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
 
 1. 安装可选 Docling adapter，并在选定复杂版式论文上与 `pymupdf` 对比。
 2. 安装 OCRmyPDF 系统依赖，并在扫描版 PDF fixture 上验证显式 OCR 路径。
 3. 审阅缓存的 parser 路由建议和代表性复杂版式论文的 PyMuPDF4LLM 输出质量，再接受逐篇 override。
-4. 在选定论文上评估 DeepSeek 摘要、选择性翻译和带引用问答，再考虑整文件夹运行。
+4. 先审阅生物医学摘要 dry-run，再在选定论文上评估 DeepSeek 摘要、选择性翻译和带引用问答，然后考虑整文件夹运行。
 5. 当学术元数据和引用图谱成为下一项明确需求时，将 GROBID 作为服务 adapter 接入。
 6. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。

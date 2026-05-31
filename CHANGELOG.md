@@ -55,6 +55,10 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Normalized PyMuPDF provenance to record its release version instead of the library's version tuple.
 - Added `odracir recommend-parsers` for cached advisory routing recommendations without changing extraction artifacts.
 - Added conservative review thresholds, explicit OCR routing, cache invalidation by PDF hash/parser version/policy version, and isolated candidate-parser failures.
+- Added a versioned research-skill registry with `generic@0.1` and `biomedical-paper@0.1`.
+- Added `odracir skills [name]` and the read-only `list_research_skills` agent tool.
+- Added `odracir summarize --skill biomedical-paper --dry-run` for no-cost summary-scope review.
+- Added biomedical summary schema extensions with citation-or-inference validation, artifact provenance, and cache invalidation when the selected skill changes.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -99,6 +103,10 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 将 PyMuPDF provenance 规范化为发行版本号，而不是记录整个库版本 tuple。
 - 添加 `odracir recommend-parsers`，用于缓存建议式 parser 路由，而不修改 extraction artifact。
 - 添加保守审阅阈值、显式 OCR 分流、基于 PDF hash/parser 版本/策略版本的缓存失效，以及候选 parser 失败隔离。
+- 添加版本化科研 skill registry，包含 `generic@0.1` 和 `biomedical-paper@0.1`。
+- 添加 `odracir skills [name]` 和只读 `list_research_skills` agent tool。
+- 添加 `odracir summarize --skill biomedical-paper --dry-run`，用于无费用地审阅摘要范围。
+- 添加带 citation-or-inference 校验、artifact provenance 和 skill 切换缓存失效的生物医学摘要 schema 扩展。
 
 ### Planned / 计划
 
@@ -107,12 +115,14 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Benchmark and refine richer retrieval and cited answers over reviewed folder-level questions.
 - Add a research-companion agent that reuses the audited retrieval and answer paths.
 - Review cached parser-routing recommendations and representative PyMuPDF4LLM output quality before accepting per-paper overrides.
+- Review biomedical summary dry runs, then benchmark selected DeepSeek summaries before folder-wide execution.
 
 - 在真实论文处理后继续演进第一版 `odracir_index.json` schema。
 - 在人工审阅样例上评估论文翻译和结构化摘要。
 - 在人工审阅的文件夹级问题上评估和优化更丰富的检索与带引用问答。
 - 添加复用已审计检索和问答路径的科研 companion agent。
 - 审阅缓存的 parser 路由建议和代表性 PyMuPDF4LLM 输出质量，再接受逐篇 parser override。
+- 审阅生物医学摘要 dry-run，再对选定论文执行 DeepSeek 摘要 benchmark，然后考虑整目录运行。
 
 ## [0.1.0] - 2026-05-30 / 初始版本
 

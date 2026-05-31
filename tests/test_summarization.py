@@ -2,7 +2,8 @@ import json
 
 from odracir.providers import JsonCompletionResult
 from odracir.research_folder import ResearchFolderHarness
-from odracir.summarization import EvidenceSummaryGenerator
+from odracir.skills import get_builtin_skill_registry
+from odracir.summarization import EvidenceSummaryGenerator, build_summary_plan
 
 
 class StubProvider:
@@ -14,10 +15,12 @@ class StubProvider:
         *,
         cite_findings: bool = True,
         finding_citation: str = "[paper pp.1 chunk:one]",
+        include_domain_extension: bool = True,
     ) -> None:
         self.calls = []
         self.cite_findings = cite_findings
         self.finding_citation = finding_citation
+        self.include_domain_extension = include_domain_extension
 
     def complete_json(self, *, system_prompt: str, user_prompt: str, max_tokens: int):
         self.calls.append(
@@ -43,8 +46,7 @@ class StubProvider:
         finding = {"claim": "The method uses a world model.", "inference": False}
         if self.cite_findings:
             finding["citations"] = [self.finding_citation]
-        return JsonCompletionResult(
-            payload={
+        payload = {
                 "summary_short": "Short evidence-aware summary.",
                 "summary_detailed": "Detailed evidence-aware summary.",
                 "research_question": "Can a world model help?",
@@ -54,7 +56,28 @@ class StubProvider:
                 "key_terms": ["world model"],
                 "implementation_notes": [],
                 "inferences": [],
-            },
+            }
+        if "domain_extensions" in system_prompt and self.include_domain_extension:
+            payload["domain_extensions"] = {
+                "biomedical": {
+                    "population": [
+                        {
+                            "value": "Patients with longitudinal records.",
+                            "citations": [self.finding_citation],
+                            "inference": False,
+                        }
+                    ],
+                    "intervention_or_exposure": [],
+                    "comparator": [],
+                    "outcomes": [],
+                    "biological_mechanisms": [],
+                    "assays_or_measurements": [],
+                    "clinical_relevance": [],
+                    "safety_or_ethics": [],
+                }
+            }
+        return JsonCompletionResult(
+            payload=payload,
             usage={"total_tokens": 20},
         )
 
@@ -180,3 +203,69 @@ def test_failed_forced_summary_removes_stale_summary_but_preserves_translation(t
     assert paper["summary_short"] == ""
     assert paper["translation_status"] == "translated"
     assert paper["translation_artifact"] == ".odracir/translations/paper.zh-CN.json"
+
+
+def test_biomedical_skill_records_versioned_domain_extension(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    skill = get_builtin_skill_registry().get("biomedical-paper")
+
+    result = EvidenceSummaryGenerator(root, StubProvider(), skill=skill).summarize_index()
+    index = ResearchFolderHarness(root).load_index()
+    paper = index["papers"][0]
+    artifact = json.loads((root / paper["summary_artifact"]).read_text(encoding="utf-8"))
+
+    assert result.summarized == 1
+    assert paper["summary_skill"] == "biomedical-paper"
+    assert paper["summary_skill_version"] == "0.1"
+    assert artifact["skill"]["name"] == "biomedical-paper"
+    assert artifact["summary"]["domain_extensions"]["biomedical"]["population"][0][
+        "citations"
+    ] == ["[paper pp.1 chunk:one]"]
+
+
+def test_switching_summary_skill_invalidates_cache(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    generic_provider = StubProvider()
+    EvidenceSummaryGenerator(root, generic_provider).summarize_index()
+    biomedical_provider = StubProvider()
+    biomedical = get_builtin_skill_registry().get("biomedical-paper")
+
+    result = EvidenceSummaryGenerator(
+        root,
+        biomedical_provider,
+        skill=biomedical,
+    ).summarize_index()
+
+    assert result.summarized == 1
+    assert result.skipped == 0
+    assert len(biomedical_provider.calls) == 3
+
+
+def test_summary_dry_run_reports_scope_without_provider(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    skill = get_builtin_skill_registry().get("biomedical-paper")
+
+    plan = build_summary_plan(root, skill=skill)
+
+    assert plan.skill["name"] == "biomedical-paper"
+    assert plan.ready == 1
+    assert plan.total_chunks == 2
+
+
+def test_biomedical_skill_rejects_missing_domain_extension(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    skill = get_builtin_skill_registry().get("biomedical-paper")
+
+    result = EvidenceSummaryGenerator(
+        root,
+        StubProvider(include_domain_extension=False),
+        skill=skill,
+    ).summarize_index()
+    paper = ResearchFolderHarness(root).load_index()["papers"][0]
+
+    assert result.failed == 1
+    assert "must include domain_extensions" in paper["summary_error"]

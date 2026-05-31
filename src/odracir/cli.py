@@ -26,7 +26,16 @@ from odracir.question_answering import (
 from odracir.research_folder import ResearchFolderHarness
 from odracir.retrieval import format_search_report, search_chunks
 from odracir.status import build_research_status, format_research_status
-from odracir.summarization import EvidenceSummaryGenerator
+from odracir.summarization import (
+    EvidenceSummaryGenerator,
+    build_summary_plan,
+    format_summary_plan,
+)
+from odracir.skills import (
+    format_research_skill,
+    format_research_skills,
+    get_builtin_skill_registry,
+)
 from odracir.translation import (
     DEFAULT_SECTIONS,
     SelectiveTranslator,
@@ -69,6 +78,9 @@ def main() -> None:
         return
     if argv and argv[0] == "summarize":
         _summarize(argv[1:])
+        return
+    if argv and argv[0] == "skills":
+        _skills(argv[1:])
         return
     if argv and argv[0] == "translate":
         _translate(argv[1:])
@@ -461,20 +473,49 @@ def _summarize(argv: list[str]) -> None:
     )
     parser.add_argument("--paper", default=None, help="Only summarize one paper id.")
     parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--skill",
+        default="generic",
+        help="Research skill manifest. Defaults to generic.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview summary scope without loading API configuration or calling DeepSeek.",
+    )
     parser.add_argument("--force", action="store_true", help="Regenerate current summaries.")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
     args = parser.parse_args(argv)
 
-    provider = DeepSeekProvider(load_config())
-    result = EvidenceSummaryGenerator(
-        args.folder,
-        provider,
-        papers_dir=args.papers_dir,
-    ).summarize_index(
-        force=args.force,
-        limit=args.limit,
-        paper_id=args.paper,
-    )
+    try:
+        skill = get_builtin_skill_registry().get(args.skill)
+        if args.dry_run:
+            plan = build_summary_plan(
+                args.folder,
+                papers_dir=args.papers_dir,
+                limit=args.limit,
+                paper_id=args.paper,
+                skill=skill,
+            )
+            if args.json:
+                print(json.dumps(plan.as_dict(), ensure_ascii=False, indent=2))
+                return
+            print(format_summary_plan(plan))
+            return
+
+        provider = DeepSeekProvider(load_config())
+        result = EvidenceSummaryGenerator(
+            args.folder,
+            provider,
+            papers_dir=args.papers_dir,
+            skill=skill,
+        ).summarize_index(
+            force=args.force,
+            limit=args.limit,
+            paper_id=args.paper,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
     if args.json:
         print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
         return
@@ -489,6 +530,37 @@ def _summarize(argv: list[str]) -> None:
         f"{result.blocked} blocked, "
         f"{result.failed} failed"
     )
+
+
+def _skills(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(description="Inspect built-in research skills.")
+    parser.add_argument("name", nargs="?", default=None, help="Optional skill name.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    registry = get_builtin_skill_registry()
+    try:
+        if args.name:
+            manifest = registry.get(args.name)
+            if args.json:
+                print(json.dumps(manifest.as_dict(), ensure_ascii=False, indent=2))
+                return
+            print(format_research_skill(manifest))
+            return
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    manifests = registry.list()
+    if args.json:
+        print(
+            json.dumps(
+                {"skills": [manifest.as_dict() for manifest in manifests]},
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return
+    print(format_research_skills(registry))
 
 
 def _translate(argv: list[str]) -> None:

@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from odracir.retrieval import search_chunks
+from odracir.skills import get_builtin_skill_registry
 
 
 ToolHandler = Callable[..., dict[str, Any]]
@@ -36,10 +37,11 @@ def get_project_context() -> dict[str, Any]:
         "provider": "DeepSeek API",
         "current_stage": (
             "local-first research prototype with traceable extraction, retrieval, "
-            "summaries, translations, and evidence-backed questions"
+            "summaries, translations, evidence-backed questions, and versioned "
+            "research skills"
         ),
         "recommended_next_milestone": (
-            "review parser recommendations and add discipline-specific skill manifests"
+            "review parser outputs and benchmark biomedical skill summaries"
         ),
     }
 
@@ -60,6 +62,12 @@ def draft_agent_steps(goal: str) -> dict[str, Any]:
 def search_research_chunks(folder: str, query: str, limit: int = 5) -> dict[str, Any]:
     """Search local paper chunks and return inspectable evidence references."""
     return search_chunks(folder, query, limit=limit).as_dict()
+
+
+def list_research_skills() -> dict[str, Any]:
+    """Return inspectable built-in research-skill manifests."""
+    registry = get_builtin_skill_registry()
+    return {"skills": [manifest.as_dict() for manifest in registry.list()]}
 
 
 TOOL_SPECS = [
@@ -88,6 +96,18 @@ TOOL_SPECS = [
             "additionalProperties": False,
         },
         handler=draft_agent_steps,
+    ),
+    ToolSpec(
+        name="list_research_skills",
+        description=(
+            "List built-in research-skill manifests with domain schemas and evaluation rules."
+        ),
+        parameters={
+            "type": "object",
+            "properties": {},
+            "additionalProperties": False,
+        },
+        handler=list_research_skills,
     ),
     ToolSpec(
         name="search_research_chunks",

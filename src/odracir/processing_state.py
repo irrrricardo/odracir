@@ -65,6 +65,8 @@ def invalidate_summary(paper: dict[str, Any]) -> None:
         "summary_provider",
         "summary_model",
         "summary_prompt_version",
+        "summary_skill",
+        "summary_skill_version",
         "summary_error",
         "summarized_at",
     ):

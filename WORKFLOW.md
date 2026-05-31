@@ -244,6 +244,26 @@ odracir summarize <research-folder> --papers-dir <paper-folder> --paper <paper-i
 
 `summarize` 会调用 DeepSeek 并产生 API 用量。批量处理前，请使用 `--paper` 或 `--limit` 进行受控运行。
 
+Inspect built-in research skills and preview biomedical summary scope without API usage:
+
+```powershell
+odracir skills
+odracir skills biomedical-paper
+odracir summarize <research-folder> --papers-dir <paper-folder> --skill biomedical-paper --dry-run
+```
+
+检查内置科研 skill，并在无 API 用量的情况下预览生物医学摘要范围：
+
+```powershell
+odracir skills
+odracir skills biomedical-paper
+odracir summarize <research-folder> --papers-dir <paper-folder> --skill biomedical-paper --dry-run
+```
+
+`generic` remains the default cross-disciplinary skill. `biomedical-paper` is the first domain manifest. It adds versioned summary instructions, a biomedical schema extension, tool bindings, and evaluation rules. Each biomedical field item must carry source citations or set `inference=true`. Executed summaries store the chosen skill name and version; switching skills invalidates stale summary caches.
+
+`generic` 仍然是默认跨学科 skill。`biomedical-paper` 是首个领域 manifest。它添加版本化摘要说明、生物医学 schema 扩展、工具绑定和评测规则。每一个生物医学字段条目都必须携带来源引用，或者设置 `inference=true`。实际执行摘要会保存所选 skill 名称和版本；切换 skill 会使旧摘要缓存失效。
+
 Translate the default abstract, methods, and conclusion selection:
 
 ```powershell
@@ -365,17 +385,23 @@ Recommended external projects:
 - [Marker](https://github.com/datalab-to/marker): benchmark candidate for rich Markdown/JSON conversion and scientific layouts; keep it optional because code, model, and commercial-use licensing need deliberate review.
 - [Unstructured](https://github.com/Unstructured-IO/unstructured): future multi-format ETL candidate when the project expands beyond research PDFs.
 
-## Future Skill Strategy / 后续 Skill 策略
+## Research Skill Strategy / 科研 Skill 策略
 
 Odracir should not make one giant prompt for every discipline. It should keep a stable core workflow and add discipline-specific skills.
 
 Odracir 不应该为所有学科写一个巨大的 prompt。它应该保持稳定核心工作流，再增加面向学科的 skill。
 
+Available built-in skills:
+
+当前可用的内置 skill：
+
+- `generic`: cross-disciplinary evidence-aware paper reading.
+- `biomedical-paper`: population, intervention or exposure, comparator, outcome, mechanism, assay, clinical relevance, safety, ethics.
+
 Possible future skills:
 
 未来可能的 skill：
 
-- `biomedical-paper-skill`: population, intervention, comparator, outcome, mechanism, assay, clinical relevance, safety, ethics.
 - `computer-science-paper-skill`: task, model, dataset, metric, baseline, ablation, implementation details, reproduction plan.
 - `materials-science-paper-skill`: composition, synthesis, characterization, properties, mechanism, experimental conditions.
 - `review-skill`: check whether summaries preserve evidence, limitations, and uncertainty.
@@ -390,7 +416,7 @@ Possible future skills:
 5. Benchmark the cited `odracir ask` route and add optional embeddings only when retrieval evidence justifies them.
 6. Validate the explicit OCRmyPDF path on a scanned fixture after installing system dependencies.
 7. Add a GROBID service adapter when scholarly metadata and citation graphs become the next concrete need.
-8. Add discipline-specific skills only after the generic extraction and memory loop is stable.
+8. Review biomedical summary artifacts, then add further discipline skills only when representative examples justify their schemas.
 
 1. 先让 scan、extract、status 和 chunk 稳定。
 2. 审阅缓存的 parser 路由建议和代表性 PyMuPDF4LLM 输出，再接受逐篇 parser override。
@@ -399,7 +425,7 @@ Possible future skills:
 5. 评估带引用的 `odracir ask` 路径；只有检索证据证明有必要时，才添加可选 embedding。
 6. 安装系统依赖后，在扫描版 fixture 上验证显式 OCRmyPDF 路径。
 7. 当学术元数据和引用图谱成为明确需求时，添加 GROBID 服务 adapter。
-8. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
+8. 审阅生物医学摘要 artifact；只有代表性样例证明 schema 合理后，才继续添加其他学科 skill。
 
 ## Execution Log / 执行记录
 
@@ -671,4 +697,40 @@ Result:
 - 第二次运行命中缓存，约 0.85 秒完成。
 - 推荐 artifact 写入 `.odracir/parser-routing/2d1c6407b8199c2995e6.json`。
 - 生成推荐前后，`odracir_index.json` 的 SHA-256 完全一致。
+- 未调用 DeepSeek API。
+
+Versioned biomedical research skill and summary dry run:
+
+```powershell
+odracir skills
+odracir skills biomedical-paper
+odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
+```
+
+版本化生物医学科研 skill 与摘要 dry-run：
+
+```powershell
+odracir skills
+odracir skills biomedical-paper
+odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
+```
+
+Result:
+
+- Added a versioned research-skill registry with `generic@0.1` and `biomedical-paper@0.1`.
+- Added `odracir skills [name]` and the read-only `list_research_skills` agent tool.
+- Added `odracir summarize --skill biomedical-paper --dry-run` without API configuration loading or DeepSeek usage.
+- Biomedical summaries require citation-backed or explicitly inferred items for population, intervention or exposure, comparator, outcomes, mechanisms, assays or measurements, clinical relevance, and safety or ethics.
+- Executed summary artifacts record the selected skill manifest; skill or skill-version changes invalidate stale summary caches.
+- Real-folder dry run: 9 ready papers, 0 blocked, 0 failed, and 128 chunks.
+- No DeepSeek API call was made.
+
+结果：
+
+- 添加版本化科研 skill registry，包含 `generic@0.1` 和 `biomedical-paper@0.1`。
+- 添加 `odracir skills [name]` 和只读 `list_research_skills` agent tool。
+- 添加 `odracir summarize --skill biomedical-paper --dry-run`，无需读取 API 配置，也不会调用 DeepSeek。
+- 生物医学摘要要求研究人群、干预或暴露、对照、结局、机制、assay 或测量、临床相关性、安全或伦理等条目带引用，或者显式标记为推断。
+- 实际执行的 summary artifact 会记录所选 skill manifest；skill 或 skill 版本变化会使旧摘要缓存失效。
+- 真实目录 dry-run：9 篇 ready、0 篇 blocked、0 篇 failed，共 128 个 chunks。
 - 未调用 DeepSeek API。

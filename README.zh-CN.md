@@ -14,9 +14,9 @@
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带引用问答和缓存 parser 建议的模块化科研原型
-- 当前重点：受控 parser 审阅、skill manifest 和显式 OCR 验证
-- 最近同步：`2026-05-31T23:15:52+08:00`
+- 阶段：带引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
+- 当前重点：生物医学摘要审阅、parser 输出审阅和显式 OCR 验证
+- 最近同步：`2026-05-31T23:31:33+08:00`
 
 当前命令：
 
@@ -26,6 +26,7 @@
 - `odracir capabilities`：检查可选解析器和预处理器是否可用。
 - `odracir benchmark-parsers <research-folder> --limit 1`：在不修改科研 artifact 的情况下比较 parser 后端。
 - `odracir recommend-parsers <research-folder>`：在不修改 extraction artifact 的情况下缓存 parser 审阅建议。
+- `odracir skills [name]`：检查版本化科研 skill manifest。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
@@ -34,6 +35,7 @@
 - `odracir ask <research-folder> "<question>" --dry-run`：无 API 用量地预览问答证据。
 - `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
+- `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
@@ -176,6 +178,7 @@ src/odracir/
   ocr.py        # 显式 OCRmyPDF derivative 预处理
   parser_benchmark.py # 只读 parser 比较
   parser_routing.py # 带缓存的 parser 审阅建议
+  skills/        # 版本化、多学科科研 skill manifest
   summarization.py # 注重证据的 map-reduce 论文摘要
   translation.py # 可追溯的选择性 chunk 翻译
   question_answering.py # 检索优先、带引用的科研问答
@@ -329,6 +332,16 @@ odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal W
 
 这个命令会显式调用 DeepSeek，并产生 API 用量。Odracir 会把结果写入 `.odracir/summaries/`，记录 provider、模型、prompt 版本、输入 hash、token 用量和引用；后续重复运行时会跳过未变化摘要。
 
+检查内置科研 skill，并在不读取 API 配置、不调用 DeepSeek 的情况下预览生物医学摘要范围：
+
+```powershell
+odracir skills
+odracir skills biomedical-paper
+odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
+```
+
+`generic` 仍然是默认的跨学科 skill。`biomedical-paper` 添加版本化、注重证据的字段：研究人群、干预或暴露、对照、结局、机制、assay 或测量、临床相关性，以及安全或伦理。每一个结构化生物医学条目都必须保留来源引用，或者显式设置 `inference=true`。实际执行后的摘要会记录所选 skill 及其版本，因此切换 skill 会使旧摘要缓存失效。
+
 将默认选择的摘要、方法和结论段落翻译为中文：
 
 ```powershell
@@ -360,9 +373,9 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带引用问答和缓存 parser 建议的模块化科研原型
-- 当前重点：受控 parser 审阅、skill manifest 和显式 OCR 验证
-- 最近同步：`2026-05-31T23:15:52+08:00`
+- 阶段：带引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
+- 当前重点：生物医学摘要审阅、parser 输出审阅和显式 OCR 验证
+- 最近同步：`2026-05-31T23:31:33+08:00`
 
 当前命令：
 
@@ -372,6 +385,7 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir capabilities`：检查可选解析器和预处理器是否可用。
 - `odracir benchmark-parsers <research-folder> --limit 1`：在不修改科研 artifact 的情况下比较 parser 后端。
 - `odracir recommend-parsers <research-folder>`：在不修改 extraction artifact 的情况下缓存 parser 审阅建议。
+- `odracir skills [name]`：检查版本化科研 skill manifest。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
 - `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
@@ -380,6 +394,7 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir ask <research-folder> "<question>" --dry-run`：无 API 用量地预览问答证据。
 - `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
+- `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
@@ -405,7 +420,7 @@ odracir install-hooks
 4. 验证类型化 `odracir_index.json` schema，并检查处理状态。
 5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
 6. 审阅缓存的 parser 路由建议，并检查代表性 PyMuPDF4LLM 输出，再接受逐篇 parser override。
-7. 运行受控的 DeepSeek 摘要和选择性翻译基准。
+7. 审阅生物医学摘要 dry-run，并运行受控的 DeepSeek 摘要和选择性翻译基准。
 8. 在添加可选 embedding 前，先评估和优化带引用的 `odracir ask` 路径。
 9. 安装系统依赖后，在扫描版 fixture 上验证显式 OCRmyPDF 路径。
 10. 添加复用已审计问答与检索路径的科研 companion agent。

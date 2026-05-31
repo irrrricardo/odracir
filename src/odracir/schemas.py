@@ -9,7 +9,7 @@ from typing import Any, TypedDict
 INDEX_SCHEMA_VERSION = "0.2"
 TEXT_SCHEMA_VERSION = "0.2"
 CHUNK_SCHEMA_VERSION = "0.1"
-SUMMARY_SCHEMA_VERSION = "0.1"
+SUMMARY_SCHEMA_VERSION = "0.2"
 TRANSLATION_SCHEMA_VERSION = "0.1"
 ANSWER_SCHEMA_VERSION = "0.1"
 PARSER_ROUTING_SCHEMA_VERSION = "0.1"
@@ -100,6 +100,8 @@ class PaperRecord(TypedDict, total=False):
     summary_provider: str
     summary_model: str
     summary_prompt_version: str
+    summary_skill: str
+    summary_skill_version: str
     summary_error: str
     summarized_at: str
 
@@ -179,6 +181,7 @@ class SummaryArtifact(TypedDict, total=False):
     provider: str
     model: str
     prompt_version: str
+    skill: dict[str, Any]
     summarized_at: str
     usage: dict[str, int]
     map_summaries: list[dict[str, Any]]

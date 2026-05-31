@@ -44,3 +44,12 @@ def test_search_research_chunks_agent_tool(tmp_path) -> None:
     )
 
     assert result["hits"][0]["citation"] == "[paper pp.1 chunk:one]"
+
+
+def test_list_research_skills_agent_tool() -> None:
+    result = execute_tool("list_research_skills", {})
+
+    assert [skill["name"] for skill in result["skills"]] == [
+        "biomedical-paper",
+        "generic",
+    ]
