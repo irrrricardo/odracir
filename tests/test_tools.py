@@ -72,3 +72,19 @@ def test_evaluate_research_summaries_agent_tool(tmp_path) -> None:
     assert result["status_counts"] == {"missing_summary": 1}
     assert result["artifact_path"] is None
     assert not (root / ".odracir" / "evaluations").exists()
+
+
+def test_get_research_memory_agent_tool_is_read_only(tmp_path) -> None:
+    root = tmp_path / "field"
+    papers = root / "papers"
+    papers.mkdir(parents=True)
+    (papers / "paper.pdf").write_bytes(b"%PDF-1.4\n")
+    from odracir.research_folder import ResearchFolderHarness
+
+    ResearchFolderHarness(root).sync_index()
+
+    result = execute_tool("get_research_memory", {"folder": str(root)})
+
+    assert result["quality_counts"] == {"missing_summary": 1}
+    assert result["catalog_path"] is None
+    assert not (root / "research_catalog.json").exists()

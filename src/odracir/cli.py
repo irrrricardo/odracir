@@ -23,6 +23,7 @@ from odracir.question_answering import (
     format_answer_result,
     format_ask_plan,
 )
+from odracir.research_memory import ResearchCatalogBuilder, format_research_catalog
 from odracir.research_folder import ResearchFolderHarness
 from odracir.retrieval import format_search_report, search_chunks
 from odracir.status import build_research_status, format_research_status
@@ -88,6 +89,9 @@ def main() -> None:
         return
     if argv and argv[0] == "evaluate-summaries":
         _evaluate_summaries(argv[1:])
+        return
+    if argv and argv[0] == "build-memory":
+        _build_memory(argv[1:])
         return
     if argv and argv[0] == "translate":
         _translate(argv[1:])
@@ -615,6 +619,34 @@ def _evaluate_summaries(argv: list[str]) -> None:
         print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_summary_evaluation(report))
+
+
+def _build_memory(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Build a visible folder-level catalog from audited local artifacts."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument(
+        "--no-write",
+        action="store_true",
+        help="Print an ephemeral catalog report without writing research_catalog.json.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    result = ResearchCatalogBuilder(
+        args.folder,
+        papers_dir=args.papers_dir,
+    ).build(write_artifact=not args.no_write)
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_research_catalog(result))
 
 
 def _translate(argv: list[str]) -> None:

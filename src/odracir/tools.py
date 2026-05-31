@@ -6,6 +6,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
+from odracir.research_memory import ResearchCatalogBuilder
 from odracir.retrieval import search_chunks
 from odracir.skills import get_builtin_skill_registry
 from odracir.summary_evaluation import SummaryEvaluationHarness
@@ -89,6 +90,11 @@ def evaluate_research_summaries(
     ).as_dict()
 
 
+def get_research_memory(folder: str) -> dict[str, Any]:
+    """Build an ephemeral audited folder catalog without writing files or calling an LLM."""
+    return ResearchCatalogBuilder(folder).build(write_artifact=False).as_dict()
+
+
 TOOL_SPECS = [
     ToolSpec(
         name="get_project_context",
@@ -155,6 +161,25 @@ TOOL_SPECS = [
             "additionalProperties": False,
         },
         handler=evaluate_research_summaries,
+    ),
+    ToolSpec(
+        name="get_research_memory",
+        description=(
+            "Read the folder-level research catalog assembled from audited local artifacts. "
+            "Missing or invalid summaries remain explicit and are not treated as knowledge."
+        ),
+        parameters={
+            "type": "object",
+            "properties": {
+                "folder": {
+                    "type": "string",
+                    "description": "Absolute or relative research-folder path.",
+                },
+            },
+            "required": ["folder"],
+            "additionalProperties": False,
+        },
+        handler=get_research_memory,
     ),
     ToolSpec(
         name="search_research_chunks",

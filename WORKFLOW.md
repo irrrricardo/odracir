@@ -30,6 +30,7 @@ research folder
 -> write .odracir/evaluations/summaries/*.json
 -> explicitly translate selected chunks through DeepSeek
 -> write .odracir/translations/*.json
+-> rebuild the visible audited research_catalog.json
 -> later: chat, plan, code
 ```
 
@@ -57,6 +58,7 @@ research folder
 -> 写入 .odracir/evaluations/summaries/*.json
 -> 通过 DeepSeek 显式翻译选定 chunk
 -> 写入 .odracir/translations/*.json
+-> 重建可见且经过审计的 research_catalog.json
 -> 后续：交流、规划、代码实现
 ```
 
@@ -255,6 +257,7 @@ odracir skills
 odracir skills biomedical-paper
 odracir summarize <research-folder> --papers-dir <paper-folder> --skill biomedical-paper --dry-run
 odracir evaluate-summaries <research-folder> --papers-dir <paper-folder> --skill biomedical-paper
+odracir build-memory <research-folder> --papers-dir <paper-folder>
 ```
 
 检查内置科研 skill，并在无 API 用量的情况下预览生物医学摘要范围：
@@ -264,6 +267,7 @@ odracir skills
 odracir skills biomedical-paper
 odracir summarize <research-folder> --papers-dir <paper-folder> --skill biomedical-paper --dry-run
 odracir evaluate-summaries <research-folder> --papers-dir <paper-folder> --skill biomedical-paper
+odracir build-memory <research-folder> --papers-dir <paper-folder>
 ```
 
 `generic` remains the default cross-disciplinary skill. `biomedical-paper` is the first domain manifest. It adds versioned summary instructions, a biomedical schema extension, tool bindings, and evaluation rules. Each biomedical field item must carry source citations or set `inference=true`. Executed summaries store the chosen skill name and version; switching skills invalidates stale summary caches.
@@ -273,6 +277,10 @@ odracir evaluate-summaries <research-folder> --papers-dir <paper-folder> --skill
 `evaluate-summaries` is a deterministic local audit. It does not call DeepSeek or modify the index. It checks missing and stale artifacts, citation validity against current chunks, skill-version provenance, findings, limitations, and populated domain fields. Cached reports are written under `.odracir/evaluations/summaries/`. Use `--no-write` when only an ephemeral report is needed.
 
 `evaluate-summaries` 是确定性的本地审计工具。它不会调用 DeepSeek，也不会修改索引。它会检查缺失和过期 artifact、当前 chunks 上的引用有效性、skill 版本 provenance、findings、limitations 和已填充领域字段。带缓存的报告写入 `.odracir/evaluations/summaries/`。只需要临时报告时，可以使用 `--no-write`。
+
+`build-memory` is a deterministic local catalog builder. It does not call DeepSeek or modify the compact index. It writes `research_catalog.json` at the research-folder root and aggregates processing states, artifact paths, audited summaries, skill provenance, warnings, and failures. Missing or failed summaries remain explicit. Use `--no-write` for an ephemeral report; the `get_research_memory` agent tool uses this read-only path.
+
+`build-memory` 是确定性的本地目录构建器。它不会调用 DeepSeek，也不会修改精简索引。它会在研究文件夹根目录写入 `research_catalog.json`，聚合处理状态、artifact 路径、经过审计的摘要、skill provenance、warning 和失败原因。缺失或失败的摘要仍保持显式状态。使用 `--no-write` 可以只生成临时报告；`get_research_memory` agent tool 使用的就是这条只读路径。
 
 Translate the default abstract, methods, and conclusion selection:
 
@@ -335,6 +343,7 @@ research-folder/
   notes/
   code/
   odracir_index.json
+  research_catalog.json
   .odracir/
     texts/
       paper-id.json
@@ -777,4 +786,36 @@ Result:
 - 第二次评测运行读取了缓存报告。
 - 报告写入 `.odracir/evaluations/summaries/bfc89a4fbb0c141e3dd0.json`。
 - 评测前后，`odracir_index.json` 的 SHA-256 完全一致。
+- 未调用 DeepSeek API。
+
+Visible audited folder memory:
+
+```powershell
+odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+可见且经过审计的文件夹记忆：
+
+```powershell
+odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+Result:
+
+- Added deterministic `odracir build-memory` and the read-only `get_research_memory` agent tool.
+- Real-folder catalog: 9 papers with explicit `missing_summary` state, matching the intentionally deferred paid-summary state.
+- The catalog was written to `research_catalog.json` at the research-folder root.
+- The second build loaded the cached catalog.
+- The `odracir_index.json` SHA-256 remained `471A28AD6F08530CF5F3B289B8BF24F81DFD69C34DB45BC252F76CFA8AB8921F` before and after both builds.
+- No DeepSeek API call was made.
+
+结果：
+
+- 添加确定性 `odracir build-memory` 和只读 `get_research_memory` agent tool。
+- 真实目录 catalog：9 篇论文均为显式 `missing_summary` 状态，与刻意暂缓付费摘要的状态一致。
+- catalog 已写入研究文件夹根目录的 `research_catalog.json`。
+- 第二次构建读取了缓存 catalog。
+- 两次构建前后，`odracir_index.json` 的 SHA-256 始终为 `471A28AD6F08530CF5F3B289B8BF24F81DFD69C34DB45BC252F76CFA8AB8921F`。
 - 未调用 DeepSeek API。

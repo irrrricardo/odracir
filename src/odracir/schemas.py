@@ -14,6 +14,7 @@ TRANSLATION_SCHEMA_VERSION = "0.1"
 ANSWER_SCHEMA_VERSION = "0.1"
 PARSER_ROUTING_SCHEMA_VERSION = "0.1"
 SUMMARY_EVALUATION_SCHEMA_VERSION = "0.1"
+RESEARCH_CATALOG_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -261,6 +262,20 @@ class SummaryEvaluationArtifact(TypedDict, total=False):
     expected_skill: dict[str, Any] | None
     total_papers: int
     status_counts: dict[str, int]
+    records: list[dict[str, Any]]
+
+
+class ResearchCatalogArtifact(TypedDict, total=False):
+    schema_version: str
+    generated_at: str
+    input_sha256: str
+    folder_name: str
+    source_index: str
+    source_index_sha256: str | None
+    summary_evaluation_input_sha256: str
+    total_papers: int
+    quality_counts: dict[str, int]
+    processing_counts: dict[str, dict[str, int]]
     records: list[dict[str, Any]]
 
 

@@ -4,19 +4,15 @@
 
 [版本记录](CHANGELOG.md)
 
-[工作流](WORKFLOW.md)
-
-[架构路线图](ARCHITECTURE.md)
-
 <!-- ODRACIR_STATUS_START -->
 ## 项目状态
 
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
-- 当前重点：生物医学摘要审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-05-31T23:45:13+08:00`
+- 阶段：带审计文件夹记忆、引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
+- 当前重点：受监督的生物医学摘要、catalog 审阅、parser 输出审阅和显式 OCR 验证
+- 最近同步：`2026-06-01T00:43:01+08:00`
 
 当前命令：
 
@@ -37,11 +33,18 @@
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
 - `odracir evaluate-summaries <research-folder> --skill biomedical-paper`：无 API 用量地审计本地摘要。
+- `odracir build-memory <research-folder>`：重建可见且经过审计的 `research_catalog.json`。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
 
 <!-- ODRACIR_STATUS_END -->
+
+
+[工作流](WORKFLOW.md)
+
+[架构路线图](ARCHITECTURE.md)
+
 
 
 Odracir 是一个个人化的 agentic system，用于快速进入、理解并实现某个新的科研领域。它的目标是帮助一个人收纳论文、翻译和总结论文、提取结构化知识、围绕该领域与 agent 交流，并逐步把科研理解转化成可执行的计划和代码。
@@ -74,11 +77,12 @@ research-folder/
   notes/
   code/
   odracir_index.json
+  research_catalog.json
 ```
 
-你把选好的论文放入 `papers/`。Odracir 读取它们，生成翻译和摘要，提取结构化信息，并更新 `odracir_index.json`，让这个文件夹逐渐变成一个本地科研记忆。
+你把选好的论文放入 `papers/`。Odracir 读取它们，生成翻译和摘要，提取结构化信息，更新运行台账 `odracir_index.json`，并重建可见的 `research_catalog.json`，让这个文件夹逐渐变成一个本地科研记忆。
 
-当前 harness 已经实现这个流程的第一层：创建文件夹布局，扫描 `papers/`，并用文件元数据和等待后续 agent 填写的空研究字段创建或更新 `odracir_index.json`。
+当前 harness 已经实现这个流程的本地优先主干：文件夹扫描、正文提取、OCR 路由、可追溯 chunks、检索、带引用问答、版本化摘要 skills、摘要审计、选择性翻译，以及确定性重建 `research_catalog.json`。
 
 ## 计划功能
 
@@ -341,11 +345,14 @@ odracir skills
 odracir skills biomedical-paper
 odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
 odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
 ```
 
 `generic` 仍然是默认的跨学科 skill。`biomedical-paper` 添加版本化、注重证据的字段：研究人群、干预或暴露、对照、结局、机制、assay 或测量、临床相关性，以及安全或伦理。每一个结构化生物医学条目都必须保留来源引用，或者显式设置 `inference=true`。实际执行后的摘要会记录所选 skill 及其版本，因此切换 skill 会使旧摘要缓存失效。
 
 `evaluate-summaries` 是确定性工具，不会调用 DeepSeek。它会在 `.odracir/evaluations/summaries/` 下写入带缓存的报告，检查 artifact 是否缺失或过期，根据当前 chunks 重新校验引用，并报告 limitations 缺失、生物医学字段为空等需要人工复核的 warning。
+
+`build-memory` 也是确定性工具，不会调用 DeepSeek。它根据精简索引和经过审计的 summary artifact 重建可见的 `research_catalog.json`。缺失、过期或无效的摘要会保持显式状态，不会被悄悄当作已经积累的知识。agent 也可以通过 `get_research_memory` 临时读取同一目录，而不写入文件。
 
 将默认选择的摘要、方法和结论段落翻译为中文：
 
@@ -373,38 +380,6 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 
 ```text
 <!-- ODRACIR_STATUS_START -->
-## 项目状态
-
-此区块由 `odracir sync-docs` 自动生成。
-
-- 版本：`0.1.0`
-- 阶段：带引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
-- 当前重点：生物医学摘要审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-05-31T23:45:13+08:00`
-
-当前命令：
-
-- `odracir "message"`：与当前 Odracir agent 对话。
-- `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
-- `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
-- `odracir capabilities`：检查可选解析器和预处理器是否可用。
-- `odracir benchmark-parsers <research-folder> --limit 1`：在不修改科研 artifact 的情况下比较 parser 后端。
-- `odracir recommend-parsers <research-folder>`：在不修改 extraction artifact 的情况下缓存 parser 审阅建议。
-- `odracir skills [name]`：检查版本化科研 skill manifest。
-- `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
-- `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
-- `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
-- `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
-- `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
-- `odracir ask <research-folder> "<question>" --dry-run`：无 API 用量地预览问答证据。
-- `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
-- `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
-- `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
-- `odracir evaluate-summaries <research-folder> --skill biomedical-paper`：无 API 用量地审计本地摘要。
-- `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
-- `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
-- `odracir sync-docs`：刷新自动生成的文档状态区块。
-
 <!-- ODRACIR_STATUS_END -->
 ```
 

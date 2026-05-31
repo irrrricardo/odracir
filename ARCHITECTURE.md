@@ -127,6 +127,7 @@ source file
    -> structured summary artifact
    -> deterministic local summary evaluation artifact
    -> translation artifact
+-> visible audited research_catalog.json
 -> retrieval index
 -> evidence-backed answer artifacts
 -> conversation and planning
@@ -142,6 +143,7 @@ source file
    -> 结构化总结 artifact
    -> 确定性本地摘要评测 artifact
    -> 翻译 artifact
+-> 可见且经过审计的 research_catalog.json
 -> 检索索引
 -> 带证据的问答 artifact
 -> 交流与规划
@@ -154,6 +156,7 @@ Recommended artifact layout:
 ```text
 research-folder/
   odracir_index.json
+  research_catalog.json
   .odracir/
     project.json
     jobs/
@@ -172,6 +175,10 @@ research-folder/
 `odracir_index.json` should remain compact. Large text, chunk, translation, and summary payloads belong in `.odracir/`.
 
 `odracir_index.json` 应保持精简。大段正文、chunk、翻译和总结应该放在 `.odracir/` 下。
+
+`research_catalog.json` is the visible, rebuildable folder memory. It aggregates compact processing state and audited summary knowledge while preserving explicit gaps, warnings, failures, artifact paths, and provenance.
+
+`research_catalog.json` 是可见且可重建的文件夹记忆。它聚合精简处理状态和经过审计的摘要知识，同时保留显式缺口、warning、失败原因、artifact 路径和 provenance。
 
 ## 5. Scientific Data Model / 科学化数据模型
 
@@ -522,6 +529,7 @@ Completed on 2026-05-30:
 - Added a versioned research-skill registry with `generic` and the first `biomedical-paper` manifest.
 - Added biomedical summary schema extensions with citation-or-inference validation, skill provenance, cache invalidation, CLI inspection, and no-cost summary dry runs.
 - Added deterministic local summary evaluation with cached reports, stale-evidence checks, citation revalidation, domain completeness metrics, and review warnings.
+- Added deterministic `research_catalog.json` generation from audited local summaries and the read-only `get_research_memory` agent tool.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -546,6 +554,7 @@ Completed on 2026-05-30:
 - 添加版本化科研 skill registry，包含 `generic` 和首个 `biomedical-paper` manifest。
 - 添加生物医学摘要 schema 扩展，包括 citation-or-inference 校验、skill provenance、缓存失效、CLI 检查和无费用摘要 dry-run。
 - 添加确定性本地摘要评测，包括带缓存报告、过期证据检查、引用重新校验、领域完整性指标和审阅 warning。
+- 添加根据经过审计的本地摘要确定性生成 `research_catalog.json` 的能力，以及只读 `get_research_memory` agent tool。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
