@@ -155,3 +155,28 @@ def test_summarization_rejects_citation_outside_source_chunks(tmp_path) -> None:
     assert result.failed == 1
     assert paper["summary_status"] == "failed"
     assert "outside source chunks" in paper["summary_error"]
+
+
+def test_failed_forced_summary_removes_stale_summary_but_preserves_translation(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    generator = EvidenceSummaryGenerator(root, StubProvider())
+    generator.summarize_index()
+    index = generator.harness.load_index()
+    paper = index["papers"][0]
+    paper["translation_status"] = "translated"
+    paper["translation_artifact"] = ".odracir/translations/paper.zh-CN.json"
+    generator.harness.write_index(index)
+
+    result = EvidenceSummaryGenerator(
+        root,
+        StubProvider(cite_findings=False),
+    ).summarize_index(force=True)
+    paper = ResearchFolderHarness(root).load_index()["papers"][0]
+
+    assert result.failed == 1
+    assert paper["summary_status"] == "failed"
+    assert "summary_artifact" not in paper
+    assert paper["summary_short"] == ""
+    assert paper["translation_status"] == "translated"
+    assert paper["translation_artifact"] == ".odracir/translations/paper.zh-CN.json"

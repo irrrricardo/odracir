@@ -20,6 +20,7 @@ class ResearchStatusReport:
     extraction_statuses: dict[str, int]
     chunking_statuses: dict[str, int]
     summary_statuses: dict[str, int]
+    translation_statuses: dict[str, int]
     needs_ocr: list[dict[str, str]]
     failures: list[dict[str, str]]
 
@@ -49,6 +50,7 @@ def build_research_status(
     extraction_statuses = _count_statuses(pdf_papers, "text_extraction_status")
     chunking_statuses = _count_statuses(pdf_papers, "chunking_status")
     summary_statuses = _count_statuses(pdf_papers, "summary_status")
+    translation_statuses = _count_statuses(pdf_papers, "translation_status")
     needs_ocr = [
         {
             "id": str(paper.get("id", "")),
@@ -77,6 +79,7 @@ def build_research_status(
         extraction_statuses=extraction_statuses,
         chunking_statuses=chunking_statuses,
         summary_statuses=summary_statuses,
+        translation_statuses=translation_statuses,
         needs_ocr=needs_ocr,
         failures=failures,
     )
@@ -91,6 +94,7 @@ def format_research_status(report: ResearchStatusReport) -> str:
         f"Extraction: {_format_counts(report.extraction_statuses)}",
         f"Chunking: {_format_counts(report.chunking_statuses)}",
         f"Summaries: {_format_counts(report.summary_statuses)}",
+        f"Translations: {_format_counts(report.translation_statuses)}",
         f"Needs OCR: {len(report.needs_ocr)}",
         f"Failures: {len(report.failures)}",
     ]
@@ -122,4 +126,8 @@ def _paper_failures(paper: dict[str, Any]) -> list[tuple[str, str]]:
         failures.append(("ocr", str(paper.get("ocr_error", ""))))
     if paper.get("chunking_status") == "failed":
         failures.append(("chunk", str(paper.get("chunking_error", ""))))
+    if paper.get("summary_status") == "failed":
+        failures.append(("summarize", str(paper.get("summary_error", ""))))
+    if paper.get("translation_status") == "failed":
+        failures.append(("translate", str(paper.get("translation_error", ""))))
     return failures

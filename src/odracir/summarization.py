@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from odracir.providers import JsonCompletionProvider
+from odracir.processing_state import invalidate_summary
 from odracir.research_folder import ResearchFolderHarness
 from odracir.schemas import SUMMARY_SCHEMA_VERSION
 from odracir.time_utils import now_iso
@@ -299,12 +300,14 @@ def _mark_summarized(
 
 
 def _mark_blocked(paper: dict[str, Any]) -> None:
+    invalidate_summary(paper)
     paper["summary_status"] = "blocked"
     paper["summary_error"] = "chunking must succeed before summarization"
     paper["updated_at"] = now_iso()
 
 
 def _mark_failed(paper: dict[str, Any], exc: Exception) -> None:
+    invalidate_summary(paper)
     paper["summary_status"] = "failed"
     paper["summary_error"] = str(exc)
     paper["updated_at"] = now_iso()

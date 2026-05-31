@@ -22,7 +22,9 @@ research folder
 -> search chunks with paper/page citations
 -> explicitly summarize chosen papers through DeepSeek
 -> write .odracir/summaries/*.json
--> later: translate, chat, plan, code
+-> explicitly translate selected chunks through DeepSeek
+-> write .odracir/translations/*.json
+-> later: chat, plan, code
 ```
 
 当前本地工作流是：
@@ -41,7 +43,9 @@ research folder
 -> 检索 chunk，并返回论文与页码引用
 -> 通过 DeepSeek 显式总结选定论文
 -> 写入 .odracir/summaries/*.json
--> 后续：翻译、交流、规划、代码实现
+-> 通过 DeepSeek 显式翻译选定 chunk
+-> 写入 .odracir/translations/*.json
+-> 后续：交流、规划、代码实现
 ```
 
 ## Commands / 命令
@@ -174,6 +178,34 @@ odracir summarize <research-folder> --papers-dir <paper-folder> --paper <paper-i
 
 `summarize` 会调用 DeepSeek 并产生 API 用量。批量处理前，请使用 `--paper` 或 `--limit` 进行受控运行。
 
+Translate the default abstract, methods, and conclusion selection:
+
+```powershell
+odracir translate <research-folder> --papers-dir <paper-folder> --paper <paper-id>
+```
+
+翻译默认选择的摘要、方法和结论：
+
+```powershell
+odracir translate <research-folder> --papers-dir <paper-folder> --paper <paper-id>
+```
+
+Preview the selected citations without API usage:
+
+```powershell
+odracir translate <research-folder> --papers-dir <paper-folder> --paper <paper-id> --dry-run
+```
+
+在无 API 用量的情况下预览选定引用：
+
+```powershell
+odracir translate <research-folder> --papers-dir <paper-folder> --paper <paper-id> --dry-run
+```
+
+The default selective route translates at most 8 chunks. Repeat `--section` or `--chunk` for precise selection. Use `--all-chunks` only when a full-paper translation is intentional. Like `summarize`, `translate` explicitly calls DeepSeek and consumes API usage.
+
+默认选择性路径最多翻译 8 个 chunk。可以重复使用 `--section` 或 `--chunk` 进行精确选择。只有明确需要全文翻译时才使用 `--all-chunks`。与 `summarize` 一样，`translate` 会显式调用 DeepSeek 并产生 API 用量。
+
 The provider adapter follows DeepSeek's official [OpenAI-compatible API](https://api-docs.deepseek.com/) and [JSON Output](https://api-docs.deepseek.com/guides/json_mode) guidance.
 
 Provider adapter 遵循 DeepSeek 官方的 [OpenAI-compatible API](https://api-docs.deepseek.com/) 与 [JSON Output](https://api-docs.deepseek.com/guides/json_mode) 指南。
@@ -282,14 +314,14 @@ Possible future skills:
 1. Keep scan, extract, status, and chunk reliable.
 2. Benchmark the integrated Docling and OCRmyPDF routes on real papers after optional installation.
 3. Benchmark and refine DeepSeek-based structured paper summaries.
-4. Add Chinese translation for abstract, method, conclusion, and selected key passages.
+4. Benchmark selective Chinese translation on reviewed abstract, method, conclusion, and chosen-passage examples.
 5. Extend retrieval over `odracir_index.json` and `.odracir/chunks/` with optional embeddings.
 6. Add discipline-specific skills only after the generic extraction and memory loop is stable.
 
 1. 先让 scan、extract、status 和 chunk 稳定。
 2. 可选安装后，在真实论文上评估已接入的 Docling 和 OCRmyPDF 路径。
 3. 对基于 DeepSeek 的结构化论文总结进行基准评估和优化。
-4. 添加摘要、方法、结论和关键段落的中文翻译。
+4. 在人工审阅的摘要、方法、结论和选定段落样例上评估选择性中文翻译。
 5. 使用可选 embedding 扩展对 `odracir_index.json` 和 `.odracir/chunks/` 的检索。
 6. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
 
@@ -447,6 +479,10 @@ Result:
 - Provenance migration re-chunked 9 PDFs once; the next chunk run skipped all 9.
 - Final status: 9 extracted PDFs, 9 chunked PDFs, 0 OCR needs, 0 failures, and 128 chunks.
 - DeepSeek summary execution remained intentionally disabled during this no-cost migration.
+- Selective translation readiness reports `translations: not_started=9`.
+- DeepSeek translation execution remained intentionally disabled during this no-cost migration.
+- `odracir translate ... --dry-run` reports 9 ready papers, 0 blocked papers, 0 failures, and 12 conservatively selected chunks.
+- The default selector keeps the first abstract-oriented chunk and only adds method or conclusion chunks when heading context is credible. Use `--chunk` for deliberate additions.
 
 结果：
 
@@ -456,3 +492,7 @@ Result:
 - Provenance 迁移首次重新 chunk 9 篇 PDF；下一次 chunk 全部跳过。
 - 最终状态：9 篇 PDF 已提取、9 篇 PDF 已 chunk、0 篇需要 OCR、0 篇失败，共 128 个 chunk。
 - 此次无费用迁移期间仍然刻意不运行 DeepSeek 摘要。
+- 选择性翻译就绪状态为 `translations: not_started=9`。
+- 此次无费用迁移期间仍然刻意不运行 DeepSeek 翻译。
+- `odracir translate ... --dry-run` 报告 9 篇论文 ready、0 篇阻塞、0 篇失败，并保守选择 12 个 chunks。
+- 默认选择器保留面向摘要的首页 chunk；只有章节标题上下文可信时才增加方法或结论 chunk。需要补充时，请显式使用 `--chunk`。

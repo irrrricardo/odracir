@@ -10,6 +10,7 @@ INDEX_SCHEMA_VERSION = "0.2"
 TEXT_SCHEMA_VERSION = "0.2"
 CHUNK_SCHEMA_VERSION = "0.1"
 SUMMARY_SCHEMA_VERSION = "0.1"
+TRANSLATION_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -28,6 +29,13 @@ class OcrStatus(str, Enum):
 class ChunkingStatus(str, Enum):
     NOT_STARTED = "not_started"
     CHUNKED = "chunked"
+    FAILED = "failed"
+    BLOCKED = "blocked"
+
+
+class TranslationStatus(str, Enum):
+    NOT_STARTED = "not_started"
+    TRANSLATED = "translated"
     FAILED = "failed"
     BLOCKED = "blocked"
 
@@ -74,6 +82,16 @@ class PaperRecord(TypedDict, total=False):
     chunking_error: str
     chunked_at: str
     translation_status: str
+    translation_artifact: str
+    translation_input_sha256: str
+    translation_selection_sha256: str
+    translation_provider: str
+    translation_model: str
+    translation_prompt_version: str
+    translation_target_language: str
+    translated_chunk_count: int
+    translation_error: str
+    translated_at: str
     summary_status: str
     summary_artifact: str
     summary_input_sha256: str
@@ -163,6 +181,37 @@ class SummaryArtifact(TypedDict, total=False):
     usage: dict[str, int]
     map_summaries: list[dict[str, Any]]
     summary: dict[str, Any]
+
+
+class TranslationRecord(TypedDict, total=False):
+    chunk_id: str
+    citation: str
+    page_start: int
+    page_end: int
+    section_hint: str
+    source_content_sha256: str
+    target_language: str
+    translated_text: str
+    terminology: list[dict[str, str]]
+    translator_notes: list[str]
+
+
+class TranslationArtifact(TypedDict, total=False):
+    schema_version: str
+    paper_id: str
+    source_file: str
+    source_sha256: str
+    chunk_artifact: str
+    chunk_artifact_sha256: str
+    selection_sha256: str
+    selection: dict[str, Any]
+    provider: str
+    model: str
+    prompt_version: str
+    target_language: str
+    translated_at: str
+    usage: dict[str, int]
+    translations: list[TranslationRecord]
 
 
 def validate_project_index(index: dict[str, Any]) -> list[str]:

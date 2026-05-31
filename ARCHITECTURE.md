@@ -92,7 +92,7 @@ src/odracir/
     deepseek.py
   processing/
     summarize.py
-    translate.py
+    translation.py
     extract_fields.py
   retrieval/
     lexical.py
@@ -122,8 +122,8 @@ source file
 -> scan manifest
 -> normalized extraction artifact
 -> traceable chunks
--> structured summary artifact
--> translation artifact
+   -> structured summary artifact
+   -> translation artifact
 -> retrieval index
 -> evidence-backed conversation and planning
 ```
@@ -133,8 +133,8 @@ source file
 -> 扫描清单
 -> 标准化提取 artifact
 -> 可追溯 chunk
--> 结构化总结 artifact
--> 翻译 artifact
+   -> 结构化总结 artifact
+   -> 翻译 artifact
 -> 检索索引
 -> 带证据的交流与规划
 ```
@@ -498,6 +498,9 @@ Completed on 2026-05-30:
 - Added an optional Docling parser adapter that preserves normalized page-level artifacts.
 - Added OCRmyPDF capability detection and explicit `.odracir/ocr/` derivative preprocessing.
 - Added extraction provenance so parser changes and OCR-derived inputs invalidate stale caches.
+- Added explicit selective translation over traceable chunks with citations, selection hashes, and usage metadata.
+- Decoupled summary and translation invalidation while keeping both parallel derivatives of chunk artifacts.
+- Added no-cost translation dry runs and conservative heading-aware chunk selection.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -511,6 +514,9 @@ Completed on 2026-05-30:
 - 添加可选 Docling parser adapter，并保持标准化按页 artifact。
 - 添加 OCRmyPDF 能力检测和显式 `.odracir/ocr/` derivative 预处理。
 - 添加提取 provenance，使 parser 变化和 OCR derivative 输入能够使旧缓存失效。
+- 添加基于可追溯 chunk 的显式选择性翻译，记录引用、选择 hash 和用量元数据。
+- 将摘要与翻译失效传播解耦，同时保持二者都是 chunk artifact 的并行派生物。
+- 添加无费用翻译 dry-run 和保守的章节标题感知 chunk 选择。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
@@ -536,10 +542,10 @@ Next implementation sprint:
 
 1. Install the optional Docling adapter and benchmark it against `pymupdf` on selected complex-layout papers.
 2. Install OCRmyPDF system dependencies and validate the explicit OCR route on a scanned PDF fixture.
-3. Benchmark DeepSeek summaries on selected papers and refine prompts before folder-wide runs.
+3. Benchmark DeepSeek summaries and selective translations on selected papers before folder-wide runs.
 4. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
 
 1. 安装可选 Docling adapter，并在选定复杂版式论文上与 `pymupdf` 对比。
 2. 安装 OCRmyPDF 系统依赖，并在扫描版 PDF fixture 上验证显式 OCR 路径。
-3. 在选定论文上评估 DeepSeek 摘要，并在整文件夹运行前优化 prompt。
+3. 在选定论文上评估 DeepSeek 摘要和选择性翻译，再考虑整文件夹运行。
 4. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。

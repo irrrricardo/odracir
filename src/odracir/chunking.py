@@ -9,7 +9,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
-from odracir.processing_state import invalidate_summary
+from odracir.processing_state import invalidate_chunking, invalidate_summary
 from odracir.research_folder import ResearchFolderHarness
 from odracir.schemas import CHUNK_SCHEMA_VERSION, ChunkingStatus
 from odracir.time_utils import now_iso
@@ -266,12 +266,14 @@ def _mark_chunked(
 
 
 def _mark_blocked(paper: dict[str, Any]) -> None:
+    invalidate_chunking(paper)
     paper["chunking_status"] = ChunkingStatus.BLOCKED.value
     paper["chunking_error"] = "text extraction must succeed before chunking"
     paper["updated_at"] = now_iso()
 
 
 def _mark_failed(paper: dict[str, Any], exc: Exception) -> None:
+    invalidate_chunking(paper)
     paper["chunking_status"] = ChunkingStatus.FAILED.value
     paper["chunking_error"] = str(exc)
     paper["updated_at"] = now_iso()

@@ -54,6 +54,7 @@ def invalidate_chunking(paper: dict[str, Any]) -> None:
     ):
         paper.pop(field, None)
     invalidate_summary(paper)
+    invalidate_translation(paper)
 
 
 def invalidate_summary(paper: dict[str, Any]) -> None:
@@ -70,4 +71,20 @@ def invalidate_summary(paper: dict[str, Any]) -> None:
         paper.pop(field, None)
     paper["summary_short"] = ""
     paper["summary_detailed"] = ""
+
+
+def invalidate_translation(paper: dict[str, Any]) -> None:
     paper["translation_status"] = "not_started"
+    for field in (
+        "translation_artifact",
+        "translation_input_sha256",
+        "translation_selection_sha256",
+        "translation_provider",
+        "translation_model",
+        "translation_prompt_version",
+        "translation_target_language",
+        "translated_chunk_count",
+        "translation_error",
+        "translated_at",
+    ):
+        paper.pop(field, None)

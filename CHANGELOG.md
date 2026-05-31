@@ -39,6 +39,12 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `odracir capabilities` to report optional parser and preprocessor availability.
 - Added explicit `odracir ocr` preprocessing through OCRmyPDF derivatives without modifying source PDFs.
 - Added extraction provenance and cache invalidation for parser changes and OCR-derived inputs.
+- Added `odracir translate` for explicit, selective translation of traceable chunks through DeepSeek.
+- Added default abstract, methods, and conclusion selection with a controlled chunk limit.
+- Added precise `--section`, `--chunk`, and explicit `--all-chunks` translation modes.
+- Added `odracir translate --dry-run` to preview selected citations without loading API configuration or calling DeepSeek.
+- Added translation artifacts with source citations, selection hashes, provider/model/prompt metadata, token usage, and idempotent skipping.
+- Decoupled summary and translation invalidation while keeping both downstream of chunk changes.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -67,17 +73,23 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `odracir capabilities`，用于报告可选 parser 和预处理器是否可用。
 - 添加显式 `odracir ocr`，通过 OCRmyPDF derivative 预处理而不修改原始 PDF。
 - 添加提取 provenance，以及 parser 切换和 OCR derivative 输入变化后的缓存失效。
+- 添加 `odracir translate`，通过 DeepSeek 显式、选择性地翻译可追溯 chunk。
+- 添加默认摘要、方法和结论选择，并设置受控 chunk 上限。
+- 添加精确 `--section`、`--chunk` 和显式 `--all-chunks` 翻译模式。
+- 添加 `odracir translate --dry-run`，无需读取 API 配置或调用 DeepSeek 即可预览选定引用。
+- 添加包含来源引用、选择 hash、provider/模型/prompt 元数据、token 用量和幂等跳过的翻译 artifact。
+- 将摘要与翻译的失效传播解耦，同时保持二者都在 chunk 变化后失效。
 
 ### Planned / 计划
 
 - Evolve the first `odracir_index.json` schema after real paper processing.
-- Add paper translation and structured summary tools.
-- Add retrieval over paper records and extracted text.
+- Benchmark paper translation and structured summaries on reviewed examples.
+- Add richer retrieval over paper records and extracted text.
 - Add a research conversation agent that can use folder-level evidence.
 
 - 在真实论文处理后继续演进第一版 `odracir_index.json` schema。
-- 添加论文翻译和结构化摘要工具。
-- 添加基于论文记录和提取文本的检索能力。
+- 在人工审阅样例上评估论文翻译和结构化摘要。
+- 添加更丰富的论文记录与提取文本检索能力。
 - 添加能够使用文件夹级证据的科研交流 agent。
 
 ## [0.1.0] - 2026-05-30 / 初始版本

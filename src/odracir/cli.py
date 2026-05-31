@@ -19,6 +19,12 @@ from odracir.research_folder import ResearchFolderHarness
 from odracir.retrieval import format_search_report, search_chunks
 from odracir.status import build_research_status, format_research_status
 from odracir.summarization import EvidenceSummaryGenerator
+from odracir.translation import (
+    DEFAULT_SECTIONS,
+    SelectiveTranslator,
+    build_translation_plan,
+    format_translation_plan,
+)
 
 
 def main() -> None:
@@ -46,6 +52,9 @@ def main() -> None:
         return
     if argv and argv[0] == "summarize":
         _summarize(argv[1:])
+        return
+    if argv and argv[0] == "translate":
+        _translate(argv[1:])
         return
     if argv and argv[0] == "sync-docs":
         _sync_docs(argv[1:])
@@ -332,6 +341,110 @@ def _summarize(argv: list[str]) -> None:
         "Paper summaries: "
         f"{result.eligible_papers} eligible, "
         f"{result.summarized} summarized, "
+        f"{result.skipped} skipped, "
+        f"{result.blocked} blocked, "
+        f"{result.failed} failed"
+    )
+
+
+def _translate(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Translate selected traceable paper chunks through DeepSeek."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only translate one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--target-language",
+        default="zh-CN",
+        help="Translation target language. Defaults to zh-CN.",
+    )
+    parser.add_argument(
+        "--section",
+        action="append",
+        default=None,
+        help="Preferred section name. Repeat to select multiple sections.",
+    )
+    parser.add_argument(
+        "--chunk",
+        action="append",
+        default=None,
+        help="Explicit chunk id. Repeat to select multiple passages.",
+    )
+    parser.add_argument(
+        "--all-chunks",
+        action="store_true",
+        help="Translate every chunk. This can consume substantial API usage.",
+    )
+    parser.add_argument(
+        "--max-chunks",
+        type=int,
+        default=8,
+        help="Maximum chunks for selective translation. Defaults to 8.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview selected chunks without loading API configuration or calling DeepSeek.",
+    )
+    parser.add_argument("--force", action="store_true", help="Regenerate current translations.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    chunk_ids = args.chunk or ()
+    sections = args.section if args.section is not None else (() if chunk_ids else DEFAULT_SECTIONS)
+    try:
+        if args.dry_run:
+            plan = build_translation_plan(
+                args.folder,
+                papers_dir=args.papers_dir,
+                limit=args.limit,
+                paper_id=args.paper,
+                target_language=args.target_language,
+                sections=sections,
+                chunk_ids=chunk_ids,
+                all_chunks=args.all_chunks,
+                max_selected_chunks=args.max_chunks,
+            )
+            if args.json:
+                print(json.dumps(plan.as_dict(), ensure_ascii=False, indent=2))
+                return
+            print(format_translation_plan(plan))
+            return
+
+        provider = DeepSeekProvider(load_config())
+        result = SelectiveTranslator(
+            args.folder,
+            provider,
+            papers_dir=args.papers_dir,
+        ).translate_index(
+            force=args.force,
+            limit=args.limit,
+            paper_id=args.paper,
+            target_language=args.target_language,
+            sections=sections,
+            chunk_ids=chunk_ids,
+            all_chunks=args.all_chunks,
+            max_selected_chunks=args.max_chunks,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+
+    print(f"Research folder: {result.root}")
+    print(f"Index: {result.index_path}")
+    print(
+        "Paper translations: "
+        f"{result.eligible_papers} eligible, "
+        f"{result.translated} translated, "
         f"{result.skipped} skipped, "
         f"{result.blocked} blocked, "
         f"{result.failed} failed"

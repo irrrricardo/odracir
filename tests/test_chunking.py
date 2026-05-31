@@ -64,3 +64,35 @@ def test_chunking_blocks_pdf_that_needs_ocr(tmp_path) -> None:
 
     assert result.blocked == 1
     assert paper["chunking_status"] == "blocked"
+
+
+def test_failed_forced_chunking_removes_stale_downstream_artifacts(tmp_path) -> None:
+    root = tmp_path / "field"
+    papers = root / "papers"
+    papers.mkdir(parents=True)
+    _write_pdf(
+        papers / "paper.pdf",
+        "Stable extracted text with enough content for the first chunking pass.",
+    )
+    PdfTextExtractor(root).extract_index()
+    chunker = TextChunker(root)
+    chunker.chunk_index()
+    index = chunker.harness.load_index()
+    paper = index["papers"][0]
+    paper["summary_status"] = "summarized"
+    paper["summary_artifact"] = ".odracir/summaries/paper.json"
+    paper["translation_status"] = "translated"
+    paper["translation_artifact"] = ".odracir/translations/paper.zh-CN.json"
+    chunker.harness.write_index(index)
+    (root / paper["text_artifact"]).write_text("[]", encoding="utf-8")
+
+    result = chunker.chunk_index(force=True)
+    paper = chunker.harness.load_index()["papers"][0]
+
+    assert result.failed == 1
+    assert paper["chunking_status"] == "failed"
+    assert "chunk_artifact" not in paper
+    assert paper["summary_status"] == "not_started"
+    assert "summary_artifact" not in paper
+    assert paper["translation_status"] == "not_started"
+    assert "translation_artifact" not in paper
