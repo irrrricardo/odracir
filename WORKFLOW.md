@@ -15,6 +15,8 @@ research folder
 -> extract PDF page text
 -> write .odracir/texts/*.json
 -> report extraction state and likely OCR needs
+-> optionally create .odracir/ocr/*.pdf derivatives with OCRmyPDF
+-> re-extract from current OCR derivatives
 -> create stable page-traceable chunks
 -> write .odracir/chunks/*.json
 -> search chunks with paper/page citations
@@ -32,6 +34,8 @@ research folder
 -> 提取 PDF 按页正文
 -> 写入 .odracir/texts/*.json
 -> 报告提取状态和可能需要 OCR 的文件
+-> 可选：使用 OCRmyPDF 创建 .odracir/ocr/*.pdf derivative
+-> 从当前 OCR derivative 重新提取正文
 -> 创建稳定、按页可追溯的 chunk
 -> 写入 .odracir/chunks/*.json
 -> 检索 chunk，并返回论文与页码引用
@@ -77,6 +81,52 @@ odracir extract <research-folder> --papers-dir <paper-folder>
 ```powershell
 odracir extract <research-folder> --papers-dir <paper-folder>
 ```
+
+Inspect optional document tools:
+
+```powershell
+odracir capabilities
+```
+
+检查可选文档工具：
+
+```powershell
+odracir capabilities
+```
+
+Use the optional Docling backend for complex layouts:
+
+```powershell
+pip install -e ".[docling]"
+odracir extract <research-folder> --paper <paper-id> --parser docling --force
+```
+
+为复杂版式使用可选 Docling 后端：
+
+```powershell
+pip install -e ".[docling]"
+odracir extract <research-folder> --paper <paper-id> --parser docling --force
+```
+
+Create OCR derivatives for papers reported as `needs_ocr`:
+
+```powershell
+pip install -e ".[ocr]"
+odracir ocr <research-folder> --papers-dir <paper-folder> --language eng
+odracir extract <research-folder> --papers-dir <paper-folder>
+```
+
+为报告为 `needs_ocr` 的论文创建 OCR derivative：
+
+```powershell
+pip install -e ".[ocr]"
+odracir ocr <research-folder> --papers-dir <paper-folder> --language eng
+odracir extract <research-folder> --papers-dir <paper-folder>
+```
+
+OCRmyPDF also needs its documented system dependencies. Odracir writes derivatives under `.odracir/ocr/`, preserves source PDFs, and automatically uses current derivatives on the next extraction run.
+
+OCRmyPDF 还需要其文档中说明的系统依赖。Odracir 将 derivative 写入 `.odracir/ocr/`，保留原始 PDF，并在下一次提取时自动使用当前 derivative。
 
 Inspect processing status:
 
@@ -159,6 +209,8 @@ research-folder/
   .odracir/
     texts/
       paper-id.json
+    ocr/
+      paper-id.pdf
     summaries/
     translations/
     chunks/
@@ -196,16 +248,16 @@ harness: runs the workflow, records state, handles retries, writes artifacts
 
 ## Parser Backends / 解析器后端
 
-PDF parsing is a replaceable deterministic tool. Odracir now uses a parser registry and keeps `pymupdf` as the default lightweight backend. Later adapters should preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
+PDF parsing is a replaceable deterministic tool. Odracir uses a parser registry, keeps `pymupdf` as the default lightweight backend, and exposes the optional `docling` backend for complex layouts. OCRmyPDF is an explicit preprocessor rather than a parser. Backends preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
 
-PDF 解析是一个可替换的确定性工具。Odracir 现在使用解析器注册表，并将 `pymupdf` 保留为默认轻量后端。后续适配器应该遵守标准化 artifact 契约，而不是让后端专属格式泄漏到 agent 中。
+PDF 解析是一个可替换的确定性工具。Odracir 使用解析器注册表，将 `pymupdf` 保留为默认轻量后端，并暴露用于复杂版式的可选 `docling` 后端。OCRmyPDF 是显式预处理器，而不是 parser。各后端遵守标准化 artifact 契约，不会让后端专属格式泄漏到 agent 中。
 
 Recommended external projects:
 
 推荐评估的外部项目：
 
-- [Docling](https://github.com/docling-project/docling): preferred next adapter for complex layout and multiple document formats.
-- [OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF): preprocessing route for PDFs reported as `needs_ocr`.
+- [Docling](https://github.com/docling-project/docling): integrated optional adapter for complex-layout PDFs; see its [official usage docs](https://docling-project.github.io/docling/usage/).
+- [OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF): integrated optional preprocessing route for PDFs reported as `needs_ocr`; see its [official cookbook](https://ocrmypdf.readthedocs.io/en/latest/cookbook.html).
 - [GROBID](https://github.com/kermitt2/grobid): optional service for scholarly metadata, references, and citation structures.
 - [MinerU](https://github.com/opendatalab/MinerU): heavier optional backend to benchmark on Chinese, formula-heavy, or complex-layout papers.
 
@@ -228,14 +280,14 @@ Possible future skills:
 ## Near-Term Roadmap / 近期路线图
 
 1. Keep scan, extract, status, and chunk reliable.
-2. Benchmark Docling and OCRmyPDF adapters on real papers.
+2. Benchmark the integrated Docling and OCRmyPDF routes on real papers after optional installation.
 3. Benchmark and refine DeepSeek-based structured paper summaries.
 4. Add Chinese translation for abstract, method, conclusion, and selected key passages.
 5. Extend retrieval over `odracir_index.json` and `.odracir/chunks/` with optional embeddings.
 6. Add discipline-specific skills only after the generic extraction and memory loop is stable.
 
 1. 先让 scan、extract、status 和 chunk 稳定。
-2. 在真实论文上评估 Docling 和 OCRmyPDF 适配器。
+2. 可选安装后，在真实论文上评估已接入的 Docling 和 OCRmyPDF 路径。
 3. 对基于 DeepSeek 的结构化论文总结进行基准评估和优化。
 4. 添加摘要、方法、结论和关键段落的中文翻译。
 5. 使用可选 embedding 扩展对 `odracir_index.json` 和 `.odracir/chunks/` 的检索。
@@ -364,3 +416,43 @@ Medical World Model 摘要就绪检查：
 
 - 状态报告显示 `summaries: not_started=9`。
 - 未自动运行 `odracir summarize`，因为它会调用 DeepSeek 并产生 API 用量。
+
+### 2026-05-31
+
+Optional document-tool adapter migration:
+
+```powershell
+odracir capabilities
+odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+可选文档工具 adapter 迁移：
+
+```powershell
+odracir capabilities
+odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+Result:
+
+- Added the optional `docling` backend and explicit OCRmyPDF derivative route.
+- Local capability check reports `pymupdf=available`, `docling=unavailable`, and `ocrmypdf=unavailable` before optional installation.
+- Provenance migration re-extracted 9 PDFs once; the next extraction run skipped all 9.
+- Provenance migration re-chunked 9 PDFs once; the next chunk run skipped all 9.
+- Final status: 9 extracted PDFs, 9 chunked PDFs, 0 OCR needs, 0 failures, and 128 chunks.
+- DeepSeek summary execution remained intentionally disabled during this no-cost migration.
+
+结果：
+
+- 添加可选 `docling` 后端和显式 OCRmyPDF derivative 路径。
+- 在可选安装前，本机能力检查报告 `pymupdf=available`、`docling=unavailable` 和 `ocrmypdf=unavailable`。
+- Provenance 迁移首次重新提取 9 篇 PDF；下一次提取全部跳过。
+- Provenance 迁移首次重新 chunk 9 篇 PDF；下一次 chunk 全部跳过。
+- 最终状态：9 篇 PDF 已提取、9 篇 PDF 已 chunk、0 篇需要 OCR、0 篇失败，共 128 个 chunk。
+- 此次无费用迁移期间仍然刻意不运行 DeepSeek 摘要。

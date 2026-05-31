@@ -35,6 +35,10 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added a DeepSeek provider adapter for OpenAI-compatible chat and JSON completions.
 - Added `odracir summarize` for evidence-aware map-reduce summaries over traceable chunks.
 - Added summary metadata, usage recording, source-chunk citation allowlisting, idempotent skipping, and downstream invalidation.
+- Added an optional Docling PDF parser adapter that preserves the normalized page-level artifact contract.
+- Added `odracir capabilities` to report optional parser and preprocessor availability.
+- Added explicit `odracir ocr` preprocessing through OCRmyPDF derivatives without modifying source PDFs.
+- Added extraction provenance and cache invalidation for parser changes and OCR-derived inputs.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -59,6 +63,10 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加用于 OpenAI-compatible chat 和 JSON completion 的 DeepSeek provider adapter。
 - 添加 `odracir summarize`，用于基于可追溯 chunk 生成注重证据的 map-reduce 摘要。
 - 添加摘要元数据、用量记录、源 chunk 引用白名单校验、幂等跳过和下游失效传播。
+- 添加可选 Docling PDF parser adapter，并保持标准化按页 artifact 契约。
+- 添加 `odracir capabilities`，用于报告可选 parser 和预处理器是否可用。
+- 添加显式 `odracir ocr`，通过 OCRmyPDF derivative 预处理而不修改原始 PDF。
+- 添加提取 provenance，以及 parser 切换和 OCR derivative 输入变化后的缓存失效。
 
 ### Planned / 计划
 

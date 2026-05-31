@@ -14,16 +14,18 @@
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有可追溯检索和摘要 harness 的模块化科研原型
-- 当前重点：可靠 artifact、带证据检索和受控的 DeepSeek 摘要运行
-- 最近同步：`2026-05-30T16:35:31+08:00`
+- 阶段：带有可选文档工具适配器的模块化科研原型
+- 当前重点：解析器基准、OCR 预处理和受控的 DeepSeek 摘要运行
+- 最近同步：`2026-05-31T15:34:13+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
+- `odracir capabilities`：检查可选解析器和预处理器是否可用。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
+- `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
@@ -163,6 +165,8 @@ src/odracir/
   tools.py      # 工具注册和示例工具
   retrieval.py  # 带论文、页码和 chunk 引用的本地关键词检索
   providers.py  # 可替换 LLM provider 适配器
+  docling_adapter.py # 可选的复杂版式 PDF 解析器
+  ocr.py        # 显式 OCRmyPDF derivative 预处理
   summarization.py # 注重证据的 map-reduce 论文摘要
   cli.py        # 命令行入口
 tests/
@@ -230,6 +234,27 @@ odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal Wor
 
 这个命令会把按页提取的正文 artifact 写入 `.odracir/texts/`，并在 `odracir_index.json` 中更新提取状态、页数、文本长度和 artifact 路径。
 
+检查可选文档工具是否可用：
+
+```powershell
+odracir capabilities
+```
+
+安装 `pip install -e ".[docling]"` 后，可以为复杂版式 PDF 使用 Docling：
+
+```powershell
+odracir extract <research-folder> --paper <paper-id> --parser docling --force
+```
+
+安装 `pip install -e ".[ocr]"` 和 OCRmyPDF 所需的系统依赖后，可以为报告为 `needs_ocr` 的 PDF 创建 OCR derivative：
+
+```powershell
+odracir ocr <research-folder> --papers-dir <paper-folder> --language eng
+odracir extract <research-folder> --papers-dir <paper-folder>
+```
+
+OCR derivative 会写入 `.odracir/ocr/`；原始 PDF 不会被修改。下一次提取会自动使用当前 OCR derivative。
+
 查看处理状态、OCR 需求和失败项：
 
 ```powershell
@@ -275,16 +300,18 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有可追溯检索和摘要 harness 的模块化科研原型
-- 当前重点：可靠 artifact、带证据检索和受控的 DeepSeek 摘要运行
-- 最近同步：`2026-05-30T16:35:31+08:00`
+- 阶段：带有可选文档工具适配器的模块化科研原型
+- 当前重点：解析器基准、OCR 预处理和受控的 DeepSeek 摘要运行
+- 最近同步：`2026-05-31T15:34:13+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
+- `odracir capabilities`：检查可选解析器和预处理器是否可用。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
+- `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
@@ -311,7 +338,7 @@ odracir install-hooks
 3. 将 PDF 正文提取到 `.odracir/texts/` 下的本地 artifact。
 4. 验证类型化 `odracir_index.json` schema，并检查处理状态。
 5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
-6. 在解析器注册表后面添加可选的 Docling 和 OCRmyPDF 适配器。
+6. 在真实论文上评估可选 Docling parser 和 OCRmyPDF 预处理路径。
 7. 运行受控的 DeepSeek 摘要基准，并添加选择性翻译。
 8. 使用可选 embedding 和更丰富排序扩展本地 chunk 检索。
 9. 添加能够引用文件夹证据的交流 agent。

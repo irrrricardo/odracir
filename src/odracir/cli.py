@@ -8,9 +8,11 @@ import subprocess
 import sys
 
 from odracir.agent import OdracirAgent
+from odracir.capabilities import build_capability_report, format_capability_report
 from odracir.chunking import TextChunker
 from odracir.config import load_config
 from odracir.docs_sync import sync_project_docs
+from odracir.ocr import OcrmyPdfPreprocessor
 from odracir.pdf_extraction import PdfTextExtractor
 from odracir.providers import DeepSeekProvider
 from odracir.research_folder import ResearchFolderHarness
@@ -26,6 +28,12 @@ def main() -> None:
         return
     if argv and argv[0] == "extract":
         _extract(argv[1:])
+        return
+    if argv and argv[0] == "ocr":
+        _ocr(argv[1:])
+        return
+    if argv and argv[0] == "capabilities":
+        _capabilities(argv[1:])
         return
     if argv and argv[0] == "status":
         _status(argv[1:])
@@ -126,6 +134,76 @@ def _extract(argv: list[str]) -> None:
         f"{result.skipped} skipped, "
         f"{result.failed} failed"
     )
+
+
+def _ocr(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Create OCR-enhanced PDF derivatives with OCRmyPDF."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only preprocess one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--language",
+        action="append",
+        default=None,
+        help="OCR language code. Repeat for multiple languages. Defaults to eng.",
+    )
+    parser.add_argument("--deskew", action="store_true", help="Ask OCRmyPDF to deskew pages.")
+    parser.add_argument(
+        "--all-pdfs",
+        action="store_true",
+        help="Process PDFs even when extraction did not mark them as needs_ocr.",
+    )
+    parser.add_argument("--force", action="store_true", help="Regenerate current OCR PDFs.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        result = OcrmyPdfPreprocessor(
+            args.folder,
+            papers_dir=args.papers_dir,
+        ).preprocess_index(
+            force=args.force,
+            limit=args.limit,
+            paper_id=args.paper,
+            languages=args.language or ("eng",),
+            deskew=args.deskew,
+            all_pdfs=args.all_pdfs,
+        )
+    except RuntimeError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+
+    print(f"Research folder: {result.root}")
+    print(f"Index: {result.index_path}")
+    print(
+        "OCR preprocessing: "
+        f"{result.eligible_papers} eligible, "
+        f"{result.processed} processed, "
+        f"{result.skipped} skipped, "
+        f"{result.failed} failed"
+    )
+
+
+def _capabilities(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(description="Inspect optional document capabilities.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    report = build_capability_report()
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_capability_report(report))
 
 
 def _sync_docs(argv: list[str]) -> None:

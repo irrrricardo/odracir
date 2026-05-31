@@ -75,6 +75,8 @@ def test_research_folder_sync_invalidates_generated_fields_when_source_changes(t
             "text_extraction_status": "extracted",
             "text_artifact": ".odracir/texts/paper-a.json",
             "text_extraction_sha256": paper["sha256"],
+            "ocr_status": "processed",
+            "ocr_artifact": ".odracir/ocr/paper-a.pdf",
             "chunking_status": "chunked",
             "chunk_artifact": ".odracir/chunks/paper-a.json",
             "chunking_sha256": "old-text-artifact-hash",
@@ -90,10 +92,12 @@ def test_research_folder_sync_invalidates_generated_fields_when_source_changes(t
     updated = harness.load_index()["papers"][0]
 
     assert updated["text_extraction_status"] == "not_started"
+    assert updated["ocr_status"] == "not_started"
     assert updated["chunking_status"] == "not_started"
     assert updated["summary_status"] == "not_started"
     assert updated["translation_status"] == "not_started"
     assert "text_artifact" not in updated
+    assert "ocr_artifact" not in updated
     assert "chunk_artifact" not in updated
     assert "summary_artifact" not in updated
 

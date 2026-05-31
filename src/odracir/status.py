@@ -16,6 +16,7 @@ class ResearchStatusReport:
     index_path: str
     total_papers: int
     pdf_papers: int
+    ocr_statuses: dict[str, int]
     extraction_statuses: dict[str, int]
     chunking_statuses: dict[str, int]
     summary_statuses: dict[str, int]
@@ -44,6 +45,7 @@ def build_research_status(
     ]
     pdf_papers = [paper for paper in papers if paper.get("file_type") == "pdf"]
 
+    ocr_statuses = _count_statuses(pdf_papers, "ocr_status")
     extraction_statuses = _count_statuses(pdf_papers, "text_extraction_status")
     chunking_statuses = _count_statuses(pdf_papers, "chunking_status")
     summary_statuses = _count_statuses(pdf_papers, "summary_status")
@@ -71,6 +73,7 @@ def build_research_status(
         index_path=str(harness.index_path),
         total_papers=len(papers),
         pdf_papers=len(pdf_papers),
+        ocr_statuses=ocr_statuses,
         extraction_statuses=extraction_statuses,
         chunking_statuses=chunking_statuses,
         summary_statuses=summary_statuses,
@@ -84,6 +87,7 @@ def format_research_status(report: ResearchStatusReport) -> str:
         f"Research folder: {report.root}",
         f"Index: {report.index_path}",
         f"Papers: {report.total_papers} active, {report.pdf_papers} PDF",
+        f"OCR preprocessing: {_format_counts(report.ocr_statuses)}",
         f"Extraction: {_format_counts(report.extraction_statuses)}",
         f"Chunking: {_format_counts(report.chunking_statuses)}",
         f"Summaries: {_format_counts(report.summary_statuses)}",
@@ -114,6 +118,8 @@ def _paper_failures(paper: dict[str, Any]) -> list[tuple[str, str]]:
     failures: list[tuple[str, str]] = []
     if paper.get("text_extraction_status") == "failed":
         failures.append(("extract", str(paper.get("text_extraction_error", ""))))
+    if paper.get("ocr_status") == "failed":
+        failures.append(("ocr", str(paper.get("ocr_error", ""))))
     if paper.get("chunking_status") == "failed":
         failures.append(("chunk", str(paper.get("chunking_error", ""))))
     return failures

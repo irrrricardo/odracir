@@ -9,7 +9,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
-from odracir.processing_state import invalidate_text_extraction
+from odracir.processing_state import invalidate_ocr
 from odracir.schemas import INDEX_SCHEMA_VERSION, require_valid_project_index
 from odracir.time_utils import now_iso
 
@@ -181,6 +181,7 @@ class ResearchFolderHarness:
             "file_size_bytes": paper_path.stat().st_size,
             "sha256": file_hash,
             "status": "indexed",
+            "ocr_status": "not_started",
             "text_extraction_status": "not_started",
             "chunking_status": "not_started",
             "translation_status": "not_started",
@@ -221,6 +222,7 @@ class ResearchFolderHarness:
         record["status"] = "indexed"
         if existing.get("sha256") != file_hash:
             _invalidate_generated_fields(record)
+        record.setdefault("ocr_status", "not_started")
         record.setdefault("translation_status", "not_started")
         record.setdefault("summary_status", "not_started")
         record.setdefault("text_extraction_status", "not_started")
@@ -242,7 +244,7 @@ class ResearchFolderHarness:
 
 
 def _invalidate_generated_fields(record: dict[str, Any]) -> None:
-    invalidate_text_extraction(record)
+    invalidate_ocr(record)
 
 
 def _relative_posix(path: Path, root: Path) -> str:

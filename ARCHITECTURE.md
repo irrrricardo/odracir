@@ -495,6 +495,9 @@ Completed on 2026-05-30:
 - Added inspectable lexical retrieval over chunks and exposed it as `search_research_chunks`.
 - Added a DeepSeek provider adapter and evidence-aware map-reduce summary harness.
 - Added summary input hashes, provider/model/prompt metadata, usage recording, and source-chunk citation allowlisting.
+- Added an optional Docling parser adapter that preserves normalized page-level artifacts.
+- Added OCRmyPDF capability detection and explicit `.odracir/ocr/` derivative preprocessing.
+- Added extraction provenance so parser changes and OCR-derived inputs invalidate stale caches.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -505,6 +508,9 @@ Completed on 2026-05-30:
 - 添加可独立检查的 chunk 关键词检索，并将其暴露为 `search_research_chunks`。
 - 添加 DeepSeek provider adapter 和注重证据的 map-reduce 摘要 harness。
 - 添加摘要输入 hash、provider/模型/prompt 元数据、用量记录和源 chunk 引用白名单校验。
+- 添加可选 Docling parser adapter，并保持标准化按页 artifact。
+- 添加 OCRmyPDF 能力检测和显式 `.odracir/ocr/` derivative 预处理。
+- 添加提取 provenance，使 parser 变化和 OCR derivative 输入能够使旧缓存失效。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
@@ -516,8 +522,8 @@ Odracir 应该通过适配器复用成熟开源解析器。Chunking、检索、s
 source document
 -> parser registry
    -> pymupdf: lightweight default
-   -> docling: planned complex-layout and multi-format adapter
-   -> ocrmypdf: planned preprocessing route for needs_ocr
+   -> docling: optional complex-layout PDF adapter
+   -> ocrmypdf: explicit derivative preprocessing route for needs_ocr
    -> grobid: planned scholarly metadata service
    -> mineru: optional heavier backend for benchmark cases
 -> normalized local artifact
@@ -528,12 +534,12 @@ Next implementation sprint:
 
 下一轮实现：
 
-1. Add an optional Docling adapter and benchmark it against `pymupdf` on the Medical World Model folder.
-2. Add OCRmyPDF capability detection and an explicit OCR preprocessing command.
+1. Install the optional Docling adapter and benchmark it against `pymupdf` on selected complex-layout papers.
+2. Install OCRmyPDF system dependencies and validate the explicit OCR route on a scanned PDF fixture.
 3. Benchmark DeepSeek summaries on selected papers and refine prompts before folder-wide runs.
 4. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
 
-1. 添加可选 Docling 适配器，并在 Medical World Model 文件夹上与 `pymupdf` 对比。
-2. 添加 OCRmyPDF 能力检测和显式 OCR 预处理命令。
+1. 安装可选 Docling adapter，并在选定复杂版式论文上与 `pymupdf` 对比。
+2. 安装 OCRmyPDF 系统依赖，并在扫描版 PDF fixture 上验证显式 OCR 路径。
 3. 在选定论文上评估 DeepSeek 摘要，并在整文件夹运行前优化 prompt。
 4. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。

@@ -19,6 +19,12 @@ class ExtractionStatus(str, Enum):
     FAILED = "failed"
 
 
+class OcrStatus(str, Enum):
+    NOT_STARTED = "not_started"
+    PROCESSED = "processed"
+    FAILED = "failed"
+
+
 class ChunkingStatus(str, Enum):
     NOT_STARTED = "not_started"
     CHUNKED = "chunked"
@@ -37,10 +43,22 @@ class PaperRecord(TypedDict, total=False):
     file_size_bytes: int
     sha256: str
     status: str
+    ocr_status: str
+    ocr_artifact: str
+    ocr_artifact_sha256: str
+    ocr_source_sha256: str
+    ocr_provider: str
+    ocr_provider_version: str
+    ocr_languages: list[str]
+    ocr_deskew: bool
+    ocr_processed_at: str
+    ocr_error: str
     text_extraction_status: str
     text_extraction_sha256: str
+    text_extraction_input_sha256: str
     text_extraction_error: str
     text_artifact: str
+    text_extracted_from: str
     text_parser: str
     text_parser_version: str
     page_count: int
@@ -85,6 +103,8 @@ class TextArtifact(TypedDict, total=False):
     paper_id: str
     source_file: str
     source_sha256: str
+    extracted_from: str
+    extraction_input_sha256: str
     parser: str
     parser_version: str
     extracted_at: str

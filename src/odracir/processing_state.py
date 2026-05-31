@@ -9,8 +9,10 @@ def invalidate_text_extraction(paper: dict[str, Any]) -> None:
     paper["text_extraction_status"] = "not_started"
     for field in (
         "text_extraction_sha256",
+        "text_extraction_input_sha256",
         "text_extraction_error",
         "text_artifact",
+        "text_extracted_from",
         "page_count",
         "text_char_count",
         "empty_text_page_count",
@@ -22,6 +24,23 @@ def invalidate_text_extraction(paper: dict[str, Any]) -> None:
     ):
         paper.pop(field, None)
     invalidate_chunking(paper)
+
+
+def invalidate_ocr(paper: dict[str, Any]) -> None:
+    paper["ocr_status"] = "not_started"
+    for field in (
+        "ocr_artifact",
+        "ocr_artifact_sha256",
+        "ocr_source_sha256",
+        "ocr_provider",
+        "ocr_provider_version",
+        "ocr_languages",
+        "ocr_deskew",
+        "ocr_processed_at",
+        "ocr_error",
+    ):
+        paper.pop(field, None)
+    invalidate_text_extraction(paper)
 
 
 def invalidate_chunking(paper: dict[str, Any]) -> None:

@@ -2,6 +2,8 @@ import json
 
 import pytest
 
+from odracir.parsers import ParserRegistration, ParserRegistry
+from odracir.pdf_artifacts import build_pdf_text_artifact
 from odracir.pdf_extraction import PdfTextExtractor
 
 
@@ -105,3 +107,40 @@ def test_pdf_text_extractor_keeps_batch_progress_after_invalid_pdf(tmp_path) -> 
     assert papers_by_name["valid.pdf"]["text_extraction_status"] == "extracted"
     assert papers_by_name["invalid.pdf"]["text_extraction_status"] == "failed"
     assert papers_by_name["invalid.pdf"]["text_extraction_error"]
+
+
+def test_pdf_text_extractor_reextracts_when_parser_changes(tmp_path) -> None:
+    root = tmp_path / "field"
+    papers = root / "papers"
+    papers.mkdir(parents=True)
+    (papers / "paper.pdf").write_bytes(b"%PDF-1.4\n")
+    calls = []
+
+    def parser(name):
+        def parse(source_path):
+            calls.append(name)
+            return build_pdf_text_artifact(
+                parser=name,
+                parser_version="test",
+                pages=[{"page_number": 1, "text": f"{name} extracted enough text."}],
+            )
+
+        return parse
+
+    registry = ParserRegistry()
+    registry.register(ParserRegistration("first", ("pdf",), parser("first")))
+    registry.register(ParserRegistration("second", ("pdf",), parser("second")))
+
+    PdfTextExtractor(root, parser_name="first", parser_registry=registry).extract_index()
+    result = PdfTextExtractor(
+        root,
+        parser_name="second",
+        parser_registry=registry,
+    ).extract_index()
+    paper = json.loads((root / "odracir_index.json").read_text(encoding="utf-8"))[
+        "papers"
+    ][0]
+
+    assert result.extracted == 1
+    assert calls == ["first", "second"]
+    assert paper["text_parser"] == "second"
