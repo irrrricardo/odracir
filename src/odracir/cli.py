@@ -15,6 +15,12 @@ from odracir.docs_sync import sync_project_docs
 from odracir.ocr import OcrmyPdfPreprocessor
 from odracir.pdf_extraction import PdfTextExtractor
 from odracir.providers import DeepSeekProvider
+from odracir.question_answering import (
+    EvidenceQuestionAnswerer,
+    build_ask_plan,
+    format_answer_result,
+    format_ask_plan,
+)
 from odracir.research_folder import ResearchFolderHarness
 from odracir.retrieval import format_search_report, search_chunks
 from odracir.status import build_research_status, format_research_status
@@ -49,6 +55,9 @@ def main() -> None:
         return
     if argv and argv[0] == "search":
         _search(argv[1:])
+        return
+    if argv and argv[0] == "ask":
+        _ask(argv[1:])
         return
     if argv and argv[0] == "summarize":
         _summarize(argv[1:])
@@ -305,6 +314,60 @@ def _search(argv: list[str]) -> None:
         print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_search_report(report))
+
+
+def _ask(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Answer a research question from retrieved local evidence."
+    )
+    parser.add_argument("folder", help="Research folder path.")
+    parser.add_argument("question", nargs="+", help="Research question.")
+    parser.add_argument(
+        "--query",
+        default=None,
+        help="Optional lexical retrieval query. Defaults to the full question.",
+    )
+    parser.add_argument("--limit", type=int, default=6, help="Maximum evidence chunks.")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview retrieved evidence without loading API configuration or calling DeepSeek.",
+    )
+    parser.add_argument("--force", action="store_true", help="Regenerate a cached answer.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    question = " ".join(args.question)
+    try:
+        if args.dry_run:
+            plan = build_ask_plan(
+                args.folder,
+                question,
+                retrieval_query=args.query,
+                limit=args.limit,
+            )
+            if args.json:
+                print(json.dumps(plan.as_dict(), ensure_ascii=False, indent=2))
+                return
+            print(format_ask_plan(plan))
+            return
+
+        result = EvidenceQuestionAnswerer(
+            args.folder,
+            provider_factory=lambda: DeepSeekProvider(load_config()),
+        ).answer(
+            question,
+            retrieval_query=args.query,
+            limit=args.limit,
+            force=args.force,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_answer_result(result))
 
 
 def _summarize(argv: list[str]) -> None:

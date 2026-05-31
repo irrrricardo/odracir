@@ -45,6 +45,10 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `odracir translate --dry-run` to preview selected citations without loading API configuration or calling DeepSeek.
 - Added translation artifacts with source citations, selection hashes, provider/model/prompt metadata, token usage, and idempotent skipping.
 - Decoupled summary and translation invalidation while keeping both downstream of chunk changes.
+- Added retrieval-first `odracir ask` for folder-level questions over ranked local evidence.
+- Added `odracir ask --dry-run` to inspect selected evidence without loading API configuration or calling DeepSeek.
+- Added answer artifacts, lazy provider creation, context limits, cache revalidation, and citation allowlisting for claims and inline answer text.
+- Expanded the external parser benchmark strategy with PyMuPDF4LLM, Marker, and Unstructured while keeping heavier integrations behind adapters or service clients.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -79,18 +83,24 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `odracir translate --dry-run`，无需读取 API 配置或调用 DeepSeek 即可预览选定引用。
 - 添加包含来源引用、选择 hash、provider/模型/prompt 元数据、token 用量和幂等跳过的翻译 artifact。
 - 将摘要与翻译的失效传播解耦，同时保持二者都在 chunk 变化后失效。
+- 添加检索优先的 `odracir ask`，用于基于排序后的本地证据回答文件夹级问题。
+- 添加 `odracir ask --dry-run`，无需读取 API 配置或调用 DeepSeek 即可检查选定证据。
+- 添加问答 artifact、provider 懒加载、上下文上限、缓存重新校验，以及对 claims 和答案内联引用的白名单校验。
+- 使用 PyMuPDF4LLM、Marker 和 Unstructured 扩展外部解析器基准策略，同时让较重集成保持在 adapter 或服务客户端之后。
 
 ### Planned / 计划
 
 - Evolve the first `odracir_index.json` schema after real paper processing.
 - Benchmark paper translation and structured summaries on reviewed examples.
-- Add richer retrieval over paper records and extracted text.
-- Add a research conversation agent that can use folder-level evidence.
+- Benchmark and refine richer retrieval and cited answers over reviewed folder-level questions.
+- Add a research-companion agent that reuses the audited retrieval and answer paths.
+- Spike a PyMuPDF4LLM adapter before committing to heavier parser services.
 
 - 在真实论文处理后继续演进第一版 `odracir_index.json` schema。
 - 在人工审阅样例上评估论文翻译和结构化摘要。
-- 添加更丰富的论文记录与提取文本检索能力。
-- 添加能够使用文件夹级证据的科研交流 agent。
+- 在人工审阅的文件夹级问题上评估和优化更丰富的检索与带引用问答。
+- 添加复用已审计检索和问答路径的科研 companion agent。
+- 在决定采用更重的解析服务前，先尝试 PyMuPDF4LLM adapter。
 
 ## [0.1.0] - 2026-05-30 / 初始版本
 

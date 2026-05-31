@@ -34,8 +34,13 @@ def get_project_context() -> dict[str, Any]:
     return {
         "project_name": "odracir",
         "provider": "DeepSeek API",
-        "current_stage": "local-first research prototype with traceable chunk retrieval",
-        "recommended_next_milestone": "add evidence-aware structured summaries over chunks",
+        "current_stage": (
+            "local-first research prototype with traceable extraction, retrieval, "
+            "summaries, translations, and evidence-backed questions"
+        ),
+        "recommended_next_milestone": (
+            "benchmark supervised outputs and add discipline-specific skill manifests"
+        ),
     }
 
 

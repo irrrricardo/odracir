@@ -125,7 +125,8 @@ source file
    -> structured summary artifact
    -> translation artifact
 -> retrieval index
--> evidence-backed conversation and planning
+-> evidence-backed answer artifacts
+-> conversation and planning
 ```
 
 ```text
@@ -136,7 +137,8 @@ source file
    -> 结构化总结 artifact
    -> 翻译 artifact
 -> 检索索引
--> 带证据的交流与规划
+-> 带证据的问答 artifact
+-> 交流与规划
 ```
 
 Recommended artifact layout:
@@ -153,6 +155,7 @@ research-folder/
     chunks/
     summaries/
     translations/
+    answers/
     retrieval/
     logs/
 ```
@@ -391,6 +394,7 @@ Work:
 - Start with lexical retrieval over chunk text.
 - Add optional embeddings behind a retrieval interface.
 - Add citation rendering.
+- Add a retrieval-first `odracir ask` harness with inspectable dry runs.
 - Add project-level comparison and synthesis commands.
 - Add a `research_companion` agent using retrieval as an agent tool.
 
@@ -501,6 +505,8 @@ Completed on 2026-05-30:
 - Added explicit selective translation over traceable chunks with citations, selection hashes, and usage metadata.
 - Decoupled summary and translation invalidation while keeping both parallel derivatives of chunk artifacts.
 - Added no-cost translation dry runs and conservative heading-aware chunk selection.
+- Added retrieval-first `odracir ask`, inspectable no-cost dry runs, answer artifacts, and lazy provider creation.
+- Added answer context limits, cache revalidation, and citation allowlisting for structured claims and inline answer citations.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -517,6 +523,8 @@ Completed on 2026-05-30:
 - 添加基于可追溯 chunk 的显式选择性翻译，记录引用、选择 hash 和用量元数据。
 - 将摘要与翻译失效传播解耦，同时保持二者都是 chunk artifact 的并行派生物。
 - 添加无费用翻译 dry-run 和保守的章节标题感知 chunk 选择。
+- 添加检索优先的 `odracir ask`、可检查的无费用 dry-run、问答 artifact 和 provider 懒加载。
+- 添加问答上下文上限、缓存重新校验，以及对结构化 claims 和正文内联引用的白名单校验。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
@@ -530,8 +538,11 @@ source document
    -> pymupdf: lightweight default
    -> docling: optional complex-layout PDF adapter
    -> ocrmypdf: explicit derivative preprocessing route for needs_ocr
+   -> pymupdf4llm: next lightweight layout-aware adapter benchmark
    -> grobid: planned scholarly metadata service
-   -> mineru: optional heavier backend for benchmark cases
+   -> mineru: optional heavier parsing service for benchmark cases
+   -> marker: optional rich conversion benchmark with licensing review
+   -> unstructured: future multi-format ETL candidate
 -> normalized local artifact
 -> stable traceable chunks
 ```
@@ -542,10 +553,14 @@ Next implementation sprint:
 
 1. Install the optional Docling adapter and benchmark it against `pymupdf` on selected complex-layout papers.
 2. Install OCRmyPDF system dependencies and validate the explicit OCR route on a scanned PDF fixture.
-3. Benchmark DeepSeek summaries and selective translations on selected papers before folder-wide runs.
-4. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
+3. Spike a PyMuPDF4LLM adapter and compare layout, table, OCR, speed, and licensing tradeoffs.
+4. Benchmark DeepSeek summaries, selective translations, and cited answers on selected papers before folder-wide runs.
+5. Add GROBID as a service adapter when scholarly metadata and citation graphs become the next concrete need.
+6. Extend lexical retrieval with optional embeddings only after benchmark evidence justifies them.
 
 1. 安装可选 Docling adapter，并在选定复杂版式论文上与 `pymupdf` 对比。
 2. 安装 OCRmyPDF 系统依赖，并在扫描版 PDF fixture 上验证显式 OCR 路径。
-3. 在选定论文上评估 DeepSeek 摘要和选择性翻译，再考虑整文件夹运行。
-4. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。
+3. 尝试 PyMuPDF4LLM adapter，并比较版式、表格、OCR、速度和许可证差异。
+4. 在选定论文上评估 DeepSeek 摘要、选择性翻译和带引用问答，再考虑整文件夹运行。
+5. 当学术元数据和引用图谱成为下一项明确需求时，将 GROBID 作为服务 adapter 接入。
+6. 先评估关键词检索效果；只有基准证据证明有必要时，再增加可选 embedding。

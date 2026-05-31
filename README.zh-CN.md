@@ -14,9 +14,9 @@
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有可追溯摘要和翻译 harness 的模块化科研原型
-- 当前重点：受控 DeepSeek 基准、选择性翻译和带证据交流
-- 最近同步：`2026-05-31T15:52:51+08:00`
+- 阶段：带有可追溯摘要、翻译和引用问答 harness 的模块化科研原型
+- 当前重点：受控 DeepSeek 基准、文档 adapter 基准和 skill manifest
+- 最近同步：`2026-05-31T16:13:23+08:00`
 
 当前命令：
 
@@ -29,6 +29,8 @@
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
+- `odracir ask <research-folder> "<question>" --dry-run`：无 API 用量地预览问答证据。
+- `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
@@ -171,6 +173,7 @@ src/odracir/
   ocr.py        # 显式 OCRmyPDF derivative 预处理
   summarization.py # 注重证据的 map-reduce 论文摘要
   translation.py # 可追溯的选择性 chunk 翻译
+  question_answering.py # 检索优先、带引用的科研问答
   cli.py        # 命令行入口
 tests/
   test_tools.py
@@ -278,6 +281,20 @@ Chunk artifact 会写入 `.odracir/chunks/`。重复运行时，未变化的正�
 odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
 ```
 
+在不读取 API 配置、不调用 DeepSeek 的情况下预览文件夹级科研问题所使用的证据：
+
+```powershell
+odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
+```
+
+根据检索到的本地证据回答问题：
+
+```powershell
+odracir ask <research-folder> "<question>" --query "<focused retrieval query>"
+```
+
+非 dry-run 路径会显式调用 DeepSeek，并在 `.odracir/answers/` 下写入可复现的问答 artifact。答案、结构化 claims 和缓存 artifact 都会根据检索证据的引用白名单进行校验。
+
 为一篇明确选择的论文生成带引用摘要：
 
 ```powershell
@@ -317,9 +334,9 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 此区块由 `odracir sync-docs` 自动生成。
 
 - 版本：`0.1.0`
-- 阶段：带有可追溯摘要和翻译 harness 的模块化科研原型
-- 当前重点：受控 DeepSeek 基准、选择性翻译和带证据交流
-- 最近同步：`2026-05-31T15:52:51+08:00`
+- 阶段：带有可追溯摘要、翻译和引用问答 harness 的模块化科研原型
+- 当前重点：受控 DeepSeek 基准、文档 adapter 基准和 skill manifest
+- 最近同步：`2026-05-31T16:13:23+08:00`
 
 当前命令：
 
@@ -332,6 +349,8 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
 - `odracir search <research-folder> "<query>"`：检索 chunk 并返回页码级引用。
+- `odracir ask <research-folder> "<question>" --dry-run`：无 API 用量地预览问答证据。
+- `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
@@ -357,10 +376,10 @@ odracir install-hooks
 3. 将 PDF 正文提取到 `.odracir/texts/` 下的本地 artifact。
 4. 验证类型化 `odracir_index.json` schema，并检查处理状态。
 5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
-6. 在真实论文上评估可选 Docling parser 和 OCRmyPDF 预处理路径。
+6. 在代表性论文上评估可选 Docling、PyMuPDF4LLM 和 OCRmyPDF 路径。
 7. 运行受控的 DeepSeek 摘要和选择性翻译基准。
-8. 使用可选 embedding 和更丰富排序扩展本地 chunk 检索。
-9. 添加能够引用文件夹证据的交流 agent。
+8. 在添加可选 embedding 前，先评估和优化带引用的 `odracir ask` 路径。
+9. 添加复用已审计问答与检索路径的科研 companion agent。
 10. 添加阅读路径、复现和实验规划工具。
 11. 在科研记忆稳定后添加代码辅助工具。
 12. 只有当单 agent 的 prompt 变得过大或职责冲突时，才拆分为多个 agent。

@@ -1,7 +1,7 @@
 import json
 
 from odracir.research_folder import ResearchFolderHarness
-from odracir.retrieval import format_search_report, search_chunks
+from odracir.retrieval import format_search_report, load_evidence_chunks, search_chunks
 
 
 def _write_chunk_fixture(root) -> None:
@@ -68,3 +68,15 @@ def test_search_chunks_returns_empty_hits_for_missing_term(tmp_path) -> None:
     report = search_chunks(root, "unfindable")
 
     assert report.hits == []
+
+
+def test_load_evidence_chunks_reads_full_ranked_chunk_text(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_chunk_fixture(root)
+    report = search_chunks(root, "longitudinal", limit=1)
+
+    evidence = load_evidence_chunks(root, report.hits)
+
+    assert len(evidence) == 1
+    assert evidence[0].chunk_id == "method"
+    assert evidence[0].text.endswith("predicts longitudinal patient states.")

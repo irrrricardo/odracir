@@ -11,6 +11,7 @@ TEXT_SCHEMA_VERSION = "0.2"
 CHUNK_SCHEMA_VERSION = "0.1"
 SUMMARY_SCHEMA_VERSION = "0.1"
 TRANSLATION_SCHEMA_VERSION = "0.1"
+ANSWER_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -212,6 +213,26 @@ class TranslationArtifact(TypedDict, total=False):
     translated_at: str
     usage: dict[str, int]
     translations: list[TranslationRecord]
+
+
+class AnswerClaim(TypedDict, total=False):
+    claim: str
+    citations: list[str]
+    inference: bool
+
+
+class AnswerArtifact(TypedDict, total=False):
+    schema_version: str
+    question: str
+    retrieval_query: str
+    provider: str
+    model: str
+    prompt_version: str
+    answered_at: str
+    evidence_sha256: str
+    usage: dict[str, int]
+    evidence: list[dict[str, Any]]
+    answer: dict[str, Any]
 
 
 def validate_project_index(index: dict[str, Any]) -> list[str]:

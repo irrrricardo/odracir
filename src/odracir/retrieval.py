@@ -45,6 +45,23 @@ class SearchReport:
         return payload
 
 
+@dataclass(frozen=True)
+class EvidenceChunk:
+    paper_id: str
+    title: str
+    source_file: str
+    chunk_id: str
+    section_hint: str
+    page_start: int
+    page_end: int
+    citation: str
+    content_sha256: str
+    text: str
+
+    def as_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
 def search_chunks(
     root: str | Path,
     query: str,
@@ -129,6 +146,63 @@ def format_search_report(report: SearchReport) -> str:
             lines.append(f"  Section: {hit.section_hint}")
         lines.append(f"  {hit.snippet}")
     return "\n".join(lines)
+
+
+def load_evidence_chunks(
+    root: str | Path,
+    hits: list[SearchHit],
+) -> list[EvidenceChunk]:
+    """Load full local chunks for ranked hits without broadening retrieval scope."""
+    harness = ResearchFolderHarness(root)
+    index = harness.load_index()
+    papers_by_id = {
+        str(paper.get("id", "")): paper
+        for paper in index.get("papers", [])
+        if isinstance(paper, dict)
+        and paper.get("status") != "missing"
+        and paper.get("chunking_status") == "chunked"
+        and paper.get("chunk_artifact")
+    }
+    artifact_cache: dict[str, dict[str, Any]] = {}
+    evidence: list[EvidenceChunk] = []
+    for hit in hits:
+        paper = papers_by_id.get(hit.paper_id)
+        if paper is None:
+            raise ValueError(f"Retrieved paper {hit.paper_id!r} is not currently chunked.")
+        artifact_path = str(paper["chunk_artifact"])
+        if artifact_path not in artifact_cache:
+            artifact_cache[artifact_path] = _load_json(harness.root / artifact_path)
+        chunks = artifact_cache[artifact_path].get("chunks", [])
+        if not isinstance(chunks, list):
+            raise ValueError(f"{artifact_path} must contain a chunks list.")
+        chunk = next(
+            (
+                candidate
+                for candidate in chunks
+                if isinstance(candidate, dict)
+                and str(candidate.get("id", "")) == hit.chunk_id
+            ),
+            None,
+        )
+        if chunk is None:
+            raise ValueError(
+                f"Retrieved chunk {hit.chunk_id!r} is missing from {artifact_path}."
+            )
+        evidence.append(
+            EvidenceChunk(
+                paper_id=hit.paper_id,
+                title=hit.title,
+                source_file=hit.source_file,
+                chunk_id=hit.chunk_id,
+                section_hint=str(chunk.get("section_hint", "")),
+                page_start=int(chunk.get("page_start", 0)),
+                page_end=int(chunk.get("page_end", 0)),
+                citation=hit.citation,
+                content_sha256=str(chunk.get("content_sha256", "")),
+                text=str(chunk.get("text", "")),
+            )
+        )
+    return evidence
 
 
 def _score_text(text: str, query: str, query_tokens: list[str]) -> int:

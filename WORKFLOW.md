@@ -20,6 +20,8 @@ research folder
 -> create stable page-traceable chunks
 -> write .odracir/chunks/*.json
 -> search chunks with paper/page citations
+-> preview or answer folder-level questions from retrieved evidence
+-> write .odracir/answers/*.json
 -> explicitly summarize chosen papers through DeepSeek
 -> write .odracir/summaries/*.json
 -> explicitly translate selected chunks through DeepSeek
@@ -41,6 +43,8 @@ research folder
 -> 创建稳定、按页可追溯的 chunk
 -> 写入 .odracir/chunks/*.json
 -> 检索 chunk，并返回论文与页码引用
+-> 根据检索证据预览或回答文件夹级问题
+-> 写入 .odracir/answers/*.json
 -> 通过 DeepSeek 显式总结选定论文
 -> 写入 .odracir/summaries/*.json
 -> 通过 DeepSeek 显式翻译选定 chunk
@@ -162,6 +166,28 @@ Search traceable chunks:
 odracir search <research-folder> "<query>" --limit 5
 ```
 
+Preview evidence for a folder-level question without API usage:
+
+```powershell
+odracir ask <research-folder> "<question>" --query "<focused retrieval query>" --dry-run
+```
+
+基于文件夹级问题预览证据，不产生 API 用量：
+
+```powershell
+odracir ask <research-folder> "<question>" --query "<focused retrieval query>" --dry-run
+```
+
+Answer from retrieved evidence through DeepSeek:
+
+```powershell
+odracir ask <research-folder> "<question>" --query "<focused retrieval query>"
+```
+
+`ask` uses ranked local chunks only, validates citations against that evidence set, and writes reproducible artifacts under `.odracir/answers/`. When no evidence matches, it does not create a provider or call DeepSeek.
+
+`ask` 只使用排序后的本地 chunk，根据该证据集合校验引用，并在 `.odracir/answers/` 下写入可复现 artifact。没有匹配证据时，它不会创建 provider，也不会调用 DeepSeek。
+
 Generate an evidence-aware summary for a chosen paper:
 
 ```powershell
@@ -224,6 +250,7 @@ odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal Wor
 odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
 odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
 odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
+odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
 ```
 
 ## Artifact Layout / Artifact 布局
@@ -245,6 +272,7 @@ research-folder/
       paper-id.pdf
     summaries/
     translations/
+    answers/
     chunks/
 ```
 
@@ -280,9 +308,9 @@ harness: runs the workflow, records state, handles retries, writes artifacts
 
 ## Parser Backends / 解析器后端
 
-PDF parsing is a replaceable deterministic tool. Odracir uses a parser registry, keeps `pymupdf` as the default lightweight backend, and exposes the optional `docling` backend for complex layouts. OCRmyPDF is an explicit preprocessor rather than a parser. Backends preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
+PDF parsing is a replaceable deterministic tool. Odracir uses a parser registry, keeps `pymupdf` as the default lightweight backend, and exposes the optional `docling` backend for complex layouts. OCRmyPDF is an explicit preprocessor rather than a parser. Additional projects should enter through adapters or service clients only after representative benchmarks. Backends preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
 
-PDF 解析是一个可替换的确定性工具。Odracir 使用解析器注册表，将 `pymupdf` 保留为默认轻量后端，并暴露用于复杂版式的可选 `docling` 后端。OCRmyPDF 是显式预处理器，而不是 parser。各后端遵守标准化 artifact 契约，不会让后端专属格式泄漏到 agent 中。
+PDF 解析是一个可替换的确定性工具。Odracir 使用解析器注册表，将 `pymupdf` 保留为默认轻量后端，并暴露用于复杂版式的可选 `docling` 后端。OCRmyPDF 是显式预处理器，而不是 parser。其他项目只有在代表性样例基准证明有价值后，才应通过 adapter 或服务客户端接入。各后端遵守标准化 artifact 契约，不会让后端专属格式泄漏到 agent 中。
 
 Recommended external projects:
 
@@ -290,8 +318,11 @@ Recommended external projects:
 
 - [Docling](https://github.com/docling-project/docling): integrated optional adapter for complex-layout PDFs; see its [official usage docs](https://docling-project.github.io/docling/usage/).
 - [OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF): integrated optional preprocessing route for PDFs reported as `needs_ocr`; see its [official cookbook](https://ocrmypdf.readthedocs.io/en/latest/cookbook.html).
-- [GROBID](https://github.com/kermitt2/grobid): optional service for scholarly metadata, references, and citation structures.
-- [MinerU](https://github.com/opendatalab/MinerU): heavier optional backend to benchmark on Chinese, formula-heavy, or complex-layout papers.
+- [PyMuPDF4LLM](https://github.com/pymupdf/pymupdf4llm): first adapter candidate to benchmark as a lightweight layout-aware upgrade; review its AGPL/commercial licensing before distribution.
+- [GROBID](https://github.com/grobidOrg/grobid): planned service adapter for scholarly metadata, references, citation contexts, and TEI output.
+- [MinerU](https://github.com/opendatalab/MinerU): heavier optional service candidate for Chinese, formula-heavy, scanned, or complex-layout documents; it supports CPU and GPU modes and uses a custom license based on Apache 2.0.
+- [Marker](https://github.com/datalab-to/marker): benchmark candidate for rich Markdown/JSON conversion and scientific layouts; keep it optional because code, model, and commercial-use licensing need deliberate review.
+- [Unstructured](https://github.com/Unstructured-IO/unstructured): future multi-format ETL candidate when the project expands beyond research PDFs.
 
 ## Future Skill Strategy / 后续 Skill 策略
 
@@ -312,18 +343,20 @@ Possible future skills:
 ## Near-Term Roadmap / 近期路线图
 
 1. Keep scan, extract, status, and chunk reliable.
-2. Benchmark the integrated Docling and OCRmyPDF routes on real papers after optional installation.
+2. Benchmark the integrated Docling and OCRmyPDF routes plus a PyMuPDF4LLM adapter spike on representative papers.
 3. Benchmark and refine DeepSeek-based structured paper summaries.
 4. Benchmark selective Chinese translation on reviewed abstract, method, conclusion, and chosen-passage examples.
-5. Extend retrieval over `odracir_index.json` and `.odracir/chunks/` with optional embeddings.
-6. Add discipline-specific skills only after the generic extraction and memory loop is stable.
+5. Benchmark the cited `odracir ask` route and add optional embeddings only when retrieval evidence justifies them.
+6. Add a GROBID service adapter when scholarly metadata and citation graphs become the next concrete need.
+7. Add discipline-specific skills only after the generic extraction and memory loop is stable.
 
 1. 先让 scan、extract、status 和 chunk 稳定。
-2. 可选安装后，在真实论文上评估已接入的 Docling 和 OCRmyPDF 路径。
+2. 可选安装后，在代表性论文上评估已接入的 Docling、OCRmyPDF 路径和一个 PyMuPDF4LLM adapter spike。
 3. 对基于 DeepSeek 的结构化论文总结进行基准评估和优化。
 4. 在人工审阅的摘要、方法、结论和选定段落样例上评估选择性中文翻译。
-5. 使用可选 embedding 扩展对 `odracir_index.json` 和 `.odracir/chunks/` 的检索。
-6. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
+5. 评估带引用的 `odracir ask` 路径；只有检索证据证明有必要时，才添加可选 embedding。
+6. 当学术元数据和引用图谱成为明确需求时，添加 GROBID 服务 adapter。
+7. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
 
 ## Execution Log / 执行记录
 
@@ -496,3 +529,29 @@ Result:
 - 此次无费用迁移期间仍然刻意不运行 DeepSeek 翻译。
 - `odracir translate ... --dry-run` 报告 9 篇论文 ready、0 篇阻塞、0 篇失败，并保守选择 12 个 chunks。
 - 默认选择器保留面向摘要的首页 chunk；只有章节标题上下文可信时才增加方法或结论 chunk。需要补充时，请显式使用 `--chunk`。
+
+Evidence-backed question and parser-candidate check:
+
+```powershell
+odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
+```
+
+带证据问答与解析器候选检查：
+
+```powershell
+odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
+```
+
+Result:
+
+- Added retrieval-first `odracir ask`, a no-cost dry-run, answer artifacts, cache validation, context limits, and citation allowlisting.
+- The real-folder dry-run searched 9 papers and 128 chunks, then selected 4 evidence chunks containing 20,220 characters without calling DeepSeek.
+- Reviewed official GitHub repositories for Docling, PyMuPDF4LLM, OCRmyPDF, GROBID, MinerU, Marker, and Unstructured.
+- Kept the next parser move narrow: benchmark a PyMuPDF4LLM adapter spike before adding heavier service integrations.
+
+结果：
+
+- 添加检索优先的 `odracir ask`、无费用 dry-run、问答 artifact、缓存校验、上下文上限和引用白名单。
+- 真实文件夹 dry-run 检索了 9 篇论文和 128 个 chunk，选择 4 个证据 chunk，共 20,220 个字符，未调用 DeepSeek。
+- 检查 Docling、PyMuPDF4LLM、OCRmyPDF、GROBID、MinerU、Marker 和 Unstructured 的官方 GitHub 仓库。
+- 下一步解析器演进保持聚焦：先评估 PyMuPDF4LLM adapter spike，再决定是否加入更重的服务集成。
