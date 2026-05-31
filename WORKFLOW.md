@@ -64,6 +64,22 @@ research folder
 
 ## Commands / 命令
 
+Prepare searchable local artifacts and rebuild folder memory without API usage:
+
+```powershell
+odracir prepare <research-folder> --papers-dir <paper-folder>
+```
+
+在无 API 用量的情况下准备可检索本地 artifact 并重建文件夹记忆：
+
+```powershell
+odracir prepare <research-folder> --papers-dir <paper-folder>
+```
+
+`prepare` is the resumable default local entry point. It runs scan, PDF extraction, chunking, catalog rebuilding, and final status reporting. Current extraction and chunk artifacts are skipped. It intentionally does not run OCRmyPDF, DeepSeek summaries, translations, or answers.
+
+`prepare` 是默认的可恢复本地入口。它会依次执行扫描、PDF 正文提取、切块、catalog 重建和最终状态报告。仍然有效的 extraction 和 chunk artifact 会被跳过。它刻意不会运行 OCRmyPDF、DeepSeek 摘要、翻译或问答。
+
 Scan a research folder with the default `papers/` directory:
 
 ```powershell
@@ -818,4 +834,36 @@ Result:
 - catalog 已写入研究文件夹根目录的 `research_catalog.json`。
 - 第二次构建读取了缓存 catalog。
 - 两次构建前后，`odracir_index.json` 的 SHA-256 始终为 `471A28AD6F08530CF5F3B289B8BF24F81DFD69C34DB45BC252F76CFA8AB8921F`。
+- 未调用 DeepSeek API。
+
+Resumable zero-API local preparation:
+
+```powershell
+odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+可恢复、零 API 的本地准备流水线：
+
+```powershell
+odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+```
+
+Result:
+
+- Added `LocalPreparationHarness` and `odracir prepare`.
+- Real-folder scan: 9 papers, 0 new, 0 updated, 0 missing.
+- Both runs skipped all 9 current extraction artifacts and all 9 current chunk artifacts.
+- The first run rebuilt `research_catalog.json` under the semantic cache key; the second run reported `cached=yes`.
+- Final status: 0 OCR candidates and 0 failures.
+- No DeepSeek API call was made.
+
+结果：
+
+- 添加 `LocalPreparationHarness` 和 `odracir prepare`。
+- 真实目录扫描：9 篇论文，0 篇新增，0 篇更新，0 篇缺失。
+- 两次运行均跳过全部 9 个仍然有效的 extraction artifact 和全部 9 个仍然有效的 chunk artifact。
+- 第一次运行按照新的语义缓存键重建 `research_catalog.json`；第二次运行报告 `cached=yes`。
+- 最终状态：0 个 OCR 候选，0 个失败项。
 - 未调用 DeepSeek API。

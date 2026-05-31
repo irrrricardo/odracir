@@ -12,11 +12,12 @@
 - 版本：`0.1.0`
 - 阶段：带审计文件夹记忆、引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
 - 当前重点：受监督的生物医学摘要、catalog 审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-06-01T00:43:01+08:00`
+- 最近同步：`2026-06-01T00:52:10+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
+- `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
 - `odracir capabilities`：检查可选解析器和预处理器是否可用。
@@ -83,6 +84,8 @@ research-folder/
 你把选好的论文放入 `papers/`。Odracir 读取它们，生成翻译和摘要，提取结构化信息，更新运行台账 `odracir_index.json`，并重建可见的 `research_catalog.json`，让这个文件夹逐渐变成一个本地科研记忆。
 
 当前 harness 已经实现这个流程的本地优先主干：文件夹扫描、正文提取、OCR 路由、可追溯 chunks、检索、带引用问答、版本化摘要 skills、摘要审计、选择性翻译，以及确定性重建 `research_catalog.json`。
+
+对于新的研究文件夹，首先运行 `odracir prepare <research-folder>`。它会在不读取 API 配置、不调用 DeepSeek 的情况下，串联本地扫描、提取、切块和 catalog 构建。OCR、摘要和翻译仍然使用显式后续命令。
 
 ## 计划功能
 
@@ -228,6 +231,12 @@ odracir "帮我规划一个用于阅读扩散模型论文的科研助手。"
 
 ```powershell
 python -m odracir.cli "帮我总结当前项目目标。"
+```
+
+使用一条可恢复、零 API 命令准备可检索本地 artifact 并重建文件夹记忆：
+
+```powershell
+odracir prepare <research-folder> --papers-dir <paper-folder>
 ```
 
 扫描一个研究文件夹：
@@ -400,14 +409,15 @@ odracir install-hooks
 3. 将 PDF 正文提取到 `.odracir/texts/` 下的本地 artifact。
 4. 验证类型化 `odracir_index.json` schema，并检查处理状态。
 5. 将提取正文切分为 `.odracir/chunks/` 下稳定、按页可追溯的 artifact。
-6. 审阅缓存的 parser 路由建议，并检查代表性 PyMuPDF4LLM 输出，再接受逐篇 parser override。
-7. 审阅生物医学摘要 dry-run，并运行受控的 DeepSeek 摘要和选择性翻译基准。
-8. 在添加可选 embedding 前，先评估和优化带引用的 `odracir ask` 路径。
-9. 安装系统依赖后，在扫描版 fixture 上验证显式 OCRmyPDF 路径。
-10. 添加复用已审计问答与检索路径的科研 companion agent。
-11. 添加阅读路径、复现和实验规划工具。
-12. 在科研记忆稳定后添加代码辅助工具。
-13. 只有当单 agent 的 prompt 变得过大或职责冲突时，才拆分为多个 agent。
+6. 使用 `odracir prepare` 作为扫描、提取、切块和 catalog 重建的可恢复本地入口。
+7. 审阅缓存的 parser 路由建议，并检查代表性 PyMuPDF4LLM 输出，再接受逐篇 parser override。
+8. 审阅生物医学摘要 dry-run，并运行受控的 DeepSeek 摘要和选择性翻译基准。
+9. 在添加可选 embedding 前，先评估和优化带引用的 `odracir ask` 路径。
+10. 安装系统依赖后，在扫描版 fixture 上验证显式 OCRmyPDF 路径。
+11. 添加复用已审计问答与检索路径的科研 companion agent。
+12. 添加阅读路径、复现和实验规划工具。
+13. 在科研记忆稳定后添加代码辅助工具。
+14. 只有当单 agent 的 prompt 变得过大或职责冲突时，才拆分为多个 agent。
 
 ## 设计原则
 

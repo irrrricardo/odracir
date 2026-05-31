@@ -63,7 +63,6 @@ class ResearchCatalogBuilder:
         evaluations = {record.paper_id: record for record in evaluation.records}
         input_sha256 = _input_sha256(
             self.root,
-            self.harness.index_path,
             papers,
             evaluation_input_sha256=evaluation.input_sha256,
         )
@@ -223,22 +222,37 @@ def _processing_counts(records: list[dict[str, Any]]) -> dict[str, dict[str, int
 
 def _input_sha256(
     root: Path,
-    index_path: Path,
     papers: list[dict[str, Any]],
     *,
     evaluation_input_sha256: str,
 ) -> str:
     payload = {
         "schema_version": RESEARCH_CATALOG_SCHEMA_VERSION,
-        "source_index_sha256": _optional_file_sha256(index_path),
         "summary_evaluation_input_sha256": evaluation_input_sha256,
-        "artifacts": [
+        "papers": [
             {
                 "paper_id": paper.get("id"),
+                "title": paper.get("title"),
+                "authors": paper.get("authors"),
+                "year": paper.get("year"),
+                "source_file": paper.get("source_file"),
+                "source_sha256": paper.get("sha256"),
+                "file_type": paper.get("file_type"),
+                "status": paper.get("status"),
+                "ocr_status": paper.get("ocr_status"),
+                "text_extraction_status": paper.get("text_extraction_status"),
+                "chunking_status": paper.get("chunking_status"),
+                "summary_status": paper.get("summary_status"),
+                "translation_status": paper.get("translation_status"),
+                "ocr_artifact": paper.get("ocr_artifact"),
+                "text_artifact": paper.get("text_artifact"),
+                "chunk_artifact": paper.get("chunk_artifact"),
                 "summary_artifact": paper.get("summary_artifact"),
                 "summary_artifact_sha256": _optional_file_sha256(
                     root / str(paper.get("summary_artifact") or "")
                 ),
+                "translation_artifact": paper.get("translation_artifact"),
+                "notes": paper.get("notes"),
             }
             for paper in papers
         ],

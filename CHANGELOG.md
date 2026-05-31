@@ -64,6 +64,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added deterministic `odracir build-memory` to rebuild the visible `research_catalog.json` from audited local artifacts.
 - Added the read-only `get_research_memory` agent tool for folder-level research-memory queries.
 - Fixed documentation sync so fenced marker examples stay compact and historical duplicate generated blocks are removed.
+- Added resumable zero-API `odracir prepare` orchestration for scanning, PDF extraction, chunking, catalog rebuilding, and final status reporting.
+- Changed research-catalog cache invalidation to semantic paper state and artifact hashes so harmless index timestamp refreshes do not rebuild memory.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -117,6 +119,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加确定性 `odracir build-memory`，用于根据经过审计的本地 artifact 重建可见的 `research_catalog.json`。
 - 添加只读 `get_research_memory` agent tool，用于查询文件夹级科研记忆。
 - 修正文档同步：fenced marker 示例保持精简，并自动移除历史重复生成区块。
+- 添加可恢复、零 API 的 `odracir prepare` 编排，用于扫描、PDF 正文提取、切块、catalog 重建和最终状态报告。
+- 将 research catalog 缓存失效条件改为语义化论文状态和 artifact 哈希，避免无害的索引时间戳刷新触发记忆重建。
 
 ### Planned / 计划
 

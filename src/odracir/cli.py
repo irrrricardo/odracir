@@ -16,6 +16,7 @@ from odracir.ocr import OcrmyPdfPreprocessor
 from odracir.parser_benchmark import ParserBenchmarkHarness, format_parser_benchmark
 from odracir.parser_routing import ParserRoutingAdvisor, format_parser_routing
 from odracir.pdf_extraction import PdfTextExtractor
+from odracir.preparation import LocalPreparationHarness, format_local_preparation
 from odracir.providers import DeepSeekProvider
 from odracir.question_answering import (
     EvidenceQuestionAnswerer,
@@ -53,6 +54,9 @@ def main() -> None:
     argv = sys.argv[1:]
     if argv and argv[0] == "scan":
         _scan(argv[1:])
+        return
+    if argv and argv[0] == "prepare":
+        _prepare(argv[1:])
         return
     if argv and argv[0] == "extract":
         _extract(argv[1:])
@@ -144,6 +148,48 @@ def _scan(argv: list[str]) -> None:
         f"{result.updated_papers} updated, "
         f"{result.missing_papers} missing"
     )
+
+
+def _prepare(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Prepare searchable local research artifacts without calling an LLM or OCR."
+        )
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only prepare one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument("--parser", default="pymupdf", help="Registered PDF parser name.")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Regenerate extraction and chunk artifacts even when current.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        result = LocalPreparationHarness(
+            args.folder,
+            papers_dir=args.papers_dir,
+            parser_name=args.parser,
+        ).prepare(
+            force=args.force,
+            limit=args.limit,
+            paper_id=args.paper,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_local_preparation(result))
 
 
 def _extract(argv: list[str]) -> None:

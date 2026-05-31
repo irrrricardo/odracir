@@ -315,6 +315,10 @@ An orchestrator or deterministic harness should decide the default workflow. The
 
 默认工作流应该由 orchestrator 或确定性 harness 决定。不能把所有运行决策都交给 LLM。
 
+`LocalPreparationHarness` is the first concrete orchestration layer. The `odracir prepare` CLI calls it to run scan, extraction, chunking, catalog rebuilding, and status reporting without an LLM. OCR and paid provider operations remain explicit follow-up steps.
+
+`LocalPreparationHarness` 是第一层具体编排实现。`odracir prepare` CLI 会调用它，在不使用 LLM 的情况下执行扫描、提取、切块、catalog 重建和状态报告。OCR 和产生费用的 provider 操作仍保持为显式后续步骤。
+
 ## 9. Roadmap / 路线图
 
 ### Phase 0: Reliability Baseline / 可靠性基线
@@ -530,6 +534,7 @@ Completed on 2026-05-30:
 - Added biomedical summary schema extensions with citation-or-inference validation, skill provenance, cache invalidation, CLI inspection, and no-cost summary dry runs.
 - Added deterministic local summary evaluation with cached reports, stale-evidence checks, citation revalidation, domain completeness metrics, and review warnings.
 - Added deterministic `research_catalog.json` generation from audited local summaries and the read-only `get_research_memory` agent tool.
+- Added resumable zero-API `LocalPreparationHarness` orchestration and `odracir prepare` for scan, extraction, chunking, catalog rebuilding, and status reporting.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -555,6 +560,7 @@ Completed on 2026-05-30:
 - 添加生物医学摘要 schema 扩展，包括 citation-or-inference 校验、skill provenance、缓存失效、CLI 检查和无费用摘要 dry-run。
 - 添加确定性本地摘要评测，包括带缓存报告、过期证据检查、引用重新校验、领域完整性指标和审阅 warning。
 - 添加根据经过审计的本地摘要确定性生成 `research_catalog.json` 的能力，以及只读 `get_research_memory` agent tool。
+- 添加可恢复、零 API 的 `LocalPreparationHarness` 编排和 `odracir prepare`，用于扫描、提取、切块、catalog 重建和状态报告。
 
 ## 12. External Parser Strategy / 外部解析器策略
 
