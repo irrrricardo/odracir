@@ -13,6 +13,7 @@ SUMMARY_SCHEMA_VERSION = "0.2"
 TRANSLATION_SCHEMA_VERSION = "0.1"
 ANSWER_SCHEMA_VERSION = "0.1"
 PARSER_ROUTING_SCHEMA_VERSION = "0.1"
+SUMMARY_EVALUATION_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -251,6 +252,16 @@ class ParserRoutingArtifact(TypedDict, total=False):
     action_counts: dict[str, int]
     recommendations: list[dict[str, Any]]
     benchmark: dict[str, Any]
+
+
+class SummaryEvaluationArtifact(TypedDict, total=False):
+    schema_version: str
+    generated_at: str
+    input_sha256: str
+    expected_skill: dict[str, Any] | None
+    total_papers: int
+    status_counts: dict[str, int]
+    records: list[dict[str, Any]]
 
 
 def validate_project_index(index: dict[str, Any]) -> list[str]:

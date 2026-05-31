@@ -53,3 +53,22 @@ def test_list_research_skills_agent_tool() -> None:
         "biomedical-paper",
         "generic",
     ]
+
+
+def test_evaluate_research_summaries_agent_tool(tmp_path) -> None:
+    root = tmp_path / "field"
+    papers = root / "papers"
+    papers.mkdir(parents=True)
+    (papers / "paper.pdf").write_bytes(b"%PDF-1.4\n")
+    from odracir.research_folder import ResearchFolderHarness
+
+    ResearchFolderHarness(root).sync_index()
+
+    result = execute_tool(
+        "evaluate_research_summaries",
+        {"folder": str(root), "skill": "biomedical-paper"},
+    )
+
+    assert result["status_counts"] == {"missing_summary": 1}
+    assert result["artifact_path"] is None
+    assert not (root / ".odracir" / "evaluations").exists()

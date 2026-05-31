@@ -125,6 +125,7 @@ source file
 -> traceable chunks
    -> selected versioned research-skill manifest
    -> structured summary artifact
+   -> deterministic local summary evaluation artifact
    -> translation artifact
 -> retrieval index
 -> evidence-backed answer artifacts
@@ -139,6 +140,7 @@ source file
 -> 可追溯 chunk
    -> 选定版本化科研 skill manifest
    -> 结构化总结 artifact
+   -> 确定性本地摘要评测 artifact
    -> 翻译 artifact
 -> 检索索引
 -> 带证据的问答 artifact
@@ -159,6 +161,8 @@ research-folder/
     texts/
     chunks/
     summaries/
+    evaluations/
+      summaries/
     translations/
     answers/
     retrieval/
@@ -517,6 +521,7 @@ Completed on 2026-05-30:
 - Added cached advisory `odracir recommend-parsers` routing with conservative review thresholds and no automatic extraction mutation.
 - Added a versioned research-skill registry with `generic` and the first `biomedical-paper` manifest.
 - Added biomedical summary schema extensions with citation-or-inference validation, skill provenance, cache invalidation, CLI inspection, and no-cost summary dry runs.
+- Added deterministic local summary evaluation with cached reports, stale-evidence checks, citation revalidation, domain completeness metrics, and review warnings.
 
 - 添加索引、论文、提取、正文 artifact 和 chunk artifact 的类型化 schema。
 - 添加带 OCR 与失败报告的 `odracir status <research-folder>`。
@@ -540,6 +545,7 @@ Completed on 2026-05-30:
 - 添加带缓存的建议式 `odracir recommend-parsers` 路由，使用保守审阅阈值，并且不会自动修改 extraction artifact。
 - 添加版本化科研 skill registry，包含 `generic` 和首个 `biomedical-paper` manifest。
 - 添加生物医学摘要 schema 扩展，包括 citation-or-inference 校验、skill provenance、缓存失效、CLI 检查和无费用摘要 dry-run。
+- 添加确定性本地摘要评测，包括带缓存报告、过期证据检查、引用重新校验、领域完整性指标和审阅 warning。
 
 ## 12. External Parser Strategy / 外部解析器策略
 

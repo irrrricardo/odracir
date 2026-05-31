@@ -31,6 +31,10 @@ from odracir.summarization import (
     build_summary_plan,
     format_summary_plan,
 )
+from odracir.summary_evaluation import (
+    SummaryEvaluationHarness,
+    format_summary_evaluation,
+)
 from odracir.skills import (
     format_research_skill,
     format_research_skills,
@@ -81,6 +85,9 @@ def main() -> None:
         return
     if argv and argv[0] == "skills":
         _skills(argv[1:])
+        return
+    if argv and argv[0] == "evaluate-summaries":
+        _evaluate_summaries(argv[1:])
         return
     if argv and argv[0] == "translate":
         _translate(argv[1:])
@@ -561,6 +568,53 @@ def _skills(argv: list[str]) -> None:
         )
         return
     print(format_research_skills(registry))
+
+
+def _evaluate_summaries(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Audit persisted summary artifacts without calling an LLM."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only evaluate one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--skill",
+        default=None,
+        help="Require summaries to use this research skill manifest.",
+    )
+    parser.add_argument(
+        "--no-write",
+        action="store_true",
+        help="Print the report without writing a local evaluation artifact.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    registry = get_builtin_skill_registry()
+    try:
+        expected_skill = registry.get(args.skill) if args.skill else None
+        report = SummaryEvaluationHarness(
+            args.folder,
+            papers_dir=args.papers_dir,
+            skill_registry=registry,
+        ).evaluate(
+            paper_id=args.paper,
+            limit=args.limit,
+            expected_skill=expected_skill,
+            write_artifact=not args.no_write,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_summary_evaluation(report))
 
 
 def _translate(argv: list[str]) -> None:

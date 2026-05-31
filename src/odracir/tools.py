@@ -8,6 +8,7 @@ from typing import Any
 
 from odracir.retrieval import search_chunks
 from odracir.skills import get_builtin_skill_registry
+from odracir.summary_evaluation import SummaryEvaluationHarness
 
 
 ToolHandler = Callable[..., dict[str, Any]]
@@ -41,7 +42,7 @@ def get_project_context() -> dict[str, Any]:
             "research skills"
         ),
         "recommended_next_milestone": (
-            "review parser outputs and benchmark biomedical skill summaries"
+            "run one supervised biomedical summary and audit its evidence quality"
         ),
     }
 
@@ -68,6 +69,24 @@ def list_research_skills() -> dict[str, Any]:
     """Return inspectable built-in research-skill manifests."""
     registry = get_builtin_skill_registry()
     return {"skills": [manifest.as_dict() for manifest in registry.list()]}
+
+
+def evaluate_research_summaries(
+    folder: str,
+    skill: str | None = None,
+    limit: int | None = None,
+) -> dict[str, Any]:
+    """Audit local summary artifacts without writing files or calling an LLM."""
+    registry = get_builtin_skill_registry()
+    expected_skill = registry.get(skill) if skill else None
+    return SummaryEvaluationHarness(
+        folder,
+        skill_registry=registry,
+    ).evaluate(
+        limit=limit,
+        expected_skill=expected_skill,
+        write_artifact=False,
+    ).as_dict()
 
 
 TOOL_SPECS = [
@@ -108,6 +127,34 @@ TOOL_SPECS = [
             "additionalProperties": False,
         },
         handler=list_research_skills,
+    ),
+    ToolSpec(
+        name="evaluate_research_summaries",
+        description=(
+            "Audit local paper-summary artifacts for missing summaries, stale evidence, "
+            "citation errors, and review warnings without calling an LLM."
+        ),
+        parameters={
+            "type": "object",
+            "properties": {
+                "folder": {
+                    "type": "string",
+                    "description": "Absolute or relative research-folder path.",
+                },
+                "skill": {
+                    "type": "string",
+                    "description": "Optional required research-skill manifest name.",
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "Optional maximum number of PDFs to audit.",
+                    "minimum": 1,
+                },
+            },
+            "required": ["folder"],
+            "additionalProperties": False,
+        },
+        handler=evaluate_research_summaries,
     ),
     ToolSpec(
         name="search_research_chunks",

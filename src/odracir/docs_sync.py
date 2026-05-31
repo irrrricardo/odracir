@@ -90,6 +90,7 @@ Active commands:
 - `odracir ask <research-folder> "<question>"`: answer from retrieved evidence through DeepSeek.
 - `odracir summarize <research-folder> --paper <paper-id>`: generate a cited summary through DeepSeek.
 - `odracir summarize <research-folder> --skill biomedical-paper --dry-run`: preview biomedical summary scope without API usage.
+- `odracir evaluate-summaries <research-folder> --skill biomedical-paper`: audit local summaries without API usage.
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`: preview selected translation chunks without API usage.
 - `odracir translate <research-folder> --paper <paper-id>`: translate selected chunks through DeepSeek.
 - `odracir sync-docs`: refresh generated documentation status blocks.
@@ -128,6 +129,7 @@ def build_chinese_status_block(version: str, synced_at: str) -> str:
 - `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
+- `odracir evaluate-summaries <research-folder> --skill biomedical-paper`：无 API 用量地审计本地摘要。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。

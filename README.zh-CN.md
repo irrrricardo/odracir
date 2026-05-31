@@ -16,7 +16,7 @@
 - 版本：`0.1.0`
 - 阶段：带引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
 - 当前重点：生物医学摘要审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-05-31T23:31:33+08:00`
+- 最近同步：`2026-05-31T23:45:13+08:00`
 
 当前命令：
 
@@ -36,6 +36,7 @@
 - `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
+- `odracir evaluate-summaries <research-folder> --skill biomedical-paper`：无 API 用量地审计本地摘要。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。
@@ -179,6 +180,7 @@ src/odracir/
   parser_benchmark.py # 只读 parser 比较
   parser_routing.py # 带缓存的 parser 审阅建议
   skills/        # 版本化、多学科科研 skill manifest
+  summary_evaluation.py # 本地摘要质量审计
   summarization.py # 注重证据的 map-reduce 论文摘要
   translation.py # 可追溯的选择性 chunk 翻译
   question_answering.py # 检索优先、带引用的科研问答
@@ -338,9 +340,12 @@ odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal W
 odracir skills
 odracir skills biomedical-paper
 odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
+odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
 ```
 
 `generic` 仍然是默认的跨学科 skill。`biomedical-paper` 添加版本化、注重证据的字段：研究人群、干预或暴露、对照、结局、机制、assay 或测量、临床相关性，以及安全或伦理。每一个结构化生物医学条目都必须保留来源引用，或者显式设置 `inference=true`。实际执行后的摘要会记录所选 skill 及其版本，因此切换 skill 会使旧摘要缓存失效。
+
+`evaluate-summaries` 是确定性工具，不会调用 DeepSeek。它会在 `.odracir/evaluations/summaries/` 下写入带缓存的报告，检查 artifact 是否缺失或过期，根据当前 chunks 重新校验引用，并报告 limitations 缺失、生物医学字段为空等需要人工复核的 warning。
 
 将默认选择的摘要、方法和结论段落翻译为中文：
 
@@ -375,7 +380,7 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - 版本：`0.1.0`
 - 阶段：带引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
 - 当前重点：生物医学摘要审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-05-31T23:31:33+08:00`
+- 最近同步：`2026-05-31T23:45:13+08:00`
 
 当前命令：
 
@@ -395,6 +400,7 @@ README 文件里包含一个由程序生成的项目状态区块，位于这些�
 - `odracir ask <research-folder> "<question>"`：通过 DeepSeek 基于检索证据回答问题。
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
+- `odracir evaluate-summaries <research-folder> --skill biomedical-paper`：无 API 用量地审计本地摘要。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
 - `odracir sync-docs`：刷新自动生成的文档状态区块。

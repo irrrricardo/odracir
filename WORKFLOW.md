@@ -26,6 +26,8 @@ research folder
 -> write .odracir/answers/*.json
 -> explicitly summarize chosen papers through DeepSeek
 -> write .odracir/summaries/*.json
+-> locally audit summary evidence quality
+-> write .odracir/evaluations/summaries/*.json
 -> explicitly translate selected chunks through DeepSeek
 -> write .odracir/translations/*.json
 -> later: chat, plan, code
@@ -51,6 +53,8 @@ research folder
 -> 写入 .odracir/answers/*.json
 -> 通过 DeepSeek 显式总结选定论文
 -> 写入 .odracir/summaries/*.json
+-> 在本地审计摘要证据质量
+-> 写入 .odracir/evaluations/summaries/*.json
 -> 通过 DeepSeek 显式翻译选定 chunk
 -> 写入 .odracir/translations/*.json
 -> 后续：交流、规划、代码实现
@@ -250,6 +254,7 @@ Inspect built-in research skills and preview biomedical summary scope without AP
 odracir skills
 odracir skills biomedical-paper
 odracir summarize <research-folder> --papers-dir <paper-folder> --skill biomedical-paper --dry-run
+odracir evaluate-summaries <research-folder> --papers-dir <paper-folder> --skill biomedical-paper
 ```
 
 检查内置科研 skill，并在无 API 用量的情况下预览生物医学摘要范围：
@@ -258,11 +263,16 @@ odracir summarize <research-folder> --papers-dir <paper-folder> --skill biomedic
 odracir skills
 odracir skills biomedical-paper
 odracir summarize <research-folder> --papers-dir <paper-folder> --skill biomedical-paper --dry-run
+odracir evaluate-summaries <research-folder> --papers-dir <paper-folder> --skill biomedical-paper
 ```
 
 `generic` remains the default cross-disciplinary skill. `biomedical-paper` is the first domain manifest. It adds versioned summary instructions, a biomedical schema extension, tool bindings, and evaluation rules. Each biomedical field item must carry source citations or set `inference=true`. Executed summaries store the chosen skill name and version; switching skills invalidates stale summary caches.
 
 `generic` 仍然是默认跨学科 skill。`biomedical-paper` 是首个领域 manifest。它添加版本化摘要说明、生物医学 schema 扩展、工具绑定和评测规则。每一个生物医学字段条目都必须携带来源引用，或者设置 `inference=true`。实际执行摘要会保存所选 skill 名称和版本；切换 skill 会使旧摘要缓存失效。
+
+`evaluate-summaries` is a deterministic local audit. It does not call DeepSeek or modify the index. It checks missing and stale artifacts, citation validity against current chunks, skill-version provenance, findings, limitations, and populated domain fields. Cached reports are written under `.odracir/evaluations/summaries/`. Use `--no-write` when only an ephemeral report is needed.
+
+`evaluate-summaries` 是确定性的本地审计工具。它不会调用 DeepSeek，也不会修改索引。它会检查缺失和过期 artifact、当前 chunks 上的引用有效性、skill 版本 provenance、findings、limitations 和已填充领域字段。带缓存的报告写入 `.odracir/evaluations/summaries/`。只需要临时报告时，可以使用 `--no-write`。
 
 Translate the default abstract, methods, and conclusion selection:
 
@@ -331,6 +341,8 @@ research-folder/
     ocr/
       paper-id.pdf
     summaries/
+    evaluations/
+      summaries/
     translations/
     answers/
     chunks/
@@ -733,4 +745,36 @@ Result:
 - 生物医学摘要要求研究人群、干预或暴露、对照、结局、机制、assay 或测量、临床相关性、安全或伦理等条目带引用，或者显式标记为推断。
 - 实际执行的 summary artifact 会记录所选 skill manifest；skill 或 skill 版本变化会使旧摘要缓存失效。
 - 真实目录 dry-run：9 篇 ready、0 篇 blocked、0 篇 failed，共 128 个 chunks。
+- 未调用 DeepSeek API。
+
+Deterministic local summary evaluation:
+
+```powershell
+odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
+```
+
+确定性本地摘要评测：
+
+```powershell
+odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
+```
+
+Result:
+
+- Added deterministic `odracir evaluate-summaries` and the read-only `evaluate_research_summaries` agent tool.
+- Real-folder audit: 9 `missing_summary`, matching the intentionally deferred paid-summary state.
+- The second evaluation run loaded the cached report.
+- The report was written to `.odracir/evaluations/summaries/bfc89a4fbb0c141e3dd0.json`.
+- The `odracir_index.json` SHA-256 remained identical before and after evaluation.
+- No DeepSeek API call was made.
+
+结果：
+
+- 添加确定性 `odracir evaluate-summaries` 和只读 `evaluate_research_summaries` agent tool。
+- 真实目录审计：9 篇 `missing_summary`，与刻意暂缓付费摘要的状态一致。
+- 第二次评测运行读取了缓存报告。
+- 报告写入 `.odracir/evaluations/summaries/bfc89a4fbb0c141e3dd0.json`。
+- 评测前后，`odracir_index.json` 的 SHA-256 完全一致。
 - 未调用 DeepSeek API。

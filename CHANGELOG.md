@@ -59,6 +59,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `odracir skills [name]` and the read-only `list_research_skills` agent tool.
 - Added `odracir summarize --skill biomedical-paper --dry-run` for no-cost summary-scope review.
 - Added biomedical summary schema extensions with citation-or-inference validation, artifact provenance, and cache invalidation when the selected skill changes.
+- Added deterministic `odracir evaluate-summaries` with cached local reports, stale-evidence detection, citation revalidation, domain completeness metrics, and review warnings.
+- Added the read-only `evaluate_research_summaries` agent tool for summary-readiness and quality checks.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -107,6 +109,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `odracir skills [name]` 和只读 `list_research_skills` agent tool。
 - 添加 `odracir summarize --skill biomedical-paper --dry-run`，用于无费用地审阅摘要范围。
 - 添加带 citation-or-inference 校验、artifact provenance 和 skill 切换缓存失效的生物医学摘要 schema 扩展。
+- 添加确定性 `odracir evaluate-summaries`，包括带缓存本地报告、过期证据检测、引用重新校验、领域完整性指标和审阅 warning。
+- 添加只读 `evaluate_research_summaries` agent tool，用于检查摘要就绪状态和质量。
 
 ### Planned / 计划
 

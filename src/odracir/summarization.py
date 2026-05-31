@@ -232,7 +232,7 @@ class EvidenceSummaryGenerator:
         )
         _merge_usage(usage, reduced.usage)
         allowed_citations = {str(map_summary["citation"]) for map_summary in map_summaries}
-        summary = _validate_summary(
+        summary = validate_summary(
             reduced.payload,
             allowed_citations,
             skill=self.skill,
@@ -409,7 +409,7 @@ def _reduce_system_prompt(skill: ResearchSkillManifest) -> str:
     return f"{REDUCE_SYSTEM_PROMPT}\n{skill.summary_prompt_guidance(include_schema=True)}"
 
 
-def _validate_summary(
+def validate_summary(
     summary: dict[str, Any],
     allowed_citations: set[str],
     *,
