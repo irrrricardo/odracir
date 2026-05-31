@@ -7,6 +7,7 @@ from typing import Any
 
 from odracir.docling_adapter import detect_docling_capability
 from odracir.ocr import detect_ocrmypdf_capability
+from odracir.pymupdf4llm_adapter import detect_pymupdf4llm_capability
 
 
 @dataclass(frozen=True)
@@ -20,6 +21,7 @@ class CapabilityReport:
 
 def build_capability_report() -> CapabilityReport:
     docling = detect_docling_capability()
+    pymupdf4llm = detect_pymupdf4llm_capability()
     ocrmypdf = detect_ocrmypdf_capability()
     return CapabilityReport(
         parser_backends=[
@@ -28,6 +30,7 @@ def build_capability_report() -> CapabilityReport:
                 "available": True,
                 "detail": "Default lightweight PDF parser backend.",
             },
+            pymupdf4llm.as_dict(),
             docling.as_dict(),
         ],
         preprocessors=[ocrmypdf.as_dict()],

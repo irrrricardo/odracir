@@ -13,6 +13,7 @@ from odracir.docling_adapter import extract_pdf_text_with_docling
 from odracir.parsers import ParserRegistration, ParserRegistry
 from odracir.pdf_artifacts import build_pdf_text_artifact
 from odracir.processing_state import invalidate_chunking, invalidate_text_extraction
+from odracir.pymupdf4llm_adapter import extract_pdf_text_with_pymupdf4llm
 from odracir.research_folder import ResearchFolderHarness
 from odracir.schemas import ExtractionStatus, TEXT_SCHEMA_VERSION
 from odracir.time_utils import now_iso
@@ -181,7 +182,7 @@ def extract_pdf_text(source_path: Path) -> dict[str, Any]:
 
     pages: list[dict[str, Any]] = []
     metadata: dict[str, Any]
-    parser_version = str(getattr(fitz, "version", "unknown"))
+    parser_version = _pymupdf_version(fitz)
 
     with fitz.open(source_path) as document:
         metadata = dict(document.metadata or {})
@@ -218,6 +219,13 @@ def build_pdf_parser_registry() -> ParserRegistry:
             name="docling",
             file_types=("pdf",),
             parse=extract_pdf_text_with_docling,
+        )
+    )
+    registry.register(
+        ParserRegistration(
+            name="pymupdf4llm",
+            file_types=("pdf",),
+            parse=extract_pdf_text_with_pymupdf4llm,
         )
     )
     return registry
@@ -277,3 +285,10 @@ def _sha256_file(path: Path) -> str:
         for chunk in iter(lambda: file.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _pymupdf_version(fitz: Any) -> str:
+    value = getattr(fitz, "version", "unknown")
+    if isinstance(value, (tuple, list)) and value:
+        value = value[0]
+    return str(value)

@@ -49,6 +49,10 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Added `odracir ask --dry-run` to inspect selected evidence without loading API configuration or calling DeepSeek.
 - Added answer artifacts, lazy provider creation, context limits, cache revalidation, and citation allowlisting for claims and inline answer text.
 - Expanded the external parser benchmark strategy with PyMuPDF4LLM, Marker, and Unstructured while keeping heavier integrations behind adapters or service clients.
+- Added an optional `pymupdf4llm` layout-aware Markdown parser adapter with explicit OCR disabled.
+- Added `odracir benchmark-parsers` for read-only parser comparisons over indexed PDFs.
+- Added parser benchmark summaries for success counts, timing, extracted characters, baseline deltas, and isolated backend failures.
+- Normalized PyMuPDF provenance to record its release version instead of the library's version tuple.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -87,6 +91,10 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `odracir ask --dry-run`，无需读取 API 配置或调用 DeepSeek 即可检查选定证据。
 - 添加问答 artifact、provider 懒加载、上下文上限、缓存重新校验，以及对 claims 和答案内联引用的白名单校验。
 - 使用 PyMuPDF4LLM、Marker 和 Unstructured 扩展外部解析器基准策略，同时让较重集成保持在 adapter 或服务客户端之后。
+- 添加可选 `pymupdf4llm` 版式感知 Markdown parser adapter，并禁用其隐式 OCR。
+- 添加 `odracir benchmark-parsers`，用于对已索引 PDF 执行只读 parser 比较。
+- 添加 parser benchmark 汇总，包括成功数、耗时、提取字符数、相对默认后端差异和隔离后的后端失败。
+- 将 PyMuPDF provenance 规范化为发行版本号，而不是记录整个库版本 tuple。
 
 ### Planned / 计划
 
@@ -94,13 +102,13 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Benchmark paper translation and structured summaries on reviewed examples.
 - Benchmark and refine richer retrieval and cited answers over reviewed folder-level questions.
 - Add a research-companion agent that reuses the audited retrieval and answer paths.
-- Spike a PyMuPDF4LLM adapter before committing to heavier parser services.
+- Review representative PyMuPDF4LLM output quality and define selective parser-routing rules.
 
 - 在真实论文处理后继续演进第一版 `odracir_index.json` schema。
 - 在人工审阅样例上评估论文翻译和结构化摘要。
 - 在人工审阅的文件夹级问题上评估和优化更丰富的检索与带引用问答。
 - 添加复用已审计检索和问答路径的科研 companion agent。
-- 在决定采用更重的解析服务前，先尝试 PyMuPDF4LLM adapter。
+- 人工审阅代表性 PyMuPDF4LLM 输出质量，并定义选择性 parser 路由规则。
 
 ## [0.1.0] - 2026-05-30 / 初始版本
 

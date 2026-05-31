@@ -40,6 +40,8 @@ def test_pdf_text_extractor_writes_artifact_and_updates_index(tmp_path) -> None:
     artifact = json.loads((root / paper["text_artifact"]).read_text(encoding="utf-8"))
     assert artifact["paper_id"] == paper["id"]
     assert "Hello Odracir" in artifact["pages"][0]["text"]
+    expected_version = fitz.version[0] if isinstance(fitz.version, tuple) else fitz.version
+    assert artifact["parser_version"] == str(expected_version)
 
 
 def test_pdf_text_extractor_skips_current_artifact(tmp_path) -> None:

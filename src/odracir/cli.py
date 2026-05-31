@@ -13,6 +13,7 @@ from odracir.chunking import TextChunker
 from odracir.config import load_config
 from odracir.docs_sync import sync_project_docs
 from odracir.ocr import OcrmyPdfPreprocessor
+from odracir.parser_benchmark import ParserBenchmarkHarness, format_parser_benchmark
 from odracir.pdf_extraction import PdfTextExtractor
 from odracir.providers import DeepSeekProvider
 from odracir.question_answering import (
@@ -46,6 +47,9 @@ def main() -> None:
         return
     if argv and argv[0] == "capabilities":
         _capabilities(argv[1:])
+        return
+    if argv and argv[0] == "benchmark-parsers":
+        _benchmark_parsers(argv[1:])
         return
     if argv and argv[0] == "status":
         _status(argv[1:])
@@ -222,6 +226,45 @@ def _capabilities(argv: list[str]) -> None:
         print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_capability_report(report))
+
+
+def _benchmark_parsers(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Compare registered PDF parsers without writing extraction artifacts."
+    )
+    parser.add_argument("folder", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument(
+        "--parser",
+        action="append",
+        default=None,
+        help="Registered parser name. Repeat to compare parsers. Defaults to pymupdf and pymupdf4llm.",
+    )
+    parser.add_argument("--paper", default=None, help="Only benchmark one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        report = ParserBenchmarkHarness(
+            args.folder,
+            papers_dir=args.papers_dir,
+        ).run(
+            parser_names=tuple(args.parser) if args.parser else ("pymupdf", "pymupdf4llm"),
+            paper_id=args.paper,
+            limit=args.limit,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_parser_benchmark(report))
 
 
 def _sync_docs(argv: list[str]) -> None:

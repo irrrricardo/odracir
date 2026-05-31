@@ -116,6 +116,26 @@ pip install -e ".[docling]"
 odracir extract <research-folder> --paper <paper-id> --parser docling --force
 ```
 
+Compare the default parser with the optional layout-aware PyMuPDF4LLM adapter without changing extraction artifacts or index state:
+
+```powershell
+pip install -e ".[pymupdf4llm]"
+odracir benchmark-parsers <research-folder> --papers-dir <paper-folder> --limit 1
+```
+
+在不修改 extraction artifact 或索引状态的情况下，将默认 parser 与可选版式感知 PyMuPDF4LLM adapter 进行比较：
+
+```powershell
+pip install -e ".[pymupdf4llm]"
+odracir benchmark-parsers <research-folder> --papers-dir <paper-folder> --limit 1
+```
+
+After reviewing representative outputs, selectively extract with the layout-aware backend:
+
+```powershell
+odracir extract <research-folder> --paper <paper-id> --parser pymupdf4llm --force
+```
+
 Create OCR derivatives for papers reported as `needs_ocr`:
 
 ```powershell
@@ -308,9 +328,9 @@ harness: runs the workflow, records state, handles retries, writes artifacts
 
 ## Parser Backends / 解析器后端
 
-PDF parsing is a replaceable deterministic tool. Odracir uses a parser registry, keeps `pymupdf` as the default lightweight backend, and exposes the optional `docling` backend for complex layouts. OCRmyPDF is an explicit preprocessor rather than a parser. Additional projects should enter through adapters or service clients only after representative benchmarks. Backends preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
+PDF parsing is a replaceable deterministic tool. Odracir uses a parser registry, keeps `pymupdf` as the default lightweight backend, and exposes optional `pymupdf4llm` and `docling` adapters. `pymupdf4llm` adds layout-aware Markdown conversion but is intentionally selective because it is slower and carries AGPL/commercial licensing considerations. OCRmyPDF is an explicit preprocessor rather than a parser. Additional projects should enter through adapters or service clients only after representative benchmarks. Backends preserve the normalized artifact contract instead of leaking backend-specific formats into agents.
 
-PDF 解析是一个可替换的确定性工具。Odracir 使用解析器注册表，将 `pymupdf` 保留为默认轻量后端，并暴露用于复杂版式的可选 `docling` 后端。OCRmyPDF 是显式预处理器，而不是 parser。其他项目只有在代表性样例基准证明有价值后，才应通过 adapter 或服务客户端接入。各后端遵守标准化 artifact 契约，不会让后端专属格式泄漏到 agent 中。
+PDF 解析是一个可替换的确定性工具。Odracir 使用解析器注册表，将 `pymupdf` 保留为默认轻量后端，并暴露可选 `pymupdf4llm` 和 `docling` adapter。`pymupdf4llm` 增加版式感知 Markdown 转换，但由于速度更慢且存在 AGPL/商业许可证注意事项，只应选择性使用。OCRmyPDF 是显式预处理器，而不是 parser。其他项目只有在代表性样例基准证明有价值后，才应通过 adapter 或服务客户端接入。各后端遵守标准化 artifact 契约，不会让后端专属格式泄漏到 agent 中。
 
 Recommended external projects:
 
@@ -318,7 +338,7 @@ Recommended external projects:
 
 - [Docling](https://github.com/docling-project/docling): integrated optional adapter for complex-layout PDFs; see its [official usage docs](https://docling-project.github.io/docling/usage/).
 - [OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF): integrated optional preprocessing route for PDFs reported as `needs_ocr`; see its [official cookbook](https://ocrmypdf.readthedocs.io/en/latest/cookbook.html).
-- [PyMuPDF4LLM](https://github.com/pymupdf/pymupdf4llm): first adapter candidate to benchmark as a lightweight layout-aware upgrade; review its AGPL/commercial licensing before distribution.
+- [PyMuPDF4LLM](https://github.com/pymupdf/pymupdf4llm): integrated optional layout-aware Markdown adapter with a read-only benchmark route; review its AGPL/commercial licensing before distribution.
 - [GROBID](https://github.com/grobidOrg/grobid): planned service adapter for scholarly metadata, references, citation contexts, and TEI output.
 - [MinerU](https://github.com/opendatalab/MinerU): heavier optional service candidate for Chinese, formula-heavy, scanned, or complex-layout documents; it supports CPU and GPU modes and uses a custom license based on Apache 2.0.
 - [Marker](https://github.com/datalab-to/marker): benchmark candidate for rich Markdown/JSON conversion and scientific layouts; keep it optional because code, model, and commercial-use licensing need deliberate review.
@@ -343,20 +363,22 @@ Possible future skills:
 ## Near-Term Roadmap / 近期路线图
 
 1. Keep scan, extract, status, and chunk reliable.
-2. Benchmark the integrated Docling and OCRmyPDF routes plus a PyMuPDF4LLM adapter spike on representative papers.
+2. Review representative PyMuPDF4LLM benchmark outputs and define selective parser-routing rules.
 3. Benchmark and refine DeepSeek-based structured paper summaries.
 4. Benchmark selective Chinese translation on reviewed abstract, method, conclusion, and chosen-passage examples.
 5. Benchmark the cited `odracir ask` route and add optional embeddings only when retrieval evidence justifies them.
-6. Add a GROBID service adapter when scholarly metadata and citation graphs become the next concrete need.
-7. Add discipline-specific skills only after the generic extraction and memory loop is stable.
+6. Validate the explicit OCRmyPDF path on a scanned fixture after installing system dependencies.
+7. Add a GROBID service adapter when scholarly metadata and citation graphs become the next concrete need.
+8. Add discipline-specific skills only after the generic extraction and memory loop is stable.
 
 1. 先让 scan、extract、status 和 chunk 稳定。
-2. 可选安装后，在代表性论文上评估已接入的 Docling、OCRmyPDF 路径和一个 PyMuPDF4LLM adapter spike。
+2. 人工审阅代表性 PyMuPDF4LLM benchmark 输出，并定义选择性 parser 路由规则。
 3. 对基于 DeepSeek 的结构化论文总结进行基准评估和优化。
 4. 在人工审阅的摘要、方法、结论和选定段落样例上评估选择性中文翻译。
 5. 评估带引用的 `odracir ask` 路径；只有检索证据证明有必要时，才添加可选 embedding。
-6. 当学术元数据和引用图谱成为明确需求时，添加 GROBID 服务 adapter。
-7. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
+6. 安装系统依赖后，在扫描版 fixture 上验证显式 OCRmyPDF 路径。
+7. 当学术元数据和引用图谱成为明确需求时，添加 GROBID 服务 adapter。
+8. 等通用提取和记忆闭环稳定后，再添加学科专用 skill。
 
 ## Execution Log / 执行记录
 
@@ -555,3 +577,41 @@ Result:
 - 真实文件夹 dry-run 检索了 9 篇论文和 128 个 chunk，选择 4 个证据 chunk，共 20,220 个字符，未调用 DeepSeek。
 - 检查 Docling、PyMuPDF4LLM、OCRmyPDF、GROBID、MinerU、Marker 和 Unstructured 的官方 GitHub 仓库。
 - 下一步解析器演进保持聚焦：先评估 PyMuPDF4LLM adapter spike，再决定是否加入更重的服务集成。
+
+PyMuPDF4LLM adapter and read-only parser benchmark:
+
+```powershell
+pip install -e ".[pymupdf4llm]"
+odracir capabilities
+odracir benchmark-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --parser pymupdf --parser pymupdf4llm
+```
+
+PyMuPDF4LLM adapter 与只读 parser benchmark：
+
+```powershell
+pip install -e ".[pymupdf4llm]"
+odracir capabilities
+odracir benchmark-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --parser pymupdf --parser pymupdf4llm
+```
+
+Result:
+
+- Added optional `pymupdf4llm` parser registration, capability detection, and normalized page-level Markdown artifacts.
+- Disabled PyMuPDF4LLM implicit OCR so Odracir keeps its explicit OCRmyPDF derivative route auditable.
+- Added read-only `odracir benchmark-parsers`; it does not overwrite extraction artifacts or index state.
+- Real-folder comparison: both parsers succeeded on 9/9 papers.
+- `pymupdf`: 1.611 seconds total, 595,281 extracted characters.
+- `pymupdf4llm`: 139.505 seconds total, 629,117 extracted characters.
+- PyMuPDF4LLM extracted 33,836 more characters but was substantially slower, so it remains a selective backend.
+- The `odracir_index.json` SHA-256 remained identical before and after the benchmark.
+
+结果：
+
+- 添加可选 `pymupdf4llm` parser 注册、能力检测和标准化按页 Markdown artifact。
+- 禁用 PyMuPDF4LLM 隐式 OCR，使 Odracir 继续保持显式、可审计的 OCRmyPDF derivative 路径。
+- 添加只读 `odracir benchmark-parsers`；它不会覆盖 extraction artifact 或索引状态。
+- 真实目录比较：两个 parser 均成功处理 9/9 篇论文。
+- `pymupdf`：总耗时 1.611 秒，提取 595,281 个字符。
+- `pymupdf4llm`：总耗时 139.505 秒，提取 629,117 个字符。
+- PyMuPDF4LLM 多提取 33,836 个字符，但明显更慢，因此继续作为选择性后端。
+- benchmark 前后 `odracir_index.json` 的 SHA-256 完全一致。

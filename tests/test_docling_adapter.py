@@ -32,5 +32,5 @@ def test_docling_adapter_normalizes_page_level_markdown(tmp_path) -> None:
     assert artifact["pages"][1]["text"].startswith("## Method")
 
 
-def test_default_parser_registry_exposes_optional_docling_backend() -> None:
-    assert build_pdf_parser_registry().names() == ("docling", "pymupdf")
+def test_default_parser_registry_exposes_optional_backends() -> None:
+    assert build_pdf_parser_registry().names() == ("docling", "pymupdf", "pymupdf4llm")
