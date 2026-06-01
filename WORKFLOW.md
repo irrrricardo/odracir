@@ -24,7 +24,8 @@ research folder
 -> search chunks with paper/page citations
 -> preview or answer folder-level questions from retrieved evidence
 -> write .odracir/answers/*.json
--> explicitly summarize chosen papers through DeepSeek
+-> ingest each ordinary paper through one versioned structured DeepSeek request
+-> transparently fall back to map-reduce only when required
 -> write .odracir/summaries/*.json
 -> locally audit summary evidence quality
 -> write .odracir/evaluations/summaries/*.json
@@ -52,7 +53,8 @@ research folder
 -> 检索 chunk，并返回论文与页码引用
 -> 根据检索证据预览或回答文件夹级问题
 -> 写入 .odracir/answers/*.json
--> 通过 DeepSeek 显式总结选定论文
+-> 通过一次版本化结构化 DeepSeek 请求摄取每篇普通论文
+-> 仅在必要时透明降级为 map-reduce
 -> 写入 .odracir/summaries/*.json
 -> 在本地审计摘要证据质量
 -> 写入 .odracir/evaluations/summaries/*.json
@@ -63,6 +65,30 @@ research folder
 ```
 
 ## Commands / 命令
+
+Ingest one paper library, audit summaries, and refresh its visible root state:
+
+```powershell
+odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic --dry-run
+odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic
+```
+
+摄取一个论文库、审计摘要，并刷新其根目录下的可见 state：
+
+```powershell
+odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic --dry-run
+odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic
+```
+
+`ingest-library` is the primary resumable library entry point. Ordinary papers
+use one versioned structured DeepSeek call. Oversized papers and single-pass structured-output validation failures
+transparently fall back to map-reduce. Every strategy,
+request count, input size, and fallback reason is preserved in provenance.
+
+`ingest-library` 是论文库默认的可恢复入口。普通论文使用一次版本化结构化
+DeepSeek 调用；超长论文和 single-pass 结构化输出校验失败项会透明降级为
+map-reduce。
+策略、请求次数、输入规模和 fallback 原因都会保留在 provenance 中。
 
 Prepare searchable local artifacts and rebuild folder memory without API usage:
 
@@ -448,7 +474,7 @@ Possible future skills:
 
 1. Keep scan, extract, status, and chunk reliable.
 2. Review cached parser-routing recommendations and representative PyMuPDF4LLM outputs before accepting per-paper overrides.
-3. Benchmark and refine DeepSeek-based structured paper summaries.
+3. Benchmark and refine single-pass DeepSeek paper ingestion and its transparent fallback.
 4. Benchmark selective Chinese translation on reviewed abstract, method, conclusion, and chosen-passage examples.
 5. Benchmark the cited `odracir ask` route and add optional embeddings only when retrieval evidence justifies them.
 6. Validate the explicit OCRmyPDF path on a scanned fixture after installing system dependencies.
@@ -457,18 +483,18 @@ Possible future skills:
 
 1. 先让 scan、extract、status 和 chunk 稳定。
 2. 审阅缓存的 parser 路由建议和代表性 PyMuPDF4LLM 输出，再接受逐篇 parser override。
-3. 对基于 DeepSeek 的结构化论文总结进行基准评估和优化。
+3. 对 single-pass DeepSeek 论文摄取及其透明 fallback 进行基准评估和优化。
 4. 在人工审阅的摘要、方法、结论和选定段落样例上评估选择性中文翻译。
 5. 评估带引用的 `odracir ask` 路径；只有检索证据证明有必要时，才添加可选 embedding。
 6. 安装系统依赖后，在扫描版 fixture 上验证显式 OCRmyPDF 路径。
 7. 当学术元数据和引用图谱成为明确需求时，添加 GROBID 服务 adapter。
 8. 审阅生物医学摘要 artifact；只有代表性样例证明 schema 合理后，才继续添加其他学科 skill。
 
-## Explainable Reading Queue / 可解释阅读队列
+## Optional Explainable Reading Queue / 可选可解释阅读队列
 
-After local preparation, rank the next supervised reading and summary actions:
+Optionally, after local preparation, rank supervised reading actions:
 
-完成本地准备后，对下一步受监督阅读和摘要行动排序：
+可选：完成本地准备后，对受监督阅读行动排序：
 
 ```powershell
 odracir plan-reading "D:\Research\medical-world-models" --papers-dir "Paper Storage" --query "medical world model clinical trajectories" --skill biomedical-paper

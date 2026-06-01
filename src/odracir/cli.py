@@ -12,6 +12,10 @@ from odracir.capabilities import build_capability_report, format_capability_repo
 from odracir.chunking import TextChunker
 from odracir.config import load_config
 from odracir.docs_sync import sync_project_docs
+from odracir.library_ingestion import (
+    PaperLibraryIngestionHarness,
+    format_paper_library_ingestion,
+)
 from odracir.ocr import OcrmyPdfPreprocessor
 from odracir.parser_benchmark import ParserBenchmarkHarness, format_parser_benchmark
 from odracir.parser_routing import ParserRoutingAdvisor, format_parser_routing
@@ -58,6 +62,9 @@ def main() -> None:
         return
     if argv and argv[0] == "prepare":
         _prepare(argv[1:])
+        return
+    if argv and argv[0] == "ingest-library":
+        _ingest_library(argv[1:])
         return
     if argv and argv[0] == "extract":
         _extract(argv[1:])
@@ -194,6 +201,69 @@ def _prepare(argv: list[str]) -> None:
         print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_local_preparation(result))
+
+
+def _ingest_library(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Prepare, summarize, audit, and update the visible state for a paper library."
+        )
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only ingest one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--skill",
+        default="generic",
+        help="Research skill manifest. Defaults to generic.",
+    )
+    parser.add_argument("--parser", default="pymupdf", help="Registered PDF parser name.")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Prepare local artifacts and preview scope without calling DeepSeek.",
+    )
+    parser.add_argument(
+        "--force-prepare",
+        action="store_true",
+        help="Regenerate extraction and chunk artifacts even when current.",
+    )
+    parser.add_argument(
+        "--force-summaries",
+        action="store_true",
+        help="Regenerate summary artifacts even when current.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        skill = get_builtin_skill_registry().get(args.skill)
+        provider = None if args.dry_run else DeepSeekProvider(load_config())
+        result = PaperLibraryIngestionHarness(
+            args.folder,
+            provider,
+            papers_dir=args.papers_dir,
+            skill=skill,
+            parser_name=args.parser,
+        ).ingest(
+            dry_run=args.dry_run,
+            force_prepare=args.force_prepare,
+            force_summaries=args.force_summaries,
+            limit=args.limit,
+            paper_id=args.paper,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_paper_library_ingestion(result))
 
 
 def _extract(argv: list[str]) -> None:

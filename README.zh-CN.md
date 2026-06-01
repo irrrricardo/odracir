@@ -9,17 +9,18 @@
 
 此区块由 `odracir sync-docs` 自动生成。
 
-- 版本：`0.1.0`
-- 阶段：带审计文件夹记忆、引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
-- 当前重点：可解释阅读优先级、受监督的生物医学摘要、catalog 审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-06-01T15:36:16+08:00`
+- 版本：`0.2.0`
+- 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
+- 当前重点：受监督的 single-pass 论文摄取、catalog 审阅、prompt 评测、parser 输出审阅和显式 OCR 验证
+- 最近同步：`2026-06-01T19:17:20+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
+- `odracir ingest-library <research-folder> --skill <skill>`：准备、逐篇总结、审计并刷新可见文件夹 state。
 - `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
-- `odracir plan-reading <research-folder> --query "<focus>"`：无 API 用量地排序可检查的下一步阅读和摘要行动。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
+- `odracir plan-reading <research-folder> --query "<focus>"`：可选地、无 API 用量地排序可检查的下一步阅读行动。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
 - `odracir capabilities`：检查可选解析器和预处理器是否可用。
 - `odracir benchmark-parsers <research-folder> --limit 1`：在不修改科研 artifact 的情况下比较 parser 后端。
@@ -238,13 +239,27 @@ odracir "帮我规划一个用于阅读扩散模型论文的科研助手。"
 python -m odracir.cli "帮我总结当前项目目标。"
 ```
 
-使用一条可恢复、零 API 命令准备可检索本地 artifact 并重建文件夹记忆：
+摄取论文库并刷新可见文件夹 state：
+
+```powershell
+odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic --dry-run
+odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic
+```
+
+`ingest-library` 是论文库主工作流。它会准备本地正文和 chunk，使用版本化结构化
+科研 prompt 阅读每篇普通论文，审计摘要，并刷新根目录下可见的
+`research_catalog.json` state。默认情况下，每篇普通论文只调用一次 DeepSeek；
+如果某篇论文超过保守 single-pass 阈值，或其结构化输出未通过校验，Odracir
+会透明降级为 map-reduce，并在 provenance 中记录原因。使用 `--dry-run` 可以在不调用
+DeepSeek 的情况下准备 artifact 并预览范围。
+
+仅准备可检索本地 artifact 并重建文件夹记忆，不调用 API：
 
 ```powershell
 odracir prepare <research-folder> --papers-dir <paper-folder>
 ```
 
-无 API 用量地规划下一步阅读和摘要行动：
+可选地、无 API 用量地规划下一步阅读行动：
 
 ```powershell
 odracir plan-reading <research-folder> --papers-dir <paper-folder> --query "<research focus>" --skill biomedical-paper
@@ -252,7 +267,7 @@ odracir plan-reading <research-folder> --papers-dir <paper-folder> --query "<res
 
 确定性队列会记录就绪状态、缺失摘要、查询相关性、标题语料中心性、工作量、
 可追溯证据片段和建议的受监督命令，并写入 `.odracir/planning/reading-queues/`。
-使用 `--no-write` 可以只做临时预览。
+它是可选辅助工具，不是摄取流程的必要步骤。使用 `--no-write` 可以只做临时预览。
 
 扫描一个研究文件夹：
 

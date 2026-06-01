@@ -38,7 +38,7 @@ class MemoryStubProvider:
             "findings": [
                 {
                     "claim": "Prediction supports planning.",
-                    "citations": [self.last_citation],
+                    "citations": [self.last_citation or "[paper pp.1 chunk:one]"],
                     "inference": False,
                 }
             ],
@@ -53,7 +53,7 @@ class MemoryStubProvider:
                     "population": [
                         {
                             "value": "Patients with longitudinal records.",
-                            "citations": [self.last_citation],
+                            "citations": [self.last_citation or "[paper pp.1 chunk:one]"],
                             "inference": False,
                         }
                     ],

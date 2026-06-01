@@ -133,6 +133,10 @@ class ResearchCatalogBuilder:
                     "prompt_version": summary_artifact.get("prompt_version"),
                     "skill": summary_artifact.get("skill"),
                     "summarized_at": summary_artifact.get("summarized_at"),
+                    "summary_strategy": summary_artifact.get("summary_strategy"),
+                    "request_count": summary_artifact.get("request_count"),
+                    "input_char_count": summary_artifact.get("input_char_count"),
+                    "fallback_reason": summary_artifact.get("fallback_reason"),
                 }
             except Exception as exc:  # noqa: BLE001 - isolate one malformed artifact.
                 quality_status = "failed"

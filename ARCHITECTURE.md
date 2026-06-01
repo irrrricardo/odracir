@@ -125,6 +125,8 @@ source file
 -> traceable chunks
    -> selected versioned research-skill manifest
    -> structured summary artifact
+      -> default single-pass paper reading
+      -> transparent map-reduce fallback when required
    -> deterministic local summary evaluation artifact
    -> translation artifact
 -> visible audited research_catalog.json
@@ -142,6 +144,8 @@ source file
 -> 可追溯 chunk
    -> 选定版本化科研 skill manifest
    -> 结构化总结 artifact
+      -> 默认 single-pass 论文阅读
+      -> 必要时透明降级为 map-reduce
    -> 确定性本地摘要评测 artifact
    -> 翻译 artifact
 -> 可见且经过审计的 research_catalog.json
@@ -190,6 +194,15 @@ every query-relevance contribution. It does not silently spend API budget.
 
 可解释阅读队列是确定性规划 artifact。它根据当前本地状态排序下一步受监督
 行动，为每个查询相关性贡献保留证据，并且不会静默消耗 API 预算。
+
+`odracir ingest-library` is the primary paper-library orchestration path. It
+prepares traceable local artifacts, reads each ordinary paper through one
+versioned structured prompt, audits summaries locally, and rebuilds the visible
+folder state. Map-reduce is retained only as a transparent fallback.
+
+`odracir ingest-library` 是论文库主编排路径。它准备可追溯本地 artifact，
+通过一次版本化结构化 prompt 阅读每篇普通论文，在本地审计摘要，并重建可见
+文件夹 state。map-reduce 仅作为透明 fallback 保留。
 
 ## 5. Scientific Data Model / 科学化数据模型
 

@@ -10,6 +10,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ## [Unreleased] / 未发布
 
+## [0.2.0] - 2026-06-01 / 论文库摄取 MVP
+
 ### Added / 新增
 
 - Added a research-folder harness that creates `papers/`, `notes/`, and `code/`, scans paper files, and maintains `odracir_index.json`.
@@ -76,6 +78,16 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
   calls.
 - Replaced personal computer paths in public documentation with reusable
   examples.
+- Added single-pass paper summarization as the default strategy so ordinary
+  papers use one structured DeepSeek request with a versioned research prompt.
+- Preserved map-reduce as a transparent fallback for papers above the
+  single-pass safety threshold or papers whose structured output fails validation.
+- Added summary-strategy, request-count, input-size, and fallback-reason
+  provenance to paper artifacts and visible folder memory.
+- Added resumable `odracir ingest-library` orchestration for preparation,
+  per-paper summarization, local quality evaluation, and root-level
+  `research_catalog.json` state updates.
+
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -138,6 +150,15 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 将默认 DeepSeek 模型改为 `deepseek-v4-pro`，校验 thinking 模式取值，并在
   thinking 模式工具调用间保留 `reasoning_content`。
 - 将公开文档中的个人电脑路径替换为可复用示例。
+
+- 将普通论文的默认摘要策略改为 single-pass：使用版本化科研 prompt 发起一次
+  DeepSeek 结构化请求。
+- 保留透明的 map-reduce fallback，用于超过 single-pass 安全阈值或首次调用
+  结构化输出校验失败的论文。
+- 在单篇 artifact 和可见文件夹记忆中记录摘要策略、请求次数、输入规模和
+  fallback 原因。
+- 添加可恢复 `odracir ingest-library` 编排，用于准备、逐篇摘要、本地质量审计
+  和根目录 `research_catalog.json` state 更新。
 
 ### Planned / 计划
 

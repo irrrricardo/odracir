@@ -1,5 +1,6 @@
 import json
 
+import odracir.summarization as summarization
 from odracir.providers import JsonCompletionResult
 from odracir.research_folder import ResearchFolderHarness
 from odracir.skills import get_builtin_skill_registry
@@ -133,12 +134,16 @@ def test_summarization_writes_artifact_and_skips_unchanged_chunks(tmp_path) -> N
 
     assert first.summarized == 1
     assert second.skipped == 1
-    assert len(provider.calls) == 3
+    assert len(provider.calls) == 1
     assert paper["summary_status"] == "summarized"
     assert paper["summary_short"] == "Short evidence-aware summary."
+    assert paper["summary_strategy"] == "single_pass"
+    assert paper["summary_request_count"] == 1
     assert artifact["provider"] == "stub"
-    assert artifact["usage"]["total_tokens"] == 40
-    assert len(artifact["map_summaries"]) == 2
+    assert artifact["usage"]["total_tokens"] == 20
+    assert artifact["summary_strategy"] == "single_pass"
+    assert artifact["request_count"] == 1
+    assert artifact["map_summaries"] == []
 
 
 def test_summarization_rejects_uncited_non_inference_finding(tmp_path) -> None:
@@ -240,8 +245,55 @@ def test_switching_summary_skill_invalidates_cache(tmp_path) -> None:
 
     assert result.summarized == 1
     assert result.skipped == 0
-    assert len(biomedical_provider.calls) == 3
+    assert len(biomedical_provider.calls) == 1
 
+
+def test_summary_uses_map_reduce_fallback_above_single_pass_limit(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    monkeypatch.setattr(summarization, "SINGLE_PASS_MAX_CHARS", 1)
+    provider = StubProvider()
+
+    result = EvidenceSummaryGenerator(root, provider).summarize_index()
+    paper = ResearchFolderHarness(root).load_index()["papers"][0]
+    artifact = json.loads((root / paper["summary_artifact"]).read_text(encoding="utf-8"))
+
+    assert result.summarized == 1
+    assert result.strategy_counts == {"map_reduce_fallback": 1}
+    assert len(provider.calls) == 3
+    assert artifact["summary_strategy"] == "map_reduce_fallback"
+    assert artifact["request_count"] == 3
+    assert "above the 1 single-pass safety limit" in artifact["fallback_reason"]
+    assert len(artifact["map_summaries"]) == 2
+
+
+class ConnectionFailureProvider:
+    provider_name = "stub"
+    model = "connection-failure"
+
+    def __init__(self) -> None:
+        self.calls = 0
+
+    def complete_json(self, *, system_prompt: str, user_prompt: str, max_tokens: int):
+        self.calls += 1
+        raise ConnectionError("network unavailable")
+
+
+def test_summary_does_not_fan_out_transport_failure_into_map_reduce(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    provider = ConnectionFailureProvider()
+
+    result = EvidenceSummaryGenerator(root, provider).summarize_index()
+    paper = ResearchFolderHarness(root).load_index()["papers"][0]
+
+    assert result.failed == 1
+    assert provider.calls == 1
+    assert paper["summary_status"] == "failed"
+    assert "network unavailable" in paper["summary_error"]
 
 def test_summary_dry_run_reports_scope_without_provider(tmp_path) -> None:
     root = tmp_path / "field"
