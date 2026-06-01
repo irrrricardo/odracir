@@ -6,6 +6,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
+from odracir.reading_queue import ReadingQueueBuilder
 from odracir.research_memory import ResearchCatalogBuilder
 from odracir.retrieval import search_chunks
 from odracir.skills import get_builtin_skill_registry
@@ -95,6 +96,21 @@ def get_research_memory(folder: str) -> dict[str, Any]:
     return ResearchCatalogBuilder(folder).build(write_artifact=False).as_dict()
 
 
+def plan_research_reading(
+    folder: str,
+    query: str | None = None,
+    skill: str = "generic",
+    limit: int = 5,
+) -> dict[str, Any]:
+    """Build an ephemeral reading queue without writing files or calling an LLM."""
+    return ReadingQueueBuilder(folder).build(
+        query=query,
+        skill_name=skill,
+        limit=limit,
+        write_artifact=False,
+    ).as_dict()
+
+
 TOOL_SPECS = [
     ToolSpec(
         name="get_project_context",
@@ -180,6 +196,41 @@ TOOL_SPECS = [
             "additionalProperties": False,
         },
         handler=get_research_memory,
+    ),
+    ToolSpec(
+        name="plan_research_reading",
+        description=(
+            "Build a read-only, explainable local reading-priority queue for a research "
+            "folder. It can prioritize papers for a focus query and proposes supervised "
+            "next commands without calling an LLM."
+        ),
+        parameters={
+            "type": "object",
+            "properties": {
+                "folder": {
+                    "type": "string",
+                    "description": "Absolute or relative research-folder path.",
+                },
+                "query": {
+                    "type": "string",
+                    "description": "Optional research focus used for local prioritization.",
+                },
+                "skill": {
+                    "type": "string",
+                    "description": "Research skill for supervised summary commands.",
+                    "default": "generic",
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "Maximum reading-queue entries.",
+                    "minimum": 1,
+                    "default": 5,
+                },
+            },
+            "required": ["folder"],
+            "additionalProperties": False,
+        },
+        handler=plan_research_reading,
     ),
     ToolSpec(
         name="search_research_chunks",

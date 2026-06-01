@@ -128,6 +128,7 @@ source file
    -> deterministic local summary evaluation artifact
    -> translation artifact
 -> visible audited research_catalog.json
+-> explainable reading queue artifact
 -> retrieval index
 -> evidence-backed answer artifacts
 -> conversation and planning
@@ -144,6 +145,7 @@ source file
    -> 确定性本地摘要评测 artifact
    -> 翻译 artifact
 -> 可见且经过审计的 research_catalog.json
+-> 可解释阅读队列 artifact
 -> 检索索引
 -> 带证据的问答 artifact
 -> 交流与规划
@@ -168,6 +170,8 @@ research-folder/
       summaries/
     translations/
     answers/
+    planning/
+      reading-queues/
     retrieval/
     logs/
 ```
@@ -179,6 +183,13 @@ research-folder/
 `research_catalog.json` is the visible, rebuildable folder memory. It aggregates compact processing state and audited summary knowledge while preserving explicit gaps, warnings, failures, artifact paths, and provenance.
 
 `research_catalog.json` 是可见且可重建的文件夹记忆。它聚合精简处理状态和经过审计的摘要知识，同时保留显式缺口、warning、失败原因、artifact 路径和 provenance。
+
+The explainable reading queue is a deterministic planning artifact. It ranks
+next supervised actions from current local state and preserves evidence for
+every query-relevance contribution. It does not silently spend API budget.
+
+可解释阅读队列是确定性规划 artifact。它根据当前本地状态排序下一步受监督
+行动，为每个查询相关性贡献保留证据，并且不会静默消耗 API 预算。
 
 ## 5. Scientific Data Model / 科学化数据模型
 

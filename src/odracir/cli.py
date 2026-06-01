@@ -24,6 +24,7 @@ from odracir.question_answering import (
     format_answer_result,
     format_ask_plan,
 )
+from odracir.reading_queue import ReadingQueueBuilder, format_reading_queue
 from odracir.research_memory import ResearchCatalogBuilder, format_research_catalog
 from odracir.research_folder import ResearchFolderHarness
 from odracir.retrieval import format_search_report, search_chunks
@@ -96,6 +97,9 @@ def main() -> None:
         return
     if argv and argv[0] == "build-memory":
         _build_memory(argv[1:])
+        return
+    if argv and argv[0] == "plan-reading":
+        _plan_reading(argv[1:])
         return
     if argv and argv[0] == "translate":
         _translate(argv[1:])
@@ -693,6 +697,56 @@ def _build_memory(argv: list[str]) -> None:
         print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_research_catalog(result))
+
+
+def _plan_reading(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Build a cached, explainable local reading-priority queue."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument(
+        "--query",
+        default=None,
+        help="Optional research focus used to prioritize locally relevant papers.",
+    )
+    parser.add_argument(
+        "--skill",
+        default="generic",
+        help="Research skill for generated supervised-summary commands. Defaults to generic.",
+    )
+    parser.add_argument("--limit", type=int, default=5, help="Maximum queue entries.")
+    parser.add_argument("--force", action="store_true", help="Regenerate a cached queue.")
+    parser.add_argument(
+        "--no-write",
+        action="store_true",
+        help="Print an ephemeral queue without writing a local planning artifact.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        report = ReadingQueueBuilder(
+            args.folder,
+            papers_dir=args.papers_dir,
+        ).build(
+            query=args.query,
+            skill_name=args.skill,
+            limit=args.limit,
+            force=args.force,
+            write_artifact=not args.no_write,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_reading_queue(report))
 
 
 def _translate(argv: list[str]) -> None:

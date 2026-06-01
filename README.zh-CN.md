@@ -11,13 +11,14 @@
 
 - 版本：`0.1.0`
 - 阶段：带审计文件夹记忆、引用问答、缓存 parser 建议和版本化科研 skill 的模块化原型
-- 当前重点：受监督的生物医学摘要、catalog 审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-06-01T00:52:10+08:00`
+- 当前重点：可解释阅读优先级、受监督的生物医学摘要、catalog 审阅、parser 输出审阅和显式 OCR 验证
+- 最近同步：`2026-06-01T15:36:16+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
 - `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
+- `odracir plan-reading <research-folder> --query "<focus>"`：无 API 用量地排序可检查的下一步阅读和摘要行动。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir scan <research-folder> --papers-dir <paper-folder>`：扫描已有的自定义论文文件夹。
 - `odracir capabilities`：检查可选解析器和预处理器是否可用。
@@ -221,6 +222,10 @@ Copy-Item .env.example .env
 
 然后编辑 `.env`，设置 `DEEPSEEK_API_KEY`。
 
+Odracir 默认使用 DeepSeek `deepseek-v4-pro` 处理文本。需要不同的费用、延迟或
+推理深度时，可以在 `.env` 中覆盖 `DEEPSEEK_MODEL` 或 `DEEPSEEK_THINKING`。
+适配层接受 `enabled`、`disabled` 或空的 thinking 值。
+
 ## 运行
 
 ```powershell
@@ -239,6 +244,16 @@ python -m odracir.cli "帮我总结当前项目目标。"
 odracir prepare <research-folder> --papers-dir <paper-folder>
 ```
 
+无 API 用量地规划下一步阅读和摘要行动：
+
+```powershell
+odracir plan-reading <research-folder> --papers-dir <paper-folder> --query "<research focus>" --skill biomedical-paper
+```
+
+确定性队列会记录就绪状态、缺失摘要、查询相关性、标题语料中心性、工作量、
+可追溯证据片段和建议的受监督命令，并写入 `.odracir/planning/reading-queues/`。
+使用 `--no-write` 可以只做临时预览。
+
 扫描一个研究文件夹：
 
 ```powershell
@@ -250,15 +265,15 @@ odracir scan D:\Research\diffusion-models
 扫描一个已有的自定义论文文件夹：
 
 ```powershell
-odracir scan "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir scan "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
-这个命令会把研究索引保存在 `Mecidal World Model` 文件夹中，同时从已有的 `Paper Storage` 文件夹读取 PDF。
+这个命令会把研究索引保存在 `medical-world-models` 文件夹中，同时从已有的 `Paper Storage` 文件夹读取 PDF。
 
 提取 PDF 正文：
 
 ```powershell
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 这个命令会把按页提取的正文 artifact 写入 `.odracir/texts/`，并在 `odracir_index.json` 中更新提取状态、页数、文本长度和 artifact 路径。
@@ -308,13 +323,13 @@ OCR derivative 会写入 `.odracir/ocr/`；原始 PDF 不会被修改。下一�
 查看处理状态、OCR 需求和失败项：
 
 ```powershell
-odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir status "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 为成功提取的 PDF 创建稳定、按页可追溯的 chunk：
 
 ```powershell
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Chunk artifact 会写入 `.odracir/chunks/`。重复运行时，未变化的正文 artifact 会被跳过。
@@ -322,13 +337,13 @@ Chunk artifact 会写入 `.odracir/chunks/`。重复运行时，未变化的正�
 检索本地 chunk，并返回可检查的论文与页码引用：
 
 ```powershell
-odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
+odracir search "D:\Research\medical-world-models" "world model" --limit 3
 ```
 
 在不读取 API 配置、不调用 DeepSeek 的情况下预览文件夹级科研问题所使用的证据：
 
 ```powershell
-odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
+odracir ask "D:\Research\medical-world-models" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
 ```
 
 根据检索到的本地证据回答问题：
@@ -342,7 +357,7 @@ odracir ask <research-folder> "<question>" --query "<focused retrieval query>"
 为一篇明确选择的论文生成带引用摘要：
 
 ```powershell
-odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --paper <paper-id>
+odracir summarize "D:\Research\medical-world-models" --papers-dir "Paper Storage" --paper <paper-id>
 ```
 
 这个命令会显式调用 DeepSeek，并产生 API 用量。Odracir 会把结果写入 `.odracir/summaries/`，记录 provider、模型、prompt 版本、输入 hash、token 用量和引用；后续重复运行时会跳过未变化摘要。
@@ -352,9 +367,9 @@ odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal W
 ```powershell
 odracir skills
 odracir skills biomedical-paper
-odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
-odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
-odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir summarize "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
+odracir evaluate-summaries "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir build-memory "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 `generic` 仍然是默认的跨学科 skill。`biomedical-paper` 添加版本化、注重证据的字段：研究人群、干预或暴露、对照、结局、机制、assay 或测量、临床相关性，以及安全或伦理。每一个结构化生物医学条目都必须保留来源引用，或者显式设置 `inference=true`。实际执行后的摘要会记录所选 skill 及其版本，因此切换 skill 会使旧摘要缓存失效。
@@ -366,13 +381,13 @@ odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecida
 将默认选择的摘要、方法和结论段落翻译为中文：
 
 ```powershell
-odracir translate "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --paper <paper-id>
+odracir translate "D:\Research\medical-world-models" --papers-dir "Paper Storage" --paper <paper-id>
 ```
 
 在不读取 API 配置、不调用 DeepSeek 的情况下预览选定 chunks：
 
 ```powershell
-odracir translate "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --paper <paper-id> --dry-run
+odracir translate "D:\Research\medical-world-models" --papers-dir "Paper Storage" --paper <paper-id> --dry-run
 ```
 
 默认路径最多翻译 8 个选定 chunk。可以重复使用 `--section` 或 `--chunk` 精确控制范围。`--all-chunks` 被刻意设计为显式参数，因为它可能产生较多 API 用量。Odracir 会将带 provenance 的译文写入 `.odracir/translations/`，并在后续运行时跳过未变化选择。

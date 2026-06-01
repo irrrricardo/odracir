@@ -15,6 +15,7 @@ ANSWER_SCHEMA_VERSION = "0.1"
 PARSER_ROUTING_SCHEMA_VERSION = "0.1"
 SUMMARY_EVALUATION_SCHEMA_VERSION = "0.1"
 RESEARCH_CATALOG_SCHEMA_VERSION = "0.1"
+READING_QUEUE_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -277,6 +278,19 @@ class ResearchCatalogArtifact(TypedDict, total=False):
     quality_counts: dict[str, int]
     processing_counts: dict[str, dict[str, int]]
     records: list[dict[str, Any]]
+
+
+class ReadingQueueArtifact(TypedDict, total=False):
+    schema_version: str
+    policy_version: str
+    generated_at: str
+    input_sha256: str
+    query: str | None
+    skill: dict[str, Any]
+    total_papers: int
+    queue_limit: int
+    action_counts: dict[str, int]
+    entries: list[dict[str, Any]]
 
 
 def validate_project_index(index: dict[str, Any]) -> list[str]:

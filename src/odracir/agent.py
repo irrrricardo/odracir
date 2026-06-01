@@ -20,6 +20,8 @@ Use evaluate_research_summaries when the user asks about summary readiness or
 quality.
 Use get_research_memory when the user asks for a folder overview, its paper
 catalog, or the current accumulated research memory.
+Use plan_research_reading when the user asks what to read or summarize first,
+especially when they provide a research focus.
 Preserve paper, page, and chunk citations from tool results. Clearly distinguish
 source-backed statements from inference, and say when local evidence is missing.
 Keep final answers concise and actionable.
@@ -49,7 +51,7 @@ class OdracirAgent:
                 tool_choice="auto",
             )
             assistant_message = response.choices[0].message
-            messages.append(assistant_message.model_dump(exclude_none=True))
+            messages.append(self._assistant_message_payload(assistant_message))
 
             if not assistant_message.tool_calls:
                 return assistant_message.content or ""
@@ -75,6 +77,14 @@ class OdracirAgent:
             ],
         )
         return final_response.choices[0].message.content or ""
+
+    @staticmethod
+    def _assistant_message_payload(message: Any) -> dict[str, Any]:
+        payload = message.model_dump(exclude_none=True)
+        reasoning_content = getattr(message, "reasoning_content", None)
+        if reasoning_content is not None:
+            payload["reasoning_content"] = reasoning_content
+        return payload
 
     @staticmethod
     def _parse_tool_arguments(raw_arguments: str | None) -> dict[str, Any]:

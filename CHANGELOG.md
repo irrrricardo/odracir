@@ -66,6 +66,16 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - Fixed documentation sync so fenced marker examples stay compact and historical duplicate generated blocks are removed.
 - Added resumable zero-API `odracir prepare` orchestration for scanning, PDF extraction, chunking, catalog rebuilding, and final status reporting.
 - Changed research-catalog cache invalidation to semantic paper state and artifact hashes so harmless index timestamp refreshes do not rebuild memory.
+- Added deterministic `odracir plan-reading` and the read-only
+  `plan_research_reading` agent tool for explainable next-paper prioritization.
+- Added reading-queue artifacts with readiness, missing-summary state, query
+  evidence, title-corpus centrality, workload, cache invalidation, and
+  supervised next commands.
+- Changed the default DeepSeek model to `deepseek-v4-pro`, validated thinking
+  mode values, and preserved `reasoning_content` across thinking-mode tool
+  calls.
+- Replaced personal computer paths in public documentation with reusable
+  examples.
 
 - 添加研究文件夹 harness，用于创建 `papers/`、`notes/` 和 `code/`，扫描论文文件，并维护 `odracir_index.json`。
 - 添加 `odracir scan <research-folder>` 命令。
@@ -121,6 +131,13 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 修正文档同步：fenced marker 示例保持精简，并自动移除历史重复生成区块。
 - 添加可恢复、零 API 的 `odracir prepare` 编排，用于扫描、PDF 正文提取、切块、catalog 重建和最终状态报告。
 - 将 research catalog 缓存失效条件改为语义化论文状态和 artifact 哈希，避免无害的索引时间戳刷新触发记忆重建。
+- 添加确定性 `odracir plan-reading` 和只读 `plan_research_reading` agent
+  tool，用于可解释地确定下一篇论文优先级。
+- 添加阅读队列 artifact，记录就绪状态、摘要缺失状态、查询证据、标题语料
+  中心性、工作量、缓存失效条件和受监督的下一步命令。
+- 将默认 DeepSeek 模型改为 `deepseek-v4-pro`，校验 thinking 模式取值，并在
+  thinking 模式工具调用间保留 `reasoning_content`。
+- 将公开文档中的个人电脑路径替换为可复用示例。
 
 ### Planned / 计划
 

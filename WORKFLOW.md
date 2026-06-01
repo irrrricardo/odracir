@@ -339,12 +339,12 @@ odracir search <research-folder> "<query>" --limit 5
 For the Medical World Model folder:
 
 ```powershell
-odracir scan "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
-odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
+odracir scan "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir status "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir search "D:\Research\medical-world-models" "world model" --limit 3
+odracir ask "D:\Research\medical-world-models" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
 ```
 
 ## Artifact Layout / Artifact 布局
@@ -464,6 +464,28 @@ Possible future skills:
 7. 当学术元数据和引用图谱成为明确需求时，添加 GROBID 服务 adapter。
 8. 审阅生物医学摘要 artifact；只有代表性样例证明 schema 合理后，才继续添加其他学科 skill。
 
+## Explainable Reading Queue / 可解释阅读队列
+
+After local preparation, rank the next supervised reading and summary actions:
+
+完成本地准备后，对下一步受监督阅读和摘要行动排序：
+
+```powershell
+odracir plan-reading "D:\Research\medical-world-models" --papers-dir "Paper Storage" --query "medical world model clinical trajectories" --skill biomedical-paper
+odracir plan-reading "D:\Research\medical-world-models" --papers-dir "Paper Storage" --query "medical world model clinical trajectories" --skill biomedical-paper --no-write
+```
+
+The planner is deterministic and makes no DeepSeek API call. It records
+readiness, missing-summary state, query relevance, title-corpus centrality,
+workload, traceable evidence snippets, and suggested supervised commands under
+`.odracir/planning/reading-queues/`. The read-only `plan_research_reading` agent
+tool exposes the same behavior without writing artifacts.
+
+规划器是确定性的，不调用 DeepSeek API。它会把就绪状态、摘要缺失状态、查询
+相关性、标题语料中心性、工作量、可追溯证据片段和建议的受监督命令记录到
+`.odracir/planning/reading-queues/`。只读 `plan_research_reading` agent tool
+提供相同行为，但不会写入 artifact。
+
 ## Execution Log / 执行记录
 
 ### 2026-05-30
@@ -471,7 +493,7 @@ Possible future skills:
 Environment setup:
 
 ```powershell
-cd D:\PycharmProjectsStorage\odracir
+cd D:\Projects\odracir
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
@@ -480,7 +502,7 @@ python -m venv .venv
 环境配置：
 
 ```powershell
-cd D:\PycharmProjectsStorage\odracir
+cd D:\Projects\odracir
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
@@ -489,15 +511,15 @@ python -m venv .venv
 Medical World Model extraction:
 
 ```powershell
-odracir scan "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir scan "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 医学世界模型论文提取：
 
 ```powershell
-odracir scan "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir scan "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Result:
@@ -505,31 +527,31 @@ Result:
 - PDFs found: 9.
 - PDFs extracted: 9.
 - Failures: 0.
-- Output index: `D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\odracir_index.json`.
-- Text artifacts: `D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\.odracir\texts\`.
+- Output index: `D:\Research\medical-world-models\odracir_index.json`.
+- Text artifacts: `D:\Research\medical-world-models\.odracir\texts\`.
 
 结果：
 
 - 发现 PDF：9 篇。
 - 成功提取：9 篇。
 - 失败：0 篇。
-- 输出索引：`D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\odracir_index.json`。
-- 文本 artifact：`D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\.odracir\texts\`。
+- 输出索引：`D:\Research\medical-world-models\odracir_index.json`。
+- 文本 artifact：`D:\Research\medical-world-models\.odracir\texts\`。
 
 Medical World Model status and chunking validation:
 
 ```powershell
-odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir status "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Medical World Model 状态与 chunking 验证：
 
 ```powershell
-odracir status "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir status "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Result:
@@ -538,7 +560,7 @@ Result:
 - First chunk run: 9 chunked, 0 blocked, 0 failures.
 - Second chunk run: 0 regenerated, 9 skipped.
 - Status after chunking: 9 extracted PDFs and 9 chunked PDFs.
-- Chunk artifacts: `D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\.odracir\chunks\`.
+- Chunk artifacts: `D:\Research\medical-world-models\.odracir\chunks\`.
 - Chunk count: 128 total chunks, with 6 to 23 chunks per paper.
 
 结果：
@@ -547,21 +569,21 @@ Result:
 - 第一次 chunk：9 篇完成，0 篇阻塞，0 篇失败。
 - 第二次 chunk：0 篇重复生成，9 篇跳过。
 - Chunking 后状态：9 篇 PDF 已提取，9 篇 PDF 已完成 chunking。
-- Chunk artifact：`D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model\.odracir\chunks\`。
+- Chunk artifact：`D:\Research\medical-world-models\.odracir\chunks\`。
 - Chunk 数量：共 128 个，每篇论文包含 6 至 23 个 chunk。
 
 Medical World Model lexical retrieval validation:
 
 ```powershell
-odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
-odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" clinical --limit 3 --json
+odracir search "D:\Research\medical-world-models" "world model" --limit 3
+odracir search "D:\Research\medical-world-models" clinical --limit 3 --json
 ```
 
 Medical World Model 关键词检索验证：
 
 ```powershell
-odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "world model" --limit 3
-odracir search "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" clinical --limit 3 --json
+odracir search "D:\Research\medical-world-models" "world model" --limit 3
+odracir search "D:\Research\medical-world-models" clinical --limit 3 --json
 ```
 
 Result:
@@ -594,20 +616,20 @@ Optional document-tool adapter migration:
 
 ```powershell
 odracir capabilities
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 可选文档工具 adapter 迁移：
 
 ```powershell
 odracir capabilities
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir extract "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir chunk "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir chunk "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Result:
@@ -639,13 +661,13 @@ Result:
 Evidence-backed question and parser-candidate check:
 
 ```powershell
-odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
+odracir ask "D:\Research\medical-world-models" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
 ```
 
 带证据问答与解析器候选检查：
 
 ```powershell
-odracir ask "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
+odracir ask "D:\Research\medical-world-models" "How do medical world models predict clinical trajectories?" --query "medical world model clinical trajectories" --limit 4 --dry-run
 ```
 
 Result:
@@ -667,7 +689,7 @@ PyMuPDF4LLM adapter and read-only parser benchmark:
 ```powershell
 pip install -e ".[pymupdf4llm]"
 odracir capabilities
-odracir benchmark-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --parser pymupdf --parser pymupdf4llm
+odracir benchmark-parsers "D:\Research\medical-world-models" --papers-dir "Paper Storage" --parser pymupdf --parser pymupdf4llm
 ```
 
 PyMuPDF4LLM adapter 与只读 parser benchmark：
@@ -675,7 +697,7 @@ PyMuPDF4LLM adapter 与只读 parser benchmark：
 ```powershell
 pip install -e ".[pymupdf4llm]"
 odracir capabilities
-odracir benchmark-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --parser pymupdf --parser pymupdf4llm
+odracir benchmark-parsers "D:\Research\medical-world-models" --papers-dir "Paper Storage" --parser pymupdf --parser pymupdf4llm
 ```
 
 Result:
@@ -703,15 +725,15 @@ Result:
 Cached advisory parser routing:
 
 ```powershell
-odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir recommend-parsers "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir recommend-parsers "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 带缓存的建议式 parser 路由：
 
 ```powershell
-odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir recommend-parsers "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir recommend-parsers "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir recommend-parsers "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Result:
@@ -741,7 +763,7 @@ Versioned biomedical research skill and summary dry run:
 ```powershell
 odracir skills
 odracir skills biomedical-paper
-odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
+odracir summarize "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
 ```
 
 版本化生物医学科研 skill 与摘要 dry-run：
@@ -749,7 +771,7 @@ odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal W
 ```powershell
 odracir skills
 odracir skills biomedical-paper
-odracir summarize "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
+odracir summarize "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper --dry-run
 ```
 
 Result:
@@ -775,15 +797,15 @@ Result:
 Deterministic local summary evaluation:
 
 ```powershell
-odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
-odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir evaluate-summaries "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir evaluate-summaries "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper
 ```
 
 确定性本地摘要评测：
 
 ```powershell
-odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
-odracir evaluate-summaries "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir evaluate-summaries "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper
+odracir evaluate-summaries "D:\Research\medical-world-models" --papers-dir "Paper Storage" --skill biomedical-paper
 ```
 
 Result:
@@ -807,15 +829,15 @@ Result:
 Visible audited folder memory:
 
 ```powershell
-odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir build-memory "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir build-memory "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 可见且经过审计的文件夹记忆：
 
 ```powershell
-odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir build-memory "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir build-memory "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir build-memory "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Result:
@@ -839,15 +861,15 @@ Result:
 Resumable zero-API local preparation:
 
 ```powershell
-odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir prepare "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir prepare "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 可恢复、零 API 的本地准备流水线：
 
 ```powershell
-odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
-odracir prepare "D:\大学课程资料\留学\暑研\NEU Wengong Jin\Mecidal World Model" --papers-dir "Paper Storage"
+odracir prepare "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+odracir prepare "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 Result:

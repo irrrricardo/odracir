@@ -88,9 +88,14 @@ class DeepSeekProvider:
         return JsonCompletionResult(payload=payload, usage=_usage_dict(response))
 
     def _extra_body(self) -> dict[str, Any] | None:
-        if not self.config.thinking:
+        thinking = self.config.thinking.strip()
+        if not thinking:
             return None
-        return {"thinking": {"type": self.config.thinking}}
+        if thinking not in {"enabled", "disabled"}:
+            raise ValueError(
+                "DEEPSEEK_THINKING must be 'enabled', 'disabled', or empty."
+            )
+        return {"thinking": {"type": thinking}}
 
 
 def _usage_dict(response: Any) -> dict[str, int]:
