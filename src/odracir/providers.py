@@ -15,9 +15,29 @@ from odracir.config import DeepSeekConfig, load_config
 class JsonCompletionResult:
     payload: dict[str, Any]
     usage: dict[str, int]
+    finish_reason: str = "unknown"
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+class JsonCompletionError(ValueError):
+    """Preserve raw model output when structured decoding fails."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        content: str,
+        usage: dict[str, int],
+        finish_reason: str,
+        max_tokens: int,
+    ) -> None:
+        super().__init__(message)
+        self.content = content
+        self.usage = usage
+        self.finish_reason = finish_reason
+        self.max_tokens = max_tokens
 
 
 class JsonCompletionProvider(Protocol):
@@ -76,16 +96,47 @@ class DeepSeekProvider:
             response_format={"type": "json_object"},
             max_tokens=max_tokens,
         )
-        content = response.choices[0].message.content
+        choice = response.choices[0]
+        content = choice.message.content or ""
+        finish_reason = getattr(choice, "finish_reason", None) or "unknown"
+        usage = _usage_dict(response)
         if not content:
-            raise RuntimeError("DeepSeek returned empty JSON content.")
+            raise JsonCompletionError(
+                "DeepSeek returned empty JSON content "
+                f"(finish_reason={finish_reason}, max_tokens={max_tokens}).",
+                content=content,
+                usage=usage,
+                finish_reason=finish_reason,
+                max_tokens=max_tokens,
+            )
         try:
             payload = json.loads(content)
         except json.JSONDecodeError as exc:
-            raise ValueError("DeepSeek returned invalid JSON content.") from exc
+            detail = (
+                f"truncated at max_tokens={max_tokens}"
+                if finish_reason == "length"
+                else f"finish_reason={finish_reason}, max_tokens={max_tokens}"
+            )
+            raise JsonCompletionError(
+                f"DeepSeek returned invalid JSON content ({detail}).",
+                content=content,
+                usage=usage,
+                finish_reason=finish_reason,
+                max_tokens=max_tokens,
+            ) from exc
         if not isinstance(payload, dict):
-            raise ValueError("DeepSeek JSON content must decode to an object.")
-        return JsonCompletionResult(payload=payload, usage=_usage_dict(response))
+            raise JsonCompletionError(
+                "DeepSeek JSON content must decode to an object.",
+                content=content,
+                usage=usage,
+                finish_reason=finish_reason,
+                max_tokens=max_tokens,
+            )
+        return JsonCompletionResult(
+            payload=payload,
+            usage=usage,
+            finish_reason=finish_reason,
+        )
 
     def _extra_body(self) -> dict[str, Any] | None:
         thinking = self.config.thinking.strip()

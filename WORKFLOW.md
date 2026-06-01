@@ -84,14 +84,19 @@ odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill gen
 use one versioned structured DeepSeek call. Oversized papers and single-pass
 structured-output validation failures transparently fall back to map-reduce.
 Every strategy, request count, input size, and fallback reason is preserved in
-provenance. Each run also writes a compact audit record under
-`.odracir/jobs/ingestion/` and refreshes `latest.json`.
+provenance. Useful model output that cannot be decoded as structured JSON is
+preserved under `.odracir/raw-summaries/` and marked `raw_captured`; run
+`odracir normalize-summaries` to add an audited structured layer later. Each
+run also writes a compact audit record under `.odracir/jobs/ingestion/` and
+refreshes `latest.json`.
 
 `ingest-library` 是论文库默认的可恢复入口。普通论文使用一次版本化结构化
 DeepSeek 调用；超长论文和 single-pass 结构化输出校验失败项会透明降级为
 map-reduce。策略、请求次数、输入规模和 fallback 原因都会保留在 provenance
-中。每次运行还会在 `.odracir/jobs/ingestion/` 下写入紧凑审计记录，并刷新
-`latest.json`。
+中。如果模型返回的有价值内容无法解码为结构化 JSON，系统会把原始阅读结果
+保留到 `.odracir/raw-summaries/` 并标记为 `raw_captured`；之后运行
+`odracir normalize-summaries` 即可增加经过审计的结构化层。每次运行还会在
+`.odracir/jobs/ingestion/` 下写入紧凑审计记录，并刷新 `latest.json`。
 
 Prepare searchable local artifacts and rebuild folder memory without API usage:
 
@@ -395,6 +400,15 @@ research-folder/
     ocr/
       paper-id.pdf
     summaries/
+    raw-summaries/
+      paper-id/
+        latest.json
+        <capture-id>.json
+    reviews/
+      summaries/
+        paper-id/
+          latest.json
+          <review-id>.json
     evaluations/
       summaries/
     translations/
@@ -413,6 +427,14 @@ full summary payloads.
 
 摄取运行记录是紧凑的工作流 provenance。它保留阶段计数、策略和 API 用量汇总、
 失败项与输出路径，但不会重复存储完整摘要内容。
+
+Raw-reading archives preserve useful model output before normalization.
+Summary-review archives preserve explicit human `accepted` or `needs-revision`
+decisions. Stable `latest.json` pointers support CLI and future UI inspection.
+
+原始阅读归档会在规范化之前保留有价值的模型输出。摘要审阅归档会保留显式人工
+`accepted` 或 `needs-revision` 决定。稳定的 `latest.json` 指针可供 CLI 和未来
+界面检查。
 
 The index should point to artifacts instead of storing full text directly.
 

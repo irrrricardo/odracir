@@ -173,6 +173,15 @@ research-folder/
     texts/
     chunks/
     summaries/
+    raw-summaries/
+      paper-id/
+        latest.json
+        <capture-id>.json
+    reviews/
+      summaries/
+        paper-id/
+          latest.json
+          <review-id>.json
     evaluations/
       summaries/
     translations/
@@ -202,10 +211,15 @@ every query-relevance contribution. It does not silently spend API budget.
 prepares traceable local artifacts, reads each ordinary paper through one
 versioned structured prompt, audits summaries locally, and rebuilds the visible
 folder state. Map-reduce is retained only as a transparent fallback.
+Structured JSON is a normalization layer, not a condition for preserving model
+work: undecodable but useful output is archived under `.odracir/raw-summaries/`
+and can be normalized later. Human review remains a separate local artifact.
 
 `odracir ingest-library` 是论文库主编排路径。它准备可追溯本地 artifact，
 通过一次版本化结构化 prompt 阅读每篇普通论文，在本地审计摘要，并重建可见
-文件夹 state。map-reduce 仅作为透明 fallback 保留。
+文件夹 state。map-reduce 仅作为透明 fallback 保留。结构化 JSON 是规范化层，
+不是保留模型工作的前提：无法解码但有价值的输出会归档到
+`.odracir/raw-summaries/`，之后可以再规范化。人工审阅继续作为独立本地 artifact。
 
 Each ingestion run writes compact workflow provenance under
 `.odracir/jobs/ingestion/`. Archived `<run-id>.json` files preserve history;

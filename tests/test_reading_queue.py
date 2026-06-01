@@ -147,3 +147,22 @@ def test_reading_queue_validates_arguments(tmp_path, kwargs, message) -> None:
 
     with pytest.raises(ValueError, match=message):
         ReadingQueueBuilder(root).build(**kwargs)
+
+
+def test_reading_queue_prioritizes_raw_capture_normalization(tmp_path) -> None:
+    root = tmp_path / "field"
+    harness = _write_queue_fixture(root, {"paper": "Preserved raw reading evidence."})
+    index = harness.load_index()
+    paper = index["papers"][0]
+    paper["summary_status"] = "raw_captured"
+    paper["raw_summary_artifact"] = ".odracir/raw-summaries/paper/latest.json"
+    raw_dir = root / ".odracir" / "raw-summaries" / "paper"
+    raw_dir.mkdir(parents=True)
+    (raw_dir / "latest.json").write_text('{"content": "Raw reading."}', encoding="utf-8")
+    harness.write_index(index)
+
+    entry = ReadingQueueBuilder(root).build(limit=1).entries[0]
+
+    assert entry.action == "normalize_summary"
+    assert entry.summary_quality == "raw_captured"
+    assert "normalize-summaries" in entry.next_commands[0]

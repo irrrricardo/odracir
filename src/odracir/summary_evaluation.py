@@ -133,6 +133,22 @@ class SummaryEvaluationHarness:
         paper_id = str(paper.get("id", ""))
         title = str(paper.get("title", ""))
         summary_artifact_value = paper.get("summary_artifact")
+        if paper.get("summary_status") == "raw_captured":
+            return SummaryEvaluationRecord(
+                paper_id=paper_id,
+                title=title,
+                status="raw_captured",
+                summary_artifact=None,
+                skill=None,
+                skill_version=None,
+                provider=_optional_string(paper.get("raw_summary_provider")),
+                model=_optional_string(paper.get("raw_summary_model")),
+                metrics={},
+                warnings=[
+                    "Raw model reading was preserved and needs summary normalization."
+                ],
+                errors=[],
+            )
         if paper.get("summary_status") != "summarized" or not summary_artifact_value:
             return SummaryEvaluationRecord(
                 paper_id=paper_id,
@@ -459,6 +475,10 @@ def _input_sha256(
                 ),
                 "summary_status": paper.get("summary_status"),
                 "summary_artifact": paper.get("summary_artifact"),
+                "raw_summary_artifact": paper.get("raw_summary_artifact"),
+                "raw_summary_artifact_sha256": _optional_file_sha256(
+                    root / str(paper.get("raw_summary_artifact") or "")
+                ),
                 "summary_artifact_sha256": _optional_file_sha256(
                     root / str(paper.get("summary_artifact") or "")
                 ),

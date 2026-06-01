@@ -17,6 +17,8 @@ SUMMARY_EVALUATION_SCHEMA_VERSION = "0.1"
 RESEARCH_CATALOG_SCHEMA_VERSION = "0.1"
 READING_QUEUE_SCHEMA_VERSION = "0.1"
 INGESTION_RUN_SCHEMA_VERSION = "0.1"
+RAW_SUMMARY_SCHEMA_VERSION = "0.1"
+SUMMARY_REVIEW_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -111,6 +113,15 @@ class PaperRecord(TypedDict, total=False):
     summary_input_char_count: int
     summary_error: str
     summarized_at: str
+    raw_summary_artifact: str
+    raw_summary_input_sha256: str
+    raw_summary_provider: str
+    raw_summary_model: str
+    raw_summary_prompt_version: str
+    raw_summary_stage: str
+    raw_summary_finish_reason: str
+    raw_summary_error: str
+    raw_summary_captured_at: str
 
 
 class ProjectIndex(TypedDict, total=False):
@@ -197,6 +208,25 @@ class SummaryArtifact(TypedDict, total=False):
     fallback_reason: str | None
     map_summaries: list[dict[str, Any]]
     summary: dict[str, Any]
+
+
+class RawSummaryArtifact(TypedDict, total=False):
+    schema_version: str
+    paper_id: str
+    source_file: str
+    source_sha256: str
+    chunk_artifact: str
+    chunk_artifact_sha256: str
+    provider: str
+    model: str
+    prompt_version: str
+    captured_at: str
+    stage: str
+    finish_reason: str
+    max_tokens: int
+    usage: dict[str, int]
+    error: str
+    content: str
 
 
 class TranslationRecord(TypedDict, total=False):
@@ -313,6 +343,22 @@ class IngestionRunArtifact(TypedDict, total=False):
     outputs: dict[str, Any]
     stages: dict[str, Any]
     error: dict[str, str] | None
+
+
+class SummaryReviewArtifact(TypedDict, total=False):
+    schema_version: str
+    policy_version: str
+    review_id: str
+    paper_id: str
+    summary_artifact: str
+    summary_artifact_sha256: str
+    decision: str
+    reviewer: str
+    note: str
+    reviewed_at: str
+    evaluation_status: str
+    evaluation_metrics: dict[str, Any]
+    evaluation_warnings: list[str]
 
 
 def validate_project_index(index: dict[str, Any]) -> list[str]:

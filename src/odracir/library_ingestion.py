@@ -298,6 +298,7 @@ def format_paper_library_ingestion(result: PaperLibraryIngestionResult) -> str:
                     "Summaries: "
                     f"eligible={result.summaries.eligible_papers}, "
                     f"summarized={result.summaries.summarized}, "
+                    f"raw_captured={result.summaries.raw_captured}, "
                     f"skipped={result.summaries.skipped}, "
                     f"blocked={result.summaries.blocked}, "
                     f"failed={result.summaries.failed}"

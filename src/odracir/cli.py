@@ -38,10 +38,12 @@ from odracir.summarization import (
     build_summary_plan,
     format_summary_plan,
 )
+from odracir.summary_normalization import RawSummaryNormalizer
 from odracir.summary_evaluation import (
     SummaryEvaluationHarness,
     format_summary_evaluation,
 )
+from odracir.summary_review import SummaryReviewHarness, format_summary_review
 from odracir.skills import (
     format_research_skill,
     format_research_skills,
@@ -56,6 +58,7 @@ from odracir.translation import (
 
 
 def main() -> None:
+    _configure_output_encoding()
     argv = sys.argv[1:]
     if argv and argv[0] == "scan":
         _scan(argv[1:])
@@ -96,11 +99,17 @@ def main() -> None:
     if argv and argv[0] == "summarize":
         _summarize(argv[1:])
         return
+    if argv and argv[0] == "normalize-summaries":
+        _normalize_summaries(argv[1:])
+        return
     if argv and argv[0] == "skills":
         _skills(argv[1:])
         return
     if argv and argv[0] == "evaluate-summaries":
         _evaluate_summaries(argv[1:])
+        return
+    if argv and argv[0] == "review-summary":
+        _review_summary(argv[1:])
         return
     if argv and argv[0] == "build-memory":
         _build_memory(argv[1:])
@@ -119,6 +128,12 @@ def main() -> None:
         return
 
     _chat(argv)
+
+
+def _configure_output_encoding() -> None:
+    reconfigure = getattr(sys.stdout, "reconfigure", None)
+    if callable(reconfigure):
+        reconfigure(encoding="utf-8")
 
 
 def _chat(argv: list[str]) -> None:
@@ -657,10 +672,61 @@ def _summarize(argv: list[str]) -> None:
         "Paper summaries: "
         f"{result.eligible_papers} eligible, "
         f"{result.summarized} summarized, "
+        f"{result.raw_captured} raw captured, "
         f"{result.skipped} skipped, "
         f"{result.blocked} blocked, "
         f"{result.failed} failed"
     )
+
+
+def _normalize_summaries(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Normalize preserved raw model readings into validated summaries."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only normalize one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--skill",
+        default="generic",
+        help="Research skill manifest. Defaults to generic.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        skill = get_builtin_skill_registry().get(args.skill)
+        result = RawSummaryNormalizer(
+            args.folder,
+            DeepSeekProvider(load_config()),
+            papers_dir=args.papers_dir,
+            skill=skill,
+        ).normalize_index(
+            limit=args.limit,
+            paper_id=args.paper,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+
+    print(f"Research folder: {result.root}")
+    print(f"Index: {result.index_path}")
+    print(
+        "Raw-summary normalization: "
+        f"{result.eligible_papers} eligible, "
+        f"{result.normalized} normalized, "
+        f"{result.raw_captured} raw captured again, "
+        f"{result.skipped} skipped, "
+        f"{result.failed} failed"
+    )
+    print(f"API usage: {result.usage}")
 
 
 def _skills(argv: list[str]) -> None:
@@ -739,6 +805,79 @@ def _evaluate_summaries(argv: list[str]) -> None:
         print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_summary_evaluation(report))
+
+
+def _review_summary(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Inspect one paper summary and optionally persist a human review."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", required=True, help="Paper id to inspect.")
+    parser.add_argument(
+        "--skill",
+        default=None,
+        help="Require the summary to use this research skill manifest.",
+    )
+    parser.add_argument(
+        "--decision",
+        choices=("accepted", "needs-revision"),
+        default=None,
+        help="Optional explicit human-review decision to persist.",
+    )
+    parser.add_argument(
+        "--note",
+        default="",
+        help="Review note. Required when decision is needs-revision.",
+    )
+    parser.add_argument(
+        "--reviewer",
+        default="local-user",
+        help="Reviewer label stored in the local audit artifact.",
+    )
+    parser.add_argument(
+        "--snippet-chars",
+        type=int,
+        default=500,
+        help="Maximum characters shown for each cited evidence snippet.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    registry = get_builtin_skill_registry()
+    try:
+        expected_skill = registry.get(args.skill) if args.skill else None
+        harness = SummaryReviewHarness(
+            args.folder,
+            papers_dir=args.papers_dir,
+            skill_registry=registry,
+        )
+        if args.decision:
+            report = harness.record(
+                args.paper,
+                decision=args.decision,
+                note=args.note,
+                reviewer=args.reviewer,
+                expected_skill=expected_skill,
+                snippet_chars=args.snippet_chars,
+            )
+        else:
+            report = harness.inspect(
+                args.paper,
+                expected_skill=expected_skill,
+                snippet_chars=args.snippet_chars,
+            )
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        print(json.dumps(report.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_summary_review(report))
 
 
 def _build_memory(argv: list[str]) -> None:

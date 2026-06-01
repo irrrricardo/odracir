@@ -306,7 +306,7 @@ def _build_entry(
     )
     query_score = int(context["query_score"])
     priority_score = base_score + centrality_score + query_score
-    if quality in {"missing_summary", "failed"}:
+    if quality in {"missing_summary", "failed", "raw_captured"}:
         priority_score += 20
     if query:
         reasons.append(
@@ -369,6 +369,10 @@ def _classify_action(
         return "repair_pipeline", "blocked", 5, ["Local preparation failed and should be retried."]
     if processing.get("chunking") != "chunked":
         return "run_prepare", "blocked", 10, ["Traceable chunks are not ready yet."]
+    if quality == "raw_captured":
+        return "normalize_summary", "ready", 70, [
+            "Raw model reading is preserved and should be normalized into audited memory."
+        ]
     if quality in {"missing_summary", "failed"}:
         return "summarize", "ready", 60, ["Traceable chunks are ready, but audited summary memory is missing."]
     if quality == "warning":
@@ -389,6 +393,8 @@ def _next_commands(
     if action == "summarize":
         summary = f"odracir summarize {base} --skill {skill.name}"
         return [f"{summary} --dry-run", summary]
+    if action == "normalize_summary":
+        return [f"odracir normalize-summaries {base} --skill {skill.name}"]
     if action == "review_summary":
         return [f"odracir evaluate-summaries {base} --skill {skill.name}"]
     if action == "run_ocr":

@@ -9,10 +9,10 @@
 
 此区块由 `odracir sync-docs` 自动生成。
 
-- 版本：`0.2.1`
+- 版本：`0.3.0`
 - 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
-- 当前重点：可审计摄取运行记录、受监督的 single-pass 论文摄取、prompt 评测、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-06-01T23:52:48+08:00`
+- 当前重点：保留原始模型阅读结果、可选摘要规范化、受监督审阅、parser 输出审阅和显式 OCR 验证
+- 最近同步：`2026-06-02T01:57:59+08:00`
 
 当前命令：
 
@@ -36,6 +36,8 @@
 - `odracir summarize <research-folder> --paper <paper-id>`：通过 DeepSeek 生成带引用摘要。
 - `odracir summarize <research-folder> --skill biomedical-paper --dry-run`：无 API 用量地预览生物医学摘要范围。
 - `odracir evaluate-summaries <research-folder> --skill biomedical-paper`：无 API 用量地审计本地摘要。
+- `odracir normalize-summaries <research-folder> --skill <skill>`：通过 DeepSeek 规范化已保留的原始模型阅读结果。
+- `odracir review-summary <research-folder> --paper <paper-id>`：检查单篇摘要、provenance、引用片段和人工审阅状态。
 - `odracir build-memory <research-folder>`：重建可见且经过审计的 `research_catalog.json`。
 - `odracir translate <research-folder> --paper <paper-id> --dry-run`：无 API 用量地预览翻译范围。
 - `odracir translate <research-folder> --paper <paper-id>`：通过 DeepSeek 翻译选定 chunk。
@@ -250,11 +252,29 @@ odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill gen
 科研 prompt 阅读每篇普通论文，审计摘要，并刷新根目录下可见的
 `research_catalog.json` state。默认情况下，每篇普通论文只调用一次 DeepSeek；
 如果某篇论文超过保守 single-pass 阈值，或其结构化输出未通过校验，Odracir
-会透明降级为 map-reduce，并在 provenance 中记录原因。使用 `--dry-run` 可以在
-不调用 DeepSeek 的情况下准备 artifact 并预览范围。
+会透明降级为 map-reduce，并在 provenance 中记录原因。如果模型返回了有价值的
+内容，但无法解码为结构化 JSON，Odracir 会将原始阅读结果保留到
+`.odracir/raw-summaries/`，并把论文标记为 `raw_captured`，而不是丢弃内容。
+之后可以使用 `odracir normalize-summaries` 将原始阅读结果规范化为经过审计的
+摘要记忆。使用 `--dry-run` 可以在不调用 DeepSeek 的情况下准备 artifact 并
+预览范围。
 每次运行（包括 dry-run）都会在 `.odracir/jobs/ingestion/` 下写入紧凑审计记录；
 `latest.json` 指向最近一次运行。记录会保留输入、阶段计数、摘要策略、API 用量、
 失败项和输出路径，但不会重复存储完整论文摘要。
+
+规范化已保存的原始模型阅读结果，并检查一篇结构化摘要：
+
+```powershell
+odracir normalize-summaries <research-folder> --papers-dir <paper-folder> --skill generic
+odracir review-summary <research-folder> --papers-dir <paper-folder> --paper <paper-id>
+```
+
+除非显式提供人工决定，否则 `review-summary` 只读：
+
+```powershell
+odracir review-summary <research-folder> --paper <paper-id> --decision accepted
+odracir review-summary <research-folder> --paper <paper-id> --decision needs-revision --note "<reason>"
+```
 
 仅准备可检索本地 artifact 并重建文件夹记忆，不调用 API：
 

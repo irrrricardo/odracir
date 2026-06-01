@@ -9,7 +9,8 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
-from odracir.providers import JsonCompletionProvider
+from odracir.providers import JsonCompletionError, JsonCompletionProvider
+from odracir.raw_summary import RawSummaryCapture, capture_raw_summary, mark_raw_captured
 from odracir.processing_state import invalidate_summary
 from odracir.research_folder import ResearchFolderHarness
 from odracir.schemas import SUMMARY_SCHEMA_VERSION
@@ -19,9 +20,9 @@ from odracir.time_utils import now_iso
 
 SUMMARY_PROMPT_VERSION = "0.3"
 SINGLE_PASS_MAX_CHARS = 600_000
-SINGLE_PASS_MAX_TOKENS = 4000
-MAP_MAX_TOKENS = 1200
-REDUCE_MAX_TOKENS = 2400
+SINGLE_PASS_MAX_TOKENS = 64_000
+MAP_MAX_TOKENS = 16_000
+REDUCE_MAX_TOKENS = 64_000
 
 SINGLE_PASS_SYSTEM_PROMPT = """You read one complete research paper represented
 as ordered traceable chunks and produce a detailed evidence-aware research
@@ -90,6 +91,7 @@ class SummaryRunResult:
     index_path: str
     eligible_papers: int
     summarized: int
+    raw_captured: int
     skipped: int
     blocked: int
     failed: int
@@ -161,7 +163,7 @@ class EvidenceSummaryGenerator:
         index = self.harness.load_index()
         papers = _select_papers(index, paper_id=paper_id, limit=limit)
 
-        summarized = skipped = blocked = failed = 0
+        summarized = raw_captured = skipped = blocked = failed = 0
         strategy_counts: dict[str, int] = {}
         usage: dict[str, int] = {}
         for paper in papers:
@@ -191,6 +193,27 @@ class EvidenceSummaryGenerator:
                     chunk_artifact_sha256=chunk_artifact_sha256,
                 )
                 _write_json(summary_artifact_path, artifact)
+            except RawSummaryCapture as capture:
+                raw_captured += 1
+                raw_artifact = capture_raw_summary(
+                    self.root,
+                    paper=paper,
+                    chunk_artifact_path=chunk_artifact_path,
+                    chunk_artifact_sha256=chunk_artifact_sha256,
+                    provider=self.provider,
+                    capture=capture,
+                    prompt_version=SUMMARY_PROMPT_VERSION,
+                )
+                mark_raw_captured(
+                    self.root,
+                    paper,
+                    artifact=raw_artifact,
+                    artifact_path=self.root / raw_artifact["artifact_path"],
+                    chunk_artifact_sha256=chunk_artifact_sha256,
+                    provider=self.provider,
+                )
+                _merge_usage(usage, capture.error.usage)
+                continue
             except Exception as exc:  # noqa: BLE001 - keep batch progress.
                 failed += 1
                 _mark_failed(paper, exc)
@@ -217,6 +240,7 @@ class EvidenceSummaryGenerator:
             index_path=str(self.harness.index_path),
             eligible_papers=len(papers),
             summarized=summarized,
+            raw_captured=raw_captured,
             skipped=skipped,
             blocked=blocked,
             failed=failed,
@@ -283,8 +307,12 @@ class EvidenceSummaryGenerator:
                     fallback_reason=None,
                     map_summaries=[],
                 )
+            except JsonCompletionError as exc:
+                if exc.content:
+                    raise RawSummaryCapture("single_pass", exc) from exc
+                raise
             except (ValueError, RuntimeError) as exc:
-                # Structured-output failures can benefit from chunk-level recovery.
+                # Schema failures can benefit from chunk-level recovery.
                 fallback_reason = f"single-pass failed: {exc}"
         else:
             fallback_reason = (
@@ -298,15 +326,20 @@ class EvidenceSummaryGenerator:
                 continue
             citation = _citation(paper, chunk)
             request_count += 1
-            result = self.provider.complete_json(
-                system_prompt=_map_system_prompt(self.skill),
+            try:
+                result = self.provider.complete_json(
+                    system_prompt=_map_system_prompt(self.skill),
                 user_prompt=(
                     f"Paper: {paper.get('title', '')}\n"
                     f"Citation: {citation}\n"
                     f"Chunk text:\n{chunk.get('text', '')}"
                 ),
-                max_tokens=MAP_MAX_TOKENS,
-            )
+                    max_tokens=MAP_MAX_TOKENS,
+                )
+            except JsonCompletionError as exc:
+                if exc.content:
+                    raise RawSummaryCapture("map", exc) from exc
+                raise
             map_summary = dict(result.payload)
             map_summary["citation"] = citation
             map_summaries.append(map_summary)
@@ -316,15 +349,20 @@ class EvidenceSummaryGenerator:
             raise ValueError("Chunk artifact did not contain summarizable chunks.")
 
         request_count += 1
-        reduced = self.provider.complete_json(
-            system_prompt=_reduce_system_prompt(self.skill),
+        try:
+            reduced = self.provider.complete_json(
+                system_prompt=_reduce_system_prompt(self.skill),
             user_prompt=(
                 f"Paper: {paper.get('title', '')}\n"
                 "Map summaries json:\n"
                 f"{json.dumps(map_summaries, ensure_ascii=False)}"
             ),
-            max_tokens=REDUCE_MAX_TOKENS,
-        )
+                max_tokens=REDUCE_MAX_TOKENS,
+            )
+        except JsonCompletionError as exc:
+            if exc.content:
+                raise RawSummaryCapture("reduce", exc) from exc
+            raise
         _merge_usage(usage, reduced.usage)
         allowed_citations = {str(map_summary["citation"]) for map_summary in map_summaries}
         summary = validate_summary(
@@ -376,6 +414,11 @@ class EvidenceSummaryGenerator:
             "request_count": request_count,
             "input_char_count": input_char_count,
             "fallback_reason": fallback_reason,
+            "generation_limits": {
+                "single_pass_max_tokens": SINGLE_PASS_MAX_TOKENS,
+                "map_max_tokens": MAP_MAX_TOKENS,
+                "reduce_max_tokens": REDUCE_MAX_TOKENS,
+            },
             "map_summaries": map_summaries,
             "summary": summary,
         }
@@ -410,6 +453,7 @@ class EvidenceSummaryGenerator:
             and paper.get("summary_skill") == self.skill.name
             and paper.get("summary_skill_version") == self.skill.version
         )
+
 
 
 def build_summary_plan(
@@ -651,7 +695,7 @@ def _mark_summarized(
     paper["summary_input_sha256"] = chunk_artifact_sha256
     paper["summary_provider"] = provider.provider_name
     paper["summary_model"] = provider.model
-    paper["summary_prompt_version"] = SUMMARY_PROMPT_VERSION
+    paper["summary_prompt_version"] = str(artifact.get("prompt_version", SUMMARY_PROMPT_VERSION))
     paper["summary_skill"] = skill.name
     paper["summary_skill_version"] = skill.version
     paper["summary_strategy"] = artifact["summary_strategy"]
@@ -671,11 +715,13 @@ def _mark_blocked(paper: dict[str, Any]) -> None:
     paper["updated_at"] = now_iso()
 
 
+
 def _mark_failed(paper: dict[str, Any], exc: Exception) -> None:
     invalidate_summary(paper)
     paper["summary_status"] = "failed"
     paper["summary_error"] = str(exc)
     paper["updated_at"] = now_iso()
+
 
 
 def _citation(paper: dict[str, Any], chunk: dict[str, Any]) -> str:
@@ -704,9 +750,11 @@ def _load_json(path: Path) -> dict[str, Any]:
 
 
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="\n") as file:
         json.dump(payload, file, ensure_ascii=False, indent=2)
         file.write("\n")
+
 
 
 def _sha256_file(path: Path) -> str:

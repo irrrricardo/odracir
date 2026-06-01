@@ -11,6 +11,7 @@ from odracir.research_memory import ResearchCatalogBuilder
 from odracir.retrieval import search_chunks
 from odracir.skills import get_builtin_skill_registry
 from odracir.summary_evaluation import SummaryEvaluationHarness
+from odracir.summary_review import SummaryReviewHarness
 
 
 ToolHandler = Callable[..., dict[str, Any]]
@@ -88,6 +89,25 @@ def evaluate_research_summaries(
         limit=limit,
         expected_skill=expected_skill,
         write_artifact=False,
+    ).as_dict()
+
+
+def inspect_research_summary(
+    folder: str,
+    paper_id: str,
+    skill: str | None = None,
+    snippet_chars: int = 500,
+) -> dict[str, Any]:
+    """Inspect one summary with cited evidence without writing files or calling an LLM."""
+    registry = get_builtin_skill_registry()
+    expected_skill = registry.get(skill) if skill else None
+    return SummaryReviewHarness(
+        folder,
+        skill_registry=registry,
+    ).inspect(
+        paper_id,
+        expected_skill=expected_skill,
+        snippet_chars=snippet_chars,
     ).as_dict()
 
 
@@ -177,6 +197,39 @@ TOOL_SPECS = [
             "additionalProperties": False,
         },
         handler=evaluate_research_summaries,
+    ),
+    ToolSpec(
+        name="inspect_research_summary",
+        description=(
+            "Inspect one local paper summary with provenance, deterministic audit results, "
+            "human-review state, and cited source snippets without writing files."
+        ),
+        parameters={
+            "type": "object",
+            "properties": {
+                "folder": {
+                    "type": "string",
+                    "description": "Absolute or relative research-folder path.",
+                },
+                "paper_id": {
+                    "type": "string",
+                    "description": "Paper id to inspect.",
+                },
+                "skill": {
+                    "type": "string",
+                    "description": "Optional required research-skill manifest name.",
+                },
+                "snippet_chars": {
+                    "type": "integer",
+                    "description": "Maximum characters per cited source snippet.",
+                    "minimum": 80,
+                    "default": 500,
+                },
+            },
+            "required": ["folder", "paper_id"],
+            "additionalProperties": False,
+        },
+        handler=inspect_research_summary,
     ),
     ToolSpec(
         name="get_research_memory",

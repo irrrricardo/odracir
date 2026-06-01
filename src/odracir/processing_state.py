@@ -72,6 +72,15 @@ def invalidate_summary(paper: dict[str, Any]) -> None:
         "summary_input_char_count",
         "summary_error",
         "summarized_at",
+        "raw_summary_artifact",
+        "raw_summary_input_sha256",
+        "raw_summary_provider",
+        "raw_summary_model",
+        "raw_summary_prompt_version",
+        "raw_summary_stage",
+        "raw_summary_finish_reason",
+        "raw_summary_error",
+        "raw_summary_captured_at",
     ):
         paper.pop(field, None)
     paper["summary_short"] = ""

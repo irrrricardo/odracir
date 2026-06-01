@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -13,6 +14,7 @@ from odracir.research_folder import ResearchFolderHarness
 from odracir.schemas import RESEARCH_CATALOG_SCHEMA_VERSION
 from odracir.skills import ResearchSkillRegistry, get_builtin_skill_registry
 from odracir.summary_evaluation import SummaryEvaluationHarness, SummaryEvaluationRecord
+from odracir.summary_review import load_persisted_summary_review
 from odracir.time_utils import now_iso
 
 
@@ -112,6 +114,7 @@ class ResearchCatalogBuilder:
         evaluation: SummaryEvaluationRecord | None,
     ) -> dict[str, Any]:
         quality_status = _quality_status(paper, evaluation=evaluation)
+        human_review = load_persisted_summary_review(self.root, paper)
         summary: dict[str, Any] | None = None
         summary_provenance: dict[str, Any] | None = None
         warnings = list(evaluation.warnings) if evaluation else []
@@ -163,7 +166,9 @@ class ResearchCatalogBuilder:
                 "text": _optional_string(paper.get("text_artifact")),
                 "chunks": _optional_string(paper.get("chunk_artifact")),
                 "summary": _optional_string(paper.get("summary_artifact")),
+                "raw_summary": _optional_string(paper.get("raw_summary_artifact")),
                 "translation": _optional_string(paper.get("translation_artifact")),
+                "summary_review": _optional_string(human_review.get("artifact")),
             },
             "memory_quality": {
                 "status": quality_status,
@@ -172,6 +177,7 @@ class ResearchCatalogBuilder:
             },
             "summary": summary,
             "summary_provenance": summary_provenance,
+            "human_review": human_review,
             "notes": paper.get("notes", []),
         }
 
@@ -194,7 +200,10 @@ def format_research_catalog(result: ResearchCatalogBuildResult) -> str:
     for record in result.records:
         quality = record["memory_quality"]["status"]
         has_summary = "yes" if record["summary"] else "no"
-        lines.append(f"- {record['paper_id']}: {quality}, summary={has_summary}")
+        review = record["human_review"]["status"]
+        lines.append(
+            f"- {record['paper_id']}: {quality}, summary={has_summary}, review={review}"
+        )
     return "\n".join(lines)
 
 
@@ -252,10 +261,17 @@ def _input_sha256(
                 "text_artifact": paper.get("text_artifact"),
                 "chunk_artifact": paper.get("chunk_artifact"),
                 "summary_artifact": paper.get("summary_artifact"),
+                "raw_summary_artifact": paper.get("raw_summary_artifact"),
+                "raw_summary_artifact_sha256": _optional_file_sha256(
+                    root / str(paper.get("raw_summary_artifact") or "")
+                ),
                 "summary_artifact_sha256": _optional_file_sha256(
                     root / str(paper.get("summary_artifact") or "")
                 ),
                 "translation_artifact": paper.get("translation_artifact"),
+                "summary_review_artifact_sha256": _optional_file_sha256(
+                    _summary_review_latest_path(root, str(paper.get("id", "")))
+                ),
                 "notes": paper.get("notes"),
             }
             for paper in papers
@@ -306,6 +322,11 @@ def _string_list(value: Any) -> list[str]:
 
 def _optional_string(value: Any) -> str | None:
     return str(value) if isinstance(value, str) and value else None
+
+
+def _summary_review_latest_path(root: Path, paper_id: str) -> Path:
+    safe = re.sub(r"[^a-zA-Z0-9_.-]+", "-", paper_id).strip("-") or "paper"
+    return root / ".odracir" / "reviews" / "summaries" / safe / "latest.json"
 
 
 def _optional_file_sha256(path: Path) -> str | None:

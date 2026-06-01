@@ -6,7 +6,7 @@ import pytest
 from odracir.library_ingestion import PaperLibraryIngestionHarness
 from odracir.parsers import ParserRegistration, ParserRegistry
 from odracir.pdf_artifacts import build_pdf_text_artifact
-from odracir.providers import JsonCompletionResult
+from odracir.providers import JsonCompletionError, JsonCompletionResult
 
 
 class LibraryStubProvider:
@@ -210,3 +210,44 @@ def test_ingest_library_rejects_missing_provider_for_paid_run(tmp_path) -> None:
         assert "requires a provider" in str(exc)
     else:
         raise AssertionError("Expected a paid ingestion run without a provider to fail.")
+
+
+class RawLibraryStubProvider:
+    provider_name = "stub"
+    model = "raw-library-model"
+
+    def complete_json(self, *, system_prompt: str, user_prompt: str, max_tokens: int):
+        raise JsonCompletionError(
+            "fixture raw library output",
+            content="Preserved raw library reading.",
+            usage={"total_tokens": 19},
+            finish_reason="length",
+            max_tokens=max_tokens,
+        )
+
+
+def test_ingest_library_records_raw_capture_without_losing_model_content(tmp_path) -> None:
+    root = tmp_path / "field"
+    papers = root / "papers"
+    papers.mkdir(parents=True)
+    _write_pdf(papers / "paper.pdf")
+
+    result = PaperLibraryIngestionHarness(
+        root,
+        RawLibraryStubProvider(),
+        parser_name="fixture",
+        parser_registry=_parser_registry(),
+    ).ingest()
+    run_artifact = json.loads((root / result.run_artifact).read_text(encoding="utf-8"))
+    index = json.loads((root / "odracir_index.json").read_text(encoding="utf-8"))
+    paper = index["papers"][0]
+    raw = json.loads((root / paper["raw_summary_artifact"]).read_text(encoding="utf-8"))
+
+    assert result.summaries is not None
+    assert result.summaries.raw_captured == 1
+    assert result.summaries.failed == 0
+    assert result.evaluation.status_counts == {"raw_captured": 1}
+    assert result.memory.quality_counts == {"raw_captured": 1}
+    assert run_artifact["stages"]["summaries"]["raw_captured"] == 1
+    assert paper["summary_status"] == "raw_captured"
+    assert raw["content"] == "Preserved raw library reading."

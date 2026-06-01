@@ -10,6 +10,39 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ## [Unreleased] / 未发布
 
+## [0.3.0] - 2026-06-02 / 可保留原始阅读结果的首版闭环
+
+### Added / 新增
+
+- Added portable raw-model-reading archives under `.odracir/raw-summaries/`.
+  Useful output is preserved as `raw_captured` when structured decoding fails.
+- Added `odracir normalize-summaries` to convert preserved raw readings into
+  validated structured summary memory without deleting the source archive.
+- Added `odracir review-summary` for single-paper provenance, cited-source
+  inspection, and explicit local `accepted` or `needs-revision` decisions.
+- Added read-only `inspect_research_summary` agent-tool access.
+- Added Windows UTF-8 CLI output configuration for Unicode paper content.
+- Split raw-reading storage and normalization into focused modules.
+
+- 在 `.odracir/raw-summaries/` 下添加可迁移的原始模型阅读归档。当结构化解码
+  失败时，有价值的输出会作为 `raw_captured` 保留。
+- 添加 `odracir normalize-summaries`，在不删除原始归档的前提下，将原始阅读
+  结果规范化为经过校验的结构化摘要记忆。
+- 添加 `odracir review-summary`，用于检查单篇论文 provenance、引用原文片段，
+  并记录显式本地 `accepted` 或 `needs-revision` 决定。
+- 添加只读 `inspect_research_summary` agent tool。
+- 为包含 Unicode 字符的论文内容添加 Windows UTF-8 CLI 输出配置。
+- 将原始阅读存储和规范化拆分为聚焦模块。
+
+### Verified / 已验证
+
+- Ran the end-to-end DeepSeek V4 Pro workflow on a representative nine-PDF
+  research folder: all PDFs were extracted, chunked, summarized, and audited
+  with zero pipeline failures. One paper used transparent map-reduce fallback.
+- 在一个代表性九篇 PDF 研究文件夹上执行 DeepSeek V4 Pro 端到端工作流：
+  所有 PDF 均已提取、切块、总结和审计，流水线失败为零；其中一篇使用透明
+  map-reduce fallback。
+
 ## [0.2.1] - 2026-06-01 / 可审计摄取运行记录
 
 ### Added / 新增
