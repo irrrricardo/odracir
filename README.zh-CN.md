@@ -12,7 +12,7 @@
 - 版本：`0.2.0`
 - 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
 - 当前重点：受监督的 single-pass 论文摄取、catalog 审阅、prompt 评测、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-06-01T19:17:20+08:00`
+- 最近同步：`2026-06-01T19:20:25+08:00`
 
 当前命令：
 
@@ -250,8 +250,8 @@ odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill gen
 科研 prompt 阅读每篇普通论文，审计摘要，并刷新根目录下可见的
 `research_catalog.json` state。默认情况下，每篇普通论文只调用一次 DeepSeek；
 如果某篇论文超过保守 single-pass 阈值，或其结构化输出未通过校验，Odracir
-会透明降级为 map-reduce，并在 provenance 中记录原因。使用 `--dry-run` 可以在不调用
-DeepSeek 的情况下准备 artifact 并预览范围。
+会透明降级为 map-reduce，并在 provenance 中记录原因。使用 `--dry-run` 可以在
+不调用 DeepSeek 的情况下准备 artifact 并预览范围。
 
 仅准备可检索本地 artifact 并重建文件夹记忆，不调用 API：
 

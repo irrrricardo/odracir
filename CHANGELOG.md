@@ -153,8 +153,8 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 - 将普通论文的默认摘要策略改为 single-pass：使用版本化科研 prompt 发起一次
   DeepSeek 结构化请求。
-- 保留透明的 map-reduce fallback，用于超过 single-pass 安全阈值或首次调用
-  结构化输出校验失败的论文。
+- 保留透明的 map-reduce fallback，用于超过 single-pass 安全阈值或
+  single-pass 结构化输出校验失败的论文。
 - 在单篇 artifact 和可见文件夹记忆中记录摘要策略、请求次数、输入规模和
   fallback 原因。
 - 添加可恢复 `odracir ingest-library` 编排，用于准备、逐篇摘要、本地质量审计

@@ -81,8 +81,8 @@ odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill gen
 ```
 
 `ingest-library` is the primary resumable library entry point. Ordinary papers
-use one versioned structured DeepSeek call. Oversized papers and single-pass structured-output validation failures
-transparently fall back to map-reduce. Every strategy,
+use one versioned structured DeepSeek call. Oversized papers and single-pass
+structured-output validation failures transparently fall back to map-reduce. Every strategy,
 request count, input size, and fallback reason is preserved in provenance.
 
 `ingest-library` 是论文库默认的可恢复入口。普通论文使用一次版本化结构化
