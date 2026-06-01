@@ -166,6 +166,9 @@ research-folder/
   .odracir/
     project.json
     jobs/
+      ingestion/
+        latest.json
+        <run-id>.json
     parser-routing/
     texts/
     chunks/
@@ -203,6 +206,15 @@ folder state. Map-reduce is retained only as a transparent fallback.
 `odracir ingest-library` 是论文库主编排路径。它准备可追溯本地 artifact，
 通过一次版本化结构化 prompt 阅读每篇普通论文，在本地审计摘要，并重建可见
 文件夹 state。map-reduce 仅作为透明 fallback 保留。
+
+Each ingestion run writes compact workflow provenance under
+`.odracir/jobs/ingestion/`. Archived `<run-id>.json` files preserve history;
+`latest.json` provides a stable pointer for inspection. Failed pipeline runs are
+recorded when possible before the original exception is re-raised.
+
+每次摄取运行都会在 `.odracir/jobs/ingestion/` 下写入紧凑工作流 provenance。
+归档 `<run-id>.json` 保留历史，`latest.json` 提供稳定检查入口。流水线异常时，
+系统会尽力记录失败运行，然后继续抛出原始异常。
 
 ## 5. Scientific Data Model / 科学化数据模型
 

@@ -10,6 +10,24 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ## [Unreleased] / 未发布
 
+## [0.2.1] - 2026-06-01 / 可审计摄取运行记录
+
+### Added / 新增
+
+- Added compact archived ingestion run artifacts under
+  `.odracir/jobs/ingestion/` and a stable `latest.json` pointer.
+- Recorded dry runs, completed runs, partial failed runs, input parameters,
+  stage counts, summary strategies, API usage, failures, and output paths
+  without duplicating full paper summaries.
+- Added atomic run-artifact writes so readers do not observe partially written
+  JSON files.
+
+- 在 `.odracir/jobs/ingestion/` 下添加紧凑的归档摄取运行记录，以及稳定的
+  `latest.json` 指针。
+- 记录 dry-run、完成运行、部分失败运行、输入参数、阶段计数、摘要策略、
+  API 用量、失败项和输出路径，同时避免重复存储完整论文摘要。
+- 对运行 artifact 使用原子写入，避免读取方观察到未完成的 JSON 文件。
+
 ## [0.2.0] - 2026-06-01 / 论文库摄取 MVP
 
 ### Added / 新增

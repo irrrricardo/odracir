@@ -16,6 +16,7 @@ PARSER_ROUTING_SCHEMA_VERSION = "0.1"
 SUMMARY_EVALUATION_SCHEMA_VERSION = "0.1"
 RESEARCH_CATALOG_SCHEMA_VERSION = "0.1"
 READING_QUEUE_SCHEMA_VERSION = "0.1"
+INGESTION_RUN_SCHEMA_VERSION = "0.1"
 
 
 class ExtractionStatus(str, Enum):
@@ -298,6 +299,20 @@ class ReadingQueueArtifact(TypedDict, total=False):
     queue_limit: int
     action_counts: dict[str, int]
     entries: list[dict[str, Any]]
+
+
+class IngestionRunArtifact(TypedDict, total=False):
+    schema_version: str
+    policy_version: str
+    run_id: str
+    status: str
+    mode: str
+    started_at: str
+    completed_at: str
+    inputs: dict[str, Any]
+    outputs: dict[str, Any]
+    stages: dict[str, Any]
+    error: dict[str, str] | None
 
 
 def validate_project_index(index: dict[str, Any]) -> list[str]:

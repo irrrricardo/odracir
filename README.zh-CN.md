@@ -9,15 +9,15 @@
 
 此区块由 `odracir sync-docs` 自动生成。
 
-- 版本：`0.2.0`
+- 版本：`0.2.1`
 - 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
-- 当前重点：受监督的 single-pass 论文摄取、catalog 审阅、prompt 评测、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-06-01T19:20:25+08:00`
+- 当前重点：可审计摄取运行记录、受监督的 single-pass 论文摄取、prompt 评测、parser 输出审阅和显式 OCR 验证
+- 最近同步：`2026-06-01T23:52:48+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
-- `odracir ingest-library <research-folder> --skill <skill>`：准备、逐篇总结、审计并刷新可见文件夹 state。
+- `odracir ingest-library <research-folder> --skill <skill>`：准备、逐篇总结、审计、刷新可见文件夹 state，并写入摄取运行记录。
 - `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir plan-reading <research-folder> --query "<focus>"`：可选地、无 API 用量地排序可检查的下一步阅读行动。
@@ -252,6 +252,9 @@ odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill gen
 如果某篇论文超过保守 single-pass 阈值，或其结构化输出未通过校验，Odracir
 会透明降级为 map-reduce，并在 provenance 中记录原因。使用 `--dry-run` 可以在
 不调用 DeepSeek 的情况下准备 artifact 并预览范围。
+每次运行（包括 dry-run）都会在 `.odracir/jobs/ingestion/` 下写入紧凑审计记录；
+`latest.json` 指向最近一次运行。记录会保留输入、阶段计数、摘要策略、API 用量、
+失败项和输出路径，但不会重复存储完整论文摘要。
 
 仅准备可检索本地 artifact 并重建文件夹记忆，不调用 API：
 

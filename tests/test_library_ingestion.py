@@ -1,6 +1,8 @@
 import json
 import re
 
+import pytest
+
 from odracir.library_ingestion import PaperLibraryIngestionHarness
 from odracir.parsers import ParserRegistration, ParserRegistry
 from odracir.pdf_artifacts import build_pdf_text_artifact
@@ -87,6 +89,7 @@ def test_ingest_library_prepares_reads_audits_and_updates_root_state(tmp_path) -
     ).ingest()
     catalog = json.loads((root / "research_catalog.json").read_text(encoding="utf-8"))
     record = catalog["records"][0]
+    run_artifact = json.loads((root / result.run_artifact).read_text(encoding="utf-8"))
 
     assert result.preparation.extraction.extracted == 1
     assert result.preparation.chunking.chunked == 1
@@ -99,6 +102,19 @@ def test_ingest_library_prepares_reads_audits_and_updates_root_state(tmp_path) -
     assert record["summary"]["summary_short"] == "Short library memory."
     assert record["summary_provenance"]["summary_strategy"] == "single_pass"
     assert record["summary_provenance"]["request_count"] == 1
+    assert run_artifact["status"] == "completed"
+    assert run_artifact["mode"] == "execute"
+    assert run_artifact["inputs"]["provider"] == {
+        "name": "stub",
+        "model": "library-model",
+    }
+    assert run_artifact["stages"]["summaries"]["strategy_counts"] == {
+        "single_pass": 1
+    }
+    assert "records" not in run_artifact["stages"]["memory"]
+    assert json.loads(
+        (root / result.latest_run_artifact).read_text(encoding="utf-8")
+    )["run_id"] == result.run_id
 
 
 def test_ingest_library_reuses_current_summary_state(tmp_path) -> None:
@@ -114,13 +130,19 @@ def test_ingest_library_reuses_current_summary_state(tmp_path) -> None:
         parser_registry=_parser_registry(),
     )
 
-    harness.ingest()
+    first = harness.ingest()
     second = harness.ingest()
 
     assert second.summaries is not None
     assert second.summaries.summarized == 0
     assert second.summaries.skipped == 1
     assert len(provider.calls) == 1
+    assert first.run_id != second.run_id
+    assert (root / first.run_artifact).is_file()
+    assert (root / second.run_artifact).is_file()
+    assert json.loads(
+        (root / second.latest_run_artifact).read_text(encoding="utf-8")
+    )["run_id"] == second.run_id
 
 
 def test_ingest_library_dry_run_prepares_without_provider_or_api_call(tmp_path) -> None:
@@ -139,6 +161,46 @@ def test_ingest_library_dry_run_prepares_without_provider_or_api_call(tmp_path) 
     assert result.summary_plan.ready == 1
     assert result.evaluation.status_counts == {"missing_summary": 1}
     assert result.memory.quality_counts == {"missing_summary": 1}
+    run_artifact = json.loads((root / result.run_artifact).read_text(encoding="utf-8"))
+    assert run_artifact["status"] == "completed"
+    assert run_artifact["mode"] == "dry_run"
+    assert run_artifact["inputs"]["provider"] is None
+    assert run_artifact["stages"]["summaries"] is None
+
+
+def test_ingest_library_records_pipeline_exception(tmp_path, monkeypatch) -> None:
+    root = tmp_path / "field"
+
+    def fail_prepare(*args, **kwargs):
+        raise RuntimeError("fixture pipeline failure")
+
+    monkeypatch.setattr(
+        "odracir.library_ingestion.LocalPreparationHarness.prepare",
+        fail_prepare,
+    )
+
+    with pytest.raises(RuntimeError, match="fixture pipeline failure"):
+        PaperLibraryIngestionHarness(root).ingest(dry_run=True)
+
+    run_artifacts = [
+        path
+        for path in (root / ".odracir" / "jobs" / "ingestion").glob("*.json")
+        if path.name != "latest.json"
+    ]
+    assert len(run_artifacts) == 1
+    artifact = json.loads(run_artifacts[0].read_text(encoding="utf-8"))
+    assert artifact["status"] == "failed"
+    assert artifact["mode"] == "dry_run"
+    assert artifact["stages"] == {}
+    assert artifact["error"] == {
+        "type": "RuntimeError",
+        "message": "fixture pipeline failure",
+    }
+    assert json.loads(
+        (root / ".odracir" / "jobs" / "ingestion" / "latest.json").read_text(
+            encoding="utf-8"
+        )
+    )["run_id"] == artifact["run_id"]
 
 
 def test_ingest_library_rejects_missing_provider_for_paid_run(tmp_path) -> None:

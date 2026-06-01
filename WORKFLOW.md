@@ -82,13 +82,16 @@ odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill gen
 
 `ingest-library` is the primary resumable library entry point. Ordinary papers
 use one versioned structured DeepSeek call. Oversized papers and single-pass
-structured-output validation failures transparently fall back to map-reduce. Every strategy,
-request count, input size, and fallback reason is preserved in provenance.
+structured-output validation failures transparently fall back to map-reduce.
+Every strategy, request count, input size, and fallback reason is preserved in
+provenance. Each run also writes a compact audit record under
+`.odracir/jobs/ingestion/` and refreshes `latest.json`.
 
 `ingest-library` 是论文库默认的可恢复入口。普通论文使用一次版本化结构化
 DeepSeek 调用；超长论文和 single-pass 结构化输出校验失败项会透明降级为
-map-reduce。
-策略、请求次数、输入规模和 fallback 原因都会保留在 provenance 中。
+map-reduce。策略、请求次数、输入规模和 fallback 原因都会保留在 provenance
+中。每次运行还会在 `.odracir/jobs/ingestion/` 下写入紧凑审计记录，并刷新
+`latest.json`。
 
 Prepare searchable local artifacts and rebuild folder memory without API usage:
 
@@ -398,7 +401,18 @@ research-folder/
     answers/
     chunks/
     parser-routing/
+    jobs/
+      ingestion/
+        latest.json
+        <run-id>.json
 ```
+
+Ingestion run records are compact workflow provenance. They keep stage counts,
+strategy and API-usage summaries, failures, and output paths without duplicating
+full summary payloads.
+
+摄取运行记录是紧凑的工作流 provenance。它保留阶段计数、策略和 API 用量汇总、
+失败项与输出路径，但不会重复存储完整摘要内容。
 
 The index should point to artifacts instead of storing full text directly.
 
