@@ -15,6 +15,8 @@ class DeepSeekConfig:
     model: str = "deepseek-v4-pro"
     thinking: str = "disabled"
     max_tool_turns: int = 4
+    timeout_seconds: float = 300.0
+    max_retries: int = 2
 
 
 def load_config() -> DeepSeekConfig:
@@ -32,4 +34,6 @@ def load_config() -> DeepSeekConfig:
         model=os.getenv("DEEPSEEK_MODEL", "deepseek-v4-pro").strip(),
         thinking=os.getenv("DEEPSEEK_THINKING", "disabled").strip(),
         max_tool_turns=int(os.getenv("ODRACIR_MAX_TOOL_TURNS", "4")),
+        timeout_seconds=float(os.getenv("DEEPSEEK_TIMEOUT_SECONDS", "300")),
+        max_retries=int(os.getenv("DEEPSEEK_MAX_RETRIES", "2")),
     )

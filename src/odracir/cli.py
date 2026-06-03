@@ -21,6 +21,7 @@ from odracir.parser_benchmark import ParserBenchmarkHarness, format_parser_bench
 from odracir.parser_routing import ParserRoutingAdvisor, format_parser_routing
 from odracir.pdf_extraction import PdfTextExtractor
 from odracir.preparation import LocalPreparationHarness, format_local_preparation
+from odracir.project_brief import ProjectBriefBuilder, format_project_brief
 from odracir.providers import DeepSeekProvider
 from odracir.question_answering import (
     EvidenceQuestionAnswerer,
@@ -65,6 +66,9 @@ def main() -> None:
         return
     if argv and argv[0] == "prepare":
         _prepare(argv[1:])
+        return
+    if argv and argv[0] == "read":
+        _read(argv[1:])
         return
     if argv and argv[0] == "ingest-library":
         _ingest_library(argv[1:])
@@ -113,6 +117,9 @@ def main() -> None:
         return
     if argv and argv[0] == "build-memory":
         _build_memory(argv[1:])
+        return
+    if argv and argv[0] == "brief":
+        _brief(argv[1:])
         return
     if argv and argv[0] == "plan-reading":
         _plan_reading(argv[1:])
@@ -279,6 +286,101 @@ def _ingest_library(argv: list[str]) -> None:
         print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_paper_library_ingestion(result))
+
+
+def _read(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Read a research folder end-to-end: prepare, summarize, audit, "
+            "build memory, and write a Markdown project brief."
+        )
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only read one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--skill",
+        default="generic",
+        help="Research skill manifest. Defaults to generic.",
+    )
+    parser.add_argument("--parser", default="pymupdf", help="Registered PDF parser name.")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Prepare local artifacts and preview scope without calling DeepSeek.",
+    )
+    parser.add_argument(
+        "--force-prepare",
+        action="store_true",
+        help="Regenerate extraction and chunk artifacts even when current.",
+    )
+    parser.add_argument(
+        "--force-summaries",
+        action="store_true",
+        help="Regenerate summary artifacts even when current.",
+    )
+    parser.add_argument(
+        "--no-brief",
+        action="store_true",
+        help="Do not write project_summary.md after a successful read.",
+    )
+    parser.add_argument(
+        "--brief-output",
+        default="project_summary.md",
+        help="Markdown brief filename inside the research folder.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        skill = get_builtin_skill_registry().get(args.skill)
+        provider = None if args.dry_run else DeepSeekProvider(load_config())
+        ingestion = PaperLibraryIngestionHarness(
+            args.folder,
+            provider,
+            papers_dir=args.papers_dir,
+            skill=skill,
+            parser_name=args.parser,
+        ).ingest(
+            dry_run=args.dry_run,
+            force_prepare=args.force_prepare,
+            force_summaries=args.force_summaries,
+            limit=args.limit,
+            paper_id=args.paper,
+        )
+        brief = None
+        if not args.dry_run and not args.no_brief:
+            brief = ProjectBriefBuilder(
+                args.folder,
+                papers_dir=args.papers_dir,
+                output_name=args.brief_output,
+            ).build()
+    except ValueError as exc:
+        parser.error(str(exc))
+
+    if args.json:
+        payload = {
+            "read": ingestion.as_dict(),
+            "brief": brief.as_dict() if brief else None,
+        }
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        return
+
+    print(format_paper_library_ingestion(ingestion))
+    if brief:
+        print()
+        print(format_project_brief(brief))
+    elif args.dry_run:
+        print()
+        print("Brief: dry run, project_summary.md was not written.")
+    else:
+        print()
+        print("Brief: skipped by --no-brief.")
 
 
 def _extract(argv: list[str]) -> None:
@@ -906,6 +1008,48 @@ def _build_memory(argv: list[str]) -> None:
         print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_research_catalog(result))
+
+
+def _brief(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Build a human-readable Markdown brief from research_catalog.json."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument(
+        "--output",
+        default="project_summary.md",
+        help="Markdown brief filename inside the research folder.",
+    )
+    parser.add_argument(
+        "--no-write",
+        action="store_true",
+        help="Print the Markdown brief without writing it.",
+    )
+    parser.add_argument(
+        "--no-rebuild-catalog",
+        action="store_true",
+        help="Do not write or refresh research_catalog.json while building the brief.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    result = ProjectBriefBuilder(
+        args.folder,
+        papers_dir=args.papers_dir,
+        output_name=args.output,
+    ).build(
+        write_artifact=not args.no_write,
+        rebuild_catalog=not args.no_rebuild_catalog,
+    )
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_project_brief(result))
 
 
 def _plan_reading(argv: list[str]) -> None:

@@ -46,6 +46,23 @@ def test_research_folder_sync_preserves_existing_summary(tmp_path) -> None:
     assert updated["papers"][0]["summary_short"] == "Important result."
 
 
+def test_research_folder_loads_index_with_utf8_bom(tmp_path) -> None:
+    root = tmp_path / "field"
+    root.mkdir()
+    payload = {
+        "schema_version": "0.2",
+        "folder_name": "field",
+        "generated_by": "odracir",
+        "updated_at": None,
+        "papers": [],
+    }
+    (root / "odracir_index.json").write_bytes(
+        b"\xef\xbb\xbf" + json.dumps(payload).encode("utf-8")
+    )
+
+    assert ResearchFolderHarness(root).load_index()["papers"] == []
+
+
 def test_research_folder_sync_supports_custom_papers_dir(tmp_path) -> None:
     root = tmp_path / "medical-world-model"
     storage = root / "Paper Storage"
@@ -57,6 +74,22 @@ def test_research_folder_sync_supports_custom_papers_dir(tmp_path) -> None:
 
     assert result.total_papers == 1
     assert data["papers"][0]["source_file"] == "Paper Storage/clinical-agent.pdf"
+
+
+def test_research_folder_sync_ignores_generated_project_artifacts(tmp_path) -> None:
+    root = tmp_path / "field"
+    root.mkdir()
+    (root / "paper.pdf").write_bytes(b"%PDF-1.4\n")
+    (root / "project_summary.md").write_text("# Brief\n", encoding="utf-8")
+    internal = root / ".odracir" / "summaries"
+    internal.mkdir(parents=True)
+    (internal / "generated.md").write_text("# Internal\n", encoding="utf-8")
+
+    result = ResearchFolderHarness(root, papers_dir=root).sync_index()
+    data = json.loads((root / "odracir_index.json").read_text(encoding="utf-8"))
+
+    assert result.total_papers == 1
+    assert data["papers"][0]["source_file"] == "paper.pdf"
 
 
 def test_research_folder_sync_invalidates_generated_fields_when_source_changes(tmp_path) -> None:

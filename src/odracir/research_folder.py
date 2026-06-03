@@ -16,6 +16,10 @@ from odracir.time_utils import now_iso
 
 DEFAULT_INDEX_NAME = "odracir_index.json"
 PAPER_EXTENSIONS = {".pdf", ".txt", ".md"}
+GENERATED_ARTIFACT_NAMES = {
+    "meeting_brief.md",
+    "project_summary.md",
+}
 
 
 @dataclass(frozen=True)
@@ -134,7 +138,9 @@ class ResearchFolderHarness:
         return sorted(
             path
             for path in self.papers_dir.rglob("*")
-            if path.is_file() and path.suffix.lower() in PAPER_EXTENSIONS
+            if path.is_file()
+            and path.suffix.lower() in PAPER_EXTENSIONS
+            and not _is_generated_artifact(path)
         )
 
     def load_index(self) -> dict[str, Any]:
@@ -147,7 +153,7 @@ class ResearchFolderHarness:
                 "papers": [],
             }
 
-        with self.index_path.open("r", encoding="utf-8") as file:
+        with self.index_path.open("r", encoding="utf-8-sig") as file:
             data = json.load(file)
 
         if not isinstance(data, dict):
@@ -249,6 +255,13 @@ def _invalidate_generated_fields(record: dict[str, Any]) -> None:
 
 def _relative_posix(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
+
+
+def _is_generated_artifact(path: Path) -> bool:
+    return (
+        path.name in GENERATED_ARTIFACT_NAMES
+        or any(part == ".odracir" for part in path.parts)
+    )
 
 
 def _sha256_file(path: Path) -> str:

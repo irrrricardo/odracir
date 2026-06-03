@@ -69,6 +69,8 @@ class DeepSeekProvider:
         self.client = client or OpenAI(
             api_key=self.config.api_key,
             base_url=self.config.base_url,
+            timeout=self.config.timeout_seconds,
+            max_retries=self.config.max_retries,
         )
 
     def chat_completion(self, **kwargs: Any) -> Any:

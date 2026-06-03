@@ -282,10 +282,14 @@ class ConnectionFailureProvider:
         raise ConnectionError("network unavailable")
 
 
+class MatchingConnectionFailureProvider(ConnectionFailureProvider):
+    model = "stub-model"
+
+
 def test_summary_does_not_fan_out_transport_failure_into_map_reduce(tmp_path) -> None:
     root = tmp_path / "field"
     _write_summary_fixture(root)
-    provider = ConnectionFailureProvider()
+    provider = MatchingConnectionFailureProvider()
 
     result = EvidenceSummaryGenerator(root, provider).summarize_index()
     paper = ResearchFolderHarness(root).load_index()["papers"][0]
@@ -294,6 +298,91 @@ def test_summary_does_not_fan_out_transport_failure_into_map_reduce(tmp_path) ->
     assert provider.calls == 1
     assert paper["summary_status"] == "failed"
     assert "network unavailable" in paper["summary_error"]
+
+
+def test_summary_adopts_valid_artifact_from_interrupted_run(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    EvidenceSummaryGenerator(root, StubProvider()).summarize_index()
+    harness = ResearchFolderHarness(root)
+    index = harness.load_index()
+    paper = index["papers"][0]
+    paper["summary_status"] = "not_started"
+    paper.pop("summary_provider", None)
+    paper.pop("summary_model", None)
+    harness.write_index(index)
+    provider = MatchingConnectionFailureProvider()
+
+    result = EvidenceSummaryGenerator(root, provider).summarize_index()
+    paper = harness.load_index()["papers"][0]
+
+    assert result.skipped == 1
+    assert result.failed == 0
+    assert provider.calls == 0
+    assert paper["summary_status"] == "summarized"
+    assert paper["summary_short"] == "Short evidence-aware summary."
+
+
+class RepairingProvider:
+    provider_name = "stub"
+    model = "repairing-model"
+
+    def __init__(self) -> None:
+        self.calls = []
+
+    def complete_json(self, *, system_prompt: str, user_prompt: str, max_tokens: int):
+        self.calls.append(
+            {
+                "system_prompt": system_prompt,
+                "user_prompt": user_prompt,
+                "max_tokens": max_tokens,
+            }
+        )
+        citation = "[paper pp.1 chunk:one]"
+        if "repair one evidence-aware paper summary" in system_prompt:
+            finding = {
+                "claim": "The method uses a world model.",
+                "citations": [citation],
+                "inference": False,
+            }
+        else:
+            finding = {
+                "claim": "The method uses a world model.",
+                "citations": ["[paper pp.99 chunk:imaginary]"],
+                "inference": False,
+            }
+        return JsonCompletionResult(
+            payload={
+                "summary_short": "Repairable summary.",
+                "summary_detailed": "Repairable detailed summary.",
+                "research_question": "Can a world model help?",
+                "methods": ["Method"],
+                "findings": [finding],
+                "limitations": [],
+                "key_terms": ["world model"],
+                "implementation_notes": [],
+                "inferences": [],
+            },
+            usage={"total_tokens": 7},
+        )
+
+
+def test_summary_repairs_invalid_citation_once(tmp_path) -> None:
+    root = tmp_path / "field"
+    _write_summary_fixture(root)
+    provider = RepairingProvider()
+
+    result = EvidenceSummaryGenerator(root, provider).summarize_index()
+    paper = ResearchFolderHarness(root).load_index()["papers"][0]
+    artifact = json.loads((root / paper["summary_artifact"]).read_text(encoding="utf-8"))
+
+    assert result.summarized == 1
+    assert result.failed == 0
+    assert len(provider.calls) == 2
+    assert artifact["request_count"] == 2
+    assert "repaired" in artifact["fallback_reason"]
+    assert artifact["summary"]["findings"][0]["citations"] == ["[paper pp.1 chunk:one]"]
+
 
 def test_summary_dry_run_reports_scope_without_provider(tmp_path) -> None:
     root = tmp_path / "field"
