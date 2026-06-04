@@ -9,15 +9,17 @@
 
 此区块由 `odracir sync-docs` 自动生成。
 
-- 版本：`0.3.0`
+- 版本：`0.3.1`
 - 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
-- 当前重点：保留原始模型阅读结果、可选摘要规范化、受监督审阅、parser 输出审阅和显式 OCR 验证
-- 最近同步：`2026-06-02T01:57:59+08:00`
+- 当前重点：高层 read 工作流、项目简报、保留原始模型阅读结果、可选摘要规范化和受监督审阅
+- 最近同步：`2026-06-04T17:29:37+08:00`
 
 当前命令：
 
 - `odracir "message"`：与当前 Odracir agent 对话。
+- `odracir read <research-folder> --papers-dir <paper-folder> --skill <skill>`：运行端到端论文库流程，并写入 Markdown 项目简报。
 - `odracir ingest-library <research-folder> --skill <skill>`：准备、逐篇总结、审计、刷新可见文件夹 state，并写入摄取运行记录。
+- `odracir brief <research-folder> --papers-dir <paper-folder>`：从 `research_catalog.json` 重建人类可读的 `project_summary.md`。
 - `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir plan-reading <research-folder> --query "<focus>"`：可选地、无 API 用量地排序可检查的下一步阅读行动。
@@ -247,6 +249,17 @@ python -m odracir.cli "帮我总结当前项目目标。"
 odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic --dry-run
 odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill generic
 ```
+
+运行完整受监督阅读流程，并写入项目简报：
+
+```powershell
+odracir read <research-folder> --papers-dir <paper-folder> --skill generic
+odracir brief <research-folder> --papers-dir <paper-folder>
+```
+
+`read` 是日常使用的高层入口。它会运行准备、摘要生成、本地评估、记忆重建，
+并写入人类可读的 `project_summary.md`。如果论文直接放在研究文件夹根目录，
+需要显式传入 `--papers-dir "."`。
 
 `ingest-library` 是论文库主工作流。它会准备本地正文和 chunk，使用版本化结构化
 科研 prompt 阅读每篇普通论文，审计摘要，并刷新根目录下可见的

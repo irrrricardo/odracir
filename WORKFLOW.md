@@ -332,6 +332,29 @@ odracir build-memory <research-folder> --papers-dir <paper-folder>
 
 `build-memory` 是确定性的本地目录构建器。它不会调用 DeepSeek，也不会修改精简索引。它会在研究文件夹根目录写入 `research_catalog.json`，聚合处理状态、artifact 路径、经过审计的摘要、skill provenance、warning 和失败原因。缺失或失败的摘要仍保持显式状态。使用 `--no-write` 可以只生成临时报告；`get_research_memory` agent tool 使用的就是这条只读路径。
 
+Run the high-level workflow and write a human-readable project brief:
+
+```powershell
+odracir read <research-folder> --papers-dir <paper-folder> --skill generic
+odracir brief <research-folder> --papers-dir <paper-folder>
+```
+
+`read` composes preparation, summary generation, deterministic summary audit,
+folder-memory rebuild, and `project_summary.md` generation. It is the preferred
+manual entry point once the folder layout is known. Use `--papers-dir "."` when
+PDFs live directly under the research-folder root rather than in `papers/`.
+
+运行高层工作流并写入人类可读的项目简报：
+
+```powershell
+odracir read <research-folder> --papers-dir <paper-folder> --skill generic
+odracir brief <research-folder> --papers-dir <paper-folder>
+```
+
+`read` 会组合准备、摘要生成、确定性摘要审计、文件夹记忆重建和
+`project_summary.md` 生成。确认文件夹布局后，它是首选的手动入口。如果 PDF
+直接放在研究文件夹根目录而不是 `papers/` 中，请使用 `--papers-dir "."`。
+
 Translate the default abstract, methods, and conclusion selection:
 
 ```powershell

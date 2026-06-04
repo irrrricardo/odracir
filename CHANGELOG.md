@@ -10,6 +10,52 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ## [Unreleased] / 未发布
 
+## [0.3.1] - 2026-06-04 / 高层阅读入口与项目简报
+
+### Added / 新增
+
+- Added `odracir read`, a high-level end-to-end command that prepares a research
+  folder, summarizes papers, audits local memory, rebuilds `research_catalog.json`,
+  and writes `project_summary.md`.
+- Added `odracir brief` and the `ProjectBriefBuilder` for human-readable Markdown
+  research-folder summaries.
+- Added DeepSeek timeout and retry configuration through
+  `DEEPSEEK_TIMEOUT_SECONDS` and `DEEPSEEK_MAX_RETRIES`.
+
+- 添加 `odracir read` 高层端到端命令：准备研究文件夹、总结论文、审计本地记忆、
+  重建 `research_catalog.json`，并写入 `project_summary.md`。
+- 添加 `odracir brief` 和 `ProjectBriefBuilder`，用于生成便于人阅读的 Markdown
+  研究文件夹简报。
+- 通过 `DEEPSEEK_TIMEOUT_SECONDS` 和 `DEEPSEEK_MAX_RETRIES` 添加 DeepSeek
+  超时与重试配置。
+
+### Changed / 调整
+
+- Summary generation now checkpoints the index after each paper, can adopt a
+  valid summary artifact left by an interrupted run, and attempts one repair
+  call when a structured summary fails citation or schema validation.
+- Research-folder scanning ignores generated project artifacts such as
+  `project_summary.md`, `meeting_brief.md`, and `.odracir/` contents.
+- `odracir_index.json` loading now accepts UTF-8 BOM files.
+
+- 摘要生成现在会在每篇论文后写入 checkpoint；中断运行后如果已有有效 summary
+  artifact，可以自动接管；当结构化摘要引用或 schema 校验失败时，会尝试一次
+  repair 调用。
+- 研究文件夹扫描会忽略 `project_summary.md`、`meeting_brief.md` 和 `.odracir/`
+  中的生成物。
+- `odracir_index.json` 读取现在兼容 UTF-8 BOM 文件。
+
+### Verified / 已验证
+
+- Ran the merged workflow on a two-PDF Articles folder with
+  `odracir read ... --papers-dir "." --skill biomedical-paper`: both PDFs were
+  extracted, chunked, summarized with `single_pass`, audited, and included in
+  `project_summary.md` with zero failures. Reported API usage was 47,878 total
+  tokens.
+- 在一个包含两篇 PDF 的 Articles 文件夹上运行合并后的 `odracir read ... --papers-dir "." --skill biomedical-paper`：
+  两篇 PDF 均完成提取、切块、`single_pass` 摘要、审计，并写入 `project_summary.md`；
+  失败数为 0，报告 API 用量为 47,878 total tokens。
+
 ## [0.3.0] - 2026-06-02 / 可保留原始阅读结果的首版闭环
 
 ### Added / 新增
