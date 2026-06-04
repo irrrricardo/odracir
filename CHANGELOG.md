@@ -10,6 +10,13 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ## [Unreleased] / 未发布
 
+### Added / 新增
+
+- Added `ROADMAP.md` to record the next collaboration, skill expansion,
+  quality-loop, usability, agentic-layer, and future UI/service milestones.
+- 添加 `ROADMAP.md`，记录下一阶段的协作、skill 扩展、质量闭环、易用性、
+  agentic layer 和未来 UI/service 里程碑。
+
 ## [0.3.1] - 2026-06-04 / 高层阅读入口与项目简报
 
 ### Added / 新增

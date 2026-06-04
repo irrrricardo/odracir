@@ -2,7 +2,7 @@
 
 [English](README.md) | 中文
 
-[版本记录](CHANGELOG.md)
+[版本记录](CHANGELOG.md) | [路线图](ROADMAP.md)
 
 <!-- ODRACIR_STATUS_START -->
 ## 项目状态
@@ -12,7 +12,7 @@
 - 版本：`0.3.1`
 - 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
 - 当前重点：高层 read 工作流、项目简报、保留原始模型阅读结果、可选摘要规范化和受监督审阅
-- 最近同步：`2026-06-04T17:29:37+08:00`
+- 最近同步：`2026-06-04T22:17:42+08:00`
 
 当前命令：
 
@@ -51,6 +51,8 @@
 [工作流](WORKFLOW.md)
 
 [架构路线图](ARCHITECTURE.md)
+
+[下一步路线图](ROADMAP.md)
 
 
 
