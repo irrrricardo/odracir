@@ -45,6 +45,8 @@ from odracir.summary_evaluation import (
     format_summary_evaluation,
 )
 from odracir.summary_review import SummaryReviewHarness, format_summary_review
+from odracir.synthesis import ResearchSynthesizer, format_synthesis_result
+from odracir.synthesis_review import SynthesisReviewHarness, format_synthesis_review
 from odracir.skills import (
     format_research_skill,
     format_research_skills,
@@ -120,6 +122,12 @@ def main() -> None:
         return
     if argv and argv[0] == "brief":
         _brief(argv[1:])
+        return
+    if argv and argv[0] == "synthesize":
+        _synthesize(argv[1:])
+        return
+    if argv and argv[0] == "review-synthesis":
+        _review_synthesis(argv[1:])
         return
     if argv and argv[0] == "plan-reading":
         _plan_reading(argv[1:])
@@ -1050,6 +1058,90 @@ def _brief(argv: list[str]) -> None:
         print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
         return
     print(format_project_brief(result))
+
+
+def _synthesize(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Build cross-paper synthesis from audited research catalog memory."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument(
+        "--output",
+        default="research_synthesis.md",
+        help="Markdown synthesis filename inside the research folder.",
+    )
+    parser.add_argument("--force", action="store_true", help="Regenerate cached synthesis.")
+    parser.add_argument(
+        "--no-write",
+        action="store_true",
+        help="Do not write the Markdown synthesis file.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        result = ResearchSynthesizer(
+            args.folder,
+            DeepSeekProvider(load_config()),
+            papers_dir=args.papers_dir,
+            output_name=args.output,
+        ).synthesize(
+            force=args.force,
+            write_markdown=not args.no_write,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_synthesis_result(result))
+
+
+def _review_synthesis(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Review the latest cross-paper synthesis artifact without calling an LLM."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument(
+        "--artifact",
+        default=None,
+        help="Specific synthesis artifact path. Defaults to the newest synthesis artifact.",
+    )
+    parser.add_argument(
+        "--output",
+        default="synthesis_review.md",
+        help="Markdown review filename inside the research folder.",
+    )
+    parser.add_argument("--no-write", action="store_true", help="Do not write artifacts.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        result = SynthesisReviewHarness(
+            args.folder,
+            papers_dir=args.papers_dir,
+            markdown_name=args.output,
+        ).review(
+            synthesis_artifact=args.artifact,
+            write_artifact=not args.no_write,
+            write_markdown=not args.no_write,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(format_synthesis_review(result))
 
 
 def _plan_reading(argv: list[str]) -> None:
