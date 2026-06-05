@@ -20,6 +20,8 @@
 - `odracir read <research-folder> --papers-dir <paper-folder> --skill <skill>`：运行端到端论文库流程，并写入 Markdown 项目简报。
 - `odracir ingest-library <research-folder> --skill <skill>`：准备、逐篇总结、审计、刷新可见文件夹 state，并写入摄取运行记录。
 - `odracir brief <research-folder> --papers-dir <paper-folder>`：从 `research_catalog.json` 重建人类可读的 `project_summary.md`。
+- `odracir synthesize <research-folder> --papers-dir <paper-folder>`：基于已审计 summaries 生成跨论文综合理解。
+- `odracir review-synthesis <research-folder> --papers-dir <paper-folder>`：无 API 用量地审阅最新 synthesis artifact。
 - `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir plan-reading <research-folder> --query "<focus>"`：可选地、无 API 用量地排序可检查的下一步阅读行动。
@@ -258,6 +260,22 @@ odracir ingest-library <research-folder> --papers-dir <paper-folder> --skill gen
 odracir read <research-folder> --papers-dir <paper-folder> --skill generic
 odracir brief <research-folder> --papers-dir <paper-folder>
 ```
+
+在 summaries 已经通过审计后，生成并审阅跨论文综合：
+
+```powershell
+odracir synthesize <research-folder> --papers-dir <paper-folder>
+odracir review-synthesis <research-folder> --papers-dir <paper-folder>
+```
+
+`synthesize` 会调用 DeepSeek，写入人类可读的 `research_synthesis.md`，并在
+`.odracir/synthesis/` 下保存可复用的结构化 artifact。它会跨论文比较主题、方法、主张、
+证据、benchmark、冲突、研究空白，以及阅读或复现优先级。
+
+`review-synthesis` 是确定性工具，不会调用 DeepSeek。它会检查最新 synthesis artifact 的
+论文覆盖率、主张引用、强主张证据支撑、benchmark 可比性，以及阅读或复现优先级覆盖，
+并写入 `synthesis_review.md` 和 `.odracir/synthesis/reviews/` 下的机器可读审阅 artifact。
+`warning` 表示综合结果可用但有质量问题需要检查；`fail` 表示 artifact 结构错误或缺少必要证据。
 
 `read` 是日常使用的高层入口。它会运行准备、摘要生成、本地评估、记忆重建，
 并写入人类可读的 `project_summary.md`。如果论文直接放在研究文件夹根目录，

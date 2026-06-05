@@ -20,6 +20,8 @@ Active commands:
 - `odracir read <research-folder> --papers-dir <paper-folder> --skill <skill>`: run the end-to-end paper-library workflow and write a Markdown project brief.
 - `odracir ingest-library <research-folder> --skill <skill>`: prepare, summarize each paper, audit, refresh visible folder state, and write an ingestion run record.
 - `odracir brief <research-folder> --papers-dir <paper-folder>`: rebuild a human-readable `project_summary.md` from `research_catalog.json`.
+- `odracir synthesize <research-folder> --papers-dir <paper-folder>`: build a cross-paper synthesis from audited summaries.
+- `odracir review-synthesis <research-folder> --papers-dir <paper-folder>`: review the latest synthesis artifact without API usage.
 - `odracir prepare <research-folder>`: scan, extract, chunk, and rebuild local memory without API usage.
 - `odracir scan <research-folder>`: create or update `odracir_index.json` for a research folder.
 - `odracir plan-reading <research-folder> --query "<focus>"`: optionally rank inspectable next reading actions without API usage.
@@ -264,6 +266,27 @@ odracir brief <research-folder> --papers-dir <paper-folder>
 summary generation, local evaluation, memory rebuild, and writes a human-readable
 `project_summary.md`. If selected papers live directly in the research-folder
 root, pass `--papers-dir "."` explicitly.
+
+Build and review a cross-paper synthesis after summaries have been audited:
+
+```powershell
+odracir synthesize <research-folder> --papers-dir <paper-folder>
+odracir review-synthesis <research-folder> --papers-dir <paper-folder>
+```
+
+`synthesize` calls DeepSeek and writes a human-readable `research_synthesis.md`
+plus a reusable structured artifact under `.odracir/synthesis/`. It compares
+topics, methods, claims, evidence, benchmarks, conflicts, research gaps, and
+reading or reproduction priorities across papers already present in
+`research_catalog.json`.
+
+`review-synthesis` is deterministic and does not call DeepSeek. It checks the
+latest synthesis artifact for paper coverage, claim citations, strong-claim
+support, benchmark comparability, and reading or reproduction priority coverage.
+It writes `synthesis_review.md` and a machine-readable review artifact under
+`.odracir/synthesis/reviews/`. A `warning` status means the synthesis is usable
+but has quality issues to inspect; a `fail` status means the artifact is
+malformed or missing required support.
 
 `ingest-library` is the primary paper-library workflow. It prepares local text
 and chunks, reads each ordinary paper with one versioned structured DeepSeek
