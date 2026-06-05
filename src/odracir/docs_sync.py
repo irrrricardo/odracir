@@ -78,6 +78,8 @@ Active commands:
 - `odracir read <research-folder> --papers-dir <paper-folder> --skill <skill>`: run the end-to-end paper-library workflow and write a Markdown project brief.
 - `odracir ingest-library <research-folder> --skill <skill>`: prepare, summarize each paper, audit, refresh visible folder state, and write an ingestion run record.
 - `odracir brief <research-folder> --papers-dir <paper-folder>`: rebuild a human-readable `project_summary.md` from `research_catalog.json`.
+- `odracir synthesize <research-folder> --papers-dir <paper-folder>`: build a cross-paper synthesis from audited summaries.
+- `odracir review-synthesis <research-folder> --papers-dir <paper-folder>`: review the latest synthesis artifact without API usage.
 - `odracir prepare <research-folder>`: scan, extract, chunk, and rebuild local memory without API usage.
 - `odracir scan <research-folder>`: create or update `odracir_index.json` for a research folder.
 - `odracir plan-reading <research-folder> --query "<focus>"`: optionally rank inspectable next reading actions without API usage.
@@ -125,6 +127,8 @@ def build_chinese_status_block(version: str, synced_at: str) -> str:
 - `odracir read <research-folder> --papers-dir <paper-folder> --skill <skill>`：运行端到端论文库流程，并写入 Markdown 项目简报。
 - `odracir ingest-library <research-folder> --skill <skill>`：准备、逐篇总结、审计、刷新可见文件夹 state，并写入摄取运行记录。
 - `odracir brief <research-folder> --papers-dir <paper-folder>`：从 `research_catalog.json` 重建人类可读的 `project_summary.md`。
+- `odracir synthesize <research-folder> --papers-dir <paper-folder>`：基于已审计 summaries 生成跨论文综合理解。
+- `odracir review-synthesis <research-folder> --papers-dir <paper-folder>`：无 API 用量地审阅最新 synthesis artifact。
 - `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir plan-reading <research-folder> --query "<focus>"`：可选地、无 API 用量地排序可检查的下一步阅读行动。

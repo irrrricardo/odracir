@@ -12,7 +12,7 @@
 - 版本：`0.3.1`
 - 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
 - 当前重点：高层 read 工作流、项目简报、保留原始模型阅读结果、可选摘要规范化和受监督审阅
-- 最近同步：`2026-06-06T02:22:46+08:00`
+- 最近同步：`2026-06-06T02:31:25+08:00`
 
 当前命令：
 
@@ -20,6 +20,8 @@
 - `odracir read <research-folder> --papers-dir <paper-folder> --skill <skill>`：运行端到端论文库流程，并写入 Markdown 项目简报。
 - `odracir ingest-library <research-folder> --skill <skill>`：准备、逐篇总结、审计、刷新可见文件夹 state，并写入摄取运行记录。
 - `odracir brief <research-folder> --papers-dir <paper-folder>`：从 `research_catalog.json` 重建人类可读的 `project_summary.md`。
+- `odracir synthesize <research-folder> --papers-dir <paper-folder>`：基于已审计 summaries 生成跨论文综合理解。
+- `odracir review-synthesis <research-folder> --papers-dir <paper-folder>`：无 API 用量地审阅最新 synthesis artifact。
 - `odracir prepare <research-folder>`：无 API 用量地扫描、提取、切块并重建本地记忆。
 - `odracir scan <research-folder>`：为研究文件夹创建或更新 `odracir_index.json`。
 - `odracir plan-reading <research-folder> --query "<focus>"`：可选地、无 API 用量地排序可检查的下一步阅读行动。
