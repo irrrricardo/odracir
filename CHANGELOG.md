@@ -17,6 +17,29 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 - 添加 `ROADMAP.md`，记录下一阶段的协作、skill 扩展、质量闭环、易用性、
   agentic layer 和未来 UI/service 里程碑。
 
+- Added `odracir synthesize` for cross-paper project synthesis from audited
+  summaries. It writes `research_synthesis.md` and stores structured artifacts
+  under `.odracir/synthesis/`.
+- Added `odracir review-synthesis` for deterministic, no-API synthesis review.
+  It checks paper coverage, citation coverage, strong-claim risk, benchmark
+  coverage, and reading-priority coverage, then writes `synthesis_review.md`.
+- Added tests for synthesis artifact creation and synthesis review behavior.
+
+- 添加 `odracir synthesize`，用于基于已审计 summaries 生成跨论文项目级综合。
+  它会写入 `research_synthesis.md`，并在 `.odracir/synthesis/` 下保存结构化
+  artifact。
+- 添加 `odracir review-synthesis`，用于无 API 用量地执行确定性综合审阅。
+  它会检查论文覆盖、引用覆盖、强主张风险、benchmark 覆盖和阅读优先级覆盖，
+  并写入 `synthesis_review.md`。
+- 添加 synthesis artifact 创建和 synthesis review 行为测试。
+
+### Changed / 调整
+
+- Updated generated README status blocks so both English and Chinese READMEs
+  keep the synthesis commands after `odracir sync-docs`.
+- 更新 README 自动生成状态区，确保英文和中文 README 在 `odracir sync-docs`
+  后保留 synthesis 命令。
+
 ## [0.3.1] - 2026-06-04 / 高层阅读入口与项目简报
 
 ### Added / 新增

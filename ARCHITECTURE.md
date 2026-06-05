@@ -480,6 +480,31 @@ Acceptance:
 - 检索结果可以独立检查。
 - 缺少证据时明确说明。
 
+Current prototype status:
+
+- `src/odracir/synthesis.py` implements the first project-level synthesis path.
+  It reads audited paper summaries, calls the configured LLM provider, writes
+  `research_synthesis.md`, and stores reusable structured artifacts under
+  `.odracir/synthesis/`.
+- `src/odracir/synthesis_review.py` implements deterministic, no-API review of
+  synthesis artifacts. It checks paper coverage, citation coverage, strong-claim
+  risk, benchmark coverage, and reading-priority coverage, then writes
+  `synthesis_review.md` plus a machine-readable review artifact.
+- This is synthesis from existing per-paper memory, not yet retrieval-first
+  question answering over full chunks. The next architecture step is to connect
+  synthesis, retrieval, and conversation through a shared evidence interface.
+
+当前原型状态：
+
+- `src/odracir/synthesis.py` 已实现首个项目级综合路径。它读取已审计的逐篇论文
+  summaries，调用已配置的 LLM provider，写入 `research_synthesis.md`，并在
+  `.odracir/synthesis/` 下保存可复用的结构化 artifact。
+- `src/odracir/synthesis_review.py` 已实现无 API 用量的确定性 synthesis artifact
+  审阅。它检查论文覆盖、引用覆盖、强主张风险、benchmark 覆盖和阅读优先级覆盖，
+  然后写入 `synthesis_review.md` 和机器可读 review artifact。
+- 这一步是基于现有逐篇论文记忆的综合，不是完整 chunk 检索问答。下一步架构重点是
+  通过共享 evidence interface 连接 synthesis、retrieval 和 conversation。
+
 ### Phase 4: Skills And Evaluation / Skill 与评测
 
 Goal: support multiple disciplines without polluting the generic core.
