@@ -64,6 +64,14 @@ Parsers and file operations are deterministic tools. Skills combine prompts, sch
 
 ```text
 src/odracir/
+  brain/
+    orchestra/
+      README.md
+    hippocampus/
+      README.md
+      __init__.py
+      boundaries.py
+      types.py
   cli.py
   config.py
   harness/
@@ -114,6 +122,25 @@ src/odracir/
 This is a target layout, not an instruction to create empty folders immediately. Modules should be extracted only when real behavior enters them.
 
 这是目标布局，不代表现在要立刻创建空文件夹。只有当真实行为出现时，才应该拆出对应模块。
+
+### Brain Naming Boundary / 大脑命名边界
+
+Odracir Brain is the full cognitive architecture. It should not be reduced to
+RAG or long-term storage. The brain-level executive center is the future
+`orchestra`, which will plan, route, execute, evaluate, and persist state.
+
+Odracir Brain 是完整认知架构，不应被简化为 RAG 或长期存储。大脑级执行中枢是
+未来的 `orchestra`，负责规划、路由、执行、评估和持久化状态。
+
+The memory brain region is named `hippocampus`. It is responsible for the
+unified memory substrate: literature memory, conversation memory, project
+decisions, skill memories, user preferences, tool memories, and logic memories.
+It can use RAG, graph links, lexical search, vector search, and durable artifacts,
+but it is not the whole brain and should not make orchestration decisions.
+
+记忆脑区命名为 `hippocampus`。它负责统一记忆底座：文献记忆、交流记忆、项目决策、
+skill 记忆、用户偏好、工具记忆和逻辑记忆。它可以使用 RAG、图谱链接、关键词检索、
+向量检索和持久 artifact，但它不是整个大脑，也不负责做编排决策。
 
 ## 4. Data Lifecycle / 数据生命周期
 

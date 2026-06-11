@@ -35,6 +35,11 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ### Changed / 调整
 
+- Reserved `src/odracir/brain/hippocampus/` as the memory brain-region
+  placeholder for future unified memory, RAG, graph, and long-term habit work.
+- 预留 `src/odracir/brain/hippocampus/` 作为记忆脑区占位，用于后续统一记忆、
+  RAG、图谱和长期习惯能力。
+
 - Updated generated README status blocks so both English and Chinese READMEs
   keep the synthesis commands after `odracir sync-docs`.
 - 更新 README 自动生成状态区，确保英文和中文 README 在 `odracir sync-docs`
