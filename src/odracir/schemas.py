@@ -21,6 +21,9 @@ RAW_SUMMARY_SCHEMA_VERSION = "0.1"
 SUMMARY_REVIEW_SCHEMA_VERSION = "0.1"
 SYNTHESIS_SCHEMA_VERSION = "0.1"
 SYNTHESIS_REVIEW_SCHEMA_VERSION = "0.1"
+FIGURE_ARTIFACT_SCHEMA_VERSION = "0.8"
+FIGURE_ANALYSIS_SCHEMA_VERSION = "0.3"
+FIGURE_EVIDENCE_CATALOG_SCHEMA_VERSION = "0.3"
 
 
 class ExtractionStatus(str, Enum):
@@ -124,6 +127,15 @@ class PaperRecord(TypedDict, total=False):
     raw_summary_finish_reason: str
     raw_summary_error: str
     raw_summary_captured_at: str
+    figure_extraction_status: str
+    figure_artifact: str
+    figure_extraction_input_sha256: str
+    figure_extractor: str
+    figure_extractor_version: str
+    figure_count: int
+    figure_page_render_fallback_count: int
+    figure_extraction_error: str
+    figures_extracted_at: str
 
 
 class ProjectIndex(TypedDict, total=False):
@@ -157,6 +169,47 @@ class TextArtifact(TypedDict, total=False):
     ocr_reason: str
     metadata: dict[str, Any]
     pages: list[TextPage]
+
+
+class FigureRecord(TypedDict):
+    figure_id: str
+    paper_id: str
+    page_number: int
+    figure_label: str
+    caption: str
+    kind: str
+    image_path: str
+    region_render_path: str
+    page_render_path: str
+    bounding_box: list[float]
+    image_sha256: str
+    region_render_sha256: str
+    nearby_text: list[str]
+    inline_references: list[str]
+    source_image_paths: list[str]
+    source_component_count: int
+    subfigures: list[dict[str, Any]]
+    caption_bbox: list[float]
+    figure_text: list[str]
+    figure_text_elements: list[dict[str, Any]]
+    body_text_excluded: int
+    completeness_status: str
+
+
+class FigureArtifact(TypedDict):
+    schema_version: str
+    paper_id: str
+    source_file: str
+    source_sha256: str
+    extractor: str
+    extractor_version: str
+    extracted_at: str
+    figure_count: int
+    page_render_fallback_count: int
+    detected_figure_labels: list[str]
+    extracted_figure_labels: list[str]
+    missing_figure_labels: list[str]
+    figures: list[FigureRecord]
 
 
 class ChunkRecord(TypedDict):

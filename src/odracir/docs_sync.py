@@ -89,6 +89,9 @@ Active commands:
 - `odracir recommend-parsers <research-folder>`: cache advisory parser recommendations without modifying extraction artifacts.
 - `odracir skills [name]`: inspect versioned research-skill manifests.
 - `odracir extract <research-folder>`: extract PDF text into `.odracir/texts/`.
+- `odracir extract-figures <research-folder>`: extract traceable figure candidates into `.odracir/figures/`.
+- `odracir analyze-figures <research-folder>`: analyze extracted figure candidates through a configured vision model.
+- `odracir build-figure-evidence <research-folder>`: catalog direct and source-supported scientific figure evidence.
 - `odracir ocr <research-folder>`: create OCR-enhanced derivatives for PDFs marked as `needs_ocr`.
 - `odracir status <research-folder>`: report processing states, OCR needs, and failures.
 - `odracir chunk <research-folder>`: create traceable chunks in `.odracir/chunks/`.
@@ -138,6 +141,9 @@ def build_chinese_status_block(version: str, synced_at: str) -> str:
 - `odracir recommend-parsers <research-folder>`：在不修改 extraction artifact 的情况下缓存 parser 审阅建议。
 - `odracir skills [name]`：检查版本化科研 skill manifest。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
+- `odracir extract-figures <research-folder>`：将可追溯的论文图片候选提取到 `.odracir/figures/`。
+- `odracir analyze-figures <research-folder>`：通过已配置的视觉模型分析图片候选。
+- `odracir build-figure-evidence <research-folder>`：汇总直接视觉证据和来源支持的科研图片证据。
 - `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。

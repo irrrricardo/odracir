@@ -12,7 +12,7 @@
 - 版本：`0.3.1`
 - 阶段：带审计文件夹 state、引用问答、缓存 parser 建议和版本化科研 skill 的可恢复论文库摄取 MVP
 - 当前重点：高层 read 工作流、项目简报、保留原始模型阅读结果、可选摘要规范化和受监督审阅
-- 最近同步：`2026-06-12T03:15:41+08:00`
+- 最近同步：`2026-06-12T23:57:20+08:00`
 
 当前命令：
 
@@ -31,6 +31,9 @@
 - `odracir recommend-parsers <research-folder>`：在不修改 extraction artifact 的情况下缓存 parser 审阅建议。
 - `odracir skills [name]`：检查版本化科研 skill manifest。
 - `odracir extract <research-folder>`：将 PDF 正文提取到 `.odracir/texts/`。
+- `odracir extract-figures <research-folder>`：将可追溯的论文图片候选提取到 `.odracir/figures/`。
+- `odracir analyze-figures <research-folder>`：通过已配置的视觉模型分析图片候选。
+- `odracir build-figure-evidence <research-folder>`：汇总直接视觉证据和来源支持的科研图片证据。
 - `odracir ocr <research-folder>`：为标记为 `needs_ocr` 的 PDF 创建 OCR derivative。
 - `odracir status <research-folder>`：报告处理状态、OCR 需求和失败项。
 - `odracir chunk <research-folder>`：在 `.odracir/chunks/` 中创建可追溯 chunk。
@@ -348,6 +351,58 @@ odracir extract "D:\Research\medical-world-models" --papers-dir "Paper Storage"
 ```
 
 这个命令会把按页提取的正文 artifact 写入 `.odracir/texts/`，并在 `odracir_index.json` 中更新提取状态、页数、文本长度和 artifact 路径。
+
+在不调用视觉模型的情况下提取可追溯图片候选：
+
+```powershell
+odracir extract-figures "D:\Research\medical-world-models" --papers-dir "Paper Storage"
+```
+
+这个命令会在 `.odracir/figures/` 下为每篇论文写入图片 manifest。每个候选会保留所属论文、页码、区域图与整页追溯图路径、区域坐标、图片 hash、识别到的 Figure/Table 图题、附近正文和正文引用。提取流程严格由图题驱动：没有 Figure/Table 图题的大型内嵌图片不会被输出为候选，也不再使用整页截图作为兜底候选。
+
+图片提取会以正文文字块作为裁剪边界，以图题为锚点组合相邻位图和矢量面板，并把流程图、示意图和表格中的短文字作为图片组成部分纳入区域。这样可以保留面板标签、箭头、图例、比例尺和无边框文字表格，同时减少把大段正文切成图片的情况。manifest 还会通过 `figure_text_elements` 保留图片内文字及其坐标，供视觉 API 分析和后续审计使用。多行图题会被完整保留，同一逻辑 Figure/Table 标签的重复检测也不会再产生虚假的缺失报告。可见的 `(a)`、`(b)` 等面板标签会保存为带位置的子图提示，并发送给分析 API。当复合图由多个独立位图组件构成时，Odracir 会保守地将它们渲染为可追溯子图；不会根据含义不明确的矢量元素猜测面板边界。每个 manifest 会通过 `detected_figure_labels`、`extracted_figure_labels` 和 `missing_figure_labels` 对比检测到的图题与实际输出，显式记录漏切标签；命令摘要也会报告未匹配标签数量。该策略采用 PDFFigures2 的图题优先与 BodyText/Other 原则，并参考 PubLayNet、LayoutParser 和 Docling 已验证的版面类别划分方向，但不强制引入它们的大型运行时依赖。
+
+这些图片候选只是来源 artifact，不是已经验证的医学解释，也不是正式多模态 Evidence。
+
+在分析图片候选前，需要配置支持 OpenAI-compatible 接口的多模态视觉模型，例如经过验证的 Qwen-VL 部署：
+
+```dotenv
+VISION_API_KEY=...
+VISION_BASE_URL=...
+VISION_MODEL=...
+```
+
+对于高风险科研分析，可以配置多个相互独立的分析 API 和一个单独的审校 API。建议使用 `api_key_env`，避免把密钥直接写入 JSON：
+
+```dotenv
+VISION_ENSEMBLE_JSON={"analyzers":[{"name":"analyzer-a","api_key_env":"VISION_A_KEY","base_url":"https://example-a/v1","model":"vision-model-a"},{"name":"analyzer-b","api_key_env":"VISION_B_KEY","base_url":"https://example-b/v1","model":"vision-model-b"}],"verifier":{"name":"verifier","api_key_env":"VISION_VERIFY_KEY","base_url":"https://example-v/v1","model":"vision-verifier"}}
+```
+
+```powershell
+odracir analyze-figures "D:\Research\medical-world-models" --limit 3
+```
+
+需要同时分析整图和可靠裁出的子图时：
+
+```powershell
+odracir analyze-figures <research-folder> --include-subfigures
+```
+
+图片分析 artifact 会写入 `.odracir/figure-analyses/`。结构化结果会提取科学问题、实体、变量、比较关系、定量发现、趋势、直接观察、支持结论、模型推断、不确定性和逐条证据支持等级。Odracir 会针对图表、表格、流程示意图和生物医学图片使用不同的科研分析指令。多 API 模式会先让各分析模型独立读取同一图片，再由审校模型保守解决分歧；artifact 会保留各模型的独立候选结果和审校模型身份，供后续追查。子图请求在坐标可用时只携带位于该面板内部的文字，以及与 `(a)`、`(b)` 对应的图题片段；证据记录保留父图 ID 和子图标签。Odracir 在这里承担 API 编排与证据控制职责，底层视觉识别质量仍由接入模型决定。
+
+完成分析后构建确定性的图片证据目录：
+
+```powershell
+odracir build-figure-evidence <research-folder>
+```
+
+目录写入 `.odracir/figure-evidence/catalog.json`。只有置信度不低于 `0.7`、来源标记有效、证据细节非空的 `direct_visual` 和无图文冲突的 `source_supported` 项目能够进入目录。推断、无支持、低置信度、格式异常和图文冲突主张都会被排除。
+
+高风险科研证据可以使用更严格的准入策略：
+
+```powershell
+odracir build-figure-evidence <research-folder> --min-confidence 0.85 --require-consensus
+```
 
 检查可选文档工具是否可用：
 

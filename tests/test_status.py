@@ -25,6 +25,7 @@ def test_status_reports_ocr_and_extraction_failure(tmp_path) -> None:
     assert report.pdf_papers == 2
     assert report.ocr_statuses == {"not_started": 2}
     assert report.extraction_statuses == {"failed": 1, "needs_ocr": 1}
+    assert report.figure_extraction_statuses == {"not_started": 2}
     assert report.summary_statuses == {"not_started": 2}
     assert report.translation_statuses == {"not_started": 2}
     assert report.needs_ocr[0]["source_file"] == "papers/scanned.pdf"

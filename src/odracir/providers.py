@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from typing import Any, Protocol
 
 from openai import OpenAI
@@ -16,6 +16,7 @@ class JsonCompletionResult:
     payload: dict[str, Any]
     usage: dict[str, int]
     finish_reason: str = "unknown"
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)

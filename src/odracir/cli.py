@@ -12,6 +12,9 @@ from odracir.capabilities import build_capability_report, format_capability_repo
 from odracir.chunking import TextChunker
 from odracir.config import load_config
 from odracir.docs_sync import sync_project_docs
+from odracir.figure_analysis import FigureAnalysisHarness
+from odracir.figure_evidence import FigureEvidenceCatalogBuilder
+from odracir.figure_extraction import PdfFigureExtractor
 from odracir.library_ingestion import (
     PaperLibraryIngestionHarness,
     format_paper_library_ingestion,
@@ -58,6 +61,7 @@ from odracir.translation import (
     build_translation_plan,
     format_translation_plan,
 )
+from odracir.vision_providers import build_configured_vision_provider
 
 
 def main() -> None:
@@ -77,6 +81,15 @@ def main() -> None:
         return
     if argv and argv[0] == "extract":
         _extract(argv[1:])
+        return
+    if argv and argv[0] == "extract-figures":
+        _extract_figures(argv[1:])
+        return
+    if argv and argv[0] == "analyze-figures":
+        _analyze_figures(argv[1:])
+        return
+    if argv and argv[0] == "build-figure-evidence":
+        _build_figure_evidence(argv[1:])
         return
     if argv and argv[0] == "ocr":
         _ocr(argv[1:])
@@ -427,6 +440,144 @@ def _extract(argv: list[str]) -> None:
         f"{result.extracted} extracted, "
         f"{result.skipped} skipped, "
         f"{result.failed} failed"
+    )
+
+
+def _extract_figures(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Extract caption-matched figures with traceable page renders."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only extract one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of PDFs.")
+    parser.add_argument(
+        "--render-scale",
+        type=float,
+        default=2.0,
+        help="Scale used for traceable full-page render fallbacks.",
+    )
+    parser.add_argument("--force", action="store_true", help="Re-extract current figures.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        result = PdfFigureExtractor(
+            args.folder,
+            papers_dir=args.papers_dir,
+            render_scale=args.render_scale,
+        ).extract_index(
+            force=args.force,
+            limit=args.limit,
+            paper_id=args.paper,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(f"Research folder: {result.root}")
+    print(f"Index: {result.index_path}")
+    print(
+        "PDF figure extraction: "
+        f"{result.total_pdf_papers} total, "
+        f"{result.extracted} extracted, "
+        f"{result.skipped} skipped, "
+        f"{result.failed} failed, "
+        f"{result.figures} figure candidates, "
+        f"{result.missing_labels} unmatched Figure/Table labels"
+    )
+
+
+def _analyze_figures(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Analyze extracted figure candidates through a configured vision model."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--papers-dir",
+        default=None,
+        help="Paper storage directory. Relative paths are resolved inside the research folder.",
+    )
+    parser.add_argument("--paper", default=None, help="Only analyze one paper id.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum number of figures.")
+    parser.add_argument(
+        "--include-subfigures",
+        action="store_true",
+        help="Also analyze reliably cropped independent subfigures.",
+    )
+    parser.add_argument("--force", action="store_true", help="Re-analyze current figures.")
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        result = FigureAnalysisHarness(
+            args.folder,
+            build_configured_vision_provider(),
+            papers_dir=args.papers_dir,
+        ).analyze(
+            force=args.force,
+            limit=args.limit,
+            paper_id=args.paper,
+            include_subfigures=args.include_subfigures,
+        )
+    except RuntimeError as exc:
+        parser.error(str(exc))
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(f"Research folder: {result.root}")
+    print(
+        "Figure analysis: "
+        f"{result.total_figures} total, "
+        f"{result.analyzed} analyzed, "
+        f"{result.skipped} skipped, "
+        f"{result.failed} failed"
+    )
+    print(f"Usage: {json.dumps(result.usage, ensure_ascii=False, sort_keys=True)}")
+
+
+def _build_figure_evidence(argv: list[str]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Build a catalog from direct and source-supported figure evidence."
+    )
+    parser.add_argument("folder", nargs="?", default=".", help="Research folder path.")
+    parser.add_argument(
+        "--min-confidence",
+        type=float,
+        default=0.7,
+        help="Minimum evidence confidence between 0 and 1.",
+    )
+    parser.add_argument(
+        "--require-consensus",
+        action="store_true",
+        help="Only admit evidence produced by multi-model consensus.",
+    )
+    parser.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
+    args = parser.parse_args(argv)
+
+    try:
+        result = FigureEvidenceCatalogBuilder(
+            args.folder,
+            minimum_confidence=args.min_confidence,
+            require_consensus=args.require_consensus,
+        ).build()
+    except ValueError as exc:
+        parser.error(str(exc))
+    if args.json:
+        print(json.dumps(result.as_dict(), ensure_ascii=False, indent=2))
+        return
+    print(f"Research folder: {result.root}")
+    print(f"Figure evidence catalog: {result.catalog_path}")
+    print(
+        "Figure evidence: "
+        f"{result.analyzed_figures} analyzed figures, "
+        f"{result.evidence_items} eligible items, "
+        f"{result.excluded_items} ineligible items excluded"
     )
 
 

@@ -116,6 +116,8 @@ def test_research_folder_sync_invalidates_generated_fields_when_source_changes(t
             "summary_status": "completed",
             "summary_artifact": ".odracir/summaries/paper-a.json",
             "translation_status": "completed",
+            "figure_extraction_status": "extracted",
+            "figure_artifact": ".odracir/figures/paper-a/manifest.json",
         }
     )
     harness.write_index(index)
@@ -129,10 +131,12 @@ def test_research_folder_sync_invalidates_generated_fields_when_source_changes(t
     assert updated["chunking_status"] == "not_started"
     assert updated["summary_status"] == "not_started"
     assert updated["translation_status"] == "not_started"
+    assert updated["figure_extraction_status"] == "not_started"
     assert "text_artifact" not in updated
     assert "ocr_artifact" not in updated
     assert "chunk_artifact" not in updated
     assert "summary_artifact" not in updated
+    assert "figure_artifact" not in updated
 
 
 def test_research_folder_sync_marks_removed_paper_as_missing(tmp_path) -> None:

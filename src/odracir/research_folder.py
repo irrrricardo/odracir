@@ -9,7 +9,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
-from odracir.processing_state import invalidate_ocr
+from odracir.processing_state import invalidate_figure_extraction, invalidate_ocr
 from odracir.schemas import INDEX_SCHEMA_VERSION, require_valid_project_index
 from odracir.time_utils import now_iso
 
@@ -192,6 +192,7 @@ class ResearchFolderHarness:
             "chunking_status": "not_started",
             "translation_status": "not_started",
             "summary_status": "not_started",
+            "figure_extraction_status": "not_started",
             "research_area": "",
             "core_problem": "",
             "main_contribution": "",
@@ -231,6 +232,7 @@ class ResearchFolderHarness:
         record.setdefault("ocr_status", "not_started")
         record.setdefault("translation_status", "not_started")
         record.setdefault("summary_status", "not_started")
+        record.setdefault("figure_extraction_status", "not_started")
         record.setdefault("text_extraction_status", "not_started")
         record.setdefault("chunking_status", "not_started")
         record.setdefault("research_area", "")
@@ -251,6 +253,7 @@ class ResearchFolderHarness:
 
 def _invalidate_generated_fields(record: dict[str, Any]) -> None:
     invalidate_ocr(record)
+    invalidate_figure_extraction(record)
 
 
 def _relative_posix(path: Path, root: Path) -> str:

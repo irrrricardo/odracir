@@ -18,6 +18,7 @@ class ResearchStatusReport:
     pdf_papers: int
     ocr_statuses: dict[str, int]
     extraction_statuses: dict[str, int]
+    figure_extraction_statuses: dict[str, int]
     chunking_statuses: dict[str, int]
     summary_statuses: dict[str, int]
     translation_statuses: dict[str, int]
@@ -48,6 +49,7 @@ def build_research_status(
 
     ocr_statuses = _count_statuses(pdf_papers, "ocr_status")
     extraction_statuses = _count_statuses(pdf_papers, "text_extraction_status")
+    figure_extraction_statuses = _count_statuses(pdf_papers, "figure_extraction_status")
     chunking_statuses = _count_statuses(pdf_papers, "chunking_status")
     summary_statuses = _count_statuses(pdf_papers, "summary_status")
     translation_statuses = _count_statuses(pdf_papers, "translation_status")
@@ -77,6 +79,7 @@ def build_research_status(
         pdf_papers=len(pdf_papers),
         ocr_statuses=ocr_statuses,
         extraction_statuses=extraction_statuses,
+        figure_extraction_statuses=figure_extraction_statuses,
         chunking_statuses=chunking_statuses,
         summary_statuses=summary_statuses,
         translation_statuses=translation_statuses,
@@ -92,6 +95,7 @@ def format_research_status(report: ResearchStatusReport) -> str:
         f"Papers: {report.total_papers} active, {report.pdf_papers} PDF",
         f"OCR preprocessing: {_format_counts(report.ocr_statuses)}",
         f"Extraction: {_format_counts(report.extraction_statuses)}",
+        f"Figures: {_format_counts(report.figure_extraction_statuses)}",
         f"Chunking: {_format_counts(report.chunking_statuses)}",
         f"Summaries: {_format_counts(report.summary_statuses)}",
         f"Translations: {_format_counts(report.translation_statuses)}",
@@ -122,6 +126,8 @@ def _paper_failures(paper: dict[str, Any]) -> list[tuple[str, str]]:
     failures: list[tuple[str, str]] = []
     if paper.get("text_extraction_status") == "failed":
         failures.append(("extract", str(paper.get("text_extraction_error", ""))))
+    if paper.get("figure_extraction_status") == "failed":
+        failures.append(("extract-figures", str(paper.get("figure_extraction_error", ""))))
     if paper.get("ocr_status") == "failed":
         failures.append(("ocr", str(paper.get("ocr_error", ""))))
     if paper.get("chunking_status") == "failed":

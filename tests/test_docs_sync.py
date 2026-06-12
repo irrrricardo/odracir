@@ -1,4 +1,10 @@
-from odracir.docs_sync import END_MARKER, START_MARKER, replace_generated_block
+from odracir.docs_sync import (
+    END_MARKER,
+    START_MARKER,
+    build_chinese_status_block,
+    build_english_status_block,
+    replace_generated_block,
+)
 
 
 def test_replace_generated_block_inserts_after_anchor() -> None:
@@ -45,3 +51,15 @@ def test_replace_generated_block_removes_duplicate_managed_blocks() -> None:
     assert "New" in result
     assert "Old" not in result
     assert "Duplicate" not in result
+
+
+def test_generated_status_blocks_keep_figure_commands_in_both_languages() -> None:
+    english = build_english_status_block("test", "now")
+    chinese = build_chinese_status_block("test", "now")
+
+    for command in ("extract-figures", "analyze-figures", "build-figure-evidence"):
+        assert command in english
+        assert command in chinese
+
+    assert "review-figure" not in english
+    assert "review-figure" not in chinese

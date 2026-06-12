@@ -43,6 +43,21 @@ def invalidate_ocr(paper: dict[str, Any]) -> None:
     invalidate_text_extraction(paper)
 
 
+def invalidate_figure_extraction(paper: dict[str, Any]) -> None:
+    paper["figure_extraction_status"] = "not_started"
+    for field in (
+        "figure_artifact",
+        "figure_extraction_input_sha256",
+        "figure_extractor",
+        "figure_extractor_version",
+        "figure_count",
+        "figure_page_render_fallback_count",
+        "figure_extraction_error",
+        "figures_extracted_at",
+    ):
+        paper.pop(field, None)
+
+
 def invalidate_chunking(paper: dict[str, Any]) -> None:
     paper["chunking_status"] = "not_started"
     for field in (

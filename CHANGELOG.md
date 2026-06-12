@@ -12,6 +12,83 @@ The format loosely follows Keep a Changelog, but stays practical for a personal 
 
 ### Added / 新增
 
+- Added `odracir extract-figures` for traceable PDF figure-candidate extraction.
+  It stores embedded images and conservative page-render fallbacks under
+  `.odracir/figures/`, preserving page numbers, bounding boxes, image hashes,
+  detected captions, nearby text, and inline Figure references.
+- Added figure extraction state, source-change invalidation, folder status
+  reporting, and failure-isolation tests.
+- Improved figure extraction with caption-anchored region proposals inspired by
+  PDFFigures2, adjacent-panel grouping, vector-component capture, rendered
+  figure regions, raw source-component links, and explicit in-text Figure
+  references. Figure and analysis JSON writes are atomic.
+- Hardened extraction around PDFFigures2-style caption-first and BodyText/Other
+  principles: unmatched large images and full-page fallback candidates are
+  excluded, body text constrains crop regions, short diagram/table text remains
+  inside the crop, borderless text tables are supported, and manifests report
+  detected, extracted, and missing Figure/Table labels. CLI summaries report
+  unmatched labels instead of silently treating them as complete.
+- Added `odracir analyze-figures` with a configurable OpenAI-compatible vision
+  provider. Structured outputs separate direct observations, caption-supported
+  findings, model inferences, uncertainty, consistency, confidence, and safety
+  flags.
+- Upgraded figure analysis from generic description to scientific evidence
+  extraction with questions, entities, variables, comparisons, quantitative
+  findings, trends, supported conclusions, and atomic evidence items.
+- Added `odracir build-figure-evidence`; it deterministically catalogs only
+  direct visual and source-supported evidence while excluding inference and
+  unsupported claims.
+- Added type-specific scientific-analysis routing and optional multi-API
+  consensus through `VISION_ENSEMBLE_JSON`. Independent vision analyzers are
+  reconciled by a verifier API before evidence validation and archival.
+- Figure manifests now preserve coordinate-level `figure_text_elements` for
+  richer API input and evidence provenance.
+- Preserved multi-line captions and fixed duplicate logical Figure/Table labels
+  being falsely reported as missing.
+- Hardened evidence admission with source constraints, a `0.7` minimum
+  confidence, conflict rejection, structured-field validation, truncation
+  detection, and persisted multi-model candidate traces.
+- Added positional subfigure hints, figure-text-aware analysis routing, and
+  configurable evidence admission through `--min-confidence` and
+  `--require-consensus`.
+- Added conservative independent-raster subfigure rendering and optional
+  whole-figure plus subfigure analysis through `--include-subfigures`.
+  Subfigure requests filter coordinate-level text to the panel and attach the
+  matching caption segment; evidence preserves parent/subfigure provenance.
+- Fixed cross-caption raster ownership on mixed Figure/Table and two-column
+  pages. Nearby Figure captions now prevent tables from claiming their images,
+  and same-column Figure captions take priority without changing full-width
+  sequential grouping.
+
+- 添加 `odracir extract-figures`，用于提取可追溯的 PDF 图片候选。图片、保守的页面渲染兜底、
+  页码、区域坐标、图片 hash、识别到的图题、附近正文和正文 Figure 引用会保存在
+  `.odracir/figures/` 下。
+- 添加图片提取状态、源文件变化后的失效传播、文件夹状态报告和失败隔离测试。
+- 参考 PDFFigures2 的图题锚定思路增强图片提取：支持相邻面板组合、矢量组件捕获、
+  Figure 区域渲染、原始来源组件关联，以及正文中的显式 Figure 引用。图片和分析 JSON
+  使用原子写入。
+- 按照 PDFFigures2 的图题优先与 BodyText/Other 原则加强提取：排除无图题的大型图片
+  和整页兜底候选，用正文文字限制裁剪边界，将图表内部短文字保留在裁剪区域，支持无边框
+  文字表格，并在 manifest 与命令摘要中报告检测到、已提取和缺失的 Figure/Table 标签。
+- 添加 `odracir analyze-figures` 和可配置的 OpenAI-compatible 视觉 provider。结构化输出会
+  区分直接观察、图题支持的发现、模型推断、不确定性、图文一致性、置信度和安全标记，
+  并与正式科研证据保持分离。
+- 将图片分析从通用描述升级为科研证据提取，输出科学问题、实体、变量、比较关系、定量
+  发现、趋势、支持结论和原子证据项。
+- 添加 `odracir build-figure-evidence`，确定性汇总直接视觉证据与来源支持证据，并排除
+  推断和无支持主张。
+- 添加按图片类型区分的科研分析路由，以及通过 `VISION_ENSEMBLE_JSON` 配置的可选多 API
+  共识流程。多个视觉分析 API 独立读取图片，再由审校 API 解决分歧，最后进入证据校验与归档。
+- 图片 manifest 现在保留带坐标的 `figure_text_elements`，用于提供更完整的 API 输入和证据溯源。
+- 完整保留多行图题，并修复同一逻辑 Figure/Table 标签重复出现时被错误报告为缺失的问题。
+- 收紧证据准入：增加来源约束、`0.7` 最低置信度、图文冲突排除、结构字段校验、输出截断检测，
+  并保存多模型独立候选轨迹。
+- 添加带位置的子图提示、利用图内文字的分析路由，以及可通过 `--min-confidence` 和
+  `--require-consensus` 配置的证据准入策略。
+- 添加保守的独立位图子图渲染，并可通过 `--include-subfigures` 同时分析整图与子图。
+  子图请求会按面板坐标过滤图内文字并附加对应图题片段，证据保留父图与子图溯源。
+- 修复 Figure/Table 混排和双栏页面中的跨图题位图抢占：附近 Figure 图题会阻止 Table
+  误领图片，同栏 Figure 图题优先，同时不改变全宽图片的顺序分组行为。
 - Added `ROADMAP.md` to record the next collaboration, skill expansion,
   quality-loop, usability, agentic-layer, and future UI/service milestones.
 - 添加 `ROADMAP.md`，记录下一阶段的协作、skill 扩展、质量闭环、易用性、
