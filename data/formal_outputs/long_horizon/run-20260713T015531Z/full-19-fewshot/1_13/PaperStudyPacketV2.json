@@ -1,0 +1,444 @@
+{
+  "coverage_ledger": {
+    "09ff5317e5ee64e37ba6": "extracted",
+    "0a11c0f80c3c5c6c9e5c": "not_selected",
+    "0f1e3a09bbba1c62cf3f": "extracted",
+    "152ef023e03d9372124e": "not_selected",
+    "176224005f4c59e8a559": "not_selected",
+    "1a2346b905ea0ea4aae9": "not_selected",
+    "1cf907cc34648484e33e": "not_selected",
+    "2bf4d619c6ed17d18969": "not_selected",
+    "32604b08b54fdebc3308": "not_selected",
+    "37f9578b321154685d76": "not_selected",
+    "3c36bfac8450a91f4e2b": "extracted",
+    "41b8266d24a244992d24": "not_selected",
+    "4a01d4a7e93c34bafebe": "extracted",
+    "69abb7f0987f86ff351b": "extracted",
+    "86140c8003960c6224a7": "not_selected",
+    "872a5eb821f771182c70": "not_selected",
+    "91bcdd21d553007baf4b": "not_selected",
+    "99841a63bd45445f230e": "not_selected",
+    "9f45eb7373b5e5b86562": "extracted",
+    "a044aa54ff958563d70c": "not_selected",
+    "a426122e51eb75f0d98d": "extracted",
+    "b461e46dfc18f018d7ea": "not_selected",
+    "bd7403ffb40eea2a4b0d": "extracted",
+    "ce61f55a2fee19b45eff": "not_selected",
+    "d9129df2d657bfd502ff": "not_selected",
+    "e45afad9bd292a2523a6": "not_selected",
+    "e5a0258be3c81e4117ec": "not_selected",
+    "f97f9463d238615d1004": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Geneformer's predictions are based solely on transcriptional data and may not capture post-transcriptional or epigenetic regulatory mechanisms.",
+    "In silico deletion is a computational approximation and may not fully recapitulate biological gene knockout effects.",
+    "Experimental validation was limited to a subset of predicted targets (GSN, PLN) in a specific disease model (TTN truncating mutation).",
+    "Fine-tuning hyperparameters were not individually optimized per task, potentially underestimating maximum predictive potential.",
+    "Pretraining corpus Genecorpus-30M is limited to human data; applicability to other species is not tested.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "merge_decisions": [],
+  "metadata": {
+    "domain": "computational_biology",
+    "input_global_context_digest": "sha256:0ee49d0a1505b4b69e674291a1747d4b2f9b9cfaf6c6a8359cc8109daf2a8d87",
+    "input_global_context_through_batch": "0",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_13.pdf",
+    "source_sha256": "a11702487b8d5089277687b4b431638fbb6dd22c0e483f0218b049d3364c0a22"
+  },
+  "paper_id": "1_13",
+  "quality_score": 0.8452,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can transfer learning with a deep learning model pretrained on large-scale single-cell transcriptomic data enable context-specific predictions in network biology with limited data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1bdf691951fa6d0b72b8888f",
+              "inference_basis_ids": [
+                "res_468c093f4cc9cd2866014d3b",
+                "res_799b66358ffa5f1d229bd297",
+                "res_88fd2e46c5f54c3b07899887",
+                "res_e6a1d8a8787dcb59c8a40e71"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Geneformer predicted candidate therapeutic targets whose experimental targeting in an iPSC disease model led to significant functional improvement."
+              },
+              "statement": "Geneformer can identify candidate therapeutic targets for cardiomyopathy via in silico treatment analysis, with experimental validation for GSN and PLN."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Single-nucleus profiling of human dilated and hypertrophic cardiomyopathy (ref. 35). Training: non-failing n=9, hypertrophic n=11, dilated n=9, total 93,589 cells. Out-of-sample: non-failing n=4, hypertrophic n=4, dilated n=2, total 39,006 cells.",
+              "name": "Cardiomyocyte dataset for fine-tuning",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Experimental validation: CRISPR-mediated knockout of Geneformer-predicted targets GSN and PLN in TTN+/- iPSC-derived cardiac microtissues significantly improved contractile stress (P<0.05 Wilcoxon, FDR-corrected).",
+            "Fine-tuned Geneformer to distinguish cardiomyocytes from non-failing hearts (n=9), hypertrophic cardiomyopathy (n=11), and dilated cardiomyopathy (n=9). Out-of-sample accuracy 90% (precision 82%, recall 87%) on 39,006 cells.",
+            "In silico deletion or activation of genes in non-failing cardiomyocytes identified 447 genes shifting towards hypertrophic state and 478 towards dilated state.",
+            "In silico treatment analysis in disease cardiomyocytes identified candidate therapeutic targets. Top pathways for hypertrophic included ADCY5 and SRPK3."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Fine-tuning for cardiomyopathy classification and in silico treatment",
+              "protocol_description": "Fine-tuned Geneformer to classify cardiomyocyte phenotype (non-failing, hypertrophic, dilated) using cell-level labels. In silico deletion/activation: remove or add a gene's rank value encoding and measure shift in cell embedding towards disease states. In silico treatment: in disease cells, delete or activate genes and measure shift towards non-failing state. Experimental validation: CRISPR-mediated knockout in iPSC-derived cardiac microtissues with TTN truncating mutation."
+            }
+          ],
+          "name": "In silico treatment analysis for cardiomyopathy",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Contractile stress (log2 fold-change vs control)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "CRISPR-mediated knockout of both Geneformer-predicted targets GSN and PLN in the TTN+/− cells significantly improved the contractile stress of the TTN+/− cardiac microtissues, validating these genes as promising candidate therapeutic targets for this disease (Fig. 6f,g and Extended Data Fig. 10e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_468c093f4cc9cd2866014d3b",
+              "unit": null,
+              "value_raw_text": "CRISPR-mediated knockout of both Geneformer-predicted targets GSN and PLN in the TTN+/− cells significantly improved the contractile stress of the TTN+/− cardiac microtissues (P<0.05 Wilcoxon, FDR-corrected)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9f45eb7373b5e5b86562",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Accuracy 90%; precision 82%; recall 87%."
+              },
+              "quantitative_value": 82.0,
+              "result_id": "res_799b66358ffa5f1d229bd297",
+              "unit": "percent",
+              "value_raw_text": "precision 82%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "fine-tuned Geneformer to distinguish cardiomyocytes35 from non-failing hearts (n=9) or hearts affected by hypertrophic (n=11) or dilated (n=9) cardiomyopathy with an overall out-of-sample accuracy of 90%"
+              },
+              "quantitative_value": 90.0,
+              "result_id": "res_88fd2e46c5f54c3b07899887",
+              "unit": "percent",
+              "value_raw_text": "out-of-sample accuracy of 90%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9f45eb7373b5e5b86562",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Accuracy 90%; precision 82%; recall 87%."
+              },
+              "quantitative_value": 87.0,
+              "result_id": "res_e6a1d8a8787dcb59c8a40e71",
+              "unit": "percent",
+              "value_raw_text": "recall 87%"
+            }
+          ],
+          "unit_id": "su_0f825845832c862fd7ec08e4"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4a94e6e33fa1326468633ab0",
+              "inference_basis_ids": [
+                "res_c32ced49cf02a9d9a43743fe",
+                "res_f9e17cb6e027a787c048d4a8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "These data suggest that in silico perturbation can be applied to model gene network connections."
+              },
+              "statement": "In silico deletion using Geneformer can model gene network connections and cooperative action of transcription factors."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "In silico deletion of TBX5 similarly impacted direct targets more than indirect and housekeeping genes.",
+            "Performed in silico deletion of GATA4 in fetal cardiomyocytes and measured effect on gene embeddings. Direct GATA4 targets (by ChIP-seq) were significantly more impacted than indirect targets.",
+            "Tested combinatorial in silico deletion of GATA4 and TBX5. Combination had greater impact on cobound targets than sum of individual deletions, suggesting cooperative action."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "In silico deletion approach",
+              "protocol_description": "In silico deletion of a gene is performed by removing that gene from the input rank value encoding and evaluating the change in contextual gene embeddings (cosine similarity). A more deleterious effect corresponds to lower cosine similarity to the original embedding."
+            }
+          ],
+          "name": "In silico deletion reveals network connections",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine similarity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "direct GATA4 targets (as defined by ChIP–seq33) were significantly more impacted by in silico deletion of GATA4 in fetal cardiomyocytes compared to indirect targets (Fig. 5a)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c32ced49cf02a9d9a43743fe",
+              "unit": null,
+              "value_raw_text": "In silico deletion of GATA4 was significantly more deleterious to GATA4 direct targets than to housekeeping genes, NOTCH1 targets, NKX2-5 targets, or indirect targets (P<0.05 Wilcoxon, FDR-corrected)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine similarity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "in silico deletion of GATA4 or TBX5 alone had a significantly more deleterious effect on their known cobound targets33 compared to housekeeping genes. Furthermore, in silico deletion of both GATA4 and TBX5 in combination had an even greater impact on their known cobound targets than the sum of their individual in silico deletion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f9e17cb6e027a787c048d4a8",
+              "unit": null,
+              "value_raw_text": "In silico deletion of GATA4 or TBX5 alone was significantly more deleterious to their known cobound targets than to housekeeping genes; combinatorial deletion had even greater impact, more than the sum of individual deletions (P<0.05 Wilcoxon, FDR-corrected)"
+            }
+          ],
+          "unit_id": "su_2442c0971f44e95e1682f810"
+        },
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Large-scale pretraining corpus comprising 29.9 million human single-cell transcriptomes from a broad range of tissues.",
+              "name": "Genecorpus-30M",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assembled Genecorpus-30M, comprising 29.9 million human single-cell transcriptomes from a broad range of tissues from publicly available data.",
+            "Geneformer architecture: six layers of transformer encoder units, input size 2048, 256 embedding dimensions, four attention heads per layer, feed-forward size 512, full dense self-attention, ReLU activation, dropout 0.02, initialization standard deviation 0.02, epsilon for layer normalization 1e-12. Implemented in PyTorch and Huggingface Transformers library.",
+            "Pretrained Geneformer on Genecorpus-30M using a self-supervised masked learning objective: 15% of genes within each transcriptome were masked and the model was trained to predict the masked gene using context of remaining unmasked genes.",
+            "Pretraining hyperparameters: max learning rate 1e-3, linear scheduler with warmup, Adam with weight decay fix, warmup steps 10,000, weight decay 0.001, batch size 12, three epochs. Efficiency measures: dynamic length-grouped padding (29.4x speedup), Deepspeed distributed GPU training across three nodes with four Nvidia V100 32GB GPUs each (total 12 GPUs), pretraining completed in approximately 3 days."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Geneformer architecture and pretraining",
+              "protocol_description": "Geneformer is a context-aware, attention-based deep learning model pretrained on large-scale transcriptomic data using a self-supervised masked learning objective. Architecture includes six transformer encoder layers, input size 2048, 256 embedding dimensions, four attention heads, feed-forward size 512. Pretraining masked 15% of genes and predicted masked gene identity. Optimization used Adam with weight decay fix, learning rate 1e-3, batch size 12, three epochs. Efficiency optimized via dynamic length-grouped padding and Deepspeed distributed training."
+            }
+          ],
+          "name": "Geneformer model development and pretraining",
+          "results": [],
+          "unit_id": "su_63295b77a5b2fea2964ace6d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_53378922cb3fbd2ef70703ae",
+              "inference_basis_ids": [
+                "res_c614d268dac38cd7b6d8a47a",
+                "res_d605f32031e54ea883cd5cc2",
+                "res_d8bad0718e95d3f287316b21"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "69abb7f0987f86ff351b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Geneformer significantly boosted the ability to predict bivalently marked genes compared to alternative methods ... Geneformer significantly boosted the ability to predict the regulatory range of transcription factors compared to alternative methods"
+              },
+              "statement": "Geneformer fine-tuned on limited data can predict bivalent chromatin marks and transcription factor regulatory range from transcriptomes alone."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "About 15,000 embryonic stem cells (ESCs) from PanglaoDB for bivalent chromatin fine-tuning.",
+              "name": "ESC transcriptome dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "About 34,000 cells from iPSC to cardiomyocyte differentiation (ref. 11) for transcription factor regulatory range fine-tuning.",
+              "name": "iPSC to cardiomyocyte differentiation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Fine-tuned Geneformer to distinguish bivalently marked genes from unmethylated or H3K4me3-only promoters using transcriptomes from about 15,000 ESCs. Labelled gene set included only genes in 56 conserved regions.",
+            "Fine-tuned Geneformer to distinguish long- versus short-range transcription factors using single-cell transcriptomes from about 34,000 cells undergoing iPSC to cardiomyocyte differentiation.",
+            "Fine-tuning initialized with pretrained Geneformer weights, added final task-specific transformer layer, used same hyperparameters for all applications: max learning rate 5e-5, linear scheduler with warmup, Adam with weight decay fix, warmup steps 500, weight decay 0.001, batch size 12, single training epoch. Number of frozen layers varied per task."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Fine-tuning protocol for chromatin dynamics",
+              "protocol_description": "Initialized with pretrained Geneformer weights, added a final task-specific transformer layer. Fine-tuning hyperparameters: max learning rate 5e-5, linear scheduler with warmup, Adam with weight decay fix, warmup steps 500, weight decay 0.001, batch size 12, single epoch. For bivalency classification, trained on 56 conserved loci and then tested genome-wide. For regulatory range, trained on single-cell transcriptomes without ChIP-seq data."
+            }
+          ],
+          "name": "Fine-tuning Geneformer for chromatin dynamics predictions",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69abb7f0987f86ff351b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Geneformer significantly boosted the ability to predict bivalently marked genes compared to alternative methods (AUC 0.93 and 0.88; bivalent versus unmethylated or H3K4me3-only, respectively)"
+              },
+              "quantitative_value": 0.93,
+              "result_id": "res_c614d268dac38cd7b6d8a47a",
+              "unit": null,
+              "value_raw_text": "AUC 0.93 and 0.88; bivalent versus unmethylated or H3K4me3-only, respectively"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69abb7f0987f86ff351b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Geneformer significantly boosted the ability to predict the regulatory range of transcription factors compared to alternative methods, whose predictions were near random"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d605f32031e54ea883cd5cc2",
+              "unit": null,
+              "value_raw_text": "Geneformer significantly boosted the ability to predict the regulatory range of transcription factors compared to alternative methods, whose predictions were near random"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69abb7f0987f86ff351b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "predictions were generalizable to the remainder of the genome that was excluded from fine-tuning (Fig. 3c and Extended Data Fig. 8a–c)"
+              },
+              "quantitative_value": 0.78,
+              "result_id": "res_d8bad0718e95d3f287316b21",
+              "unit": null,
+              "value_raw_text": "AUC 0.78 for genome-wide predictions of bivalent versus Lys4-only-methylated after fine-tuning on 56 loci"
+            }
+          ],
+          "unit_id": "su_ad0d94cf5b73248061eb0267"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4175a115c5455d91b91da235",
+              "inference_basis_ids": [
+                "res_8a21e04795701df260d196f4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "69abb7f0987f86ff351b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Geneformer significantly boosted the ability to predict central versus peripheral factors compared to alternative methods (AUC 0.81) ... fine-tuning the pretrained Geneformer on the Heart Atlas ECs was able to distinguish N1 downstream targets from non-targets without any perturbation data"
+              },
+              "statement": "Geneformer can predict network hierarchy and distinguish downstream targets from non-targets without perturbation data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "About 30,000 normal endothelial cells from the Heart Atlas (ref. 32) used for network dynamics fine-tuning.",
+              "name": "Heart Atlas endothelial cells",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Fine-tuned Geneformer to distinguish central versus peripheral factors within the NOTCH1 (N1)-dependent gene network using only about 30,000 normal endothelial cells from the Heart Atlas without perturbation data. Achieved AUC 0.81.",
+            "Fine-tuned Geneformer to distinguish N1 downstream targets from non-targets without perturbation data."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Fine-tuning for network hierarchy",
+              "protocol_description": "Similar fine-tuning protocol as M2, but using single-cell transcriptional data from normal endothelial cells without perturbation data. Hyperparameters as in M2."
+            }
+          ],
+          "name": "Fine-tuning for network dynamics predictions",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69abb7f0987f86ff351b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Geneformer significantly boosted the ability to predict central versus peripheral factors compared to alternative methods (AUC 0.81) (Fig. 4a and Extended Data Fig. 8e)."
+              },
+              "quantitative_value": 0.81,
+              "result_id": "res_8a21e04795701df260d196f4",
+              "unit": null,
+              "value_raw_text": "AUC 0.81"
+            }
+          ],
+          "unit_id": "su_c983a1f303376fc3c0ecb26e"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.0"
+}

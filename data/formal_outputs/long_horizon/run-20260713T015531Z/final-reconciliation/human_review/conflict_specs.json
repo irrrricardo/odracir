@@ -1,0 +1,50 @@
+[
+  {
+    "classification": "conditional_tension",
+    "conflict_id": "C1-norman-double-perturbation-baseline",
+    "priority": "critical",
+    "rationale": "Both claims concern Norman multi-gene perturbations, but they use materially different evaluation conditions. Paper 1_12 evaluates held-out double perturbations across repeated random splits against additive and no-change baselines using aggregate prediction-error and interaction-recovery metrics. Paper 1_8 reports GEARS gains over CPA for selected non-additive genetic-interaction subtypes using correlation and precision-at-10. The apparent contradiction must therefore be reviewed only after harmonizing split, target, metric, and baseline family.",
+    "review_question": "Under the same Norman train/test split, non-additivity target, metric, and comparator set, does GEARS outperform the additive or no-change baseline, or are the two reported conclusions valid only under different evaluation protocols?",
+    "side_a": {
+      "claim_id": "clm_5aa2545892ec3be37b6ecb2b",
+      "paper_id": "1_12"
+    },
+    "side_b": {
+      "claim_id": "clm_f58718572d19004a48bf4611",
+      "paper_id": "1_8"
+    },
+    "title": "Norman double-perturbation performance relative to simple baselines"
+  },
+  {
+    "classification": "conditional_tension",
+    "conflict_id": "C2-replogle-single-perturbation-baseline",
+    "priority": "critical",
+    "rationale": "Paper 1_12 finds that deep models do not consistently beat mean or linear baselines for unseen single perturbations on Adamson and Replogle K562/RPE1 data under the GEARS splitting procedure. Paper 1_8 reports large GEARS gains on RPE1 and K562, but its comparison set and metrics emphasize no-perturbation, CPA or GRN-style baselines, normalized MSE on top differentially expressed genes, and Pearson correlation. The word 'baselines' is not interchangeable across these protocols.",
+    "review_question": "When Replogle RPE1/K562 splits, preprocessing, evaluated genes, normalized-MSE or correlation metric, and baseline family are made identical, does GEARS still outperform the mean or linear baseline consistently across datasets?",
+    "side_a": {
+      "claim_id": "clm_0c06723f53ffd93e2b614306",
+      "paper_id": "1_12"
+    },
+    "side_b": {
+      "claim_id": "clm_266e33da38756b4f055014b9",
+      "paper_id": "1_8"
+    },
+    "title": "Unseen single-perturbation performance on Replogle RPE1 and K562"
+  },
+  {
+    "classification": "performance_ranking",
+    "conflict_id": "C3-generalization-winner-ranking",
+    "priority": "critical",
+    "rationale": "Paper 1_19 reports that no method performs well across all perturbation-generalization datasets and assigns different winners to genetic, chemical-single, chemical-combination, small-data, and large-data tasks. Paper 1_17 reports that scDCA outperforms ChemCPA, BioLORD, and SAMS-VAE across all evaluated tasks, with its strongest gains in unseen-cell-line zero-shot and few-shot settings. A global winner cannot be selected until task type, dataset, split, dose or cell context, metric, and baseline roster are matched.",
+    "review_question": "On the exact datasets and splits shared by both studies, and separately for unseen drugs, unseen drug-cell-line combinations, and zero-shot or few-shot unseen cell lines, does scDCA remain superior under the benchmark metrics and complete comparator roster used by paper 1_19?",
+    "side_a": {
+      "claim_id": "clm_cf4fffa61e81fce561f495c0",
+      "paper_id": "1_19"
+    },
+    "side_b": {
+      "claim_id": "clm_b6256108f63b499eacad13dd",
+      "paper_id": "1_17"
+    },
+    "title": "Cross-task ranking of perturbation-generalization methods"
+  }
+]

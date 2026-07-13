@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "5-1",
+  "source_chunk_artifact": "/data/rchu/SciEngram/data_smoke_input/.odracir/chunks/5-1.json",
+  "classification": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "domain_signal_matches": [
+      "cell biology",
+      "developmental biology",
+      "morphogenesis",
+      "assay"
+    ],
+    "logic_mode_signal_matches": [
+      "in contrast",
+      "whereas",
+      "rather than",
+      "alternative mechanism",
+      "does not rely on"
+    ],
+    "domain_scores": {
+      "computational_biology": 1,
+      "wet_lab_molecular": 4,
+      "clinical_trial": 0,
+      "general_method": 7
+    },
+    "logic_mode_scores": {
+      "contrastive": 5,
+      "methodological": 7,
+      "causal_validation": 5,
+      "phenomenological": 1
+    },
+    "rationale": "Selected domain=wet_lab_molecular from 4 matched signals because specialist evidence remained at least half of the general-method fallback score; selected logic_mode=contrastive from 5 matched signals because explicit alternative-mechanism contrast signals were present."
+  },
+  "focus_prompt": "Treat this as a wet-lab molecular or cellular biology paper. Extract the experimental system, species, tissue, cell line, sample preparation, controls, reagents, perturbations, dose, duration, temperature, selection timeline, and assay readouts with their units. Preserve biological and technical replicate counts, sample sizes, statistical tests, and the exact conditions under which each result was observed. Distinguish measured results from mechanistic interpretation, and do not manufacture missing protocol details.\n\nTreat contrast as a first-class scientific structure. Separate contrasted contexts, systems, conditions, mechanisms, and outcomes into distinct StudyUnits. For the same phenotype with different mechanisms, or opposite and context-dependent claims involving the same pathway, preserve the shared entity, outcome direction, biological or technical context, population or experimental system, perturbation, dose, time, and every stated boundary condition. Record boundary conditions in limitations_and_boundaries and in the relevant StudyUnit statements. Do not reconcile contradictory claims or erase negative results. During single-paper extraction, never invent a second paper's evidence; retain comparison-ready claims so paper A and paper B can be contrasted later.",
+  "mandatory_fields": [
+    "experimental_system",
+    "reagents",
+    "perturbation_protocol",
+    "assay_readouts",
+    "replication",
+    "boundary_conditions"
+  ],
+  "selected_chunk_ids": [
+    "a71972cf2b9c50182c3c",
+    "be05bf75ae59c956967a",
+    "7ed9acf1aaaf6f68105e",
+    "2f734a061fd42c858683"
+  ],
+  "selected_chunk_ordinals": [
+    1,
+    2,
+    8,
+    11
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "1_5",
+  "source_chunk_artifact": "/home/rchu/project_storage/SciEngram/data/formal_corpus/long_horizon/papers/.odracir/chunks/1_5.json",
+  "classification": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "domain_signal_matches": [
+      "computational biology",
+      "transcriptomics",
+      "gene regulatory network",
+      "machine learning",
+      "perturbation prediction"
+    ],
+    "logic_mode_signal_matches": [
+      "knockout"
+    ],
+    "domain_scores": {
+      "computational_biology": 5,
+      "wet_lab_molecular": 1,
+      "clinical_trial": 0,
+      "general_method": 5
+    },
+    "logic_mode_scores": {
+      "contrastive": 3,
+      "methodological": 4,
+      "causal_validation": 1,
+      "phenomenological": 0
+    },
+    "rationale": "Selected domain=computational_biology from 5 matched signals because specialist evidence remained at least half of the general-method fallback score; selected logic_mode=causal_validation from 1 matched signals because direct intervention signals were present."
+  },
+  "focus_prompt": "Treat this as a computational biology paper. Reconstruct preprocessing, normalization, feature construction, model or algorithm steps, parameter settings, and train/validation/test splits in execution order. Preserve dataset names and versions, biological scope, baselines, ablations, code availability, and quantitative results such as AUC, accuracy, calibration, Pearson or Spearman correlation, effect sizes, confidence intervals, and p-values. Keep computational predictions distinct from wet-lab validation. If a target is not reported, leave it absent rather than infer it.\n\nReconstruct the causal evidence chain without collapsing its stages. Represent correlation or association, perturbation, rescue or reversal, and mechanistic explanation as separate StudyUnits in evidentiary order. For every stage, extract the intervention, control, experimental system, temporal order, dose or intensity, readout, result, and supported claim. Record absent, negative, or failed links when the source reports them; if a rung such as rescue is not present in the supplied evidence, state that boundary without fabricating an experiment. Never upgrade association to causation, and link causal claims only to directly supporting Result IDs.",
+  "mandatory_fields": [
+    "computational_pipeline",
+    "datasets_used",
+    "evaluation_metrics",
+    "code_availability",
+    "causal_evidence_chain",
+    "perturbation_protocol"
+  ],
+  "selected_chunk_ids": [
+    "9546ca9c9ee346a18038",
+    "68dcd5b6b4766677c5fd",
+    "c72ceb96b26187d05270",
+    "7391214264c6e828511c",
+    "d943628211ec106f8108",
+    "723258ed2cbaa4e2c4fa",
+    "23708d682c6d46937301",
+    "904374fd77ea212b9815"
+  ],
+  "selected_chunk_ordinals": [
+    1,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ]
+}

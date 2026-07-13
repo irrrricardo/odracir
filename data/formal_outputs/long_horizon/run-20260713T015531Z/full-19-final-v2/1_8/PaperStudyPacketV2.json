@@ -1,0 +1,251 @@
+{
+  "coverage_ledger": {
+    "02ca5ddaf5569fb37f99": "extracted",
+    "0abd1d6de3860a938b5b": "extracted",
+    "1116574e0e255017daed": "not_selected",
+    "14067956b64d789d08a5": "not_selected",
+    "1714ee3a168245895e77": "not_selected",
+    "2f056764f4b35243442c": "extracted",
+    "3139fa07d669f7a936fc": "extracted",
+    "42186ac9904c2baf0583": "not_selected",
+    "51e7fab8a94bde8ec6f8": "not_selected",
+    "64ec87bb4dbbcb383ad6": "extracted",
+    "859eb9fd6187101ddb1c": "not_selected",
+    "86ef8f999d362ec673f7": "not_selected",
+    "8c230ab32cc00231c04f": "not_selected",
+    "911561195e3426b434e0": "not_selected",
+    "95fc598f94068058c5c1": "extracted",
+    "a1209380d93484378f5c": "not_selected",
+    "aa4e01784c7b497f1b43": "extracted",
+    "bf1a9a2fef304127b63c": "not_selected",
+    "bf2dc22816dab9ab3245": "not_selected",
+    "dc6978a14483d40bd383": "extracted",
+    "fd51fce00429458d95df": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "GEARS must be trained on the same cell type or experimental condition for reliable predictions.",
+    "Training GEARS using combinatorial perturbation data is essential for accurate prediction of multigene perturbations.",
+    "Confounding factors include cell cycle effects, assumed success of gene editing experiments, and heterogeneity in postperturbation distribution.",
+    "The incorporation of knowledge graphs limits GEARS's ability to predict outcomes for poorly connected genes in the graph."
+  ],
+  "merge_decisions": [],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "input_global_context_digest": "sha256:090018d73f2da973df0152ba90ad20a35dcc6ad4946fe79e5268c5823dd9115d",
+    "input_global_context_through_batch": "1",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_8.pdf",
+    "source_sha256": "13ba4d9f8557d30a36503e31cb4759295777b2f97da139ee3497668b597bb9df"
+  },
+  "paper_id": "1_8",
+  "quality_score": 0.8714,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "How can we predict transcriptional outcomes of novel multigene perturbations?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7437d24a53ec774effe19aab",
+              "inference_basis_ids": [
+                "res_c72df3a6719ba650dd98156b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "GEARS is able to predict outcomes of perturbing combinations consisting of genes that were never experimentally perturbed."
+              },
+              "statement": "GEARS can predict outcomes of perturbations involving genes never experimentally perturbed before."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9325850d102e80f8c0fdfc45",
+              "inference_basis_ids": [
+                "res_3dd20bab54ba1ceb45344bc3",
+                "res_6ed0cb45c32db5014162695c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS improved precision@10 by more than 40% for four of five genetic interaction subtypes"
+              },
+              "statement": "GEARS detects emergent genetic interactions (non-additive) with higher precision than baselines."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c3e4624d5e382b812c845cf6",
+              "inference_basis_ids": [
+                "res_46b63e0d452b3895d3c92726",
+                "res_c72df3a6719ba650dd98156b",
+                "res_cb5995c3d8bd617fe4c493e5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "64ec87bb4dbbcb383ad6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "GEARS exhibited 40% higher precision than existing approaches in predicting four distinct genetic interaction subtypes in a combinatorial perturbation screen and identified the strongest interactions twice as well as prior approaches."
+              },
+              "statement": "GEARS outperforms existing approaches in predicting transcriptional outcomes of both single and multigene perturbations."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Two genetic perturbation screens: 1,543 perturbations in RPE-1 cells and 1,092 perturbations in K562 cells, each measuring over 170,000 cells using Perturb-seq.",
+              "name": "Replogle et al. (2022) Perturb-seq screens",
+              "version_or_split": "test set (held-out genes)"
+            },
+            {
+              "dataset_id": "ds2",
+              "description": "Dataset containing 131 two-gene perturbations, used to evaluate on cases where 0, 1, or 2 genes in the combination are unseen during training.",
+              "name": "Norman et al. (2019) combinatorial perturbation screen",
+              "version_or_split": "test set (three generalization classes)"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "GEARS incorporates a gene coexpression knowledge graph and a Gene Ontology-derived knowledge graph.",
+              "provenance": {
+                "chunk_id": "3139fa07d669f7a936fc",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "GEARS does this by incorporating prior knowledge of gene–gene relationships using a gene coexpression knowledge graph when learning gene embeddings and a Gene Ontology (GO)-derived knowledge graph when learning gene perturbation embeddings"
+              },
+              "span_id": "esp1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Predicting new biologically meaningful phenotypes for all pairwise combinations of 102 genes from Norman et al. dataset.",
+            "Predicting non-additive combinatorial perturbation effects (genetic interaction subtypes: synergy, suppression, neomorphism, redundancy, epistasis).",
+            "Predicting single-gene perturbation transcriptional responses using GEARS on Replogle et al. datasets (RPE-1 and K562 cells).",
+            "Predicting two-gene perturbation outcomes using GEARS on Norman et al. dataset, with three generalization classes (0/2, 1/2, 2/2 unseen)."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "GEARS (Graph-Enhanced Gene Activation and Repression Simulator)",
+              "protocol_description": "Integrates deep learning with a knowledge graph of gene–gene relationships (gene coexpression and Gene Ontology) to predict transcriptional responses to single and multigene perturbations. Uses distinct gene and perturbation embeddings, a GNN to propagate information on graphs, and a cross-gene MLP layer. Trained using a Bayesian formulation to output uncertainty. Five models trained with different data splits for confidence intervals."
+            },
+            {
+              "method_id": "m2",
+              "name": "CPA (existing deep learning-based model)",
+              "protocol_description": "An alternative deep learning-based model used as a baseline for comparison."
+            },
+            {
+              "method_id": "m3",
+              "name": "No perturbation baseline",
+              "protocol_description": "Assumes perturbation results in no change in gene expression."
+            },
+            {
+              "method_id": "m4",
+              "name": "Gene regulatory network (GRN) baseline (adapted from CellOracle)",
+              "protocol_description": "Infers a gene regulatory network and linearly propagates effects of perturbing a gene along this network."
+            }
+          ],
+          "name": "GEARS model development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision@10 for genetic interaction subtypes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS improved precision@10 by more than 40% for four of five genetic interaction subtypes, and the improvement exceeded 90% for redundancy and epistasis"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3dd20bab54ba1ceb45344bc3",
+              "unit": null,
+              "value_raw_text": "GEARS improved precision@10 by more than 40% for four of five genetic interaction subtypes, and exceeded 90% for redundancy and epistasis."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pearson correlation (all genes)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS exhibited more than two times better performance in the case of both cell lines"
+              },
+              "quantitative_value": null,
+              "result_id": "res_46b63e0d452b3895d3c92726",
+              "unit": null,
+              "value_raw_text": "GEARS exhibited more than two times better performance than baselines on both cell lines."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation coefficient (R2) for genetic interaction scores",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the correlation coefficient (R2) was approximately 0.4 for synergy, neomorphism and redundancy, whereas it was only around 0.0 for the same interactions when predicted by CPA"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6ed0cb45c32db5014162695c",
+              "unit": null,
+              "value_raw_text": "R2 was approximately 0.4 for synergy, neomorphism and redundancy for GEARS, compared to around 0.0 for CPA."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE improvement on two-gene perturbations",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS improves performance by more than 30% across all cases (Fig. 2f), with the highest improvement of 53% observed when both perturbed genes in the combination are unseen."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c72df3a6719ba650dd98156b",
+              "unit": null,
+              "value_raw_text": "GEARS improves performance by more than 30% across all generalization cases, with highest improvement of 53% when both genes unseen."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Squared Error (MSE) on top 20 differentially expressed genes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS significantly outperformed all baselines on both datasets with an m.s.e. improvement of 30–50%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cb5995c3d8bd617fe4c493e5",
+              "unit": null,
+              "value_raw_text": "GEARS improves MSE by 30-50% over baselines on RPE-1 and K562 datasets."
+            }
+          ],
+          "unit_id": "su_5769ea9e6d7d66a0656c96f2"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.0"
+}
