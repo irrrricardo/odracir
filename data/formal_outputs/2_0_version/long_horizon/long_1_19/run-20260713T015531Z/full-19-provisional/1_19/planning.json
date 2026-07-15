@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "1_19",
+  "source_chunk_artifact": "/home/rchu/project_storage/SciEngram/data/formal_corpus/long_horizon/papers/.odracir/chunks/1_19.json",
+  "classification": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "domain_signal_matches": [
+      "computational biology",
+      "bioinformatics",
+      "transcriptomics",
+      "gene regulatory network",
+      "network biology",
+      "machine learning",
+      "deep learning",
+      "foundation model",
+      "perturbation prediction"
+    ],
+    "logic_mode_signal_matches": [
+      "knockout",
+      "knockdown",
+      "inhibition",
+      "overexpression",
+      "necessary",
+      "sufficient"
+    ],
+    "domain_scores": {
+      "computational_biology": 9,
+      "wet_lab_molecular": 3,
+      "clinical_trial": 0,
+      "general_method": 8
+    },
+    "logic_mode_scores": {
+      "contrastive": 4,
+      "methodological": 9,
+      "causal_validation": 6,
+      "phenomenological": 0
+    },
+    "rationale": "Selected domain=computational_biology from 9 matched signals because specialist evidence remained at least half of the general-method fallback score; selected logic_mode=causal_validation from 6 matched signals because direct intervention signals were present."
+  },
+  "focus_prompt": "Treat this as a computational biology paper. Reconstruct preprocessing, normalization, feature construction, model or algorithm steps, parameter settings, and train/validation/test splits in execution order. Preserve dataset names and versions, biological scope, baselines, ablations, code availability, and quantitative results such as AUC, accuracy, calibration, Pearson or Spearman correlation, effect sizes, confidence intervals, and p-values. Keep computational predictions distinct from wet-lab validation. If a target is not reported, leave it absent rather than infer it.\n\nReconstruct the causal evidence chain without collapsing its stages. Represent correlation or association, perturbation, rescue or reversal, and mechanistic explanation as separate StudyUnits in evidentiary order. For every stage, extract the intervention, control, experimental system, temporal order, dose or intensity, readout, result, and supported claim. Record absent, negative, or failed links when the source reports them; if a rung such as rescue is not present in the supplied evidence, state that boundary without fabricating an experiment. Never upgrade association to causation, and link causal claims only to directly supporting Result IDs.",
+  "mandatory_fields": [
+    "computational_pipeline",
+    "datasets_used",
+    "evaluation_metrics",
+    "code_availability",
+    "causal_evidence_chain",
+    "perturbation_protocol"
+  ],
+  "selected_chunk_ids": [
+    "9e6e0e0e73d547dc36f3",
+    "867f39d85ffcb858e8c0",
+    "1bf733d287f142fd489c",
+    "ed8ff018d8946ebe725a",
+    "49fc71ae0e1db1dc81a6",
+    "271db4385d2bea4b088a",
+    "1fb069e4f0aada5c8711",
+    "b28612e5cc00d1de2137"
+  ],
+  "selected_chunk_ordinals": [
+    1,
+    2,
+    10,
+    11,
+    12,
+    13,
+    15,
+    18
+  ]
+}

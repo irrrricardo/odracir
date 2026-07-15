@@ -1,0 +1,360 @@
+{
+  "coverage_ledger": {
+    "0e8bb8c7a604a6aa3e82": "extracted",
+    "1afd33676666d91a0576": "extracted",
+    "1c48ad463bf4c656a396": "extracted",
+    "22c792489b7753c418fd": "not_selected",
+    "43745ea97a89dbd4637c": "extracted",
+    "4a29cdf2686bb5eba4fe": "extracted",
+    "50c22196c8c457fbdf8c": "extracted",
+    "62218d83733893d905d9": "extracted",
+    "83b7ca005d74d259df90": "extracted",
+    "98d71beceb932e52939e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study presents proof-of-concept with a limited number of genes; scaling to genome-wide libraries may require optimization.",
+    "CROP-seq detects gRNA directly but depends on sufficient transcriptome coverage per cell for reliable gRNA assignment.",
+    "The method was validated only in Jurkat and HEK293T cell lines; applicability to other cell types or in vivo remains to be demonstrated.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "merge_decisions": [],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "input_global_context_digest": "sha256:5c0262f18b9e20cbfa21e371cea956f8f8531286ed112ab6d22fd375ae64bf21",
+    "input_global_context_through_batch": "4",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_2.pdf",
+    "source_sha256": "5d75db9a958c808a49a93cdaea818ef257430a32e2264ded4d693d216d9980e4"
+  },
+  "paper_id": "1_2",
+  "quality_score": 0.962,
+  "requires_reconciliation": true,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "Does the CROP-seq method enable pooled CRISPR screens with single-cell transcriptome readout?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3c5dce570e0f0473ff328291",
+              "inference_basis_ids": [
+                "res_98827d7008db1e68d2c70a37",
+                "res_d28d91bd7715f815e8536102"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Depletion of the kinases LCK and ZAP70 and the adaptor protein LAT had a strong negative effect on the TCR activation signature ... targeting known negative regulators of TCR signaling (such as PTPN6, PTPN11, and EGR3) slightly increased the TCR activation signature."
+              },
+              "statement": "CROP-seq identifies known activators (LCK, ZAP70, LAT) and repressors (PTPN6, PTPN11, EGR3) of TCR signaling in Jurkat cells, validated by bulk RNA-seq and flow cytometry."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b415f7fbded636876c401da2",
+              "inference_basis_ids": [
+                "res_f38eab7895341b786ba9ab8f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0e8bb8c7a604a6aa3e82",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "We showed that gene signatures can be derived directly from single-cell data using the transcriptomes of cells with nontargeting gRNAs, which makes the assay self-calibrating and independent of any prior knowledge about relevant marker genes."
+              },
+              "statement": "CROP-seq can derive gene signatures directly from single-cell data using transcriptomes of cells with nontargeting gRNAs, making the assay self-calibrating and independent of prior knowledge."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds2",
+              "description": "Single-cell transcriptomes from Jurkat cells transduced with a gRNA library targeting TCR pathway genes, with and without anti-CD3/CD28 stimulation.",
+              "name": "Jurkat TCR CROP-seq dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds3",
+              "description": "Bulk RNA-seq (87 libraries) and flow cytometry (96 profiles) from single-gene knockout Jurkat cell lines.",
+              "name": "Arrayed validation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "CROP-seq analysis of both populations",
+            "Pooled CRISPR screen targeting 6 high-level regulators of TCR signaling and 23 transcription factors (three gRNAs each), plus 20 nontargeting controls and 9 essential gene controls",
+            "Serum starvation for 3 h, then TCR stimulation with anti-CD3/anti-CD28 for 4 h; unstimulated control continued starvation",
+            "Transduction of Cas9-expressing Jurkat cells with lentiviral gRNA library, puromycin selection, genome editing for 10 days",
+            "Validation by arrayed screen (48 constructs, 20 genes with two gRNAs) with bulk RNA-seq (87 libraries) and flow cytometry (96 profiles)"
+          ],
+          "methods": [
+            {
+              "method_id": "m5",
+              "name": "TCR stimulation and CROP-seq",
+              "protocol_description": "Jurkat-Cas9 cells were serum starved for 3 h, then stimulated with 1 µg/ml anti-CD3 and 1 µg/ml anti-CD28 antibodies for 4 h. Unstimulated control underwent continued starvation. Single-cell RNA-seq performed using Drop-seq with CROP-seq modifications."
+            },
+            {
+              "method_id": "m6",
+              "name": "Arrayed validation",
+              "protocol_description": "48 individual CROPseq-Guide-Puro constructs were cloned, targeting 20 genes with two gRNAs each plus 8 nontargeting controls. Lentivirus produced in 96-well plates. Jurkat-Cas9 cells transduced and selected. After 10 days, cells were split for starvation/stimulation as above. RNA extracted for bulk RNA-seq (Illumina) and cells stained for flow cytometry (CD25, CD38, CD69, CD82, CD154, PD-1, Ki-67)."
+            }
+          ],
+          "name": "Proof-of-concept TCR screen in Jurkat cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "gRNA depletion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "The gRNAs in our TCR library showed more diverse patterns; gRNAs targeting ETS1, RUNX1, and GATA3 were depleted, suggesting that the encoded transcription factors are essential in Jurkat cells. In contrast, most gRNAs behaved similarly to the negative controls, indicating that they did not have strong antiproliferative effects."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1b8d6e21f7d2e469c887f0f4",
+              "unit": null,
+              "value_raw_text": "gRNAs targeting ETS1, RUNX1, and GATA3 were depleted, suggesting that the encoded transcription factors are essential in Jurkat cells. In contrast, most gRNAs behaved similarly to the negative controls, indicating that they did not have strong antiproliferative effects."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Downsampling robustness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "43745ea97a89dbd4637c",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "870 single cells (15% of the data set) yielded results similar to those of the entire screen."
+              },
+              "quantitative_value": 870.0,
+              "result_id": "res_69935bf293a84c623e6a6d97",
+              "unit": "cells",
+              "value_raw_text": "870 single cells (15% of the data set) yielded results similar to those of the entire screen regarding the TCR signature intensities of the targeted genes."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Signature concordance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "High correlations were observed between bulk RNA-seq and CROP-seq data, both for inferred TCR signature intensities and for global expression profiles (Fig. 2f and Supplementary Fig. 8c,d). Flow cytometry for surface proteins ... further validated the CROP-seq results (Fig. 2g and Supplementary Fig. 9)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_98827d7008db1e68d2c70a37",
+              "unit": "correlation coefficient",
+              "value_raw_text": "High correlations were observed between bulk RNA-seq and CROP-seq data, both for inferred TCR signature intensities and for global expression profiles (Pearson's r = 0.97 for signature intensity). Flow cytometry for surface proteins further validated the CROP-seq results (Pearson's r = 0.93 for CD69)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Knockout effect on TCR activation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Depletion of the kinases LCK and ZAP70 and the adaptor protein LAT had a strong negative effect on the TCR activation signature ... Moreover, we observed that targeting known negative regulators of TCR signaling (such as PTPN6, PTPN11, and EGR3) slightly increased the TCR activation signature."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d28d91bd7715f815e8536102",
+              "unit": null,
+              "value_raw_text": "Depletion of the kinases LCK and ZAP70 and the adaptor protein LAT had a strong negative effect on the TCR activation signature. Targeting known negative regulators of TCR signaling (such as PTPN6, PTPN11, and EGR3) slightly increased the TCR activation signature."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Transcriptome separation by PCA",
+              "n_sample_size": 165,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Principal component analysis for cells grouped by gRNA target genes separated naive and TCR-induced Jurkat cells along the first principal component, which defined a TCR induction signature of 165 genes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f38eab7895341b786ba9ab8f",
+              "unit": null,
+              "value_raw_text": "Principal component analysis for cells grouped by gRNA target genes separated naive and TCR-induced Jurkat cells along the first principal component, which defined a TCR induction signature of 165 genes."
+            }
+          ],
+          "unit_id": "su_c517524e9b997e4a39fde756"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7d4f5fb3322ca6b7bc41827d",
+              "inference_basis_ids": [
+                "res_25fb963ba390566d9b563d3c",
+                "res_500221540822f3cc1dd1c21a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "83b7ca005d74d259df90",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "Cloning the hU6–gRNA cassette into the 3ʹ LTR to generate CROPseq-Guide-Puro does not compromise lentiviral function for gRNAs."
+              },
+              "statement": "The CROPseq-Guide-Puro vector does not compromise lentiviral function or genome editing efficiency compared to the standard LentiGuide-Puro vector."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a967ac50af1940045e85f044",
+              "inference_basis_ids": [
+                "res_25fb963ba390566d9b563d3c",
+                "res_392a84018ad362157c513f2c",
+                "res_500221540822f3cc1dd1c21a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4a29cdf2686bb5eba4fe",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Here we propose a third and complementary screening paradigm, single-cell CRISPR screens, based on the idea that gRNAs and their induced cellular responses are already compartmentalized within single cells. Detecting each cell’s gRNA along with its single-cell transcriptome would thus provide gene expression signatures for individual gene knockouts in a complex pool of cells. Implementing this concept, our CROP-seq method combines four key components: a gRNA vector that makes individual gRNAs detectable in single-cell RNA-seq experiments, a high-throughput assay for single-cell RNA-seq7, a computational pipeline for assigning single-cell transcriptomes to gRNAs, and a bioinformatic method for analyzing and interpreting gRNA-induced transcriptional profiles."
+              },
+              "statement": "CROP-seq enables pooled CRISPR screens with single-cell transcriptome readout by engineering a gRNA vector that makes individual gRNAs detectable in single-cell RNA-seq and combining it with a high-throughput single-cell RNA-seq assay."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Single-cell transcriptomes from CROP-seq experiments, including species mix, gRNA mixture, and Jurkat screen data.",
+              "name": "CROP-seq validation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of gRNA assignment confidence across CROP-seq experiments",
+            "Construct design: insertion of hU6–gRNA cassette into 3' LTR of LentiGuide-Puro to create CROPseq-Guide-Puro",
+            "Detection of gRNAs from single-cell transcriptomes by Drop-seq on a 1:1:1 mixture of HEK293T knockout cell lines (DNMT3B, MBD1, TET2)",
+            "Genome editing efficiency comparison using T7 endonuclease assay and NGS in K562, Jurkat, and HEK293T cells",
+            "Viral titer comparison between LentiGuide-Puro and CROPseq-Guide-Puro for three gRNAs and a filler construct"
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "CROP-seq library construction",
+              "protocol_description": "Insertion of hU6–gRNA cassette into the 3' LTR of LentiGuide-Puro via ligase cycling reaction. The cassette is transcribed by Pol II as part of the puromycin-resistance mRNA, detectable by poly-A enrichment in single-cell RNA-seq. gRNA is also expressed from the hU6 Pol III promoter for genome editing."
+            },
+            {
+              "method_id": "m2",
+              "name": "Lentivirus production and titration",
+              "protocol_description": "HEK293T cells were co-transfected with CROPseq-Guide-Puro and packaging plasmids (pMDLg/pRRE, pRSV-Rev, pMD2.G). Supernatant collected at 24 and 48 h, filtered, and titrated on HEK293T cells with puromycin selection. Titer calculated from resistant colony counts."
+            },
+            {
+              "method_id": "m3",
+              "name": "Drop-seq single-cell RNA-seq",
+              "protocol_description": "Cells were co-encapsulated with barcoded beads in microfluidic droplets. After droplet breakage with perfluoroctanol, beads were collected by syringe filtration. Reverse transcription, exonuclease I treatment, PCR enrichment (4+10 cycles), and Nextera XT library preparation were performed. Sequencing on Illumina HiSeq 3000/4000 or NextSeq 500."
+            },
+            {
+              "method_id": "m4",
+              "name": "CROP-seq data preprocessing",
+              "protocol_description": "Drop-seq Tools v1.12 was used: Read2 tagged with cell barcode (bases 1-12) and UMI (bases 13-20), trimmed, aligned with STAR to human genome (GRCh38) extended with artificial chromosomes representing the CROPseq-Guide-Puro plasmid. Cell barcodes corrected for synthesis errors. UMI-deduplicated reads per gene per cell used to build digital expression matrix (cells with ≥500 genes). gRNA assigned as most abundant UMI-deduplicated read overlapping gRNA sequence; cells with >0.9 purity retained for Jurkat screen."
+            }
+          ],
+          "name": "Method development and validation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "gRNA assignment confidence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "38.7% of cells with at least 500 and 78.9% of cells with at least 4,000 detected genes were uniquely assigned. Few cells matched more than one gRNA (e.g., 2.7% for a threshold of 500 detected genes)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1f232e91877c3fd9ab6efb97",
+              "unit": "percent",
+              "value_raw_text": "38.7% of cells with at least 500 and 78.9% of cells with at least 4,000 detected genes were uniquely assigned. Few cells matched more than one gRNA (e.g., 2.7% for a threshold of 500 detected genes)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Viral titer",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "83b7ca005d74d259df90",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Cloning the hU6–gRNA cassette into the 3ʹ LTR to generate CROPseq-Guide-Puro does not compromise lentiviral function for gRNAs. In contrast, 1,885 bp of filler DNA result in a 98-fold reduction of the viral titer."
+              },
+              "quantitative_value": null,
+              "result_id": "res_25fb963ba390566d9b563d3c",
+              "unit": null,
+              "value_raw_text": "Cloning the hU6–gRNA cassette into the 3ʹ LTR to generate CROPseq-Guide-Puro does not compromise lentiviral function for gRNAs. In contrast, 1,885 bp of filler DNA result in a 98-fold reduction of the viral titer."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "gRNA detection rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "When we applied Drop-seq on a 1:1:1 mixture of the three cell lines, the resulting single-cell transcriptomes provided high sequencing coverage for the gRNAs, and we were able to assign single cells to gRNAs at the expected ratios."
+              },
+              "quantitative_value": null,
+              "result_id": "res_392a84018ad362157c513f2c",
+              "unit": null,
+              "value_raw_text": "When we applied Drop-seq on a 1:1:1 mixture of the three cell lines, the resulting single-cell transcriptomes provided high sequencing coverage for the gRNAs, and we were able to assign single cells to gRNAs at the expected ratios."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Genome editing efficiency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "62218d83733893d905d9",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Genome editing was highly efficient for both constructs, averaging at 95.5% (LentiGuide-Puro) and 90.5% (CROPseq-Guide-Puro), with the expected two thirds (66.2% and 62.4%) of molecules carrying out-of-frame insertions and deletions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_500221540822f3cc1dd1c21a",
+              "unit": "percent",
+              "value_raw_text": "Genome editing was highly efficient for both constructs, averaging at 95.5% (LentiGuide-Puro) and 90.5% (CROPseq-Guide-Puro), with the expected two thirds (66.2% and 62.4%) of molecules carrying out-of-frame insertions and deletions."
+            }
+          ],
+          "unit_id": "su_e8568cbb4d9ef08def430afa"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.0",
+  "status": "provisional",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6052 on attempt 1"
+    }
+  ]
+}

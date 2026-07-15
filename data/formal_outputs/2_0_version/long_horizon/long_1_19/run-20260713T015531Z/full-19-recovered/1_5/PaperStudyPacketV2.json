@@ -1,0 +1,203 @@
+{
+  "coverage_ledger": {
+    "23708d682c6d46937301": "extracted",
+    "61a8bafa6f05c204d9b9": "not_selected",
+    "68dcd5b6b4766677c5fd": "extracted",
+    "723258ed2cbaa4e2c4fa": "extracted",
+    "7391214264c6e828511c": "extracted",
+    "7df789d1238eb283fc2c": "not_selected",
+    "904374fd77ea212b9815": "extracted",
+    "9546ca9c9ee346a18038": "extracted",
+    "c72ceb96b26187d05270": "extracted",
+    "d943628211ec106f8108": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "scGen has been trained on relatively small datasets that only reflect subsets of biological and transcriptional variability; a trained model cannot be expected to be predictive beyond the domain of the training data.",
+    "Predictions require realistic error estimates by holding out parts of the data with known ground truth.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "merge_decisions": [],
+  "metadata": {
+    "domain": "computational_biology",
+    "input_global_context_digest": "sha256:44c32a6d7e365d0de5f035884eca0d0e661cf6fb9e7798421c3159c83e135eec",
+    "input_global_context_through_batch": "7",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_5.pdf",
+    "source_sha256": "b7760838427b9a60f1f1319bcfbeef42b71511b4858defb4d922508cc247c224"
+  },
+  "paper_id": "1_5",
+  "quality_score": 0.9344,
+  "requires_reconciliation": true,
+  "research_questions": [
+    {
+      "question_id": "q_1",
+      "statement": "Can a generative model combining variational autoencoders and latent space vector arithmetics accurately predict single-cell perturbation responses out-of-sample?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_40f5bacbd646a84e5eb149ed",
+              "inference_basis_ids": [
+                "res_c1973482150724e405425c0d",
+                "res_daea1ea0e504df4d83a989be"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "scGen is able to capture both types of responses after stimulation by IFN-β when any of the cell types in the data is held out during training and subsequently predicted"
+              },
+              "statement": "scGen captures cell-type-specific and species-specific responses, including identifying non-responding cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5d983fc1821dc81b57990099",
+              "inference_basis_ids": [
+                "res_8543ce03293037b359a19fa7",
+                "res_c1973482150724e405425c0d",
+                "res_daea1ea0e504df4d83a989be"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "scGen accurately models perturbation and infection response of cells across cell types, studies and species."
+              },
+              "statement": "scGen accurately predicts single-cell perturbation response out-of-sample across cell types, studies, and species."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds_1",
+              "description": "PBMCs from Kang et al. (2018), accession GSE96583, including control and IFN-β-stimulated conditions. After preprocessing: 18,868 cells, 6,998 highly variable genes.",
+              "name": "Kang et al. PBMC",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds_2",
+              "description": "Intestinal epithelial cells from Haber et al. (2017), accession GSE92332. Includes Salmonella-infected cells (n=1,770), H. poly-infected cells (n=2,711), and control cells (n=3,240). Top 7,000 highly variable genes.",
+              "name": "Haber et al. intestinal epithelium",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds_3",
+              "description": "PBMCs from Zheng et al. (2017), 2,623 cells used for cross-study prediction.",
+              "name": "Zheng et al. PBMC",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds_4",
+              "description": "Phagocyte scRNA-seq from Hagai et al. (2018), accession E-MTAB-6754. Includes mouse, pig, rabbit, and rat. After filtering: 77,642 cells, 6,619 one-to-one orthologs.",
+              "name": "Hagai et al. LPS",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "scGen outperforms linear methods, conditional VAEs, and style transfer GANs in out-of-sample prediction of perturbation response.",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In a broad benchmark, it outperforms other potential modeling approaches, such as linear methods, conditional variational autoencoders (CVAE) and style transfer GANs."
+              },
+              "span_id": "span_1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Cross-study prediction: translate IFN-β effect from study A (Kang et al.) to study B (Zheng et al.).",
+            "Predict IFN-β response for all seven cell types in Kang et al. data.",
+            "Predict IFN-β-stimulated CD4-T cells from PBMCs (Kang et al.) held out during training.",
+            "Predict infection response of intestinal epithelial cells to Salmonella and H. poly (Haber et al.).",
+            "Predict LPS response across species (mouse, pig, rabbit, rat) (Hagai et al.)."
+          ],
+          "methods": [
+            {
+              "method_id": "m_1",
+              "name": "scGen",
+              "protocol_description": "scGen combines a variational autoencoder (VAE) with latent space vector arithmetics. The VAE encoder maps gene expression to a latent space; the decoder reconstructs expression. Perturbation response is modeled by adding a delta vector (mean difference between perturbed and control latent representations) to the latent representation of a control cell, then decoding. Architecture adapted for scRNA-seq."
+            }
+          ],
+          "name": "scGen model design and out-of-sample perturbation prediction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "R2 (squared Pearson correlation)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c72ceb96b26187d05270",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "R2all genes = 0.67"
+              },
+              "quantitative_value": 0.67,
+              "result_id": "res_8543ce03293037b359a19fa7",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.67 for cross-study prediction of F-Mono cells from study A to study B"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R2 (squared Pearson correlation)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7391214264c6e828511c",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "R2all genes = 0.91"
+              },
+              "quantitative_value": 0.91,
+              "result_id": "res_c1973482150724e405425c0d",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.91 for prediction of LPS-perturbed rat phagocytes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R2 (squared Pearson correlation)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "scGen shows good performance for early transit-amplifying (TA.early) cells after infection with H. poly and Salmonella (Fig. 3a,b), predicting each condition with high precision (R2all genes = 0.98 and R2all genes = 0.98, respectively)."
+              },
+              "quantitative_value": 0.97,
+              "result_id": "res_daea1ea0e504df4d83a989be",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.97 for predicted vs real stimulated CD4-T cells in Kang et al. IFN-β experiment"
+            }
+          ],
+          "unit_id": "su_d130b720f23351e324786ce2"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.0",
+  "status": "provisional",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8889 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9444 on attempt 1"
+    }
+  ]
+}
