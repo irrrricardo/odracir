@@ -208,17 +208,23 @@ def _execute_one_paper(
             deterministic_rule_score=rule_report.score,
             max_tokens=min(max_tokens, 4_000),
         )
-        assessment = judged.assessment
         record = record.model_copy(
             update={
                 "quality_judge": stage_metrics(
-                    model=assessment.judge_model,
-                    attempts=1,
+                    model=provider.model,
+                    attempts=judged.attempts,
                     usage=judged.usage,
                     latency_seconds=time.perf_counter() - judge_started,
                     pricing=pricing,
                     finish_reason=judged.finish_reason,
-                ),
+                )
+            }
+        )
+        if judged.assessment is None:
+            raise ValueError(judged.error_message or "semantic quality judge failed")
+        assessment = judged.assessment
+        record = record.model_copy(
+            update={
                 "quality_score": assessment.f1,
                 "precision": assessment.precision,
                 "recall": assessment.recall,
@@ -304,6 +310,8 @@ def extract_one_paper(
         deterministic_rule_score=rule_report.score,
         max_tokens=min(max_tokens, 4_000),
     )
+    if judged.assessment is None:
+        raise ValueError(judged.error_message or "semantic quality judge failed")
     assessment = judged.assessment
     canonical.quality_assessment = assessment
     canonical.quality_score = assessment.f1

@@ -39,3 +39,6 @@ mutable pricing or infer cached-token discounts.
 
 Failed papers do not leave partial packet JSON. Their report row records the
 error type/message and any stage telemetry that was available before failure.
+If a quality judge returns a non-verbatim omission excerpt, Odracir performs
+one constrained repair attempt. Both attempts' token usage and combined latency
+are retained, including when the repaired audit still fails validation.

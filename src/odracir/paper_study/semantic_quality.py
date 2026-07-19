@@ -45,9 +45,11 @@ class _JudgeResponse(StrictModel):
 class SemanticQualityEvaluation(StrictModel):
     """Quality assessment plus the provider telemetry that produced it."""
 
-    assessment: ExtractionQualityAssessment
+    assessment: ExtractionQualityAssessment | None = None
     usage: dict[str, int] = Field(default_factory=dict)
     finish_reason: str = Field(min_length=1)
+    attempts: int = Field(ge=1)
+    error_message: str | None = None
 
 
 def evaluate_semantic_extraction_quality(
@@ -61,12 +63,60 @@ def evaluate_semantic_extraction_quality(
     """Estimate semantic P/R/F1 from supported, incorrect, and missed core items."""
 
     items = _atomic_items(packet)
-    completion = provider.complete_json(
-        system_prompt=_SYSTEM_PROMPT,
-        user_prompt=_user_prompt(packet, items, chunks),
-        max_tokens=max_tokens,
+    original_prompt = _user_prompt(packet, items, chunks)
+    aggregate_usage: dict[str, int] = {}
+    completion = None
+    last_error: Exception | None = None
+    for attempt in range(1, 3):
+        prompt = original_prompt
+        if attempt > 1 and completion is not None and last_error is not None:
+            prompt = _repair_prompt(
+                original_prompt=original_prompt,
+                invalid_payload=completion.payload,
+                error=last_error,
+            )
+        completion = provider.complete_json(
+            system_prompt=_SYSTEM_PROMPT,
+            user_prompt=prompt,
+            max_tokens=max_tokens,
+        )
+        _add_usage(aggregate_usage, completion.usage)
+        try:
+            judged = _JudgeResponse.model_validate(completion.payload)
+            assessment = _build_assessment(
+                packet=packet,
+                chunks=chunks,
+                provider=provider,
+                items=items,
+                judged=judged,
+                deterministic_rule_score=deterministic_rule_score,
+            )
+            return SemanticQualityEvaluation(
+                assessment=assessment,
+                usage=aggregate_usage,
+                finish_reason=completion.finish_reason,
+                attempts=attempt,
+            )
+        except (ValueError, TypeError) as exc:
+            last_error = exc
+    assert completion is not None and last_error is not None
+    return SemanticQualityEvaluation(
+        usage=aggregate_usage,
+        finish_reason=completion.finish_reason,
+        attempts=2,
+        error_message=str(last_error) or repr(last_error),
     )
-    judged = _JudgeResponse.model_validate(completion.payload)
+
+
+def _build_assessment(
+    *,
+    packet: PaperStudyPacketV2,
+    chunks: tuple[SourceChunk, ...],
+    provider: JsonCompletionProvider,
+    items: dict[str, dict[str, Any]],
+    judged: _JudgeResponse,
+    deterministic_rule_score: float,
+) -> ExtractionQualityAssessment:
     valid_ids = set(items)
     incorrect_ids = {item.item_id for item in judged.incorrect_items}
     unknown = incorrect_ids - valid_ids
@@ -92,7 +142,7 @@ def evaluate_semantic_extraction_quality(
     precision = correct / extracted
     recall = correct / (correct + missed) if correct + missed else 0.0
     f1 = 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
-    assessment = ExtractionQualityAssessment(
+    return ExtractionQualityAssessment(
         judge_provider=provider.provider_name,
         judge_model=provider.model,
         extracted_item_count=extracted,
@@ -107,11 +157,33 @@ def evaluate_semantic_extraction_quality(
         missed_core_items=[SemanticQualityIssue(**item.model_dump()) for item in judged.missed_core_items],
         evidence_strength_observability=_evidence_strength_observability(packet),
     )
-    return SemanticQualityEvaluation(
-        assessment=assessment,
-        usage=completion.usage,
-        finish_reason=completion.finish_reason,
-    )
+
+
+def _repair_prompt(
+    *,
+    original_prompt: str,
+    invalid_payload: dict[str, Any],
+    error: Exception,
+) -> str:
+    return f"""Correct the quality-audit JSON without changing its scientific verdicts.
+Every missed_core_items source_excerpt must be one short, contiguous, exact substring copied
+from the referenced source chunk. Do not paraphrase it and do not insert ellipses. Return only
+the two required JSON arrays.
+
+Validation error:
+{str(error)}
+
+Invalid audit:
+{json.dumps(invalid_payload, ensure_ascii=False)}
+
+Original audit request:
+{original_prompt}
+"""
+
+
+def _add_usage(total: dict[str, int], usage: dict[str, int]) -> None:
+    for key, value in usage.items():
+        total[key] = total.get(key, 0) + value
 
 
 _SYSTEM_PROMPT = """You are an expert scientific extraction auditor.
@@ -123,7 +195,8 @@ items only—primary methods, datasets, experiments, quantitative results, centr
 material limitations. Do not count minor details, generic background, citations, or hyperparameters
 as misses. Return JSON with exactly two arrays: incorrect_items and missed_core_items.
 Each incorrect item must use an extracted item_id. Each missed item must have item_id=null,
-description, source_chunk_id, and a short exact source_excerpt. Return JSON only."""
+description, source_chunk_id, and a short contiguous exact source_excerpt copied from that chunk.
+Never paraphrase the excerpt and never insert ellipses. Return JSON only."""
 
 
 def _user_prompt(

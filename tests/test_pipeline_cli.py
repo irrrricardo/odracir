@@ -50,6 +50,7 @@ class FakeJsonProvider:
         provenance_page_start: object | None = None,
         provenance_page_end: object | None = None,
         miss_core_item: bool = False,
+        invalid_judge_excerpt_once: bool = False,
     ) -> None:
         self.requests: list[dict[str, Any]] = []
         self.payloads: list[dict[str, Any]] = []
@@ -60,6 +61,9 @@ class FakeJsonProvider:
         self.provenance_page_start = provenance_page_start
         self.provenance_page_end = provenance_page_end
         self.miss_core_item = miss_core_item
+        self.invalid_judge_excerpt_once = invalid_judge_excerpt_once
+        self._judge_calls = 0
+        self._judge_chunk_id: str | None = None
 
     def complete_json(
         self,
@@ -68,8 +72,30 @@ class FakeJsonProvider:
         user_prompt: str,
         max_tokens: int,
     ) -> JsonCompletionResult:
+        if user_prompt.startswith("Correct the quality-audit JSON"):
+            self._judge_calls += 1
+            self.requests.append(
+                {"request_type": "quality_judge_repair", "max_tokens": max_tokens}
+            )
+            return JsonCompletionResult(
+                payload={
+                    "incorrect_items": [],
+                    "missed_core_items": [
+                        {
+                            "item_id": None,
+                            "reason": "A core outcome was omitted.",
+                            "source_chunk_id": self._judge_chunk_id,
+                            "source_excerpt": SOURCE_TEXT,
+                        }
+                    ],
+                },
+                usage={"prompt_tokens": 7, "completion_tokens": 3},
+                finish_reason="stop",
+            )
         source = json.loads(user_prompt.split("\n", 1)[1])
         if source.get("audit_protocol") == "semantic-prf-v1":
+            self._judge_calls += 1
+            self._judge_chunk_id = source["source_chunks"][0]["chunk_id"]
             self.requests.append(
                 {
                     "request_type": "quality_judge",
@@ -86,7 +112,12 @@ class FakeJsonProvider:
                                 "item_id": None,
                                 "reason": "A core outcome was omitted.",
                                 "source_chunk_id": source["source_chunks"][0]["chunk_id"],
-                                "source_excerpt": SOURCE_TEXT,
+                                "source_excerpt": (
+                                    "This is not a source excerpt."
+                                    if self.invalid_judge_excerpt_once
+                                    and self._judge_calls == 1
+                                    else SOURCE_TEXT
+                                ),
                             }
                         ]
                         if self.miss_core_item
@@ -503,6 +534,29 @@ def test_output_folder_must_be_empty_to_prevent_stale_corpus_files(
             ["--paper-folder", str(tmp_path), "--output-folder", str(output)],
             provider=FakeJsonProvider(),
         )
+
+
+def test_quality_judge_repairs_bad_excerpt_and_reports_both_attempts(
+    tmp_path: Path,
+) -> None:
+    _write_chunk_artifact(tmp_path, "paper-repair")
+    output = tmp_path / "output"
+    summary = run_extract_paper_study(
+        ["--paper-folder", str(tmp_path), "--output-folder", str(output)],
+        provider=FakeJsonProvider(
+            miss_core_item=True,
+            invalid_judge_excerpt_once=True,
+        ),
+    )
+
+    assert summary.succeeded == 1
+    record = json.loads(
+        (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
+    )
+    assert record["quality_judge"]["attempts"] == 2
+    assert record["quality_judge"]["prompt_tokens"] == 17
+    assert record["quality_judge"]["completion_tokens"] == 8
+    assert record["missed_core_item_count"] == 1
 
 
 def test_cli_rejects_an_empty_index_instead_of_reporting_success(
