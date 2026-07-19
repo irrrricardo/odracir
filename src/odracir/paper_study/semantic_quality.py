@@ -144,8 +144,8 @@ def _build_assessment(
     incorrect = len(judged.incorrect_items)
     correct = extracted - incorrect
     missed = len(judged.missed_core_items)
-    precision = correct / extracted
-    recall = correct / (correct + missed) if correct + missed else 0.0
+    precision = correct / extracted if extracted else 1.0
+    recall = correct / (correct + missed) if correct + missed else 1.0
     f1 = 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
     return ExtractionQualityAssessment(
         judge_provider=provider.provider_name,
@@ -237,8 +237,6 @@ def _atomic_items(packet: PaperStudyPacketV2) -> dict[str, dict[str, Any]]:
                 items[f"claim:{unit.unit_id}:{claim.claim_id}"] = {"type": "claim", "value": claim.model_dump(mode="json")}
     for index, boundary in enumerate(packet.limitations_and_boundaries, start=1):
         items[f"boundary:{index}"] = {"type": "limitation_or_boundary", "text": boundary}
-    if not items:
-        raise ValueError("semantic quality evaluation requires extracted items")
     return items
 
 

@@ -563,6 +563,46 @@ def test_quality_judge_retains_but_marks_nonverbatim_excerpt(
     assert issue["source_excerpt_verified"] is False
 
 
+def test_semantic_quality_accepts_correct_empty_nonstudy_extraction(
+    tmp_path: Path,
+) -> None:
+    _write_chunk_artifact(tmp_path, "author-correction")
+
+    class EmptyCorrectionProvider(FakeJsonProvider):
+        def complete_json(self, *, system_prompt: str, user_prompt: str, max_tokens: int):
+            if "Audit this extraction." in user_prompt:
+                return JsonCompletionResult(
+                    payload={"incorrect_items": [], "missed_core_items": []},
+                    usage={"prompt_tokens": 10, "completion_tokens": 5},
+                    finish_reason="stop",
+                )
+            payload = super().complete_json(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                max_tokens=max_tokens,
+            ).payload
+            payload["research_questions"] = []
+            payload["limitations_and_boundaries"] = []
+            return JsonCompletionResult(
+                payload=payload,
+                usage={"prompt_tokens": 20, "completion_tokens": 10},
+                finish_reason="stop",
+            )
+
+    output = tmp_path / "output"
+    summary = run_extract_paper_study(
+        ["--paper-folder", str(tmp_path), "--output-folder", str(output)],
+        provider=EmptyCorrectionProvider(),
+    )
+
+    assert summary.succeeded == 1
+    packet = json.loads((output / "author-correction.json").read_text())
+    assessment = packet["quality_assessment"]
+    assert assessment["extracted_item_count"] == 0
+    assert assessment["missed_core_item_count"] == 0
+    assert assessment["precision"] == assessment["recall"] == assessment["f1"] == 1.0
+
+
 def test_cli_rejects_an_empty_index_instead_of_reporting_success(
     tmp_path: Path,
 ) -> None:

@@ -369,7 +369,7 @@ class ExtractionQualityAssessment(StrictModel):
     protocol: Literal["semantic-prf-v1"] = "semantic-prf-v1"
     judge_provider: str = Field(min_length=1)
     judge_model: str = Field(min_length=1)
-    extracted_item_count: int = Field(ge=1)
+    extracted_item_count: int = Field(ge=0)
     correct_item_count: int = Field(ge=0)
     incorrect_item_count: int = Field(ge=0)
     missed_core_item_count: int = Field(ge=0)
@@ -395,9 +395,21 @@ class ExtractionQualityAssessment(StrictModel):
             raise ValueError("incorrect item details must match incorrect_item_count")
         if len(self.missed_core_items) != self.missed_core_item_count:
             raise ValueError("missed item details must match missed_core_item_count")
-        precision = self.correct_item_count / self.extracted_item_count
+        # Empty extractions are valid for non-study documents such as author
+        # corrections.  Use the standard empty-set convention: precision is
+        # perfect when nothing unsupported was emitted, while recall is perfect
+        # only when the source audit also finds no missed core scientific item.
+        precision = (
+            self.correct_item_count / self.extracted_item_count
+            if self.extracted_item_count
+            else 1.0
+        )
         recall_denominator = self.correct_item_count + self.missed_core_item_count
-        recall = self.correct_item_count / recall_denominator if recall_denominator else 0.0
+        recall = (
+            self.correct_item_count / recall_denominator
+            if recall_denominator
+            else 1.0
+        )
         f1 = 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
         if self.precision != round(precision, 4):
             raise ValueError("precision does not match audited counts")
