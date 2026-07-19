@@ -356,7 +356,9 @@ class PacketValidationWarning(StrictModel):
 class PaperStudyPacketV2(StrictModel):
     """Canonical, single-artifact representation of an Odracir v2 paper study."""
 
-    schema_version: Literal["2.0"] = "2.0"
+    # 2.0 remains readable so downstream consumers can migrate existing packets;
+    # every new extraction is materialized as 2.1.
+    schema_version: Literal["2.0", "2.1"] = "2.1"
     paper_id: str = Field(min_length=1)
     status: PacketStatus = "accepted"
     requires_reconciliation: bool = False

@@ -259,7 +259,9 @@ def test_recovery_appends_batch_and_rebuilds_ledger_and_deliveries(
     assert ledger["revision"] == 2
     assert len(provider.requests) == 1
     assert provider.requests[0]["paper_id"] == "paper-failed"
-    assert provider.requests[0]["prior_global_context"]["through_batch"] == 1
+    # Odracir 2.1 keeps legacy recovery code readable, but never lets the
+    # recovered corpus context enter an individual paper prompt.
+    assert "prior_global_context" not in provider.requests[0]
 
     preserved = Path(result.recovery_manifest.preserved_initial_manifest_path)
     assert preserved.read_bytes() == initial_bytes

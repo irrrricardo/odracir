@@ -68,9 +68,9 @@ class FakeJsonProvider:
         source = json.loads(user_prompt.split("\n", 1)[1])
         self.requests.append(
             {
-                "global_context": source["prior_global_context"],
                 "max_tokens": max_tokens,
                 "paper_id": source["paper_id"],
+                "source_keys": sorted(source),
                 "system_prompt": system_prompt,
             }
         )
@@ -225,7 +225,7 @@ def _write_chunk_artifact(
     return path
 
 
-def test_cli_runs_full_pipeline_and_injects_prior_batch_context(tmp_path: Path) -> None:
+def test_cli_extracts_each_paper_independently_to_one_json(tmp_path: Path) -> None:
     first = _write_chunk_artifact(tmp_path, "paper-1")
     second = _write_chunk_artifact(tmp_path, "paper-2")
     (tmp_path / "odracir_index.json").write_text(
@@ -253,36 +253,23 @@ def test_cli_runs_full_pipeline_and_injects_prior_batch_context(tmp_path: Path) 
     provider = FakeJsonProvider()
     output = tmp_path / "output"
 
-    manifest, manifest_path = run_extract_paper_study(
+    summary = run_extract_paper_study(
         [
             "--paper-folder",
             str(tmp_path),
             "--output-folder",
             str(output),
-            "--batch-size",
-            "1",
             "--max-chunks",
             "1",
         ],
         provider=provider,
     )
 
-    assert manifest.succeeded == 2
-    assert manifest.failed == 0
-    assert manifest.ordered_paper_ids == ("paper-1", "paper-2")
-    assert manifest.undated_paper_ids == ()
-    assert manifest.batches[0].input_context.findings == ()
-    assert [
-        finding.paper_id for finding in manifest.batches[1].input_context.findings
-    ] == ["paper-1"]
-    assert provider.requests[0]["global_context"]["findings"] == []
-    second_context = provider.requests[1]["global_context"]
-    assert second_context["through_batch"] == 1
-    assert [finding["paper_id"] for finding in second_context["findings"]] == [
-        "paper-1"
-    ]
-    assert "context, not as evidence" in second_context["rendered_summary"]
-    assert "never evidence for this paper" in provider.requests[1]["system_prompt"]
+    assert summary.succeeded == 2
+    assert summary.failed == 0
+    assert summary.paper_ids == ("paper-1", "paper-2")
+    assert all("prior_global_context" not in request["source_keys"] for request in provider.requests)
+    assert all("Prior Global Context" not in request["system_prompt"] for request in provider.requests)
     assert "PROVENANCE SEMANTICS AND HARD RULE" in provider.requests[1][
         "system_prompt"
     ]
@@ -313,25 +300,15 @@ def test_cli_runs_full_pipeline_and_injects_prior_batch_context(tmp_path: Path) 
     assert "Do not reveal chain-of-thought" in system_prompt
     assert "only the final schema-valid JSON object" in system_prompt
 
-    assert manifest_path == output / "run_manifest.json"
-    assert manifest_path.is_file()
-    assert Path(manifest.corpus_manifest_path or "").is_file()
-    assert Path(manifest.strategic_batch_plan_path or "").is_file()
-    assert Path(manifest.assembly_manifest_path or "").is_file()
-    assert Path(manifest.global_state_ledger_path or "").is_file()
-    assert set(manifest.delivery_paths) == {"paper-1", "paper-2"}
+    assert {path.name for path in output.iterdir()} == {"paper-1.json", "paper-2.json"}
     for paper_id in ("paper-1", "paper-2"):
-        paper_root = output / paper_id
-        assert {
-            "PaperStudyCard.json",
-            "PaperStudyPacketV2.json",
-            "canonicalization_plan.json",
-            "extraction_report.json",
-            "planning.json",
-            "quality_report.json",
-        } <= {path.name for path in paper_root.iterdir()}
         packet = PaperStudyPacketV2.model_validate_json(
-            (paper_root / "PaperStudyCard.json").read_text(encoding="utf-8")
+            (output / f"{paper_id}.json").read_text(encoding="utf-8")
+        )
+        assert packet.schema_version == "2.1"
+        raw_packet = json.loads((output / f"{paper_id}.json").read_text(encoding="utf-8"))
+        assert {"status", "requires_reconciliation", "merge_decisions"}.isdisjoint(
+            raw_packet
         )
         unit = packet.research_questions[0].study_units[0]
         assert unit.unit_id.startswith("su_")
@@ -341,7 +318,7 @@ def test_cli_runs_full_pipeline_and_injects_prior_batch_context(tmp_path: Path) 
         assert packet.quality_score == 1.0
 
 
-def test_cli_prepares_bare_pdf_and_runs_recon_through_delivery(
+def test_cli_prepares_bare_pdf_and_writes_only_final_packet(
     tmp_path: Path,
 ) -> None:
     import fitz
@@ -353,33 +330,26 @@ def test_cli_prepares_bare_pdf_and_runs_recon_through_delivery(
         document.save(pdf_path)
     output = tmp_path / "formal-output"
 
-    manifest, manifest_path = run_extract_paper_study(
+    summary = run_extract_paper_study(
         [
             "--paper-folder",
             str(tmp_path),
             "--output-folder",
             str(output),
-            "--batch-size",
-            "1",
             "--max-chunks",
             "1",
         ],
         provider=FakeJsonProvider(),
     )
 
-    assert manifest.succeeded == 1
-    assert manifest.failed == 0
-    assert manifest.ordered_paper_ids == ("formal-paper",)
-    assert manifest_path.is_file()
+    assert summary.succeeded == 1
+    assert summary.failed == 0
+    assert summary.paper_ids == ("formal-paper",)
     assert (tmp_path / ".odracir" / "chunks" / "formal-paper.json").is_file()
-    assert (output / "recon" / "corpus_manifest.json").is_file()
-    assert (output / "scheduler" / "strategic_batch_plan.json").is_file()
-    assert (output / "ledger" / "global_state_ledger.json").is_file()
-    assert (output / "deliveries" / "formal-paper.json").is_file()
-    assert (output / "formal-paper" / "PaperStudyPacketV2.json").is_file()
+    assert [path.name for path in output.iterdir()] == ["formal-paper.json"]
 
 
-def test_cli_collapses_byte_identical_pdfs_before_provider_calls(
+def test_cli_keeps_byte_identical_pdfs_as_independent_inputs(
     tmp_path: Path,
 ) -> None:
     import fitz
@@ -395,49 +365,33 @@ def test_cli_collapses_byte_identical_pdfs_before_provider_calls(
 
     provider = FakeJsonProvider()
     output = tmp_path / "formal-output"
-    manifest, _ = run_extract_paper_study(
+    summary = run_extract_paper_study(
         [
             "--paper-folder",
             str(tmp_path),
             "--output-folder",
             str(output),
-            "--batch-size",
-            "1",
             "--max-chunks",
             "1",
         ],
         provider=provider,
     )
 
-    assert len(provider.requests) == 1
-    assert provider.requests[0]["paper_id"] == "1_13"
-    assert manifest.ordered_paper_ids == ("1_13",)
-    assert manifest.succeeded == 1
-    assert set(manifest.delivery_paths) == {"1_13"}
-    corpus_manifest = json.loads(
-        (output / "recon" / "corpus_manifest.json").read_text(encoding="utf-8")
-    )
-    assert [profile["paper_id"] for profile in corpus_manifest["profiles"]] == [
-        "1_13"
-    ]
-    assert corpus_manifest["duplicate_groups"] == [
-        {
-            "duplicate_paper_ids": ["1_14"],
-            "representative_paper_id": "1_13",
-            "source_sha256": corpus_manifest["profiles"][0]["source_sha256"],
-        }
-    ]
-    assert not (output / "1_14" / "PaperStudyPacketV2.json").exists()
+    assert len(provider.requests) == 2
+    assert [request["paper_id"] for request in provider.requests] == ["1_13", "1_14"]
+    assert summary.paper_ids == ("1_13", "1_14")
+    assert summary.succeeded == 2
+    assert {path.name for path in output.iterdir()} == {"1_13.json", "1_14.json"}
 
 
-def test_quality_gate_rejects_context_but_keeps_auditable_artifacts(
+def test_quality_failure_is_isolated_and_does_not_emit_partial_json(
     tmp_path: Path,
 ) -> None:
     _write_chunk_artifact(tmp_path, "paper-low", chunk_count=2)
     provider = FakeJsonProvider(complete_boundaries=False)
     output = tmp_path / "output"
 
-    manifest, _ = run_extract_paper_study(
+    summary = run_extract_paper_study(
         [
             "--paper-folder",
             str(tmp_path),
@@ -451,64 +405,25 @@ def test_quality_gate_rejects_context_but_keeps_auditable_artifacts(
         provider=provider,
     )
 
-    assert manifest.succeeded == 0
-    assert manifest.failed == 1
-    outcome = manifest.papers[0]
-    assert outcome.status == "failed"
-    assert outcome.error_type == "QualityGateError"
-    assert outcome.failed_stage == "quality_gate"
-    assert outcome.quality_passed is False
-    assert outcome.quality_score is not None and outcome.quality_score < 1.0
-    assert "boundaries.none" in outcome.warning_codes
-    assert "coverage.not_selected_chunks" in outcome.warning_codes
-    assert manifest.final_context.findings == ()
-    assert Path(outcome.artifact_paths["packet"]).is_file()
-    assert Path(outcome.artifact_paths["quality_report"]).is_file()
-    assert Path(outcome.artifact_paths["pipeline_attempt"]).is_file()
-    packet = PaperStudyPacketV2.model_validate_json(
-        Path(outcome.artifact_paths["packet"]).read_text(encoding="utf-8")
-    )
-    assert packet.coverage_ledger == {
-        "paper-low-chunk-1": "extracted",
-        "paper-low-chunk-2": "not_selected",
-    }
+    assert summary.succeeded == 0
+    assert summary.failed == 1
+    assert "paper-low" in summary.failures
+    assert list(output.iterdir()) == []
 
 
-def test_provisional_core_chain_is_admitted_below_quality_floor(
+def test_output_folder_must_be_empty_to_prevent_stale_corpus_files(
     tmp_path: Path,
 ) -> None:
-    _write_chunk_artifact(tmp_path, "paper-provisional", chunk_count=2)
+    _write_chunk_artifact(tmp_path, "paper-provisional")
     output = tmp_path / "output"
+    output.mkdir()
+    (output / "stale.json").write_text("{}", encoding="utf-8")
 
-    manifest, _ = run_extract_paper_study(
-        [
-            "--paper-folder",
-            str(tmp_path),
-            "--output-folder",
-            str(output),
-            "--minimum-quality-score",
-            "1.0",
-            "--max-chunks",
-            "1",
-        ],
-        provider=LowSimilarityFalseProvider(complete_boundaries=False),
-    )
-
-    assert manifest.succeeded == 1
-    assert manifest.failed == 0
-    outcome = manifest.papers[0]
-    assert outcome.status == "succeeded"
-    assert outcome.quality_passed is False
-    assert outcome.packet_status == "provisional"
-    assert outcome.requires_reconciliation is True
-    assert outcome.admitted_provisionally is True
-    assert "extraction.provenance_paraphrase_corrected" in outcome.warning_codes
-    packet = PaperStudyPacketV2.model_validate_json(
-        Path(outcome.artifact_paths["packet_v2"]).read_text(encoding="utf-8")
-    )
-    assert packet.status == "provisional"
-    assert packet.requires_reconciliation is True
-    assert packet.validation_warnings
+    with pytest.raises(ValueError, match="output folder must be empty"):
+        run_extract_paper_study(
+            ["--paper-folder", str(tmp_path), "--output-folder", str(output)],
+            provider=FakeJsonProvider(),
+        )
 
 
 def test_cli_rejects_an_empty_index_instead_of_reporting_success(
