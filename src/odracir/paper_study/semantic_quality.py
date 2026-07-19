@@ -123,6 +123,7 @@ def _build_assessment(
     if unknown:
         raise ValueError(f"quality judge returned unknown item IDs: {sorted(unknown)}")
     source_by_id = {chunk.chunk_id: chunk.text for chunk in chunks}
+    missed_issues: list[SemanticQualityIssue] = []
     for issue in judged.missed_core_items:
         if issue.item_id is not None:
             raise ValueError("missed core items must not claim extracted item IDs")
@@ -132,8 +133,12 @@ def _build_assessment(
             raise ValueError("missed core item requires a source excerpt")
         normalized_excerpt = " ".join(issue.source_excerpt.split())
         normalized_source = " ".join(source_by_id[issue.source_chunk_id].split())
-        if normalized_excerpt not in normalized_source:
-            raise ValueError("missed core item excerpt is not present in its source chunk")
+        missed_issues.append(
+            SemanticQualityIssue(
+                **issue.model_dump(),
+                source_excerpt_verified=normalized_excerpt in normalized_source,
+            )
+        )
 
     extracted = len(items)
     incorrect = len(judged.incorrect_items)
@@ -154,7 +159,7 @@ def _build_assessment(
         f1=round(f1, 4),
         deterministic_rule_score=deterministic_rule_score,
         incorrect_items=[SemanticQualityIssue(**item.model_dump()) for item in judged.incorrect_items],
-        missed_core_items=[SemanticQualityIssue(**item.model_dump()) for item in judged.missed_core_items],
+        missed_core_items=missed_issues,
         evidence_strength_observability=_evidence_strength_observability(packet),
     )
 

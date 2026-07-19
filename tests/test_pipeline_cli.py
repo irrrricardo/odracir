@@ -536,7 +536,7 @@ def test_output_folder_must_be_empty_to_prevent_stale_corpus_files(
         )
 
 
-def test_quality_judge_repairs_bad_excerpt_and_reports_both_attempts(
+def test_quality_judge_retains_but_marks_nonverbatim_excerpt(
     tmp_path: Path,
 ) -> None:
     _write_chunk_artifact(tmp_path, "paper-repair")
@@ -553,10 +553,14 @@ def test_quality_judge_repairs_bad_excerpt_and_reports_both_attempts(
     record = json.loads(
         (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
     )
-    assert record["quality_judge"]["attempts"] == 2
-    assert record["quality_judge"]["prompt_tokens"] == 17
-    assert record["quality_judge"]["completion_tokens"] == 8
+    assert record["quality_judge"]["attempts"] == 1
+    assert record["quality_judge"]["prompt_tokens"] == 10
+    assert record["quality_judge"]["completion_tokens"] == 5
     assert record["missed_core_item_count"] == 1
+    packet = json.loads((output / "paper-repair.json").read_text(encoding="utf-8"))
+    issue = packet["quality_assessment"]["missed_core_items"][0]
+    assert issue["source_excerpt"] == "This is not a source excerpt."
+    assert issue["source_excerpt_verified"] is False
 
 
 def test_cli_rejects_an_empty_index_instead_of_reporting_success(

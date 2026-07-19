@@ -360,6 +360,7 @@ class SemanticQualityIssue(StrictModel):
     description: str = Field(min_length=1)
     source_chunk_id: str | None = None
     source_excerpt: str | None = None
+    source_excerpt_verified: bool | None = None
 
 
 class ExtractionQualityAssessment(StrictModel):

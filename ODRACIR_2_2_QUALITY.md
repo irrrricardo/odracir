@@ -29,9 +29,12 @@ F1        = 2 * precision * recall / (precision + recall)
 
 The judge is lenient about wording and synonyms, accepts faithful abstraction,
 and does not count minor details, generic background, citations, or incidental
-hyperparameters as misses. Every reported error binds to an extracted item ID;
-every reported omission must bind to a real source chunk and exact excerpt.
-Unknown IDs and non-source excerpts fail validation.
+hyperparameters as misses. Every reported error binds to an extracted item ID,
+and every reported omission must bind to a real source chunk. Omission excerpts
+are checked deterministically: `source_excerpt_verified=true` means a continuous
+source substring; `false` means the judge supplied a paraphrase or ellipsis,
+which is retained transparently but never presented as a verified quotation.
+Unknown item and chunk IDs fail validation.
 
 Recall is judged against all PDF page chunks, even when extraction selected only
 a subset. This prevents a narrow extraction prompt from obtaining an artificial
