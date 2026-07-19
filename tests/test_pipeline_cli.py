@@ -48,6 +48,7 @@ class FakeJsonProvider:
         provenance_chunk_id: str | None = None,
         provenance_page_start: object | None = None,
         provenance_page_end: object | None = None,
+        miss_core_item: bool = False,
     ) -> None:
         self.requests: list[dict[str, Any]] = []
         self.payloads: list[dict[str, Any]] = []
@@ -57,6 +58,7 @@ class FakeJsonProvider:
         self.provenance_chunk_id = provenance_chunk_id
         self.provenance_page_start = provenance_page_start
         self.provenance_page_end = provenance_page_end
+        self.miss_core_item = miss_core_item
 
     def complete_json(
         self,
@@ -66,8 +68,36 @@ class FakeJsonProvider:
         max_tokens: int,
     ) -> JsonCompletionResult:
         source = json.loads(user_prompt.split("\n", 1)[1])
+        if source.get("audit_protocol") == "semantic-prf-v1":
+            self.requests.append(
+                {
+                    "request_type": "quality_judge",
+                    "item_count": len(source["extracted_items"]),
+                    "max_tokens": max_tokens,
+                }
+            )
+            return JsonCompletionResult(
+                payload={
+                    "incorrect_items": [],
+                    "missed_core_items": (
+                        [
+                            {
+                                "item_id": None,
+                                "reason": "A core outcome was omitted.",
+                                "source_chunk_id": source["source_chunks"][0]["chunk_id"],
+                                "source_excerpt": SOURCE_TEXT,
+                            }
+                        ]
+                        if self.miss_core_item
+                        else []
+                    ),
+                },
+                usage={"prompt_tokens": 10, "completion_tokens": 5},
+                finish_reason="stop",
+            )
         self.requests.append(
             {
+                "request_type": "extraction",
                 "max_tokens": max_tokens,
                 "paper_id": source["paper_id"],
                 "source_keys": sorted(source),
@@ -268,28 +298,30 @@ def test_cli_extracts_each_paper_independently_to_one_json(tmp_path: Path) -> No
     assert summary.succeeded == 2
     assert summary.failed == 0
     assert summary.paper_ids == ("paper-1", "paper-2")
-    assert all("prior_global_context" not in request["source_keys"] for request in provider.requests)
-    assert all("Prior Global Context" not in request["system_prompt"] for request in provider.requests)
-    assert "PROVENANCE SEMANTICS AND HARD RULE" in provider.requests[1][
+    extraction_requests = [request for request in provider.requests if request["request_type"] == "extraction"]
+    assert len(extraction_requests) == 2
+    assert all("prior_global_context" not in request["source_keys"] for request in extraction_requests)
+    assert all("Prior Global Context" not in request["system_prompt"] for request in extraction_requests)
+    assert "PROVENANCE SEMANTICS AND HARD RULE" in extraction_requests[1][
         "system_prompt"
     ]
-    assert "logical propositions (Claims)" in provider.requests[1]["system_prompt"]
-    assert "scientific observations (Results)" in provider.requests[1]["system_prompt"]
-    assert "similarity ratio is at least 0.95" in provider.requests[1]["system_prompt"]
-    assert "always emit either true or false explicitly" in provider.requests[1][
+    assert "logical propositions (Claims)" in extraction_requests[1]["system_prompt"]
+    assert "scientific observations (Results)" in extraction_requests[1]["system_prompt"]
+    assert "similarity ratio is at least 0.95" in extraction_requests[1]["system_prompt"]
+    assert "always emit either true or false explicitly" in extraction_requests[1][
         "system_prompt"
     ]
-    assert 'every occurrence of "paraphrased": false' in provider.requests[1][
+    assert 'every occurrence of "paraphrased": false' in extraction_requests[1][
         "system_prompt"
     ]
     assert (
-        provider.requests[1]["system_prompt"].count(
+        extraction_requests[1]["system_prompt"].count(
             "PROVENANCE SEMANTICS AND HARD RULE"
         )
         == 2
     )
-    assert "FINAL MANDATORY PROVENANCE CHECK" in provider.requests[1]["system_prompt"]
-    system_prompt = provider.requests[1]["system_prompt"]
+    assert "FINAL MANDATORY PROVENANCE CHECK" in extraction_requests[1]["system_prompt"]
+    system_prompt = extraction_requests[1]["system_prompt"]
     assert "PROVENANCE DECISION FEW-SHOTS" in system_prompt
     assert "near-verbatim punctuation variation" in system_prompt
     assert 'Required decision: "paraphrased": false' in system_prompt
@@ -305,7 +337,9 @@ def test_cli_extracts_each_paper_independently_to_one_json(tmp_path: Path) -> No
         packet = PaperStudyPacketV2.model_validate_json(
             (output / f"{paper_id}.json").read_text(encoding="utf-8")
         )
-        assert packet.schema_version == "2.1"
+        assert packet.schema_version == "2.2"
+        assert packet.quality_assessment is not None
+        assert packet.quality_score == packet.quality_assessment.f1 == 1.0
         raw_packet = json.loads((output / f"{paper_id}.json").read_text(encoding="utf-8"))
         assert {"status", "requires_reconciliation", "merge_decisions"}.isdisjoint(
             raw_packet
@@ -377,8 +411,9 @@ def test_cli_keeps_byte_identical_pdfs_as_independent_inputs(
         provider=provider,
     )
 
-    assert len(provider.requests) == 2
-    assert [request["paper_id"] for request in provider.requests] == ["1_13", "1_14"]
+    extraction_requests = [request for request in provider.requests if request["request_type"] == "extraction"]
+    assert len(extraction_requests) == 2
+    assert [request["paper_id"] for request in extraction_requests] == ["1_13", "1_14"]
     assert summary.paper_ids == ("1_13", "1_14")
     assert summary.succeeded == 2
     assert {path.name for path in output.iterdir()} == {"1_13.json", "1_14.json"}
@@ -388,7 +423,7 @@ def test_quality_failure_is_isolated_and_does_not_emit_partial_json(
     tmp_path: Path,
 ) -> None:
     _write_chunk_artifact(tmp_path, "paper-low", chunk_count=2)
-    provider = FakeJsonProvider(complete_boundaries=False)
+    provider = FakeJsonProvider(complete_boundaries=False, miss_core_item=True)
     output = tmp_path / "output"
 
     summary = run_extract_paper_study(

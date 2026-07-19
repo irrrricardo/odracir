@@ -187,6 +187,7 @@ class DeepSeekJsonProvider:
             ],
             "response_format": {"type": "json_object"},
             "max_tokens": max_tokens,
+            "temperature": 0,
         }
         if self.thinking:
             request["extra_body"] = {"thinking": {"type": self.thinking}}
@@ -990,7 +991,7 @@ def _validate_completion_payload(
     validation_warnings: tuple[PacketValidationWarning, ...] = (),
 ) -> PaperStudyPacketV2:
     prepared = dict(payload)
-    prepared["schema_version"] = "2.1"
+    prepared["schema_version"] = "2.2"
     prepared["paper_id"] = artifact.paper_id
     prepared["metadata"] = {
         "source_file": artifact.source_file,

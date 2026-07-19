@@ -23,6 +23,7 @@ from odracir.paper_study.planning import (
     load_chunk_artifact,
 )
 from odracir.paper_study.quality import evaluate_packet_quality
+from odracir.paper_study.semantic_quality import evaluate_semantic_extraction_quality
 from odracir.paper_study.scheduler import PaperIndexEntry
 
 
@@ -32,7 +33,7 @@ _SAFE_PAPER_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 class IndependentRunSummary(StrictModel):
     """Compact stdout-only result; this is deliberately not a corpus artifact."""
 
-    schema_version: str = "2.1-run.1"
+    schema_version: str = "2.2-run.1"
     input_folder: str = Field(min_length=1)
     output_folder: str = Field(min_length=1)
     paper_ids: tuple[str, ...]
@@ -133,11 +134,23 @@ def extract_one_paper(
             }
         },
     )
-    report = evaluate_packet_quality(canonical)
-    canonical.quality_score = report.score
-    if report.score < minimum_quality_score:
+    rule_report = evaluate_packet_quality(canonical)
+    # Recall is evaluated against the complete paper, not merely the chunks that
+    # produced the extraction. Otherwise a narrow extraction scope could earn a
+    # misleadingly perfect score by hiding omitted sections from the judge.
+    quality_source_chunks = tuple(artifact.chunks)
+    assessment = evaluate_semantic_extraction_quality(
+        canonical,
+        quality_source_chunks,
+        provider,
+        deterministic_rule_score=rule_report.score,
+        max_tokens=min(max_tokens, 4_000),
+    )
+    canonical.quality_assessment = assessment
+    canonical.quality_score = assessment.f1
+    if assessment.f1 < minimum_quality_score:
         raise ValueError(
-            f"quality score {report.score:.4f} is below {minimum_quality_score:.4f}"
+            f"semantic F1 {assessment.f1:.4f} is below {minimum_quality_score:.4f}"
         )
     return _write_packet(canonical, Path(output_folder) / f"{entry.paper_id}.json")
 

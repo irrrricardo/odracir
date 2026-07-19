@@ -353,12 +353,65 @@ class PacketValidationWarning(StrictModel):
         )
 
 
+class SemanticQualityIssue(StrictModel):
+    """One judge-audited extraction error or source omission."""
+
+    item_id: str | None = None
+    description: str = Field(min_length=1)
+    source_chunk_id: str | None = None
+    source_excerpt: str | None = None
+
+
+class ExtractionQualityAssessment(StrictModel):
+    """Agents-K1-style semantic precision/recall audit for one paper packet."""
+
+    protocol: Literal["semantic-prf-v1"] = "semantic-prf-v1"
+    judge_provider: str = Field(min_length=1)
+    judge_model: str = Field(min_length=1)
+    extracted_item_count: int = Field(ge=1)
+    correct_item_count: int = Field(ge=0)
+    incorrect_item_count: int = Field(ge=0)
+    missed_core_item_count: int = Field(ge=0)
+    precision: float = Field(ge=0.0, le=1.0)
+    recall: float = Field(ge=0.0, le=1.0)
+    f1: float = Field(ge=0.0, le=1.0)
+    deterministic_rule_score: float = Field(ge=0.0, le=1.0)
+    incorrect_items: list[SemanticQualityIssue] = Field(default_factory=list)
+    missed_core_items: list[SemanticQualityIssue] = Field(default_factory=list)
+    evidence_strength_observability: dict[str, float | None] = Field(
+        default_factory=dict,
+        description=(
+            "EvidenceNet-inspired availability signals; these are not extraction "
+            "quality and are not folded into semantic F1."
+        ),
+    )
+
+    @model_validator(mode="after")
+    def validate_counts_and_scores(self) -> ExtractionQualityAssessment:
+        if self.correct_item_count + self.incorrect_item_count != self.extracted_item_count:
+            raise ValueError("correct plus incorrect must equal extracted item count")
+        if len(self.incorrect_items) != self.incorrect_item_count:
+            raise ValueError("incorrect item details must match incorrect_item_count")
+        if len(self.missed_core_items) != self.missed_core_item_count:
+            raise ValueError("missed item details must match missed_core_item_count")
+        precision = self.correct_item_count / self.extracted_item_count
+        recall_denominator = self.correct_item_count + self.missed_core_item_count
+        recall = self.correct_item_count / recall_denominator if recall_denominator else 0.0
+        f1 = 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
+        if self.precision != round(precision, 4):
+            raise ValueError("precision does not match audited counts")
+        if self.recall != round(recall, 4):
+            raise ValueError("recall does not match audited counts")
+        if self.f1 != round(f1, 4):
+            raise ValueError("f1 does not match audited counts")
+        return self
+
+
 class PaperStudyPacketV2(StrictModel):
     """Canonical, single-artifact representation of an Odracir v2 paper study."""
 
-    # 2.0 remains readable so downstream consumers can migrate existing packets;
-    # every new extraction is materialized as 2.1.
-    schema_version: Literal["2.0", "2.1"] = "2.1"
+    # Older packets remain readable for downstream migration.
+    schema_version: Literal["2.0", "2.1", "2.2"] = "2.2"
     paper_id: str = Field(min_length=1)
     status: PacketStatus = "accepted"
     requires_reconciliation: bool = False
@@ -367,6 +420,7 @@ class PaperStudyPacketV2(StrictModel):
     research_questions: list[ResearchQuestion] = Field(default_factory=list)
     limitations_and_boundaries: list[str] = Field(default_factory=list)
     quality_score: float = Field(default=0.0, ge=0.0, le=1.0)
+    quality_assessment: ExtractionQualityAssessment | None = None
     coverage_ledger: dict[str, CoverageStatus] = Field(
         default_factory=dict,
         description="Per-chunk extraction status.",
