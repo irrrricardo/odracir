@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import shutil
+import csv
 from pathlib import Path
 from typing import Any
 
@@ -291,6 +292,12 @@ def test_cli_extracts_each_paper_independently_to_one_json(tmp_path: Path) -> No
             str(output),
             "--max-chunks",
             "1",
+            "--input-usd-per-million-tokens",
+            "1.0",
+            "--output-usd-per-million-tokens",
+            "2.0",
+            "--pricing-as-of",
+            "2026-07-19",
         ],
         provider=provider,
     )
@@ -333,6 +340,35 @@ def test_cli_extracts_each_paper_independently_to_one_json(tmp_path: Path) -> No
     assert "only the final schema-valid JSON object" in system_prompt
 
     assert {path.name for path in output.iterdir()} == {"paper-1.json", "paper-2.json"}
+    report = tmp_path / "output-report"
+    assert {path.name for path in report.iterdir()} == {
+        "summary.json",
+        "papers.csv",
+        "papers.jsonl",
+    }
+    run_summary = json.loads((report / "summary.json").read_text(encoding="utf-8"))
+    assert run_summary["succeeded"] == 2
+    assert run_summary["failed"] == 0
+    assert run_summary["total_prompt_tokens"] == 40
+    assert run_summary["total_completion_tokens"] == 50
+    assert run_summary["total_tokens"] == 90
+    assert run_summary["estimated_cost_usd"] == pytest.approx(0.00014)
+    assert run_summary["pricing"]["pricing_as_of"] == "2026-07-19"
+    jsonl_records = [
+        json.loads(line)
+        for line in (report / "papers.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    with (report / "papers.csv").open(encoding="utf-8", newline="") as handle:
+        csv_records = list(csv.DictReader(handle))
+    assert [record["paper_id"] for record in jsonl_records] == ["paper-1", "paper-2"]
+    assert [record["paper_id"] for record in csv_records] == ["paper-1", "paper-2"]
+    assert all(record["extraction"]["prompt_tokens"] == 10 for record in jsonl_records)
+    assert all(record["quality_judge"]["completion_tokens"] == 5 for record in jsonl_records)
+    assert summary.report_paths == {
+        "summary": str((report / "summary.json").resolve()),
+        "jsonl": str((report / "papers.jsonl").resolve()),
+        "csv": str((report / "papers.csv").resolve()),
+    }
     for paper_id in ("paper-1", "paper-2"):
         packet = PaperStudyPacketV2.model_validate_json(
             (output / f"{paper_id}.json").read_text(encoding="utf-8")
@@ -444,6 +480,14 @@ def test_quality_failure_is_isolated_and_does_not_emit_partial_json(
     assert summary.failed == 1
     assert "paper-low" in summary.failures
     assert list(output.iterdir()) == []
+    failure_record = json.loads(
+        (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
+    )
+    assert failure_record["status"] == "failed"
+    assert failure_record["quality_score"] < 1.0
+    assert failure_record["extraction"]["total_tokens"] == 30
+    assert failure_record["quality_judge"]["total_tokens"] == 15
+    assert failure_record["error_type"] == "ValueError"
 
 
 def test_output_folder_must_be_empty_to_prevent_stale_corpus_files(

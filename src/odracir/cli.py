@@ -1,4 +1,4 @@
-"""Command-line entry point for independent Odracir 2.1 extraction."""
+"""Command-line entry point for independent Odracir 2.2 extraction."""
 
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from odracir.paper_study.extraction import DeepSeekJsonProvider, JsonCompletionP
 from odracir.paper_study.independent import IndependentRunSummary, run_independent_extractions
 from odracir.paper_study.ingestion import ensure_pdf_chunk_artifacts
 from odracir.paper_study.pipeline import discover_paper_entries
+from odracir.paper_study.run_reporting import PricingSnapshot
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -47,32 +48,48 @@ def run_extract_paper_study(
     output_folder = (
         Path(args.output_folder).expanduser().resolve()
         if args.output_folder
-        else paper_folder / ".odracir" / "paper-study-2.1"
+        else paper_folder / ".odracir" / "paper-study-2.2"
+    )
+    report_folder = (
+        Path(args.report_folder).expanduser().resolve()
+        if args.report_folder
+        else output_folder.with_name(f"{output_folder.name}-report")
+    )
+    pricing = PricingSnapshot(
+        input_usd_per_million_tokens=args.input_usd_per_million_tokens,
+        output_usd_per_million_tokens=args.output_usd_per_million_tokens,
+        pricing_as_of=args.pricing_as_of,
     )
     return run_independent_extractions(
         entries,
         completion_provider,
         input_folder=paper_folder,
         output_folder=output_folder,
+        report_folder=report_folder,
         max_chunks=args.max_chunks,
         max_tokens=args.max_tokens,
         validation_retries=args.validation_retries,
         minimum_quality_score=args.minimum_quality_score,
+        pricing=pricing,
     )
 
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="odracir extract-paper-study",
-        description="Independently convert every PDF to one Odracir 2.1 JSON file.",
+        description="Independently convert every PDF to one Odracir 2.2 JSON file.",
     )
     parser.add_argument("--paper-folder", required=True)
     parser.add_argument("--index")
     parser.add_argument("--output-folder")
+    parser.add_argument("--report-folder")
     parser.add_argument("--max-chunks", type=_positive_int, default=4)
     parser.add_argument("--max-tokens", type=_positive_int, default=16_000)
     parser.add_argument("--validation-retries", type=_nonnegative_int, default=1)
     parser.add_argument("--minimum-quality-score", type=_unit_float, default=0.6)
+    parser.add_argument("--input-usd-per-million-tokens", type=_nonnegative_float)
+    parser.add_argument("--output-usd-per-million-tokens", type=_nonnegative_float)
+    parser.add_argument("--pricing-as-of")
     parser.add_argument("--env-file")
     return parser
 
@@ -95,6 +112,13 @@ def _unit_float(value: str) -> float:
     parsed = float(value)
     if not 0 <= parsed <= 1:
         raise argparse.ArgumentTypeError("must be between 0 and 1")
+    return parsed
+
+
+def _nonnegative_float(value: str) -> float:
+    parsed = float(value)
+    if parsed < 0:
+        raise argparse.ArgumentTypeError("must not be negative")
     return parsed
 
 

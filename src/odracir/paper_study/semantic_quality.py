@@ -42,6 +42,14 @@ class _JudgeResponse(StrictModel):
         return self
 
 
+class SemanticQualityEvaluation(StrictModel):
+    """Quality assessment plus the provider telemetry that produced it."""
+
+    assessment: ExtractionQualityAssessment
+    usage: dict[str, int] = Field(default_factory=dict)
+    finish_reason: str = Field(min_length=1)
+
+
 def evaluate_semantic_extraction_quality(
     packet: PaperStudyPacketV2,
     chunks: tuple[SourceChunk, ...],
@@ -49,7 +57,7 @@ def evaluate_semantic_extraction_quality(
     *,
     deterministic_rule_score: float,
     max_tokens: int = 4_000,
-) -> ExtractionQualityAssessment:
+) -> SemanticQualityEvaluation:
     """Estimate semantic P/R/F1 from supported, incorrect, and missed core items."""
 
     items = _atomic_items(packet)
@@ -84,7 +92,7 @@ def evaluate_semantic_extraction_quality(
     precision = correct / extracted
     recall = correct / (correct + missed) if correct + missed else 0.0
     f1 = 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
-    return ExtractionQualityAssessment(
+    assessment = ExtractionQualityAssessment(
         judge_provider=provider.provider_name,
         judge_model=provider.model,
         extracted_item_count=extracted,
@@ -98,6 +106,11 @@ def evaluate_semantic_extraction_quality(
         incorrect_items=[SemanticQualityIssue(**item.model_dump()) for item in judged.incorrect_items],
         missed_core_items=[SemanticQualityIssue(**item.model_dump()) for item in judged.missed_core_items],
         evidence_strength_observability=_evidence_strength_observability(packet),
+    )
+    return SemanticQualityEvaluation(
+        assessment=assessment,
+        usage=completion.usage,
+        finish_reason=completion.finish_reason,
     )
 
 
