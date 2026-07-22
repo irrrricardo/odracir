@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any
 
 import pytest
 
-from odracir.paper_study.extraction import DeepSeekJsonProvider
+from odracir.paper_study.extraction import (
+    DeepSeekJsonProvider,
+    ProviderResponseError,
+)
 
 
 DEEPSEEK_ENV_KEYS = (
@@ -106,3 +111,51 @@ def test_from_environment_reports_missing_key(
 
     with pytest.raises(RuntimeError, match="Missing DEEPSEEK_API_KEY"):
         DeepSeekJsonProvider.from_environment()
+
+
+def test_invalid_json_response_preserves_usage_and_safe_diagnostics() -> None:
+    content = '{"research_questions": [}'
+
+    class FakeCompletions:
+        def create(self, **request: Any) -> Any:
+            assert request["response_format"] == {"type": "json_object"}
+            return SimpleNamespace(
+                choices=[
+                    SimpleNamespace(
+                        message=SimpleNamespace(content=content),
+                        finish_reason="stop",
+                    )
+                ],
+                usage={
+                    "prompt_tokens": 123,
+                    "completion_tokens": 7,
+                    "total_tokens": 130,
+                },
+            )
+
+    provider = DeepSeekJsonProvider.__new__(DeepSeekJsonProvider)
+    provider.model = "deepseek-v4-pro"
+    provider.thinking = "disabled"
+    provider._client = SimpleNamespace(
+        chat=SimpleNamespace(completions=FakeCompletions())
+    )
+
+    with pytest.raises(ProviderResponseError) as exc_info:
+        provider.complete_json(
+            system_prompt="system",
+            user_prompt="user",
+            max_tokens=1_000,
+        )
+
+    error = exc_info.value
+    assert error.usage == {
+        "prompt_tokens": 123,
+        "completion_tokens": 7,
+        "total_tokens": 130,
+    }
+    assert error.finish_reason == "stop"
+    assert error.response_characters == len(content)
+    assert error.response_sha256 == hashlib.sha256(content.encode()).hexdigest()
+    assert "Expecting value at line 1" in (error.json_error or "")
+    assert content not in str(error)
+    assert f"response_chars={len(content)}" in str(error)

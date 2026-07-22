@@ -14,7 +14,11 @@ from odracir.paper_study.canonicalization import (
     apply_canonicalization_plan,
     plan_canonicalization,
 )
-from odracir.paper_study.extraction import JsonCompletionProvider, extract_paper_study
+from odracir.paper_study.extraction import (
+    ExtractionStageFailure,
+    JsonCompletionProvider,
+    extract_paper_study,
+)
 from odracir.paper_study.models import (
     PROVENANCE_SOURCE_TEXT_CONTEXT_KEY,
     PaperStudyPacketV2,
@@ -165,13 +169,29 @@ def _execute_one_paper(
             }
         )
         extraction_started = time.perf_counter()
-        extracted = extract_paper_study(
-            artifact,
-            plan,
-            provider,
-            max_tokens=max_tokens,
-            validation_retries=validation_retries,
-        )
+        try:
+            extracted = extract_paper_study(
+                artifact,
+                plan,
+                provider,
+                max_tokens=max_tokens,
+                validation_retries=validation_retries,
+            )
+        except ExtractionStageFailure as exc:
+            record = record.model_copy(
+                update={
+                    "extraction": stage_metrics(
+                        model=exc.model,
+                        attempts=exc.attempts,
+                        usage=exc.usage,
+                        latency_seconds=time.perf_counter() - extraction_started,
+                        pricing=pricing,
+                        finish_reason=exc.finish_reason,
+                        usage_complete=exc.usage_complete,
+                    )
+                }
+            )
+            raise
         record = record.model_copy(
             update={
                 "extraction": stage_metrics(
@@ -181,6 +201,7 @@ def _execute_one_paper(
                     latency_seconds=time.perf_counter() - extraction_started,
                     pricing=pricing,
                     finish_reason=extracted.finish_reason,
+                    usage_complete=extracted.usage_complete,
                 )
             }
         )
@@ -217,6 +238,7 @@ def _execute_one_paper(
                     latency_seconds=time.perf_counter() - judge_started,
                     pricing=pricing,
                     finish_reason=judged.finish_reason,
+                    usage_complete=judged.usage_complete,
                 )
             }
         )

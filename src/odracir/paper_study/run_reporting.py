@@ -38,6 +38,7 @@ class StageMetrics(StrictModel):
     prompt_tokens: int = Field(default=0, ge=0)
     completion_tokens: int = Field(default=0, ge=0)
     total_tokens: int = Field(default=0, ge=0)
+    usage_complete: bool = True
     latency_seconds: float = Field(ge=0.0)
     estimated_cost_usd: float | None = Field(default=None, ge=0.0)
     finish_reason: str | None = None
@@ -63,6 +64,7 @@ class PaperRunRecord(StrictModel):
     total_prompt_tokens: int = Field(default=0, ge=0)
     total_completion_tokens: int = Field(default=0, ge=0)
     total_tokens: int = Field(default=0, ge=0)
+    usage_complete: bool = True
     total_latency_seconds: float = Field(default=0.0, ge=0.0)
     estimated_cost_usd: float | None = Field(default=None, ge=0.0)
     error_type: str | None = None
@@ -83,6 +85,8 @@ class RunReportSummary(StrictModel):
     total_prompt_tokens: int = Field(ge=0)
     total_completion_tokens: int = Field(ge=0)
     total_tokens: int = Field(ge=0)
+    usage_complete: bool = True
+    estimated_cost_is_lower_bound: bool = False
     total_latency_seconds: float = Field(ge=0.0)
     estimated_cost_usd: float | None = Field(default=None, ge=0.0)
     mean_quality_score: float | None = Field(default=None, ge=0.0, le=1.0)
@@ -99,10 +103,13 @@ def stage_metrics(
     latency_seconds: float,
     pricing: PricingSnapshot,
     finish_reason: str | None,
+    usage_complete: bool = True,
 ) -> StageMetrics:
     prompt = _usage_value(usage, "prompt_tokens", "input_tokens")
     completion = _usage_value(usage, "completion_tokens", "output_tokens")
-    total = usage.get("total_tokens", prompt + completion)
+    # Recompute the aggregate total.  Mixed provider attempts may omit total_tokens on
+    # some responses; summing only the reported totals would then undercount the run.
+    total = prompt + completion
     cost = _estimated_cost(prompt, completion, pricing)
     return StageMetrics(
         model=model,
@@ -110,6 +117,7 @@ def stage_metrics(
         prompt_tokens=prompt,
         completion_tokens=completion,
         total_tokens=total,
+        usage_complete=usage_complete,
         latency_seconds=round(latency_seconds, 6),
         estimated_cost_usd=cost,
         finish_reason=finish_reason,
@@ -124,6 +132,7 @@ def finalize_record(record: PaperRunRecord) -> PaperRunRecord:
             "total_prompt_tokens": sum(stage.prompt_tokens for stage in stages),
             "total_completion_tokens": sum(stage.completion_tokens for stage in stages),
             "total_tokens": sum(stage.total_tokens for stage in stages),
+            "usage_complete": all(stage.usage_complete for stage in stages),
             "total_latency_seconds": round(
                 sum(stage.latency_seconds for stage in stages), 6
             ),
@@ -162,6 +171,10 @@ def write_run_report(
         total_prompt_tokens=sum(record.total_prompt_tokens for record in records),
         total_completion_tokens=sum(record.total_completion_tokens for record in records),
         total_tokens=sum(record.total_tokens for record in records),
+        usage_complete=all(record.usage_complete for record in records),
+        estimated_cost_is_lower_bound=not all(
+            record.usage_complete for record in records
+        ),
         total_latency_seconds=round(sum(record.total_latency_seconds for record in records), 6),
         estimated_cost_usd=(
             round(sum(cost for cost in costs if cost is not None), 8)
@@ -191,7 +204,7 @@ def _write_csv(records: list[PaperRunRecord], path: Path) -> None:
         "paper_id", "status", "quality_score", "precision", "recall",
         "deterministic_rule_score", "incorrect_item_count", "missed_core_item_count",
         "total_prompt_tokens", "total_completion_tokens", "total_tokens",
-        "estimated_cost_usd", "total_latency_seconds", "output_file",
+        "estimated_cost_usd", "usage_complete", "total_latency_seconds", "output_file",
         "error_type", "error_message",
     )
     temporary = path.with_name(f".{path.name}.tmp")

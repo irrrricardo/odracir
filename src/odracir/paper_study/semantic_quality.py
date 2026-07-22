@@ -8,7 +8,11 @@ from typing import Any
 
 from pydantic import AliasChoices, Field, model_validator
 
-from odracir.paper_study.extraction import JsonCompletionProvider
+from odracir.paper_study.extraction import (
+    JsonCompletionProvider,
+    ProviderResponseError,
+    is_retryable_provider_error,
+)
 from odracir.paper_study.models import (
     ExtractionQualityAssessment,
     PaperStudyPacketV2,
@@ -47,6 +51,7 @@ class SemanticQualityEvaluation(StrictModel):
 
     assessment: ExtractionQualityAssessment | None = None
     usage: dict[str, int] = Field(default_factory=dict)
+    usage_complete: bool = True
     finish_reason: str = Field(min_length=1)
     attempts: int = Field(ge=1)
     error_message: str | None = None
@@ -67,6 +72,8 @@ def evaluate_semantic_extraction_quality(
     aggregate_usage: dict[str, int] = {}
     completion = None
     last_error: Exception | None = None
+    last_finish_reason = "unknown"
+    provider_usage_complete = True
     for attempt in range(1, 3):
         prompt = original_prompt
         if attempt > 1 and completion is not None and last_error is not None:
@@ -75,12 +82,34 @@ def evaluate_semantic_extraction_quality(
                 invalid_payload=completion.payload,
                 error=last_error,
             )
-        completion = provider.complete_json(
-            system_prompt=_SYSTEM_PROMPT,
-            user_prompt=prompt,
-            max_tokens=max_tokens,
-        )
+        try:
+            completion = provider.complete_json(
+                system_prompt=_SYSTEM_PROMPT,
+                user_prompt=prompt,
+                max_tokens=max_tokens,
+            )
+        except Exception as exc:
+            if isinstance(exc, ProviderResponseError):
+                _add_usage(aggregate_usage, exc.usage)
+                last_finish_reason = exc.finish_reason
+            else:
+                provider_usage_complete = False
+            if not is_retryable_provider_error(exc):
+                raise
+            last_error = exc
+            if attempt < 2:
+                continue
+            return SemanticQualityEvaluation(
+                usage=aggregate_usage,
+                usage_complete=provider_usage_complete,
+                finish_reason=last_finish_reason,
+                attempts=attempt,
+                error_message=(
+                    f"Quality provider completion failed after {attempt} attempts: {exc}"
+                ),
+            )
         _add_usage(aggregate_usage, completion.usage)
+        last_finish_reason = completion.finish_reason
         try:
             judged = _JudgeResponse.model_validate(completion.payload)
             assessment = _build_assessment(
@@ -94,6 +123,7 @@ def evaluate_semantic_extraction_quality(
             return SemanticQualityEvaluation(
                 assessment=assessment,
                 usage=aggregate_usage,
+                usage_complete=provider_usage_complete,
                 finish_reason=completion.finish_reason,
                 attempts=attempt,
             )
@@ -102,6 +132,7 @@ def evaluate_semantic_extraction_quality(
     assert completion is not None and last_error is not None
     return SemanticQualityEvaluation(
         usage=aggregate_usage,
+        usage_complete=provider_usage_complete,
         finish_reason=completion.finish_reason,
         attempts=2,
         error_message=str(last_error) or repr(last_error),

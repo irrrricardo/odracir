@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 from copy import deepcopy
@@ -82,6 +83,69 @@ class JsonCompletionResult:
     payload: dict[str, Any]
     usage: dict[str, int]
     finish_reason: str = "unknown"
+
+
+class ProviderResponseError(ValueError):
+    """A completed provider response that could not satisfy the JSON contract.
+
+    The raw response is deliberately not retained here.  Non-sensitive diagnostics and
+    usage survive the exception so retry and run-report paths can remain auditable.
+    """
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        usage: dict[str, int],
+        finish_reason: str,
+        response_characters: int,
+        response_sha256: str,
+        json_error: str | None = None,
+    ) -> None:
+        details = [
+            f"finish_reason={finish_reason}",
+            f"response_chars={response_characters}",
+            f"response_sha256={response_sha256}",
+        ]
+        if json_error:
+            details.append(f"json_error={json_error}")
+        super().__init__(f"{message} ({'; '.join(details)})")
+        self.usage = dict(usage)
+        self.finish_reason = finish_reason
+        self.response_characters = response_characters
+        self.response_sha256 = response_sha256
+        self.json_error = json_error
+
+
+class ExtractionStageFailure(ValueError):
+    """Exhausted extraction-stage work with preserved provider telemetry."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        provider: str,
+        model: str,
+        attempts: int,
+        usage: dict[str, int],
+        finish_reason: str,
+        usage_complete: bool,
+    ) -> None:
+        super().__init__(message)
+        self.provider = provider
+        self.model = model
+        self.attempts = attempts
+        self.usage = dict(usage)
+        self.finish_reason = finish_reason
+        self.usage_complete = usage_complete
+
+
+class ExtractionProviderFailure(ExtractionStageFailure):
+    """Provider/JSON retries were exhausted during extraction."""
+
+
+class ExtractionValidationFailure(ExtractionStageFailure):
+    """Schema or semantic-structure retries were exhausted during extraction."""
 
 
 class JsonCompletionProvider(Protocol):
@@ -194,18 +258,42 @@ class DeepSeekJsonProvider:
         response = self._client.chat.completions.create(**request)
         choice = response.choices[0]
         content = choice.message.content or ""
+        usage = _usage_dict(response)
+        finish_reason = getattr(choice, "finish_reason", None) or "unknown"
+        response_sha256 = hashlib.sha256(content.encode("utf-8")).hexdigest()
         if not content:
-            raise ValueError("DeepSeek returned empty JSON content")
+            raise ProviderResponseError(
+                "DeepSeek returned empty JSON content",
+                usage=usage,
+                finish_reason=finish_reason,
+                response_characters=0,
+                response_sha256=response_sha256,
+            )
         try:
             payload = json.loads(content)
         except json.JSONDecodeError as exc:
-            raise ValueError("DeepSeek returned invalid JSON content") from exc
+            raise ProviderResponseError(
+                "DeepSeek returned invalid JSON content",
+                usage=usage,
+                finish_reason=finish_reason,
+                response_characters=len(content),
+                response_sha256=response_sha256,
+                json_error=(
+                    f"{exc.msg} at line {exc.lineno} column {exc.colno}"
+                ),
+            ) from exc
         if not isinstance(payload, dict):
-            raise ValueError("DeepSeek JSON response must be an object")
+            raise ProviderResponseError(
+                "DeepSeek JSON response must be an object",
+                usage=usage,
+                finish_reason=finish_reason,
+                response_characters=len(content),
+                response_sha256=response_sha256,
+            )
         return JsonCompletionResult(
             payload=payload,
-            usage=_usage_dict(response),
-            finish_reason=getattr(choice, "finish_reason", None) or "unknown",
+            usage=usage,
+            finish_reason=finish_reason,
         )
 
 
@@ -249,6 +337,7 @@ class PaperExtractionResult(StrictModel):
     model: str = Field(min_length=1)
     attempts: int = Field(ge=1)
     usage: dict[str, int] = Field(default_factory=dict)
+    usage_complete: bool = True
     finish_reason: str = Field(min_length=1)
     extraction_mode: Literal["hierarchical", "flat_fallback"] = "hierarchical"
     provenance_corrections: tuple[ProvenanceCorrectionAudit, ...] = Field(
@@ -290,6 +379,8 @@ def extract_paper_study(
     provenance_corrections: list[ProvenanceCorrectionAudit] = []
     provenance_page_corrections: list[ProvenancePageCorrectionAudit] = []
     method_id_corrections: list[MethodIdCorrectionAudit] = []
+    last_provider_finish_reason = "unknown"
+    provider_usage_complete = True
     source_texts = {chunk.chunk_id: chunk.text for chunk in selected_chunks}
     source_page_ranges = {
         chunk.chunk_id: (chunk.page_start, chunk.page_end)
@@ -318,14 +409,26 @@ def extract_paper_study(
                 max_tokens=max_tokens,
             )
         except Exception as exc:
-            if not _is_retryable_provider_error(exc):
+            if isinstance(exc, ProviderResponseError):
+                _merge_usage(total_usage, exc.usage)
+                last_provider_finish_reason = exc.finish_reason
+            else:
+                provider_usage_complete = False
+            if not is_retryable_provider_error(exc):
                 raise
             if attempt <= validation_retries:
                 continue
-            raise ValueError(
-                f"Provider completion failed after {attempt} attempts: {exc}"
+            raise ExtractionProviderFailure(
+                f"Provider completion failed after {attempt} attempts: {exc}",
+                provider=provider.provider_name,
+                model=provider.model,
+                attempts=attempt,
+                usage=total_usage,
+                finish_reason=last_provider_finish_reason,
+                usage_complete=provider_usage_complete,
             ) from exc
         _merge_usage(total_usage, completion.usage)
+        last_provider_finish_reason = completion.finish_reason
         (
             validation_payload,
             attempt_corrections,
@@ -372,6 +475,7 @@ def extract_paper_study(
             model=provider.model,
             attempts=attempt,
             usage=total_usage,
+            usage_complete=provider_usage_complete,
             finish_reason=completion.finish_reason,
             extraction_mode="hierarchical",
             provenance_corrections=tuple(provenance_corrections),
@@ -382,9 +486,15 @@ def extract_paper_study(
     if hierarchical_error is None or last_invalid_payload is None:
         raise RuntimeError("Extraction loop ended unexpectedly")
     if not _is_structural_id_conflict(hierarchical_error):
-        raise ValueError(
+        raise ExtractionValidationFailure(
             "Model output failed v2 validation after "
-            f"{hierarchical_attempt} attempts: {hierarchical_error}"
+            f"{hierarchical_attempt} attempts: {hierarchical_error}",
+            provider=provider.provider_name,
+            model=provider.model,
+            attempts=hierarchical_attempt,
+            usage=total_usage,
+            finish_reason=last_provider_finish_reason,
+            usage_complete=provider_usage_complete,
         ) from hierarchical_error
 
     fallback_attempt = hierarchical_attempt + 1
@@ -400,12 +510,24 @@ def extract_paper_study(
             max_tokens=max_tokens,
         )
     except Exception as exc:
-        if not _is_retryable_provider_error(exc):
+        if isinstance(exc, ProviderResponseError):
+            _merge_usage(total_usage, exc.usage)
+            last_provider_finish_reason = exc.finish_reason
+        else:
+            provider_usage_complete = False
+        if not is_retryable_provider_error(exc):
             raise
-        raise ValueError(
-            f"Flat fallback provider completion failed on attempt {fallback_attempt}: {exc}"
+        raise ExtractionProviderFailure(
+            f"Flat fallback provider completion failed on attempt {fallback_attempt}: {exc}",
+            provider=provider.provider_name,
+            model=provider.model,
+            attempts=fallback_attempt,
+            usage=total_usage,
+            finish_reason=last_provider_finish_reason,
+            usage_complete=provider_usage_complete,
         ) from exc
     _merge_usage(total_usage, fallback_completion.usage)
+    last_provider_finish_reason = fallback_completion.finish_reason
     (
         fallback_payload,
         fallback_provenance_corrections,
@@ -436,9 +558,15 @@ def extract_paper_study(
         )
         _validate_flat_fallback_shape(packet)
     except (ValidationError, ValueError) as exc:
-        raise ValueError(
+        raise ExtractionValidationFailure(
             "Flat fallback output failed strict v2 validation on attempt "
-            f"{fallback_attempt}: {exc}"
+            f"{fallback_attempt}: {exc}",
+            provider=provider.provider_name,
+            model=provider.model,
+            attempts=fallback_attempt,
+            usage=total_usage,
+            finish_reason=last_provider_finish_reason,
+            usage_complete=provider_usage_complete,
         ) from exc
 
     packet.quality_score = evaluate_packet_quality(packet).score
@@ -448,6 +576,7 @@ def extract_paper_study(
         model=provider.model,
         attempts=fallback_attempt,
         usage=total_usage,
+        usage_complete=provider_usage_complete,
         finish_reason=fallback_completion.finish_reason,
         extraction_mode="flat_fallback",
         provenance_corrections=tuple(provenance_corrections),
@@ -952,7 +1081,7 @@ def _is_structural_id_conflict(error: ValidationError | ValueError) -> bool:
     return any(marker in text for marker in structural_markers)
 
 
-def _is_retryable_provider_error(error: Exception) -> bool:
+def is_retryable_provider_error(error: Exception) -> bool:
     """Classify provider failures without making OpenAI an import-time requirement."""
 
     if isinstance(error, ValueError):

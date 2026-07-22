@@ -13,6 +13,7 @@ from odracir.cli import run_extract_paper_study
 from odracir.paper_study.extraction import (
     JsonCompletionResult,
     MethodIdCorrectionAudit,
+    ProviderResponseError,
     _apply_safe_provenance_corrections,
     _build_repair_prompt,
     extract_paper_study,
@@ -1211,3 +1212,293 @@ def test_transient_invalid_json_provider_failure_retries_without_warning(
     assert result.packet.status == "accepted"
     assert result.packet.requires_reconciliation is False
     assert result.packet.validation_warnings == []
+
+
+def test_exhausted_invalid_json_retries_retain_usage_in_failure_report(
+    tmp_path: Path,
+) -> None:
+    _write_chunk_artifact(tmp_path, "paper-invalid-json")
+
+    class MeteredInvalidProvider(FakeJsonProvider):
+        def complete_json(
+            self,
+            *,
+            system_prompt: str,
+            user_prompt: str,
+            max_tokens: int,
+        ) -> JsonCompletionResult:
+            raise ProviderResponseError(
+                "DeepSeek returned invalid JSON content",
+                usage={
+                    "prompt_tokens": 10,
+                    "completion_tokens": 5,
+                    "total_tokens": 15,
+                },
+                finish_reason="stop",
+                response_characters=99,
+                response_sha256="a" * 64,
+                json_error="Expecting ',' delimiter at line 1 column 99",
+            )
+
+    output = tmp_path / "output"
+    summary = run_extract_paper_study(
+        [
+            "--paper-folder",
+            str(tmp_path),
+            "--output-folder",
+            str(output),
+            "--validation-retries",
+            "1",
+            "--input-usd-per-million-tokens",
+            "1.0",
+            "--output-usd-per-million-tokens",
+            "2.0",
+            "--pricing-as-of",
+            "2026-07-22",
+        ],
+        provider=MeteredInvalidProvider(),
+    )
+
+    assert summary.succeeded == 0
+    assert summary.failed == 1
+    assert list(output.iterdir()) == []
+    record = json.loads(
+        (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
+    )
+    assert record["extraction"]["attempts"] == 2
+    assert record["extraction"]["prompt_tokens"] == 20
+    assert record["extraction"]["completion_tokens"] == 10
+    assert record["extraction"]["total_tokens"] == 30
+    assert record["extraction"]["finish_reason"] == "stop"
+    assert record["estimated_cost_usd"] == pytest.approx(0.00004)
+    assert "response_chars=99" in record["error_message"]
+    run_summary = json.loads(
+        (tmp_path / "output-report" / "summary.json").read_text(encoding="utf-8")
+    )
+    assert run_summary["estimated_cost_usd"] == pytest.approx(0.00004)
+
+
+def test_unmetered_provider_failure_marks_cost_as_a_lower_bound(
+    tmp_path: Path,
+) -> None:
+    _write_chunk_artifact(tmp_path, "paper-unmetered")
+
+    class UnmeteredProvider(FakeJsonProvider):
+        def complete_json(
+            self,
+            *,
+            system_prompt: str,
+            user_prompt: str,
+            max_tokens: int,
+        ) -> JsonCompletionResult:
+            raise ValueError("temporary provider failure without usage")
+
+    summary = run_extract_paper_study(
+        [
+            "--paper-folder",
+            str(tmp_path),
+            "--output-folder",
+            str(tmp_path / "output"),
+            "--validation-retries",
+            "1",
+            "--input-usd-per-million-tokens",
+            "1.0",
+            "--output-usd-per-million-tokens",
+            "2.0",
+            "--pricing-as-of",
+            "2026-07-22",
+        ],
+        provider=UnmeteredProvider(),
+    )
+
+    assert summary.failed == 1
+    record = json.loads(
+        (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
+    )
+    assert record["extraction"]["usage_complete"] is False
+    assert record["usage_complete"] is False
+    run_summary = json.loads(
+        (tmp_path / "output-report" / "summary.json").read_text(encoding="utf-8")
+    )
+    assert run_summary["usage_complete"] is False
+    assert run_summary["estimated_cost_is_lower_bound"] is True
+
+
+def test_exhausted_schema_retries_retain_usage_in_failure_report(
+    tmp_path: Path,
+) -> None:
+    _write_chunk_artifact(tmp_path, "paper-invalid-schema")
+    output = tmp_path / "output"
+
+    class InvalidSchemaProvider(FakeJsonProvider):
+        def complete_json(
+            self,
+            *,
+            system_prompt: str,
+            user_prompt: str,
+            max_tokens: int,
+        ) -> JsonCompletionResult:
+            if user_prompt.startswith("Correct the previous JSON"):
+                return JsonCompletionResult(
+                    payload=json.loads(json.dumps(self.payloads[0])),
+                    usage={"prompt_tokens": 10, "completion_tokens": 20},
+                    finish_reason="stop",
+                )
+            return super().complete_json(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                max_tokens=max_tokens,
+            )
+
+    summary = run_extract_paper_study(
+        [
+            "--paper-folder",
+            str(tmp_path),
+            "--output-folder",
+            str(output),
+            "--validation-retries",
+            "1",
+            "--input-usd-per-million-tokens",
+            "1.0",
+            "--output-usd-per-million-tokens",
+            "2.0",
+            "--pricing-as-of",
+            "2026-07-22",
+        ],
+        provider=InvalidSchemaProvider(provenance_paraphrased=None),
+    )
+
+    assert summary.succeeded == 0
+    assert summary.failed == 1
+    assert list(output.iterdir()) == []
+    record = json.loads(
+        (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
+    )
+    assert record["extraction"]["attempts"] == 2
+    assert record["extraction"]["prompt_tokens"] == 20
+    assert record["extraction"]["completion_tokens"] == 40
+    assert record["extraction"]["total_tokens"] == 60
+    assert record["estimated_cost_usd"] == pytest.approx(0.0001)
+    assert "Model output failed v2 validation after 2 attempts" in record[
+        "error_message"
+    ]
+
+
+def test_semantic_judge_retries_invalid_json_without_reextracting(
+    tmp_path: Path,
+) -> None:
+    _write_chunk_artifact(tmp_path, "paper-judge-retry")
+
+    class TransientJudgeProvider(FakeJsonProvider):
+        judge_provider_calls = 0
+
+        def complete_json(
+            self,
+            *,
+            system_prompt: str,
+            user_prompt: str,
+            max_tokens: int,
+        ) -> JsonCompletionResult:
+            if user_prompt.startswith("Audit this extraction."):
+                self.judge_provider_calls += 1
+                if self.judge_provider_calls == 1:
+                    raise ProviderResponseError(
+                        "DeepSeek returned invalid JSON content",
+                        usage={
+                            "prompt_tokens": 7,
+                            "completion_tokens": 3,
+                            "total_tokens": 10,
+                        },
+                        finish_reason="stop",
+                        response_characters=77,
+                        response_sha256="b" * 64,
+                        json_error="Unterminated string at line 4 column 2",
+                    )
+            return super().complete_json(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                max_tokens=max_tokens,
+            )
+
+    provider = TransientJudgeProvider()
+    output = tmp_path / "output"
+    summary = run_extract_paper_study(
+        ["--paper-folder", str(tmp_path), "--output-folder", str(output)],
+        provider=provider,
+    )
+
+    assert summary.succeeded == 1
+    assert provider.judge_provider_calls == 2
+    extraction_requests = [
+        request
+        for request in provider.requests
+        if request["request_type"] == "extraction"
+    ]
+    assert len(extraction_requests) == 1
+    record = json.loads(
+        (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
+    )
+    assert record["quality_judge"]["attempts"] == 2
+    assert record["quality_judge"]["prompt_tokens"] == 17
+    assert record["quality_judge"]["completion_tokens"] == 8
+    assert record["quality_judge"]["total_tokens"] == 25
+    assert record["quality_score"] == 1.0
+
+
+def test_exhausted_semantic_judge_json_retries_keep_judge_telemetry(
+    tmp_path: Path,
+) -> None:
+    _write_chunk_artifact(tmp_path, "paper-judge-failure")
+
+    class InvalidJudgeProvider(FakeJsonProvider):
+        judge_provider_calls = 0
+
+        def complete_json(
+            self,
+            *,
+            system_prompt: str,
+            user_prompt: str,
+            max_tokens: int,
+        ) -> JsonCompletionResult:
+            if user_prompt.startswith("Audit this extraction."):
+                self.judge_provider_calls += 1
+                raise ProviderResponseError(
+                    "DeepSeek returned invalid JSON content",
+                    usage={
+                        "prompt_tokens": 7,
+                        "completion_tokens": 3,
+                        "total_tokens": 10,
+                    },
+                    finish_reason="stop",
+                    response_characters=77,
+                    response_sha256="c" * 64,
+                    json_error="Unterminated string at line 4 column 2",
+                )
+            return super().complete_json(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                max_tokens=max_tokens,
+            )
+
+    provider = InvalidJudgeProvider()
+    output = tmp_path / "output"
+    summary = run_extract_paper_study(
+        ["--paper-folder", str(tmp_path), "--output-folder", str(output)],
+        provider=provider,
+    )
+
+    assert summary.succeeded == 0
+    assert summary.failed == 1
+    assert provider.judge_provider_calls == 2
+    assert list(output.iterdir()) == []
+    record = json.loads(
+        (tmp_path / "output-report" / "papers.jsonl").read_text(encoding="utf-8")
+    )
+    assert record["extraction"]["attempts"] == 1
+    assert record["quality_judge"]["attempts"] == 2
+    assert record["quality_judge"]["prompt_tokens"] == 14
+    assert record["quality_judge"]["completion_tokens"] == 6
+    assert record["quality_judge"]["total_tokens"] == 20
+    assert "Quality provider completion failed after 2 attempts" in record[
+        "error_message"
+    ]
