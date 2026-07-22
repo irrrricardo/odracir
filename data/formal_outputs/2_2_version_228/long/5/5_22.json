@@ -1,0 +1,371 @@
+{
+  "coverage_ledger": {
+    "02bdae2cef576b21c142": "not_selected",
+    "1e7f10b0014a6504d7a7": "not_selected",
+    "228543200aa4ce6e3966": "not_selected",
+    "2b1ff2dd4073c3df1e8d": "not_selected",
+    "35bbc3fa7e027630e68e": "not_selected",
+    "3650e9fdef1df4a2ee64": "not_selected",
+    "4a19198b7b6ddde5d51d": "not_selected",
+    "56d03176fd5209c1acbd": "not_selected",
+    "5b780cacf80d6ecd9db4": "extracted",
+    "637aa2e46919d746fd2f": "not_selected",
+    "67e42b1afa1ce7febfa8": "extracted",
+    "6d6307098a31dde868f0": "not_selected",
+    "7bd7325ad88d08cffe16": "not_selected",
+    "92ad9bb7360750f90e6e": "not_selected",
+    "95cd054dbc1b5de2bd48": "not_selected",
+    "aa03be65551c34ccee87": "not_selected",
+    "ad0182737edde1eb96ad": "not_selected",
+    "c361afa1b9c6e3a90589": "not_selected",
+    "c64cc3915c6c41242268": "not_selected",
+    "dd5343ea10452ef19fb9": "not_selected",
+    "dee71754947bdf7369fa": "not_selected",
+    "e66806916a884614e035": "extracted",
+    "e94e6f46362987d2fd15": "extracted",
+    "ec88ed3b4bcf469a4e72": "not_selected",
+    "ec9b0e9da6a8ee1e1f3f": "not_selected",
+    "f62c77ce53d9b94ef91f": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The method is designed for additive nonlinear models with arbitrary noise, but its performance may degrade under model misspecification.",
+    "The experimental evaluation is limited to synthetic data and one real-world dataset (Sachs).",
+    "The algorithm assumes the causal graph is a DAG and that the SCM is identifiable under the additive noise model."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_22.pdf",
+    "source_sha256": "39889911afd09a0e6ac4803ba4c4c828a7ee26a6d8ce315e18e2af0a8fbbc618"
+  },
+  "paper_id": "5_22",
+  "quality_assessment": {
+    "correct_item_count": 19,
+    "deterministic_rule_score": 0.7492,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.6,
+      "sample_size_log_score": 0.3471,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 23,
+    "f1": 0.8261,
+    "incorrect_item_count": 4,
+    "incorrect_items": [
+      {
+        "description": "The extracted SID value 4.2 ± 5.4 is attributed to NoGAM on ER1 sparse graphs with Beta noise, but the source chunk (e94e6f46362987d2fd15, page 21) shows this value in a table for Beta noise ER1 d=10. However, the extracted item does not specify the noise distribution or graph type, and the provenance is marked as paraphrased. The source excerpt 'NoGAM 4.2 ± 5.4' is from a table row, but without context it is ambiguous. The extraction claims this as a general result, but it is only valid for a specific setting. The item is incorrect because it lacks necessary context (noise distribution, graph type, number of nodes) to be a faithful abstraction of the source.",
+        "item_id": "result:su_c0583c0a294c86ab51702f6c:res_28333ef64701699b3264cef6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Similar to the SID result, the Dtop value 0.6 ± 0.8 is extracted from the same table row for NoGAM under Beta noise ER1 d=10, but the item does not specify the noise distribution or graph type. The provenance is paraphrased, and the source excerpt 'NoGAM 0.6 ± 0.8' lacks context. The item is incorrect because it presents a specific result as a general one.",
+        "item_id": "result:su_c0583c0a294c86ab51702f6c:res_4f2a7fd4277b88edeeb094be",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The SHD value 1.1 ± 1.5 is extracted from the same table row for NoGAM under Beta noise ER1 d=10, but the item does not specify the noise distribution or graph type. The provenance is not paraphrased, but the source excerpt 'NoGAM 1.1 ± 1.5' is from a table without context. The item is incorrect because it lacks necessary context to be a faithful abstraction.",
+        "item_id": "result:su_c0583c0a294c86ab51702f6c:res_af4d734a174bb29a9a1cef5e",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'NoGAM and SCORE have comparable SHD performance.' The provenance chunk (e94e6f46362987d2fd15, page 21) says 'In Figure 6 we can see that SCORE and NoGAM have overall comparable SHD.' However, Figure 6 is for dense graphs (ER4), not all settings. The claim is presented as a general statement, but the source only supports it for dense graphs. The item is incorrect because it overstates the finding.",
+        "item_id": "claim:su_c0583c0a294c86ab51702f6c:clm_a09d96180d7b7fc6d03e9309",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 4,
+    "missed_core_items": [
+      {
+        "description": "NoGAM is tested on Sachs real data and Scale-free synthetic graphs, and its performance under linear regression is analyzed.",
+        "item_id": null,
+        "source_chunk_id": "ec88ed3b4bcf469a4e72",
+        "source_excerpt": "In the Appendix we provide a significant extension on our experiments. NoGAM performance is tested on Sachs real data (Sachs et al. (2005), Appendix H.1) and Scale-free synthetic graphs (Barabasi and Albert (1999), Appendix H.2). In Appendix H.3 we analyze the performance of NoGAM under restriction of the hypothesis space to linear functions for the regression problems of Equations (11) and (20).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "NoGAM outperforms RESIT under any of the experimental configurations.",
+        "item_id": null,
+        "source_chunk_id": "35bbc3fa7e027630e68e",
+        "source_excerpt": "We can see that NoGAM outperforms RESIT under any of the experimental configurations.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The algorithm assumes causal minimality and that the SCM is a restricted ANM ensuring identifiability.",
+        "item_id": null,
+        "source_chunk_id": "ad0182737edde1eb96ad",
+        "source_excerpt": "We assume causal mechanisms fi to be nonlinear functions continuously differentiable, and causal minimality to be satisfied.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The method requires the causal graph to be a DAG and the SCM to be identifiable under the additive noise model.",
+        "item_id": null,
+        "source_chunk_id": "7bd7325ad88d08cffe16",
+        "source_excerpt": "We assume model (1) to be a restricted ANM according to Definition 27 of Peters et al. (2014), ensuring identifiability of the causal graph.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.8261,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8261
+  },
+  "quality_score": 0.8261,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does violation of the Gaussian noise assumption affect causal discovery in additive nonlinear models?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_01c10d96e09b6338745770d6",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "e66806916a884614e035",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Section 3 analyzes the risk of inferring inversed edges under violation of the Gaussian noise assumption"
+              },
+              "statement": "Violation of the Gaussian noise assumption in additive nonlinear models can lead to edge inversion in causal discovery."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Theoretical analysis of the risk of inferring inversed edges when the Gaussian noise assumption is violated in additive nonlinear models."
+          ],
+          "methods": [],
+          "name": "Analysis of edge inversion risk under non-Gaussian noise",
+          "results": [],
+          "unit_id": "su_444b3604a3df1f28acb24165"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Can we develop a causal discovery method for additive nonlinear models with arbitrary noise distributions?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4dce7a602f2923d9649d51a7",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "67e42b1afa1ce7febfa8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "This leads to NoGAM (Not only Gaussian Additive noise Models), a causal discovery algorithm with a minimal set of assumptions and state of the art performance, experimentally benchmarked on synthetic data."
+              },
+              "statement": "NoGAM is a causal discovery algorithm with a minimal set of assumptions and state-of-the-art performance."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Design of NoGAM, a causal discovery algorithm for additive nonlinear models with generic noise distributions, using score matching to infer topological ordering."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "NoGAM",
+              "protocol_description": "NoGAM infers the topological ordering of variables in a causal graph from data generated by an additive nonlinear model with arbitrary noise. It uses a relation between the score function (gradient of log-likelihood) and residual estimators to iteratively identify leaf nodes. The algorithm then prunes the graph using the CAM pruning method."
+            }
+          ],
+          "name": "NoGAM algorithm development",
+          "results": [],
+          "unit_id": "su_8f64f250209d9362df10e0b5"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "How does NoGAM perform compared to existing causal discovery methods on synthetic data with various noise distributions?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a09d96180d7b7fc6d03e9309",
+              "inference_basis_ids": [
+                "res_fa71d7b5f4f4d61e5bde5267"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "e94e6f46362987d2fd15",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "In Figure 6 we can see that SCORE and NoGAM have overall comparable SHD."
+              },
+              "statement": "NoGAM and SCORE have comparable SHD performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f154871e8fdfc0dd462f4a6e",
+              "inference_basis_ids": [
+                "res_65bd2496cf1e352fcaad60a0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b780cacf80d6ecd9db4",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Figure 3 illustrate how in the sparse setting (ER1) topological ordering estimates of NoGAM systematically outperform the Dtop results obtained by CAM and SCORE for every non-Gaussian noise distribution."
+              },
+              "statement": "NoGAM outperforms CAM and SCORE in topological ordering divergence on sparse graphs for non-Gaussian noise distributions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Synthetic data generated from additive nonlinear models with various noise distributions (Beta, Exponential, Gamma, Normal, Gumbel, Laplace) on Erdős–Rényi graphs with d=10 and d=20 nodes.",
+              "name": "Synthetic data",
+              "version_or_split": "ER1 (sparse) and ER4 (dense) graphs"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of NoGAM against SCORE, CAM, and GES on synthetic data generated from additive nonlinear models with Beta, Exponential, Gamma, Normal, Gumbel, and Laplace noise distributions, using Erdős–Rényi graphs with sparse (ER1) and dense (ER4) settings."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "SCORE",
+              "protocol_description": "SCORE is a causal discovery method that assumes Gaussian noise in additive nonlinear models. It infers topological ordering and uses CAM pruning."
+            },
+            {
+              "method_id": "M3",
+              "name": "CAM",
+              "protocol_description": "CAM is a causal discovery method that assumes Gaussian noise in additive nonlinear models."
+            },
+            {
+              "method_id": "M4",
+              "name": "GES",
+              "protocol_description": "GES is a score-based causal discovery method that searches over equivalence classes of DAGs."
+            }
+          ],
+          "name": "Benchmarking NoGAM on synthetic data",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e94e6f46362987d2fd15",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "NoGAM 4.2 ± 5.4"
+              },
+              "quantitative_value": 4.2,
+              "result_id": "res_28333ef64701699b3264cef6",
+              "unit": null,
+              "value_raw_text": "4.2 ± 5.4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dtop",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e94e6f46362987d2fd15",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "NoGAM 0.6 ± 0.8"
+              },
+              "quantitative_value": 0.6,
+              "result_id": "res_4f2a7fd4277b88edeeb094be",
+              "unit": null,
+              "value_raw_text": "0.6 ± 0.8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Topological ordering divergence (Dtop)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b780cacf80d6ecd9db4",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Overall, NoGAM clearly outperforms CAM and SCORE."
+              },
+              "quantitative_value": null,
+              "result_id": "res_65bd2496cf1e352fcaad60a0",
+              "unit": null,
+              "value_raw_text": "NoGAM clearly outperforms CAM and SCORE"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e94e6f46362987d2fd15",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "NoGAM 1.1 ± 1.5"
+              },
+              "quantitative_value": 1.1,
+              "result_id": "res_af4d734a174bb29a9a1cef5e",
+              "unit": null,
+              "value_raw_text": "1.1 ± 1.5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural Hamming Distance (SHD)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b780cacf80d6ecd9db4",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Overall SCORE and NoGAM clearly show better SHD (Figure 4 and 6) with respect to the remaining methods."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fa71d7b5f4f4d61e5bde5267",
+              "unit": null,
+              "value_raw_text": "SCORE and NoGAM clearly show better SHD with respect to the remaining methods"
+            }
+          ],
+          "unit_id": "su_c0583c0a294c86ab51702f6c"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    }
+  ]
+}

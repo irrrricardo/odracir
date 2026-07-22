@@ -1,0 +1,164 @@
+{
+  "coverage_ledger": {
+    "530a669de0596b923cad": "not_selected",
+    "5cd336f39b813affe916": "extracted",
+    "70d6145815925c98cb1b": "extracted",
+    "8a35bc017d6d4878a60a": "extracted",
+    "9562fbb1a4d139044813": "not_selected",
+    "a1bb8c2087e739cd5c2d": "not_selected",
+    "e201982cdbd9ec706d5e": "extracted",
+    "f8a4d755dcb3c28d2f4b": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The FCI algorithm output is generally less informative when selection bias may be present compared to cases known to be free of selection bias.",
+    "The Causal Markov Assumption does not generally hold when there are causal interactions between different members of the population or in populations with feedback.",
+    "The Causal Faithfulness Condition may fail for particular parameterizations of the DAG or when there are deterministic relationships between variables.",
+    "The FCI algorithm is exponential time in the number of variables in the worst case, even when the maximum degree is fixed.",
+    "The approach relies on the ability to reliably test conditional independence relations, which may be limited by sample size.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_6.pdf",
+    "source_sha256": "3e38d621bfca23f43ae7456c94dc374ab89436608fa7a4136789f604cbd65977"
+  },
+  "paper_id": "5_6",
+  "quality_assessment": {
+    "correct_item_count": 14,
+    "deterministic_rule_score": 0.8502,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 14,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Is there a general, informative, and reliable procedure for discovering causal relations when both latent variables and selection bias may be present?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "e201982cdbd9ec706d5e",
+                  "page_end": 1,
+                  "page_start": 1,
+                  "paraphrased": false,
+                  "text_excerpt": "We have shown that under a reinterpretation of the output, the FCI algorithm also applies when selection bias may be present, but the output is then generally less informative than in cases known to be free of selection bias."
+                }
+              ],
+              "claim_id": "clm_5db14704f17cf7be1cdcbe10",
+              "inference_basis_ids": [
+                "res_f13a0423ce5d4275e29a2691"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e201982cdbd9ec706d5e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We show that there is a general, informative and reliable procedure for discovering causal relations when, for all the investigator knows, both latent variables and selection bias may be at work."
+              },
+              "statement": "The FCI algorithm provides a general, informative, and reliable procedure for discovering causal relations when both latent variables and selection bias may be present."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e77e93b56c9a194a0b54de09",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5cd336f39b813affe916",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "From the constructed POIPG it is sometimes possible to infer that all of the DAGs in Equiv(Cond) share some other interesting features in common, e.g. they might all contain a directed path from A to B. If this is the case, then although from Cond we cannot tell exactly which DAG in Equiv(Cond) is the true causal DAG, because we know that all of the DAGs in Equiv( Cond) contain a directed path from A to B we can reliably conclude that in the true causal DAG A is a (possibly indirect) cause of B."
+              },
+              "statement": "From the constructed POIPG, it is sometimes possible to infer that all DAGs in Equiv(Cond) share a directed path from A to B, allowing reliable conclusion that A is a cause of B."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "The FCI algorithm constructs correct POIPGs, under the Causal Markov Assumption, the Causal Faithfulness Assumption, the assumptions of no selection bias, and that independence relations can be reliably tested.",
+              "provenance": {
+                "chunk_id": "8a35bc017d6d4878a60a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The FCI algorithm (Spirtes et al. 1993) constructs correct POIPGs, under the Causal Markov Assumption, the Causal Faithfulness Assumption, the assumptions of no selection bias, and that independence relations can be reliably tested."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Derivation of sufficient conditions for concluding the presence or absence of a causal path between measured variables under latent variables and selection bias.",
+            "Reinterpretation of the FCI algorithm output to account for selection bias."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "FCI algorithm",
+              "protocol_description": "The FCI algorithm constructs partially oriented inducing path graphs (POIPGs) from conditional independence and dependence relations among measured variables. It operates under the Causal Markov Assumption, Causal Faithfulness Assumption, and the assumption that independence relations can be reliably tested. The algorithm tests a relatively small set of conditional independence relations, leveraging entailments to avoid exponential growth."
+            }
+          ],
+          "name": "FCI algorithm adaptation for selection bias",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Scalability of FCI",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8a35bc017d6d4878a60a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on simulated data the algorithm can often be run on up to 100 variables provided the true graph is sparse."
+              },
+              "quantitative_value": 100.0,
+              "result_id": "res_8162f3e6d20ee7b61ddc6623",
+              "unit": "variables",
+              "value_raw_text": "On simulated data the algorithm can often be run on up to 100 variables provided the true graph is sparse."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correctness of FCI under selection bias",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8a35bc017d6d4878a60a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "If the possibility of selection bias is allowed, the algorithm described in Spirtes et al. (1993) still gives the correct output, but the conclusions that one can draw from the POIPG are the slightly weaker ones described in the examples and the Appendix to this paper."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f13a0423ce5d4275e29a2691",
+              "unit": null,
+              "value_raw_text": "The FCI algorithm still gives the correct output when selection bias is allowed, but the conclusions that one can draw from the POIPG are slightly weaker."
+            }
+          ],
+          "unit_id": "su_fbdeb5ee8d9300d46998ed99"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

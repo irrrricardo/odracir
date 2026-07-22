@@ -1,0 +1,569 @@
+{
+  "coverage_ledger": {
+    "0db4d339f5053b768d20": "not_selected",
+    "276e2da3e17b6bee9dae": "extracted",
+    "2b34b90f751ea2684e49": "not_selected",
+    "306b4762a6013c2d2bf4": "not_selected",
+    "32ea476caf58cef37a8d": "not_selected",
+    "4fda0d245367ad17f859": "extracted",
+    "6132e393dc782554fee2": "not_selected",
+    "66fee74f0b6fda04e62f": "extracted",
+    "72d09c67e17d5330652f": "not_selected",
+    "78e0e6a016b5905fcd61": "extracted",
+    "7d2c5ebd1ec02edb60fc": "not_selected",
+    "bccc58f910fd9635af79": "not_selected",
+    "c1afe8cb72082c9ccc36": "not_selected",
+    "f2c1895397b5b3be1503": "not_selected",
+    "f5edee5af6461dd2811b": "not_selected",
+    "fc513b524fc1d536568f": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The analysis focuses on long-range problems; short-range tasks are not the focus.",
+    "The FA layer solution is simple and may not be optimal; better solutions may exist.",
+    "Theoretical lower bounds are combinatorial and may not be tight for gradient-based learning.",
+    "Experiments are limited to specific GNN variants and datasets."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_22.pdf",
+    "source_sha256": "aac6510666a6f44acb9908db2209e5d1598d62e02c06ce7c5ca5bc7eb3dd7f2a"
+  },
+  "paper_id": "6_22",
+  "quality_assessment": {
+    "correct_item_count": 22,
+    "deterministic_rule_score": 0.8419,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 29,
+    "f1": 0.6984,
+    "incorrect_item_count": 7,
+    "incorrect_items": [
+      {
+        "description": "The extracted result states 'GIN+FA improves by 8.1% over GIN-base and by 2.5% over No Struct', but the source chunk (78e0e6a016b5905fcd61) shows these improvements are for ENZYMES, not a general statement. The extracted text omits the dataset context, making it ambiguous. However, the provenance excerpt is 'GIN+FA improves by 8.1% over GIN-base and by 2.5% over No Struct', which is a direct quote from the chunk, but the chunk itself does not explicitly mention ENZYMES in that sentence. The surrounding context in the chunk (Table 2 and preceding text) indicates these numbers are for ENZYMES. The extraction is not incorrect per se, but it lacks the dataset context. Since the audit protocol says 'mark an extracted item incorrect only for unsupported, contradicted, or materially overstated content', and the statement is supported by the excerpt, it is not incorrect. However, the item is ambiguous without the dataset. I will not mark it as incorrect because the excerpt supports it.",
+        "item_id": "result:su_2639de998a5f897f484f6bee:res_344d28012e35b0f7c001dba6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result says 'adding the FA layer achieved 42% improvement over the base model', but the source chunk (78e0e6a016b5905fcd61) does not contain this exact phrase. The chunk mentions 'breaking the bottleneck using a simple fully adjacent layer reduces the error rate by 42% in the QM9 dataset' in chunk 4fda0d245367ad17f859 (page 1). The provenance chunk_id is 78e0e6a016b5905fcd61, which is page 7, and that page does not mention 42% improvement. The excerpt 'adding the FA layer achieved 42% improvement over the base model' is not found in chunk 78e0e6a016b5905fcd61. The correct source is chunk 4fda0d245367ad17f859. Since the provenance is wrong, the item is unsupported by the cited chunk. However, the audit protocol says to evaluate against only the supplied source chunks. The supplied source chunks include chunk 4fda0d245367ad17f859, which contains 'breaking the bottleneck using a simple fully adjacent layer reduces the error rate by 42% in the QM9 dataset'. The extracted item's provenance points to the wrong chunk, but the statement is supported by another chunk. The protocol says 'Evaluate one paper-local JSON against only the supplied source chunks.' It does not require the provenance to be correct, only that the extracted content is supported by any source chunk. The statement 'adding the FA layer achieved 42% improvement over the base model' is supported by chunk 4fda0d245367ad17f859: 'breaking the bottleneck using a simple fully adjacent layer reduces the error rate by 42% in the QM9 dataset'. So it is not incorrect.",
+        "item_id": "result:su_2639de998a5f897f484f6bee:res_4276301376acf97d99727eee",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result says 'using only half of the possible edges in the last layer still reduces the error rate by 31.5% on average compared to base', with provenance chunk_id 78e0e6a016b5905fcd61. That chunk does not contain this information. The correct source is chunk 2b34b90f751ea2684e49 (page 14), which says 'using only half of the edges (0.5× FA) reduces the error by 31.5%'. The supplied source chunks include chunk 2b34b90f751ea2684e49, so the statement is supported. The provenance is wrong, but the content is correct. Not incorrect.",
+        "item_id": "result:su_2639de998a5f897f484f6bee:res_81bb2e568e58197af5308825",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result says 'models where all K layers are FA layers produced 1500% higher (worse) error', with provenance chunk_id 78e0e6a016b5905fcd61. That chunk does not contain this. The correct source is chunk 2b34b90f751ea2684e49 (page 14), which says 'All FA ... led to much worse results of more than 1500% higher error'. The supplied source chunks include this, so the statement is supported. Not incorrect.",
+        "item_id": "result:su_2639de998a5f897f484f6bee:res_a0f6883ae9f7096130ccafe5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result says 'GIN+FA improves by 1.5% over GIN-base', with provenance chunk_id 78e0e6a016b5905fcd61. The chunk says 'GIN+FA improves by 1.5% over GIN-base' in the context of NCI1. The statement is supported. Not incorrect.",
+        "item_id": "result:su_2639de998a5f897f484f6bee:res_b396101ea6a5b4269cc78b61",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result says 'GGNN+FA: 86.3±0.7 (SeenProj), 79.1±1.1 (UnseenProj)', with provenance chunk_id 78e0e6a016b5905fcd61. The chunk contains Table 3 with these numbers. Supported. Not incorrect.",
+        "item_id": "result:su_2639de998a5f897f484f6bee:res_fd690ca3b50d88eee53a6dd8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim says 'Breaking the bottleneck improves state-of-the-art results without any tuning or additional weights.' The provenance chunk 4fda0d245367ad17f859 says 'breaking the bottleneck improves their state-of-the-art results without any tuning or additional weights'. Supported. Not incorrect.",
+        "item_id": "claim:su_2639de998a5f897f484f6bee:clm_a3816dc8dd79e32ca9f89fae",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 12,
+    "missed_core_items": [
+      {
+        "description": "The paper introduces the over-squashing phenomenon as a novel explanation for GNNs' struggle with long-range problems.",
+        "item_id": null,
+        "source_chunk_id": "4fda0d245367ad17f859",
+        "source_excerpt": "our main contribution is introducing the over-squashing phenomenon – a novel explanation for the major and well-known issue of training GNNs for long-range problems",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper provides theoretical lower bounds for the required hidden size given the problem radius.",
+        "item_id": null,
+        "source_chunk_id": "4fda0d245367ad17f859",
+        "source_excerpt": "provide theoretical lower bounds for the required hidden size given the problem radius",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper shows that GCN and GIN are more susceptible to over-squashing than GAT and GGNN.",
+        "item_id": null,
+        "source_chunk_id": "4fda0d245367ad17f859",
+        "source_excerpt": "We show, analytically and empirically, that GCN and GIN are susceptible to over-squashing more than other types of GNNs such as GAT and GGNN",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper demonstrates that breaking the bottleneck using a fully adjacent layer reduces error rate by 42% in QM9, 12% in ENZYMES, 4.8% in NCI1, and improves accuracy in VARMISUSE.",
+        "item_id": null,
+        "source_chunk_id": "4fda0d245367ad17f859",
+        "source_excerpt": "breaking the bottleneck using a simple fully adjacent layer reduces the error rate by 42% in the QM9 dataset, by 12% in ENZYMES, by 4.8% in NCI1, and improves accuracy in VARMISUSE",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper finds that the average diameter of graphs in QM9 is 6.35±0.91, maximum 10, 90th percentile 8, and most models used K=8 layers, indicating under-reaching was not the issue.",
+        "item_id": null,
+        "source_chunk_id": "78e0e6a016b5905fcd61",
+        "source_excerpt": "We found that the average diameter is 6.35±0.91, the maximum diameter is 10, and the 90’th percentile is 8, while most models were trained with K=8 layers.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper shows that doubling hidden dimensions only achieved 5.5% improvement over base, while FA layer achieved 42% improvement.",
+        "item_id": null,
+        "source_chunk_id": "2b34b90f751ea2684e49",
+        "source_excerpt": "doubling the hidden dimension size leads to a small improvement of only 5.5% reduction in error. In comparison, the +FA model used the original dimension sizes and achieves a much larger improvement of 43.40%.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper demonstrates that using only a fraction of edges in the FA layer still reduces error, e.g., 0.5× FA reduces error by 31.5%.",
+        "item_id": null,
+        "source_chunk_id": "2b34b90f751ea2684e49",
+        "source_excerpt": "using only half of the edges (0.5× FA) reduces the error by 31.5%.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper shows that making all layers FA (ignoring graph topology) leads to 1500% higher error.",
+        "item_id": null,
+        "source_chunk_id": "2b34b90f751ea2684e49",
+        "source_excerpt": "All FA is a model that was trained with all GNN layers converted into FA layers, practically ignoring the graph topology. This led to much worse results of more than 1500% higher error.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper provides a combinatorial lower bound for hidden size: b^{f·d} > (m^r)! / (m!)^{m^{r-1}}.",
+        "item_id": null,
+        "source_chunk_id": "66fee74f0b6fda04e62f",
+        "source_excerpt": "b^{f·d} > (m^r)! / (m!)^{m^{r-1}}",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper states that for d=32, the maximal problem radius is r=7.",
+        "item_id": null,
+        "source_chunk_id": "66fee74f0b6fda04e62f",
+        "source_excerpt": "for d=32 as in the experiments in Section 4.1, the maximal problem radius is as low as r=7",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper hypothesizes that in long-range problems, degraded performance is due to over-squashing rather than over-smoothing.",
+        "item_id": null,
+        "source_chunk_id": "66fee74f0b6fda04e62f",
+        "source_excerpt": "We hypothesize that in long-range problems, the explanation for the degraded performance is over-squashing rather than over-smoothing.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper notes that the over-squashing limitation is tighter than under-reaching.",
+        "item_id": null,
+        "source_chunk_id": "66fee74f0b6fda04e62f",
+        "source_excerpt": "the over-squashing limitation described in this paper is tighter than under-reaching",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.7586,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.6471
+  },
+  "quality_score": 0.6984,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What causes GNNs to fail in propagating information between distant nodes?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1aa6f78b7443dd7f0c6d0804",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "66fee74f0b6fda04e62f",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the over-squashing limitation described in this paper is tighter than under-reaching"
+              },
+              "statement": "The over-squashing limitation is tighter than under-reaching."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_232106f1ae5892265ee89230",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN"
+              },
+              "statement": "GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_95e15012fe853f330d8cddb2",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "66fee74f0b6fda04e62f",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "We hypothesize that in long-range problems, the explanation for the degraded performance is over-squashing rather than over-smoothing."
+              },
+              "statement": "In long-range problems, the explanation for degraded performance is over-squashing rather than over-smoothing."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a3816dc8dd79e32ca9f89fae",
+              "inference_basis_ids": [
+                "res_344d28012e35b0f7c001dba6",
+                "res_4276301376acf97d99727eee",
+                "res_b396101ea6a5b4269cc78b61"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "breaking the bottleneck improves their state-of-the-art results without any tuning or additional weights"
+              },
+              "statement": "Breaking the bottleneck improves state-of-the-art results without any tuning or additional weights."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c2809a0e4ee71bd156cd05cd",
+              "inference_basis_ids": [
+                "res_3b25f7a0d573c7b989b893e5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GNNs are susceptible to a bottleneck when aggregating messages across a long path. This bottleneck causes the over-squashing of exponentially growing information into fixed-size vectors."
+              },
+              "statement": "GNNs are susceptible to a bottleneck when aggregating messages across a long path, causing over-squashing of exponentially growing information into fixed-size vectors."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Synthetic benchmark simulating exponentially-growing receptive field; problem radius r controlled.",
+              "name": "TREE-NEIGHBORSMATCH",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "4110 graphs, ~30 nodes avg, predict anti-lung-cancer activity.",
+              "name": "NCI1",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "600 graphs, ~36 nodes avg, classify enzyme into 6 classes.",
+              "name": "ENZYMES",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Program analysis task; predict variable usage.",
+              "name": "VARMISUSE",
+              "version_or_split": "SeenProj/UnseenProj"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "GNNs are susceptible to a bottleneck when aggregating messages across a long path. This bottleneck causes the over-squashing of exponentially growing information into fixed-size vectors.",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GNNs are susceptible to a bottleneck when aggregating messages across a long path. This bottleneck causes the over-squashing of exponentially growing information into fixed-size vectors."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN"
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "breaking the bottleneck improves their state-of-the-art results without any tuning or additional weights",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "breaking the bottleneck improves their state-of-the-art results without any tuning or additional weights"
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluation on real-world benchmarks (NCI1, ENZYMES, VARMISUSE) to show prevalence of over-squashing.",
+            "Synthetic NEIGHBORSMATCH benchmark to control problem radius and demonstrate over-squashing.",
+            "Theoretical analysis of information flow in GNNs, identifying a bottleneck when aggregating messages across long paths."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GNN variants",
+              "protocol_description": "Standard message-passing GNNs: GCN, GIN, GAT, GGNN, etc. Stack K layers."
+            },
+            {
+              "method_id": "M2",
+              "name": "FA layer (Fully Adjacent layer)",
+              "protocol_description": "Replace the last GNN layer with a fully adjacent layer, connecting all nodes to allow direct interaction, reducing over-squashing."
+            }
+          ],
+          "name": "Over-squashing bottleneck analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Empirical minimal hidden size for r=7",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "66fee74f0b6fda04e62f",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "even d=512 can empirically fit r=7 at most"
+              },
+              "quantitative_value": 512.0,
+              "result_id": "res_10e318bc310b4a82cd699a6e",
+              "unit": "hidden size",
+              "value_raw_text": "even d=512 can empirically fit r=7 at most"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GIN+FA: 81.5±1.2 on NCI1; 67.7±5.3 on ENZYMES"
+              },
+              "quantitative_value": null,
+              "result_id": "res_340969c6d54cbe8f7e02c687",
+              "unit": null,
+              "value_raw_text": "GIN+FA: 81.5±1.2 on NCI1; 67.7±5.3 on ENZYMES"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GIN+FA improves by 8.1% over GIN-base and by 2.5% over No Struct"
+              },
+              "quantitative_value": 8.1,
+              "result_id": "res_344d28012e35b0f7c001dba6",
+              "unit": "% improvement",
+              "value_raw_text": "GIN+FA improves by 8.1% over GIN-base and by 2.5% over No Struct"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Maximal problem radius for d=32",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "66fee74f0b6fda04e62f",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "for d=32 as in the experiments in Section 4.1, the maximal problem radius is as low as r=7"
+              },
+              "quantitative_value": 7.0,
+              "result_id": "res_379faa99650d88f0f9a4703a",
+              "unit": "radius",
+              "value_raw_text": "for d=32 as in the experiments in Section 4.1, the maximal problem radius is as low as r=7"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276e2da3e17b6bee9dae",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "all GNNs fail to reach 100% training accuracy because of the bottleneck"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3b25f7a0d573c7b989b893e5",
+              "unit": null,
+              "value_raw_text": "all GNNs fail to reach 100% training accuracy because of the bottleneck"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy improvement with FA layer",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "adding the FA layer achieved 42% improvement over the base model"
+              },
+              "quantitative_value": 42.0,
+              "result_id": "res_4276301376acf97d99727eee",
+              "unit": "% improvement",
+              "value_raw_text": "adding the FA layer achieved 42% improvement over the base model"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error reduction with semi-adjacent layer",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "using only half of the possible edges in the last layer still reduces the error rate by 31.5% on average compared to base"
+              },
+              "quantitative_value": 31.5,
+              "result_id": "res_81bb2e568e58197af5308825",
+              "unit": "% error reduction",
+              "value_raw_text": "using only half of the possible edges in the last layer still reduces the error rate by 31.5% on average compared to base"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error increase with all FA layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "models where all K layers are FA layers produced 1500% higher (worse) error"
+              },
+              "quantitative_value": 1500.0,
+              "result_id": "res_a0f6883ae9f7096130ccafe5",
+              "unit": "% error increase",
+              "value_raw_text": "models where all K layers are FA layers produced 1500% higher (worse) error"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GIN+FA improves by 1.5% over GIN-base"
+              },
+              "quantitative_value": 1.5,
+              "result_id": "res_b396101ea6a5b4269cc78b61",
+              "unit": "% improvement",
+              "value_raw_text": "GIN+FA improves by 1.5% over GIN-base"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GGNN+FA: 86.3±0.7 (SeenProj), 79.1±1.1 (UnseenProj)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fd690ca3b50d88eee53a6dd8",
+              "unit": null,
+              "value_raw_text": "GGNN+FA: 86.3±0.7 (SeenProj), 79.1±1.1 (UnseenProj)"
+            }
+          ],
+          "unit_id": "su_2639de998a5f897f484f6bee"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8125 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9062 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5111 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4706 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7851 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6400 on attempt 1"
+    }
+  ]
+}

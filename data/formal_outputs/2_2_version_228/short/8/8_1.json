@@ -1,0 +1,408 @@
+{
+  "coverage_ledger": {
+    "0b4ab9bcd68af5e9e048": "not_selected",
+    "16d572d2545711c43239": "extracted",
+    "19ecb9e8514e353228b2": "extracted",
+    "2b61032e125c4bb02596": "extracted",
+    "2d25d2b8b32cb52c5f2b": "extracted",
+    "34b137556d6154a81cdd": "not_selected",
+    "39e965cb5e3b39f27cec": "not_selected",
+    "423df3b02d18e95ebbb9": "extracted",
+    "4c1dc60d17724aba750b": "not_selected",
+    "7667599b773cda346568": "not_selected",
+    "7bf7fa2c50f31b02da23": "not_selected",
+    "99140a4698d875b91833": "not_selected",
+    "a053eba47d3b7fcf743d": "extracted",
+    "a20bea360edc6a2c0d0c": "not_selected",
+    "b8436b39cf2b71571d6e": "extracted",
+    "ca4f2a55ff0360f6b47e": "not_selected",
+    "d39fc80a07f70c14f8ee": "extracted",
+    "db7a1185836fa35e7266": "not_selected",
+    "ef63d3b2b35fceedaf20": "not_selected",
+    "f5ececa14c346899246f": "not_selected",
+    "f6185c8aa25a32d494dd": "not_selected",
+    "f7cd7032a2a8b117f0a9": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The proposed methods should not be viewed as replacements of classical numerical methods for solving PDEs.",
+    "No theoretical guarantee that the optimization converges to a global minimum.",
+    "Performance depends on sufficiently expressive neural network architecture and sufficient number of collocation points.",
+    "The method is demonstrated on relatively simple benchmark problems; applicability to more complex, large-scale systems is not shown."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "8_1.pdf",
+    "source_sha256": "d76375e7834b3381da5d53a4238378b5d5e5b63fb9f9e5fa7210a89f551a5a59"
+  },
+  "paper_id": "8_1",
+  "quality_assessment": {
+    "correct_item_count": 30,
+    "deterministic_rule_score": 0.8875,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 30,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "How can deep neural networks be constrained by physical laws to solve forward and inverse problems involving nonlinear partial differential equations?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a6c6f51cb69d85617b0ee81b",
+              "inference_basis_ids": [
+                "res_09cb0220a771a0ae793362be",
+                "res_949c6feaba718c9c065ae499",
+                "res_9bafcbefabdc748c97d1c1c4",
+                "res_b6771188f42328ce79d99614"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a053eba47d3b7fcf743d",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "our method is able to correctly identify the unknown parameters regardless of whether the training data is corrupted with noise or not. Specifically, for the case of noise-free training data, the error in estimating λ1 and λ2 is 0.023%, and 0.006%, respectively, while the case with 1% noise in the training data returns errors of 0.057%, and 0.017%, respectively."
+              },
+              "statement": "The discrete time model can discover the KdV equation parameters with errors below 0.06% even with 1% noise in the training data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D5",
+              "description": "Two solution snapshots of KdV equation",
+              "name": "KdV equation training data",
+              "version_or_split": "Nn=199 at t=0.2, Nn+1=201 at t=0.8"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Data-driven discovery of Korteweg-de Vries equation parameters"
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Physics-informed neural network (discrete time discovery)",
+              "protocol_description": "Use implicit Runge-Kutta with q stages; neural network outputs solution at stages; minimize sum of squared errors on two snapshots; learn unknown parameters λ."
+            }
+          ],
+          "name": "Discrete time data-driven discovery",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameter estimation error (λ1) noise-free",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a053eba47d3b7fcf743d",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "for the case of noise-free training data, the error in estimating λ1 and λ2 is 0.023%, and 0.006%, respectively"
+              },
+              "quantitative_value": 0.00023,
+              "result_id": "res_09cb0220a771a0ae793362be",
+              "unit": null,
+              "value_raw_text": "0.023%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameter estimation error (λ2) noise-free",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a053eba47d3b7fcf743d",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "for the case of noise-free training data, the error in estimating λ1 and λ2 is 0.023%, and 0.006%, respectively"
+              },
+              "quantitative_value": 6e-05,
+              "result_id": "res_949c6feaba718c9c065ae499",
+              "unit": null,
+              "value_raw_text": "0.006%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameter estimation error (λ1) 1% noise",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a053eba47d3b7fcf743d",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "the case with 1% noise in the training data returns errors of 0.057%, and 0.017%, respectively"
+              },
+              "quantitative_value": 0.00057,
+              "result_id": "res_9bafcbefabdc748c97d1c1c4",
+              "unit": null,
+              "value_raw_text": "0.057%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameter estimation error (λ2) 1% noise",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a053eba47d3b7fcf743d",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "the case with 1% noise in the training data returns errors of 0.057%, and 0.017%, respectively"
+              },
+              "quantitative_value": 0.00017,
+              "result_id": "res_b6771188f42328ce79d99614",
+              "unit": null,
+              "value_raw_text": "0.017%"
+            }
+          ],
+          "unit_id": "su_2ff3ad4a6bf9bf7b906fce55"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_af2eafce66c5d46af6006e1c",
+              "inference_basis_ids": [
+                "res_d1a9d6d930b73ec921902fdc",
+                "res_f13b268f39b53236461a3186"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2b61032e125c4bb02596",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the error in estimating λ1 and λ2 is 0.078%, and 4.67%, respectively"
+              },
+              "statement": "The continuous time model can discover the Navier-Stokes equation parameters from noisy velocity data with errors of 0.078% for λ1 and 4.67% for λ2."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D4",
+              "description": "Noisy velocity measurements from flow past a circular cylinder",
+              "name": "Navier-Stokes velocity measurements",
+              "version_or_split": "N=5000 points in cylinder wake"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Data-driven discovery of Navier-Stokes equation parameters and pressure field"
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Physics-informed neural network (continuous time discovery)",
+              "protocol_description": "Approximate stream function ψ and pressure p by a neural network; define f,g from Navier-Stokes equations; minimize MSE on velocity data and PDE residuals; learn unknown parameters λ."
+            }
+          ],
+          "name": "Continuous time data-driven discovery",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameter estimation error (λ2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b61032e125c4bb02596",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the error in estimating λ1 and λ2 is 0.078%, and 4.67%, respectively"
+              },
+              "quantitative_value": 0.0467,
+              "result_id": "res_d1a9d6d930b73ec921902fdc",
+              "unit": null,
+              "value_raw_text": "4.67%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameter estimation error (λ1)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b61032e125c4bb02596",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the error in estimating λ1 and λ2 is 0.078%, and 4.67%, respectively"
+              },
+              "quantitative_value": 0.00078,
+              "result_id": "res_f13b268f39b53236461a3186",
+              "unit": null,
+              "value_raw_text": "0.078%"
+            }
+          ],
+          "unit_id": "su_a4b5d254bda09d615e39a253"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b134cd078123573bb85151b7",
+              "inference_basis_ids": [
+                "res_74798f9a648b9355780aedd6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "16d572d2545711c43239",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Remarkably, starting from smooth initial data at t = 0.1 we can predict the nearly discontinuous solution at t = 0.9 in a single time-step with a relative L2 error of 6.99 ·10−3."
+              },
+              "statement": "The discrete time model using a 100-stage implicit Runge-Kutta scheme can predict the nearly discontinuous solution of the Allen-Cahn equation in a single time-step with a relative L2 error of 6.99e-3."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Training data for Allen-Cahn equation",
+              "name": "Allen-Cahn equation training data",
+              "version_or_split": "Initial snapshot at t=0.1, final snapshot at t=0.9"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Data-driven solution of Allen-Cahn equation using discrete time model with implicit Runge-Kutta"
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Physics-informed neural network (discrete time)",
+              "protocol_description": "Use implicit Runge-Kutta time stepping with q stages; neural network outputs solution at Runge-Kutta stages and final time; minimize sum of squared errors on initial and final data."
+            }
+          ],
+          "name": "Discrete time data-driven solution",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "16d572d2545711c43239",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The relative L2 error for this case is 6.99 ·10−3."
+              },
+              "quantitative_value": 0.00699,
+              "result_id": "res_74798f9a648b9355780aedd6",
+              "unit": null,
+              "value_raw_text": "6.99 · 10^{-3}"
+            }
+          ],
+          "unit_id": "su_b06de347ef089418b3715546"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d114a79a8d726a0af8089489",
+              "inference_basis_ids": [
+                "res_3007ec455607da9d648b1a17"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d39fc80a07f70c14f8ee",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "The relative L2 error for this case is 6.7 ·10−4."
+              },
+              "statement": "Physics-informed neural networks can accurately solve the Burgers equation with a relative L2 error of 6.7e-4 using only 100 initial/boundary points and 10,000 collocation points."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Initial and boundary training data for Burgers equation",
+              "name": "Burgers equation initial and boundary data",
+              "version_or_split": "Nu=100 randomly distributed points"
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Collocation points for enforcing PDE residual",
+              "name": "Burgers equation collocation points",
+              "version_or_split": "Nf=10,000 Latin Hypercube Sampling"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Data-driven solution of Burgers equation using continuous time model"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Physics-informed neural network (continuous time)",
+              "protocol_description": "Approximate u(t,x) by a deep neural network; define f = u_t + N[u]; minimize MSE = MSE_u + MSE_f, where MSE_u is data loss on initial/boundary points and MSE_f is PDE residual loss on collocation points. Use L-BFGS optimizer."
+            }
+          ],
+          "name": "Continuous time data-driven solution",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d39fc80a07f70c14f8ee",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "The relative L2 error for this case is 6.7 ·10−4."
+              },
+              "quantitative_value": 0.00067,
+              "result_id": "res_3007ec455607da9d648b1a17",
+              "unit": null,
+              "value_raw_text": "6.7 · 10^{-4}"
+            }
+          ],
+          "unit_id": "su_bb94dc1871b3ff0f77cec5ee"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4118 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4118 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4118 on attempt 1"
+    }
+  ]
+}

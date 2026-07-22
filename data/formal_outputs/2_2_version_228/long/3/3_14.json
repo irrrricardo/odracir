@@ -1,0 +1,529 @@
+{
+  "coverage_ledger": {
+    "19361d822df7882875d9": "extracted",
+    "5138a18650aa5ca1bd31": "extracted",
+    "84bf4d747e6dfb9e34e6": "extracted",
+    "a5564941a6d4466ea2c0": "extracted",
+    "c09b6ca18ea56a4bbf04": "not_selected",
+    "c5446793c4e44029f3d6": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study uses 2D scratch-wound and micropatterned assays, which may not fully recapitulate 3D tumor microenvironment.",
+    "Compressive stress level (5.8 mmHg) is an estimate from native breast tumor microenvironment; actual in vivo stresses may vary.",
+    "Shear forces during compression were calculated to be negligible (max 3.2 × 10−5 dyn/cm2), but other mechanical artifacts cannot be entirely excluded.",
+    "The role of E-cadherin was not necessary for compression-induced migration in 67NR cells, but other cell lines may differ.",
+    "The study focuses on a limited set of breast cancer cell lines; generalizability to other cancer types is unknown.",
+    "Long-term effects of compression beyond 16 h were not investigated.",
+    "The molecular mechanism linking compression to fibronectin secretion remains unidentified.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_14.pdf",
+    "source_sha256": "0a37d9be71fea23c26023041e826741cab8399e2e6ea5300ecdacc24530f04ec"
+  },
+  "paper_id": "3_14",
+  "quality_assessment": {
+    "correct_item_count": 39,
+    "deterministic_rule_score": 0.9798,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 39,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does mechanical compressive stress affect tumor cell migration and invasion?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4a43de689f65ae5eb0e85694",
+              "inference_basis_ids": [
+                "res_cbbd8bcebf9746db800dd7d2",
+                "res_e6a4a995abd919a842bcf94a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "compression can initiate directional protrusions for leader-cell formation independent of actomyosin contractility; however, the contractile machinery is still necessary for sheet migration."
+              },
+              "statement": "Compression-induced leader cell formation is independent of actomyosin contractility, but actomyosin contractility is required for sheet migration."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "67NR cells were treated with dominant-negative RhoA (RhoT19N), ROCK inhibitor Y-27632, MLCK inhibitor ML-7, or myosin II inhibitor Blebbistatin, and subjected to compression (5.8 mmHg) for 16 h. Leader cell formation and wound closure were assessed."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Pharmacological and molecular inhibition of actomyosin contractility",
+              "protocol_description": "Cells were transduced with dominant-negative RhoA retrovirus or treated with Y-27632 (5 or 30 μM), ML-7 (25 μM), or Blebbistatin (50 μM) to inhibit actomyosin contractility."
+            }
+          ],
+          "name": "Role of actomyosin contractility in leader cell formation and migration",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Wound closure rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Compression still enhanced wound closure rates of RhoT19N cells compared with uncompressed controls... Similar results were seen with Y-27632 and ML-7 treatment... when actomyosin contractility was completely blocked by Blebbistatin, compressive stress was still able to induce leader-cell formation despite compromised cell motility"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cbbd8bcebf9746db800dd7d2",
+              "unit": null,
+              "value_raw_text": "Compression enhanced wound closure in RhoT19N, Y-27632, and ML-7 treated cells, but Blebbistatin compromised cell motility despite leader cell formation."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leader cell formation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "inhibition of RhoA activity did not suppress leader-cell formation in the compressed cultures (Fig. 4A). Similar results were seen with Y-27632 and ML-7 treatment (Fig. 4 B and C). ... when actomyosin contractility was completely blocked by the myosin II ATPase inhibitor Blebbistatin, compressive stress was still able to induce leader-cell formation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e6a4a995abd919a842bcf94a",
+              "unit": null,
+              "value_raw_text": "Inhibition of RhoA, ROCK, MLCK, or myosin II did not suppress leader cell formation in compressed cultures."
+            }
+          ],
+          "unit_id": "su_66c8af9da4c264c3f128f915"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5d951e388860455eddd5b655",
+              "inference_basis_ids": [
+                "res_249cd09c21225abf0107b8c0",
+                "res_dba64c5f2adb5646c0137874",
+                "res_f945ff3f89a4f82546f0df02"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "wound closure rates were increased with compression... there was faster overall migration in these compressed cultures... For compressed cells, the index is ∼1, suggesting that the square pattern expands uniformly around the boundary"
+              },
+              "statement": "Compression enhances coordinated migration by inducing leader cell formation independent of pre-existing free-cell perimeter."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8cbb052c4e12682ea5566a97",
+              "inference_basis_ids": [
+                "res_3eb4332ea942bee228ec4b06",
+                "res_51f7baf57c8b99deedae6ab5",
+                "res_dba64c5f2adb5646c0137874"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "leader-cell formation in uncompressed cultures is sensitive to local cell–cell spatial organization, which determines free-cell perimeter... The positional advantage disappears with compression, which distends all border cells"
+              },
+              "statement": "Compressive stress stimulates leader cell formation, which is normally restricted to cells with more free perimeter in uncompressed conditions."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "67NR cells were patterned into circles, rosettes, and squares using microcontact printing to control free-cell perimeter, and cultured under stress-free or compressed (5.8 mmHg) conditions. Leader cell formation and migration were analyzed."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Microcontact printing",
+              "protocol_description": "Cells were seeded on surfaces stamped with fibronectin to form circles, squares, and rosettes, controlling free-cell perimeter."
+            }
+          ],
+          "name": "Leader cell formation and free-cell perimeter",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Wound closure rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "wound closure rates were increased with compression (Fig. 3B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_249cd09c21225abf0107b8c0",
+              "unit": null,
+              "value_raw_text": "wound closure rates were increased with compression in circle patterns"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leader cell formation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "leader cells rarely formed in the uncompressed circle patterns... but were frequent in compressed cultures"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3eb4332ea942bee228ec4b06",
+              "unit": null,
+              "value_raw_text": "Leader cells rarely formed in uncompressed circle patterns but were frequent in compressed cultures."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leader cell location preference",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "in the absence of compression, the preformed leader cells (point cells) extended more frequently from the rosette vertices... with compression, there was no preferential location for leader-cell formation—cells extended and migrated from random locations around the rosette"
+              },
+              "quantitative_value": null,
+              "result_id": "res_51f7baf57c8b99deedae6ab5",
+              "unit": null,
+              "value_raw_text": "In uncompressed rosettes, leader cells extended more frequently from vertices; with compression, leader cells formed from random locations."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Shape change index",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "For compressed cells, the index is ∼1, suggesting that the square pattern expands uniformly around the boundary; in contrast, control samples had much higher indexes, indicating that the shape expanded preferentially along the diagonals"
+              },
+              "quantitative_value": null,
+              "result_id": "res_dba64c5f2adb5646c0137874",
+              "unit": null,
+              "value_raw_text": "For compressed squares, shape change index ~1 (uniform expansion); for controls, higher index (preferential diagonal expansion)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration speed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84bf4d747e6dfb9e34e6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "there was faster overall migration in these compressed cultures (Fig. 3E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f945ff3f89a4f82546f0df02",
+              "unit": null,
+              "value_raw_text": "faster overall migration in compressed rosette cultures"
+            }
+          ],
+          "unit_id": "su_6a644c33f43011afd680278b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a5a80a7bfaa589849522e76c",
+              "inference_basis_ids": [
+                "res_12076ca346ac104e52def341",
+                "res_7a30c751c89c34c0366bc749",
+                "res_d370539645d778f7f9096a60",
+                "res_e0b323291e7a94051b4a789a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "19361d822df7882875d9",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "mechanical compression induces localized secretion of fibronectin by the migrating 67NR cells, and this localized secretion enhances leader-cell formation."
+              },
+              "statement": "Compression enhances cell-substrate adhesion through localized secretion of fibronectin, not transcriptional upregulation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "67NR cells were compressed (5.8 mmHg, 16 h) or left uncompressed. Cell-substrate adhesion was measured by resistance to fluid shear detachment. Fibronectin distribution was assessed by immunofluorescence, and fibronectin mRNA was measured by qPCR. Cycloheximide treatment was used to inhibit protein synthesis."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Cell adhesion assay",
+              "protocol_description": "Cells were exposed to detractive fluid shear, and remaining adherent cells were quantified by crystal violet staining (OD 540 nm)."
+            },
+            {
+              "method_id": "M6",
+              "name": "Immunofluorescence and qPCR",
+              "protocol_description": "Fibronectin and vinculin were stained and imaged by confocal microscopy; fibronectin mRNA was measured by quantitative real-time PCR."
+            }
+          ],
+          "name": "Cell-substrate adhesion and fibronectin deposition",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibronectin mRNA level",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19361d822df7882875d9",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Quantitative PCR of control and compressed 67NR cells showed no significant difference in fibronectin messenger level between the two groups"
+              },
+              "quantitative_value": null,
+              "result_id": "res_12076ca346ac104e52def341",
+              "unit": null,
+              "value_raw_text": "No significant difference in fibronectin messenger level between compressed and control cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibronectin localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19361d822df7882875d9",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "more fibronectin was localized at the cell–substrate interface in the compressed samples than in controls... Fibronectin at the cell–substrate interface in the compressed, but not control, samples was fibrillar and oriented in the direction of migration"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7a30c751c89c34c0366bc749",
+              "unit": null,
+              "value_raw_text": "More fibronectin was localized at the cell-substrate interface in compressed samples, with fibrillar and oriented pattern."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell-substrate adhesion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19361d822df7882875d9",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Compressed 67NR cells exhibited 2.5-fold higher cell-substrate adhesion than uncompressed cells"
+              },
+              "quantitative_value": 2.5,
+              "result_id": "res_d370539645d778f7f9096a60",
+              "unit": "fold change",
+              "value_raw_text": "Compressed 67NR cells exhibited 2.5-fold higher cell-substrate adhesion than uncompressed cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibronectin pattern after cycloheximide",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19361d822df7882875d9",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "inhibition of protein synthesis abolished the oriented, fibril-like pattern of fibronectin seen in the untreated, compressed cultures"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e0b323291e7a94051b4a789a",
+              "unit": null,
+              "value_raw_text": "Cycloheximide abolished the oriented, fibril-like pattern of fibronectin seen in untreated compressed cultures."
+            }
+          ],
+          "unit_id": "su_89af353ff83ed5e38a13863f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5c4947466a70931eac23aba9",
+              "inference_basis_ids": [
+                "res_6f082f60adf85ec3f1e9af0d",
+                "res_c8ba890e95b30e878723dcee"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5138a18650aa5ca1bd31",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "compressive stress did enhance the motility of highly aggressive 4T1 and MDA-MB-231 cells, as well as 67NR cells... compressive stress suppressed the migration of normal mammary epithelial MCF10A and non-invasive, well-differentiated MCF7 cells"
+              },
+              "statement": "Applied compressive stress enhances migration of mammary carcinoma cells (67NR, 4T1, MDA-MB-231) but suppresses migration of normal (MCF10A) and non-invasive (MCF7) cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e3e0b07eeed01f7f65694dda",
+              "inference_basis_ids": [
+                "res_c8ba890e95b30e878723dcee"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5138a18650aa5ca1bd31",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "At this level, compression did not significantly increase cell proliferation (Fig. S2A). However, compressive stress did enhance the motility... These results demonstrate that applied compressive stress (ACS) enhances the migration potential of mammary carcinoma cells independent of any changes in cell proliferation."
+              },
+              "statement": "Compression-induced migration enhancement is independent of changes in cell proliferation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Five mammary epithelial cell lines (MCF10A, MCF7, 67NR, 4T1, MDA-MB-231) were subjected to constant compressive stress (5.8 mmHg) for 16 h using a weighted piston device, and migration was measured via scratch-wound assay."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "In vitro compression device",
+              "protocol_description": "Cells were pressed against a membrane surface with a weighted piston to apply defined compressive stress (5.8 mmHg) for 16 h."
+            },
+            {
+              "method_id": "M2",
+              "name": "Scratch-wound assay",
+              "protocol_description": "Migration rates were measured by imaging the denuded area over time after scratching the cell monolayer."
+            }
+          ],
+          "name": "Compression-induced migration and cytoskeletal remodeling",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5138a18650aa5ca1bd31",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "compressive stress suppressed the migration of normal mammary epithelial MCF10A and non-invasive, well-differentiated MCF7 cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6f082f60adf85ec3f1e9af0d",
+              "unit": null,
+              "value_raw_text": "compressive stress suppressed the migration of normal mammary epithelial MCF10A and non-invasive, well-differentiated MCF7 cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell morphology and cytoskeletal organization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5138a18650aa5ca1bd31",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Compressed 67NR cells showed actin stress fiber alignment and microtubule rearrangement (Fig. 1C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c3f4446571f3f0c7c5b02a74",
+              "unit": null,
+              "value_raw_text": "Compressed 67NR cells showed actin stress fiber alignment and microtubule rearrangement at the wound edge, while MCF10A cells did not."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5138a18650aa5ca1bd31",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "compressive stress did enhance the motility of highly aggressive 4T1 and MDA-MB-231 cells, as well as 67NR cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c8ba890e95b30e878723dcee",
+              "unit": null,
+              "value_raw_text": "compressive stress enhanced the motility of highly aggressive 4T1 and MDA-MB-231 cells, as well as 67NR cells"
+            }
+          ],
+          "unit_id": "su_eed4050fe3944ad475e02371"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6792 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7363 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6695 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5916 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5579 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7154 on attempt 1"
+    }
+  ]
+}

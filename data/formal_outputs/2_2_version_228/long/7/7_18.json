@@ -1,0 +1,234 @@
+{
+  "coverage_ledger": {
+    "018532e7132faf6199ba": "not_selected",
+    "091011f2654c8cd2182e": "extracted",
+    "124138c59d14f4fca45f": "not_selected",
+    "14599fd35444d508520e": "not_selected",
+    "1dc21eb493a9758e290f": "not_selected",
+    "21e2eae4bddd1fd26113": "not_selected",
+    "3db05c0945899d135747": "not_selected",
+    "42ba14c7d7f2f9ca13c8": "extracted",
+    "475019c7b7aa9ba21843": "not_selected",
+    "57788d61dd35e81cd802": "not_selected",
+    "6d0e0b96f24ae1efbc5d": "extracted",
+    "715e2f6e3c447ef1563b": "not_selected",
+    "7417a661d650b143eabc": "not_selected",
+    "8a2776ffe5b6d89ec10b": "not_selected",
+    "8df33f99495014ea1e8e": "not_selected",
+    "968b529e10c778fffadc": "not_selected",
+    "9a70e258cfa3aa54c53b": "not_selected",
+    "a5b5045019deab748773": "extracted",
+    "c0a48284611e1a0a6dc6": "not_selected",
+    "d10fa8a1808ad4a51c16": "not_selected",
+    "db12f85a2e8509ad33b7": "not_selected",
+    "e2de72a641059657b046": "not_selected",
+    "eb2566a1eadae167d8fa": "not_selected",
+    "f1f8df1efd957a864c8d": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The paper does not provide detailed per-problem error values for WNO or baselines; only a range and best-result count are given.",
+    "No ablation studies or hyperparameter sensitivity analyses are reported in the provided chunks.",
+    "Computational cost comparisons (runtime, memory) are not quantified in the provided chunks.",
+    "The digital twin application for Earth's air temperature is mentioned but no results are provided in the chunks."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_18.pdf",
+    "source_sha256": "4fdb599e2626de2f0a7b612b576a31705900e616502e26e29ff818defa5fa9f0"
+  },
+  "paper_id": "7_18",
+  "quality_assessment": {
+    "correct_item_count": 27,
+    "deterministic_rule_score": 0.7987,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.5,
+      "sample_size_log_score": 0.2817,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 27,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can a wavelet-based neural operator (WNO) effectively learn mappings between infinite-dimensional function spaces for parametric PDEs, and how does it compare to existing operator learning frameworks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_33a96478b33f5024c26902ec",
+              "inference_basis_ids": [
+                "res_49c51c3551beffe10f7447cb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a5b5045019deab748773",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "It is observed that the error for the proposed WNO varies in the range of 0.21%–1.75%"
+              },
+              "statement": "WNO achieves L2 relative error in the range of 0.21%–1.75% across six example problems."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ac8e7013774ea7a93403f0cd",
+              "inference_basis_ids": [
+                "res_1a282d62f01899f40c1a995a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a5b5045019deab748773",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "with WNO yielding the best results (lowest error) in four out of the six cases."
+              },
+              "statement": "WNO outperforms other operators in four out of six cases."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Dataset for Burgers' equation operator learning.",
+              "name": "Burgers equation dataset",
+              "version_or_split": "1000 training, 100 test"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Dataset for Darcy flow on rectangular domain.",
+              "name": "Darcy flow (rectangular) dataset",
+              "version_or_split": "1000 training, 100 test"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Dataset for Darcy flow on triangular domain.",
+              "name": "Darcy flow (triangular) dataset",
+              "version_or_split": "1900 training, 100 test"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Dataset for Navier-Stokes equation operator learning.",
+              "name": "Navier-Stokes equation dataset",
+              "version_or_split": "1000 training, 100 test"
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Dataset for Allen-Cahn equation operator learning.",
+              "name": "Allen-Cahn equation dataset",
+              "version_or_split": "1400 training, 100 test"
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "Dataset for Wave advection equation operator learning.",
+              "name": "Wave advection equation dataset",
+              "version_or_split": "900 training, 100 test"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "It is observed that the error for the proposed WNO varies in the range of 0.21%–1.75%, with WNO yielding the best results (lowest error) in four out of the six cases.",
+              "provenance": {
+                "chunk_id": "a5b5045019deab748773",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "It is observed that the error for the proposed WNO varies in the range of 0.21%–1.75%, with WNO yielding the best results (lowest error) in four out of the six cases."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Building a digital twin for Earth's air temperature prediction",
+            "Learning the solution operator for Allen-Cahn equation",
+            "Learning the solution operator for Burgers' equation",
+            "Learning the solution operator for Darcy flow (rectangular domain)",
+            "Learning the solution operator for Darcy flow (triangular domain)",
+            "Learning the solution operator for Navier-Stokes equation",
+            "Learning the solution operator for Wave advection equation"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Wavelet Neural Operator (WNO)",
+              "protocol_description": "WNO uses discrete wavelet transform (DWT) to decompose input snapshots into high and low frequency components. An information subset is created using wavelet coefficients at higher levels of decomposition. The network parameters are learned in the wavelet space. The architecture consists of four WNO layers activated by GeLU. Mother wavelet from Daubechies family (db6, db4, etc.) is used. Training uses ADAM optimizer with initial learning rate 0.001, weight decay 1e-6, learning rate decay by 0.75 every 50 epochs. Batch size varies between 10-25. Experiments run on single RTX A2000 6GB GPU."
+            },
+            {
+              "method_id": "M2",
+              "name": "DeepONet",
+              "protocol_description": "Baseline operator learning framework consisting of branch and trunk neural networks."
+            },
+            {
+              "method_id": "M3",
+              "name": "Graph Neural Operator (GNO)",
+              "protocol_description": "Baseline operator learning framework using graph networks for kernel integration."
+            },
+            {
+              "method_id": "M4",
+              "name": "Fourier Neural Operator (FNO)",
+              "protocol_description": "Baseline operator learning framework using Fourier transform for spectral decomposition."
+            },
+            {
+              "method_id": "M5",
+              "name": "Multiwavelet Transformation operator (MWT)",
+              "protocol_description": "Baseline operator learning framework using multiwavelet decomposition."
+            }
+          ],
+          "name": "WNO architecture and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Best result count",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a5b5045019deab748773",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "with WNO yielding the best results (lowest error) in four out of the six cases."
+              },
+              "quantitative_value": 4.0,
+              "result_id": "res_1a282d62f01899f40c1a995a",
+              "unit": "cases",
+              "value_raw_text": "WNO yields the best results (lowest error) in four out of the six cases"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a5b5045019deab748773",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "It is observed that the error for the proposed WNO varies in the range of 0.21%–1.75%, with WNO yielding the best results (lowest error) in four out of the six cases."
+              },
+              "quantitative_value": null,
+              "result_id": "res_49c51c3551beffe10f7447cb",
+              "unit": "%",
+              "value_raw_text": "0.21%–1.75%"
+            }
+          ],
+          "unit_id": "su_4bd7112246d6d37e8c01fb85"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

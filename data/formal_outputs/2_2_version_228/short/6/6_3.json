@@ -1,0 +1,434 @@
+{
+  "coverage_ledger": {
+    "62cb83344e2c8b611ffe": "extracted",
+    "79a3fd131ade85fb5653": "not_selected",
+    "83180b62a75a2cbd6393": "extracted",
+    "8be2acc5adb341b7af76": "not_selected",
+    "9d2413495a7961cc2b0d": "not_selected",
+    "bdea53f9d8f3f2e7e2f8": "not_selected",
+    "d6d54990e00d2e7a5bcd": "extracted",
+    "f2b7faea6622eca29f13": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The DAG search method is feasible only for very small networks (roughly N ≤ 7) and suffers from multiple hypothesis testing.",
+    "The method assumes additive noise and independence of noise variables; real data may violate these assumptions.",
+    "The regression method (Gaussian Process) assumes Gaussian noise, which is inconsistent with the general setting preferring non-Gaussian noise.",
+    "The method may accept both directions or reject both, indicating model mismatch."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_3.pdf",
+    "source_sha256": "f500496b888614e68893543f57a2574cc824a1e46af554972ab7b832cecd1bf4"
+  },
+  "paper_id": "6_3",
+  "quality_assessment": {
+    "correct_item_count": 34,
+    "deterministic_rule_score": 0.9523,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.25,
+      "sample_size_log_score": 0.8998,
+      "statistical_support_coverage": 0.375
+    },
+    "extracted_item_count": 34,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can nonlinear additive noise models identify causal direction from observational data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fc789c20e76e659917ea398c",
+              "inference_basis_ids": [
+                "res_840b4a5d7534981eb27d8fae"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The correct model “age causes length” leads to a p-value of 0.19"
+              },
+              "statement": "The method accepts the correct causal direction (age causes length) in the Abalone dataset."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D4",
+              "description": "Measurements of rings (age) and length of abalone shells.",
+              "name": "Abalone",
+              "version_or_split": "subsample of 500 datapoints"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply method to Abalone dataset: age (rings) and length of shell."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Nonlinear regression with independence test",
+              "protocol_description": "Same as M2: GP regression, HSIC independence test."
+            }
+          ],
+          "name": "Abalone dataset",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "p-value",
+              "n_sample_size": 500,
+              "p_value": 0.19,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The correct model “age causes length” leads to a p-value of 0.19"
+              },
+              "quantitative_value": 0.19,
+              "result_id": "res_840b4a5d7534981eb27d8fae",
+              "unit": null,
+              "value_raw_text": "p-value of 0.19 for forward model (age causes length)"
+            }
+          ],
+          "unit_id": "su_72288af7e008e4cd117ed485"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1b316aad613c96046741874a",
+              "inference_basis_ids": [
+                "res_ed17eaf682a5bbdc38664380"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "non-invertibility is not a necessary condition for identification."
+              },
+              "statement": "Non-invertibility is not necessary for identifiability."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3111653d1f7b5c99ae7ad208",
+              "inference_basis_ids": [
+                "res_bce422aee563646f0758cd30"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "our method can solve the well-known linear but non-Gaussian special case"
+              },
+              "statement": "The method can identify causal direction in the linear non-Gaussian case."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e54c10d022f26bcfc126de74",
+              "inference_basis_ids": [
+                "res_98685f0a15060d8d33998c43"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we can identify the correct direction for the Gaussian marginal and Gaussian noise model when the functional relationship is sufficiently nonlinear."
+              },
+              "statement": "The method can identify causal direction in the Gaussian nonlinear case."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Synthetic data from y = x + b x^3 + n, with x and n from power-raised Gaussian distributions.",
+              "name": "Simulated two-variable data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Simulation of two-variable model y = x + b x^3 + n, varying nonlinearity b and non-Gaussianity q."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Nonlinear regression with independence test",
+              "protocol_description": "Nonlinear regression (Gaussian Process) of y on x, then test independence of residuals and x using HSIC. Repeat for reverse direction. Accept model if independence test not rejected."
+            }
+          ],
+          "name": "Two-variable simulation study",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Acceptance probability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we can identify the correct direction for the Gaussian marginal and Gaussian noise model when the functional relationship is sufficiently nonlinear."
+              },
+              "quantitative_value": null,
+              "result_id": "res_98685f0a15060d8d33998c43",
+              "unit": null,
+              "value_raw_text": "We can identify the correct direction for the Gaussian marginal and Gaussian noise model when the functional relationship is sufficiently nonlinear."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Acceptance probability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "when the distributions are sufficiently non-Gaussian the method is able to infer the correct causal direction."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bce422aee563646f0758cd30",
+              "unit": null,
+              "value_raw_text": "When distributions are sufficiently non-Gaussian the method is able to infer the correct causal direction."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Acceptance probability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "the model is identifiable also for positive b in which case the function is invertible, indicating that non-invertibility is not a necessary condition for identification."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ed17eaf682a5bbdc38664380",
+              "unit": null,
+              "value_raw_text": "The model is identifiable also for positive b in which case the function is invertible, indicating that non-invertibility is not a necessary condition for identification."
+            }
+          ],
+          "unit_id": "su_a960f105372325169cc30b36"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ead1f0566651278973e22330",
+              "inference_basis_ids": [
+                "res_44db555df52b0e425e19a709",
+                "res_f81132f4c78647f1dee7c152"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we accept the model where the time interval between the current and the next eruption is a function of the duration of the current eruption, but reject the reverse model."
+              },
+              "statement": "The method correctly identifies the causal direction in the Old Faithful dataset."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Duration of eruption and interval between eruptions of Old Faithful geyser.",
+              "name": "Old Faithful",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply method to Old Faithful dataset: duration of eruption and time to next eruption."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Nonlinear regression with independence test",
+              "protocol_description": "Same as M2: GP regression, HSIC independence test, significance level 2%."
+            }
+          ],
+          "name": "Old Faithful geyser dataset",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "p-value",
+              "n_sample_size": null,
+              "p_value": 4.4e-09,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "a p-value of 4.4 × 10−9 for the (backward) model “next interval length causes current duration”."
+              },
+              "quantitative_value": 4.4e-09,
+              "result_id": "res_44db555df52b0e425e19a709",
+              "unit": null,
+              "value_raw_text": "p-value of 4.4e-9 for backward model (interval causes duration)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "p-value",
+              "n_sample_size": null,
+              "p_value": 0.5,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Our method obtains a p-value of 0.5 for the (forward) model “current duration causes next interval length”"
+              },
+              "quantitative_value": 0.5,
+              "result_id": "res_f81132f4c78647f1dee7c152",
+              "unit": null,
+              "value_raw_text": "p-value of 0.5 for forward model (duration causes interval)"
+            }
+          ],
+          "unit_id": "su_c11d86c872eaf739d678fc9b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4b836b7fa577c629e1b4169e",
+              "inference_basis_ids": [
+                "res_fd7fd33c4c3824d4c9f95ba9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f2b7faea6622eca29f13",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for nonlinear models with additive noise almost any nonlinearities (invertible or not) will typically yield identifiable models."
+              },
+              "statement": "Nonlinearities in additive noise models typically make causal direction identifiable."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Theoretical analysis of identifiability for two-variable nonlinear additive noise models."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Nonlinear additive noise model",
+              "protocol_description": "Model: y := f(x) + n, with x and n independent. Identifiability based on constancy of conditional densities."
+            }
+          ],
+          "name": "Two-variable identifiability analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Identifiability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f2b7faea6622eca29f13",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for nonlinear models with additive noise almost any nonlinearities (invertible or not) will typically yield identifiable models."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fd7fd33c4c3824d4c9f95ba9",
+              "unit": null,
+              "value_raw_text": "For nonlinear models with additive noise almost any nonlinearities (invertible or not) will typically yield identifiable models."
+            }
+          ],
+          "unit_id": "su_e974695359c676c0218373d9"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6649efa398813799ad0d5c60",
+              "inference_basis_ids": [
+                "res_925869a8dafd693c68547431"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The simplest DAG that was consistent with the data (with significance level 2% for each test) turned out to be precisely the true causal structure."
+              },
+              "statement": "The method recovers the true causal DAG in a four-variable nonlinear simulation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Synthetic data from diamond-like DAG: w ~ U(-3,3), x = w^2 + nx, y = 4 sqrt(|w|) + ny, z = 2 sin x + 2 sin y + nz, with uniform noise.",
+              "name": "Simulated four-variable data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Simulation of four-variable diamond-like causal structure with nonlinear functions and uniform noise."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "DAG search with nonlinear regression and independence tests",
+              "protocol_description": "For each DAG, perform nonlinear regression of each variable on its parents, test mutual independence of residuals. Accept DAG if all tests pass. Remove unnecessarily complex graphs."
+            }
+          ],
+          "name": "Four-variable simulation study",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "DAG recovery",
+              "n_sample_size": 500,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The simplest DAG that was consistent with the data (with significance level 2% for each test) turned out to be precisely the true causal structure."
+              },
+              "quantitative_value": null,
+              "result_id": "res_925869a8dafd693c68547431",
+              "unit": null,
+              "value_raw_text": "The simplest DAG that was consistent with the data turned out to be precisely the true causal structure."
+            }
+          ],
+          "unit_id": "su_ecd80445361f22fde41deafa"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

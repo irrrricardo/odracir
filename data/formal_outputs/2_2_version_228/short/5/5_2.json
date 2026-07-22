@@ -1,0 +1,629 @@
+{
+  "coverage_ledger": {
+    "1cf56d597a7ae04aabfb": "extracted",
+    "bebeda8a3e551a5446f4": "extracted",
+    "c482f9bc9a6af28ae525": "extracted",
+    "e957e60ef05ee9537860": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study does not fully exclude that mechanical constraints on DNA during nuclear deformation also contribute to DNA damage.",
+    "The exact cytoplasmic factors causing DNA damage upon NE opening were not identified.",
+    "The in vivo relevance of NE opening in immune and cancer cell migration was not directly tested beyond ear explants.",
+    "The role of ESCRT III in NE resealing was primarily shown using siRNA knockdown, which may have off-target effects.",
+    "The study focuses on a limited set of cell types (mDCs, hDCs, HeLa, RPE-1) and may not generalize to all migrating cells.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_2.pdf",
+    "source_sha256": "40521b218427090859d60b048d2a31ab561485f3f5883a9d90f4d1f699a5b9bf"
+  },
+  "paper_id": "5_2",
+  "quality_assessment": {
+    "correct_item_count": 56,
+    "deterministic_rule_score": 0.9891,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0435,
+      "sample_size_log_score": 0.5997,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 56,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does nuclear deformation during cell migration cause transient nuclear envelope opening, and what are the consequences for DNA damage and cell survival?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_217956cb75fb13db18b475c2",
+              "inference_basis_ids": [
+                "res_0baa2382fdcf9775d4f4059a",
+                "res_2ba0c6e715be58f0c1d8cfd3",
+                "res_45a52de14e547e7740ed71c2",
+                "res_7d40b61e249bdc3d2da95e55",
+                "res_7eba8df5d3005f0c955a8b28",
+                "res_a06c651109ae2c5b72f08a9e",
+                "res_b63883e194ebe385daaab161"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Together these experiments show that DNA damage caused by prolonged NE opening can lead to cell death provided that DNA repair is also affected."
+              },
+              "statement": "NE opening during migration leads to DNA double-strand breaks, likely due to entry of cytoplasmic factors, and efficient DNA repair is required for cell survival."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Cell death assay in LMNA- and CHMP3-depleted cells with and without ATM inhibitor (ATMi)",
+            "Comparison of cell death in straight channels vs. constrictions",
+            "Correlation of 53BP1-GFP foci with RFP-cGAS entry",
+            "Measurement of 53BP1-GFP foci number and intensity during constriction passage",
+            "RPE-1 cells expressing 53BP1-GFP and RFP-cGAS migrating through constrictions"
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "ATM inhibition",
+              "protocol_description": "Cells were treated with an ATM inhibitor (ATMi) to inhibit DNA repair."
+            }
+          ],
+          "name": "DNA damage and cell death associated with NE opening",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Temporal correlation of 53BP1 foci with cGAS entry",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We imaged cells expressing both 53BP1-GFP and RFP-cGAS and found that the formation of 53BP1-GFP foci always followed the recruitment of RFP-cGAS into the nucleus (Fig. 4, B and E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0baa2382fdcf9775d4f4059a",
+              "unit": null,
+              "value_raw_text": "formation of 53BP1-GFP foci always followed the recruitment of RFP-cGAS into the nucleus"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell death in LMNA-depleted cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "we observed increased death in LMN A/C–depleted cells (Fig. 4A), even inside straight channels, but more so when cells were passing constrictions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2ba0c6e715be58f0c1d8cfd3",
+              "unit": null,
+              "value_raw_text": "increased death in LMN A/C–depleted cells, even inside straight channels, but more so when cells were passing constrictions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell death in CHMP3-depleted cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "CHMP3 depletion did not induce any increase in cell death (Fig. 4A)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_45a52de14e547e7740ed71c2",
+              "unit": null,
+              "value_raw_text": "CHMP3 depletion did not induce any increase in cell death"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell death with ATMi treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Upon ATMi treatment, the level of cell death was increased only in LMN A/C- and in CHMP3-depleted cells migrating through constrictions (Fig. 4A)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d40b61e249bdc3d2da95e55",
+              "unit": null,
+              "value_raw_text": "Upon ATMi treatment, the level of cell death was increased only in LMN A/C- and in CHMP3-depleted cells migrating through constrictions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "53BP1 foci dependence on cGAS entry",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "only cells that exhibited entry of RFP-cGAS into the nucleus also showed an increase in 53BP1-GFP foci (Fig. 4F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7eba8df5d3005f0c955a8b28",
+              "unit": null,
+              "value_raw_text": "only cells that exhibited entry of RFP-cGAS into the nucleus also showed an increase in 53BP1-GFP foci"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "53BP1 foci distribution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "which were dispersed throughout the nucleus (Fig. 4G)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a06c651109ae2c5b72f08a9e",
+              "unit": null,
+              "value_raw_text": "foci were dispersed throughout the nucleus"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "53BP1-GFP foci number and intensity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "These cells showed a transient increase in the number and intensity of 53BP1-GFP foci during passage of the nucleus through a constriction (Fig. 4, B to D, and movie S10)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b63883e194ebe385daaab161",
+              "unit": null,
+              "value_raw_text": "transient increase in the number and intensity of 53BP1-GFP foci during passage of the nucleus through a constriction"
+            }
+          ],
+          "unit_id": "su_4ba8bc82b30680237aff7100"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e954f37bbea5cda593c928d8",
+              "inference_basis_ids": [
+                "res_0afe7cce2669526d5795d3fd",
+                "res_9269ae7915ac110e08404097",
+                "res_b236a5731c8dac08f363669c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "This suggests that the nucleo-cytoplasmic barrier was transiently abrogated and then restored, which likely corresponds to an opening of the NE."
+              },
+              "statement": "Nuclear deformation during migration through physiological environments causes transient nucleo-cytoplasmic barrier disruption."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Live imaging of mDCs expressing NLS-GFP in collagen gel and ear explants",
+            "mDCs migrating between two surfaces spaced 5 μm apart with 1.6 mg/ml collagen",
+            "mDCs migrating between two surfaces spaced 5 μm apart without collagen",
+            "mDCs migrating through mouse ear explants"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Live-cell fluorescence microscopy",
+              "protocol_description": "mDCs expressing NLS-GFP were imaged during migration in collagen gel or ear explants. Nuclear circularity and NLS-GFP intensity in nucleus and cytoplasm were measured."
+            }
+          ],
+          "name": "Nuclear deformation and nucleo-cytoplasmic leakage during migration",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "NLS-GFP nuclear and cytoplasmic intensity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Cells undergoing strong nuclear deformations displayed a decrease in the GFP nuclear signal and an increase in the cytoplasmic signal (Fig. 1F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0afe7cce2669526d5795d3fd",
+              "unit": null,
+              "value_raw_text": "decrease in the GFP nuclear signal and an increase in the cytoplasmic signal"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear circularity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In collagen or ear explants, nuclei were more irregularly shaped (Fig. 1D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9269ae7915ac110e08404097",
+              "unit": null,
+              "value_raw_text": "nuclei were more irregularly shaped"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Minimum nuclear diameter",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the minimum diameter of the nucleus was reduced (Fig. 1E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b236a5731c8dac08f363669c",
+              "unit": null,
+              "value_raw_text": "the minimum diameter of the nucleus was reduced"
+            }
+          ],
+          "unit_id": "su_4e566db1d91226b46cfc2389"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9b7a0b58147b6fe6abcc609e",
+              "inference_basis_ids": [
+                "res_380dd60610ee11987f80a09f",
+                "res_42ac048b8b30d846347ff97d",
+                "res_72baa538bf2aa181ded68f81",
+                "res_8732cdab32596a68165d877e",
+                "res_89af2a330559e40d732e5d59"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Thus the ESCRT III complex is essential to reseal the NE in migrating cells."
+              },
+              "statement": "ESCRT III complex is recruited to sites of NE opening and is essential for resealing the NE in migrating cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "CHMP3 knockdown to delay CHMP4B-GFP recruitment",
+            "HeLa cells coexpressing CHMP4B-GFP and RFP-cGAS migrating through constrictions",
+            "Laser ablation of nuclear edge to induce NE wounding and CHMP4B-GFP recruitment",
+            "LMN A/C knockdown to increase spontaneous NE rupture",
+            "NLS-GFP leakage measurement in CHMP3- and LMNA-depleted cells during constriction passage"
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "siRNA knockdown",
+              "protocol_description": "Cells were treated with siRNAs targeting CHMP3 or LMNA. Control siRNA was used. Knockdown efficiency was assessed by delayed CHMP4B-GFP recruitment or spontaneous NLS-GFP leakage."
+            }
+          ],
+          "name": "ESCRT III recruitment and function in NE resealing",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "CHMP4B-GFP recruitment kinetics",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "CHMP4B-GFP localized to the site of NE opening just after the opening occurred and decreased after resealing (Fig. 3B and fig. S10, A and B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_380dd60610ee11987f80a09f",
+              "unit": null,
+              "value_raw_text": "CHMP4B-GFP localized to the site of NE opening just after the opening occurred and decreased after resealing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CHMP4B-GFP recruitment to NE opening",
+              "n_sample_size": 62,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Nearly all nuclear blebs that burst subsequently recruited CHMP4B-GFP (95%; n = 62) (fig. S7A and movie S6)."
+              },
+              "quantitative_value": 95.0,
+              "result_id": "res_42ac048b8b30d846347ff97d",
+              "unit": "%",
+              "value_raw_text": "Nearly all nuclear blebs that burst subsequently recruited CHMP4B-GFP (95%; n = 62)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NLS-GFP recovery time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Quantification of the time needed for full recovery of NLS-GFP in the nucleus. Time zero is nuclear exit from the constriction (open circles are for recovery before exit; n = 46, 15, and 12; N = 2; error bars, SEM; ***P < 0.0001)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_72baa538bf2aa181ded68f81",
+              "unit": null,
+              "value_raw_text": "time needed for full recovery of NLS-GFP in the nucleus was prolonged in CHMP3-depleted cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CHMP4B-GFP recruitment time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "NE opening induced with these three different methods (compression, laser, and confined migration), recruited CHMP4B-GFP with kinetics similar to those observed after plasma membrane wounding (Fig. 3C) (13, 17)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8732cdab32596a68165d877e",
+              "unit": null,
+              "value_raw_text": "recruited CHMP4B-GFP with kinetics similar to those observed after plasma membrane wounding"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NLS-GFP cytoplasmic leakage in CHMP3-depleted cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c482f9bc9a6af28ae525",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "when CHMP3-depleted cells passed through constrictions, they showed increased GFP signal in the cytoplasm, as did LMN A/C–depleted cells, and the cytoplasmic signal remained for prolonged periods of time after the cells passed the constriction (Fig. 3, D and E; fig. S10, E to G; fig. S11, A and B; and movie S9)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_89af2a330559e40d732e5d59",
+              "unit": null,
+              "value_raw_text": "CHMP3-depleted cells showed increased GFP signal in the cytoplasm, and the cytoplasmic signal remained for prolonged periods of time after the cells passed the constriction"
+            }
+          ],
+          "unit_id": "su_93a86fef7ad1781d4a4ad532"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_54916b0b4cbcddcccf79eb08",
+              "inference_basis_ids": [
+                "res_060181bec72d43de64021553",
+                "res_113765e1c875396934f6f18b",
+                "res_32f36c096729d459aeaeb09d",
+                "res_49185b7c28083bbaa00c73ce",
+                "res_4fd20fc193f33eedd37afbdf",
+                "res_819b0c878459f967b4b47a5e",
+                "res_c72480fd5d2f249f2a508439"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "This suggests a mechanism by which deformation of the nucleus generates increased internal pressure and the formation of NE blebs that eventually rupture, followed by a resealing process, until the next bleb forms and ruptures."
+              },
+              "statement": "Nuclear deformation during migration through constrictions causes transient NE opening, with bleb formation and rupture at the nuclear tip."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "GFP-cGAS probe to detect NE opening in hDCs and HeLa cells",
+            "hDCs, HeLa, and RPE-1 cells expressing NLS-GFP migrating through microchannels with constrictions of various widths",
+            "Lap2b-GFP imaging to observe NE blebbing and rupture",
+            "Live imaging of NLS-GFP leakage during constriction passage"
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Microchannel migration assay",
+              "protocol_description": "Cells migrated through microchannels with constrictions of defined widths (e.g., 2 μm, 3 μm) and length (15 μm or 20 μm). NLS-GFP or GFP-cGAS was used to monitor NE integrity."
+            }
+          ],
+          "name": "Nuclear envelope opening during constricted migration",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "GFP-cGAS entry frequency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "hDCs opened their NEs (Fig. 2F and movie S4) at a higher frequency (Fig. 2G and fig. S4B) and earlier in the constriction (Fig. 2H and fig. S4C) for smaller constrictions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_060181bec72d43de64021553",
+              "unit": null,
+              "value_raw_text": "hDCs opened their NEs at a higher frequency for smaller constrictions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear pore exclusion from rupture region",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "nuclear pores were excluded from the rupture region at the tip of the nucleus (fig. S5, B and C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_113765e1c875396934f6f18b",
+              "unit": null,
+              "value_raw_text": "nuclear pores were excluded from the rupture region at the tip of the nucleus"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell survival after constriction passage",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "migrating cells, when deforming their nucleus, display a high survival rate (Fig. 2D and fig. S3F) despite frequent opening of their NEs (Fig. 2E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_18ded5d7a7ccb809c0231386",
+              "unit": null,
+              "value_raw_text": "high survival rate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NLS-GFP cytoplasmic leakage",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the amount of NLS-GFP cytoplasmic leakage increased when the constriction size was narrower (Fig. 2C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_32f36c096729d459aeaeb09d",
+              "unit": null,
+              "value_raw_text": "the amount of NLS-GFP cytoplasmic leakage increased when the constriction size was narrower"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NE blebbing and rupture",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Recording GFP-tagged Lap2b (Lap2b-GFP), an inner NE protein bound to the nuclear lamina, confirmed that the NE formed blebs devoid of lamina, that blebs eventually ruptured, and that they could contain chromatin (fig. S5, D to F, and movie S5)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_49185b7c28083bbaa00c73ce",
+              "unit": null,
+              "value_raw_text": "the NE formed blebs devoid of lamina, that blebs eventually ruptured, and that they could contain chromatin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fraction of cells showing NE opening",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "frequent opening of their NEs (Fig. 2E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4fd20fc193f33eedd37afbdf",
+              "unit": null,
+              "value_raw_text": "frequent opening of their NEs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NE opening location",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "openings were mostly localized at the front tip of the nucleus"
+              },
+              "quantitative_value": null,
+              "result_id": "res_819b0c878459f967b4b47a5e",
+              "unit": null,
+              "value_raw_text": "openings were mostly localized at the front tip of the nucleus"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear lamina rupture",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e957e60ef05ee9537860",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Staining of NE components showed that the nuclear lamina also ruptured (fig. S5, A and B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c72480fd5d2f249f2a508439",
+              "unit": null,
+              "value_raw_text": "the nuclear lamina also ruptured"
+            }
+          ],
+          "unit_id": "su_9f3af8a765a164bade8edfa7"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9487 on attempt 1"
+    }
+  ]
+}

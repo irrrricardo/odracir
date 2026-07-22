@@ -1,0 +1,433 @@
+{
+  "coverage_ledger": {
+    "021e061fa7e9bc46905b": "not_selected",
+    "2b9d0ee09bb04808ceb9": "extracted",
+    "3e25af2513a7758b268d": "not_selected",
+    "654074cf29c5c402f437": "extracted",
+    "ac0c59f539563765d715": "not_selected",
+    "acdf2c5cdccd034eb38b": "extracted",
+    "c657c95f8e23aa0dc032": "not_selected",
+    "ce30cc693b80c8ba5a26": "not_selected",
+    "ddf3c71c1e3c7bed8f95": "extracted",
+    "e78206e9d3379c7795c7": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The survey is method-centric and does not provide new empirical results; it synthesizes existing literature.",
+    "The analysis of trade-offs is qualitative and based on reported findings, not on a unified experimental framework.",
+    "The survey focuses on rewiring techniques for GNNs and does not cover other approaches to mitigate over-squashing and over-smoothing in depth.",
+    "The recommendations are based on the authors' perspective and may not be exhaustive."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_26.pdf",
+    "source_sha256": "637cccb29f7f3f614a57262ce3d78cb749bf4cb18b15103e42887dffbae30fe0"
+  },
+  "paper_id": "6_26",
+  "quality_assessment": {
+    "correct_item_count": 49,
+    "deterministic_rule_score": 0.7928,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 49,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do graph rewiring techniques mitigate over-squashing and over-smoothing in GNNs, and what are their theoretical underpinnings, practical implementations, and performance trade-offs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5948230bd2499ba9b885e074",
+              "inference_basis_ids": [
+                "res_eada35489de5d43236c2a015"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Finally, scalability is often constrained by the cost of the underlying descriptors: depending on the estimator, curvature-based criteria can scale quadratically to cubically in the number of edges [Topping et al., 2022; Nguyen et al., 2023], effective resistance objectives can scale cubically in the number of nodes [Black et al., 2023; Liang et al., 2025], and spectral criteria require Laplacian decompositions [Karhadkar et al., 2023]. In contrast, several approaches rely on descriptors and constructions that are more efficient to compute and do not scale quadratically with the number of nodes [Klicpera et al., 2019; Alon and Yahav, 2021; Barbero et al., 2024; Attali et al., 2024; Linkerh¨agner et al., 2025]."
+              },
+              "statement": "Scalability of rewiring methods is often limited by the computational cost of underlying descriptors, with some methods scaling quadratically or cubically, while others avoid quadratic scaling."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_662e58cec723d887d3b1ce16",
+              "inference_basis_ids": [
+                "res_cafe498ba0abc4a1adf5132e"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Most structural-fix rewiring methods introduce additional design choices, most commonly an edit budget (the number of edges added and/or removed) or threshold rules [Topping et al., 2022; Karhadkar et al., 2023; Nguyen et al., 2023; Black et al., 2023; Giraldo et al., 2023; Barbero et al., 2024]. Empirically, the benefits of curvature-based rewiring on real-world benchmarks are highly sensitive to both training and rewiring hyperparameters and vary across graphs; reported SOTA gains often arise from favorable hyperparameter configurations rather than consistent improvements over the original topology [Tori et al., 2025]."
+              },
+              "statement": "Most structural-fix rewiring methods are sensitive to hyperparameters such as edit budget, and reported SOTA gains may stem from favorable configurations rather than consistent improvements."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6e41cbc5de58075d5f0fc27d",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "ddf3c71c1e3c7bed8f95",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "From a graph perspective, they induce a topology by transforming the adjacency matrix and can thus be interpreted as an implicit form of rewiring. However, the benefits of multi-hop strategies come with a trade-off: aggregating over large hop neighborhoods can intensify information compression and accentuate over-squashing [Alon and Yahav, 2021; Topping et al., 2022], while the graph densification may accelerate over-smoothing and hinder scalability on large graphs [Nguyen et al., 2023; Giraldo et al., 2023]."
+              },
+              "statement": "Multi-hop or higher-order aggregation strategies can be interpreted as an implicit form of rewiring but may intensify over-squashing and over-smoothing."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7aa6780836e3dbd58b79cf33",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "654074cf29c5c402f437",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Additionally, a single rewiring method is unlikely to be appropriate across diverse applications, graph families, and tasks. By altering aggregation neighborhoods, rewiring implicitly determines which relations are treated as informative for the downstream objective. This choice depends on the application-specific meaning of edges and on the task’s characteristic dependency scale in the graph. Accordingly, a rule that benefits one regime may harm another by violating domain constraints or by aggregating incompatible feature evidence."
+              },
+              "statement": "A single rewiring method is unlikely to be appropriate across diverse applications, graph families, and tasks, as the choice depends on application-specific meaning of edges and task dependency scale."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7fd874b9c87437aecf0151e9",
+              "inference_basis_ids": [
+                "res_20418fac00c0f4c4e35a4d5d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Rewiring should not be evaluated solely through downstream accuracy, since its primary goal is to modify the graph geometry to improve information propagation. In practice, one typically compares a fixed backbone GNN trained and evaluated on the original graph G and on the rewired graph G+ under a matched protocol. Beyond task-level scores, evaluation can include structure-level diagnostics that assess whether G+ attenuates connectivity patterns known to exacerbate over-squashing and over-smoothing (e.g., shifts in edge-curvature distributions, decreases in effective resistance, or reductions in commute times), as well as model-level diagnostics that quantify whether long-range sensitivity has improved, for instance via a Jacobian-based sensitivity measure [Di Giovanni et al., 2023; Saber and Salehi-Abari, 2025]."
+              },
+              "statement": "Rewiring should be evaluated beyond downstream accuracy, using structure-level and model-level diagnostics to assess improvements in information propagation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a5b53d6fb338acb854f689f0",
+              "inference_basis_ids": [
+                "res_5a666d60104f354993f88a34"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Structural rewiring enables a more straightforward attribution, since the edited graph is determined from G alone; this makes it easier to relate improvements to explicit connectivity patterns and to use rewiring as a controlled probe of the role of structure in message passing. In contrast, feature-aware rewiring can be beneficial when the edges are not the most informative support for the task, but the interpretation of improvements becomes less specific: the rewiring signal is coupled to the feature space and may therefore act as an additional modeling step, so that improved accuracy cannot be attributed to topology reconstruction alone."
+              },
+              "statement": "Structural rewiring enables more straightforward attribution of performance gains to connectivity changes, while feature-aware rewiring complicates causal interpretation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bdd4771a84982683b002b790",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ddf3c71c1e3c7bed8f95",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In this survey, we examine graph rewiring techniques, a class of methods designed to modify the graph topology to enhance information propagation in GNNs."
+              },
+              "statement": "Graph rewiring techniques modify graph topology to enhance information propagation in GNNs, mitigating over-squashing and over-smoothing."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dd32c46f5132c8f7b083bef9",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "654074cf29c5c402f437",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "A key direction is to better understand the interplay between graph structure and node features. Since message passing couples features through the graph, connectivity changes directly modulate how attribute information is propagated and combined, which can either reinforce or conflict with the task signal. An important open problem is to clarify the respective roles of structure and features in long-range learning: when feature side mechanisms already convey the non-local signal [Hosseini et al., 2026], when rewiring is indispensable, and how to combine both under matched budgets and constraints. More broadly, rewiring enables controlled neighborhood perturbations to study this interplay; yet principled criteria for predicting when structure and features are aligned or when their mismatch induces harmful mixing remain largely open [Gomes et al., 2022]."
+              },
+              "statement": "Future work should clarify the interplay between graph structure and node features in long-range learning, and use rewiring as a controlled structural intervention to study generalization."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_df89924dceab16a7e3f503b3",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "654074cf29c5c402f437",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Third, reported gains should be supported by a joint analysis of effectiveness, computational cost, and attribution: downstream improvements should be reported together with the edit rewiring budget, runtime and memory overhead, and matched-budget controls (e.g., random or degree-preserving rewiring baselines, and ablations for feature-driven constructions) so that the source of the improvement is identifiable and comparisons across methods are meaningful."
+              },
+              "statement": "Reported gains should be supported by joint analysis of effectiveness, computational cost, and attribution, including edit budget, runtime, memory overhead, and matched-budget controls."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Datasets where nodes belonging to different classes are highly interconnected, e.g., from Lim et al. 2021 and Platonov et al. 2023.",
+              "name": "Heterophilic datasets",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Benchmarks that stress the ability of GNNs to transmit signals across distant nodes, e.g., from Dwivedi et al. 2022, Miglior et al. 2026, Liang et al. 2026.",
+              "name": "Long-range interaction benchmarks",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of various rewiring methods in terms of addressed phenomena (over-squashing, over-smoothing), use of node features, dynamic rewiring, and underlying measure (Table 1).",
+            "Comprehensive review of state-of-the-art rewiring approaches, covering both preprocessing and dynamic rewiring methods to mitigate over-squashing and over-smoothing.",
+            "Evaluation of rewiring methods on node and graph prediction benchmarks, with emphasis on heterophilic datasets and long-range interaction benchmarks."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DIGL",
+              "protocol_description": "Uses PageRank-based diffusion to rewire the graph; does not explicitly target over-squashing or over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M10",
+              "name": "BORF",
+              "protocol_description": "Uses Ollivier curvature to rewire and address both over-squashing and over-smoothing; does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M11",
+              "name": "GTR",
+              "protocol_description": "Uses effective resistance to rewire and address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M12",
+              "name": "SJLR",
+              "protocol_description": "Uses Jost–Liu curvature to rewire; targets both over-squashing and over-smoothing, uses node features, and is dynamic."
+            },
+            {
+              "method_id": "M13",
+              "name": "AFR-3",
+              "protocol_description": "Uses Augmented Forman curvature to rewire and address both over-squashing and over-smoothing; does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M14",
+              "name": "PR-MPNNs",
+              "protocol_description": "Uses probabilistic learned rewiring to address over-squashing; uses node features and is dynamic."
+            },
+            {
+              "method_id": "M15",
+              "name": "LASER",
+              "protocol_description": "Uses random walk-based rewiring to address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M16",
+              "name": "DR",
+              "protocol_description": "Uses Delaunay triangulation in feature space to rewire; targets both over-squashing and over-smoothing, uses node features, and is not dynamic."
+            },
+            {
+              "method_id": "M17",
+              "name": "Pr Add/Delete",
+              "protocol_description": "Uses spectral gap to prune/add edges; targets both over-squashing and over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M18",
+              "name": "IPR-MPNN",
+              "protocol_description": "Uses virtual nodes for probabilistic rewiring; targets over-squashing, uses node features, and is dynamic."
+            },
+            {
+              "method_id": "M19",
+              "name": "CGP",
+              "protocol_description": "Uses Cayley expander graphs to address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M2",
+              "name": "DropEdge",
+              "protocol_description": "Randomly drops edges during training to mitigate over-smoothing; does not target over-squashing, does not use node features, and is dynamic."
+            },
+            {
+              "method_id": "M20",
+              "name": "ComFy",
+              "protocol_description": "Uses feature similarity (cosine similarity) to rank edge additions/deletions; community-aware variants use Louvain partition. Targets both over-squashing and over-smoothing, uses node features, and is not dynamic."
+            },
+            {
+              "method_id": "M21",
+              "name": "VN",
+              "protocol_description": "Uses virtual nodes to address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M22",
+              "name": "JDR",
+              "protocol_description": "Enforces global consistency between graph and feature geometry by alternating rewiring and feature denoising to maximize spectral alignment between top-L eigenvectors of adjacency and top-L singular vectors of features. Targets over-squashing, uses node features, and is not dynamic."
+            },
+            {
+              "method_id": "M23",
+              "name": "TRIGON",
+              "protocol_description": "Uses triangulation learning to rewire; targets both over-squashing and over-smoothing, uses node features, and is dynamic."
+            },
+            {
+              "method_id": "M24",
+              "name": "GOKU",
+              "protocol_description": "Uses effective resistance and feature similarity for spectrum-preserving sparsification; targets over-squashing, uses node features, and is not dynamic."
+            },
+            {
+              "method_id": "M25",
+              "name": "FN",
+              "protocol_description": "Uses fractal nodes to address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M3",
+              "name": "PPRGo",
+              "protocol_description": "Uses PageRank-based propagation; does not explicitly target over-squashing or over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M4",
+              "name": "FA",
+              "protocol_description": "Uses connectivity-based rewiring to address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M5",
+              "name": "SDRF",
+              "protocol_description": "Uses Balanced Forman curvature to rewire edges and mitigate over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M6",
+              "name": "RLEF",
+              "protocol_description": "Uses Cheeger constant to rewire and address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M7",
+              "name": "DiffWire",
+              "protocol_description": "Uses commute time and spectral gap to rewire; targets over-squashing, uses node features, and is dynamic."
+            },
+            {
+              "method_id": "M8",
+              "name": "EGP",
+              "protocol_description": "Uses expander graph construction to address over-squashing; does not target over-smoothing, does not use node features, and is not dynamic."
+            },
+            {
+              "method_id": "M9",
+              "name": "FOSR",
+              "protocol_description": "Uses spectral gap to rewire and address both over-squashing and over-smoothing; does not use node features, and is not dynamic."
+            }
+          ],
+          "name": "Survey of graph rewiring methods",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Evaluation protocol",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In practice, one typically compares a fixed backbone GNN trained and evaluated on the original graph G and on the rewired graph G+ under a matched protocol. Beyond task-level scores, evaluation can include structure-level diagnostics that assess whether G+ attenuates connectivity patterns known to exacerbate over-squashing and over-smoothing (e.g., shifts in edge-curvature distributions, decreases in effective resistance, or reductions in commute times), as well as model-level diagnostics that quantify whether long-range sensitivity has improved, for instance via a Jacobian-based sensitivity measure [Di Giovanni et al., 2023; Saber and Salehi-Abari, 2025]."
+              },
+              "quantitative_value": null,
+              "result_id": "res_20418fac00c0f4c4e35a4d5d",
+              "unit": null,
+              "value_raw_text": "Rewiring is evaluated by comparing a fixed backbone GNN on original and rewired graphs, using task-level scores and structure/model-level diagnostics."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance attribution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Structural rewiring enables a more straightforward attribution, since the edited graph is determined from G alone; this makes it easier to relate improvements to explicit connectivity patterns and to use rewiring as a controlled probe of the role of structure in message passing. In contrast, feature-aware rewiring can be beneficial when the edges are not the most informative support for the task, but the interpretation of improvements becomes less specific: the rewiring signal is coupled to the feature space and may therefore act as an additional modeling step, so that improved accuracy cannot be attributed to topology reconstruction alone."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5a666d60104f354993f88a34",
+              "unit": null,
+              "value_raw_text": "Structural rewiring enables more straightforward attribution, while feature-aware rewiring can be beneficial but makes interpretation less specific."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Method comparison table",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "654074cf29c5c402f437",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Table 1: Comparison of various rewiring methods. OSQ: over-squashing; OSM: over-smoothing; UF: uses node features for rewiring; DT: rewiring performed during training (dynamic)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b0b2e19a232d75f731c34a8b",
+              "unit": null,
+              "value_raw_text": "Table 1 lists 25 rewiring methods with their venues, targeted phenomena, use of features, dynamic nature, and underlying measure."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hyperparameter sensitivity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Empirically, the benefits of curvature-based rewiring on real-world benchmarks are highly sensitive to both training and rewiring hyperparameters and vary across graphs; reported SOTA gains often arise from favorable hyperparameter configurations rather than consistent improvements over the original topology [Tori et al., 2025]."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cafe498ba0abc4a1adf5132e",
+              "unit": null,
+              "value_raw_text": "Benefits of curvature-based rewiring are highly sensitive to hyperparameters and vary across graphs; reported SOTA gains often arise from favorable configurations rather than consistent improvements."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Computational complexity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acdf2c5cdccd034eb38b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "depending on the estimator, curvature-based criteria can scale quadratically to cubically in the number of edges [Topping et al., 2022; Nguyen et al., 2023], effective resistance objectives can scale cubically in the number of nodes [Black et al., 2023; Liang et al., 2025], and spectral criteria require Laplacian decompositions [Karhadkar et al., 2023]. In contrast, several approaches rely on descriptors and constructions that are more efficient to compute and do not scale quadratically with the number of nodes [Klicpera et al., 2019; Alon and Yahav, 2021; Barbero et al., 2024; Attali et al., 2024; Linkerh¨agner et al., 2025]."
+              },
+              "quantitative_value": null,
+              "result_id": "res_eada35489de5d43236c2a015",
+              "unit": null,
+              "value_raw_text": "Curvature-based criteria can scale quadratically to cubically in edges; effective resistance can scale cubically in nodes; spectral criteria require Laplacian decompositions. Some methods avoid quadratic scaling."
+            }
+          ],
+          "unit_id": "su_b21082f33a2ef676e9a88473"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

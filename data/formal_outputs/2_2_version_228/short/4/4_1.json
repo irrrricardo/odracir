@@ -1,0 +1,531 @@
+{
+  "coverage_ledger": {
+    "137d7f42c08ca7c0eae6": "extracted",
+    "2b09e7a44f463ef300eb": "extracted",
+    "35fe2cafe694bfeabde0": "extracted",
+    "8557e6fa897ed9280cda": "not_selected",
+    "a023f21359965ac70119": "extracted",
+    "a16508802666bbb70420": "extracted",
+    "ca6164364c2d7b143200": "extracted",
+    "d319bf888546c3b22670": "extracted",
+    "e2d1219a7d978720ea0e": "not_selected",
+    "fc94de3fb6b1428ff659": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study focuses on primary human fibroblasts; generalizability to other cell types is partially addressed (fig. S11) but not fully explored.",
+    "The role of the endoplasmic reticulum and membranous sheets in the diffusion barrier is noted but not mechanistically dissected.",
+    "The paper does not provide direct force measurements on the nucleus; piston action is inferred from pressure and movement data.",
+    "The study does not examine the role of other nesprin isoforms or LINC complex components beyond nesprin 3.",
+    "The in vivo relevance of the lobopodial migration mode is not tested.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_1.pdf",
+    "source_sha256": "0f0b8858444dd37bb5c000d5cb4385959c72ca62251332c5b8d584a53cf8333f"
+  },
+  "paper_id": "4_1",
+  "quality_assessment": {
+    "correct_item_count": 53,
+    "deterministic_rule_score": 0.9605,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 53,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does actomyosin contractility generate lobopodial protrusions in cells migrating in 3D matrix?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4bb8b2575eeb68a487638fcc",
+              "inference_basis_ids": [
+                "res_1952b1a8f7821e4abb80b220",
+                "res_321ce36bc6e34a7bcc092436",
+                "res_aff0845f3ed07b6a9227df9a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The existence of large differences in hydrostatic pressure in front of versus behind the nucleus suggests that the nucleus physically divides the cytoplasm in lobopodial cells."
+              },
+              "statement": "In lobopodial cells, the nucleus physically divides the cytoplasm into a high-pressure anterior compartment and a low-pressure posterior compartment."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare hydrostatic pressures immediately in front of and behind the nucleus in lobopodial and lamellipodial cells.",
+            "Examine ultrastructure of the barrier by electron microscopy.",
+            "Measure diffusion/convection of cytoplasmic PA-GFP to test for a physical barrier."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "PA-GFP photoactivation and translocation assay",
+              "protocol_description": "Photoactivatable GFP was activated near the leading edge, and the rate of translocation past the nucleus was measured in live cells."
+            }
+          ],
+          "name": "Compartmentalization of intracellular pressure",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "PA-GFP translocation rate past nucleus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "After photoactivation near the leading edge (Fig. 2C), fluorescent PA-GFP significantly slowed as it moved past the nucleus in lobopodial cells in 3D CDM compared to lamellipodial cells on 2D glass (Fig. 2D and fig. S2)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1952b1a8f7821e4abb80b220",
+              "unit": null,
+              "value_raw_text": "significantly slowed in lobopodial cells in 3D CDM compared to lamellipodial cells on 2D glass"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Intracellular pressure in front of and behind nucleus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Pic was significantly elevated and compartmentalized in lobopodia (to ~2400 Pa), with the nucleus separating this anterior high-pressure compartment from a low-pressure zone (~900 Pa) in the cell posterior. In contrast, low pressures were found both forward and back of the nucleus in fibroblasts using lamellipodia to migrate in 2D and 3D environments (~400 and 800 Pa, respectively)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_321ce36bc6e34a7bcc092436",
+              "unit": "Pa",
+              "value_raw_text": "~2400 Pa front, ~900 Pa back in lobopodia; ~400 Pa front, ~800 Pa back in lamellipodia"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ultrastructure of barrier",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "This matrix-dependent barrier consisted of the nucleus and a dense accumulation of sheets of membranous material including endoplasmic reticulum (fig. S3)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_aff0845f3ed07b6a9227df9a",
+              "unit": null,
+              "value_raw_text": "consisted of the nucleus and a dense accumulation of sheets of membranous material including endoplasmic reticulum"
+            }
+          ],
+          "unit_id": "su_2636b6725466356baf29c988"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_db9e13ca00d9be449ec5f397",
+              "inference_basis_ids": [
+                "res_3bdde524417c5896359fe785"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Switching these lobopodial cells to lamellipodial by inhibiting RhoA, ROCK, or myosin II (1) reduced hydrostatic pressure (to ~400 Pa) in each case"
+              },
+              "statement": "Actomyosin contractility via RhoA, ROCK, and myosin II is required to maintain high intracellular pressure in lobopodial cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f36d77e9e2f1cf6fe94af0ce",
+              "inference_basis_ids": [
+                "res_9d456b98a9b30baf84cf1995"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "In contrast, intracellular pressure was substantially elevated (~2200 Pa) in lobopodial cells migrating inside the 3D CDM."
+              },
+              "statement": "Lobopodial cells migrating in 3D CDM have substantially elevated intracellular hydrostatic pressure compared to lamellipodial cells on 2D or in 3D collagen."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare Pic in lamellipodial cells on 2D CDM, in 3D collagen, and lobopodial cells in 3D CDM.",
+            "Control experiments: measure Pic in lamellipodial cells on 2D glass, hypotonic medium, and calyculin A treatment.",
+            "Measure intracellular hydrostatic pressure (Pic) in primary human fibroblasts migrating on 2D surfaces versus in 3D ECM using a microelectrode coupled to a servo-null micropressure system.",
+            "Test effect of inhibiting RhoA, ROCK, or myosin II on Pic in lobopodial cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Servo-null micropressure measurement",
+              "protocol_description": "A microelectrode coupled to a servo-null micropressure system was used to penetrate the plasma membrane immediately in front of the nucleus and measure intracellular hydrostatic pressure (Pic)."
+            }
+          ],
+          "name": "Intracellular pressure measurement in different migration modes",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Intracellular hydrostatic pressure (Pic) in control conditions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Control cells using lamellipodia to migrate on 2D glass maintained relatively low intracellular pressure (fig. S1A) with values consistent with indirect pressure estimates for other cell types (7, 8). As expected (9), placing cells in a hypotonic medium to trigger an influx of water increased Pic, as did increasing contractility by treating cells with calyculin A."
+              },
+              "quantitative_value": null,
+              "result_id": "res_194e4989e5cb121bbb96b9f9",
+              "unit": null,
+              "value_raw_text": "relatively low intracellular pressure on 2D glass; increased by hypotonic medium and calyculin A"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Intracellular hydrostatic pressure (Pic) after contractility inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Switching these lobopodial cells to lamellipodial by inhibiting RhoA, ROCK, or myosin II (1) reduced hydrostatic pressure (to ~400 Pa) in each case"
+              },
+              "quantitative_value": 400.0,
+              "result_id": "res_3bdde524417c5896359fe785",
+              "unit": "Pa",
+              "value_raw_text": "reduced to ~400 Pa"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Intracellular hydrostatic pressure (Pic)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "137d7f42c08ca7c0eae6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "Direct comparisons of pressure in cells migrating on top of and embedded within a 3D collagen matrix revealed low hydrostatic pressures in both 2D and 3D lamellipodial cells (~300 and 700 Pa on the linearly elastic 2D surface of cell-derived matrix (CDM) and within non-linearly elastic 3D collagen, respectively...). In contrast, intracellular pressure was substantially elevated (~2200 Pa) in lobopodial cells migrating inside the 3D CDM."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9d456b98a9b30baf84cf1995",
+              "unit": "Pa",
+              "value_raw_text": "~300 Pa on 2D CDM, ~700 Pa in 3D collagen, ~2200 Pa in 3D CDM lobopodial cells"
+            }
+          ],
+          "unit_id": "su_3954cd69e91918c462e7490c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_82d34baa564c126b876f5997",
+              "inference_basis_ids": [
+                "res_3a84b1ef6ebb3be05557d3ac",
+                "res_58f4f1dad485499c17f00a75",
+                "res_7a30fe2d438c034aeda5980b",
+                "res_8a59e1b9bcb35827abad9e6d",
+                "res_ce46c2e2174b2d045a40e69c",
+                "res_f0efaae311c309309d6119d6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Because nesprin 3, a nucleoskeleton-vimentin linker protein, is a proposed mediator of force transmission through the cytoskeleton to the nucleus needed for polarity and migration (14), we searched for an actomyosin-vimentin-nesprin 3 complex."
+              },
+              "statement": "Nesprin 3 links actomyosin contractility to the nucleus via vimentin intermediate filaments to pull the nucleus forward and pressurize the anterior compartment."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ead6aed100e9ddffa92d6068",
+              "inference_basis_ids": [
+                "res_58f4f1dad485499c17f00a75",
+                "res_8a59e1b9bcb35827abad9e6d",
+                "res_ce46c2e2174b2d045a40e69c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a023f21359965ac70119",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Thus, nesprin 3 is required for piston-like nuclear movements and pressurizing lobopodial protrusions. This mechanism is distinct from roles of RhoA and contractility controlling focal adhesion size through mDia1."
+              },
+              "statement": "Nesprin 3 is required for piston-like nuclear movements and pressurizing lobopodial protrusions, distinct from RhoA/mDia1 control of focal adhesion size."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assess leading edge protrusion type (lobopodia vs lamellipodia) after nesprin 3 knockdown.",
+            "Immunoprecipitation to identify actomyosin-vimentin-nesprin 3 complex.",
+            "Measure instantaneous velocities of nucleus and trailing edge in control and nesprin 3 siRNA cells.",
+            "Test effect of mDia1 depletion on pressure and velocity.",
+            "Test effect of myosin II inhibition on complex composition.",
+            "Test effect of nesprin 3 knockdown on compartmentalized pressure.",
+            "Verify that actomyosin contractility remains intact in nesprin 3 knockdown by LPA-induced focal adhesion size increase."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "siRNA knockdown",
+              "protocol_description": "Cells were treated with nesprin 3 siRNA or control siRNA to reduce nesprin 3 expression."
+            },
+            {
+              "method_id": "M5",
+              "name": "Immunoprecipitation",
+              "protocol_description": "Immunoprecipitation was used to detect protein complexes."
+            }
+          ],
+          "name": "Nesprin 3 links actomyosin to nucleus for piston function",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell velocity after nesprin 3 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "This loss of independent movement of the nucleus after depleting nesprin 3 was accompanied by a reduction in cell velocity similar to inhibiting global myosin II (Fig. 3H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3a84b1ef6ebb3be05557d3ac",
+              "unit": null,
+              "value_raw_text": "reduction in cell velocity similar to inhibiting global myosin II"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Focal adhesion size after LPA in nesprin 3 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Overall actomyosin contractile function remained unaffected in nesprin 3 knock-down cells, because RhoA activation by lysophosphatidic acid (LPA) still increased 2D focal adhesion size in nesprin 3 siRNA-treated cells on glass (Fig. 4B and fig. S8)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_58f4f1dad485499c17f00a75",
+              "unit": null,
+              "value_raw_text": "RhoA activation by LPA still increased 2D focal adhesion size"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein complex composition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Immunoprecipitation revealed an actin, myosin IIA, vimentin, and nesprin 3 complex in primary cells (Fig. 3C). Actin and myosin II were lost from the complex after inhibiting myosin II (only 18.4 +/− 12.8% (SEM) of actin and 26.7 +/− 16.3% of myosin IIA remained associated with vimentin after blebbistatin treatment, versus 88.7 +/− 14.9%, of the nesprin 3)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7a30fe2d438c034aeda5980b",
+              "unit": null,
+              "value_raw_text": "actin, myosin IIA, vimentin, and nesprin 3 complex; actin and myosin II lost after blebbistatin treatment (18.4% actin, 26.7% myosin IIA remained associated with vimentin vs 88.7% nesprin 3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Compartmentalized pressure after nesprin 3 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Compartmentalized forward pressure was maintained in cells treated with control siRNA, whereas siRNA knock-down of nesprin 3 reduced and equalized anterior and posterior intracellular pressures (Fig. 4A; verified with independent siRNAs in fig. S5 D and E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8a59e1b9bcb35827abad9e6d",
+              "unit": null,
+              "value_raw_text": "reduced and equalized anterior and posterior intracellular pressures"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leading edge protrusion type after nesprin 3 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a023f21359965ac70119",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "While control cells continued to use lobopodia to migrate through 3D CDM, the leading edges of nesprin 3 siRNA-treated cells switched to cortactin-positive lamellipodia (Fig. 4, C and D, fig. S9; confirmed with independent siRNAs in fig. S5F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ce46c2e2174b2d045a40e69c",
+              "unit": null,
+              "value_raw_text": "switched to cortactin-positive lamellipodia"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of nucleus and trailing edge velocities",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "The nucleus and trailing edge moved independently in control cells, but not in cells with reduced nesprin 3 expression (Pearson's correlation coefficient 0.28 +/− 0.01 (SEM) in control versus 0.57 +/− 0.07 in nesprin 3 siRNA-treated cells; fig. 3G and fig. S6)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f0efaae311c309309d6119d6",
+              "unit": null,
+              "value_raw_text": "Pearson's correlation coefficient 0.28 in control vs 0.57 in nesprin 3 siRNA"
+            }
+          ],
+          "unit_id": "su_7575f24817cce0e2bbc76b28"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_03bc0fb4420a13aa23ac714c",
+              "inference_basis_ids": [
+                "res_18d48150ae07a5789c2f741b",
+                "res_22bb4e1dcad7746a040dc040",
+                "res_3878d8925a0f1f34b5473d7a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "we hypothesized that the tight-fitting nucleus might be pulled forward like a piston to pressurize the anterior cytoplasmic compartment."
+              },
+              "statement": "Actomyosin contraction pulls the nucleus forward like a piston to pressurize the anterior cytoplasmic compartment in lobopodial cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare nuclear movement after myosin II inhibition in 2D lamellipodial cells.",
+            "Inhibit myosin II and monitor nuclear movement and pressure changes.",
+            "Live-cell confocal microscopy to observe nuclear movement in 3D CDM.",
+            "Local inhibition of myosin II in front of or behind the nucleus and measure nuclear movement, forward pressure, and leading edge behavior.",
+            "Local permeabilization of plasma membrane in front of nucleus.",
+            "Test requirement of microtubules for nuclear movement."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Live-cell confocal microscopy",
+              "protocol_description": "Live-cell confocal microscopy was used to observe nuclear movement and measure instantaneous velocities."
+            }
+          ],
+          "name": "Nuclear piston mechanism and role of actomyosin",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of local permeabilization in front of nucleus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Similarly, local permeabilization of the plasma membrane in front of the nucleus resulted in loss of forward pressure and leading edge retraction (fig. S1C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_18d48150ae07a5789c2f741b",
+              "unit": null,
+              "value_raw_text": "loss of forward pressure and leading edge retraction"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear movement after myosin II inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Further, monitoring of nuclear movement (NM) and Pic after inhibition of myosin II revealed that the nucleus fell back and pressure equilibrated initially, ultimately becoming low and uniform (Fig. 2, E and F and movie S2), consistent with loss of actomyosin contraction pulling the nuclear piston forward. In direct contrast, the nucleus continued to move forward with no pressure change in 2D lamellipodial cells following myosin II inhibition."
+              },
+              "quantitative_value": null,
+              "result_id": "res_22bb4e1dcad7746a040dc040",
+              "unit": null,
+              "value_raw_text": "nucleus fell back and pressure equilibrated initially, ultimately becoming low and uniform in lobopodial cells; no change in 2D lamellipodial cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of local myosin II inhibition in front of nucleus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2b09e7a44f463ef300eb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Local inhibition of myosin II in front of the nucleus (fig. S1B) blocked forward movement of the nucleus (Fig. 2G), reduced forward pressure, and retracted the leading edge (Fig. 3D), whereas myosin II inhibition behind the nucleus did not."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3878d8925a0f1f34b5473d7a",
+              "unit": null,
+              "value_raw_text": "blocked forward movement of the nucleus, reduced forward pressure, and retracted the leading edge"
+            }
+          ],
+          "unit_id": "su_f52f9e6ce23db1ddfcd71491"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8682 on attempt 1"
+    }
+  ]
+}

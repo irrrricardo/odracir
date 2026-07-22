@@ -1,0 +1,571 @@
+{
+  "coverage_ledger": {
+    "0e2e0dfc872c0bb44dfb": "extracted",
+    "205dc2374fddde912807": "not_selected",
+    "2e0a552d347af46468e9": "not_selected",
+    "3017088b23f1082e1c14": "not_selected",
+    "46fcd3bc52b3618b0d50": "extracted",
+    "5981d2edb24084b76933": "extracted",
+    "8ae43e0add1ee34ab62b": "not_selected",
+    "8b01b1ce57cd2e7bd1d1": "not_selected",
+    "8c4bb67e302aaa4044bc": "extracted",
+    "93a56fb4d8b2f1920819": "not_selected",
+    "9a50dd33ccff4f0344ee": "not_selected",
+    "a0c537f715be3f821b7e": "not_selected",
+    "b74ad46418e71363f760": "not_selected",
+    "bcb20a43d9aeac546e14": "not_selected",
+    "d4899299ac8bec87f2db": "not_selected",
+    "e29f147facd7a95e2b8b": "not_selected",
+    "ff150ce0e77c7b1f2a63": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "GNNs are at most as powerful as the WL test in distinguishing graph structures.",
+    "The analysis is limited to the neighborhood aggregation (message passing) framework.",
+    "Theoretical results do not directly address generalization ability.",
+    "The WL kernel cannot learn how to combine node features, which may be informative for prediction tasks.",
+    "On some datasets, GNN training accuracies never exceed those of the WL subtree kernel, indicating an upper bound on representational capacity."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_4.pdf",
+    "source_sha256": "58b2e602a76487173cc5cbe7701a57b851998988f060fbc2dc06c27177361c55"
+  },
+  "paper_id": "6_4",
+  "quality_assessment": {
+    "correct_item_count": 49,
+    "deterministic_rule_score": 0.9269,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 49,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How powerful are Graph Neural Networks (GNNs) in distinguishing different graph structures?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6c42bbdf670d3fb3fda4bd68",
+              "inference_basis_ids": [
+                "res_7d7d2770c31ad3318fc2b563"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "First, GINs, especially GIN-0, outperform (or achieve comparable performance as) the less powerful GNN variants on all the 9 datasets, achieving state-of-the-art performance."
+              },
+              "statement": "GINs achieve state-of-the-art performance on graph classification benchmarks."
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "5981d2edb24084b76933",
+                  "page_end": 9,
+                  "page_start": 9,
+                  "paraphrased": true,
+                  "text_excerpt": "GNNs with sum aggregators tend to fit the training sets better than those with mean and max-pooling aggregators."
+                }
+              ],
+              "claim_id": "clm_9cfb311286282e0b7cf3c222",
+              "inference_basis_ids": [
+                "res_287fc72ca97cd02d581bfb69",
+                "res_5104c0eec9ad4ce5a2b0e8f3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "GINs and sum-aggregation GNNs accurately capture the graph structure and significantly outperform other models."
+              },
+              "statement": "Sum aggregation is more powerful than mean or max aggregation for graph classification."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_aa5c037ec4455da7540c86b7",
+              "inference_basis_ids": [
+                "res_62034d16e5278b3a313b3bb5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Since both models fit training data equally well, the better generalization of GIN-0 may be explained by its simplicity compared to GIN-ϵ."
+              },
+              "statement": "GIN-0 generalizes better than GIN-epsilon due to its simplicity."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "1000 graphs, 2 classes, avg 19.8 nodes",
+              "name": "IMDB-BINARY",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "1500 graphs, 3 classes, avg 13.0 nodes",
+              "name": "IMDB-MULTI",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D3",
+              "description": "2000 graphs, 2 classes, avg 429.6 nodes",
+              "name": "REDDIT-BINARY",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "5000 graphs, 5 classes, avg 508.5 nodes",
+              "name": "REDDIT-MULTI5K",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D5",
+              "description": "5000 graphs, 3 classes, avg 74.5 nodes",
+              "name": "COLLAB",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D6",
+              "description": "188 graphs, 2 classes, avg 17.9 nodes",
+              "name": "MUTAG",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D7",
+              "description": "1113 graphs, 2 classes, avg 39.1 nodes",
+              "name": "PROTEINS",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D8",
+              "description": "344 graphs, 2 classes, avg 25.5 nodes",
+              "name": "PTC",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D9",
+              "description": "4110 graphs, 2 classes, avg 29.8 nodes",
+              "name": "NCI1",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare GNNs with the WL subtree kernel and other state-of-the-art baselines.",
+            "Compare training and test accuracies of GINs and other GNN variants on 9 graph classification datasets.",
+            "Evaluate the effect of aggregation functions (sum, mean, max) and MLP depth on representational power."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "GIN (Graph Isomorphism Network)",
+              "protocol_description": "GIN uses sum aggregation followed by an MLP. Two variants: GIN-0 (epsilon fixed to 0) and GIN-epsilon (epsilon learned). 5 GNN layers, 2-layer MLPs, batch normalization, Adam optimizer with initial lr 0.01 decayed by 0.5 every 50 epochs. Hyperparameters tuned: hidden units (16,32 for bio; 64 for social), batch size (32,128), dropout (0,0.5), number of epochs selected by best cross-validation accuracy."
+            },
+            {
+              "method_id": "M3",
+              "name": "GNN variants (mean/max/sum aggregators, 1-layer/MLP)",
+              "protocol_description": "Variants include mean-1-layer (GCN), max-1-layer (GraphSAGE), sum-1-layer, mean-MLP, max-MLP. Same architecture and hyperparameter settings as GIN for fair comparison."
+            },
+            {
+              "method_id": "M4",
+              "name": "WL subtree kernel",
+              "protocol_description": "WL subtree kernel with C-SVM classifier. Hyperparameters tuned: C of SVM, number of WL iterations (1-6)."
+            },
+            {
+              "method_id": "M5",
+              "name": "Baselines (DCNN, PATCHY-SAN, DGCNN, AWL)",
+              "protocol_description": "State-of-the-art deep learning and kernel methods for graph classification. Accuracies taken from original papers."
+            }
+          ],
+          "name": "Empirical validation on graph classification benchmarks",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy on social datasets",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "For the Reddit datasets, all nodes share the same scalar as node feature. Here, GINs and sum-aggregation GNNs accurately capture the graph structure and significantly outperform other models. Mean-aggregation GNNs, however, fail to capture any structures of the unlabeled graphs (as predicted in Section 5.2) and do not perform better than random guessing."
+              },
+              "quantitative_value": null,
+              "result_id": "res_287fc72ca97cd02d581bfb69",
+              "unit": null,
+              "value_raw_text": "GINs and sum-aggregation GNNs significantly outperform other models on Reddit datasets; mean-aggregation GNNs fail to capture structures and perform no better than random guessing."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy with node degrees",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Even if node degrees are provided as input features, mean-based GNNs perform much worse than sum-based GNNs (the accuracy of the GNN with mean–MLP aggregation is 71.2±4.6% on REDDIT-BINARY and 41.3±2.1% on REDDIT-MULTI5K)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4cd1d6ca5c9d2e5537393fc4",
+              "unit": null,
+              "value_raw_text": "Even with node degrees as input features, mean-based GNNs perform much worse than sum-based GNNs (mean-MLP accuracy 71.2±4.6% on REDDIT-BINARY, 41.3±2.1% on REDDIT-MULTI5K)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training accuracy ranking",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5981d2edb24084b76933",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "In particular, the training accuracy patterns align with our ranking by the models’ representational power: GNN variants with MLPs tend to have higher training accuracies than those with 1-layer perceptrons, and GNNs with sum aggregators tend to fit the training sets better than those with mean and max-pooling aggregators."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5104c0eec9ad4ce5a2b0e8f3",
+              "unit": null,
+              "value_raw_text": "Training accuracy patterns align with ranking by representational power: GNNs with MLPs > 1-layer perceptrons; sum aggregators > mean and max-pooling aggregators."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5981d2edb24084b76933",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "First, both the theoretically most powerful GNN, i.e. GIN-ϵ and GIN-0, are able to almost perfectly fit all the training sets."
+              },
+              "quantitative_value": null,
+              "result_id": "res_53aa49ad756e3eb5c61bb47b",
+              "unit": null,
+              "value_raw_text": "GIN-epsilon and GIN-0 are able to almost perfectly fit all the training sets."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy comparison GIN-0 vs GIN-epsilon",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Comparing GINs (GIN-0 and GIN-ϵ), we observe that GIN-0 slightly but consistently outperforms GIN-ϵ."
+              },
+              "quantitative_value": null,
+              "result_id": "res_62034d16e5278b3a313b3bb5",
+              "unit": null,
+              "value_raw_text": "GIN-0 slightly but consistently outperforms GIN-epsilon."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "First, GINs, especially GIN-0, outperform (or achieve comparable performance as) the less powerful GNN variants on all the 9 datasets, achieving state-of-the-art performance."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d7d2770c31ad3318fc2b563",
+              "unit": null,
+              "value_raw_text": "GINs outperform or achieve comparable performance as less powerful GNN variants on all 9 datasets."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "SUM–MLP (GIN-0) 75.1 ± 5.1 52.3 ± 2.8 92.4 ± 2.5 57.5 ± 1.5 80.2 ± 1.9 89.4 ± 5.6 76.2 ± 2.8 64.6 ± 7.0 82.7 ± 1.7"
+              },
+              "quantitative_value": null,
+              "result_id": "res_99782adb31963d68acf6716f",
+              "unit": null,
+              "value_raw_text": "GIN-0 achieves 75.1±5.1% on IMDB-B, 52.3±2.8% on IMDB-M, 92.4±2.5% on RDT-B, 57.5±1.5% on RDT-M5K, 80.2±1.9% on COLLAB, 89.4±5.6% on MUTAG, 76.2±2.8% on PROTEINS, 64.6±7.0% on PTC, 82.7±1.7% on NCI1."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "SUM–MLP (GIN-ϵ) 74.3 ± 5.1 52.1 ± 3.6 92.2 ± 2.3 57.0 ± 1.7 80.1 ± 1.9 89.0 ± 6.0 75.9 ± 3.8 63.7 ± 8.2 82.7 ± 1.6"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a9aa127c8aec4099b45801cc",
+              "unit": null,
+              "value_raw_text": "GIN-epsilon achieves 74.3±5.1% on IMDB-B, 52.1±3.6% on IMDB-M, 92.2±2.3% on RDT-B, 57.0±1.7% on RDT-M5K, 80.1±1.9% on COLLAB, 89.0±6.0% on MUTAG, 75.9±3.8% on PROTEINS, 63.7±8.2% on PTC, 82.7±1.6% on NCI1."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training accuracy upper bound",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "On our datasets, training accuracies of the GNNs never exceed those of the WL subtree kernel."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c0721fa6d8219742d6e89d09",
+              "unit": null,
+              "value_raw_text": "Training accuracies of GNNs never exceed those of the WL subtree kernel."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5981d2edb24084b76933",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "In comparison, the GNN variants using mean/max pooling or 1-layer perceptrons severely underfit on many datasets."
+              },
+              "quantitative_value": null,
+              "result_id": "res_db4bfbaa60f296b6346c4a8a",
+              "unit": null,
+              "value_raw_text": "GNN variants using mean/max pooling or 1-layer perceptrons severely underfit on many datasets."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e2e0dfc872c0bb44dfb",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "WL subtree 73.8 ± 3.9 50.9 ± 3.8 81.0 ± 3.1 52.5 ± 2.1 78.9 ± 1.9 90.4 ± 5.7 75.0 ± 3.1 59.9 ± 4.3 86.0 ± 1.8 ∗"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f6d2f515c693ede336eb7e0f",
+              "unit": null,
+              "value_raw_text": "WL subtree kernel achieves 73.8±3.9% on IMDB-B, 50.9±3.8% on IMDB-M, 81.0±3.1% on RDT-B, 52.5±2.1% on RDT-M5K, 78.9±1.9% on COLLAB, 90.4±5.7% on MUTAG, 75.0±3.1% on PROTEINS, 59.9±4.3% on PTC, 86.0±1.8% on NCI1."
+            }
+          ],
+          "unit_id": "su_2050d813c5db3ec312a9654d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3ee0cf90ba7bfbad10b4b947",
+              "inference_basis_ids": [
+                "res_4cbfd5bcae1c8d43b91c888f"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "3) We identify graph structures that cannot be distinguished by popular GNN variants, such as GCN (Kipf & Welling, 2017) and GraphSAGE (Hamilton et al., 2017a), and we precisely characterize the kinds of graph structures such GNN-based models can capture."
+              },
+              "statement": "Popular GNN variants like GCN and GraphSAGE cannot distinguish certain simple graph structures."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7cf0d3df2777aa54522dfadf",
+              "inference_basis_ids": [
+                "res_feb45830fdea0e8fd00cb8e1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "2) We establish conditions on the neighbor aggregation and graph readout functions under which the resulting GNN is as powerful as the WL test."
+              },
+              "statement": "Under certain conditions on aggregation and readout functions, a GNN can be as powerful as the WL test."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_be9b1b7239ef6066c4b6095f",
+              "inference_basis_ids": [
+                "res_856923316788c6ace3b80629"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "4) We develop a simple neural architecture, Graph Isomorphism Network (GIN), and show that its discriminative/representational power is equal to the power of the WL test."
+              },
+              "statement": "The Graph Isomorphism Network (GIN) has discriminative power equal to the WL test."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c6805ebfd5864b154c8630a5",
+              "inference_basis_ids": [
+                "res_63cfe71638f50abd62e3a8b6"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "1) We show that GNNs are at most as powerful as the WL test in distinguishing graph structures."
+              },
+              "statement": "GNNs are at most as powerful as the WL test in distinguishing graph structures."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Characterize the discriminative power of popular GNN variants such as GCN and GraphSAGE.",
+            "Develop a simple architecture (Graph Isomorphism Network, GIN) that is provably as powerful as the WL test.",
+            "Establish conditions under which a GNN is as powerful as the Weisfeiler-Lehman (WL) graph isomorphism test.",
+            "Identify graph structures that cannot be distinguished by popular GNN variants."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Theoretical framework based on WL test and multisets",
+              "protocol_description": "The framework represents neighbor feature vectors as a multiset and analyzes the injectivity of aggregation functions. A GNN is as powerful as the WL test if its aggregation and readout functions are injective."
+            }
+          ],
+          "name": "Theoretical analysis of GNN expressive power",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Limitations of popular GNNs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "3) We identify graph structures that cannot be distinguished by popular GNN variants, such as GCN (Kipf & Welling, 2017) and GraphSAGE (Hamilton et al., 2017a), and we precisely characterize the kinds of graph structures such GNN-based models can capture."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4cbfd5bcae1c8d43b91c888f",
+              "unit": null,
+              "value_raw_text": "We identify graph structures that cannot be distinguished by popular GNN variants, such as GCN and GraphSAGE, and we precisely characterize the kinds of graph structures such GNN-based models can capture."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Discriminative power upper bound",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "1) We show that GNNs are at most as powerful as the WL test in distinguishing graph structures."
+              },
+              "quantitative_value": null,
+              "result_id": "res_63cfe71638f50abd62e3a8b6",
+              "unit": null,
+              "value_raw_text": "GNNs are at most as powerful as the WL test in distinguishing graph structures."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GIN expressive power",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "4) We develop a simple neural architecture, Graph Isomorphism Network (GIN), and show that its discriminative/representational power is equal to the power of the WL test."
+              },
+              "quantitative_value": null,
+              "result_id": "res_856923316788c6ace3b80629",
+              "unit": null,
+              "value_raw_text": "We develop a simple neural architecture, Graph Isomorphism Network (GIN), and show that its discriminative/representational power is equal to the power of the WL test."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Conditions for maximal power",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "46fcd3bc52b3618b0d50",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "2) We establish conditions on the neighbor aggregation and graph readout functions under which the resulting GNN is as powerful as the WL test."
+              },
+              "quantitative_value": null,
+              "result_id": "res_feb45830fdea0e8fd00cb8e1",
+              "unit": null,
+              "value_raw_text": "We establish conditions on the neighbor aggregation and graph readout functions under which the resulting GNN is as powerful as the WL test."
+            }
+          ],
+          "unit_id": "su_cc2f3bd815e13b15fd8e266e"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4464 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4537 on attempt 1"
+    }
+  ]
+}

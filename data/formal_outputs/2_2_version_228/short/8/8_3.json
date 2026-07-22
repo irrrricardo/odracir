@@ -1,0 +1,833 @@
+{
+  "coverage_ledger": {
+    "0c6a285357db55c35d45": "not_selected",
+    "25fced5723172109a477": "not_selected",
+    "42e66eb9bcc67f75ef2e": "extracted",
+    "44d57a7bee933813c8f2": "extracted",
+    "6069807cd44e1a4aaf12": "not_selected",
+    "64f5815fd8309cec61a3": "extracted",
+    "65923894ff9d12a683b1": "not_selected",
+    "8bae3cabded2b6beec13": "not_selected",
+    "99a05046a01456db346d": "not_selected",
+    "b15cead3c43f4d203a99": "not_selected",
+    "ba392a4d66f4cb227728": "extracted",
+    "c5a680c7032d83a40800": "not_selected",
+    "c817f0fdae3de3bb653a": "not_selected",
+    "ce778438fce294bc0bf8": "not_selected",
+    "e42c377e6dc5d2825910": "not_selected",
+    "fc0b1d57fff64f97a10e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Baseline methods are not resolution-invariant; fixed resolution 64x64 for Navier-Stokes training/testing.",
+    "For Navier-Stokes with insufficient data (ν=1e-4, N=1000 and ν=1e-5, N=1000), all methods have >15% error.",
+    "FNO-3D requires sufficient data to outperform FNO-2D.",
+    "The 3D convolution structure is fixed to the interval [0,T] but can transfer to arbitrary time-discretization.",
+    "Only spatial resolution 64x64 presented for Navier-Stokes since benchmarks are designed for that resolution."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "8_3.pdf",
+    "source_sha256": "6cd2645d4a50d1a61a261529b33747c674d78851bdbe6993b0961f81a17dc6f2"
+  },
+  "paper_id": "8_3",
+  "quality_assessment": {
+    "correct_item_count": 62,
+    "deterministic_rule_score": 0.9448,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.6452,
+      "sample_size_log_score": 1.0,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 62,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a neural operator parameterized directly in Fourier space provide an expressive and efficient architecture for learning mappings between function spaces for parametric PDEs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1b8c7f2c5f971107f5b2787c",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We find the 3-d method to be more expressive and easier to train compared to its RNN-structured counterpart."
+              },
+              "statement": "FNO-3D is more expressive and easier to train than 2D+RNN counterparts."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_213c5e2fbe67d1680eb67db1",
+              "inference_basis_ids": [
+                "res_4f12ecd9a87abba8700b6314"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ba392a4d66f4cb227728",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "it achieves superior accuracy compared to previous learning-based solvers under fixed resolution."
+              },
+              "statement": "FNO achieves superior accuracy compared to previous learning-based solvers under fixed resolution."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_286f87818d1da82d85a80a9b",
+              "inference_basis_ids": [
+                "res_cba3cfa0129522b867eed96a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "As shown in Table 1, the FNO-3D has the best performance when there is sufficient data (ν = 1e−3, N = 1000 and ν = 1e−4, N = 10000). For the configurations where the amount of data is insufficient (ν = 1e−4, N = 1000 and ν = 1e−5, N = 1000), all methods have > 15% error with FNO-2D achieving the lowest."
+              },
+              "statement": "FNO-3D has best performance on Navier-Stokes with sufficient data; FNO-2D best with insufficient data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_36f54eb2d8cdd82640ca43ec",
+              "inference_basis_ids": [
+                "res_d982e94571f69d7ddf9b57ad"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ba392a4d66f4cb227728",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "It is up to three orders of magnitude faster compared to traditional PDE solvers."
+              },
+              "statement": "FNO is up to three orders of magnitude faster than traditional PDE solvers."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_72bc57876bff1e937bee2d03",
+              "inference_basis_ids": [
+                "res_f723e231e707d15350b4e047"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The proposed Fourier neural operator obtains nearly one order of magnitude lower relative error compared to any benchmarks."
+              },
+              "statement": "FNO achieves nearly one order of magnitude lower relative error on Darcy Flow compared to benchmarks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_74e934c088aae182036a554a",
+              "inference_basis_ids": [
+                "res_08073a9a3e34e1fbc0dc54e4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "44d57a7bee933813c8f2",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Compared to other neural operator methods such as GNO and MGNO that use Nyström sampling in physical space, the Fourier neural operator is both more accurate and more computationally efficient."
+              },
+              "statement": "FNO is more accurate and computationally efficient than GNO and MGNO on Burgers' equation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8e88894a7d207b3b0b5ac36b",
+              "inference_basis_ids": [
+                "res_f323a0c73a730844450e8676"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ba392a4d66f4cb227728",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The Fourier neural operator is the first ML-based method to successfully model turbulent flows with zero-shot super-resolution."
+              },
+              "statement": "FNO is the first ML method to model turbulent flows with zero-shot super-resolution."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_969a9ff4e7a2db5f13b3e28b",
+              "inference_basis_ids": [
+                "res_09fc03d44f815845039873af"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "44d57a7bee933813c8f2",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Our proposed method obtains the lowest relative error compared to any of the benchmarks."
+              },
+              "statement": "FNO achieves the lowest relative error on Burgers' equation compared to benchmarks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c067f3e42dd429ac186569da",
+              "inference_basis_ids": [
+                "res_711236172a7d3b4b112a83a7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We again observe the invariance of the error with respect to the resolution."
+              },
+              "statement": "FNO error is invariant with resolution on Darcy Flow."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dbdd26e300b3071f9a88c0f6",
+              "inference_basis_ids": [
+                "res_3027db87a59260d8e901f12c",
+                "res_c9961c3884e8891fe1728391"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "44d57a7bee933813c8f2",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Further, the error is invariant with the resolution, while the error of convolution neural network based methods (FCN) grows with the resolution."
+              },
+              "statement": "FNO error is invariant with resolution on Burgers' equation, unlike FCN."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "1-d Burgers' equation with periodic boundary conditions, initial condition u0, viscosity ν, mapping to solution at t=1.",
+              "name": "Burgers' equation dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "2-d Darcy Flow on unit box with Dirichlet boundary, diffusion coefficient a(x), forcing f(x), mapping to solution u.",
+              "name": "Darcy Flow dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "2-d Navier-Stokes in vorticity form on unit torus, viscosities ν=1e-3,1e-4,1e-5, mapping vorticity from [0,10] to (10,T].",
+              "name": "Navier-Stokes equation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learning the operator mapping diffusion coefficient to solution for 2-d Darcy Flow.",
+            "Learning the operator mapping initial condition to solution at time one for 1-d Burgers' equation.",
+            "Learning the operator mapping vorticity up to time 10 to vorticity up to later time T for 2-d Navier-Stokes equation with varying viscosities and data sizes."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Fourier Neural Operator (FNO)",
+              "protocol_description": "Neural operator parameterizing the integral kernel directly in Fourier space. For time-dependent problems, FNO-2d uses 2D spatial convolution with RNN in time; FNO-3d uses 3D convolution in space-time."
+            },
+            {
+              "method_id": "M2",
+              "name": "FCN",
+              "protocol_description": "Fully Convolution Network, a state-of-the-art neural network architecture for PDEs (Zhu & Zabaras, 2018)."
+            },
+            {
+              "method_id": "M3",
+              "name": "PCANN",
+              "protocol_description": "Operator method using PCA as autoencoder on input/output data and interpolating latent spaces with a neural network (Bhattacharya et al., 2020)."
+            },
+            {
+              "method_id": "M4",
+              "name": "GNO",
+              "protocol_description": "Original graph neural operator (Li et al., 2020b)."
+            },
+            {
+              "method_id": "M5",
+              "name": "MGNO",
+              "protocol_description": "Multipole graph neural operator (Li et al., 2020a)."
+            },
+            {
+              "method_id": "M6",
+              "name": "LNO",
+              "protocol_description": "Neural operator based on low-rank decomposition of the kernel, similar to unstacked DeepONet (Lu et al., 2019)."
+            },
+            {
+              "method_id": "M7",
+              "name": "ResNet",
+              "protocol_description": "18 layers of 2-d convolution with residual connections (He et al., 2016)."
+            },
+            {
+              "method_id": "M8",
+              "name": "U-Net",
+              "protocol_description": "Image-to-image regression with four blocks of 2-d convolutions and deconvolutions (Ronneberger et al., 2015)."
+            },
+            {
+              "method_id": "M9",
+              "name": "TF-Net",
+              "protocol_description": "Network for learning turbulent flows based on spatial and temporal convolutions (Wang et al., 2020)."
+            }
+          ],
+          "name": "Fourier Neural Operator (FNO) proposal and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Computational efficiency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "44d57a7bee933813c8f2",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Compared to other neural operator methods such as GNO and MGNO that use Nyström sampling in physical space, the Fourier neural operator is both more accurate and more computationally efficient."
+              },
+              "quantitative_value": null,
+              "result_id": "res_08073a9a3e34e1fbc0dc54e4",
+              "unit": null,
+              "value_raw_text": "Fourier neural operator is both more accurate and more computationally efficient than GNO and MGNO"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "44d57a7bee933813c8f2",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Our proposed method obtains the lowest relative error compared to any of the benchmarks."
+              },
+              "quantitative_value": null,
+              "result_id": "res_09fc03d44f815845039873af",
+              "unit": null,
+              "value_raw_text": "lowest relative error compared to any of the benchmarks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "TF-Net ... 0.2253"
+              },
+              "quantitative_value": 0.2253,
+              "result_id": "res_1d3ce07d26e637bca3890693",
+              "unit": null,
+              "value_raw_text": "TF-Net: 0.2253 (ν=1e-4, T=30, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error invariance with resolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "44d57a7bee933813c8f2",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the error is invariant with the resolution"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3027db87a59260d8e901f12c",
+              "unit": null,
+              "value_raw_text": "the error is invariant with the resolution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ResNet ... 0.2753"
+              },
+              "quantitative_value": 0.2753,
+              "result_id": "res_358938b1219df083289a5fbc",
+              "unit": null,
+              "value_raw_text": "ResNet: 0.2753 (ν=1e-5, T=20, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ResNet ... 0.2871"
+              },
+              "quantitative_value": 0.2871,
+              "result_id": "res_35c20bc5f4cae2366b471ade",
+              "unit": null,
+              "value_raw_text": "ResNet: 0.2871 (ν=1e-4, T=30, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "TF-Net ... 0.0225"
+              },
+              "quantitative_value": 0.0225,
+              "result_id": "res_396703dfdfbcb3d5420fbfa1",
+              "unit": null,
+              "value_raw_text": "TF-Net: 0.0225 (ν=1e-3, T=50, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.1918"
+              },
+              "quantitative_value": 0.1918,
+              "result_id": "res_3d3eaaa74b2229a15f50b0a0",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.1918 (ν=1e-4, T=30, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ba392a4d66f4cb227728",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "it achieves superior accuracy compared to previous learning-based solvers under fixed resolution."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4f12ecd9a87abba8700b6314",
+              "unit": null,
+              "value_raw_text": "superior accuracy compared to previous learning-based solvers under fixed resolution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "TF-Net ... 0.1168"
+              },
+              "quantitative_value": 0.1168,
+              "result_id": "res_4ff9ece32361f2afc0cd2de8",
+              "unit": null,
+              "value_raw_text": "TF-Net: 0.1168 (ν=1e-4, T=30, N=10000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.1556"
+              },
+              "quantitative_value": 0.1556,
+              "result_id": "res_593d8db7578b02b023830917",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.1556 (ν=1e-5, T=20, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error invariance with resolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We again observe the invariance of the error with respect to the resolution."
+              },
+              "quantitative_value": null,
+              "result_id": "res_711236172a7d3b4b112a83a7",
+              "unit": null,
+              "value_raw_text": "We again observe the invariance of the error with respect to the resolution."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "U-Net ... 0.2051"
+              },
+              "quantitative_value": 0.2051,
+              "result_id": "res_751083aeb2666b9f504deab1",
+              "unit": null,
+              "value_raw_text": "U-Net: 0.2051 (ν=1e-4, T=30, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance degradation with resolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Increasing it degrades their performance while FNO achieves the same errors."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7ab7043dc085040b72b1ce47",
+              "unit": null,
+              "value_raw_text": "Increasing resolution degrades performance of benchmarks while FNO achieves the same errors"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.0086"
+              },
+              "quantitative_value": 0.0086,
+              "result_id": "res_929a66da3dd2d4ee1ffcd1ca",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.0086 (ν=1e-3, T=50, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.0128"
+              },
+              "quantitative_value": 0.0128,
+              "result_id": "res_a32708d9bf883af9c2a2537b",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.0128 (ν=1e-3, T=50, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "U-Net ... 0.1190"
+              },
+              "quantitative_value": 0.119,
+              "result_id": "res_a4ea36ccc99409242d1552bb",
+              "unit": null,
+              "value_raw_text": "U-Net: 0.1190 (ν=1e-4, T=30, N=10000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.1559"
+              },
+              "quantitative_value": 0.1559,
+              "result_id": "res_a811032f58ae924497acf335",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.1559 (ν=1e-4, T=30, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.0834"
+              },
+              "quantitative_value": 0.0834,
+              "result_id": "res_a83fa977fe836cf99dfa93c1",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.0834 (ν=1e-4, T=30, N=10000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "U-Net ... 0.1982"
+              },
+              "quantitative_value": 0.1982,
+              "result_id": "res_adb923803793fcd9da36662d",
+              "unit": null,
+              "value_raw_text": "U-Net: 0.1982 (ν=1e-5, T=20, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ResNet ... 0.0701"
+              },
+              "quantitative_value": 0.0701,
+              "result_id": "res_b1d4d6784a0b22d85ccea598",
+              "unit": null,
+              "value_raw_text": "ResNet: 0.0701 (ν=1e-3, T=50, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ResNet ... 0.2311"
+              },
+              "quantitative_value": 0.2311,
+              "result_id": "res_c95420469350b6ce2890971a",
+              "unit": null,
+              "value_raw_text": "ResNet: 0.2311 (ν=1e-4, T=30, N=10000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error growth with resolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "44d57a7bee933813c8f2",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the error of convolution neural network based methods (FCN) grows with the resolution"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c9961c3884e8891fe1728391",
+              "unit": null,
+              "value_raw_text": "error of convolution neural network based methods (FCN) grows with the resolution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "As shown in Table 1, the FNO-3D has the best performance when there is sufficient data (ν = 1e−3, N = 1000 and ν = 1e−4, N = 10000). For the configurations where the amount of data is insufficient (ν = 1e−4, N = 1000 and ν = 1e−5, N = 1000), all methods have > 15% error with FNO-2D achieving the lowest."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cba3cfa0129522b867eed96a",
+              "unit": null,
+              "value_raw_text": "FNO-3D has the best performance when there is sufficient data (ν = 1e−3, N = 1000 and ν = 1e−4, N = 10000). For configurations with insufficient data (ν = 1e−4, N = 1000 and ν = 1e−5, N = 1000), all methods have > 15% error with FNO-2D achieving the lowest."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "TF-Net ... 0.2268"
+              },
+              "quantitative_value": 0.2268,
+              "result_id": "res_cf5e5cc5f909f9b05fd9eab0",
+              "unit": null,
+              "value_raw_text": "TF-Net: 0.2268 (ν=1e-5, T=20, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Speedup",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ba392a4d66f4cb227728",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "It is up to three orders of magnitude faster compared to traditional PDE solvers."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d982e94571f69d7ddf9b57ad",
+              "unit": null,
+              "value_raw_text": "up to three orders of magnitude faster compared to traditional PDE solvers"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "U-Net ... 0.0245"
+              },
+              "quantitative_value": 0.0245,
+              "result_id": "res_ec74ac998e56ee7abf275dfb",
+              "unit": null,
+              "value_raw_text": "U-Net: 0.0245 (ν=1e-3, T=50, N=1000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Zero-shot super-resolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ba392a4d66f4cb227728",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The Fourier neural operator is the first ML-based method to successfully model turbulent flows with zero-shot super-resolution."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f323a0c73a730844450e8676",
+              "unit": null,
+              "value_raw_text": "first ML-based method to successfully model turbulent flows with zero-shot super-resolution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The proposed Fourier neural operator obtains nearly one order of magnitude lower relative error compared to any benchmarks."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f723e231e707d15350b4e047",
+              "unit": null,
+              "value_raw_text": "nearly one order of magnitude lower relative error compared to any benchmarks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.0820"
+              },
+              "quantitative_value": 0.082,
+              "result_id": "res_f7fb956221848aeef4442102",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.0820 (ν=1e-4, T=30, N=10000)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "64f5815fd8309cec61a3",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.1893"
+              },
+              "quantitative_value": 0.1893,
+              "result_id": "res_fd3f13f9202cc2069aad403f",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.1893 (ν=1e-5, T=20, N=1000)"
+            }
+          ],
+          "unit_id": "su_51c4408a2af0ec1b3f37a7d0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

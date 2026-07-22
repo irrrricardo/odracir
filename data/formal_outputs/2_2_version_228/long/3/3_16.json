@@ -1,0 +1,392 @@
+{
+  "coverage_ledger": {
+    "131875dfbb77d20f42fb": "not_selected",
+    "18ab001e812d1d964c09": "extracted",
+    "48cf0183e0f7470ae867": "extracted",
+    "51b5c5f69574b2419d5a": "not_selected",
+    "6222aa912f125cb6b2dc": "not_selected",
+    "722f35d9d8f935c694df": "extracted",
+    "e88f8f7e504d1d90d3ea": "not_selected",
+    "fac32b587a92eac7444d": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The in vivo study showed a trend of synergy between YAP knockdown and lapatinib but was not statistically significant; more comprehensive animal studies are required.",
+    "Compensatory activation of HER3 was not strongly observed under the conditions tested (1.5 μM lapatinib, 48 h), but may occur at lower concentrations or later time points.",
+    "The study focused on a single HER2-amplified cell line (HCC1569) for most experiments; generalizability to other HER2+ breast cancers is not established.",
+    "The role of other microenvironmental factors beyond rigidity (e.g., biochemical composition) was not fully dissected.",
+    "YAP and TAZ may have distinct functions in vivo, but in vitro knockdown of either eliminated modulus-dependent resistance, suggesting redundancy in this context.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_16.pdf",
+    "source_sha256": "75f3c0c8e565d3925a09803bf849776271192a4cfc4cea594f80459b33f4e245"
+  },
+  "paper_id": "3_16",
+  "quality_assessment": {
+    "correct_item_count": 33,
+    "deterministic_rule_score": 0.9447,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.4286,
+      "sample_size_log_score": 0.2007,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 33,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does matrix rigidity modulate lapatinib sensitivity in HER2-amplified breast cancer cells?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_83c298a37dc8ea7cbeb55478",
+              "inference_basis_ids": [
+                "res_55b1105aa614c00aa1e5f517"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "18ab001e812d1d964c09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Cells in 3D Matrigel were more sensitive to lapatinib than cells on TCP, with 21 ± 2.6 and 69 9.7% EdU incorporation, respectively"
+              },
+              "statement": "HCC1569 cells are more sensitive to lapatinib in 3D Matrigel than on 2D TCP."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "HCC1569 and BT549 cells were cultured on 2D TCP or in 3D Matrigel for 48 h, then treated with DMSO or 1.5 μM lapatinib for 48 h. EdU incorporation was measured as a proxy for proliferation."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "EdU incorporation assay",
+              "protocol_description": "Cells were cultured for 48 h, treated with lapatinib or DMSO for 48 h, then EdU incorporation into nuclear DNA was measured as a proxy for cell proliferation."
+            }
+          ],
+          "name": "Validation of differential lapatinib response in 2D TCP vs 3D Matrigel",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "EdU incorporation (% of DMSO control)",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18ab001e812d1d964c09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Cells in 3D Matrigel were more sensitive to lapatinib than cells on TCP, with 21 ± 2.6 and 69 9.7% EdU incorporation, respectively (Figure 1, A and B). Proliferation of the HER2-negative cell line BT549 was not affected by lapatinib treatment (Figure 1, A and B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_55b1105aa614c00aa1e5f517",
+              "unit": "% of DMSO control",
+              "value_raw_text": "21 ± 2.6% (3D Matrigel) vs 69 ± 9.7% (TCP) for HCC1569; BT549 not affected"
+            }
+          ],
+          "unit_id": "su_08a9bd220ae1ba023023cbf0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d2aa5bf1c9eb725b82f0eb54",
+              "inference_basis_ids": [
+                "res_01adfcc875aaad0b62400394",
+                "res_3afd88312c146c4ae1713d0c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "18ab001e812d1d964c09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Thus HCC1569 cells responded to lapatinib in an elastic modulus–dependent manner, showing greater resistance to the antiproliferative effect of lapatinib on rigid matrices."
+              },
+              "statement": "HCC1569 cells respond to lapatinib in an elastic modulus-dependent manner, with greater resistance on rigid matrices."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "HCC1569 and BT549 cells were cultured on 400-Pa PA gels or TCP coated with type 1 collagen for 48 h, then treated with 1.5 μM lapatinib or DMSO for 48 h. EdU incorporation was measured. IC50 was determined from dose-response curves."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "PA gel culture and EdU assay",
+              "protocol_description": "Cells were cultured on PA gels of 400 ± 160 Pa or TCP coated with type 1 collagen for 48 h, then treated with lapatinib or DMSO for 48 h. EdU incorporation was measured. IC50 was calculated from dose-response curves."
+            }
+          ],
+          "name": "Effect of substrate rigidity on lapatinib response using PA gels",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "IC50 of lapatinib",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18ab001e812d1d964c09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The half-maximal inhibitory concentration (IC50) of lapatinib was threefold lower on 400-Pa PA gels than with TCP, 0.9 and 2.7 μM, respectively (Figure 1E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_01adfcc875aaad0b62400394",
+              "unit": "μM",
+              "value_raw_text": "0.9 μM (400-Pa PA gels) vs 2.7 μM (TCP)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "EdU incorporation (% of DMSO control)",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18ab001e812d1d964c09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "HCC1569 cells were more sensitive to lapatinib on 400-Pa PA gels than on TCP coated with type 1 collagen, with 50 ± 4.5 and 69 ± 4.5% EdU incorporation, respectively (Figure 1, C and D); BT549 cells were not affected by lapatinib or changes in rigidity (Figure 1, C and D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3afd88312c146c4ae1713d0c",
+              "unit": "% of DMSO control",
+              "value_raw_text": "50 ± 4.5% (400-Pa PA gels) vs 69 ± 4.5% (TCP) for HCC1569; BT549 not affected"
+            }
+          ],
+          "unit_id": "su_d73f30322e054c26de26ffb2"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Are YAP and TAZ required for modulus-dependent lapatinib responses?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0694d917b7d0dcfa54f604d2",
+              "inference_basis_ids": [
+                "res_eaa8350ffe5dd8b7b686bae6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "18ab001e812d1d964c09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "YAP and TAZ were thus shown to be necessary for generating modulus-dependent lapatinib resistance."
+              },
+              "statement": "YAP and TAZ are necessary for modulus-dependent lapatinib resistance."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "HCC1569 cells were transfected with siRNA against YAP or TAZ, or treated with 2 μg/ml verteporfin, and cultured on TCP or 400-Pa PA gels. Lapatinib response was assessed by EdU incorporation."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "siRNA knockdown and verteporfin treatment",
+              "protocol_description": "YAP and TAZ were knocked down by siRNA. Verteporfin (2 μg/ml) was used to disrupt TEAD-YAP interaction. Cells were cultured on TCP or PA gels and treated with lapatinib."
+            }
+          ],
+          "name": "YAP/TAZ knockdown and inhibition in vitro",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Modulus-dependent lapatinib resistance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18ab001e812d1d964c09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Both YAP and TAZ knockdown (Supplemental Figure S1A) eliminated modulus-dependent lapatinib resistance on TCP (Figure 2C). Disruption of the TEAD-YAP interaction with 2 μg/ml inhibitor verteporfin (Liu-Chittenden et al., 2012) phenocopied the effect of YAP knockdown (Figure 2D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_eaa8350ffe5dd8b7b686bae6",
+              "unit": null,
+              "value_raw_text": "Eliminated by YAP or TAZ knockdown, and by verteporfin"
+            }
+          ],
+          "unit_id": "su_58b767c06ecd41e7c6e80e84"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Does YAP knockdown in vivo increase sensitivity to lapatinib?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c67eaf250e3dee70ff5fe2fd",
+              "inference_basis_ids": [
+                "res_c917dc7cbc4e739d9e8ba3ea"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "722f35d9d8f935c694df",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "These data demonstrate that YAP knockdown was sufficient to reduce growth of HER2-amplified cell lines in vivo, and they suggest that YAP knockdown and lapatinib together may have some synergistic benefit."
+              },
+              "statement": "YAP knockdown reduces HER2-amplified tumor growth in vivo and shows a trend of increasing sensitivity to lapatinib."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "HCC1569 cells with IPTG-inducible YAP shRNA were implanted in mice. Tumor volume was measured over 23 days in four groups: no IPTG/no lapatinib (A), IPTG only (B), lapatinib only (C), lapatinib + IPTG (D)."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Xenograft tumor model with IPTG-inducible shRNA",
+              "protocol_description": "HCC1569 cells with IPTG-inducible YAP shRNA were implanted in mice. Mice were treated with or without IPTG and lapatinib. Tumor volume was measured over time."
+            }
+          ],
+          "name": "YAP knockdown in vivo with lapatinib treatment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor volume (mean, mm³) at day 23",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "722f35d9d8f935c694df",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Mice that received neither IPTG nor lapatinib (group A) had the maximum tumor volume (mean of volume, 1280 mm3) by day 23. Mice treated with IPTG (group B) had significantly decreased (p < 0.05) tumor volume (mean of volume, 770 mm3) compared with group A. Lapatinib treatment groups either with (group D) or without IPTG treatment (group C) had much smaller tumor volumes compared with groups A and B. Group D, which received lapatinib and had reduced YAP levels, had the smallest tumor volumes (mean of volume, 192 mm3), even compared with group C (mean of volume, 269 mm3); however, that difference was not statistically significant."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c917dc7cbc4e739d9e8ba3ea",
+              "unit": "mm³",
+              "value_raw_text": "Group A: 1280 mm³; Group B: 770 mm³ (p<0.05 vs A); Group C: 269 mm³; Group D: 192 mm³ (not significant vs C)"
+            }
+          ],
+          "unit_id": "su_2dc917371475da0cb3329334"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ4",
+      "statement": "What molecular factors contribute to modulus-dependent lapatinib responses?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5f4f65d15f2f41b7126bd00a",
+              "inference_basis_ids": [
+                "res_abbe2d64d928a9a95640f60b",
+                "res_d34a47dac55db0ef89893f57"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "722f35d9d8f935c694df",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Taken together, the results indicate that higher AREG expression correlated with YAP and HER2 expression in breast cancers."
+              },
+              "statement": "Higher AREG expression correlates with YAP and HER2 expression in breast cancers, and AREG may contribute to modulus-dependent lapatinib resistance."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "The Cancer Genome Atlas breast cancer data used for correlation analysis.",
+              "name": "TCGA breast cancer dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "TCGA breast cancer data were analyzed for correlations between YAP, CTGF, AREG, HER2, EGFR, ERBB3. AREG mRNA levels in HCC1569 cells on substrates of varying rigidity were measured."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "mRNA expression analysis",
+              "protocol_description": "mRNA expression levels were analyzed from TCGA data and from HCC1569 cells cultured on substrates of different rigidity."
+            }
+          ],
+          "name": "Analysis of AREG expression and correlation with YAP/HER2",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of YAP mRNA with CTGF and AREG",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "722f35d9d8f935c694df",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Analysis of breast cancer data from the Cancer Genome Atlas (Koboldt et al., 2012) showed that YAP mRNA expression correlated positively with expression of two known YAP targets, CTGF and amphiregulin (AREG; Zhang et al., 2009)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_abbe2d64d928a9a95640f60b",
+              "unit": null,
+              "value_raw_text": "YAP mRNA expression correlated positively with CTGF and AREG"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "AREG mRNA trend with substrate rigidity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "722f35d9d8f935c694df",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "AREG mRNA levels in HCC1569 cells showed a modestly increasing trend as the culture substrate rigidity was increased (Figure 4A)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d34a47dac55db0ef89893f57",
+              "unit": null,
+              "value_raw_text": "AREG mRNA levels showed a modestly increasing trend as culture substrate rigidity increased"
+            }
+          ],
+          "unit_id": "su_c09a8dac39e39e9a850cbd9d"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6327 on attempt 1"
+    }
+  ]
+}

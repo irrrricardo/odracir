@@ -1,0 +1,427 @@
+{
+  "coverage_ledger": {
+    "0dc1e2fec035e5a0b9db": "not_selected",
+    "239035efa5abb6c8b51e": "not_selected",
+    "2f3c1bf6e273102d7856": "extracted",
+    "31494a50507dafa503ce": "not_selected",
+    "32fd071b832156915dde": "not_selected",
+    "37f469de699f0acd87a3": "not_selected",
+    "39c9329ca38e143c5deb": "not_selected",
+    "465ba9fbae4371fdbd64": "extracted",
+    "5d92765ccb8036b67f81": "not_selected",
+    "660b4fc77268e24b0d9f": "not_selected",
+    "6c5bff59ba75058762f6": "extracted",
+    "78ddac4331bfd4990192": "not_selected",
+    "adcfcfb7a9d21add0dd8": "not_selected",
+    "eee679f3e258bc1cbca9": "not_selected",
+    "f06e814efea1d2e4fdae": "not_selected",
+    "f86670f4cdd9b6d8a782": "not_selected",
+    "fe736e2321a183eeb35b": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "PairNorm prevents performance from dropping significantly with increasing number of layers, but it does not necessarily yield increased performance in absolute terms on standard benchmark datasets because shallow architectures (2-4 layers) are sufficient.",
+    "The hyperparameter s for PairNorm was fixed at 1 for GCN and GAT due to resource limitations.",
+    "Results for GCN and GAT under SSNC-MV are only shown for 0% and 100% missing rates due to space and resource limitations.",
+    "PairNorm is evaluated only on node classification tasks; applicability to other graph tasks is not studied."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_1.pdf",
+    "source_sha256": "eee5af8a97e2bb545d4d66eb632bb1a51a7a0282bdf8c23be5df72f749df7a01"
+  },
+  "paper_id": "7_1",
+  "quality_assessment": {
+    "correct_item_count": 21,
+    "deterministic_rule_score": 0.9039,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 21,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can oversmoothing in deep GNNs be mitigated to enable training of deeper models without performance degradation?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_47865192f8c9515e131d992a",
+              "inference_basis_ids": [
+                "res_3633e474f297620d39f7204f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "shows the power of PAIRNORM for enabling “deep” SGC models by effectively tackling oversmoothing"
+              },
+              "statement": "PairNorm enables deeper SGC models by effectively tackling oversmoothing."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5d9f97746585f36cfdc26869",
+              "inference_basis_ids": [
+                "res_0b5822d869bcfa9f876d374d",
+                "res_1f8688dcbd216eed3484d507",
+                "res_2156ef04fd9654081794645c",
+                "res_27898d91050011f7b041acf8",
+                "res_32757f21089d21a1e728d3cf",
+                "res_b004e42f6d4c0dea231d190f",
+                "res_b63762d0e41130b7ef5f97fd",
+                "res_d6c68db741476f94e439cede",
+                "res_ea6b17b59688f09274442f55"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2f3c1bf6e273102d7856",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "significantly boosts performance for a new problem setting that benefits from deeper GNNs"
+              },
+              "statement": "PairNorm significantly boosts performance for a new problem setting that benefits from deeper GNNs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d7f4d50508aa21653105d547",
+              "inference_basis_ids": [
+                "res_3fcd137418b3d709a9014ac8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2f3c1bf6e273102d7856",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "PAIRNORM makes deeper GCN, GAT, and SGC models more robust against oversmoothing"
+              },
+              "statement": "PairNorm makes deeper GCN, GAT, and SGC models more robust against oversmoothing."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate PairNorm-enhanced SGC, GCN, GAT on semi-supervised node classification with missing vectors (SSNC-MV) where a fraction p of unlabeled nodes have no features. Missing rates: 0%, 20%, 40%, 60%, 80%, 100%.",
+            "Evaluate the effect of PairNorm on SGC, GCN, and GAT with increasing number of layers on Cora, Citeseer, Pubmed, and CoauthorCS for standard semi-supervised node classification (SSNC)."
+          ],
+          "methods": [],
+          "name": "Provisional flat extraction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "PAIRNORM-enhanced SGC performs similar or better over 0% missing, while it significantly outperforms vanilla SGC for most other settings, especially for larger missing rates."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0b5822d869bcfa9f876d374d",
+              "unit": null,
+              "value_raw_text": "PAIRNORM-enhanced SGC performs similar or better over 0% missing, while it significantly outperforms vanilla SGC for most other settings, especially for larger missing rates."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC 0.399 35"
+              },
+              "quantitative_value": 0.399,
+              "result_id": "res_1f8688dcbd216eed3484d507",
+              "unit": null,
+              "value_raw_text": "SGC 0.399 at #L 35 for Pubmed 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC 0.423 15"
+              },
+              "quantitative_value": 0.423,
+              "result_id": "res_2156ef04fd9654081794645c",
+              "unit": null,
+              "value_raw_text": "SGC 0.423 at #L 15 for Cora 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC-PN 0.719 40"
+              },
+              "quantitative_value": 0.719,
+              "result_id": "res_27898d91050011f7b041acf8",
+              "unit": null,
+              "value_raw_text": "SGC-PN 0.719 at #L 40 for Pubmed 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC-PN 0.745 40"
+              },
+              "quantitative_value": 0.745,
+              "result_id": "res_32757f21089d21a1e728d3cf",
+              "unit": null,
+              "value_raw_text": "SGC-PN 0.745 at #L 40 for Cora 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best number of layers (#L)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Notice the larger #L values for SGC-PN compared to vanilla SGC"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3633e474f297620d39f7204f",
+              "unit": null,
+              "value_raw_text": "larger #L values for SGC-PN compared to vanilla SGC"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe736e2321a183eeb35b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the performance decay with PAIRNORM-at-work is much slower"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3fcd137418b3d709a9014ac8",
+              "unit": null,
+              "value_raw_text": "performance decay with PAIRNORM-at-work is much slower"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC-PN 0.486 50"
+              },
+              "quantitative_value": 0.486,
+              "result_id": "res_b004e42f6d4c0dea231d190f",
+              "unit": null,
+              "value_raw_text": "SGC-PN 0.486 at #L 50 for Citeseer 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC 0.318 2"
+              },
+              "quantitative_value": 0.318,
+              "result_id": "res_b63762d0e41130b7ef5f97fd",
+              "unit": null,
+              "value_raw_text": "SGC 0.318 at #L 2 for CoauthorCS 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC-PN 0.860 20"
+              },
+              "quantitative_value": 0.86,
+              "result_id": "res_d6c68db741476f94e439cede",
+              "unit": null,
+              "value_raw_text": "SGC-PN 0.860 at #L 20 for CoauthorCS 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SGC 0.290 2"
+              },
+              "quantitative_value": 0.29,
+              "result_id": "res_ea6b17b59688f09274442f55",
+              "unit": null,
+              "value_raw_text": "SGC 0.290 at #L 2 for Citeseer 100% missing"
+            }
+          ],
+          "unit_id": "su_4b69a867fe7b564e0acdd10a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.flat_fallback",
+      "json_path": "$.research_questions[0].study_units[0]",
+      "message": "The hierarchical output retained structural ID conflicts after its retry budget; a strictly validated flat extraction was used.",
+      "repair": "flattened supported results, claims, and evidence into Provisional flat extraction"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    }
+  ]
+}

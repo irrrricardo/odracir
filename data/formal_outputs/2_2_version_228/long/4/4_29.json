@@ -1,0 +1,176 @@
+{
+  "coverage_ledger": {
+    "0da0ee34463cb0ef9c83": "extracted",
+    "1470d8100d209fce4189": "extracted",
+    "562c9a3e6e18f8aac08a": "extracted",
+    "65d3bbbd8e28501146b4": "not_selected",
+    "6f697f90942970984315": "not_selected",
+    "98c1c14db8a9d681bf19": "extracted",
+    "bbad6db08b17479d0953": "not_selected",
+    "c26c4cb83423d8246dc2": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The analytical model assumes axisymmetry and small gradients, restricting validity to low-activity regimes before turbulence.",
+    "The numerical model uses a diffuse interface approach and may not capture all molecular details of biological tissues.",
+    "The study focuses on +1 disclinations; other defect types (e.g., ±1/2) are not analyzed.",
+    "Frictional effects are argued to be negligible for the buckling transition due to localization around the defect core."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_29.pdf",
+    "source_sha256": "d88297ee9893a504904e1c8d2fef026774696dd57b7a8af6f8cceaf2881101fc"
+  },
+  "paper_id": "4_29",
+  "quality_assessment": {
+    "correct_item_count": 13,
+    "deterministic_rule_score": 0.9205,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 13,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do topological defects and activity conspire to render an initially flat active layer unstable to the growth of protrusions?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4aa6c7006f0c5a9ee8701e03",
+              "inference_basis_ids": [
+                "res_b5cb8d59d420f370b2c8a58c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "562c9a3e6e18f8aac08a",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Upon increasing the activity, we first find a regime where the layer oscillates periodically between two different buckled states and then a regime where the high activity breaks up the interface leading to continuous droplet nucleation. Last, at very high activity, we see a turbulent regime, which is characterized by the chaotic proliferation of protrusions."
+              },
+              "statement": "The post-transitional regime includes oscillatory deformations, droplet nucleation, and active turbulence."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Numerical simulations of a diffuse active polar interface using a hybrid lattice Boltzmann method to explore post-transitional regimes."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Hybrid lattice Boltzmann method",
+              "protocol_description": "Solve Navier-Stokes, Ericksen-Leslie, and advection-diffusion equations for phase field φ, polarization P, and flow v in 3D. Use a generalized Landau–de Gennes free energy functional (Eq. 8) with tangential anchoring. Integrate with predictor-corrector LB algorithm for hydrodynamics and finite difference for order parameter."
+            }
+          ],
+          "name": "Numerical simulations of active polar interface dynamics",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Phase diagram",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98c1c14db8a9d681bf19",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "At small activity (yellow pentagon in the phase diagram), we find a vortical flow structure, and the interface is flat outside the defect core. This is illustrated in (A), where A = − 0.2 ... Beyond the threshold of the buckling instability (green squares), the layer attains a funnel-like profile ... At slightly higher activity, just below the transition to the region of droplet production (A = − 0.4), we find that the interface begins to oscillates between this funnel-like state and the configuration shown in (C). Next, in (D), we show snapshots taken at different times during the process of droplet nucleation at A = − 0.55 (cyan circles). Last, in (E), we show a chaotic configuration of the layer in the active turbulent regime (A = − 1.0, blue diamonds)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b5cb8d59d420f370b2c8a58c",
+              "unit": null,
+              "value_raw_text": "At low activity (A = -0.2), flat interface with vortical flow. Beyond buckling threshold (A = -0.4), funnel-like profile. At A = -0.4, oscillatory regime between two buckled states. At A = -0.55, droplet nucleation. At A = -1.0, active turbulence."
+            }
+          ],
+          "unit_id": "su_4fef9c98b33132352f622082"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dbe82b5dd888f3a2b544e558",
+              "inference_basis_ids": [
+                "res_7aecab7f8d907b9d46debced"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "562c9a3e6e18f8aac08a",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "By looking at an axisymmetric surface plagued in the center by a +1 disclination, we analytically demonstrated that defective active layers with liquid crystalline order are unstable to out-of-plane deformations and obtained a stability criterion in terms of system size, orientational stiffness, surface tension, and active stresses."
+              },
+              "statement": "Defective active layers with liquid crystalline order are unstable to out-of-plane deformations in the presence of a +1 disclination."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analytical linear stability analysis of an axisymmetric active polar liquid crystal layer with a +1 disclination at the center, under small gradient approximation."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Linear stability analysis",
+              "protocol_description": "Parameterize midsurface in a Monge patch, assume small gradients (|∇h|≪1), axisymmetry, and incompressibility. Solve Ericksen-Leslie equation for polarization and Stokes equation for flow with no-slip boundary conditions. Derive stability condition from normal force balance (Eq. 5)."
+            }
+          ],
+          "name": "Linear stability analysis of axisymmetric active polar layer",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Stability criterion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1470d8100d209fce4189",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Now, to gain insight into the stability of the system with respect to the formation of protrusions, we separately consider three limit cases, namely, (i) κ_B = 0 and α = 0, (ii) κ_B = 0 and α ≠ 0, and (iii) κ_B ≠ 0 and α ≠ 0. ... In this case, Eq. 5 can be integrated exactly, to give (r^2 − R_c^2) ∂_r h = 0 with R_c^2 = κ_F/γ. Because of our boundary conditions for h, this equation admits a nontrivial solution only if R > R_c = √(κ_F/γ)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7aecab7f8d907b9d46debced",
+              "unit": null,
+              "value_raw_text": "For κ_B = 0 and α = 0, nontrivial solution exists only if R > R_c = √(κ_F/γ). For κ_B = 0 and α ≠ 0, the flat conformation is unstable when R > R_c = √(κ_F/γ_eff) with γ_eff = γ + α/λ log(r/R). For κ_B ≠ 0 and α ≠ 0, the flat layer is unstable for extensile systems with positive flow alignment."
+            }
+          ],
+          "unit_id": "su_affa855f810edc670d93ca29"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5918 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8198 on attempt 1"
+    }
+  ]
+}

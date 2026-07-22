@@ -1,0 +1,435 @@
+{
+  "coverage_ledger": {
+    "148330a0e7eff7a3f290": "extracted",
+    "62057dd5bc6d8ce1e698": "extracted",
+    "6434f382e63f00d141f9": "extracted",
+    "93e8fd01d32bb5081627": "not_selected",
+    "9801cb484c5816572295": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Organoid formation efficiency from single Lgr5-GFPhi cells is low (~6%), with most cells dying within 12 h, likely due to isolation stress.",
+    "Culture requires exogenous factors (EGF, R-spondin 1, Noggin) and Matrigel, which may not fully recapitulate the in vivo niche.",
+    "Small intercellular vacuoles observed by electron microscopy may indicate culture- or fixation-induced stress.",
+    "Experiments performed in mouse; human relevance not addressed.",
+    "Long-term genetic stability not comprehensively assessed beyond karyotype (40 chromosomes)."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_11.pdf",
+    "source_sha256": "c5c9c23cd549a8c25cc4b906727a7df3cd4789d0d3e6d90d5c1552d3a218534c"
+  },
+  "paper_id": "4_11",
+  "quality_assessment": {
+    "correct_item_count": 37,
+    "deterministic_rule_score": 0.9851,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.1429,
+      "sample_size_log_score": 0.6541,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 37,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can single Lgr5+ stem cells build crypt-villus structures in vitro without a mesenchymal niche?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8f0f4e2d80cf5845e8cb9e5a",
+              "inference_basis_ids": [
+                "res_079ce5010af9637b059ce00e",
+                "res_41b2829c021221e21e315e3e",
+                "res_ac36e6d32ca37cb442c04916",
+                "res_dcbb6751ce6a033be1d3c0b1",
+                "res_ef4209b1489ae1e5ed83c022",
+                "res_f95b98192a506fed8ef67d55"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We conclude that intestinal crypt–villus units are self-organizing structures, which can be built from a single stem cell in the absence of a non-epithelial cellular niche."
+              },
+              "statement": "Intestinal crypt-villus units are self-organizing structures that can be built from a single stem cell in the absence of a non-epithelial cellular niche."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "The cultured crypts behaved in a stereotypical manner. The upper opening rapidly became sealed, and the lumen filled with apoptotic cells. The crypt region underwent continuous budding events, reminiscent of crypt fission.",
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The cultured crypts behaved in a stereotypical manner (Fig. 1a; Supplementary Movie 1). The upper opening rapidly became sealed, and the lumen filled with apoptotic cells. The crypt region underwent continuous budding events, reminiscent of crypt fission."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Assess Wnt signaling by nuclear β-catenin and target gene expression.",
+            "Confirm absence of non-epithelial cells by immunostaining and electron microscopy.",
+            "Establish long-term culture of isolated mouse small-intestinal crypts in Matrigel with EGF, R-spondin 1, and Noggin.",
+            "Monitor growth, budding, and differentiation over 8 months.",
+            "Perform lineage tracing using Lgr5-EGFP-ires-CreERT2;Rosa26-LacZ or Rosa26-YFP mice."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Crypt isolation and culture",
+              "protocol_description": "Crypts released from murine small intestine by 30 min incubation in PBS/2 mM EDTA at 4°C. 500 crypts embedded in 50 µl Matrigel per well (24-well plate). Culture medium: Advanced DMEM/F12 with EGF (10–50 ng/ml), R-spondin 1 (500 ng/ml), Noggin (100 ng/ml). Medium changed every 4 days; growth factors added every other day. Passaged every 1–2 weeks at 1:5 split by mechanical dissociation."
+            },
+            {
+              "method_id": "M2",
+              "name": "Lineage tracing",
+              "protocol_description": "Crypts from Lgr5-EGFP-ires-CreERT2 crossed with Rosa26-LacZ or Rosa26-YFP reporter mice. Induced with 100 nM 4-hydroxytamoxifen for 12 h. X-Gal staining or YFP fluorescence monitored over days."
+            },
+            {
+              "method_id": "M3",
+              "name": "Immunostaining and microscopy",
+              "protocol_description": "Whole-mount or paraffin sections. Antibodies: anti-lysozyme, anti-synaptophysin, anti-chromogranin A, anti-Muc2, anti-villin, anti-E-cadherin, anti-β-catenin, anti-EphB2. Confocal (Leica SP5), inverted (Nikon DM-IL), stereo (Leica MZ16-FA) microscopy. Electron microscopy: fixed in Karnovsky’s fixative, embedded in Epon, examined with Phillips CM10."
+            }
+          ],
+          "name": "Crypt organoid culture from whole crypts",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Absence of non-epithelial cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We found no evidence for the presence of myofibroblasts or other non-epithelial cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_079ce5010af9637b059ce00e",
+              "unit": null,
+              "value_raw_text": "No evidence for myofibroblasts or other non-epithelial cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Lgr5-GFP+ cell localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Culture of Lgr5–EGFP–ires–CreERT2 crypts revealed Lgr5–GFP+ stem cells intermingled with Paneth cells at the crypt base."
+              },
+              "quantitative_value": null,
+              "result_id": "res_41b2829c021221e21e315e3e",
+              "unit": null,
+              "value_raw_text": "Lgr5-GFP+ stem cells intermingled with Paneth cells at the crypt base"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Karyotype stability",
+              "n_sample_size": 20,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Metaphase spreads of organoids more than 3 months old consistently revealed 40 chromosomes in each cell (n=20)"
+              },
+              "quantitative_value": 40.0,
+              "result_id": "res_7a0e87049dcc61fe871047c4",
+              "unit": "chromosomes",
+              "value_raw_text": "40 chromosomes in each cell (n=20)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Lineage tracing efficiency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "More than 90% of these generated entirely blue crypts"
+              },
+              "quantitative_value": 90.0,
+              "result_id": "res_ac36e6d32ca37cb442c04916",
+              "unit": "%",
+              "value_raw_text": "More than 90% of single labelled cells generated entirely blue crypts"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Wnt signaling restriction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Wnt activation, as demonstrated by nuclear b-catenin and expression of the Wnt target genes Lgr5 and EphB2, was confined to the crypts."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dcbb6751ce6a033be1d3c0b1",
+              "unit": null,
+              "value_raw_text": "Wnt activation confined to crypts"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid structure",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Further expansion created organoids, comprising more than 40 crypt domains surrounding a central lumen lined by a villus-like epithelium"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ef4209b1489ae1e5ed83c022",
+              "unit": null,
+              "value_raw_text": "organoids comprising more than 40 crypt domains surrounding a central lumen lined by a villus-like epithelium"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Culture duration",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Organoids were cultured for more than 8 months without losing the characteristics described below."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f95b98192a506fed8ef67d55",
+              "unit": null,
+              "value_raw_text": "more than 8 months without losing characteristics"
+            }
+          ],
+          "unit_id": "su_2f809a06245a055767d8cb7b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6993b4dae968e5d875dfc2f5",
+              "inference_basis_ids": [
+                "res_14d9b938095eec8472421bde",
+                "res_56dc3b7c0f81ffb1bd58d1e8",
+                "res_773520be11d9210da949de62",
+                "res_9e22ac3a2b4b9ba944f5c781",
+                "res_a92691b705a0172e9c3a198c",
+                "res_ed147ffbcef99c626dac704f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "148330a0e7eff7a3f290",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "We conclude that a single Lgr5+ intestinal stem cell can operate independently of positional cues from its environment and that it can generate a continuously expanding, self-organizing epithelial structure reminiscent of normal gut."
+              },
+              "statement": "A single Lgr5+ intestinal stem cell can generate a continuously expanding, self-organizing epithelial structure reminiscent of normal gut, independent of positional cues from its environment."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Single sorted Lgr5+ stem cells can also initiate these crypt–villus organoids.",
+              "provenance": {
+                "chunk_id": "6434f382e63f00d141f9",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Single sorted Lgr5+ stem cells can also initiate these crypt–villus organoids."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Assess differentiation by immunostaining and electron microscopy.",
+            "Culture single cells in Matrigel with EGF, R-spondin 1, Noggin, Y-27632, and Jagged-1 peptide.",
+            "Monitor survival and organoid formation over 14 days.",
+            "Perform serial passaging of single-cell-derived organoids.",
+            "Sort single Lgr5-GFPhi cells by flow cytometry."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Single cell sorting and culture",
+              "protocol_description": "Crypts dissociated by incubation in culture medium 45 min at 37°C, trituration, filtered through 20 µm strainer. Lgr5-GFPhi, GFPlow, GFP- cells sorted by flow cytometry (MoFlo). Single cells embedded in 5 µl Matrigel per well (96-well plate) with Jagged-1 peptide (1 µM). Culture medium: Advanced DMEM/F12 with EGF, R-spondin 1, Noggin, and Y-27632 (10 µM). Growth factors added every other day; medium changed every 4 days."
+            },
+            {
+              "method_id": "M5",
+              "name": "EdU incorporation assay",
+              "protocol_description": "Organoids cultured with EdU (thymidine analogue) for 1 h, then stained following Click-iT protocol."
+            }
+          ],
+          "name": "Single Lgr5+ stem cell organoid formation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid formation efficiency (GFPlow)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9801cb484c5816572295",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "GFPlow cells rarely grew out"
+              },
+              "quantitative_value": null,
+              "result_id": "res_14d9b938095eec8472421bde",
+              "unit": null,
+              "value_raw_text": "GFPlow cells rarely grew out"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid cell number at day 4",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9801cb484c5816572295",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "By four days of culture, the structures consisted of about 100 cells"
+              },
+              "quantitative_value": 100.0,
+              "result_id": "res_56dc3b7c0f81ffb1bd58d1e8",
+              "unit": "cells",
+              "value_raw_text": "about 100 cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Differentiated cell types present",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9801cb484c5816572295",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "Fully polarized enterocytes, as demonstrated by villin+ mature brush borders and apical alkaline phosphatase, lined the central lumen. Goblet cells (Muc2+, PAS+) and enteroendocrine cells (chromogranin A+, synaptophysin+) were scattered throughout the organoid structure. Four types of mature cell were recognized by electron microscopy."
+              },
+              "quantitative_value": null,
+              "result_id": "res_773520be11d9210da949de62",
+              "unit": null,
+              "value_raw_text": "enterocytes, goblet cells, enteroendocrine cells, Paneth cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absence of non-epithelial cells in single-cell organoids",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9801cb484c5816572295",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Non-epithelial (stromal/mesenchymal) cells were absent, an observation confirmed by electron-microscopic imaging"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9e22ac3a2b4b9ba944f5c781",
+              "unit": null,
+              "value_raw_text": "Non-epithelial (stromal/mesenchymal) cells were absent"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Serial passaging capacity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9801cb484c5816572295",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "This procedure could be repeated at least four times on a two-weekly basis, without apparent loss of replating efficiency."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a92691b705a0172e9c3a198c",
+              "unit": null,
+              "value_raw_text": "repeated at least four times on a two-weekly basis, without apparent loss of replating efficiency"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "EdU incorporation in crypt domains",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9801cb484c5816572295",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Note that only crypt domains incorporate EdU."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ece5ff990795ae58800e44f1",
+              "unit": null,
+              "value_raw_text": "only crypt domains incorporate EdU"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid formation efficiency (Lgr5-GFPhi)",
+              "n_sample_size": 400,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9801cb484c5816572295",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "On average, about 6% of the Lgr5–GFPhi cells grew out into organoids"
+              },
+              "quantitative_value": 6.0,
+              "result_id": "res_ed147ffbcef99c626dac704f",
+              "unit": "%",
+              "value_raw_text": "about 6% of the Lgr5-GFPhi cells grew out into organoids"
+            }
+          ],
+          "unit_id": "su_7e0474c425f7fe481fd73882"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7596 on attempt 1"
+    }
+  ]
+}

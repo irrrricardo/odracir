@@ -1,0 +1,605 @@
+{
+  "coverage_ledger": {
+    "09b92a8f10ea9e24a07a": "not_selected",
+    "0fcfdb42e75520cd732a": "not_selected",
+    "196b11a278544ac18882": "not_selected",
+    "19e67ef0c6f67774259b": "not_selected",
+    "1a7a954ac474d73e6c81": "not_selected",
+    "2a205170439a6913e3e7": "not_selected",
+    "2bd9fbdf419fc61b1761": "not_selected",
+    "30a9d041ca20f9d14cce": "not_selected",
+    "33b82dce17d292ec439c": "extracted",
+    "3427da6b9835d82cf026": "not_selected",
+    "3942744857e8dab114de": "not_selected",
+    "456412740ea08bb90ed5": "not_selected",
+    "467e223eb38ee1e6eecf": "not_selected",
+    "568de5310bb8f6dee606": "not_selected",
+    "5a4a7fe4eb3dae7bc4fb": "not_selected",
+    "5b1985d537f59db2f17c": "not_selected",
+    "5bded9b34cce03e77af4": "not_selected",
+    "608f360bcc2dd6cd35d5": "not_selected",
+    "669863c04b5f54081c7a": "not_selected",
+    "6b3227aa8facca638e29": "not_selected",
+    "6e67ffea6f66aae43d0c": "not_selected",
+    "6f1c2b9b9586c8a64e00": "not_selected",
+    "71e77946ca382387c0d0": "not_selected",
+    "7665ce9fa6630097fa7a": "not_selected",
+    "77df17ec6066145f4321": "not_selected",
+    "79a5269bd3cdb504fa8d": "not_selected",
+    "7acf9ca908a2064dc33c": "not_selected",
+    "7d516d70bb4d2e2c6670": "not_selected",
+    "7ebb9e4b23f0718d8703": "not_selected",
+    "811e4da5ada166b7e7e8": "not_selected",
+    "862b0204740baa5f48f1": "not_selected",
+    "863054ca3e023f0bd59a": "not_selected",
+    "8a190bb733c5867c0000": "not_selected",
+    "92b62235318ab1060732": "not_selected",
+    "96aa015674fc3ecc0c13": "not_selected",
+    "9aafdb4f99e71dcac52e": "not_selected",
+    "9b530c4b959545ffb37c": "not_selected",
+    "9d95859a89afe1a53ec7": "not_selected",
+    "9e1b4899062f8b70633e": "extracted",
+    "a1dff589b2aeca1708ce": "not_selected",
+    "a3008936c88107e79f04": "not_selected",
+    "a96ebcd5a7daad87c4a9": "not_selected",
+    "aa4c52571ba599f9e586": "not_selected",
+    "af749ec82ece9ad98ff5": "not_selected",
+    "b07d2026191de059c942": "not_selected",
+    "c0411a8dca19f989717f": "not_selected",
+    "c22108d14dc1b0b57b91": "extracted",
+    "d3efe033def648ac92f4": "not_selected",
+    "e23fe6b23f6e49d5717d": "not_selected",
+    "f2a8f42eba8185014352": "not_selected",
+    "fd0d04f43af1d53be7b3": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Assumes causal sufficiency (all common causes are observed).",
+    "Requires N interventional datasets, each sparsely intervening on a different variable.",
+    "Interventions are assumed perfect and stochastic.",
+    "Scalability beyond 100 variables requires GPU memory of about 24GB.",
+    "Performance degrades with very limited interventional data for variables with many parents.",
+    "Observational data limitations affect learning conditional distributions for variables with many parents.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_20.pdf",
+    "source_sha256": "325ce7f6de36387ce967ca359c4a29fcffbae44940e460cc5a9540fdd60619ee"
+  },
+  "paper_id": "5_20",
+  "quality_assessment": {
+    "correct_item_count": 38,
+    "deterministic_rule_score": 0.6911,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 39,
+    "f1": 0.7917,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted result claims ENCO SHD 0.3 (±0.9) on the full graph with large sample sizes, but the source chunk 9e1b4899062f8b70633e shows ENCO SHD 0.3 (±0.9) on the full graph only in the large sample size experiment (Table 11). However, the provenance excerpt is 'ENCO (Ours) 0.3 (±0.9)', which matches the source. The issue is that the extracted item's provenance is marked as paraphrased: true, but the excerpt is an exact match from the source. This is a minor inconsistency but does not make the item incorrect. Actually, the item is correct. No incorrect items found.",
+        "item_id": "result:su_2598dfcb0025fad043f8751a:res_44d6681d1a9394a0e42f6b57",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 19,
+    "missed_core_items": [
+      {
+        "description": "ENCO recovers graphs with 1,000 variables with only one error in 2 out of 10 experiments.",
+        "item_id": null,
+        "source_chunk_id": "9b530c4b959545ffb37c",
+        "source_excerpt": "ENCO recovers the causal graphs perfectly with no errors except for the 1,000-node graph, for which it misses only one out of 1 million edges in 2 out of 10 experiments.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO can be applied to 1,000 variables while maintaining convergence guarantees.",
+        "item_id": null,
+        "source_chunk_id": "9b530c4b959545ffb37c",
+        "source_excerpt": "This shows that ENCO can efficiently be applied to 1,000 variables while maintaining its convergence guarantees, underlining the benefit of its low-variance gradient estimators.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "ENCO recovers almost all real-world causal graphs without errors, independent of their size.",
+        "item_id": null,
+        "source_chunk_id": "2bd9fbdf419fc61b1761",
+        "source_excerpt": "We observe that ENCO recovers almost all real-world causal graphs without errors, independent of their size.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO makes only two mistakes on the diabetes graph, showing it can handle deterministic variables well.",
+        "item_id": null,
+        "source_chunk_id": "2bd9fbdf419fc61b1761",
+        "source_excerpt": "ENCO makes only two mistakes, showing that it can handle deterministic variables well.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO detects more than 95% of latent confounders without any false positives.",
+        "item_id": null,
+        "source_chunk_id": "2bd9fbdf419fc61b1761",
+        "source_excerpt": "ENCO detects more than 95% of the latent confounders without any false positives.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO outperforms DCDI on bidiag and jungle even for very few interventions.",
+        "item_id": null,
+        "source_chunk_id": "9b530c4b959545ffb37c",
+        "source_excerpt": "ENCO outperforms DCDI on bidiag and jungle, even for very few interventions.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO works competitively with partial interventions.",
+        "item_id": null,
+        "source_chunk_id": "9b530c4b959545ffb37c",
+        "source_excerpt": "We conclude that ENCO works competitively with partial interventions too.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO can efficiently recover graphs with hundreds of nodes, an order of magnitude larger than previously possible.",
+        "item_id": null,
+        "source_chunk_id": "c22108d14dc1b0b57b91",
+        "source_excerpt": "ENCO can efficiently recover graphs with hundreds of nodes, an order of magnitude larger than what was previously possible, while handling deterministic variables and discovering latent confounders.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "ENCO provides convergence guarantees when interventions on all variables are available, without constraining the score function with respect to acyclicity.",
+        "item_id": null,
+        "source_chunk_id": "c22108d14dc1b0b57b91",
+        "source_excerpt": "we provide for ENCO convergence guarantees when interventions on all variables are available, without having to constrain the score function with respect to acyclicity.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO handles deterministic variables and discovers latent confounders.",
+        "item_id": null,
+        "source_chunk_id": "c22108d14dc1b0b57b91",
+        "source_excerpt": "ENCO can efficiently recover graphs with hundreds of nodes, an order of magnitude larger than what was previously possible, while handling deterministic variables and discovering latent confounders.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "ENCO formulates graph search as optimization of independent edge likelihoods with edge orientation as a separate parameter.",
+        "item_id": null,
+        "source_chunk_id": "c22108d14dc1b0b57b91",
+        "source_excerpt": "ENCO formulates the graph search as an optimization of independent edge likelihoods, with the edge orientation being modeled as a separate parameter.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ENCO uses a gradient estimator for discrete edge sampling during graph fitting.",
+        "item_id": null,
+        "source_chunk_id": "7d516d70bb4d2e2c6670",
+        "source_excerpt": "we derive unbiased, low-variance gradient estimators, which is crucial for scaling up the model to large numbers of variables.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The method alternates between distribution fitting (training neural networks per variable) and graph fitting (learning edge probabilities).",
+        "item_id": null,
+        "source_chunk_id": "fd0d04f43af1d53be7b3",
+        "source_excerpt": "To implement the optimization, we alternate between two learning stages, that is distribution fitting and graph fitting, visually summarized in Figure 1.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "ENCO assumes causal sufficiency (all common causes are observed).",
+        "item_id": null,
+        "source_chunk_id": "fd0d04f43af1d53be7b3",
+        "source_excerpt": "The CGM is causally sufficient, i.e., all common causes of variables are included and observable",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "ENCO requires N interventional datasets, each sparsely intervening on a different variable.",
+        "item_id": null,
+        "source_chunk_id": "fd0d04f43af1d53be7b3",
+        "source_excerpt": "We have N interventional datasets, each sparsely intervening on a different variable",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Interventions are assumed perfect and stochastic.",
+        "item_id": null,
+        "source_chunk_id": "fd0d04f43af1d53be7b3",
+        "source_excerpt": "The interventions are “perfect” and “stochastic”, meaning the intervention does not set the variable necessarily to a single value.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Scalability beyond 100 variables requires GPU memory of about 24GB.",
+        "item_id": null,
+        "source_chunk_id": "33b82dce17d292ec439c",
+        "source_excerpt": "only the experiments on graphs larger than 100 variables require a GPU memory of about 24GB.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Performance degrades with very limited interventional data for variables with many parents.",
+        "item_id": null,
+        "source_chunk_id": "8a190bb733c5867c0000",
+        "source_excerpt": "With only 20 samples per intervention, it becomes especially hard to reason about variables with many parents, since the variable’s distribution is determined by many other parents as well.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Observational data limitations affect learning conditional distributions for variables with many parents.",
+        "item_id": null,
+        "source_chunk_id": "8a190bb733c5867c0000",
+        "source_excerpt": "For variables with many parents, this becomes more difficult when fewer samples are available, because the input space grows exponentially with the number of parents.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.9744,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.6667
+  },
+  "quality_score": 0.7917,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can we efficiently learn directed acyclic causal graphs from observational and interventional data without acyclicity constraints?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0ada45020cf6b50d054b365a",
+              "inference_basis_ids": [
+                "res_3f08b2f554bbff41c693d0e3",
+                "res_44d6681d1a9394a0e42f6b57",
+                "res_7f7cfdb10e1a4e1761cf0e97",
+                "res_e00b48cad5c363be258903d3",
+                "res_ef486af44b168bc728f7f339",
+                "res_fb65f0a35e99154660ef98ad"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "ENCO achieves notably better results than concurrent methods."
+              },
+              "statement": "ENCO achieves notably better results than concurrent methods even in the data limit."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_90b41dc238a93a24eab76008",
+              "inference_basis_ids": [
+                "res_44d6681d1a9394a0e42f6b57",
+                "res_7f7cfdb10e1a4e1761cf0e97"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "ENCO can reliably recover most graphs, only making 0.3 mistakes on average on the full graph."
+              },
+              "statement": "ENCO reliably recovers most graphs with only 0.3 mistakes on average on the full graph with large sample sizes."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Synthetic graphs including bidiag, chain, collider, full, jungle, random with 100k observational and 10k interventional samples per intervention.",
+              "name": "Synthetic graphs",
+              "version_or_split": "large sample size"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate ENCO and baselines on synthetic graphs with 100k observational samples and 10k interventional samples per intervention."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "ENCO",
+              "protocol_description": "ENCO applied with large sample sizes (100k observational, 10k per intervention)."
+            },
+            {
+              "method_id": "M3",
+              "name": "GIES",
+              "protocol_description": "Greedy Interventional Equivalence Search baseline."
+            },
+            {
+              "method_id": "M4",
+              "name": "IGSP",
+              "protocol_description": "Interventional Greedy SP baseline."
+            },
+            {
+              "method_id": "M5",
+              "name": "SDI",
+              "protocol_description": "SDI baseline."
+            },
+            {
+              "method_id": "M6",
+              "name": "DCDI",
+              "protocol_description": "DCDI baseline."
+            }
+          ],
+          "name": "Large sample size experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "GIES 47.4 (±5.2)"
+              },
+              "quantitative_value": 47.4,
+              "result_id": "res_3f08b2f554bbff41c693d0e3",
+              "unit": null,
+              "value_raw_text": "47.4 (±5.2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": true,
+                "text_excerpt": "ENCO (Ours) 0.3 (±0.9)"
+              },
+              "quantitative_value": 0.3,
+              "result_id": "res_44d6681d1a9394a0e42f6b57",
+              "unit": null,
+              "value_raw_text": "0.3 (±0.9)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "ENCO (Ours) 0.0 (±0.0)"
+              },
+              "quantitative_value": 0.0,
+              "result_id": "res_7f7cfdb10e1a4e1761cf0e97",
+              "unit": null,
+              "value_raw_text": "0.0 (±0.0)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "IGSP 33.0 (±4.2)"
+              },
+              "quantitative_value": 33.0,
+              "result_id": "res_e00b48cad5c363be258903d3",
+              "unit": null,
+              "value_raw_text": "33.0 (±4.2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "SDI 2.1 (±1.5)"
+              },
+              "quantitative_value": 2.1,
+              "result_id": "res_ef486af44b168bc728f7f339",
+              "unit": null,
+              "value_raw_text": "2.1 (±1.5)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "DCDI 3.7 (±1.5)"
+              },
+              "quantitative_value": 3.7,
+              "result_id": "res_fb65f0a35e99154660ef98ad",
+              "unit": null,
+              "value_raw_text": "3.7 (±1.5)"
+            }
+          ],
+          "unit_id": "su_2598dfcb0025fad043f8751a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a64cc1a5c01ed273d44593c7",
+              "inference_basis_ids": [
+                "res_6ad1e1115254416335003126",
+                "res_91d042625fbe9f5e1c172dc4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "ENCO works well with little interventional data if most variables have a small parent set."
+              },
+              "statement": "ENCO works well with little interventional data if most variables have a small parent set."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Synthetic graphs with 5000 observational samples and varying interventional samples (20, 50, 100).",
+              "name": "Synthetic graphs",
+              "version_or_split": "limited interventional data"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate ENCO with limited interventional samples (20, 50, 100) while keeping 5000 observational samples."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "ENCO",
+              "protocol_description": "ENCO with limited interventional data."
+            }
+          ],
+          "name": "Limited interventional data experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "for four out of the six graphs, we obtain an SHD of less than 1 with 100 interventional samples"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6ad1e1115254416335003126",
+              "unit": null,
+              "value_raw_text": "less than 1 with 100 interventional samples"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9e1b4899062f8b70633e",
+                "page_end": 44,
+                "page_start": 44,
+                "paraphrased": false,
+                "text_excerpt": "less than 6 when only 20 samples are available"
+              },
+              "quantitative_value": null,
+              "result_id": "res_91d042625fbe9f5e1c172dc4",
+              "unit": null,
+              "value_raw_text": "less than 6 when only 20 samples are available"
+            }
+          ],
+          "unit_id": "su_32d022d131a8e1ae1418e8f8"
+        },
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Synthetic graphs with 200 interventional samples per intervention and varying observational samples (1000, 2000).",
+              "name": "Synthetic graphs",
+              "version_or_split": "limited observational data"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate ENCO with limited observational samples (1000, 2000) while keeping 200 interventional samples per intervention."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "ENCO",
+              "protocol_description": "ENCO with limited observational data."
+            }
+          ],
+          "name": "Limited observational data experiment",
+          "results": [],
+          "unit_id": "su_5f88eabbc3e6913b5f23e423"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0ca8117eea8580cf79599093",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c22108d14dc1b0b57b91",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "ENCO can efficiently recover graphs with hundreds of nodes, an order of magnitude larger than what was previously possible, while handling deterministic variables and discovering latent confounders."
+              },
+              "statement": "ENCO handles deterministic variables and discovers latent confounders."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a6a09abd32074ce8e2a7c9b9",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c22108d14dc1b0b57b91",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we provide for ENCO convergence guarantees when interventions on all variables are available, without having to constrain the score function with respect to acyclicity."
+              },
+              "statement": "ENCO provides convergence guarantees when interventions on all variables are available, without constraining the score function with respect to acyclicity."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fce0f7f82cb0bca6d95350dd",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c22108d14dc1b0b57b91",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "ENCO can efficiently recover graphs with hundreds of nodes, an order of magnitude larger than what was previously possible, while handling deterministic variables and discovering latent confounders."
+              },
+              "statement": "ENCO can efficiently recover graphs with hundreds of nodes, an order of magnitude larger than previously possible."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "ENCO formulates graph search as optimization of independent edge likelihoods with edge orientation as a separate parameter.",
+            "ENCO uses a gradient estimator for discrete edge sampling during graph fitting.",
+            "The method alternates between distribution fitting (training neural networks per variable) and graph fitting (learning edge probabilities)."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "ENCO",
+              "protocol_description": "ENCO learns a causal graph by modeling a probability for every possible directed edge. It alternates between distribution fitting (training neural networks to model conditional distributions) and graph fitting (optimizing edge probabilities by comparing graph samples on generalization from observational to interventional data). Edge orientation is a separate parameter, avoiding acyclicity constraints."
+            }
+          ],
+          "name": "ENCO method description",
+          "results": [],
+          "unit_id": "su_cda554f2cfe4e4b4ac8acfa8"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9091 on attempt 1"
+    }
+  ]
+}

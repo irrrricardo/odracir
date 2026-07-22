@@ -1,0 +1,1868 @@
+{
+  "coverage_ledger": {
+    "0c314b000e207451c1c6": "not_selected",
+    "1ea329fec886ccb7a6d8": "extracted",
+    "20b43d9f71fc0f76e5e2": "not_selected",
+    "23262feb313dc0e2cf8e": "not_selected",
+    "279de51b4e2508febbfb": "not_selected",
+    "2b5cbd991e4fd67fc251": "not_selected",
+    "3fd634900a41c494d515": "not_selected",
+    "40b7e5ece17fd2e23b4e": "not_selected",
+    "4f522da17038595135ab": "not_selected",
+    "5179221ce9b79137fedd": "not_selected",
+    "51d0318c9e3911e738f8": "not_selected",
+    "6178657b5b003564ad57": "not_selected",
+    "6c3857b1145ac0280fa7": "not_selected",
+    "75c4eea29c928f502897": "not_selected",
+    "795e28cc449c8e26948a": "not_selected",
+    "80d1c48d198399f7cb7c": "not_selected",
+    "884df2de318ef3d0df35": "not_selected",
+    "91cadba8210daa818bc8": "not_selected",
+    "93da12c59e354fc470b6": "not_selected",
+    "962fbe2a42fd69c61f2f": "not_selected",
+    "9e067d0ec690356f9a5c": "not_selected",
+    "a321046400f9abb1a8fe": "not_selected",
+    "a4cbd111b81911d4bca3": "not_selected",
+    "a8b9c13cfa819a4177c4": "not_selected",
+    "ab9575a8ae879f5694b5": "not_selected",
+    "accc3aad34b282e68b3b": "extracted",
+    "ad626fb5088ddbd79223": "not_selected",
+    "c25d88a67aa3b31f2ea4": "not_selected",
+    "c934c43e4528e7a51583": "not_selected",
+    "caba0c4f2d11ca89bb76": "not_selected",
+    "edc0de7cd53380a36dbf": "extracted",
+    "f860a3aabb9331376a84": "not_selected",
+    "fa6578210694c8a62e16": "extracted",
+    "fc749f86a14122671513": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "OFormer generally does not show superiority over other operator learning frameworks for small data regime and problems with relatively smooth target functions.",
+    "The paper focuses on standard PDE benchmark problems and does not explore very large-scale or highly chaotic systems.",
+    "The computational cost of OFormer is higher than FNO variants in terms of memory and training speed.",
+    "The study is limited to the specific PDEs and datasets considered; generalization to other PDEs or real-world applications is not evaluated."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_20.pdf",
+    "source_sha256": "42072aa88d757715bec8aa4a4cd8fa85afe1254fe34468b39b2639f4a3c64c69"
+  },
+  "paper_id": "7_20",
+  "quality_assessment": {
+    "correct_item_count": 96,
+    "deterministic_rule_score": 0.93,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 96,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can an attention-based framework (OFormer) effectively learn solution operators for PDEs on both uniform and non-uniform grids, and how does it compare to state-of-the-art operator learning methods?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0d8e006f8263263e178098d7",
+              "inference_basis_ids": [
+                "res_07b13a3d316b02e41ec1a879",
+                "res_3af53785d29352cbe7e00aa0",
+                "res_49403bcb7c016ae88444122c",
+                "res_8acb15f4797419d107b15bd5",
+                "res_9c33b953fa0b0a55d10df9fb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Moreover, our model performs similarly under different resolutions, indicating its robustness to different resolution."
+              },
+              "statement": "OFormer is robust to different resolutions."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4bb1ebd20d97e4660b8048a0",
+              "inference_basis_ids": [
+                "res_275d010c1ae976e80c4e58bc",
+                "res_521752c354a8c875842c2e4f",
+                "res_6bbe705a478048c2797dc79e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "As shown in Table 2, equipped with a smooth activation function, FNO+ outperforms all other methods significantly, as the target function u(·, 1) is relatively smooth due to the presence of diffusion term, and has a periodic characteristic in the spatial domain."
+              },
+              "statement": "FNO+ outperforms all other methods significantly on Burgers' equation due to smooth activation and periodic characteristic."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4d1a01416b1677e139228b42",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "accc3aad34b282e68b3b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our framework is built upon self-attention, cross-attention, and a set of point-wise multilayer perceptrons (MLPs), and thus it makes few assumptions on the sampling pattern of the input function or query locations."
+              },
+              "statement": "OFormer makes few assumptions on the sampling pattern of the input function or query locations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7c55a496004a7e103f160bc5",
+              "inference_basis_ids": [
+                "res_4c95b0264678f4bd4d71cc8f",
+                "res_bed1f201bb9035d272eef7c0",
+                "res_d06dcb72dde9cbfdf8c40518",
+                "res_f7cecab7b59715bc71cf2ccc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "where it is on par with MWT on NS2-full with substantially less parameters."
+              },
+              "statement": "OFormer has substantially less parameters than MWT while achieving comparable performance on NS2-full."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9947e04ec7200be81eeb09d5",
+              "inference_basis_ids": [
+                "res_07b13a3d316b02e41ec1a879",
+                "res_2a2971d882710d8b0ddef529",
+                "res_3af53785d29352cbe7e00aa0",
+                "res_49403bcb7c016ae88444122c",
+                "res_8acb15f4797419d107b15bd5",
+                "res_9c33b953fa0b0a55d10df9fb",
+                "res_eeaeee23162fe92cba728d48"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "We observe that for small data regime (NS2-part, NS3) and problems with relatively smooth target function (viscid Burgers’, Darcy), OFormer generally does not show superiority over other operator learning-frameworks."
+              },
+              "statement": "OFormer does not show superiority over other operator learning frameworks for small data regime and smooth target functions."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9b2b4795f7ca86914c4737f6",
+              "inference_basis_ids": [
+                "res_9975ff57840afd3b7dfebdeb",
+                "res_a7b7544d42ad8cdd6b263b82"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 1.89 ... 2.32"
+              },
+              "statement": "OFormer's training and inference efficiency is comparable to other models, with 1.89 iters/sec and 2.32 sec inference time."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bd6c8a3d549640d20c94b214",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "accc3aad34b282e68b3b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we show that the proposed framework is competitive on standard PDE benchmark problems and can flexibly be adapted to different types of grids."
+              },
+              "statement": "OFormer can flexibly be adapted to different types of grids."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bec1b22e7b0395c1d6468a09",
+              "inference_basis_ids": [
+                "res_bed1f201bb9035d272eef7c0",
+                "res_ffa2866092672a7d982ac4d9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "For more complex instances like Navier-Stokes equation, we find that OFormer has strong performance in data sufficient regime, where it is on par with MWT on NS2-full with substantially less parameters."
+              },
+              "statement": "OFormer has strong performance in data sufficient regime for Navier-Stokes equation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_df79a3a884a0882de257edf1",
+              "inference_basis_ids": [
+                "res_07b13a3d316b02e41ec1a879",
+                "res_2a2971d882710d8b0ddef529",
+                "res_3af53785d29352cbe7e00aa0",
+                "res_41cfe648b00284672fedb967",
+                "res_49403bcb7c016ae88444122c",
+                "res_8acb15f4797419d107b15bd5",
+                "res_9c33b953fa0b0a55d10df9fb",
+                "res_bed1f201bb9035d272eef7c0",
+                "res_eeaeee23162fe92cba728d48",
+                "res_ffa2866092672a7d982ac4d9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "We observe that for small data regime (NS2-part, NS3) and problems with relatively smooth target function (viscid Burgers’, Darcy), OFormer generally does not show superiority over other operator learning-frameworks. ... For more complex instances like Navier-Stokes equation, we find that OFormer has strong performance in data sufficient regime, where it is on par with MWT on NS2-full with substantially less parameters."
+              },
+              "statement": "OFormer is competitive on standard PDE benchmark problems."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "1D viscous Burgers' equation on uniform grid; operator maps initial condition to solution at t=1.",
+              "name": "Burgers' equation",
+              "version_or_split": "1000/200 train/test"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "2D Darcy flow on uniform grid; operator maps coefficient a to solution u.",
+              "name": "Darcy flow",
+              "version_or_split": "same as Cao (2021)"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "2D Navier-Stokes with ν=1e-3, T=50.",
+              "name": "Navier-Stokes NS1",
+              "version_or_split": "1000/200 train/test"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "2D Navier-Stokes with ν=1e-4, T=30, small data regime.",
+              "name": "Navier-Stokes NS2-part",
+              "version_or_split": "1000/200 train/test"
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "2D Navier-Stokes with ν=1e-4, T=30, large data regime.",
+              "name": "Navier-Stokes NS2-full",
+              "version_or_split": "9800/200 train/test"
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "2D Navier-Stokes with ν=1e-5, T=20.",
+              "name": "Navier-Stokes NS3",
+              "version_or_split": "1000/200 train/test"
+            },
+            {
+              "dataset_id": "DS7",
+              "description": "2D Navier-Stokes with ν~U([0.4,1])e-4, T=30, diverse viscosities.",
+              "name": "Navier-Stokes NS-mix",
+              "version_or_split": "10000/1000 train/test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare against FNO, MWT, Galerkin/Fourier Transformer.",
+            "Evaluate OFormer on 1D viscous Burgers' equation, 2D Darcy flow, and 2D incompressible Navier-Stokes equation with different viscosities and dataset sizes."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "OFormer",
+              "protocol_description": "Attention-based operator learning framework with self-attention, cross-attention, and point-wise MLPs; few assumptions on input sampling pattern or query locations."
+            },
+            {
+              "method_id": "M2",
+              "name": "FNO-2D",
+              "protocol_description": "Fourier Neural Operator with 2D convolutions; for NS-mix, increased modes to 12 and width to 32."
+            },
+            {
+              "method_id": "M3",
+              "name": "FNO-3D",
+              "protocol_description": "Fourier Neural Operator with 3D convolutions."
+            },
+            {
+              "method_id": "M4",
+              "name": "MWT",
+              "protocol_description": "Multiwavelet-based Operator."
+            },
+            {
+              "method_id": "M5",
+              "name": "Galerkin Transformer (G.T.)",
+              "protocol_description": "Galerkin Transformer; for Navier-Stokes, hidden dimension increased from 64 to 96, training epochs extended to 200 (150 on large dataset)."
+            },
+            {
+              "method_id": "M6",
+              "name": "FNO+",
+              "protocol_description": "FNO variant with GELU activation and no normalization."
+            },
+            {
+              "method_id": "M7",
+              "name": "Fourier Transformer (F.T.)",
+              "protocol_description": "Fourier Transformer."
+            }
+          ],
+          "name": "Benchmark on uniform grid PDEs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 1.85"
+              },
+              "quantitative_value": 0.00185,
+              "result_id": "res_0432e6f8ba967ecbc2a48a12",
+              "unit": null,
+              "value_raw_text": "MWT: 1.85 (×10−3) at resolution 512"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 0.1518"
+              },
+              "quantitative_value": 0.1518,
+              "result_id": "res_064b08925bdd5fb291b16297",
+              "unit": null,
+              "value_raw_text": "MWT: 0.1518 (NS2-part)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 1.42 ± 0.03"
+              },
+              "quantitative_value": 0.00142,
+              "result_id": "res_07b13a3d316b02e41ec1a879",
+              "unit": null,
+              "value_raw_text": "1.42 ± 0.03 (×10−3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO* ... 3.07"
+              },
+              "quantitative_value": 0.00307,
+              "result_id": "res_1a8a2b6ca30d47ca10d00262",
+              "unit": null,
+              "value_raw_text": "FNO: 3.07 (×10−3) at resolution 2048"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "G.T. ... 0.84"
+              },
+              "quantitative_value": 0.0084,
+              "result_id": "res_1e4d6b4d89f02e3838a7b656",
+              "unit": null,
+              "value_raw_text": "G.T.: 0.84 (×10−2) at resolution 141"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... 1.09"
+              },
+              "quantitative_value": 0.0109,
+              "result_id": "res_1f01aac9956e1582a1757895",
+              "unit": null,
+              "value_raw_text": "FNO: 1.09 (×10−2) at resolution 141"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO+* ... 0.72"
+              },
+              "quantitative_value": 0.00072,
+              "result_id": "res_275d010c1ae976e80c4e58bc",
+              "unit": null,
+              "value_raw_text": "FNO+: 0.72 (×10−3) at resolution 512"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 0.1755 ± 0.0059"
+              },
+              "quantitative_value": 0.1755,
+              "result_id": "res_2a2971d882710d8b0ddef529",
+              "unit": null,
+              "value_raw_text": "0.1755 ± 0.0059"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.1918"
+              },
+              "quantitative_value": 0.1918,
+              "result_id": "res_2be892fa6e893c045b36a1a6",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.1918 (NS2-part)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 0.0062"
+              },
+              "quantitative_value": 0.0062,
+              "result_id": "res_31c17b1f02dd3bed9255d7ac",
+              "unit": null,
+              "value_raw_text": "MWT: 0.0062 (NS1)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training memory",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "G.T. ... 16.65"
+              },
+              "quantitative_value": 16.65,
+              "result_id": "res_36a60531d5d4dfc64a30521d",
+              "unit": "GB",
+              "value_raw_text": "G.T.: 16.65 GB"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# of parameters (M) ... G.T.* ... 1.56"
+              },
+              "quantitative_value": 1.56,
+              "result_id": "res_37e0e42e0aeaa6a59afc9157",
+              "unit": "M",
+              "value_raw_text": "G.T.: 1.56 M"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 1.30 ± 0.07"
+              },
+              "quantitative_value": 0.0013,
+              "result_id": "res_3af53785d29352cbe7e00aa0",
+              "unit": null,
+              "value_raw_text": "1.30 ± 0.07 (×10−3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training memory",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 15.93"
+              },
+              "quantitative_value": 15.93,
+              "result_id": "res_3c63e81808424548c28776b8",
+              "unit": "GB",
+              "value_raw_text": "OFormer: 15.93 GB"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# of parameters (M) ... FNO-3D ... 6.56"
+              },
+              "quantitative_value": 6.56,
+              "result_id": "res_3ed817eed21834e301e4b71d",
+              "unit": "M",
+              "value_raw_text": "FNO-3D: 6.56 M"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "G.T.* ... 0.0098"
+              },
+              "quantitative_value": 0.0098,
+              "result_id": "res_410050f92c08901ba79b6d7d",
+              "unit": null,
+              "value_raw_text": "G.T.: 0.0098 (NS1)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 0.0104 ± 0.0005"
+              },
+              "quantitative_value": 0.0104,
+              "result_id": "res_41cfe648b00284672fedb967",
+              "unit": null,
+              "value_raw_text": "0.0104 ± 0.0005"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 1.26 ± 0.03"
+              },
+              "quantitative_value": 0.0126,
+              "result_id": "res_49403bcb7c016ae88444122c",
+              "unit": null,
+              "value_raw_text": "1.26 ± 0.03 (×10−2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 0.0667"
+              },
+              "quantitative_value": 0.0667,
+              "result_id": "res_4c95b0264678f4bd4d71cc8f",
+              "unit": null,
+              "value_raw_text": "MWT: 0.0667 (NS2-full)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO+* ... 0.70"
+              },
+              "quantitative_value": 0.0007,
+              "result_id": "res_521752c354a8c875842c2e4f",
+              "unit": null,
+              "value_raw_text": "FNO+: 0.70 (×10−3) at resolution 8192"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "G.T.* ... 0.1399"
+              },
+              "quantitative_value": 0.1399,
+              "result_id": "res_52835889faabf5458227290f",
+              "unit": null,
+              "value_raw_text": "G.T.: 0.1399 (NS2-part)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training iterations per second",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "G.T. ... 1.79"
+              },
+              "quantitative_value": 1.79,
+              "result_id": "res_5503cf7e5a077ef02530703c",
+              "unit": "iters/sec",
+              "value_raw_text": "G.T.: 1.79"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 1.86"
+              },
+              "quantitative_value": 0.00186,
+              "result_id": "res_59de6c0ac0a5477a137ea1a6",
+              "unit": null,
+              "value_raw_text": "MWT: 1.86 (×10−3) at resolution 2048"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 0.1267"
+              },
+              "quantitative_value": 0.1267,
+              "result_id": "res_694689314141f5e70bed2ad4",
+              "unit": null,
+              "value_raw_text": "MWT: 0.1267 (NS-mix)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.50"
+              },
+              "quantitative_value": 0.5,
+              "result_id": "res_6b5a37cf1cc38a63f37aea84",
+              "unit": "sec",
+              "value_raw_text": "FNO-3D: 0.50 sec for 200 sequences"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO+* ... 0.72"
+              },
+              "quantitative_value": 0.00072,
+              "result_id": "res_6bbe705a478048c2797dc79e",
+              "unit": null,
+              "value_raw_text": "FNO+: 0.72 (×10−3) at resolution 2048"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.1559"
+              },
+              "quantitative_value": 0.1559,
+              "result_id": "res_759e9015b6bf86b6e792a881",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.1559 (NS2-part)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "G.T.* ... 0.1462"
+              },
+              "quantitative_value": 0.1462,
+              "result_id": "res_7b0480f2b90ee18d58c761aa",
+              "unit": null,
+              "value_raw_text": "G.T.: 0.1462 (NS-mix)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO* ... 3.15"
+              },
+              "quantitative_value": 0.00315,
+              "result_id": "res_7ed81aba63edc1c869cf3263",
+              "unit": null,
+              "value_raw_text": "FNO: 3.15 (×10−3) at resolution 512"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training memory",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 10.95"
+              },
+              "quantitative_value": 10.95,
+              "result_id": "res_81db4e889ff49442aab3067e",
+              "unit": "GB",
+              "value_raw_text": "MWT: 10.95 GB"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 1.28 ± 0.02"
+              },
+              "quantitative_value": 0.0128,
+              "result_id": "res_8acb15f4797419d107b15bd5",
+              "unit": null,
+              "value_raw_text": "1.28 ± 0.02 (×10−2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.0086"
+              },
+              "quantitative_value": 0.0086,
+              "result_id": "res_8df9902baed0b9889f8ceead",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.0086 (NS1)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.1556"
+              },
+              "quantitative_value": 0.1556,
+              "result_id": "res_901c5b0fcd3457d307fbefa2",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.1556 (NS3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.0128"
+              },
+              "quantitative_value": 0.0128,
+              "result_id": "res_90bfb46c74f7d61974e7792d",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.0128 (NS1)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.0834"
+              },
+              "quantitative_value": 0.0834,
+              "result_id": "res_986dc4c6766331f86b8711ad",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.0834 (NS2-full)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 2.32"
+              },
+              "quantitative_value": 2.32,
+              "result_id": "res_9975ff57840afd3b7dfebdeb",
+              "unit": "sec",
+              "value_raw_text": "OFormer: 2.32 sec for 200 sequences"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO* ... 2.76"
+              },
+              "quantitative_value": 0.00276,
+              "result_id": "res_99e010517bf8045db2a7170d",
+              "unit": null,
+              "value_raw_text": "FNO: 2.76 (×10−3) at resolution 8192"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "G.T. ... 0.84"
+              },
+              "quantitative_value": 0.0084,
+              "result_id": "res_9ab6c41b9614004eb026ee1d",
+              "unit": null,
+              "value_raw_text": "G.T.: 0.84 (×10−2) at resolution 211"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "G.T.* ... 0.1340"
+              },
+              "quantitative_value": 0.134,
+              "result_id": "res_9c02ad2a5ac1e70dcfbd4b03",
+              "unit": null,
+              "value_raw_text": "G.T.: 0.1340 (NS3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 1.54 ± 0.10"
+              },
+              "quantitative_value": 0.00154,
+              "result_id": "res_9c33b953fa0b0a55d10df9fb",
+              "unit": null,
+              "value_raw_text": "1.54 ± 0.10 (×10−3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "F.T. ... 1.14"
+              },
+              "quantitative_value": 0.00114,
+              "result_id": "res_a2a0847f894a3f4a9af43a98",
+              "unit": null,
+              "value_raw_text": "F.T.: 1.14 (×10−3) at resolution 512"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training iterations per second",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 1.89"
+              },
+              "quantitative_value": 1.89,
+              "result_id": "res_a7b7544d42ad8cdd6b263b82",
+              "unit": "iters/sec",
+              "value_raw_text": "OFormer: 1.89"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training iterations per second",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 10.74"
+              },
+              "quantitative_value": 10.74,
+              "result_id": "res_a7dbf0a92cd49d34463c369c",
+              "unit": "iters/sec",
+              "value_raw_text": "FNO-3D: 10.74"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "G.T. ... 3.22"
+              },
+              "quantitative_value": 3.22,
+              "result_id": "res_b53b1bc902c72c09c3f80315",
+              "unit": "sec",
+              "value_raw_text": "G.T.: 3.22 sec for 200 sequences"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "F.T. ... 1.07"
+              },
+              "quantitative_value": 0.00107,
+              "result_id": "res_b58ae381e2faec2e11a1f4c9",
+              "unit": null,
+              "value_raw_text": "F.T.: 1.07 (×10−3) at resolution 8192"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 0.0645 ± 0.0011"
+              },
+              "quantitative_value": 0.0645,
+              "result_id": "res_bed1f201bb9035d272eef7c0",
+              "unit": null,
+              "value_raw_text": "0.0645 ± 0.0011"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training memory",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.42"
+              },
+              "quantitative_value": 0.42,
+              "result_id": "res_beddb9f1f74d5ac62b63191f",
+              "unit": "GB",
+              "value_raw_text": "FNO-3D: 0.42 GB"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 2.21"
+              },
+              "quantitative_value": 2.21,
+              "result_id": "res_c304c3fd80f6c03e37a59361",
+              "unit": "sec",
+              "value_raw_text": "MWT: 2.21 sec for 200 sequences"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training iterations per second",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 1.67"
+              },
+              "quantitative_value": 1.67,
+              "result_id": "res_c76104368f40a40259c4ef1e",
+              "unit": "iters/sec",
+              "value_raw_text": "MWT: 1.67"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.1654"
+              },
+              "quantitative_value": 0.1654,
+              "result_id": "res_c7d762f5acb7faac9ca512fb",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.1654 (NS-mix)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# of parameters (M) ... MWT ... 179.18"
+              },
+              "quantitative_value": 179.18,
+              "result_id": "res_d06dcb72dde9cbfdf8c40518",
+              "unit": "M",
+              "value_raw_text": "MWT: 179.18 M"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training memory",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.33"
+              },
+              "quantitative_value": 0.33,
+              "result_id": "res_d14694316c03b8d8e50f3aab",
+              "unit": "GB",
+              "value_raw_text": "FNO-2D: 0.33 GB"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 1.78"
+              },
+              "quantitative_value": 0.00178,
+              "result_id": "res_d235b53b6aa3f2ec7842b5eb",
+              "unit": null,
+              "value_raw_text": "MWT: 1.78 (×10−3) at resolution 8192"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.1650"
+              },
+              "quantitative_value": 0.165,
+              "result_id": "res_d6521cce917c19adf4dabdfe",
+              "unit": null,
+              "value_raw_text": "FNO-2D: 0.1650 (NS-mix)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.1893"
+              },
+              "quantitative_value": 0.1893,
+              "result_id": "res_da2858f4190c59d5eebaf6a0",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.1893 (NS3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "G.T.* ... 0.0792"
+              },
+              "quantitative_value": 0.0792,
+              "result_id": "res_ddea2f16499f8a9bb0df1c92",
+              "unit": null,
+              "value_raw_text": "G.T.: 0.0792 (NS2-full)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 0.58"
+              },
+              "quantitative_value": 0.58,
+              "result_id": "res_dfa194c84959dda4342abfe8",
+              "unit": "sec",
+              "value_raw_text": "FNO-2D: 0.58 sec for 200 sequences"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training iterations per second",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ea329fec886ccb7a6d8",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D ... 9.71"
+              },
+              "quantitative_value": 9.71,
+              "result_id": "res_ea13b6165a1fb31bd36a43c1",
+              "unit": "iters/sec",
+              "value_raw_text": "FNO-2D: 9.71"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 0.1705 ± 0.0007"
+              },
+              "quantitative_value": 0.1705,
+              "result_id": "res_eeaeee23162fe92cba728d48",
+              "unit": null,
+              "value_raw_text": "0.1705 ± 0.0007"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# of parameters (M) ... FNO-2D ... 0.41/2.37"
+              },
+              "quantitative_value": 2.37,
+              "result_id": "res_eecbf083abc3525210087f84",
+              "unit": "M",
+              "value_raw_text": "FNO-2D: 0.41/2.37 M"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "F.T. ... 1.12"
+              },
+              "quantitative_value": 0.00112,
+              "result_id": "res_f035fb1008a6a373b1510d64",
+              "unit": null,
+              "value_raw_text": "F.T.: 1.12 (×10−3) at resolution 2048"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT ... 0.1541"
+              },
+              "quantitative_value": 0.1541,
+              "result_id": "res_f56953d502ba47ab8348fdb4",
+              "unit": null,
+              "value_raw_text": "MWT: 0.1541 (NS3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# of parameters (M) ... OFormer ... 1.85"
+              },
+              "quantitative_value": 1.85,
+              "result_id": "res_f7cecab7b59715bc71cf2ccc",
+              "unit": "M",
+              "value_raw_text": "1.85 M"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... 1.09"
+              },
+              "quantitative_value": 0.0109,
+              "result_id": "res_fcbcd2fd86df91757815e1df",
+              "unit": null,
+              "value_raw_text": "FNO: 1.09 (×10−2) at resolution 211"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D ... 0.0820"
+              },
+              "quantitative_value": 0.082,
+              "result_id": "res_fd8c93f01b14b291886ecefe",
+              "unit": null,
+              "value_raw_text": "FNO-3D: 0.0820 (NS2-full)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 norm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "edc0de7cd53380a36dbf",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "OFormer ... 0.1402 ± 0.0016"
+              },
+              "quantitative_value": 0.1402,
+              "result_id": "res_ffa2866092672a7d982ac4d9",
+              "unit": null,
+              "value_raw_text": "0.1402 ± 0.0016"
+            }
+          ],
+          "unit_id": "su_8d9b0f6f9ae9aa32deda47d0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6400 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5882 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5882 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5882 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5882 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5882 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[30].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[31].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[32].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[33].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[34].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[35].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[36].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[37].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[38].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[39].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[40].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[41].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[42].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[43].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[44].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4615 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[45].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[46].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4615 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[47].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[48].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[49].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[50].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[51].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[52].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[53].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[54].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[55].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[56].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[57].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[58].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[59].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6923 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6522 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[60].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[61].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[62].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6591 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[63].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7179 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[64].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7105 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[65].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6842 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6522 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6522 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6522 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6522 on attempt 1"
+    }
+  ]
+}

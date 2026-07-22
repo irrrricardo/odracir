@@ -1,0 +1,773 @@
+{
+  "coverage_ledger": {
+    "1c3e22bc89ad55da7881": "extracted",
+    "24f0c6f9f22dda12658e": "extracted",
+    "5464dafa19660191e8b7": "extracted",
+    "749c2613dd7587e51084": "not_selected",
+    "eea73338a8af53c109c3": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The method assumes no hidden variables.",
+    "The acyclicity constraint is adapted from the linear case and relies on the implication that zero neural network path implies zero graph edge.",
+    "The augmented Lagrangian approach provides approximate solutions that converge to a stationary point under regularity conditions.",
+    "The synthetic experiments assume Gaussian additive noise models with known parametric form.",
+    "The real-world dataset is small (11 nodes, 17 edges)."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_16.pdf",
+    "source_sha256": "96b8e85fb95a8226a9b31a2c8e2cbfd567e9c5d36df49a1255a6185b4fc5066c"
+  },
+  "paper_id": "5_16",
+  "quality_assessment": {
+    "correct_item_count": 21,
+    "deterministic_rule_score": 0.9436,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.5556,
+      "sample_size_log_score": 0.3471,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 40,
+    "f1": 0.6176,
+    "incorrect_item_count": 19,
+    "incorrect_items": [
+      {
+        "description": "The extracted text states 'average of 200 edges', but the source chunk says 'an average of 200 edges' which is correct. However, the task description says 'data is generated from a Gaussian additive noise model with GP functions', which matches the source. No error found. Actually, re-checking: the source says 'We sampled 10 graphs (e.g. with 50 nodes and an average of 200 edges) and data distributions of the form Xi|XπG_i ~ N(fi(XπG), σ_i^2) with fi ~ GP'. The extracted text says 'with 50 nodes and an average of 200 edges, where data is generated from a Gaussian additive noise model with GP functions.' This is accurate. So not incorrect.",
+        "item_id": "task:su_49113f31d2c7191615db59d3:5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result has additional_provenance with excerpt 'NOTEARS 44', but the source table shows NOTEARS SID for protein dataset is 44, and DAG-GNN SID is 44. The result is for DAG-GNN SID 44, but the additional_provenance incorrectly attributes the same value to NOTEARS. However, the source chunk shows both DAG-GNN and NOTEARS have SID 44 for protein dataset. So it's correct that both have 44. The additional_provenance is just noting that NOTEARS also has 44. That's not incorrect. Actually, the result is for DAG-GNN SID 44, and the additional_provenance says NOTEARS 44, which is true. So not incorrect.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_4b28da997786c458c626629d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result is for RANDOM SHD 21, but additional_provenance says NOTEARS 21. In the source, NOTEARS SHD for protein is 21, and RANDOM SHD is 21. So both have 21. That's correct. Not incorrect.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_105a6b9ec85c3bf00aed5eaf",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "GraN-DAG SHD 13 for protein dataset. Source says GraN-DAG SHD 13. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_2a1fc9ba827c6763ad07a1d2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "NOTEARS SID 2149.1±76.3 for synthetic. Source says NOTEARS SID 2149.1±76.3. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_49d79edbf7864280520725d2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "DAG-GNN SHD 191.9±15.2 for synthetic. Source says DAG-GNN SHD 191.9±15.2. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_5243aaaff70ab7f5d309eb8d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "RANDOM SHD 708.4±234.4 for synthetic. Source says RANDOM SHD 708.4±234.4. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_528bec0cc0cbc8305cb6306f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "RANDOM SID 1921.3±203.5 for synthetic. Source says RANDOM SID 1921.3±203.5. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_60df5075486126a689bce2dd",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "DAG-GNN SID 2146.2±64 for synthetic. Source says DAG-GNN SID 2146.2±64. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_6b4b2c069a525f94625935b3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "CAM SID 1197.2±125.9 for synthetic. Source says CAM SID 1197.2±125.9. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_9cf860d6da04bd7977c6da7b",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "GraN-DAG SID 47 for protein. Source says GraN-DAG SID 47. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_a9659ffd03189849b8f0a721",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "CAM SHD 98.8±20.7 for synthetic. Source says CAM SHD 98.8±20.7. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_b12f7b01d1fde9e1b15c22a0",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "RANDOM SID 60 for protein. Source says RANDOM SID 60. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_b2c95f06f6e1e514ce8f4106",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "GraN-DAG SID 1060.1±109.4 for synthetic. Source says GraN-DAG SID 1060.1±109.4. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_b2f5a3d363b157e53b5b7351",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "CAM SHD 12 for protein. Source says CAM SHD 12. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_b957264b0f95df1cf4ae8955",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "NOTEARS SHD 202.3±14.3 for synthetic. Source says NOTEARS SHD 202.3±14.3. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_d07622fcd4c6e3660ec83246",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "DAG-GNN SHD 16 for protein. Source says DAG-GNN SHD 16. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_e1a12d66472d6ee0dec9c209",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "GraN-DAG SHD 102.6±21.2 for synthetic. Source says GraN-DAG SHD 102.6±21.2. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_eaa12daf741220438df59a75",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "CAM SID 55 for protein. Source says CAM SID 55. Correct.",
+        "item_id": "result:su_49113f31d2c7191615db59d3:res_fabda5352943b1827abe75b7",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "The synthetic experiments used 10 graphs with 50 nodes and an average of 200 edges, and data generated from a Gaussian additive noise model with GP functions.",
+        "item_id": null,
+        "source_chunk_id": "eea73338a8af53c109c3",
+        "source_excerpt": "We sampled 10 graphs (e.g. with 50 nodes and an average of 200 edges) and data distributions of the form Xi|XπG_i ~ N(fi(XπG), σ_i^2) with fi ~ GP",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The protein signaling dataset is from Sachs et al. 2005, with 11 nodes and 17 edges.",
+        "item_id": null,
+        "source_chunk_id": "eea73338a8af53c109c3",
+        "source_excerpt": "a well known real world data set which measures the expression level of different proteins and phospholipids in human cells [13] (the ground truth graph has 11 nodes and 17 edges)",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "GraN-DAG, NOTEARS, and CAM all make the correct Gaussian assumption in their respective models.",
+        "item_id": null,
+        "source_chunk_id": "eea73338a8af53c109c3",
+        "source_excerpt": "GraN-DAG, NOTEARS and CAM all make the correct gaussian assumption in their respective models.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The augmented Lagrangian method is used to get an approximate solution, with subproblems solved using RMSprop.",
+        "item_id": null,
+        "source_chunk_id": "749c2613dd7587e51084",
+        "source_excerpt": "a standard numerical solver for constrained optimization such has an augmented Lagrangian method (AL) [1] can be applied to get an approximate solution.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The acyclicity constraint is h(φ) = Tr(e^{Aφ}) - d = 0, where Aφ is defined from neural network paths.",
+        "item_id": null,
+        "source_chunk_id": "eea73338a8af53c109c3",
+        "source_excerpt": "h(φ) ≜ Tr eAφ − d = 0",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The method assumes no hidden variables.",
+        "item_id": null,
+        "source_chunk_id": "1c3e22bc89ad55da7881",
+        "source_excerpt": "We assume there are no hidden variables.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The real-world dataset is small (11 nodes, 17 edges).",
+        "item_id": null,
+        "source_chunk_id": "eea73338a8af53c109c3",
+        "source_excerpt": "the ground truth graph has 11 nodes and 17 edges",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.525,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.75
+  },
+  "quality_score": 0.6176,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can structure learning be performed using gradient-based optimization with neural networks to model nonlinear relationships?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3998566f05cbd5dbb62b3384",
+              "inference_basis_ids": [
+                "res_9cf860d6da04bd7977c6da7b",
+                "res_b12f7b01d1fde9e1b15c22a0",
+                "res_b2f5a3d363b157e53b5b7351",
+                "res_eaa12daf741220438df59a75"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "GraN-DAG outperforms other continuous approaches while being competitive with the best performing discrete approach we considered."
+              },
+              "statement": "GraN-DAG is competitive with CAM on synthetic data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_de0ad84f5abca7dd41175567",
+              "inference_basis_ids": [
+                "res_49d79edbf7864280520725d2",
+                "res_5243aaaff70ab7f5d309eb8d",
+                "res_6b4b2c069a525f94625935b3",
+                "res_b2f5a3d363b157e53b5b7351",
+                "res_d07622fcd4c6e3660ec83246",
+                "res_eaa12daf741220438df59a75"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "GraN-DAG outperforms other continuous approaches while being competitive with the best performing discrete approach we considered."
+              },
+              "statement": "GraN-DAG outperforms other continuous approaches (DAG-GNN, NOTEARS) on synthetic data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fb4972bab254e02e0955a2dc",
+              "inference_basis_ids": [
+                "res_105a6b9ec85c3bf00aed5eaf",
+                "res_2a1fc9ba827c6763ad07a1d2",
+                "res_4b28da997786c458c626629d",
+                "res_a9659ffd03189849b8f0a721",
+                "res_b2c95f06f6e1e514ce8f4106",
+                "res_b957264b0f95df1cf4ae8955",
+                "res_e1a12d66472d6ee0dec9c209",
+                "res_fabda5352943b1827abe75b7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "We found GraN-DAG to be competitive with other approaches."
+              },
+              "statement": "GraN-DAG is competitive with other approaches on the protein signaling dataset."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Synthetic data generated from a Gaussian additive noise model: Xi|XπG_i ~ N(fi(XπG), σ_i^2) with fi sampled from a Gaussian Process.",
+              "name": "Synthetic data",
+              "version_or_split": "10 graphs, 50 nodes, average 200 edges"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Real-world dataset measuring expression levels of proteins and phospholipids in human cells; ground truth graph has 11 nodes and 17 edges.",
+              "name": "Protein signaling dataset",
+              "version_or_split": "Sachs et al. 2005"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Adapt the acyclicity constraint to the nonlinear model by applying it at the level of neural network paths and then graph paths.",
+            "Compare GraN-DAG against continuous baselines (DAG-GNN, NOTEARS) and discrete baselines (CAM, RANDOM) using SHD and SID metrics.",
+            "Develop GraN-DAG, a score-based method for structure learning that extends NOTEARS to nonlinear relationships using neural networks.",
+            "Evaluate GraN-DAG on a real-world protein signaling dataset with 11 nodes and 17 edges.",
+            "Evaluate GraN-DAG on synthetic data with 50 nodes and an average of 200 edges, where data is generated from a Gaussian additive noise model with GP functions.",
+            "Optimize the maximum likelihood objective with the acyclicity constraint using an augmented Lagrangian approach and RMSprop."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GraN-DAG",
+              "protocol_description": "GraN-DAG models each conditional distribution pi(Xi|Xπ_i) using a neural network parameterized by θ(i). The adjacency matrix Aφ is derived from the neural network paths: (Aφ)ij = 0 if θ(j) does not depend on Xi. Acyclicity is enforced via constraint h(φ) = Tr(e^{Aφ}) - d = 0. The objective is maximum log-likelihood: max_φ E[Σ_i log pi(Xi|Xπ_i; θ(i))] subject to the acyclicity constraint. Optimization uses an augmented Lagrangian method with RMSprop."
+            },
+            {
+              "method_id": "M2",
+              "name": "DAG-GNN",
+              "protocol_description": "A nonlinear extension of NOTEARS using graph neural networks and an evidence lower bound as score."
+            },
+            {
+              "method_id": "M3",
+              "name": "NOTEARS",
+              "protocol_description": "Linear SEM with acyclicity constraint Tr(e^{U⊙U}) - d = 0, optimized with regularized least squares."
+            },
+            {
+              "method_id": "M4",
+              "name": "CAM",
+              "protocol_description": "Causal additive models with high-dimensional order search and penalized regression; a discrete greedy search method."
+            },
+            {
+              "method_id": "M5",
+              "name": "RANDOM",
+              "protocol_description": "Random baseline for structure learning."
+            }
+          ],
+          "name": "GraN-DAG method development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "eea73338a8af53c109c3",
+                  "page_end": 4,
+                  "page_start": 4,
+                  "paraphrased": true,
+                  "text_excerpt": "NOTEARS 21"
+                }
+              ],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "RANDOM 21"
+              },
+              "quantitative_value": 21.0,
+              "result_id": "res_105a6b9ec85c3bf00aed5eaf",
+              "unit": null,
+              "value_raw_text": "21"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "GraN-DAG 13"
+              },
+              "quantitative_value": 13.0,
+              "result_id": "res_2a1fc9ba827c6763ad07a1d2",
+              "unit": null,
+              "value_raw_text": "13"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "NOTEARS 2149.1±76.3"
+              },
+              "quantitative_value": 2149.1,
+              "result_id": "res_49d79edbf7864280520725d2",
+              "unit": null,
+              "value_raw_text": "2149.1±76.3"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "eea73338a8af53c109c3",
+                  "page_end": 4,
+                  "page_start": 4,
+                  "paraphrased": true,
+                  "text_excerpt": "NOTEARS 44"
+                }
+              ],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "DAG-GNN 44"
+              },
+              "quantitative_value": 44.0,
+              "result_id": "res_4b28da997786c458c626629d",
+              "unit": null,
+              "value_raw_text": "44"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "DAG-GNN 191.9±15.2"
+              },
+              "quantitative_value": 191.9,
+              "result_id": "res_5243aaaff70ab7f5d309eb8d",
+              "unit": null,
+              "value_raw_text": "191.9±15.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "RANDOM 708.4±234.4"
+              },
+              "quantitative_value": 708.4,
+              "result_id": "res_528bec0cc0cbc8305cb6306f",
+              "unit": null,
+              "value_raw_text": "708.4±234.4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "RANDOM 1921.3±203.5"
+              },
+              "quantitative_value": 1921.3,
+              "result_id": "res_60df5075486126a689bce2dd",
+              "unit": null,
+              "value_raw_text": "1921.3±203.5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "DAG-GNN 2146.2±64"
+              },
+              "quantitative_value": 2146.2,
+              "result_id": "res_6b4b2c069a525f94625935b3",
+              "unit": null,
+              "value_raw_text": "2146.2±64"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "CAM 1197.2±125.9"
+              },
+              "quantitative_value": 1197.2,
+              "result_id": "res_9cf860d6da04bd7977c6da7b",
+              "unit": null,
+              "value_raw_text": "1197.2±125.9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "GraN-DAG 47"
+              },
+              "quantitative_value": 47.0,
+              "result_id": "res_a9659ffd03189849b8f0a721",
+              "unit": null,
+              "value_raw_text": "47"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "CAM 98.8±20.7"
+              },
+              "quantitative_value": 98.8,
+              "result_id": "res_b12f7b01d1fde9e1b15c22a0",
+              "unit": null,
+              "value_raw_text": "98.8±20.7"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "RANDOM 60"
+              },
+              "quantitative_value": 60.0,
+              "result_id": "res_b2c95f06f6e1e514ce8f4106",
+              "unit": null,
+              "value_raw_text": "60"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "GraN-DAG 1060.1±109.4"
+              },
+              "quantitative_value": 1060.1,
+              "result_id": "res_b2f5a3d363b157e53b5b7351",
+              "unit": null,
+              "value_raw_text": "1060.1±109.4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "CAM 12"
+              },
+              "quantitative_value": 12.0,
+              "result_id": "res_b957264b0f95df1cf4ae8955",
+              "unit": null,
+              "value_raw_text": "12"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "NOTEARS 202.3±14.3"
+              },
+              "quantitative_value": 202.3,
+              "result_id": "res_d07622fcd4c6e3660ec83246",
+              "unit": null,
+              "value_raw_text": "202.3±14.3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "DAG-GNN 16"
+              },
+              "quantitative_value": 16.0,
+              "result_id": "res_e1a12d66472d6ee0dec9c209",
+              "unit": null,
+              "value_raw_text": "16"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "GraN-DAG 102.6±21.2"
+              },
+              "quantitative_value": 102.6,
+              "result_id": "res_eaa12daf741220438df59a75",
+              "unit": null,
+              "value_raw_text": "102.6±21.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eea73338a8af53c109c3",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "CAM 55"
+              },
+              "quantitative_value": 55.0,
+              "result_id": "res_fabda5352943b1827abe75b7",
+              "unit": null,
+              "value_raw_text": "55"
+            }
+          ],
+          "unit_id": "su_49113f31d2c7191615db59d3"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9091 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8889 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6471 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6842 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8125 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6842 on attempt 1"
+    }
+  ]
+}

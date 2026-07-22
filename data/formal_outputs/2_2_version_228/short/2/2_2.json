@@ -1,0 +1,451 @@
+{
+  "coverage_ledger": {
+    "1ab44efb07e7c5137eaa": "extracted",
+    "2eea641606d79e31cc6a": "not_selected",
+    "55fad4da72b56da5bd5f": "not_selected",
+    "812431579bec9003c610": "extracted",
+    "8d699f968108c1cb4e27": "not_selected",
+    "9f2d79a8bfd84120a354": "extracted",
+    "aa450fcbf0699e0c9bce": "not_selected",
+    "b8f697d333ad376931f7": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses a single hMSC donor, though an additional donor was used to confirm generality of phototunable hydrogel results.",
+    "Mechanical dosing experiments on TCPS used supraphysiological stiffness (E ~3 GPa), which may not represent in vivo conditions.",
+    "The phototunable hydrogel system uses a specific chemistry (PEGdiPDA) and a single adhesive peptide (RGD); effects of other ECM components are not explored.",
+    "Long-term effects beyond 10 days after softening were not assessed.",
+    "The mechanism of irreversible YAP activation (genetic, epigenetic, structural) remains unresolved.",
+    "The study does not investigate the role of other mechanosensitive pathways beyond YAP/TAZ.",
+    "Cell proliferation was inhibited with mitomycin C in some experiments, which may affect interpretation of mechanical memory.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_2.pdf",
+    "source_sha256": "fb113e46ded0aac3146c68e408f8139e60208eef7907f274f21417828266b9f5"
+  },
+  "paper_id": "2_2",
+  "quality_assessment": {
+    "correct_item_count": 36,
+    "deterministic_rule_score": 0.9635,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 36,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do stem cells possess a mechanical memory that stores information from past physical environments and influences cell fate?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e4b2f4d08f29a7daaf617440",
+              "inference_basis_ids": [
+                "res_0a7e696e9b94d178dbf95105"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ab44efb07e7c5137eaa",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "without YAP/TAZ, RUNX2 expression was suppressed to levels similar to soft hydrogels, indicating YAP/TAZ are required for the mechanical dosing effect."
+              },
+              "statement": "YAP/TAZ are necessary for mechanical dosing-induced RUNX2 expression on TCPS."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "hMSCs were treated with siRNA targeting YAP/TAZ or non-targeting siRNA during mechanical dosing on TCPS. RUNX2 expression was measured."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "siRNA knockdown",
+              "protocol_description": "siRNAs that knockdown YAP and TAZ expression were used. Non-targeting siRNA served as control. RUNX2 expression was measured (likely by qRT-PCR)."
+            }
+          ],
+          "name": "YAP/TAZ knockdown and RUNX2 expression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "RUNX2 expression with YAP/TAZ knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ab44efb07e7c5137eaa",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "treatment with siRNA for YAP/TAZ ablated YAP signalling on TCPS and suppressed RUNX2 expression on TCPS to similar levels observed for hMSCs cultured on soft hydrogels"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0a7e696e9b94d178dbf95105",
+              "unit": null,
+              "value_raw_text": "treatment with siRNA for YAP/TAZ ablated YAP signalling on TCPS and suppressed RUNX2 expression on TCPS to similar levels observed for hMSCs cultured on soft hydrogels"
+            }
+          ],
+          "unit_id": "su_0fb8607ab4b80934eb4ba31c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_21d70fcb035627e750cef05b",
+              "inference_basis_ids": [
+                "res_343f528e62955c751bdf0e1c",
+                "res_7a3e8e27b9275f4dcbeef4ce",
+                "res_bf735a2591c2d8549f27fc03"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "these data reveal that mechanical dosing history, before culturing hMSCs in a condition that maintains plasticity (soft hydrogel with mixed media), can override the present signal and bias differentiation towards the osteogenic lineage."
+              },
+              "statement": "Mechanical dosing history on TCPS biases hMSC differentiation towards osteogenesis and away from adipogenesis on soft hydrogels."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "hMSCs were mechanically dosed on TCPS for 1, 5, or 10 days, then transferred to soft hydrogels and cultured in mixed adipogenic/osteogenic medium for 7 days. Differentiation markers (PPARγ, ALP, OCN, Oil Red O) were assessed."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Mixed media differentiation assay",
+              "protocol_description": "A bipotential adipogenic/osteogenic inductive medium (mixed media) was made by combining adipogenic and osteogenic inductive media 1:1. hMSCs were cultured on soft hydrogels in mixed media for 7 days after mechanical dosing on TCPS."
+            }
+          ],
+          "name": "Mechanical dosing biases hMSC differentiation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "PPARγ gene expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "PPARγ gene expression decreased as a function of mechanical dose (Fig. 4b,d)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_343f528e62955c751bdf0e1c",
+              "unit": null,
+              "value_raw_text": "PPARγ gene expression decreased as a function of mechanical dose"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Oil Red O staining",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Oil Red O staining was observed only in the So7 and DT1/So7 samples (Fig. 4f)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7a3e8e27b9275f4dcbeef4ce",
+              "unit": null,
+              "value_raw_text": "Oil Red O staining was observed only in the So7 and DT1/So7 samples"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ALP and OCN expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "ALP and OCN expression increased as a function of mechanical dose (Fig. 4c,e,g)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bf735a2591c2d8549f27fc03",
+              "unit": null,
+              "value_raw_text": "ALP and OCN expression increased as a function of mechanical dose"
+            }
+          ],
+          "unit_id": "su_11cf494c3fe51192935ccf88"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1971ca972b67573d25732021",
+              "inference_basis_ids": [
+                "res_775ee8da6f7f9b92abf48df4",
+                "res_dd48218f88e9b5549ca8078d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ab44efb07e7c5137eaa",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "These findings demonstrate that extended culture on supraphysiologically stiff substrata (TCPS) leads to persistent activation of YAP in hMSCs even after transfer to deactivating, soft hydrogels."
+              },
+              "statement": "Extended culture on supraphysiologically stiff TCPS leads to persistent activation of YAP in hMSCs even after transfer to deactivating soft hydrogels."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fa0da4958d6c6d1bd75e0f66",
+              "inference_basis_ids": [
+                "res_775ee8da6f7f9b92abf48df4",
+                "res_dd48218f88e9b5549ca8078d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ab44efb07e7c5137eaa",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the correlation between activated YAP and nuclear RUNX2 on soft hydrogels, which normally suppress RUNX2 nuclear co-localization, suggests a potential role for YAP/TAZ as intracellular mechanical rheostats or transducers."
+              },
+              "statement": "YAP/TAZ may act as intracellular mechanical rheostats or transducers storing mechanical information."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "hMSCs were cultured on TCPS for 1, 3, 5, or 7 days (mechanical dosing), then trypsinized and transferred to soft PEG hydrogels (E ~2 kPa) for 3 days. YAP and RUNX2 nuclear localization was assessed by immunocytochemistry."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Immunocytochemistry",
+              "protocol_description": "hMSCs were fixed, permeabilized with 0.1% Triton X-100, blocked with 5% BSA, incubated with primary antibodies against YAP and RUNX2 overnight at 4°C, then secondary antibodies and DAPI for 1 h at room temperature. Imaging by laser scanning confocal microscopy. Nuclear localization percentages were manually counted."
+            }
+          ],
+          "name": "Mechanical memory transfer experiment: TCPS to soft hydrogel",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP nuclear localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ab44efb07e7c5137eaa",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "with 1 day of mechanical dosing on TCPS, YAP deactivated after 3 days on the soft hydrogel (DT1/So3; Fig. 1d). In contrast, YAP persisted in the activated state in hMSCs after 3 days on the soft hydrogel with 7 days of mechanical dosing on TCPS (DT7/So3; Fig. 1d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_775ee8da6f7f9b92abf48df4",
+              "unit": null,
+              "value_raw_text": "YAP deactivated after 3 days on the soft hydrogel with 1 day of mechanical dosing on TCPS (DT1/So3); YAP persisted in the activated state with 7 days of mechanical dosing (DT7/So3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of hMSCs with nuclear YAP and RUNX2",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ab44efb07e7c5137eaa",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "increased mechanical dosing on TCPS (1–7 days) corresponded with an increase in the percentage of hMSCs with activated (nuclear localized) YAP and RUNX2 (DT1/So3 to DT7/So3; Fig. 1d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd48218f88e9b5549ca8078d",
+              "unit": null,
+              "value_raw_text": "increased mechanical dosing on TCPS (1–7 days) corresponded with an increase in the percentage of hMSCs with activated (nuclear localized) YAP and RUNX2 (DT1/So3 to DT7/So3)"
+            }
+          ],
+          "unit_id": "su_284a5cd71c8b28441bbb2e47"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6ecd96e1dae19cc6e295c310",
+              "inference_basis_ids": [
+                "res_15f0338430ae6dede9937922",
+                "res_17a9e5f886809c3e3fc20835",
+                "res_ca8a022d3ffcc67dd5e2c28e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "a sufficient mechanical dose activates YAP constitutively irrespective of the present mechanical context, indicating that this transcription factor is involved in translating the memory of past physical signals"
+              },
+              "statement": "YAP acts as an intracellular mechanical rheostat that stores information from past physical environments."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a1870a1e63e3a4e9c267e155",
+              "inference_basis_ids": [
+                "res_15f0338430ae6dede9937922",
+                "res_17a9e5f886809c3e3fc20835",
+                "res_ca8a022d3ffcc67dd5e2c28e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "These reversible and irreversible effects of mechanical dosing on hMSCs highlight a unique mechanism by which stem cells may integrate and store signals from the ECM."
+              },
+              "statement": "Mechanical dosing on stiff hydrogels leads to reversible YAP activation at low doses and irreversible activation above a threshold dose."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "hMSCs were cultured on stiff photodegradable PEG hydrogels (E ~10 kPa) for 1, 7, or 10 days, then the hydrogel was softened in situ to E ~2 kPa by UV light. YAP and RUNX2 localization was monitored up to 10 days after softening."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Phototunable hydrogel softening",
+              "protocol_description": "PEGdiPDA hydrogels were co-polymerized with PEGA and acryl-OOGRGDSG. Stiff hydrogels (~10 kPa) were softened to ~2 kPa by irradiation with UV light (λ=365 nm, I0=10 mW cm−2) for 360 s."
+            }
+          ],
+          "name": "Mechanical dosing on phototunable hydrogels: reversible and irreversible effects",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP and RUNX2 nuclear localization after 1-day mechanical dose",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "YAP and RUNX2 were activated and remained in the nucleus transiently after softening (DSt1-So1), but after 3 days on the soft hydrogel, YAP and RUNX2 relocated to the cytoplasm with basal nuclear expression (DSt1-So3). Deactivation persisted 5 days after softening (Dst1-So5), which indicated that the initial activation of hMSCs was fully reversible at this mechanical dose"
+              },
+              "quantitative_value": null,
+              "result_id": "res_15f0338430ae6dede9937922",
+              "unit": null,
+              "value_raw_text": "After 1 day on stiff hydrogel and softening, YAP and RUNX2 were transiently nuclear (DSt1-So1) but relocated to cytoplasm by day 3 (DSt1-So3), with deactivation persisting at day 5 (DSt1-So5)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP and RUNX2 nuclear localization after 10-day mechanical dose",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "With this mechanical dose, YAP and RUNX2 remained activated in the nucleus even 10 days after softening"
+              },
+              "quantitative_value": null,
+              "result_id": "res_17a9e5f886809c3e3fc20835",
+              "unit": null,
+              "value_raw_text": "After 10 days on stiff hydrogel and softening, YAP and RUNX2 remained activated in the nucleus even 10 days after softening."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP and RUNX2 nuclear localization after 7-day mechanical dose",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8f697d333ad376931f7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "a more gradual and partial deactivation was observed (DSt7-So1 to DSt7-So5); namely, 5 days after softening (DSt7-So5) the activation of YAP remained above basal levels on the deactivated hydrogel, whereas RUNX2 approached basal levels"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ca8a022d3ffcc67dd5e2c28e",
+              "unit": null,
+              "value_raw_text": "After 7 days on stiff hydrogel and softening, gradual and partial deactivation was observed; 5 days after softening (DSt7-So5) YAP activation remained above basal levels, while RUNX2 approached basal levels."
+            }
+          ],
+          "unit_id": "su_4ddc3d733db797f6fba9a0fb"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_be6c1fc8b5435cffa7cc894b",
+              "inference_basis_ids": [
+                "res_dabd18d5880c96d5b495ddef"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "812431579bec9003c610",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "These data suggested to us that the extent of exposure to a culture environment, or mechanical dose, alone can bias hMSC behaviour."
+              },
+              "statement": "Mechanical dose on TCPS biases hMSC behavior, with longer culture increasing RUNX2 expression."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "hMSCs were cultured on TCPS (E ~3 GPa) in growth media for 1, 3, 5, or 7 days (mechanical dosing). RUNX2 gene expression was quantified by qRT-PCR."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "qRT-PCR",
+              "protocol_description": "qRT-PCR was used to quantify mRNA expression levels of RUNX2 relative to GAPDH. RNA was extracted using TRI Reagent, cDNA synthesized with iScript kit, and SYBR Green reagents used on an iCycler."
+            }
+          ],
+          "name": "Mechanical dosing on TCPS and RUNX2 expression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "RUNX2 gene expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "812431579bec9003c610",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "RUNX2 gene expression increased with the duration of culture on TCPS (1–7 days; DT1 to DT7; Fig. 1b)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dabd18d5880c96d5b495ddef",
+              "unit": null,
+              "value_raw_text": "RUNX2 gene expression increased with the duration of culture on TCPS (1–7 days; DT1 to DT7)"
+            }
+          ],
+          "unit_id": "su_5e6939c4b1f50d3a040eafa0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

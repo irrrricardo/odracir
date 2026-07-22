@@ -1,0 +1,908 @@
+{
+  "coverage_ledger": {
+    "0dc1e2fec035e5a0b9db": "not_selected",
+    "239035efa5abb6c8b51e": "extracted",
+    "2f3c1bf6e273102d7856": "extracted",
+    "31494a50507dafa503ce": "extracted",
+    "32fd071b832156915dde": "not_selected",
+    "37f469de699f0acd87a3": "not_selected",
+    "39c9329ca38e143c5deb": "not_selected",
+    "465ba9fbae4371fdbd64": "extracted",
+    "5d92765ccb8036b67f81": "not_selected",
+    "660b4fc77268e24b0d9f": "not_selected",
+    "6c5bff59ba75058762f6": "extracted",
+    "78ddac4331bfd4990192": "extracted",
+    "adcfcfb7a9d21add0dd8": "not_selected",
+    "eee679f3e258bc1cbca9": "extracted",
+    "f06e814efea1d2e4fdae": "not_selected",
+    "f86670f4cdd9b6d8a782": "not_selected",
+    "fe736e2321a183eeb35b": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "PairNorm does not necessarily increase absolute performance on standard benchmarks because shallow networks (2-4 layers) suffice.",
+    "PairNorm-SI is used for GCN and GAT due to better stability, but the reason is not fully understood.",
+    "Hyperparameter s for PairNorm in SGC is tuned per dataset; for GCN/GAT s=1 fixed due to resource limitations.",
+    "Experiments limited to four datasets; generalizability to other graph types not tested.",
+    "PairNorm may cause slight performance drop at 0% missing rate because it reverses the beneficial smoothing effect of few layers."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_11.pdf",
+    "source_sha256": "eee5af8a97e2bb545d4d66eb632bb1a51a7a0282bdf8c23be5df72f749df7a01"
+  },
+  "paper_id": "6_11",
+  "quality_assessment": {
+    "correct_item_count": 89,
+    "deterministic_rule_score": 0.9357,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 89,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can oversmoothing in deep GNNs be mitigated to enable training of deeper models without performance degradation?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_232db6e1d4b1ee20c7a8e294",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2f3c1bf6e273102d7856",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Experiments on real-world graphs demonstrate that PAIRNORM makes deeper GCN, GAT, and SGC models more robust against oversmoothing, and significantly boosts performance for a new problem setting that benefits from deeper GNNs."
+              },
+              "statement": "PairNorm makes deeper GCN, GAT, and SGC models more robust against oversmoothing and significantly boosts performance for settings that benefit from deeper GNNs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_681a9bc18e79c62d34d2732e",
+              "inference_basis_ids": [
+                "res_1f9621a87e5e42387aced4ab",
+                "res_8e123d1fd9f62bc711c1a0ba"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2f3c1bf6e273102d7856",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our main contribution is PAIRNORM, a novel normalization layer that is based on a careful analysis of the graph convolution operator, which prevents all node embeddings from becoming too similar."
+              },
+              "statement": "PairNorm prevents node embeddings from becoming too similar, tackling oversmoothing."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dc77f7956fb84cc08620fba6",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2f3c1bf6e273102d7856",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "What is more, PAIRNORM is fast, easy to implement without any change to network architecture nor any additional parameters, and is broadly applicable to any GNN."
+              },
+              "statement": "PairNorm is fast, easy to implement, requires no architecture change or extra parameters, and is broadly applicable to any GNN."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze graph convolution as Laplacian smoothing and define row-diff and col-diff measures to quantify oversmoothing.",
+            "Derive PairNorm as a center-and-scale procedure that keeps total pairwise squared distance constant.",
+            "Propose PairNorm normalization layer to prevent node embeddings from becoming too similar across layers."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "PairNorm",
+              "protocol_description": "A normalization layer applied after each graph convolution (except the last). It consists of centering (subtract row-wise mean) and scaling (divide by sqrt of mean squared norm of centered representations, then multiply by hyperparameter s). For SGC, PairNorm is used; for GCN and GAT, PairNorm-SI (scale individually) is used, which normalizes each node representation to have L2-norm s."
+            }
+          ],
+          "name": "PairNorm method proposal and analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "col-diff",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78ddac4331bfd4990192",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Dashed lines in Figure 1 illustrate the performance of SGC on the Cora dataset as we increase the number of layers (K). ... Measures row-diff and col-diff are computed based on the final layer representation of the saved model. (Solid lines depict after applying our method PAIRNORM, which we discuss in §3.2.)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1f9621a87e5e42387aced4ab",
+              "unit": null,
+              "value_raw_text": "col-diff decreases with more layers for vanilla SGC, but remains higher with PairNorm"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Total pairwise squared distance (TPSD)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "31494a50507dafa503ce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Then, ˙X := PAIRNORM(˜X) has row-wise mean 0 (i.e., is centered) and constant total pairwise squared distance C = 2n2s2."
+              },
+              "quantitative_value": null,
+              "result_id": "res_820503d5d38cdb1978df2bd6",
+              "unit": null,
+              "value_raw_text": "TPSD is constant across layers for SGC with PairNorm"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "row-diff",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78ddac4331bfd4990192",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Dashed lines in Figure 1 illustrate the performance of SGC on the Cora dataset as we increase the number of layers (K). ... Measures row-diff and col-diff are computed based on the final layer representation of the saved model. (Solid lines depict after applying our method PAIRNORM, which we discuss in §3.2.)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8e123d1fd9f62bc711c1a0ba",
+              "unit": null,
+              "value_raw_text": "row-diff decreases with more layers for vanilla SGC, but remains higher with PairNorm"
+            }
+          ],
+          "unit_id": "su_0ef14dd8f01c20b3f95c6468"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8993f0c30ee70e78e18c0dd0",
+              "inference_basis_ids": [
+                "res_0adfbfb2c17c097a304a03c7",
+                "res_77d6d72f202372844f72e5a6",
+                "res_c21915e6588e6ec4f7fad5c7",
+                "res_e2315171168ce577636e050d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Notice the larger #L values for SGC-PN compared to vanilla SGC, which shows the power of PAIRNORM for enabling “deep” SGC models by effectively tackling oversmoothing."
+              },
+              "statement": "PairNorm enables deeper SGC models by effectively tackling oversmoothing, as shown by larger #L values."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d674c0a8571eb5e80f009b45",
+              "inference_basis_ids": [
+                "res_0adfbfb2c17c097a304a03c7",
+                "res_77d6d72f202372844f72e5a6",
+                "res_c21915e6588e6ec4f7fad5c7",
+                "res_e2315171168ce577636e050d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "PAIRNORM-enhanced SGC performs similar or better over 0% missing, while it significantly outperforms vanilla SGC for most other settings, especially for larger missing rates."
+              },
+              "statement": "PairNorm-enhanced SGC significantly outperforms vanilla SGC for most missing rate settings, especially larger missing rates."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D4",
+              "description": "Cora citation network.",
+              "name": "Cora",
+              "version_or_split": "standard split (Kipf & Welling 2017)"
+            },
+            {
+              "dataset_id": "D5",
+              "description": "Citeseer citation network.",
+              "name": "Citeseer",
+              "version_or_split": "standard split (Kipf & Welling 2017)"
+            },
+            {
+              "dataset_id": "D6",
+              "description": "Pubmed citation network.",
+              "name": "Pubmed",
+              "version_or_split": "standard split (Kipf & Welling 2017)"
+            },
+            {
+              "dataset_id": "D7",
+              "description": "Coauthor CS network.",
+              "name": "CoauthorCS",
+              "version_or_split": "random split 3%/10%/87%"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate SGC and SGC-PN on Cora, Citeseer, Pubmed, CoauthorCS with missing rates 0% to 100%.",
+            "Report test accuracy and best number of layers."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "SGC-PN",
+              "protocol_description": "SGC with PairNorm applied after each graph convolution layer. Hyperparameter s chosen from {0.1,1,10,50,100} via validation."
+            },
+            {
+              "method_id": "M9",
+              "name": "SGC",
+              "protocol_description": "Vanilla SGC model."
+            }
+          ],
+          "name": "Extensive SSNC-MV experiments with SGC",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Cora ... 100% ... SGC 0.423 15 ... SGC-PN 0.745 40"
+              },
+              "quantitative_value": 0.745,
+              "result_id": "res_0adfbfb2c17c097a304a03c7",
+              "unit": null,
+              "value_raw_text": "SGC-PN achieves 0.745 at 40 layers vs SGC 0.423 at 15 layers on Cora with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Pubmed ... 100% ... SGC 0.399 35 ... SGC-PN 0.719 40"
+              },
+              "quantitative_value": 0.719,
+              "result_id": "res_77d6d72f202372844f72e5a6",
+              "unit": null,
+              "value_raw_text": "SGC-PN achieves 0.719 at 40 layers vs SGC 0.399 at 35 layers on Pubmed with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Citeseer ... 100% ... SGC 0.290 2 ... SGC-PN 0.486 50"
+              },
+              "quantitative_value": 0.486,
+              "result_id": "res_c21915e6588e6ec4f7fad5c7",
+              "unit": null,
+              "value_raw_text": "SGC-PN achieves 0.486 at 50 layers vs SGC 0.290 at 2 layers on Citeseer with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "465ba9fbae4371fdbd64",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "CoauthorCS ... 100% ... SGC 0.318 2 ... SGC-PN 0.860 20"
+              },
+              "quantitative_value": 0.86,
+              "result_id": "res_e2315171168ce577636e050d",
+              "unit": null,
+              "value_raw_text": "SGC-PN achieves 0.860 at 20 layers vs SGC 0.318 at 2 layers on CoauthorCS with 100% missing"
+            }
+          ],
+          "unit_id": "su_1b31da142ea0c6684e24ebe7"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9d45747596fae30efaf7523e",
+              "inference_basis_ids": [
+                "res_4f3aee33a9ff81e7b1c9557e",
+                "res_ecc2ea789926855e4fc356b4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "78ddac4331bfd4990192",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Note that SGC has a fixed number of parameters that does not depend on the number of graph convolutions (i.e. layers). In effect, it is guarded against the influence of overfitting and vanishing gradient problem with more layers. This leaves us only with oversmoothing as a possible cause of performance degradation with increasing K."
+              },
+              "statement": "Oversmoothing is a cause of performance degradation with increasing layers in SGC, as overfitting and vanishing gradients are controlled."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Cora citation network dataset.",
+              "name": "Cora",
+              "version_or_split": "train/val/test split 3%/10%/87%"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Measure row-diff and col-diff on Cora dataset with increasing layers.",
+            "Study oversmoothing using SGC model to decouple from overfitting and vanishing gradients."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "SGC",
+              "protocol_description": "Simplified GCN: Y = softmax(˜A^K_sym X W), where K is number of graph convolutions, W is logistic regression classifier. No intermediate projections or nonlinearities."
+            }
+          ],
+          "name": "Oversmoothing analysis with SGC",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78ddac4331bfd4990192",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Dashed lines in Figure 1 illustrate the performance of SGC on the Cora dataset as we increase the number of layers (K). ... On the other hand, graph convolutions (i.e., smoothing) improve generalization ability, reducing the gap between training and validation/test loss"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4f3aee33a9ff81e7b1c9557e",
+              "unit": null,
+              "value_raw_text": "Test accuracy decreases with increasing layers for vanilla SGC"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training loss",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78ddac4331bfd4990192",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "The training (cross-entropy) loss monotonically increases with larger K, potentially because graph convolution mixes node representations with their neighbors’ and makes them less distinguishable (training becomes harder)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ecc2ea789926855e4fc356b4",
+              "unit": null,
+              "value_raw_text": "Training loss monotonically increases with larger K"
+            }
+          ],
+          "unit_id": "su_3215e7e0944e0dcd956ae053"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_84bbb972f2c80f00f4d6e3e6",
+              "inference_basis_ids": [
+                "res_1ddb3728688d42c28fd9cf47"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "fe736e2321a183eeb35b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "While PAIRNORM enables deeper models that are more robust to oversmoothing, it may seem odd that the overall test accuracy does not improve. In fact, the benchmark graph datasets often used in the literature require no more than 4 layers, after which performance decays (even if slowly)."
+              },
+              "statement": "PairNorm enables deeper models that are more robust to oversmoothing, but overall test accuracy does not improve on standard benchmarks because shallow networks suffice."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Cora citation network dataset.",
+              "name": "Cora",
+              "version_or_split": "train/val/test split 3%/10%/87%"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply PairNorm to SGC, GCN, GAT on Cora with increasing layers.",
+            "Compare performance decay of vanilla vs. PairNorm-enhanced models."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "SGC with PairNorm",
+              "protocol_description": "SGC with PairNorm applied after each graph convolution layer."
+            },
+            {
+              "method_id": "M4",
+              "name": "GCN with PairNorm-SI",
+              "protocol_description": "GCN with PairNorm-SI applied after activation of each graph convolution layer."
+            },
+            {
+              "method_id": "M5",
+              "name": "GAT with PairNorm-SI",
+              "protocol_description": "GAT with PairNorm-SI applied after activation of each graph convolution layer."
+            }
+          ],
+          "name": "PairNorm effectiveness on SGC, GCN, GAT (standard SSNC)",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe736e2321a183eeb35b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Solid lines in Figure 1 present the performance of SGC on Cora with increasing number of layers, where we employ PAIRNORM after each graph convolution layer, as compared to ‘vanilla’ versions. Similarly, Figure 3 is for GCN and GAT (PAIRNORM is applied after the activation of each graph convolution). Note that the performance decay with PAIRNORM-at-work is much slower."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ddb3728688d42c28fd9cf47",
+              "unit": null,
+              "value_raw_text": "Performance decay with PairNorm is much slower for SGC, GCN, GAT on Cora"
+            }
+          ],
+          "unit_id": "su_817590d50e3f6191c613311e"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5599e55fd390bfee03325b17",
+              "inference_basis_ids": [
+                "res_f2c6925d553dddd33b0b1c19"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fe736e2321a183eeb35b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "PAIRNORM boosts overall performance by enabling more robust deep GNNs."
+              },
+              "statement": "PairNorm boosts overall performance by enabling more robust deep GNNs in the SSNC-MV setting."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Cora with missing feature vectors on unlabeled nodes (p=1).",
+              "name": "Cora",
+              "version_or_split": "train/val/test split 3%/10%/87%, missing features on unlabeled nodes"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate PairNorm-enhanced SGC, GCN, GAT on Cora with p=1.",
+            "Introduce semi-supervised node classification with missing vectors (SSNC-MV) where a fraction p of unlabeled nodes have no features.",
+            "Show that deeper GNNs are beneficial for SSNC-MV."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "SGC with PairNorm",
+              "protocol_description": "SGC with PairNorm applied after each graph convolution layer."
+            },
+            {
+              "method_id": "M7",
+              "name": "GCN with PairNorm-SI",
+              "protocol_description": "GCN with PairNorm-SI applied after activation of each graph convolution layer."
+            },
+            {
+              "method_id": "M8",
+              "name": "GAT with PairNorm-SI",
+              "protocol_description": "GAT with PairNorm-SI applied after activation of each graph convolution layer."
+            }
+          ],
+          "name": "SSNC-MV problem and PairNorm benefit",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe736e2321a183eeb35b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Figure 4 presents the performance of SGC, GCN, and GAT models on Cora with increasing number of layers, where we remove feature vectors from all the unlabeled nodes, i.e. p = 1. The models with PAIRNORM achieve a higher test accuracy compared to those without, which they typically reach at a larger number of layers."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f2c6925d553dddd33b0b1c19",
+              "unit": null,
+              "value_raw_text": "PairNorm-enhanced models achieve higher test accuracy than vanilla models on Cora with p=1, typically at larger number of layers."
+            }
+          ],
+          "unit_id": "su_a73761f768dd91604ba1f11e"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9fcda3aa47b44b7cfd5375c5",
+              "inference_basis_ids": [
+                "res_1bc9705c1a6902bc93ae07de",
+                "res_453c6a5749b8b563e19f7cfb",
+                "res_6284d020201bbba833b95388",
+                "res_7793e5667a21348194b7295f",
+                "res_9af9e1b652db7eedd74e21e1",
+                "res_b0e28b82296a4315a6bf68dd",
+                "res_c38e3c56234dffa7a4fbea48",
+                "res_e2a727125b05e1232d3fa7bc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "We observe similar trend for GCN and GAT: (1) vanilla model suffers from performance drop under SSNC-MV with increasing missing rate; (2) both residual connections and PAIRNORM-SI enable deeper models and improve performance (note the larger #L and Acc); (3) GCN-PN and GAT-PN achieve performance that is comparable or better than just using skips;"
+              },
+              "statement": "PairNorm-SI enables deeper GCN and GAT models and improves performance under SSNC-MV, comparable or better than residual connections."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D10",
+              "description": "Pubmed citation network.",
+              "name": "Pubmed",
+              "version_or_split": "standard split"
+            },
+            {
+              "dataset_id": "D11",
+              "description": "Coauthor CS network.",
+              "name": "CoauthorCS",
+              "version_or_split": "random split 3%/10%/87%"
+            },
+            {
+              "dataset_id": "D8",
+              "description": "Cora citation network.",
+              "name": "Cora",
+              "version_or_split": "standard split"
+            },
+            {
+              "dataset_id": "D9",
+              "description": "Citeseer citation network.",
+              "name": "Citeseer",
+              "version_or_split": "standard split"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate GAT, GAT-PN, GAT with residual connections similarly.",
+            "Evaluate GCN, GCN-PN, GCN with residual connections on Cora, Citeseer, Pubmed, CoauthorCS with 0% and 100% missing."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "GCN",
+              "protocol_description": "Vanilla GCN with 32 hidden units, dropout 0.6, L2 reg 5e-4."
+            },
+            {
+              "method_id": "M12",
+              "name": "GCN-PN",
+              "protocol_description": "GCN with PairNorm-SI (s=1) applied after activation of each graph convolution layer."
+            },
+            {
+              "method_id": "M13",
+              "name": "GCN-t1",
+              "protocol_description": "GCN with residual connections, skip-step t=1."
+            },
+            {
+              "method_id": "M14",
+              "name": "GCN-t1-PN",
+              "protocol_description": "GCN with residual connections (t=1) and PairNorm-SI."
+            },
+            {
+              "method_id": "M15",
+              "name": "GCN-t2",
+              "protocol_description": "GCN with residual connections, skip-step t=2."
+            },
+            {
+              "method_id": "M16",
+              "name": "GCN-t2-PN",
+              "protocol_description": "GCN with residual connections (t=2) and PairNorm-SI."
+            },
+            {
+              "method_id": "M17",
+              "name": "GAT",
+              "protocol_description": "Vanilla GAT with 64 hidden units, 1 attention head, dropout 0.6, L2 reg 5e-4."
+            },
+            {
+              "method_id": "M18",
+              "name": "GAT-PN",
+              "protocol_description": "GAT with PairNorm-SI (s=1) applied after activation of each graph convolution layer."
+            },
+            {
+              "method_id": "M19",
+              "name": "GAT-t1",
+              "protocol_description": "GAT with residual connections, skip-step t=1."
+            },
+            {
+              "method_id": "M20",
+              "name": "GAT-t1-PN",
+              "protocol_description": "GAT with residual connections (t=1) and PairNorm-SI."
+            },
+            {
+              "method_id": "M21",
+              "name": "GAT-t2",
+              "protocol_description": "GAT with residual connections, skip-step t=2."
+            },
+            {
+              "method_id": "M22",
+              "name": "GAT-t2-PN",
+              "protocol_description": "GAT with residual connections (t=2) and PairNorm-SI."
+            }
+          ],
+          "name": "SSNC-MV experiments with GCN and GAT",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "CoauthorCS ... 100% ... GAT 0.737 4 ... GAT-PN 0.843 8"
+              },
+              "quantitative_value": 0.843,
+              "result_id": "res_1bc9705c1a6902bc93ae07de",
+              "unit": null,
+              "value_raw_text": "GAT-PN achieves 0.843 at 8 layers vs GAT 0.737 at 4 layers on CoauthorCS with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Pubmed ... 100% ... GCN 0.449 2 ... GCN-PN 0.745 25"
+              },
+              "quantitative_value": 0.745,
+              "result_id": "res_453c6a5749b8b563e19f7cfb",
+              "unit": null,
+              "value_raw_text": "GCN-PN achieves 0.745 at 25 layers vs GCN 0.449 at 2 layers on Pubmed with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Citeseer ... 100% ... GAT 0.428 4 ... GAT-PN 0.483 4"
+              },
+              "quantitative_value": 0.483,
+              "result_id": "res_6284d020201bbba833b95388",
+              "unit": null,
+              "value_raw_text": "GAT-PN achieves 0.483 at 4 layers vs GAT 0.428 at 4 layers on Citeseer with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Citeseer ... 100% ... GCN 0.313 2 ... GCN-PN 0.498 8"
+              },
+              "quantitative_value": 0.498,
+              "result_id": "res_7793e5667a21348194b7295f",
+              "unit": null,
+              "value_raw_text": "GCN-PN achieves 0.498 at 8 layers vs GCN 0.313 at 2 layers on Citeseer with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Pubmed ... 100% ... GAT 0.631 4 ... GAT-PN 0.714 10"
+              },
+              "quantitative_value": 0.714,
+              "result_id": "res_9af9e1b652db7eedd74e21e1",
+              "unit": null,
+              "value_raw_text": "GAT-PN achieves 0.714 at 10 layers vs GAT 0.631 at 4 layers on Pubmed with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "CoauthorCS ... 100% ... GCN 0.452 4 ... GCN-PN 0.846 12"
+              },
+              "quantitative_value": 0.846,
+              "result_id": "res_b0e28b82296a4315a6bf68dd",
+              "unit": null,
+              "value_raw_text": "GCN-PN achieves 0.846 at 12 layers vs GCN 0.452 at 4 layers on CoauthorCS with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Cora ... 100% ... GCN 0.582 2 ... GCN-PN 0.731 10"
+              },
+              "quantitative_value": 0.731,
+              "result_id": "res_c38e3c56234dffa7a4fbea48",
+              "unit": null,
+              "value_raw_text": "GCN-PN achieves 0.731 at 10 layers vs GCN 0.582 at 2 layers on Cora with 100% missing"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eee679f3e258bc1cbca9",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Cora ... 100% ... GAT 0.653 4 ... GAT-PN 0.718 6"
+              },
+              "quantitative_value": 0.718,
+              "result_id": "res_e2a727125b05e1232d3fa7bc",
+              "unit": null,
+              "value_raw_text": "GAT-PN achieves 0.718 at 6 layers vs GAT 0.653 at 4 layers on Cora with 100% missing"
+            }
+          ],
+          "unit_id": "su_a7729dd3a665fdb35701c7e5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e49d1130a6994f8935f6d801",
+              "inference_basis_ids": [
+                "res_ce83c8195011ecb869cfa577"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "239035efa5abb6c8b51e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": false,
+                "text_excerpt": "The performance of PAIRNORM and PAIRNORM-SI are similar, however it seems that PAIRNORM-SI is more powerful in stabilizing TPD and TPSD."
+              },
+              "statement": "PairNorm-SI is more powerful in stabilizing total pairwise distance and total pairwise squared distance than PairNorm."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D12",
+              "description": "Cora dataset.",
+              "name": "Cora",
+              "version_or_split": "same as Figure 1"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Measure average pairwise squared distance (APSD) and average pairwise distance (APD) for connected and random pairs on Cora with SGC, SGC+PairNorm, SGC+PairNorm-SI.",
+            "Plot histograms of pairwise distances."
+          ],
+          "methods": [
+            {
+              "method_id": "M23",
+              "name": "SGC",
+              "protocol_description": "Vanilla SGC."
+            },
+            {
+              "method_id": "M24",
+              "name": "SGC+PairNorm",
+              "protocol_description": "SGC with PairNorm."
+            },
+            {
+              "method_id": "M25",
+              "name": "SGC+PairNorm-SI",
+              "protocol_description": "SGC with PairNorm-SI."
+            }
+          ],
+          "name": "Additional measures for PairNorm and PairNorm-SI",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "APSD of random pairs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "239035efa5abb6c8b51e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": false,
+                "text_excerpt": "As we have proved, PAIRNORM normalizes APSD to be constant across layers, however it does not normalize APD, which appears to decrease linearly with increasing number of layers. Surprisingly, although PAIRNORM-SI is not theoretically proved to have a constant APSD and APD, empirically it achieves more stable APSD and APD than PAIRNORM."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ce83c8195011ecb869cfa577",
+              "unit": null,
+              "value_raw_text": "PairNorm normalizes APSD to be constant across layers; PairNorm-SI achieves more stable APSD and APD than PairNorm."
+            }
+          ],
+          "unit_id": "su_d93529be9d9ddbea6912bc09"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9164 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3736 on attempt 1"
+    }
+  ]
+}

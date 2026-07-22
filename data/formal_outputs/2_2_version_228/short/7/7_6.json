@@ -1,0 +1,776 @@
+{
+  "coverage_ledger": {
+    "10a5a176e601c64e7740": "extracted",
+    "10dfd5ee667c2c32941c": "extracted",
+    "2d840aebf88a41980752": "not_selected",
+    "3ac330373206148dc1b5": "extracted",
+    "841a91757a588f2c8c63": "not_selected",
+    "8520659ff0d5719dfab9": "extracted",
+    "90bf0954f33abc45a068": "extracted",
+    "a8503dd3988ce8471f35": "extracted",
+    "b2ff79a76c6016ca99e3": "extracted",
+    "e158e187c4f3b6511c9b": "extracted",
+    "fafb4584aa36494b025a": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Theoretical results are only available for linear-based GNNs like SGC or simple spectral graph convolution; analysis for more complex GNN architectures is left for future work.",
+    "SJLR hyperparameter optimization is challenging due to expanded search space.",
+    "Current implementation of SJLR relies on a bank of good edges to add based solely on triangles of edges with most negative curvature, so it cannot directly connect long-distance nodes.",
+    "Exploring more sophisticated curvature metrics weighted with shortest path distance would introduce high computational cost, making it impractical for large-scale graphs."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_6.pdf",
+    "source_sha256": "865f59b7de09fbb89eff7fa6d7013dc977d0a2cdcec18e3b71583bac31af5dd8"
+  },
+  "paper_id": "7_6",
+  "quality_assessment": {
+    "correct_item_count": 53,
+    "deterministic_rule_score": 0.9667,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 53,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What is the relationship between over-smoothing and over-squashing in deep GNNs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_78e1fb284f0f665db411ddb3",
+              "inference_basis_ids": [
+                "res_ddbc1d1a71f4f68f2c90b72f"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "3ac330373206148dc1b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our work reveals that over-smoothing and over-squashing are intrinsically related to the spectral gap of the graph Laplacian, resulting in an inevitable trade-off between these two issues, as they cannot be alleviated simultaneously."
+              },
+              "statement": "Over-smoothing and over-squashing are intrinsically related to the spectral gap of the graph Laplacian, resulting in an inevitable trade-off."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Theoretical derivation linking over-smoothing and over-squashing via spectral gap and Cheeger inequality."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Spectral analysis with random walk and Cheeger inequality",
+              "protocol_description": "Use random walk matrix and spectral gap of normalized Laplacian to show exponential convergence to stationary distribution (over-smoothing). Connect over-squashing to spectral gap via Cheeger inequality, establishing trade-off: reducing bottlenecks (alleviating over-squashing) accelerates convergence (worsens over-smoothing), and vice versa."
+            }
+          ],
+          "name": "Theoretical analysis of over-smoothing and over-squashing trade-off",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Trade-off relationship",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10a5a176e601c64e7740",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "From Theorem 3, we have that if s→0 then h_G→∞, i.e., we can promote less “bottleneckness” in the graph if we accelerate the convergence to the stationary distribution. Similarly, if h_G→0 then s→∞, i.e., we can avoid converging to the stationary distribution if we promote a bottleneck-kind structure in the graph. In other words, we can reduce over-squashing by accelerating the convergence to the stationary distribution that worsens over-smoothing. Correspondingly, we can avoid over-smoothing by promoting having bottlenecks that worsen over-squashing."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ddbc1d1a71f4f68f2c90b72f",
+              "unit": null,
+              "value_raw_text": "2h_G >= (1/s) log(...)"
+            }
+          ],
+          "unit_id": "su_acfdf116fc869799db65b7e2"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How can we mitigate both over-smoothing and over-squashing simultaneously?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_82832b90d6a25f8c3f4812a3",
+              "inference_basis_ids": [
+                "res_47ff3e9fadf1e0023b373aec",
+                "res_65b28e28e45c23124bd84b68",
+                "res_c17aca1406587b0a9e49a643",
+                "res_d1db29f9b62af15d82bdb84f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We theoretically (Theorem 3) and empirically (Tables 2, 3, and 4) show that both, removing and adding edges is required to find a good compromise in the over-smoothing over-squashing trade-off."
+              },
+              "statement": "Both edge addition and removal are necessary to find a good compromise in the over-smoothing over-squashing trade-off."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8ca602ae3c5e0716431fb665",
+              "inference_basis_ids": [
+                "res_ba19102778866097d49c2940"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8520659ff0d5719dfab9",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "JLC is less computationally complex than BFC while keeping the same theoretical properties about the polynomial receptive field growth."
+              },
+              "statement": "JLC is less computationally complex than BFC while preserving important theoretical properties."
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "90bf0954f33abc45a068",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": false,
+                  "text_excerpt": "SJLR outperformed previous methods in homophilous and heterophyllous graph datasets for node classification."
+                }
+              ],
+              "claim_id": "clm_9b8e4859a740acdaac6bbfb6",
+              "inference_basis_ids": [
+                "res_197391d570206e04305d9d9a",
+                "res_1c41f1d11337463a2a00e0ed",
+                "res_219a65c19b3a218fd1856dec",
+                "res_3ce9a466a3e855dfed2d675b",
+                "res_486a1df05f36903aa8008a40",
+                "res_5618b98712d7ffdbc885122b",
+                "res_663763105657bb85b5b7c6f0",
+                "res_797dee4d1d6c1cfe846acc8c",
+                "res_7d2e523043a14c2efb70c210",
+                "res_a1a2d231bb25bbeb7b7b7745"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SJLR shows the overall best performance in both cases."
+              },
+              "statement": "SJLR achieves competitive performance, outperforming previous methods in both homophilous and heterophyllous graph datasets for node classification."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b14b859aa889598b8fdd8d66",
+              "inference_basis_ids": [
+                "res_7d2e523043a14c2efb70c210",
+                "res_ba19102778866097d49c2940"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We argue that SJLR is a critical improvement over SDRF regarding the practical adoption of curvature-based methods"
+              },
+              "statement": "SJLR is a critical improvement over SDRF regarding practical adoption of curvature-based methods in GNNs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "WebKB dataset, 140 nodes, 219 edges, 1703 features, 5 classes, directed, homophily 0.11",
+              "name": "Cornell",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D2",
+              "description": "WebKB dataset, 135 nodes, 251 edges, 1703 features, 5 classes, directed, homophily 0.06",
+              "name": "Texas",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D3",
+              "description": "WebKB dataset, 184 nodes, 362 edges, 1703 features, 5 classes, directed, homophily 0.16",
+              "name": "Wisconsin",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D4",
+              "description": "832 nodes, 12355 edges, 2325 features, 5 classes, directed, homophily 0.25",
+              "name": "Chameleon",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D5",
+              "description": "2186 nodes, 65224 edges, 2089 features, 5 classes, directed, homophily 0.22",
+              "name": "Squirrel",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D6",
+              "description": "4388 nodes, 21907 edges, 932 features, 5 classes, directed, homophily 0.24",
+              "name": "Actor",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D7",
+              "description": "2485 nodes, 5069 edges, 1433 features, 7 classes, homophily 0.83",
+              "name": "Cora",
+              "version_or_split": "development set 1500 nodes, rest test"
+            },
+            {
+              "dataset_id": "D8",
+              "description": "2120 nodes, 3679 edges, 3703 features, 6 classes, homophily 0.72",
+              "name": "Citeseer",
+              "version_or_split": "development set 1500 nodes, rest test"
+            },
+            {
+              "dataset_id": "D9",
+              "description": "19717 nodes, 44324 edges, 500 features, 3 classes, homophily 0.79",
+              "name": "Pubmed",
+              "version_or_split": "development set 1500 nodes, rest test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on edge addition and removal.",
+            "Comparison with eight baselines: RDC, GDC, DE, PN, DGN, FA, SDRF, FoSR.",
+            "Node classification on nine datasets (Cornell, Texas, Wisconsin, Chameleon, Squirrel, Actor, Cora, Citeseer, Pubmed) using SGC and GCN backbones.",
+            "Runtime comparison of JLC vs BFC curvature metrics."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "FoSR (First-order Spectral Rewiring)",
+              "protocol_description": "Spectral rewiring to address over-squashing."
+            },
+            {
+              "method_id": "M11",
+              "name": "RDC (Residual/Dense Connections)",
+              "protocol_description": "Residual or dense skip connections in GNN."
+            },
+            {
+              "method_id": "M12",
+              "name": "FA (Fully-Adjacent layer)",
+              "protocol_description": "Add fully-adjacent matrix in last GNN layer."
+            },
+            {
+              "method_id": "M2",
+              "name": "SJLR (Stochastic Jost and Liu Curvature Rewiring)",
+              "protocol_description": "During GNN training, for each layer: compute JLC curvature for all edges; build bank of candidate edges to add from triangles of low-curvature edges; compute improvement scores; drop p_D|E| edges with probability softmax(alpha * phi_d + (1-alpha) * d_norm); add p_A|E| edges from bank with probability softmax(alpha * phi_a - (1-alpha) * a_norm). Graph unchanged at test time. Hyperparameters p_A, p_D, alpha optimized on validation set."
+            },
+            {
+              "method_id": "M3",
+              "name": "SGC (Simple Graph Convolution)",
+              "protocol_description": "Baseline GNN model with linear graph convolution, no non-linearities between layers."
+            },
+            {
+              "method_id": "M4",
+              "name": "GCN (Graph Convolutional Network)",
+              "protocol_description": "Standard GCN with ReLU activations and log-softmax output."
+            },
+            {
+              "method_id": "M5",
+              "name": "GDC (Graph Diffusion Convolution)",
+              "protocol_description": "Preprocessing with personalized PageRank diffusion kernel."
+            },
+            {
+              "method_id": "M6",
+              "name": "DE (DropEdge)",
+              "protocol_description": "Randomly drop edges during training."
+            },
+            {
+              "method_id": "M7",
+              "name": "PN (PairNorm)",
+              "protocol_description": "Normalization of node embeddings."
+            },
+            {
+              "method_id": "M8",
+              "name": "DGN (Differentiable Group Normalization)",
+              "protocol_description": "Group-based normalization."
+            },
+            {
+              "method_id": "M9",
+              "name": "SDRF (Stochastic Discrete Ricci Flow)",
+              "protocol_description": "Curvature-based rewiring using JLC (instead of BFC) as preprocessing."
+            }
+          ],
+          "name": "Proposal and evaluation of SJLR algorithm",
+          "results": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 41.91±0.34"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 41.86±0.29"
+              },
+              "quantitative_value": 41.91,
+              "result_id": "res_197391d570206e04305d9d9a",
+              "unit": "%",
+              "value_raw_text": "SJLR Squirrel 41.91±0.34 (SGC), 41.86±0.29 (GCN)"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 55.42±0.92"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 55.16±0.95"
+              },
+              "quantitative_value": 55.42,
+              "result_id": "res_1c41f1d11337463a2a00e0ed",
+              "unit": "%",
+              "value_raw_text": "SJLR Wisconsin 55.42±0.92 (SGC), 55.16±0.95 (GCN)"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 68.39±0.69"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 69.50±0.33"
+              },
+              "quantitative_value": 68.39,
+              "result_id": "res_219a65c19b3a218fd1856dec",
+              "unit": "%",
+              "value_raw_text": "SJLR Citeseer 68.39±0.69 (SGC), 69.50±0.33 (GCN)"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 40.17±0.49"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 41.19±0.46"
+              },
+              "quantitative_value": 40.17,
+              "result_id": "res_3ce9a466a3e855dfed2d675b",
+              "unit": "%",
+              "value_raw_text": "SJLR Chameleon 40.17±0.49 (SGC), 41.19±0.46 (GCN)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation: accuracy with drop only",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "✓ ✗ 59.26±1.61 56.16±0.85 53.64±0.97 39.95±0.81 41.27±0.39 30.04±0.19 80.86±0.76 68.48±0.51 75.19±1.51"
+              },
+              "quantitative_value": null,
+              "result_id": "res_47ff3e9fadf1e0023b373aec",
+              "unit": null,
+              "value_raw_text": "Cornell 59.26±1.61, Texas 56.16±0.85, Wisconsin 53.64±0.97, Chameleon 39.95±0.81, Squirrel 41.27±0.39, Actor 30.04±0.19, Cora 80.86±0.76, Citeseer 68.48±0.51, Pubmed 75.19±1.51"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 81.95±0.25"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 81.24±0.77"
+              },
+              "quantitative_value": 81.24,
+              "result_id": "res_486a1df05f36903aa8008a40",
+              "unit": "%",
+              "value_raw_text": "SJLR Cora 81.24±0.77 (SGC), 81.95±0.25 (GCN)"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 58.40±1.48"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 60.13±0.89"
+              },
+              "quantitative_value": 58.4,
+              "result_id": "res_5618b98712d7ffdbc885122b",
+              "unit": "%",
+              "value_raw_text": "SJLR Texas 58.40±1.48 (SGC), 60.13±0.89 (GCN)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation: accuracy with both drop and add",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "✓ ✓ 67.37±1.64 58.40±1.48 55.42±0.92 40.17±0.49 41.91±0.34 30.81±0.18 81.24±0.77 68.39±0.69 76.28±0.96"
+              },
+              "quantitative_value": null,
+              "result_id": "res_65b28e28e45c23124bd84b68",
+              "unit": null,
+              "value_raw_text": "Cornell 67.37±1.64, Texas 58.40±1.48, Wisconsin 55.42±0.92, Chameleon 40.17±0.49, Squirrel 41.91±0.34, Actor 30.81±0.18, Cora 81.24±0.77, Citeseer 68.39±0.69, Pubmed 76.28±0.96"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 30.81±0.18"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 29.89±0.20"
+              },
+              "quantitative_value": 30.81,
+              "result_id": "res_663763105657bb85b5b7c6f0",
+              "unit": "%",
+              "value_raw_text": "SJLR Actor 30.81±0.18 (SGC), 29.89±0.20 (GCN)"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) 78.60±0.33"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) 76.28±0.96"
+              },
+              "quantitative_value": 76.28,
+              "result_id": "res_797dee4d1d6c1cfe846acc8c",
+              "unit": "%",
+              "value_raw_text": "SJLR Pubmed 76.28±0.96 (SGC), 78.60±0.33 (GCN)"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "SJLR (ours) ... Overall 57.78"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Overall 58.89"
+              },
+              "quantitative_value": 57.78,
+              "result_id": "res_7d2e523043a14c2efb70c210",
+              "unit": "%",
+              "value_raw_text": "SJLR overall 57.78 (SGC), 58.89 (GCN)"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "10dfd5ee667c2c32941c",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": false,
+                  "text_excerpt": "SJLR (ours) 71.75±1.50"
+                }
+              ],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SJLR (ours) 67.37±1.64"
+              },
+              "quantitative_value": 67.37,
+              "result_id": "res_a1a2d231bb25bbeb7b7b7745",
+              "unit": "%",
+              "value_raw_text": "SJLR Cornell 67.37±1.64 (SGC), 71.75±1.50 (GCN)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime comparison",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Figure 4 shows the average running time over ten repetitions to compute the BFC and JLC metrics in a stochastic block graph and one Erdős-Rényi graph. We notice the large gap between the computation time of the JLC and BFC, which makes JLC more suitable in practice."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ba19102778866097d49c2940",
+              "unit": null,
+              "value_raw_text": "JLC is significantly faster than BFC"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation: accuracy with add only",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "✗ ✓ 54.07±2.36 56.79±1.93 45.44±1.95 38.20±0.58 41.57±0.32 29.86±0.19 73.90±2.01 66.20±1.05 69.56±2.36"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c17aca1406587b0a9e49a643",
+              "unit": null,
+              "value_raw_text": "Cornell 54.07±2.36, Texas 56.79±1.93, Wisconsin 45.44±1.95, Chameleon 38.20±0.58, Squirrel 41.57±0.32, Actor 29.86±0.19, Cora 73.90±2.01, Citeseer 66.20±1.05, Pubmed 69.56±2.36"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation: accuracy with neither drop nor add (baseline)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "✗ ✗ 53.40±2.11 56.69±1.78 47.90±1.73 38.40±0.69 40.52±0.54 29.93±0.16 76.94±1.31 67.45±0.80 71.79±2.13"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d1db29f9b62af15d82bdb84f",
+              "unit": null,
+              "value_raw_text": "Cornell 53.40±2.11, Texas 56.69±1.78, Wisconsin 47.90±1.73, Chameleon 38.40±0.69, Squirrel 40.52±0.54, Actor 29.93±0.16, Cora 76.94±1.31, Citeseer 67.45±0.80, Pubmed 71.79±2.13"
+            }
+          ],
+          "unit_id": "su_8b350cae40414d8f370a1b36"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6207 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5862 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6818 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6818 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[4].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[5].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[6].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6818 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6818 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[7].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[8].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[9].additional_provenance[0].paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "coverage_ledger": {
+    "09ff5317e5ee64e37ba6": "not_selected",
+    "0a11c0f80c3c5c6c9e5c": "not_selected",
+    "0f1e3a09bbba1c62cf3f": "extracted",
+    "152ef023e03d9372124e": "not_selected",
+    "176224005f4c59e8a559": "not_selected",
+    "1a2346b905ea0ea4aae9": "not_selected",
+    "1cf907cc34648484e33e": "not_selected",
+    "2bf4d619c6ed17d18969": "not_selected",
+    "32604b08b54fdebc3308": "not_selected",
+    "37f9578b321154685d76": "not_selected",
+    "3c36bfac8450a91f4e2b": "extracted",
+    "41b8266d24a244992d24": "not_selected",
+    "69abb7f0987f86ff351b": "not_selected",
+    "86140c8003960c6224a7": "not_selected",
+    "872a5eb821f771182c70": "not_selected",
+    "91bcdd21d553007baf4b": "not_selected",
+    "99841a63bd45445f230e": "not_selected",
+    "9f45eb7373b5e5b86562": "not_selected",
+    "a044aa54ff958563d70c": "not_selected",
+    "a426122e51eb75f0d98d": "not_selected",
+    "b461e46dfc18f018d7ea": "not_selected",
+    "bd7403ffb40eea2a4b0d": "extracted",
+    "c22d743138b98477c235": "extracted",
+    "ce61f55a2fee19b45eff": "not_selected",
+    "d9129df2d657bfd502ff": "not_selected",
+    "e45afad9bd292a2523a6": "not_selected",
+    "e5a0258be3c81e4117ec": "not_selected",
+    "f97f9463d238615d1004": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study is limited to human single-cell transcriptomic data; applicability to other species or bulk data is not addressed.",
+    "In silico perturbation predictions require experimental validation; only two targets (GSN, PLN) were experimentally validated in one disease model.",
+    "The pretraining corpus Genecorpus-30M is limited to publicly available data, which may introduce biases in tissue and cell type representation.",
+    "The model's performance on tasks with extremely limited data (e.g., very rare diseases) is not explicitly quantified beyond the demonstrated tasks.",
+    "The study does not explore the effect of different pretraining corpus sizes or compositions beyond the scaling analysis mentioned in the discussion.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_13.pdf",
+    "source_sha256": "a11702487b8d5089277687b4b431638fbb6dd22c0e483f0218b049d3364c0a22"
+  },
+  "paper_id": "1_13",
+  "quality_assessment": {
+    "correct_item_count": 37,
+    "deterministic_rule_score": 0.8431,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.2857
+    },
+    "extracted_item_count": 37,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a context-aware, attention-based deep learning model pretrained on large-scale single-cell transcriptomic data enable context-specific predictions in network biology with limited data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1a513d05545adaae84ec90fc",
+              "inference_basis_ids": [
+                "res_f11426e8b6cd17091c9d2bbf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0f1e3a09bbba1c62cf3f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Fine-tuning towards a diverse panel of downstream tasks relevant to chromatin and network dynamics using limited task-specific data demonstrated that Geneformer consistently boosted predictive accuracy."
+              },
+              "statement": "Geneformer, pretrained on ~30 million single-cell transcriptomes, consistently boosts predictive accuracy when fine-tuned on diverse downstream tasks with limited data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Large-scale pretraining corpus comprising 29.9 million human single-cell transcriptomes from a broad range of tissues from publicly available data.",
+              "name": "Genecorpus-30M",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Fine-tune Geneformer on diverse downstream tasks with limited task-specific data.",
+            "Pretrain Geneformer on Genecorpus-30M (~30 million single-cell transcriptomes) using a self-supervised masked learning objective."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Geneformer",
+              "protocol_description": "Context-aware, attention-based deep learning model (transformer) pretrained on Genecorpus-30M using a self-supervised masked learning objective. Fine-tuned towards downstream tasks with limited data."
+            }
+          ],
+          "name": "Geneformer pretraining and fine-tuning framework",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Predictive accuracy boost",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0f1e3a09bbba1c62cf3f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Fine-tuning towards a diverse panel of downstream tasks relevant to chromatin and network dynamics using limited task-specific data demonstrated that Geneformer consistently boosted predictive accuracy."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f11426e8b6cd17091c9d2bbf",
+              "unit": null,
+              "value_raw_text": "Geneformer consistently boosted predictive accuracy"
+            }
+          ],
+          "unit_id": "su_b25997e1cc62c45dcfc788b2"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Can in silico perturbation of Geneformer model gene network connections and identify candidate therapeutic targets for cardiomyopathy?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4341a6396914df640ac83e0d",
+              "inference_basis_ids": [
+                "res_4fd33988c20a0167934915d2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Furthermore, in silico deletion of both GATA4 and TBX5 in combination had an even greater impact on their known cobound targets than the sum of their individual in silico deletion, suggesting that Geneformer recognized their cooperative action at these cobound targets."
+              },
+              "statement": "Geneformer recognizes the cooperative action of GATA4 and TBX5 at their cobound targets, as combined in silico deletion has a greater impact than the sum of individual deletions."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6acde5ee395411628ec18e27",
+              "inference_basis_ids": [
+                "res_b70bebaae6f6b1fc1645e051"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "These data suggest that in silico perturbation can be applied to model gene network connections."
+              },
+              "statement": "In silico deletion of GATA4 significantly impacts its direct targets, suggesting Geneformer can model gene network connections."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Fetal cardiomyocyte embeddings from Geneformer (referenced from Cao et al. 2020).",
+              "name": "Fetal cardiomyocyte data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "In silico deletion of both GATA4 and TBX5 in combination and assessment of impact on gene embeddings.",
+            "In silico deletion of GATA4 in fetal cardiomyocytes and assessment of impact on gene embeddings.",
+            "In silico deletion of TBX5 in fetal cardiomyocytes and assessment of impact on gene embeddings."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "In silico deletion",
+              "protocol_description": "In silico deletion of specific genes (GATA4, TBX5) in Geneformer's cell embeddings and measurement of cosine similarity changes to assess impact on gene embeddings."
+            }
+          ],
+          "name": "In silico deletion of GATA4 and TBX5 in fetal cardiomyocytes",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine similarity (deleterious effect)",
+              "n_sample_size": null,
+              "p_value": 0.05,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "In silico deletion of GATA4 or TBX5 alone was significantly more deleterious to previously reported GATA4/TBX5 cobound targets33 than to housekeeping genes; in silico deletion of the combination of GATA4 and TBX5 was even more deleterious to cobound targets, significantly more than to housekeeping genes and significantly more than the sum of the effect of GATA4 or TBX5 alone on cobound targets (*P < 0.05 Wilcoxon, FDR-corrected)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4fd33988c20a0167934915d2",
+              "unit": null,
+              "value_raw_text": "In silico deletion of GATA4 or TBX5 alone was significantly more deleterious to previously reported GATA4/TBX5 cobound targets than to housekeeping genes; in silico deletion of the combination of GATA4 and TBX5 was even more deleterious to cobound targets, significantly more than to housekeeping genes and significantly more than the sum of the effect of GATA4 or TBX5 alone on cobound targets (*P < 0.05 Wilcoxon, FDR-corrected)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine similarity (deleterious effect)",
+              "n_sample_size": null,
+              "p_value": 0.05,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "In silico deletion of GATA4 was significantly more deleterious to previously reported GATA4 direct targets33 than to housekeeping genes, previously reported NOTCH1 targets4, previously reported NKX2-5 targets46 or GATA4 indirect targets33 (*P < 0.05 Wilcoxon, FDR-corrected; centre line, median; box limits, upper and lower quartiles; whiskers, 1.5× interquartile range; points, outliers)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b70bebaae6f6b1fc1645e051",
+              "unit": null,
+              "value_raw_text": "In silico deletion of GATA4 was significantly more deleterious to previously reported GATA4 direct targets than to housekeeping genes, NOTCH1 targets, NKX2-5 targets, or GATA4 indirect targets (*P < 0.05 Wilcoxon, FDR-corrected)."
+            }
+          ],
+          "unit_id": "su_202a9f803ee29d195d2b9359"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_532e0057fd7473fde0fcd2da",
+              "inference_basis_ids": [
+                "res_81930dfd86c813a5b26fc5e0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Strikingly, CRISPR-mediated knockout of both Geneformer-predicted targets GSN and PLN in the TTN+/− cells significantly improved the contractile stress of the TTN+/− cardiac microtissues, validating these genes as promising candidate therapeutic targets for this disease (Fig. 6f,g and Extended Data Fig. 10e)."
+              },
+              "statement": "In silico treatment analysis identifies candidate therapeutic targets for cardiomyopathy, and experimental knockout of GSN and PLN validates their potential as therapeutic targets for dilated cardiomyopathy."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cf6034a9de7007e61ce39177",
+              "inference_basis_ids": [
+                "res_2167dc57c0b5a0c5f2ad7729"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "First, we fine-tuned Geneformer to distinguish cardiomyocytes35 from non-failing hearts (n = 9) or hearts affected by hypertrophic (n = 11) or dilated (n = 9) cardiomyopathy with an overall out-of-sample accuracy of 90% (Fig. 6b and Extended Data Fig. 10a)."
+              },
+              "statement": "Geneformer fine-tuned on cardiomyopathy data achieves 90% out-of-sample accuracy in distinguishing non-failing, hypertrophic, and dilated cardiomyopathy cardiomyocytes."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Cardiomyocytes from non-failing hearts (n=9), hypertrophic cardiomyopathy (n=11), and dilated cardiomyopathy (n=9) from Chaffin et al. 2022.",
+              "name": "Cardiomyopathy single-nucleus data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Experimental validation of predicted therapeutic targets (GSN, PLN) in TTN+/- iPSC-derived cardiac microtissues.",
+            "Fine-tune Geneformer to distinguish cardiomyocytes from non-failing hearts vs. hypertrophic or dilated cardiomyopathy.",
+            "In silico deletion/activation to identify genes shifting embeddings towards disease states.",
+            "In silico treatment analysis to identify genes whose inhibition/activation shifts disease embeddings back to non-failing state."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Geneformer fine-tuning for disease classification",
+              "protocol_description": "Fine-tuned Geneformer to classify cardiomyocytes into non-failing, hypertrophic cardiomyopathy, or dilated cardiomyopathy states."
+            },
+            {
+              "method_id": "M4",
+              "name": "In silico treatment analysis",
+              "protocol_description": "In silico deletion or activation of genes in disease-state cardiomyocytes to identify shifts back towards non-failing state embeddings."
+            },
+            {
+              "method_id": "M5",
+              "name": "CRISPR-mediated knockout in cardiac microtissues",
+              "protocol_description": "CRISPR-mediated knockout of GSN and PLN in TTN+/- iPSC-derived cardiac microtissues and measurement of contractile stress."
+            }
+          ],
+          "name": "In silico treatment analysis for cardiomyopathy",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Out-of-sample accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "First, we fine-tuned Geneformer to distinguish cardiomyocytes35 from non-failing hearts (n = 9) or hearts affected by hypertrophic (n = 11) or dilated (n = 9) cardiomyopathy with an overall out-of-sample accuracy of 90% (Fig. 6b and Extended Data Fig. 10a)."
+              },
+              "quantitative_value": 90.0,
+              "result_id": "res_2167dc57c0b5a0c5f2ad7729",
+              "unit": "%",
+              "value_raw_text": "overall out-of-sample accuracy of 90%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of genes identified",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Overall, the model identified 447 genes whose loss was predicted to shift cardiomyocytes towards the hypertrophic cardiomyopathy state, which were enriched for pathways including Titin binding36 and sarcomere organization37 known to impact hypertrophic cardiomyopathy pathogenesis."
+              },
+              "quantitative_value": 447.0,
+              "result_id": "res_751c70d848e0731da148db07",
+              "unit": "genes",
+              "value_raw_text": "447 genes whose loss was predicted to shift cardiomyocytes towards the hypertrophic cardiomyopathy state"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Contractile stress improvement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Strikingly, CRISPR-mediated knockout of both Geneformer-predicted targets GSN and PLN in the TTN+/− cells significantly improved the contractile stress of the TTN+/− cardiac microtissues, validating these genes as promising candidate therapeutic targets for this disease (Fig. 6f,g and Extended Data Fig. 10e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_81930dfd86c813a5b26fc5e0",
+              "unit": null,
+              "value_raw_text": "CRISPR-mediated knockout of both Geneformer-predicted targets GSN and PLN in the TTN+/− cells significantly improved the contractile stress of the TTN+/− cardiac microtissues"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of genes identified",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c36bfac8450a91f4e2b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The model identified 478 genes whose loss was predicted to shift cardiomyocytes towards dilated cardiomyopathy, which were enriched for pathways involved in muscle contraction38 and mitochondrial39 function."
+              },
+              "quantitative_value": 478.0,
+              "result_id": "res_d903ce920becec328fe78827",
+              "unit": "genes",
+              "value_raw_text": "478 genes whose loss was predicted to shift cardiomyocytes towards dilated cardiomyopathy"
+            }
+          ],
+          "unit_id": "su_b1522895a361b92769ca9509"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

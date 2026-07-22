@@ -1,0 +1,1069 @@
+{
+  "coverage_ledger": {
+    "1771ee82d277cf464380": "extracted",
+    "2fe6ef00922acc4c5a32": "not_selected",
+    "4407c9a9fe6eb4b3b548": "extracted",
+    "4a8c547062b68efcf9b6": "not_selected",
+    "4f98c25a1857f278a50a": "not_selected",
+    "58665fbeb740387b9a5a": "not_selected",
+    "6a148d5d77c2a6196bbf": "extracted",
+    "940b4b752faef0d98750": "not_selected",
+    "9edf9655da1b6ade29b9": "not_selected",
+    "a5dbed12fd47bd57a53f": "not_selected",
+    "ab9e6266659a7e2537be": "not_selected",
+    "cae9f79a733475b38048": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Theoretical results rely on asymptotic analysis; finite sample behavior may differ.",
+    "Triangle assumption for Gaussian-NV case may not hold in all simulations.",
+    "Optimization time for NOTEARS-L1 limits scalability beyond 1600 nodes.",
+    "Sensitivity to penalty coefficients not fully studied.",
+    "Real data experiment limited to one dataset with 11 nodes."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_6.pdf",
+    "source_sha256": "0c798646a0cb6cfbb8d6b9f416a1e36172441c0ea60f588d4342a4632e821252"
+  },
+  "paper_id": "6_6",
+  "quality_assessment": {
+    "correct_item_count": 41,
+    "deterministic_rule_score": 0.9586,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 73,
+    "f1": 0.713,
+    "incorrect_item_count": 32,
+    "incorrect_items": [
+      {
+        "description": "The extracted result states 'NOTEARS-L1 achieves SHD 15 with 13 total edges.' The source excerpt says 'NOTEARS-L1 is on par with GOLEM-NV with an SHD of 15 and 13 total edges', which does not explicitly state that NOTEARS-L1 achieved SHD 15 with 13 total edges; it says it is on par with GOLEM-NV, which has SHD 14 with 11 edges. The phrasing is ambiguous, but the extracted text overstates by attributing the SHD 15 and 13 edges directly to NOTEARS-L1 without the comparative context. However, the source does indicate NOTEARS-L1 has SHD 15 and 13 edges, so it is not incorrect. Actually, the source says 'NOTEARS-L1 is on par with GOLEM-NV with an SHD of 15 and 13 total edges', which means NOTEARS-L1 has SHD 15 and 13 edges. So the extraction is correct. No incorrect item here.",
+        "item_id": "result:su_2292e92de41e99b25b0b04e4:res_2d1def194b0875743df3b39f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'GOLEM-NV achieves the best SHD on the Sachs dataset.' The source excerpt says 'GOLEM-NV achieves the best (unnormalized) SHD 14', which supports the claim. So it is correct.",
+        "item_id": "claim:su_2292e92de41e99b25b0b04e4:clm_9b9e4b9a979fb6b864e4c169",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'With L1 and DAG penalty, estimated graphs have low h(B) across all settings.' The source excerpt says 'With `1 and DAG penalty, the estimated graphs have low values of h(B) across all settings.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_3d2ab74f0614dafbf76acf3d:res_38a4423f5f48916cea1f3770",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-EV and GOLEM-EV-L1 have high TPR on large samples, while GOLEM-EV-Plain has poor results.' The source excerpt says 'when the sample size is large, the graphs estimated by both GOLEM-EV and GOLEM-EV-L1 are close to the ground truth DAGs with high TPR, whereas GOLEM-EV-Plain has poor results without any penalty term.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_3d2ab74f0614dafbf76acf3d:res_badfac34d2ff58845cdc244b",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'The gap between GOLEM-EV-L1 and GOLEM-EV decreases with more samples.' The source excerpt says 'the gap between GOLEM-EV-L1 and GOLEM-EV decreases with more samples'. This is a direct quote. Correct.",
+        "item_id": "result:su_3d2ab74f0614dafbf76acf3d:res_bfc71e010a53cdb0a7bae1ea",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-NV-L1 performance degrades without DAG penalty, especially TPR.' The source excerpt says 'the performance of GOLEM-NV-L1 degrades without the DAG penalty term, especially for the TPR.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_3d2ab74f0614dafbf76acf3d:res_ce40d4cd5279a9dbb213dd82",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Soft sparsity and DAG constraints are useful for both asymptotic cases and finite samples by returning solutions close to DAGs.' The source excerpt says 'soft sparsity and DAG constraints are useful for both asymptotic cases and ﬁnite samples by returning solutions close to DAGs in practice'. This is a faithful abstraction. Correct.",
+        "item_id": "claim:su_3d2ab74f0614dafbf76acf3d:clm_1f7da243302e355380d3a40f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'For Gaussian-NV, both sparsity and DAG penalty terms are required.' The source excerpt says 'Corollary 1 has mild assumptions that apply here, implying that both sparsity and DAG penalty terms are required.' This is a faithful abstraction. Correct.",
+        "item_id": "claim:su_3d2ab74f0614dafbf76acf3d:clm_5772cb42342594aedff253b5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Sparsity penalty appears sufficient to asymptotically recover the underlying DAGs in Gaussian-EV case.' The source excerpt says 'sparsity penalty appears to be sufﬁcient to asymptotically recover the underlying DAGs.' This is a faithful abstraction. Correct.",
+        "item_id": "claim:su_3d2ab74f0614dafbf76acf3d:clm_a26ca30452a95bfd643aa92a",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-EV optimization time is much shorter (e.g., 12.4 hours on 3200-node graphs).' The source excerpt says 'The optimization time of GOLEM-EV is also much shorter (e.g., 12.4 hours on 3200-node graphs)'. This is a direct quote. Correct.",
+        "item_id": "result:su_4e20779c1eb1b62836553ee8:res_a32150f944980473060a0835",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-EV remains competitive on large graphs, whereas NOTEARS-L1 performance degrades as graph size increases.' The source excerpt says 'GOLEM-EV remains competitive on large graphs, whereas the performance of NOTEARS-L1 degrades as the graph size increases'. This is a direct quote. Correct.",
+        "item_id": "result:su_4e20779c1eb1b62836553ee8:res_bf6820c04dbb63a5ad165050",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'GOLEM-EV scales better than NOTEARS-L1 to thousands of nodes, with shorter optimization time due to GPU parallelization.' The source excerpts support that GOLEM-EV remains competitive and has shorter optimization time, but the claim adds 'due to GPU parallelization' which is not explicitly stated in the excerpts. The source says 'owing to its parallelization on GPU' in the chunk, but the claim's provenance excerpt does not include that. However, the claim's provenance is a paraphrase of two excerpts, and the source chunk does mention GPU parallelization. The claim is supported. Correct.",
+        "item_id": "claim:su_4e20779c1eb1b62836553ee8:clm_1a2ae239e55b6fb0f275f245",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-EV has consistently low normalized SHD and SID, indicating robustness to weight scaling.' The source excerpt says 'GOLEM-EV has consistently low normalized SHD and SID, indicating that our method is robust to weight scaling.' This is a direct quote. Correct.",
+        "item_id": "result:su_5b7e28e382df65e957ade525:res_c6381e82b01ddb4be7864321",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'NOTEARS-L1 performance is unstable across weight scales: low TPR on small scales, high SHD on large scales.' The source excerpt says 'the performance of NOTEARS-L1 is unstable across different weight scales: it has low TPR on small weight scales and high SHD on large ones.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_5b7e28e382df65e957ade525:res_e2a336e50a218fc8ec77faf5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'GOLEM-EV is robust to weight scaling, while NOTEARS-L1 is sensitive.' The source excerpts support this. Correct.",
+        "item_id": "claim:su_5b7e28e382df65e957ade525:clm_947cb475c84352d3247e13b9",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'B0 is the unique global minimizer of likelihood-EV objective under soft L1 or DAG constraint.' The source excerpt says 'B0 is the unique global minimizer of likelihood-EV objective (2) under soft `1 or DAG constraint.' This is a direct quote. Correct.",
+        "item_id": "result:su_657e0d539dbc8cee8786fc07:res_9e1bf146d737b24b26065158",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'B0 is the unique global minimizer of least squares objective under a hard DAG constraint, but without the DAG constraint, the least squares objective returns a cyclic graph.' The source excerpt says 'B0 is the unique global minimizer of least squares objective under a hard DAG constraint, but without the DAG constraint, the least squares objective returns a cyclic graph.' This is a direct quote. Correct.",
+        "item_id": "result:su_657e0d539dbc8cee8786fc07:res_a718a4b943d53a485d9a6365",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Without the DAG constraint, the least squares method never returns a DAG, while the likelihood objective does not favor cyclic over acyclic structures.' The source excerpt says 'Therefore, without the DAG constraint, the least squares method never returns a DAG, while the likelihood objective does not favor cyclic over acyclic structures.' This is a direct quote. Correct.",
+        "item_id": "claim:su_657e0d539dbc8cee8786fc07:clm_061c4a72452bced8b2b9d104",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'The likelihood-based objective is favorable over the regression-based one.' The source excerpt says 'indicating that the likelihood-based objective is favorable over the regression-based one.' This is a direct quote. Correct.",
+        "item_id": "claim:su_657e0d539dbc8cee8786fc07:clm_d70e7d3f9e4dce6628a3084b",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'Gradient-based methods consistently outperform other methods; GOLEM-NV and GOLEM-EV have best performance in most settings.' The source excerpt says 'gradient-based methods consistently outperform the other methods. Among gradient-based methods, GOLEM-NV and GOLEM-EV have the best performance in most settings, especially on large graphs.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_85303f4d3d0af5a25b40a727:res_86648f14f64e755467f24794",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'FGS, PC, DirectLiNGAM are competitive on sparse graphs (ER1) but degrade as edge density increases.' The source excerpt says 'FGS, PC, and DirectLiNGAM are competitive on sparse graphs (ER1), but their performance degrades as the edge density increases.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_85303f4d3d0af5a25b40a727:res_d178c66d1f2cb6207f605a53",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-NV and GOLEM-EV perform well even in non-Gaussian cases (Exponential and Gumbel).' The source excerpt says 'these two methods perform well even in non-Gaussian cases, i.e., Exponential and Gumbel noise, although they are based on Gaussian likelihood.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_85303f4d3d0af5a25b40a727:res_dc0a61ac4b56f6458efde028",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'GOLEM-NV and GOLEM-EV are the best performing methods among gradient-based approaches in identifiable cases.' The source excerpt says 'Among gradient-based methods, GOLEM-NV and GOLEM-EV have the best performance in most settings'. This is a faithful abstraction. Correct.",
+        "item_id": "claim:su_85303f4d3d0af5a25b40a727:clm_5a65d94df48713391aa6e530",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-NV outperforms NOTEARS-L1 by a large margin on denser graphs (ER2 and ER4).' The source excerpt says 'It also outperforms NOTEARS-L1 by a large margin on denser graphs, such as ER2 and ER4 graphs.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_c2d9bb6f441f6ed4c82dac7a:res_7921f73766a53398ec9be77a",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'NOTEARS-L1 excels on sparse graphs (ER1) but deteriorates on ER4; GOLEM-EV vice versa.' The source excerpt says 'NOTEARS-L1 demonstrates outstanding performance on sparse graphs (ER1) but deteriorates on ER4 graphs, and vice versa for GOLEM-EV.' This is a faithful abstraction. Correct.",
+        "item_id": "result:su_c2d9bb6f441f6ed4c82dac7a:res_ec1edf16d2c1929fd0a14a91",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The result says 'GOLEM-NV shows significant improvement over GOLEM-EV in most settings.' The source excerpt says 'GOLEM-NV shows signiﬁcant improvement over GOLEM-EV in most settings'. This is a direct quote. Correct.",
+        "item_id": "result:su_c2d9bb6f441f6ed4c82dac7a:res_fcf3b6ddc4b6a55535c120cf",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'GOLEM-NV is the best method in nonidentifiable cases, especially on denser graphs.' The source excerpts support that GOLEM-NV shows significant improvement and outperforms NOTEARS-L1 on denser graphs, but does not explicitly state it is the best method. However, the claim is a reasonable inference. Correct.",
+        "item_id": "claim:su_c2d9bb6f441f6ed4c82dac7a:clm_1adb5c3bd00934093dcfb0c0",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The limitation states 'Theoretical results rely on asymptotic analysis; finite sample behavior may differ.' This is a general limitation of asymptotic analysis, but is it explicitly stated in the source? The source mentions asymptotic analysis and finite sample experiments, but does not explicitly state this as a limitation. However, it is a common limitation. The source does not explicitly say this, so it might be an overstatement. But the protocol says to be lenient on wording but strict on facts. The source does not contain a statement that this is a limitation. So it is not supported. Incorrect.",
+        "item_id": "boundary:1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The limitation states 'Triangle assumption for Gaussian-NV case may not hold in all simulations.' The source mentions the triangle assumption and that it is not satisfied in the simulation (chunk 1771ee82d277cf464380: 'the triangle assumption is not satisﬁed in this simulation'). So this is supported. Correct.",
+        "item_id": "boundary:2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The limitation states 'Optimization time for NOTEARS-L1 limits scalability beyond 1600 nodes.' The source says 'Due to the long optimization time, we are only able to scale NOTEARS-L1 up to 1600 nodes.' This supports the limitation. Correct.",
+        "item_id": "boundary:3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The limitation states 'Sensitivity to penalty coefficients not fully studied.' The source mentions future work includes studying the sensitivity of penalty coefficients, but does not explicitly state it as a limitation. However, it is implied. The source says 'studying the sensitivity of penalty coefﬁcients in different settings' as future work. This can be considered a limitation. Correct.",
+        "item_id": "boundary:4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The limitation states 'Real data experiment limited to one dataset with 11 nodes.' The source only uses one real dataset with 11 nodes. This is a factual limitation. Correct.",
+        "item_id": "boundary:5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 1,
+    "missed_core_items": [
+      {
+        "description": "The paper does not explicitly state that the theoretical results rely on asymptotic analysis and finite sample behavior may differ as a limitation.",
+        "item_id": null,
+        "source_chunk_id": "1771ee82d277cf464380",
+        "source_excerpt": "soft sparsity and DAG constraints are useful for both asymptotic cases and ﬁnite samples by returning solutions close to DAGs in practice",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.5616,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9762
+  },
+  "quality_score": 0.713,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Are hard DAG and sparsity constraints necessary for learning linear DAGs, and can soft constraints with a likelihood-based objective achieve equivalent or better performance?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9b9e4b9a979fb6b864e4c169",
+              "inference_basis_ids": [
+                "res_9c317e88aa334c5d14ad7891"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GOLEM-NV achieves the best (unnormalized) SHD 14"
+              },
+              "statement": "GOLEM-NV achieves the best SHD on the Sachs dataset."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D6",
+              "description": "Real dataset measuring expression levels of proteins and phospholipids in human cells.",
+              "name": "Sachs protein/phospholipid dataset",
+              "version_or_split": "d=11, n=853, ground truth 17 edges"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison on Sachs protein/phospholipid dataset with 11 nodes, 853 samples, ground truth 17 edges."
+          ],
+          "methods": [
+            {
+              "method_id": "M23",
+              "name": "GOLEM-NV",
+              "protocol_description": "GOLEM with nonequal noise variance assumption."
+            },
+            {
+              "method_id": "M24",
+              "name": "GOLEM-EV",
+              "protocol_description": "GOLEM with equal noise variance assumption."
+            },
+            {
+              "method_id": "M25",
+              "name": "NOTEARS-L1",
+              "protocol_description": "NOTEARS with L1 regularization."
+            }
+          ],
+          "name": "Real data experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GOLEM-EV estimates 21 edges with an SHD of 18."
+              },
+              "quantitative_value": 18.0,
+              "result_id": "res_09030f48849dc6ad5c4c17cd",
+              "unit": null,
+              "value_raw_text": "GOLEM-EV estimates 21 edges with SHD 18."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "NOTEARS-L1 is on par with GOLEM-NV with an SHD of 15 and 13 total edges"
+              },
+              "quantitative_value": 15.0,
+              "result_id": "res_2d1def194b0875743df3b39f",
+              "unit": null,
+              "value_raw_text": "NOTEARS-L1 achieves SHD 15 with 13 total edges."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GOLEM-NV achieves the best (unnormalized) SHD 14 with 11 estimated edges."
+              },
+              "quantitative_value": 14.0,
+              "result_id": "res_9c317e88aa334c5d14ad7891",
+              "unit": null,
+              "value_raw_text": "GOLEM-NV achieves SHD 14 with 11 estimated edges."
+            }
+          ],
+          "unit_id": "su_2292e92de41e99b25b0b04e4"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1f7da243302e355380d3a40f",
+              "inference_basis_ids": [
+                "res_38a4423f5f48916cea1f3770"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "soft sparsity and DAG constraints are useful for both asymptotic cases and ﬁnite samples by returning solutions close to DAGs in practice"
+              },
+              "statement": "Soft sparsity and DAG constraints are useful for both asymptotic cases and finite samples by returning solutions close to DAGs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5772cb42342594aedff253b5",
+              "inference_basis_ids": [
+                "res_ce40d4cd5279a9dbb213dd82"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Corollary 1 has mild assumptions that apply here, implying that both sparsity and DAG penalty terms are required."
+              },
+              "statement": "For Gaussian-NV, both sparsity and DAG penalty terms are required."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a26ca30452a95bfd643aa92a",
+              "inference_basis_ids": [
+                "res_badfac34d2ff58845cdc244b",
+                "res_bfc71e010a53cdb0a7bae1ea"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "sparsity penalty appears to be sufﬁcient to asymptotically recover the underlying DAGs."
+              },
+              "statement": "Sparsity penalty appears sufficient to asymptotically recover the underlying DAGs in Gaussian-EV case."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Synthetic data generated from linear DAG models with Gaussian-EV and Gaussian-NV noise.",
+              "name": "Synthetic linear DAG data",
+              "version_or_split": "100-node ER1 and ER4 graphs, n in {100, 300, 1000, 3000, 10000}"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Experiments on 100-node ER1 and ER4 graphs with sample sizes from 100 to 10000, using Gaussian-EV and Gaussian-NV noise, to investigate the role of L1 and DAG penalties."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "GOLEM-EV",
+              "protocol_description": "GOLEM with equal noise variance assumption, using L1 and DAG penalty."
+            },
+            {
+              "method_id": "M4",
+              "name": "GOLEM-EV-L1",
+              "protocol_description": "GOLEM-EV with only L1 penalty."
+            },
+            {
+              "method_id": "M5",
+              "name": "GOLEM-EV-Plain",
+              "protocol_description": "GOLEM-EV without any penalty term."
+            },
+            {
+              "method_id": "M6",
+              "name": "GOLEM-NV",
+              "protocol_description": "GOLEM with nonequal noise variance assumption, using L1 and DAG penalty."
+            },
+            {
+              "method_id": "M7",
+              "name": "GOLEM-NV-L1",
+              "protocol_description": "GOLEM-NV with only L1 penalty."
+            },
+            {
+              "method_id": "M8",
+              "name": "GOLEM-NV-Plain",
+              "protocol_description": "GOLEM-NV without any penalty term."
+            }
+          ],
+          "name": "Finite sample experiments on constraint roles",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "DAG penalty value h(B)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "With `1 and DAG penalty, the estimated graphs have low values of h(B) across all settings."
+              },
+              "quantitative_value": null,
+              "result_id": "res_38a4423f5f48916cea1f3770",
+              "unit": null,
+              "value_raw_text": "With L1 and DAG penalty, estimated graphs have low h(B) across all settings."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TPR",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "when the sample size is large, the graphs estimated by both GOLEM-EV and GOLEM-EV-L1 are close to the ground truth DAGs with high TPR, whereas GOLEM-EV-Plain has poor results without any penalty term."
+              },
+              "quantitative_value": null,
+              "result_id": "res_badfac34d2ff58845cdc244b",
+              "unit": null,
+              "value_raw_text": "GOLEM-EV and GOLEM-EV-L1 have high TPR on large samples, while GOLEM-EV-Plain has poor results."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance gap",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the gap between GOLEM-EV-L1 and GOLEM-EV decreases with more samples"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bfc71e010a53cdb0a7bae1ea",
+              "unit": null,
+              "value_raw_text": "The gap between GOLEM-EV-L1 and GOLEM-EV decreases with more samples."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TPR",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the performance of GOLEM-NV-L1 degrades without the DAG penalty term, especially for the TPR."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ce40d4cd5279a9dbb213dd82",
+              "unit": null,
+              "value_raw_text": "GOLEM-NV-L1 performance degrades without DAG penalty, especially TPR."
+            }
+          ],
+          "unit_id": "su_3d2ab74f0614dafbf76acf3d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1a2ae239e55b6fb0f275f245",
+              "inference_basis_ids": [
+                "res_a32150f944980473060a0835",
+                "res_bf6820c04dbb63a5ad165050"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "GOLEM-EV remains competitive on large graphs, whereas the performance of NOTEARS-L1 degrades... The optimization time of GOLEM-EV is also much shorter"
+              },
+              "statement": "GOLEM-EV scales better than NOTEARS-L1 to thousands of nodes, with shorter optimization time due to GPU parallelization."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D4",
+              "description": "Synthetic data from linear Gaussian models with equal noise variances.",
+              "name": "Synthetic linear DAG data",
+              "version_or_split": "ER2 graphs, d in {100, 200, 400, ..., 3200}, n=5000"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Scalability comparison on ER2 graphs with sizes from 100 to 3200 nodes, n=5000, Gaussian-EV noise."
+          ],
+          "methods": [
+            {
+              "method_id": "M19",
+              "name": "GOLEM-EV",
+              "protocol_description": "GOLEM with equal noise variance assumption, GPU-accelerated."
+            },
+            {
+              "method_id": "M20",
+              "name": "NOTEARS-L1",
+              "protocol_description": "NOTEARS with L1 regularization, CPU-based."
+            }
+          ],
+          "name": "Scalability and optimization time",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimization time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The optimization time of GOLEM-EV is also much shorter (e.g., 12.4 hours on 3200-node graphs)"
+              },
+              "quantitative_value": 12.4,
+              "result_id": "res_a32150f944980473060a0835",
+              "unit": "hours",
+              "value_raw_text": "GOLEM-EV optimization time is much shorter (e.g., 12.4 hours on 3200-node graphs)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Normalized SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GOLEM-EV remains competitive on large graphs, whereas the performance of NOTEARS-L1 degrades as the graph size increases"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bf6820c04dbb63a5ad165050",
+              "unit": null,
+              "value_raw_text": "GOLEM-EV remains competitive on large graphs, whereas NOTEARS-L1 performance degrades as graph size increases."
+            }
+          ],
+          "unit_id": "su_4e20779c1eb1b62836553ee8"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_947cb475c84352d3247e13b9",
+              "inference_basis_ids": [
+                "res_c6381e82b01ddb4be7864321",
+                "res_e2a336e50a218fc8ec77faf5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "GOLEM-EV has consistently low normalized SHD and SID... the performance of NOTEARS-L1 is unstable"
+              },
+              "statement": "GOLEM-EV is robust to weight scaling, while NOTEARS-L1 is sensitive."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D5",
+              "description": "Synthetic data with varying edge weight scales.",
+              "name": "Synthetic linear DAG data",
+              "version_or_split": "50-node ER2 graphs, n=1000, Gaussian-EV noise, weight scale alpha in [0.3, 1.0]"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Sensitivity to weight scaling on 50-node ER2 graphs with Gaussian-EV noise, edge weights scaled by alpha in [0.3, 1.0]."
+          ],
+          "methods": [
+            {
+              "method_id": "M21",
+              "name": "GOLEM-EV",
+              "protocol_description": "GOLEM with equal noise variance assumption."
+            },
+            {
+              "method_id": "M22",
+              "name": "NOTEARS-L1",
+              "protocol_description": "NOTEARS with L1 regularization."
+            }
+          ],
+          "name": "Sensitivity analysis of weight scale",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Normalized SHD and SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GOLEM-EV has consistently low normalized SHD and SID, indicating that our method is robust to weight scaling."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c6381e82b01ddb4be7864321",
+              "unit": null,
+              "value_raw_text": "GOLEM-EV has consistently low normalized SHD and SID, indicating robustness to weight scaling."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance instability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cae9f79a733475b38048",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the performance of NOTEARS-L1 is unstable across different weight scales: it has low TPR on small weight scales and high SHD on large ones."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e2a336e50a218fc8ec77faf5",
+              "unit": null,
+              "value_raw_text": "NOTEARS-L1 performance is unstable across weight scales: low TPR on small scales, high SHD on large scales."
+            }
+          ],
+          "unit_id": "su_5b7e28e382df65e957ade525"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_061c4a72452bced8b2b9d104",
+              "inference_basis_ids": [
+                "res_9e1bf146d737b24b26065158",
+                "res_a718a4b943d53a485d9a6365"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Therefore, without the DAG constraint, the least squares method never returns a DAG, while the likelihood objective does not favor cyclic over acyclic structures."
+              },
+              "statement": "Without the DAG constraint, the least squares method never returns a DAG, while the likelihood objective does not favor cyclic over acyclic structures."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d70e7d3f9e4dce6628a3084b",
+              "inference_basis_ids": [
+                "res_9e1bf146d737b24b26065158",
+                "res_a718a4b943d53a485d9a6365"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "indicating that the likelihood-based objective is favorable over the regression-based one."
+              },
+              "statement": "The likelihood-based objective is favorable over the regression-based one."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Theoretical analysis of the role of sparsity and DAG constraints in linear Gaussian and non-Gaussian models."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GOLEM",
+              "protocol_description": "Likelihood-based score function with soft sparsity (L1) and DAG penalty terms, optimized via gradient-based methods with GPU acceleration."
+            },
+            {
+              "method_id": "M2",
+              "name": "NOTEARS",
+              "protocol_description": "Least squares objective with hard DAG constraint, solved as a continuous constrained optimization problem."
+            }
+          ],
+          "name": "Asymptotic analysis of constraints",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Global minimizer property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "B0 is the unique global minimizer of likelihood-EV objective (2) under soft `1 or DAG constraint."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9e1bf146d737b24b26065158",
+              "unit": null,
+              "value_raw_text": "B0 is the unique global minimizer of likelihood-EV objective under soft L1 or DAG constraint."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Global minimizer property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1771ee82d277cf464380",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "B0 is the unique global minimizer of least squares objective under a hard DAG constraint, but without the DAG constraint, the least squares objective returns a cyclic graph."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a718a4b943d53a485d9a6365",
+              "unit": null,
+              "value_raw_text": "B0 is the unique global minimizer of least squares objective under a hard DAG constraint, but without the DAG constraint, the least squares objective returns a cyclic graph."
+            }
+          ],
+          "unit_id": "su_657e0d539dbc8cee8786fc07"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5a65d94df48713391aa6e530",
+              "inference_basis_ids": [
+                "res_86648f14f64e755467f24794"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Among gradient-based methods, GOLEM-NV and GOLEM-EV have the best performance in most settings"
+              },
+              "statement": "GOLEM-NV and GOLEM-EV are the best performing methods among gradient-based approaches in identifiable cases."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Synthetic data from linear DAG models with Gaussian-EV, Exponential, and Gumbel noise.",
+              "name": "Synthetic linear DAG data",
+              "version_or_split": "ER1, ER2, ER4, SF4 graphs, d in {10, 20, 50, 100}, n=1000"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of structure learning methods on identifiable cases: Gaussian-EV, Exponential, and Gumbel noise, with ER and SF graphs of sizes 10 to 100."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "GOLEM-EV",
+              "protocol_description": "GOLEM with equal noise variance assumption."
+            },
+            {
+              "method_id": "M11",
+              "name": "NOTEARS-L1",
+              "protocol_description": "NOTEARS with L1 regularization."
+            },
+            {
+              "method_id": "M12",
+              "name": "NOTEARS",
+              "protocol_description": "Original NOTEARS method."
+            },
+            {
+              "method_id": "M13",
+              "name": "FGS",
+              "protocol_description": "Fast Greedy Search."
+            },
+            {
+              "method_id": "M14",
+              "name": "PC",
+              "protocol_description": "PC algorithm."
+            },
+            {
+              "method_id": "M15",
+              "name": "DirectLiNGAM",
+              "protocol_description": "DirectLiNGAM method."
+            },
+            {
+              "method_id": "M9",
+              "name": "GOLEM-NV",
+              "protocol_description": "GOLEM with nonequal noise variance assumption."
+            }
+          ],
+          "name": "Identifiable cases comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Normalized SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "gradient-based methods consistently outperform the other methods. Among gradient-based methods, GOLEM-NV and GOLEM-EV have the best performance in most settings, especially on large graphs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_86648f14f64e755467f24794",
+              "unit": null,
+              "value_raw_text": "Gradient-based methods consistently outperform other methods; GOLEM-NV and GOLEM-EV have best performance in most settings."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance of FGS, PC, DirectLiNGAM",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "FGS, PC, and DirectLiNGAM are competitive on sparse graphs (ER1), but their performance degrades as the edge density increases."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d178c66d1f2cb6207f605a53",
+              "unit": null,
+              "value_raw_text": "FGS, PC, DirectLiNGAM are competitive on sparse graphs (ER1) but degrade as edge density increases."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance on non-Gaussian noise",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "these two methods perform well even in non-Gaussian cases, i.e., Exponential and Gumbel noise, although they are based on Gaussian likelihood."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dc0a61ac4b56f6458efde028",
+              "unit": null,
+              "value_raw_text": "GOLEM-NV and GOLEM-EV perform well even in non-Gaussian cases (Exponential and Gumbel)."
+            }
+          ],
+          "unit_id": "su_85303f4d3d0af5a25b40a727"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1adb5c3bd00934093dcfb0c0",
+              "inference_basis_ids": [
+                "res_7921f73766a53398ec9be77a",
+                "res_fcf3b6ddc4b6a55535c120cf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GOLEM-NV shows signiﬁcant improvement over GOLEM-EV in most settings... It also outperforms NOTEARS-L1 by a large margin on denser graphs"
+              },
+              "statement": "GOLEM-NV is the best method in nonidentifiable cases, especially on denser graphs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Synthetic data from linear Gaussian models with nonequal noise variances.",
+              "name": "Synthetic linear DAG data",
+              "version_or_split": "ER1, ER2, ER4 graphs, d in {10, 20, 50, 100}, n=1000"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison on nonidentifiable cases (Gaussian-NV) with ER1, ER2, ER4 graphs of sizes 10 to 100."
+          ],
+          "methods": [
+            {
+              "method_id": "M16",
+              "name": "GOLEM-NV",
+              "protocol_description": "GOLEM with nonequal noise variance assumption."
+            },
+            {
+              "method_id": "M17",
+              "name": "GOLEM-EV",
+              "protocol_description": "GOLEM with equal noise variance assumption."
+            },
+            {
+              "method_id": "M18",
+              "name": "NOTEARS-L1",
+              "protocol_description": "NOTEARS with L1 regularization."
+            }
+          ],
+          "name": "Nonidentifiable cases comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance vs NOTEARS-L1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "It also outperforms NOTEARS-L1 by a large margin on denser graphs, such as ER2 and ER4 graphs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7921f73766a53398ec9be77a",
+              "unit": null,
+              "value_raw_text": "GOLEM-NV outperforms NOTEARS-L1 by a large margin on denser graphs (ER2 and ER4)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance patterns",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "NOTEARS-L1 demonstrates outstanding performance on sparse graphs (ER1) but deteriorates on ER4 graphs, and vice versa for GOLEM-EV."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ec1edf16d2c1929fd0a14a91",
+              "unit": null,
+              "value_raw_text": "NOTEARS-L1 excels on sparse graphs (ER1) but deteriorates on ER4; GOLEM-EV vice versa."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance improvement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6a148d5d77c2a6196bbf",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GOLEM-NV shows signiﬁcant improvement over GOLEM-EV in most settings"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fcf3b6ddc4b6a55535c120cf",
+              "unit": null,
+              "value_raw_text": "GOLEM-NV shows significant improvement over GOLEM-EV in most settings."
+            }
+          ],
+          "unit_id": "su_c2d9bb6f441f6ed4c82dac7a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4130 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4889 on attempt 1"
+    }
+  ]
+}

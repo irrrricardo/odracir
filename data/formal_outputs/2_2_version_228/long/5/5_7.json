@@ -1,0 +1,383 @@
+{
+  "coverage_ledger": {
+    "1b108bdf6a3481afe43b": "extracted",
+    "1c5c82013395672052b8": "not_selected",
+    "1dff43973b5c5934ed1e": "extracted",
+    "32d9eeb86684b31bf57a": "extracted",
+    "350e81bb7542f253aea5": "not_selected",
+    "3690c3d678d0401abf0e": "not_selected",
+    "3c3847125e8e20214604": "not_selected",
+    "40e7f681102e57127a63": "not_selected",
+    "4653ccf98816d210d7ae": "not_selected",
+    "46c98b9cad079f3672da": "not_selected",
+    "4e4404be82d135e156bd": "extracted",
+    "6f6bcfe358ba839b4b04": "not_selected",
+    "6f6f96b345f0613289f4": "not_selected",
+    "7ba8e4067b5e063cabb7": "not_selected",
+    "87ed2d908150bf1c7153": "not_selected",
+    "9656fb17fa7268b5b553": "not_selected",
+    "afc78d23748510dd55a8": "not_selected",
+    "b9ae66cf7c7f54154dd0": "not_selected",
+    "bbe662620e5d160188fa": "not_selected",
+    "c51b0d8b4e7702c2f5f0": "not_selected",
+    "c76ae2fe1000032fab96": "not_selected",
+    "c963cc13fbbf5ef7eb59": "not_selected",
+    "d6c36e39c7ce09c5c3b6": "not_selected",
+    "d81b66df96103d623c33": "not_selected",
+    "d96a4c9148c68313d44e": "not_selected",
+    "e06913def95abc6482a1": "not_selected",
+    "ebc5d5d5d0dec07a8fdc": "not_selected",
+    "edb6e00faa6e79f03087": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The method assumes linearity, no unobserved confounders, and non-Gaussian disturbances; violations may lead to incorrect causal models.",
+    "Controlled experiments are the only way to fully verify any causal model; observational data alone cannot completely confirm assumptions.",
+    "The real data examples reported are limited, and practical value needs further evaluation on real-world datasets.",
+    "For larger dimensions, more data is required, though amounts remain reasonable."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_7.pdf",
+    "source_sha256": "da42249cb1af03d0c095d730b8313a640ce9d55beef75e327b6e0eed7ba0bf12"
+  },
+  "paper_id": "5_7",
+  "quality_assessment": {
+    "correct_item_count": 23,
+    "deterministic_rule_score": 0.8371,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 23,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can the complete causal structure of continuous-valued data be discovered under the assumptions of linearity, no unobserved confounders, and non-Gaussian disturbance variables?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9975cc705df14ccca5ad7a71",
+              "inference_basis_ids": [
+                "res_1773a35aaeed69b50f4a097f",
+                "res_b14ec6f970a5bf2880719814"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "Second, we see the statistical power of the test (numbers of true positives)"
+              },
+              "statement": "The statistical power of the test (true positive rate) is high, especially with larger sample sizes."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d9e2a8241b798461d1cd9423",
+              "inference_basis_ids": [
+                "res_7f3b0fecd90c8daa933dedf0",
+                "res_a96364510449bc21b0d9dcf1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "The false positive rates were approximately 10% except the case with sample size 1000 for both 5 and 10 variables."
+              },
+              "statement": "The pruning method achieves low false positive rates, approximately 10% except for small sample sizes."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Five- and ten-dimensional data of sample sizes 1000, 5000, 10000, generated similarly to Section 7.1.",
+              "name": "Artificial data for pruning",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply LiNGAM discovery algorithm to artificial data, then apply pruning method using Wald test and model fit tests at 5% significance level."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "LiNGAM with pruning",
+              "protocol_description": "LiNGAM discovery followed by pruning using Wald test for edge significance, overall model fit test, and nested model comparison. Significance level 5%."
+            }
+          ],
+          "name": "Edge pruning evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "True positive count (edges correctly identified)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "Dim.=5\nn =1000\n8101 (90.5%)\n...\n5000\n8556 (95.6%)\n...\n10000\n8691 (97.1%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1773a35aaeed69b50f4a097f",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 8101 (90.5%); n=5000: 8556 (95.6%); n=10000: 8691 (97.1%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "False positive count for dim=10",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "False pos.\nDim.=10\nn =1000\n2306 (22.0%)\n5000\n1127 (10.8%)\n10000\n1011 (9.6%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7f3b0fecd90c8daa933dedf0",
+              "unit": null,
+              "value_raw_text": "Dim.=10, n=1000: 2306 (22.0%); n=5000: 1127 (10.8%); n=10000: 1011 (9.6%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "False negative count (edges falsely missing)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "False neg.\nDim.=5\nn =1000\n849 (9.5%)\n5000\n394 (4.4%)\n10000\n259 (2.9%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7f4cd6f278a389f7575b8e23",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 849 (9.5%); n=5000: 394 (4.4%); n=10000: 259 (2.9%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "True negative count (absences correctly identified)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "True neg.\nDim.=5\nn =1000\n921 (87.7%)\n5000\n943 (89.8%)\n10000\n972 (92.6%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8ae018be6378ff078d475058",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 921 (87.7%); n=5000: 943 (89.8%); n=10000: 972 (92.6%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "False positive count (edges falsely added)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "False pos.\nDim.=5\nn =1000\n129 (12.3%)\n5000\n107 (10.2%)\n10000\n78 (7.4%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a96364510449bc21b0d9dcf1",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 129 (12.3%); n=5000: 107 (10.2%); n=10000: 78 (7.4%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "True positive count (edges correctly identified) for dim=10",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "Dim.=10\nn =1000\n27825 (80.6%)\n...\n5000\n31623 (91.6%)\n...\n10000\n32477 (94.1%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b14ec6f970a5bf2880719814",
+              "unit": null,
+              "value_raw_text": "Dim.=10, n=1000: 27825 (80.6%); n=5000: 31623 (91.6%); n=10000: 32477 (94.1%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "True negative count for dim=10",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "True neg.\nDim.=10\nn =1000\n8171 (78.0%)\n5000\n9350 (89.2%)\n10000\n9466 (90.4%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c653d7e327eb3f41f160bfa3",
+              "unit": null,
+              "value_raw_text": "Dim.=10, n=1000: 8171 (78.0%); n=5000: 9350 (89.2%); n=10000: 9466 (90.4%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "False negative count for dim=10",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "False neg.\nDim.=10\nn =1000\n6698 (19.4%)\n5000\n2900 (8.4%)\n10000\n2046 (5.9%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e4790b61b1c1b08028e28252",
+              "unit": null,
+              "value_raw_text": "Dim.=10, n=1000: 6698 (19.4%); n=5000: 2900 (8.4%); n=10000: 2046 (5.9%)"
+            }
+          ],
+          "unit_id": "su_843f1294b359c4a6629b0357"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7f7c8a97ff2935138cd80059",
+              "inference_basis_ids": [
+                "res_44de3857a21c5ec92bb0bea8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "In summary, the experiments verify the correctness of the method and demonstrate that reliable estimation is possible even with fairly limited amounts of data."
+              },
+              "statement": "The LiNGAM algorithm can reliably estimate causal connections given sufficient data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Artificially generated data with varying dimensions, sample sizes, network sparseness levels, and non-linearities.",
+              "name": "Artificial data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Discover causal ordering and connection strengths from observational data using ICA-based LiNGAM algorithm."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "LiNGAM",
+              "protocol_description": "Linear Non-Gaussian Acyclic Model: uses independent component analysis to estimate a mixing matrix, then permutes and normalizes to obtain a lower-triangular connection matrix B. Assumes linearity, no unobserved confounders, and non-Gaussian disturbances."
+            }
+          ],
+          "name": "LiNGAM discovery algorithm",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Estimation accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "when the data size grows the estimation works practically flawlessly, as evidenced by the grouping of the data points onto the main diagonal"
+              },
+              "quantitative_value": null,
+              "result_id": "res_44de3857a21c5ec92bb0bea8",
+              "unit": null,
+              "value_raw_text": "when the data size grows the estimation works practically flawlessly, as evidenced by the grouping of the data points onto the main diagonal"
+            }
+          ],
+          "unit_id": "su_d34e7a973bd29808bb3ca2c8"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6111 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6957 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5915 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6053 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6216 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5467 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5467 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,1016 @@
+{
+  "coverage_ledger": {
+    "0db4d339f5053b768d20": "not_selected",
+    "276e2da3e17b6bee9dae": "extracted",
+    "2b34b90f751ea2684e49": "not_selected",
+    "306b4762a6013c2d2bf4": "not_selected",
+    "32ea476caf58cef37a8d": "extracted",
+    "4fda0d245367ad17f859": "extracted",
+    "6132e393dc782554fee2": "not_selected",
+    "66fee74f0b6fda04e62f": "extracted",
+    "72d09c67e17d5330652f": "extracted",
+    "78e0e6a016b5905fcd61": "extracted",
+    "7d2c5ebd1ec02edb60fc": "not_selected",
+    "bccc58f910fd9635af79": "not_selected",
+    "c1afe8cb72082c9ccc36": "not_selected",
+    "f2c1895397b5b3be1503": "extracted",
+    "f5edee5af6461dd2811b": "not_selected",
+    "fc513b524fc1d536568f": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The analysis focuses on long-range problems; short-range tasks may not suffer from over-squashing.",
+    "The FA layer solution is simple and may not be optimal; better solutions may exist.",
+    "Theoretical bounds are derived for a specific synthetic problem (TREE-NEIGHBORSMATCH) and may not directly transfer to all real-world graphs.",
+    "Over-squashing is distinct from over-smoothing; the paper does not fully disentangle their interaction in all scenarios.",
+    "The FA layer adds O(N^2) edges, which may be computationally expensive for very large graphs."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_4.pdf",
+    "source_sha256": "aac6510666a6f44acb9908db2209e5d1598d62e02c06ce7c5ca5bc7eb3dd7f2a"
+  },
+  "paper_id": "7_4",
+  "quality_assessment": {
+    "correct_item_count": 49,
+    "deterministic_rule_score": 0.9512,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 66,
+    "f1": 0.8033,
+    "incorrect_item_count": 17,
+    "incorrect_items": [
+      {
+        "description": "The extracted result states 'Maximal problem radius for 100% training accuracy: GCN and GIN: r=4; GAT and GGNN: r=5'. The source chunk (4fda0d245367ad17f859) only says 'GCN and GIN, are more susceptible to over-squashing than GAT and GGNN' and does not provide these specific r values. The r values are derived from Figure 3, but the extracted provenance excerpt does not contain them.",
+        "item_id": "result:su_034aed7915ac54bdf820ac34:res_33fa86df4c71791f6c4220b3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result states 'GCN and GIN fail to reach 100% training accuracy for r>4; GAT and GGNN fail for r>5'. The source chunk (4fda0d245367ad17f859) only says 'we demonstrate that the bottleneck hinders popular GNNs from fitting long-range signals in the training data; we further show that GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN'. The specific r thresholds are not in the excerpt.",
+        "item_id": "result:su_034aed7915ac54bdf820ac34:res_f02080a45ad0f293ecf4fd16",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement 'GCN and GIN are more susceptible to over-squashing than GAT and GGNN.' is supported by the source chunk (4fda0d245367ad17f859) which says 'GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN'. However, the claim's inference_basis_ids includes res_33fa86df4c71791f6c4220b3, which is incorrect. The claim itself is correct, but the inference basis is wrong. Since the audit is on the extracted items, and the claim's provenance is correct, the claim is not incorrect. But the result it references is incorrect. The instruction says 'mark an extracted item incorrect only for unsupported, contradicted, or materially overstated content'. The claim is supported by the excerpt, so it is not incorrect. However, the result is incorrect. So only the result is incorrect.",
+        "item_id": "claim:su_034aed7915ac54bdf820ac34:clm_da73d30f7851a4b7194326e9",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement 'GNNs suffer from a bottleneck that causes over-squashing, preventing them from fitting long-range signals in training data.' is supported by the source chunk (4fda0d245367ad17f859) which says 'we demonstrate that the bottleneck hinders popular GNNs from fitting long-range signals in the training data'. The claim's inference_basis_ids includes res_f02080a45ad0f293ecf4fd16, which is incorrect. The claim itself is correct, so it is not incorrect.",
+        "item_id": "claim:su_034aed7915ac54bdf820ac34:clm_fd026c81daf9044dc1f0e7a8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result states 'Empirical minimal d for r=7: d=512 can empirically fit r=7 at most'. The source chunk (66fee74f0b6fda04e62f) says 'even d=512 can empirically fit r=7 at most.' This is a direct quote, so the result is correct. However, the result's quantitative_value is 512.0, which is correct. The result is not incorrect.",
+        "item_id": "result:su_5d8def6110b40f216bbbe78f:res_7d486540f0f49c130878edaa",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement 'The required hidden dimension d grows exponentially with the problem radius r, making over-squashing a severe limitation.' is supported by the source chunk (66fee74f0b6fda04e62f) which says 'the empirical and the theoretical minimal d grow exponentially with r'. The claim is correct.",
+        "item_id": "claim:su_5d8def6110b40f216bbbe78f:clm_4cd7a803928b341baf86ec01",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result states 'Relative error reduction across all properties: R-GIN: -40.33%, R-GAT: -39.53%, GGNN: -43.40%'. The source chunk (32ea476caf58cef37a8d) shows 'Relative: -40.33% -43.40% -39.53%'. The order in the excerpt is R-GIN, GGNN, R-GAT. The extracted result assigns -43.40% to GGNN and -39.53% to R-GAT, which matches the excerpt. So it is correct.",
+        "item_id": "result:su_386c29c5109801a49b3f5aaa:res_b89bdbe05644a895457fc9e8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement 'Adding a fully-adjacent layer to GNNs significantly reduces error on all QM9 properties across multiple architectures.' is supported by the source chunk (32ea476caf58cef37a8d) which says 'adding an FA layer significantly improves results across all GNN architectures, for all properties.' The claim is correct.",
+        "item_id": "claim:su_386c29c5109801a49b3f5aaa:clm_c8ff1a4e588d85839178bf62",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result states 'Relative error reduction on NCI1: 4.8% average relative error reduction across models'. The source chunk (78e0e6a016b5905fcd61) says 'and by 4.8% in NCI1.' The excerpt is part of a sentence: 'On average, models with FA layers relatively reduce the error rate by 12% in ENZYMES and by 4.8% in NCI1.' So the result is correct.",
+        "item_id": "result:su_f9cda3a9e3b1af543d88251c:res_4d89ca324469158f0fd7633a",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result states 'Relative error reduction on ENZYMES: 12% average relative error reduction across models'. The source chunk (78e0e6a016b5905fcd61) says 'On average, models with FA layers relatively reduce the error rate by 12% in ENZYMES'. So the result is correct.",
+        "item_id": "result:su_f9cda3a9e3b1af543d88251c:res_57f1b8200bac25edbe3ab782",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement 'Adding an FA layer improves accuracy on biological benchmarks, with GIN+FA achieving new best results on both NCI1 and ENZYMES.' is supported by the source chunk (78e0e6a016b5905fcd61) which says 'in NCI1, GIN+FA improves by 1.5% over GIN-base, which was previously the best performing model; in ENZYMES, ... GIN+FA does exploit the structure and improves by 8.1% over GIN-base and by 2.5% over No Struct.' The claim is correct.",
+        "item_id": "claim:su_f9cda3a9e3b1af543d88251c:clm_2cc5d4aafa3b37473aae47be",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement 'Adding an FA layer improves accuracy on VARMISUSE, achieving new state-of-the-art on SeenProj (88.4%) and UnseenProj (83.8%).' The source chunk (78e0e6a016b5905fcd61) says 'adding an FA layer to all GNNs improves their SeenProjTest accuracy, obtaining a new state-of-the-art of 88.4%. In the UnseenProjTest set, adding an an FA layer improves the results of some of most of the GNNs, obtaining a new state-of-the-art of 83.8%.' The claim is correct.",
+        "item_id": "claim:su_33f4fe4339878d42388ccaec:clm_e8fc03fb8509196d7cb16c39",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary 'The analysis focuses on long-range problems; short-range tasks may not suffer from over-squashing.' is supported by the source chunks, e.g., chunk 4fda0d245367ad17f859 says 'In problems that are local in nature (small r) – the bottleneck is less troublesome'. So it is correct.",
+        "item_id": "boundary:1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary 'The FA layer solution is simple and may not be optimal; better solutions may exist.' is supported by the source chunks, e.g., chunk 306b4762a6013c2d2bf4 says 'We note that an FA layer is a simple solution. Its purpose is merely to demonstrate that over-squashing in GNNs is so prevalent and untreated that even the simplest solution helps. Our main contribution is not the solution, but rather, highlighting and explaining the over-squashing problem. This simple solution opens the path for a variety of follow-up improvements and solutions for over-squashing.' So it is correct.",
+        "item_id": "boundary:2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary 'Theoretical bounds are derived for a specific synthetic problem (TREE-NEIGHBORSMATCH) and may not directly transfer to all real-world graphs.' is supported by the source chunks, e.g., chunk 66fee74f0b6fda04e62f derives bounds for TREE-NEIGHBORSMATCH. The paper does not claim they transfer directly. So it is correct.",
+        "item_id": "boundary:3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary 'Over-squashing is distinct from over-smoothing; the paper does not fully disentangle their interaction in all scenarios.' is supported by the source chunks, e.g., chunk 7d2c5ebd1ec02edb60fc discusses the distinction but does not fully disentangle. So it is correct.",
+        "item_id": "boundary:4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary 'The FA layer adds O(N^2) edges, which may be computationally expensive for very large graphs.' is not explicitly stated in the source chunks. The paper mentions that the FA layer connects all pairs, but does not discuss computational expense as a limitation. So this boundary is not supported.",
+        "item_id": "boundary:5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "The paper mentions that the FA layer is added only in the last layer, and the first K-1 layers use the original sparse topology. This is a core methodological detail.",
+        "item_id": null,
+        "source_chunk_id": "306b4762a6013c2d2bf4",
+        "source_excerpt": "converting an existing layer to be fully-adjacent means that Nv := V for every node v ∈V, in that layer only. This does not change the type of layer nor add weights, but only changes adjacency of a data sample in a single layer. Thus, the K −1 graph layers exploit the graph structure using their original sparse topology, and only the K-th layer is an FA layer",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that the average diameter of QM9 graphs is 6.35±0.91, max 10, 90th percentile 8, and that models with 10 layers did not improve, indicating that the improvement from FA is due to reducing over-squashing, not under-reaching.",
+        "item_id": null,
+        "source_chunk_id": "306b4762a6013c2d2bf4",
+        "source_excerpt": "we measured the graphs’ diameter in the QM9 dataset – the maximum shortest path between any two nodes in a graph. We found that the average diameter is 6.35±0.91, the maximum diameter is 10, and the 90’th percentile is 8, while most models were trained with K=8 layers. That is, at least 90% of the examples in the dataset certainly did not suffer from under-reaching, because the number of layers was greater or equal than their diameter. We trained another set of models with 10 layers, which did not show an improvement over the base models. We conclude that the source of improvement was clearly not the increased reachability, but instead, the reduction in over-squashing.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that doubling the hidden dimension size (2×d) led to only 5.5% improvement, while FA layer achieved 42% improvement, showing that increasing dimension is ineffective.",
+        "item_id": null,
+        "source_chunk_id": "2b34b90f751ea2684e49",
+        "source_excerpt": "2×d is a model that was trained with a doubled hidden dimension size, d = 256 instead of d = 128 as in the base model. As shown, doubling the hidden dimension size leads to a small improvement of only 5.5% reduction in error. In comparison, the +FA model used the original dimension sizes and achieves a much larger improvement of 43.40%.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that using all layers as FA (ignoring graph topology) led to 1500% higher error, showing that graph structure is still important.",
+        "item_id": null,
+        "source_chunk_id": "2b34b90f751ea2684e49",
+        "source_excerpt": "All FA is a model that was trained with all GNN layers converted into FA layers, practically ignoring the graph topology. This led to much worse results of more than 1500% higher error.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that using only a fraction of edges in the FA layer (partial FA) still reduces error, e.g., 0.5× FA reduces error by 31.5%.",
+        "item_id": null,
+        "source_chunk_id": "2b34b90f751ea2684e49",
+        "source_excerpt": "using only half of the edges (0.5× FA) reduces the error by 31.5%.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that the penultimate FA layer (FA as the K-1-th layer) led to slightly better results than +FA.",
+        "item_id": null,
+        "source_chunk_id": "2b34b90f751ea2684e49",
+        "source_excerpt": "Penultimate FA is a model where the FA layer is the penultimate layer (the K −1-th), followed by a standard GNN layer as the K-th layer. This led to results that are even slightly better than +FA.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that in the TREE-NEIGHBORSMATCH experiment, when the long-range is maintained but the amount of information is reduced (chain setting), all GNNs easily fit the data, showing that over-squashing, not long-range itself, is the problem.",
+        "item_id": null,
+        "source_chunk_id": "6132e393dc782554fee2",
+        "source_excerpt": "we repeated the experiment of Figure 3 for depths 4 to 8, where the distance between the leaves and the target node remained the same, but the amount of over-squashing was as in r=2. That is, the graph looks like a tree of depth=2, where the root is connected to a “chain” of length of up to 6, and the target node is at the other side of the chain. This setting maintains the long-range as in the original problem, but reduces the amount of information that needs to be squashed. In other words, This setting disentangles of the effect of the long-range itself from the effect of the growing amount of information (i.e., from over-squashing). In this setting, all GNN types managed to easily fit the data to close to 100% across all distances, showing that the problem is the amount of over-squashing, rather than the long-range itself.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.7424,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.875
+  },
+  "quality_score": 0.8033,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do GNNs suffer from a bottleneck that causes over-squashing of information from distant nodes, and how does this affect performance on long-range tasks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_da73d30f7851a4b7194326e9",
+              "inference_basis_ids": [
+                "res_33fa86df4c71791f6c4220b3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN"
+              },
+              "statement": "GCN and GIN are more susceptible to over-squashing than GAT and GGNN."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fd026c81daf9044dc1f0e7a8",
+              "inference_basis_ids": [
+                "res_f02080a45ad0f293ecf4fd16"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we demonstrate that the bottleneck hinders popular GNNs from fitting long-range signals in the training data"
+              },
+              "statement": "GNNs suffer from a bottleneck that causes over-squashing, preventing them from fitting long-range signals in training data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "A tree-structured graph where a target node must predict a label based on the number of blue neighbors of green leaf nodes. The problem radius r controls the depth of the tree and thus the amount of information that must be propagated to the target node.",
+              "name": "TREE-NEIGHBORSMATCH",
+              "version_or_split": "synthetic"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Controlled synthetic benchmark where the problem radius r is varied to measure training accuracy of different GNN architectures."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GCN",
+              "protocol_description": "Graph Convolutional Network with K layers, where K equals the problem radius r. Hidden dimension d=32. Trained to 100% training accuracy if possible."
+            },
+            {
+              "method_id": "M2",
+              "name": "GIN",
+              "protocol_description": "Graph Isomorphism Network with K layers, K=r, d=32."
+            },
+            {
+              "method_id": "M3",
+              "name": "GAT",
+              "protocol_description": "Graph Attention Network with K layers, K=r, d=32."
+            },
+            {
+              "method_id": "M4",
+              "name": "GGNN",
+              "protocol_description": "Gated Graph Neural Network with K layers, K=r, d=32."
+            }
+          ],
+          "name": "Synthetic TREE-NEIGHBORSMATCH experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Maximal problem radius for 100% training accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "GCN and GIN, are more susceptible to over-squashing than GAT and GGNN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_33fa86df4c71791f6c4220b3",
+              "unit": null,
+              "value_raw_text": "GCN and GIN: r=4; GAT and GGNN: r=5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4fda0d245367ad17f859",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "we demonstrate that the bottleneck hinders popular GNNs from fitting long-range signals in the training data; we further show that GNNs that absorb incoming edges equally, such as GCN and GIN, are more susceptible to over-squashing than GAT and GGNN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f02080a45ad0f293ecf4fd16",
+              "unit": null,
+              "value_raw_text": "GCN and GIN fail to reach 100% training accuracy for r>4; GAT and GGNN fail for r>5"
+            }
+          ],
+          "unit_id": "su_034aed7915ac54bdf820ac34"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e8fc03fb8509196d7cb16c39",
+              "inference_basis_ids": [
+                "res_db2be7836b91a26d49ed5ca1",
+                "res_ffaf034d117e81a6969ca8a5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "adding an FA layer to all GNNs improves their SeenProjTest accuracy, obtaining a new state-of-the-art of 88.4%. In the UnseenProjTest set, adding an an FA layer improves the results of some of most of the GNNs, obtaining a new state-of-the-art of 83.8%."
+              },
+              "statement": "Adding an FA layer improves accuracy on VARMISUSE, achieving new state-of-the-art on SeenProj (88.4%) and UnseenProj (83.8%)."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Program graphs with node classification task; SeenProj and UnseenProj test sets.",
+              "name": "VARMISUSE",
+              "version_or_split": "as per Allamanis et al. (2018)"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Node prediction in computer programs to detect variable misuse, using GNNs with and without FA layer."
+          ],
+          "methods": [
+            {
+              "method_id": "M15",
+              "name": "GGNN",
+              "protocol_description": "Gated Graph Neural Network with 6-10 layers, best hyperparameters from Brockschmidt (2020)."
+            },
+            {
+              "method_id": "M16",
+              "name": "R-GCN",
+              "protocol_description": "Relational GCN with 6-10 layers."
+            },
+            {
+              "method_id": "M17",
+              "name": "R-GIN",
+              "protocol_description": "Relational GIN with 6-10 layers."
+            },
+            {
+              "method_id": "M18",
+              "name": "GNN-MLP",
+              "protocol_description": "GNN-MLP with 6-10 layers."
+            },
+            {
+              "method_id": "M19",
+              "name": "R-GAT",
+              "protocol_description": "Relational GAT with 6-10 layers."
+            }
+          ],
+          "name": "VARMISUSE program analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on UnseenProj",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "UnseenProj ... GGNN base† 79.3±1.2 +FA 79.1±1.1 R-GCN base† 82.9±0.8 +FA 83.8±1.0 R-GIN base† 81.1±0.9 +FA 81.7±1.2 GNN-MLP base† 81.4±0.7 +FA 81.2±0.5 R-GAT base† 81.2±0.9 +FA 82.0±1.9"
+              },
+              "quantitative_value": null,
+              "result_id": "res_db2be7836b91a26d49ed5ca1",
+              "unit": null,
+              "value_raw_text": "GGNN base: 79.3±1.2, +FA: 79.1±1.1; R-GCN base: 82.9±0.8, +FA: 83.8±1.0; R-GIN base: 81.1±0.9, +FA: 81.7±1.2; GNN-MLP base: 81.4±0.7, +FA: 81.2±0.5; R-GAT base: 81.2±0.9, +FA: 82.0±1.9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on SeenProj",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SeenProj ... GGNN base† 85.7±0.5 +FA 86.3±0.7 R-GCN base† 88.3±0.4 +FA 88.4±0.7 R-GIN base† 87.1±0.1 +FA 87.5±0.7 GNN-MLP base† 86.9±0.3 +FA 87.3±0.2 R-GAT base† 86.9±0.7 +FA 87.9±1.0"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ffaf034d117e81a6969ca8a5",
+              "unit": null,
+              "value_raw_text": "GGNN base: 85.7±0.5, +FA: 86.3±0.7; R-GCN base: 88.3±0.4, +FA: 88.4±0.7; R-GIN base: 87.1±0.1, +FA: 87.5±0.7; GNN-MLP base: 86.9±0.3, +FA: 87.3±0.2; R-GAT base: 86.9±0.7, +FA: 87.9±1.0"
+            }
+          ],
+          "unit_id": "su_33f4fe4339878d42388ccaec"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c8ff1a4e588d85839178bf62",
+              "inference_basis_ids": [
+                "res_07f77912ba7f6073f6d2a9a5",
+                "res_0e13ce8e4e548aede6be9439",
+                "res_13177b0dbb09cae863f2ecab",
+                "res_252d47bcd9988c101f1d20da",
+                "res_2d0ffe44dcc4612b13c48241",
+                "res_3c50adcc3e3c0e8702070fa8",
+                "res_57c766c1f9b9a0ddd361fad1",
+                "res_5aacffd8d38c7400bae3dc38",
+                "res_603bd74045af6a4a8ad3f86a",
+                "res_b89bdbe05644a895457fc9e8",
+                "res_bdbf28c2415ad09e80348453",
+                "res_ce4cdde84414189a163a3571",
+                "res_f367e29866b95bf4f5748a00",
+                "res_fb470fec266102019a1d5ac2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "adding an FA layer significantly improves results across all GNN architectures, for all properties."
+              },
+              "statement": "Adding a fully-adjacent layer to GNNs significantly reduces error on all QM9 properties across multiple architectures."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Quantum chemistry dataset with 110,462 training, 10,000 validation, 10,000 test molecules. Average 18 nodes, 18.65 edges per graph.",
+              "name": "QM9",
+              "version_or_split": "as used by Brockschmidt (2020)"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Predict 13 chemical properties of molecules in the QM9 dataset using various GNN architectures, with and without a fully-adjacent (FA) layer in the last layer."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "GNN-FiLM",
+              "protocol_description": "GNN-FiLM with 8 layers, hidden dimension 128, same training protocol."
+            },
+            {
+              "method_id": "M5",
+              "name": "R-GIN",
+              "protocol_description": "Relational GIN with 8 layers, hidden dimension 128, trained with Adam, learning rate 0.001, batch size 64, for 300 epochs. Last layer optionally replaced by FA layer."
+            },
+            {
+              "method_id": "M6",
+              "name": "R-GAT",
+              "protocol_description": "Relational GAT with 8 layers, hidden dimension 128, same training protocol."
+            },
+            {
+              "method_id": "M7",
+              "name": "GGNN",
+              "protocol_description": "GGNN with 8 layers, hidden dimension 128, same training protocol."
+            },
+            {
+              "method_id": "M8",
+              "name": "GNN-MLP",
+              "protocol_description": "GNN-MLP with 8 layers, hidden dimension 128, same training protocol."
+            },
+            {
+              "method_id": "M9",
+              "name": "R-GCN",
+              "protocol_description": "Relational GCN with 8 layers, hidden dimension 128, same training protocol."
+            }
+          ],
+          "name": "QM9 chemical property prediction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for U property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "U 6.20±0.88 1.72±0.12 8.24±1.25 1.88±0.22 5.95±0.46 1.75±0.08"
+              },
+              "quantitative_value": null,
+              "result_id": "res_07f77912ba7f6073f6d2a9a5",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 6.20±0.88, +FA: 1.72±0.12; R-GAT base: 5.95±0.46, +FA: 1.75±0.08; GGNN base: 8.24±1.25, +FA: 1.88±0.22"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for H property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "H 5.96±0.45 1.70±0.08 9.05±1.21 1.85±0.18 5.59±0.57 1.93±0.42"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0e13ce8e4e548aede6be9439",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 5.96±0.45, +FA: 1.70±0.08; R-GAT base: 5.59±0.57, +FA: 1.93±0.42; GGNN base: 9.05±1.21, +FA: 1.85±0.18"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for Cv property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Cv 3.38±0.20 1.69±0.08 3.93±0.48 1.90±0.07 3.46±0.21 1.64±0.10"
+              },
+              "quantitative_value": null,
+              "result_id": "res_13177b0dbb09cae863f2ecab",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 3.38±0.20, +FA: 1.69±0.08; R-GAT base: 3.46±0.21, +FA: 1.64±0.10; GGNN base: 3.93±0.48, +FA: 1.90±0.07"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for R2 property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "R2 14.86±1.62 12.40±0.84 16.38±0.49 13.55±0.50 15.59±1.38 11.89±0.73"
+              },
+              "quantitative_value": null,
+              "result_id": "res_252d47bcd9988c101f1d20da",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 14.86±1.62, +FA: 12.40±0.84; R-GAT base: 15.59±1.38, +FA: 11.89±0.73; GGNN base: 16.38±0.49, +FA: 13.55±0.50"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for HOMO property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "HOMO 1.25±0.04 1.19±0.04 1.45±0.01 1.37±0.02 1.22±0.07 1.11±0.01"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2d0ffe44dcc4612b13c48241",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 1.25±0.04, +FA: 1.19±0.04; R-GAT base: 1.22±0.07, +FA: 1.11±0.01; GGNN base: 1.45±0.01, +FA: 1.37±0.02"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for ZPVE property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "ZPVE 12.00±1.66 4.68±0.29 17.40±3.56 5.81±0.61 11.00±0.74 4.68±0.49"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3c50adcc3e3c0e8702070fa8",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 12.00±1.66, +FA: 4.68±0.29; R-GAT base: 11.00±0.74, +FA: 4.68±0.49; GGNN base: 17.40±3.56, +FA: 5.81±0.61"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for Omega property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Omega 0.84±0.02 0.63±0.04 1.02±0.05 0.75±0.04 0.98±0.06 0.69±0.05"
+              },
+              "quantitative_value": null,
+              "result_id": "res_57c766c1f9b9a0ddd361fad1",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 0.84±0.02, +FA: 0.63±0.04; R-GAT base: 0.98±0.06, +FA: 0.69±0.05; GGNN base: 1.02±0.05, +FA: 0.75±0.04"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for gap property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "gap 2.04±0.05 1.82±0.05 2.42±0.14 2.03±0.03 1.96±0.06 1.79±0.07"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5aacffd8d38c7400bae3dc38",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 2.04±0.05, +FA: 1.82±0.05; R-GAT base: 1.96±0.06, +FA: 1.79±0.07; GGNN base: 2.42±0.14, +FA: 2.03±0.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for U0 property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "U0 5.55±0.38 1.71±0.13 7.82±0.80 1.75±0.18 5.43±0.96 1.60±0.12"
+              },
+              "quantitative_value": null,
+              "result_id": "res_603bd74045af6a4a8ad3f86a",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 5.55±0.38, +FA: 1.71±0.13; R-GAT base: 5.43±0.96, +FA: 1.60±0.12; GGNN base: 7.82±0.80, +FA: 1.75±0.18"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error reduction across all properties",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Relative: -40.33% -43.40% -39.53%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b89bdbe05644a895457fc9e8",
+              "unit": null,
+              "value_raw_text": "R-GIN: -40.33%, R-GAT: -39.53%, GGNN: -43.40%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for G property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "G 5.09±0.57 1.53±0.15 7.00±1.51 1.76±0.15 5.17±1.13 1.77±0.05"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bdbf28c2415ad09e80348453",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 5.09±0.57, +FA: 1.53±0.15; R-GAT base: 5.17±1.13, +FA: 1.77±0.05; GGNN base: 7.00±1.51, +FA: 1.76±0.15"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for mu property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "mu 2.36±0.04 2.19±0.04 3.21±0.06 2.92±0.07 2.38±0.13 2.26±0.06"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ce4cdde84414189a163a3571",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 2.36±0.04, +FA: 2.19±0.04; R-GAT base: 2.38±0.13, +FA: 2.26±0.06; GGNN base: 3.21±0.06, +FA: 2.92±0.07"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for LUMO property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "LUMO 1.35±0.04 1.20±0.05 1.62±0.04 1.41±0.01 1.30±0.05 1.21±0.05"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f367e29866b95bf4f5748a00",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 1.35±0.04, +FA: 1.20±0.05; R-GAT base: 1.30±0.05, +FA: 1.21±0.05; GGNN base: 1.62±0.04, +FA: 1.41±0.01"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean absolute error (MAE) for alpha property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ea476caf58cef37a8d",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "alpha 4.27±0.36 1.92±0.06 4.22±0.45 2.14±0.08 3.75±0.11 1.93±0.08"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fb470fec266102019a1d5ac2",
+              "unit": null,
+              "value_raw_text": "R-GIN base: 4.27±0.36, +FA: 1.92±0.06; R-GAT base: 3.75±0.11, +FA: 1.93±0.08; GGNN base: 4.22±0.45, +FA: 2.14±0.08"
+            }
+          ],
+          "unit_id": "su_386c29c5109801a49b3f5aaa"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4cd7a803928b341baf86ec01",
+              "inference_basis_ids": [
+                "res_414c1c886e493c1c23cadce1",
+                "res_7d486540f0f49c130878edaa"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "66fee74f0b6fda04e62f",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the empirical and the theoretical minimal d grow exponentially with r"
+              },
+              "statement": "The required hidden dimension d grows exponentially with the problem radius r, making over-squashing a severe limitation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Combinatorial analysis of the minimal hidden dimension d required for a GNN to perfectly fit TREE-NEIGHBORSMATCH data given problem radius r."
+          ],
+          "methods": [
+            {
+              "method_id": "M20",
+              "name": "Combinatorial lower bound",
+              "protocol_description": "Derive inequality b^{f·d} > (m^r)! / (m!)^{m^{r-1}} for binary trees (m=2, b=2, f=32)."
+            }
+          ],
+          "name": "Theoretical lower bound analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Maximal problem radius for d=32",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "66fee74f0b6fda04e62f",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "for d=32 as in the experiments in Section 4.1, the maximal problem radius is as low as r=7."
+              },
+              "quantitative_value": 7.0,
+              "result_id": "res_414c1c886e493c1c23cadce1",
+              "unit": null,
+              "value_raw_text": "r=7"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Empirical minimal d for r=7",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "66fee74f0b6fda04e62f",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "even d=512 can empirically fit r=7 at most."
+              },
+              "quantitative_value": 512.0,
+              "result_id": "res_7d486540f0f49c130878edaa",
+              "unit": null,
+              "value_raw_text": "d=512 can empirically fit r=7 at most"
+            }
+          ],
+          "unit_id": "su_5d8def6110b40f216bbbe78f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2cc5d4aafa3b37473aae47be",
+              "inference_basis_ids": [
+                "res_4d89ca324469158f0fd7633a",
+                "res_57f1b8200bac25edbe3ab782",
+                "res_97299ba18205d4ea4c0deb0a",
+                "res_dd9db616a24b87d5618f46ed"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "in NCI1, GIN+FA improves by 1.5% over GIN-base, which was previously the best performing model; in ENZYMES, ... GIN+FA does exploit the structure and improves by 8.1% over GIN-base and by 2.5% over No Struct."
+              },
+              "statement": "Adding an FA layer improves accuracy on biological benchmarks, with GIN+FA achieving new best results on both NCI1 and ENZYMES."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "4110 graphs, average 30 nodes, binary classification.",
+              "name": "NCI1",
+              "version_or_split": "10-fold cross-validation as per Errica et al. (2020)"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "600 graphs, average 36 nodes, 6-class classification.",
+              "name": "ENZYMES",
+              "version_or_split": "10-fold cross-validation as per Errica et al. (2020)"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Graph classification on NCI1 (anti-lung-cancer activity) and ENZYMES (enzyme class) using GNNs with and without FA layer."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "DiffPool",
+              "protocol_description": "Differentiable pooling GNN, base and +FA variants."
+            },
+            {
+              "method_id": "M12",
+              "name": "GraphSAGE",
+              "protocol_description": "GraphSAGE, base and +FA variants."
+            },
+            {
+              "method_id": "M13",
+              "name": "DGCNN",
+              "protocol_description": "Deep Graph CNN, base and +FA variants."
+            },
+            {
+              "method_id": "M14",
+              "name": "GIN",
+              "protocol_description": "Graph Isomorphism Network, base and +FA variants."
+            }
+          ],
+          "name": "Biological benchmarks NCI1 and ENZYMES",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error reduction on NCI1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "and by 4.8% in NCI1."
+              },
+              "quantitative_value": 4.8,
+              "result_id": "res_4d89ca324469158f0fd7633a",
+              "unit": "%",
+              "value_raw_text": "4.8% average relative error reduction across models"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error reduction on ENZYMES",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "On average, models with FA layers relatively reduce the error rate by 12% in ENZYMES"
+              },
+              "quantitative_value": 12.0,
+              "result_id": "res_57f1b8200bac25edbe3ab782",
+              "unit": "%",
+              "value_raw_text": "12% average relative error reduction across models"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on ENZYMES",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ENZYMES ... DiffPool base† 59.5±5.6 +FA 65.7±4.8 GraphSAGE base† 58.2±6.0 +FA 60.8±4.5 DGCNN base† 38.9±5.7 +FA 42.8±5.3 GIN base† 59.6±4.5 +FA 67.7±5.3"
+              },
+              "quantitative_value": null,
+              "result_id": "res_97299ba18205d4ea4c0deb0a",
+              "unit": null,
+              "value_raw_text": "DiffPool base: 59.5±5.6, +FA: 65.7±4.8; GraphSAGE base: 58.2±6.0, +FA: 60.8±4.5; DGCNN base: 38.9±5.7, +FA: 42.8±5.3; GIN base: 59.6±4.5, +FA: 67.7±5.3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on NCI1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "78e0e6a016b5905fcd61",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "NCI1 ... DiffPool base† 76.9±1.9 +FA 77.6±1.3 GraphSAGE base† 76.0±1.8 +FA 77.7±1.8 DGCNN base† 76.4±1.7 +FA 76.8±1.5 GIN base† 80.0±1.4 +FA 81.5±1.2"
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd9db616a24b87d5618f46ed",
+              "unit": null,
+              "value_raw_text": "DiffPool base: 76.9±1.9, +FA: 77.6±1.3; GraphSAGE base: 76.0±1.8, +FA: 77.7±1.8; DGCNN base: 76.4±1.7, +FA: 76.8±1.5; GIN base: 80.0±1.4, +FA: 81.5±1.2"
+            }
+          ],
+          "unit_id": "su_f9cda3a9e3b1af543d88251c"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6490 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6980 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6974 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5952 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3597 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7049 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7027 on attempt 1"
+    }
+  ]
+}

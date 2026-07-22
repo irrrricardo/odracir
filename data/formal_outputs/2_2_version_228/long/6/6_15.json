@@ -1,0 +1,398 @@
+{
+  "coverage_ledger": {
+    "0ea4ef1fbad6d229f06f": "not_selected",
+    "14f4c3b123ffc0f044ac": "not_selected",
+    "2a23adce80472e19143f": "not_selected",
+    "2ca586b2403be6a97b8e": "extracted",
+    "31578945296fa9a0598b": "not_selected",
+    "378db5ced91f36e26915": "not_selected",
+    "502d06cbd45b218a2091": "not_selected",
+    "5a5e420bc82df4e47d7a": "not_selected",
+    "67f49d064e033a6874c3": "not_selected",
+    "6cbc0d60c9870eda1e86": "not_selected",
+    "6e0a2d416e2fa1c0e4ab": "not_selected",
+    "8074ae76091c31d64023": "not_selected",
+    "859646eb776fda6ea814": "not_selected",
+    "a0b8bcd4e61266a02eae": "not_selected",
+    "a0cc15340237454b4935": "not_selected",
+    "a572ec4a0e2aef263f0f": "not_selected",
+    "a87806c1e94221b0b9b1": "not_selected",
+    "aafc59822b542787fd4c": "not_selected",
+    "bcf4b115a81219a7971d": "not_selected",
+    "c2eb4fd11e2bd595a9d9": "not_selected",
+    "f0b6f68999e011b395f5": "extracted",
+    "f302069a5097388816cd": "extracted",
+    "fc38797a2ab3305c0db8": "extracted",
+    "fcc2c6b73432093eb975": "not_selected",
+    "fd5b47b8802107009813": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The limitations of our work are addressed in the discussion."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_15.pdf",
+    "source_sha256": "04a1e14982923f12fc93cd84c9e96e9ff1241eeff69d695e8089c6a185fce359"
+  },
+  "paper_id": "6_15",
+  "quality_assessment": {
+    "correct_item_count": 36,
+    "deterministic_rule_score": 0.8336,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 36,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do graph convolutional networks (GCNs) always oversmooth, or can they exhibit a non-oversmoothing phase?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b23bcc7d873bc579fe87e4e8",
+              "inference_basis_ids": [
+                "res_22faca92f1da49b01b15f1fb",
+                "res_328b2667a599e4ff0b0574d3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Thus also on more general graphs the presented formalism predicts the transition point between the oversmoothing and the non-oversmoothing phase."
+              },
+              "statement": "The formalism correctly predicts the transition point on general graphs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d8e07786cf2c9fbf3bb15891",
+              "inference_basis_ids": [
+                "res_4b27b1cfdd8e191df5fc721b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The equilibrium state thus contains information about the graph topology."
+              },
+              "statement": "In the non-oversmoothing phase, the equilibrium state contains information about graph topology."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Synthetic model generating a graph with two communities and community-wise correlated features on nodes. Pairs of nodes within the same community have higher connection probability and more strongly correlated feature vectors.",
+              "name": "Contextual Stochastic Block Model (CSBM)",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply the formalism to a Contextual Stochastic Block Model (CSBM) with two communities and community-wise correlated features.",
+            "Compare predicted feature distance averaged within/between classes as a function of layers with finite-size simulations.",
+            "Construct the linear map H from Equation (16) and analytical solution for Cθϕ.",
+            "Determine the transition point numerically by finding eigenvalues.",
+            "Show that GCNs degenerate to zero distance state when σ²_w < σ²_w,crit."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Numerical transition determination",
+              "protocol_description": "Construct the linear map H from Equation (16) and the analytical solution for Cθϕ, then find the set of eigenvalues to determine the transition point σ²_w,crit."
+            },
+            {
+              "method_id": "M5",
+              "name": "Finite-size GCN simulation on CSBM",
+              "protocol_description": "Simulate finite-size GCNs on the CSBM instance and compare feature distance evolution with theoretical predictions."
+            }
+          ],
+          "name": "Validation on general graphs using CSBM",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Transition prediction accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Panel a) shows how this procedure correctly predicts the transition in the given CSBM instance: The maximum feature distance between any pair of nodes increases from zero at the point where the state K(l)αβ = k(l) becomes unstable."
+              },
+              "quantitative_value": null,
+              "result_id": "res_22faca92f1da49b01b15f1fb",
+              "unit": null,
+              "value_raw_text": "Panel a) shows how this procedure correctly predicts the transition in the given CSBM instance: The maximum feature distance between any pair of nodes increases from zero at the point where the state K(l)αβ = k(l) becomes unstable."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equilibrium feature distance behavior",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "At point A (panel b)), within the oversmoothing phase, all equilibrium feature distances are indeed zero, the network therefore converges to a state in which all features are the same. At point B (panel c)) on the other hand, pairs of nodes exist that have finite distance."
+              },
+              "quantitative_value": null,
+              "result_id": "res_313a0497aa3e73d0fd229c51",
+              "unit": null,
+              "value_raw_text": "At point A (panel b)), within the oversmoothing phase, all equilibrium feature distances are indeed zero, the network therefore converges to a state in which all features are the same. At point B (panel c)) on the other hand, pairs of nodes exist that have finite distance."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Feature distance prediction vs simulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "theoretical predictions match with simulations. Thus also on more general graphs the presented formalism predicts the transition point between the oversmoothing and the non-oversmoothing phase, corresponding to a transition between regular and chaotic behavior."
+              },
+              "quantitative_value": null,
+              "result_id": "res_328b2667a599e4ff0b0574d3",
+              "unit": null,
+              "value_raw_text": "theoretical predictions match with simulations. Thus also on more general graphs the presented formalism predicts the transition point between the oversmoothing and the non-oversmoothing phase, corresponding to a transition between regular and chaotic behavior."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Community structure recognition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "In the latter case, one can recognize the community structure of the CSBM: the lower left and upper right quadrants are lighter than the diagonal ones, indicating larger feature distances across communities than within. The equilibrium state thus contains information about the graph topology."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4b27b1cfdd8e191df5fc721b",
+              "unit": null,
+              "value_raw_text": "In the latter case, one can recognize the community structure of the CSBM: the lower left and upper right quadrants are lighter than the diagonal ones, indicating larger feature distances across communities than within. The equilibrium state thus contains information about the graph topology."
+            }
+          ],
+          "unit_id": "su_6b1c91e627e66b2416f81083"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bb3702a684bd5d657d2c7301",
+              "inference_basis_ids": [
+                "res_63ea09724937c9466973fed6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fc38797a2ab3305c0db8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "if the initial weights of the network have sufficiently large variance, GCNs do not oversmooth, and node features remain informative even at large depth."
+              },
+              "statement": "GCNs can avoid oversmoothing if initial weight variance is sufficiently large."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e84728667a7c26d856195fc7",
+              "inference_basis_ids": [
+                "res_2d89dc861ba410d3527586c4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fc38797a2ab3305c0db8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "This propagation depth diverges at the transition between the oversmoothing and non-oversmoothing phase."
+              },
+              "statement": "The propagation depth diverges at the phase transition between oversmoothing and non-oversmoothing."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze the distribution of features at the output layer of deep GCNs using the GP framework.",
+            "Derive Gaussian process (GP) equivalence for deep GCNs in the limit of infinitely many hidden features.",
+            "Generalize the concept of propagation depth of information from DNNs to GCNs using the linearization of the GCN GP.",
+            "Identify a non-oversmoothing phase where node features remain informative at large depth if initial weight variance is sufficiently large."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Gaussian Process Equivalence for GCNs",
+              "protocol_description": "Generalize methods from conventional deep neural networks (DNNs) to describe the distribution of features at the output layer of deep GCNs in terms of a Gaussian process (GP) in the limit of infinitely many hidden features."
+            }
+          ],
+          "name": "Theoretical analysis of GCN oversmoothing via Gaussian process equivalence",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Propagation depth divergence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc38797a2ab3305c0db8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "using the linearization of the GCN GP, we generalize the concept of propagation depth of information from DNNs to GCNs. This propagation depth diverges at the transition between the oversmoothing and non-oversmoothing phase."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2d89dc861ba410d3527586c4",
+              "unit": null,
+              "value_raw_text": "The propagation depth diverges at the transition between the oversmoothing and non-oversmoothing phase."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phase identification",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc38797a2ab3305c0db8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "as expected, we find that typical parameter choices from the literature lead to oversmoothing. The theory, however, allows us to identify a new, non-oversmoothing phase: if the initial weights of the network have sufficiently large variance, GCNs do not oversmooth, and node features remain informative even at large depth."
+              },
+              "quantitative_value": null,
+              "result_id": "res_63ea09724937c9466973fed6",
+              "unit": null,
+              "value_raw_text": "Typical parameter choices from the literature lead to oversmoothing; however, if the initial weights of the network have sufficiently large variance, GCNs do not oversmooth, and node features remain informative even at large depth."
+            }
+          ],
+          "unit_id": "su_78de67eeac91a37d0c91ca95"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a0bb9442921a9978052d5a30",
+              "inference_basis_ids": [
+                "res_93f3cef0ebbacdb716583fd3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We find again that GCNs with parameters past the transition do not oversmooth."
+              },
+              "statement": "GCNs with parameters beyond the transition do not oversmooth."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c8bfbfa931f82184ab1a00bd",
+              "inference_basis_ids": [
+                "res_788aaf69ba3844ad27ddcea3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Panel b) confirms the accuracy of this calculation."
+              },
+              "statement": "The theoretical prediction for the phase transition is accurate."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Complete graph with N=5 nodes, shift operator Aαβ = g/(N-1) + δαβ(1 - Ng/(N-1)), vanishing bias σ²_b = 0, activation ϕ(x) = erf(√(π/2) x).",
+              "name": "Complete graph",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare theoretical prediction for phase transition with simulations.",
+            "Compute GCN GP prior for L=4,000 layers to obtain equilibrium feature distance μ(X).",
+            "Predict evolution of feature distances over layers and compare with finite-size simulations (hidden layer dimension dl=200, 50 network realizations).",
+            "Simulate GCN on a complete graph with N=5 nodes, shift operator Aαβ = g/(N-1) + δαβ(1 - Ng/(N-1)), vanishing bias σ²_b = 0, and activation ϕ(x) = erf(√(π/2) x)."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "GCN GP prior computation",
+              "protocol_description": "Compute the GCN GP prior for L=4,000 layers to obtain the equilibrium feature distance μ(X) as a function of σ²_w and g."
+            },
+            {
+              "method_id": "M3",
+              "name": "Finite-size GCN simulation",
+              "protocol_description": "Simulate finite-size GCNs with hidden layer dimension dl=200, random input X(0)αi ~ N(0,1), and compare feature distance evolution over layers with theoretical predictions."
+            }
+          ],
+          "name": "Simulation and GP prior validation on complete graph",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Phase diagram accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The theoretical prediction for the transition is calculated in Appendix C and shown as the red line. Panel b) confirms the accuracy of this calculation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_788aaf69ba3844ad27ddcea3",
+              "unit": null,
+              "value_raw_text": "The theoretical prediction for the transition is shown as the red line. Panel b) confirms the accuracy of this calculation."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Feature distance evolution prediction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2ca586b2403be6a97b8e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "our formalism allows us to predict the evolution of feature distances over layers correctly, as can be confirmed in panel c). We find again that GCNs with parameters past the transition do not oversmooth."
+              },
+              "quantitative_value": null,
+              "result_id": "res_93f3cef0ebbacdb716583fd3",
+              "unit": null,
+              "value_raw_text": "our formalism allows us to predict the evolution of feature distances over layers correctly, as can be confirmed in panel c). We find again that GCNs with parameters past the transition do not oversmooth."
+            }
+          ],
+          "unit_id": "su_b73de870b8d8b09590e91085"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

@@ -1,0 +1,234 @@
+{
+  "coverage_ledger": {
+    "003d13aee495107de3da": "not_selected",
+    "11032afba02431d6f3d3": "not_selected",
+    "14e2f5479d34454aba02": "extracted",
+    "232a29f74f0ea65a1e27": "not_selected",
+    "2bbea9f17afa0c62a650": "not_selected",
+    "2c105eb3350fff5c5fd7": "not_selected",
+    "45fc3b609dbb277167c8": "not_selected",
+    "5cc5153a7ca5fd098426": "not_selected",
+    "80a0394649a38a4bf74e": "not_selected",
+    "988fd1ef3fa12917b64f": "not_selected",
+    "9abdf92e4ac2ee14e3f8": "not_selected",
+    "a0cc2f312ffd6938549a": "not_selected",
+    "a30088811778dc6dd8fb": "not_selected",
+    "a6fe56edf357502181df": "extracted",
+    "b0d3e5871daa47987d06": "extracted",
+    "c71daba47adc0c177a0c": "not_selected",
+    "cda260352e816e4dc5c7": "not_selected",
+    "e073e7fca061ae690528": "not_selected",
+    "ea90647873bdbf2f92dc": "extracted",
+    "ece8e79677ea1023c91c": "not_selected",
+    "ed87d2f69a9bb6c66cd5": "not_selected",
+    "fe61ac695e44cdd47a8f": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The proposed methods should not be viewed as replacements of classical numerical methods (e.g., finite elements, spectral methods) which have matured over 50 years and meet robustness and computational efficiency standards.",
+    "The method does not quantify uncertainty associated with neural network predictions, unlike previous Gaussian process approaches.",
+    "There is no theoretical guarantee that the L-BFGS optimization converges to a global minimum.",
+    "The method's success depends on the PDE being well-posed and having a unique solution, and on sufficient network capacity and collocation points."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_1.pdf",
+    "source_sha256": "2a8db6776a110a4f36bd1e36af79cf31a2e74baa5af8f7ee3d9286a75fdc400d"
+  },
+  "paper_id": "7_1",
+  "quality_assessment": {
+    "correct_item_count": 15,
+    "deterministic_rule_score": 0.825,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 15,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can physics-informed neural networks be used to infer solutions to partial differential equations?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7f0b5d5db45ab9871d1639b4",
+              "inference_basis_ids": [
+                "res_25530529e03bdd4cf1ab421e",
+                "res_6d0a3fd7a80c7a0d56eabf0d",
+                "res_91fcbc523cc414f530ab61a9",
+                "res_dcc6335211661e554e5ee40a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "14e2f5479d34454aba02",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "given a set of Nu = 100 randomly distributed initial and boundary data, we learn the latent solution u(t, x) by training all 3021 parameters of a 9-layer deep neural network using the mean squared error loss of (4)."
+              },
+              "statement": "The physics-informed neural network can learn the solution of the Burgers equation from only 100 initial and boundary data points."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ed7f740d6387eb82803c3345",
+              "inference_basis_ids": [
+                "res_25530529e03bdd4cf1ab421e",
+                "res_6d0a3fd7a80c7a0d56eabf0d",
+                "res_dcc6335211661e554e5ee40a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "14e2f5479d34454aba02",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "our empirical evidence indicates that, if the given partial differential equation is well-posed and its solution is unique, our method is capable of achieving good prediction accuracy given a sufficiently expressive neural network architecture and a sufficient number of collocation points Nf."
+              },
+              "statement": "The method achieves good prediction accuracy if the PDE is well-posed and the neural network has sufficient capacity and collocation points."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Nu=100 randomly distributed initial and boundary data points for the Burgers equation.",
+              "name": "Burgers equation initial/boundary data",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "N_f collocation points for enforcing the PDE residual f(t,x).",
+              "name": "Burgers equation collocation points",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "MSEu = 1/Nu sum |u(t^i_u, x^i_u) - u^i|^2, and MSEf = 1/Nf sum |f(t^i_f, x^i_f)|^2.",
+              "provenance": {
+                "chunk_id": "14e2f5479d34454aba02",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "MSEu = 1/Nu sum |u(t^i_u, x^i_u) - u^i|^2, and MSEf = 1/Nf sum |f(t^i_f, x^i_f)|^2."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Learn the latent solution u(t,x) of the Burgers equation from Nu=100 randomly distributed initial and boundary data points, using a physics-informed neural network with a 9-layer deep neural network (20 neurons per hidden layer, hyperbolic tangent activation) trained via L-BFGS on the composite loss MSE = MSE_u + MSE_f, where MSE_u enforces initial/boundary data and MSE_f enforces the PDE residual at N_f collocation points."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Physics-informed neural network (PINN)",
+              "protocol_description": "A deep neural network approximates the solution u(t,x). The loss function is MSE = MSE_u + MSE_f, where MSE_u is the mean squared error on initial and boundary data, and MSE_f is the mean squared error of the PDE residual at collocation points. Training uses L-BFGS, a full-batch quasi-Newton optimizer. The network has 9 hidden layers with 20 neurons each and hyperbolic tangent activation, totaling 3021 parameters."
+            }
+          ],
+          "name": "Data-driven solution of Burgers equation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimization method",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14e2f5479d34454aba02",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "we chose to optimize all loss functions using L-BFGS; a quasi-Newton, full-batch gradient-based optimization algorithm"
+              },
+              "quantitative_value": null,
+              "result_id": "res_25530529e03bdd4cf1ab421e",
+              "unit": null,
+              "value_raw_text": "L-BFGS"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Network architecture",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14e2f5479d34454aba02",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "training all 3021 parameters of a 9-layer deep neural network ... Each hidden layer contained 20 neurons and a hyperbolic tangent activation function"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6d0a3fd7a80c7a0d56eabf0d",
+              "unit": null,
+              "value_raw_text": "9-layer deep neural network with 20 neurons per hidden layer and hyperbolic tangent activation, 3021 parameters"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training data size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14e2f5479d34454aba02",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "given a set of Nu = 100 randomly distributed initial and boundary data"
+              },
+              "quantitative_value": 100.0,
+              "result_id": "res_91fcbc523cc414f530ab61a9",
+              "unit": null,
+              "value_raw_text": "Nu = 100"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Loss function",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14e2f5479d34454aba02",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "MSEu = 1/Nu sum |u - ui|^2 ... MSEf = 1/Nf sum |f|^2"
+              },
+              "quantitative_value": null,
+              "result_id": "res_dcc6335211661e554e5ee40a",
+              "unit": null,
+              "value_raw_text": "MSE = MSE_u + MSE_f"
+            }
+          ],
+          "unit_id": "su_d4ea6cd105e7a18632f1c079"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7349 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7315 on attempt 1"
+    }
+  ]
+}

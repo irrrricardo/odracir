@@ -1,0 +1,258 @@
+{
+  "coverage_ledger": {
+    "1b108bdf6a3481afe43b": "extracted",
+    "1c5c82013395672052b8": "not_selected",
+    "1dff43973b5c5934ed1e": "extracted",
+    "32d9eeb86684b31bf57a": "extracted",
+    "350e81bb7542f253aea5": "not_selected",
+    "3690c3d678d0401abf0e": "not_selected",
+    "3c3847125e8e20214604": "not_selected",
+    "40e7f681102e57127a63": "not_selected",
+    "4653ccf98816d210d7ae": "not_selected",
+    "46c98b9cad079f3672da": "not_selected",
+    "4e4404be82d135e156bd": "extracted",
+    "6f6bcfe358ba839b4b04": "not_selected",
+    "6f6f96b345f0613289f4": "not_selected",
+    "7ba8e4067b5e063cabb7": "not_selected",
+    "87ed2d908150bf1c7153": "not_selected",
+    "9656fb17fa7268b5b553": "not_selected",
+    "afc78d23748510dd55a8": "not_selected",
+    "b9ae66cf7c7f54154dd0": "not_selected",
+    "bbe662620e5d160188fa": "not_selected",
+    "c51b0d8b4e7702c2f5f0": "not_selected",
+    "c76ae2fe1000032fab96": "not_selected",
+    "c963cc13fbbf5ef7eb59": "not_selected",
+    "d6c36e39c7ce09c5c3b6": "not_selected",
+    "d81b66df96103d623c33": "not_selected",
+    "d96a4c9148c68313d44e": "not_selected",
+    "e06913def95abc6482a1": "not_selected",
+    "ebc5d5d5d0dec07a8fdc": "not_selected",
+    "edb6e00faa6e79f03087": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The method assumes linearity, no unobserved confounders, and non-Gaussian disturbance variables.",
+    "It is never possible to completely confirm the assumptions purely from observational data; controlled experiments are needed for verification.",
+    "Only pathological cases constructed by mischievous data designers seem likely to be problematic.",
+    "The real data examples reported are rather limited.",
+    "The practical value needs further determination by applying to more real-world data sets and comparing to other methods."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_2.pdf",
+    "source_sha256": "da42249cb1af03d0c095d730b8313a640ce9d55beef75e327b6e0eed7ba0bf12"
+  },
+  "paper_id": "6_2",
+  "quality_assessment": {
+    "correct_item_count": 20,
+    "deterministic_rule_score": 0.8104,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 20,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can the complete causal structure of continuous-valued data be discovered under the assumptions of linearity, no unobserved confounders, and non-Gaussian disturbance variables?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1124c188f115abec80501533",
+              "inference_basis_ids": [
+                "res_a7aa6cbc29cc7fc657a33738"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1b108bdf6a3481afe43b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we show how to discover the complete causal structure of continuous-valued data, under the assumptions that (a) the data generating process is linear, (b) there are no unobserved confounders, and (c) disturbance variables have non-Gaussian distributions of non-zero variances."
+              },
+              "statement": "The LiNGAM method can discover the complete causal structure under the stated assumptions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Artificially generated data with varying dimensions, sample sizes, network sparseness, and non-linearities.",
+              "name": "Artificial data",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Real-world data sets used for demonstration.",
+              "name": "Real-world data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Discover causal ordering and connection strengths from observational data using ICA and permutation algorithms."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "LiNGAM",
+              "protocol_description": "Linear Non-Gaussian Acyclic Model: (1) Center data, (2) Apply ICA to estimate mixing matrix W, (3) Permute rows of W to minimize sum of squared off-diagonal elements in the lower triangular part, (4) Normalize to obtain B, (5) Prune edges using statistical tests."
+            }
+          ],
+          "name": "LiNGAM discovery algorithm",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Estimation accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "Although for very small data sizes the estimation often fails, when the data size grows the estimation works practically flawlessly, as evidenced by the grouping of the data points onto the main diagonal."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a7aa6cbc29cc7fc657a33738",
+              "unit": null,
+              "value_raw_text": "For very small data sizes the estimation often fails, when the data size grows the estimation works practically flawlessly, as evidenced by the grouping of the data points onto the main diagonal."
+            }
+          ],
+          "unit_id": "su_3d7aaa1d88a726a7fe6de997"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_392c598b7ca9455d5ca4a73c",
+              "inference_basis_ids": [
+                "res_3f44077433b74a66c47dddaf",
+                "res_d91be228ac712684c6af4cbc",
+                "res_ebe9566b4bfe8e4547cea906",
+                "res_f9551ba8dd7b5ca09099591d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "The false positive rates were approximately 10% except the case with sample size 1000 for both 5 and 10 variables. Second, we see the statistical power of the test (numbers of true positives)"
+              },
+              "statement": "The pruning method achieves high true positive rates and low false positive rates, improving with larger sample sizes."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Artificially generated data with varying dimensions, sample sizes, network sparseness, and non-linearities.",
+              "name": "Artificial data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate pruning method on artificial data with 5 and 10 variables, sample sizes 1000, 5000, 10000."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Pruning method",
+              "protocol_description": "Apply Wald test to prune edges with non-significant coefficients at 5% significance level after LiNGAM estimation."
+            }
+          ],
+          "name": "Edge pruning evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "True negative count",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "True pos.\nFalse neg.\nTrue neg.\nFalse pos.\nSums of false\npos. and neg.\nDim.=5\nn =1000\n8101 (90.5%)\n849 (9.5%)\n921 (87.7%)\n129 (12.3%)\n978 (9.8%)\n5000\n8556 (95.6%)\n394 (4.4%)\n943 (89.8%)\n107 (10.2%)\n501 (5.0%)\n10000\n8691 (97.1%)\n259 (2.9%)\n972 (92.6%)\n78 (7.4%)\n337 (3.4%)\nDim.=10\nn =1000\n27825 (80.6%)\n6698 (19.4%)\n8171 (78.0%)\n2306 (22.0%)\n9004 (20.0%)\n5000\n31623 (91.6%)\n2900 (8.4%)\n9350 (89.2%)\n1127 (10.8%)\n4027 (8.9%)\n10000\n32477 (94.1%)\n2046 (5.9%)\n9466 (90.4%)\n1011 (9.6%)\n3057 (6.8%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3f44077433b74a66c47dddaf",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 921 (87.7%); n=5000: 943 (89.8%); n=10000: 972 (92.6%). Dim.=10, n=1000: 8171 (78.0%); n=5000: 9350 (89.2%); n=10000: 9466 (90.4%)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "False negative count",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "True pos.\nFalse neg.\nTrue neg.\nFalse pos.\nSums of false\npos. and neg.\nDim.=5\nn =1000\n8101 (90.5%)\n849 (9.5%)\n921 (87.7%)\n129 (12.3%)\n978 (9.8%)\n5000\n8556 (95.6%)\n394 (4.4%)\n943 (89.8%)\n107 (10.2%)\n501 (5.0%)\n10000\n8691 (97.1%)\n259 (2.9%)\n972 (92.6%)\n78 (7.4%)\n337 (3.4%)\nDim.=10\nn =1000\n27825 (80.6%)\n6698 (19.4%)\n8171 (78.0%)\n2306 (22.0%)\n9004 (20.0%)\n5000\n31623 (91.6%)\n2900 (8.4%)\n9350 (89.2%)\n1127 (10.8%)\n4027 (8.9%)\n10000\n32477 (94.1%)\n2046 (5.9%)\n9466 (90.4%)\n1011 (9.6%)\n3057 (6.8%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d91be228ac712684c6af4cbc",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 849 (9.5%); n=5000: 394 (4.4%); n=10000: 259 (2.9%). Dim.=10, n=1000: 6698 (19.4%); n=5000: 2900 (8.4%); n=10000: 2046 (5.9%)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "True positive count",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "True pos.\nFalse neg.\nTrue neg.\nFalse pos.\nSums of false\npos. and neg.\nDim.=5\nn =1000\n8101 (90.5%)\n849 (9.5%)\n921 (87.7%)\n129 (12.3%)\n978 (9.8%)\n5000\n8556 (95.6%)\n394 (4.4%)\n943 (89.8%)\n107 (10.2%)\n501 (5.0%)\n10000\n8691 (97.1%)\n259 (2.9%)\n972 (92.6%)\n78 (7.4%)\n337 (3.4%)\nDim.=10\nn =1000\n27825 (80.6%)\n6698 (19.4%)\n8171 (78.0%)\n2306 (22.0%)\n9004 (20.0%)\n5000\n31623 (91.6%)\n2900 (8.4%)\n9350 (89.2%)\n1127 (10.8%)\n4027 (8.9%)\n10000\n32477 (94.1%)\n2046 (5.9%)\n9466 (90.4%)\n1011 (9.6%)\n3057 (6.8%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ebe9566b4bfe8e4547cea906",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 8101 (90.5%); n=5000: 8556 (95.6%); n=10000: 8691 (97.1%). Dim.=10, n=1000: 27825 (80.6%); n=5000: 31623 (91.6%); n=10000: 32477 (94.1%)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "False positive count",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1dff43973b5c5934ed1e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "True pos.\nFalse neg.\nTrue neg.\nFalse pos.\nSums of false\npos. and neg.\nDim.=5\nn =1000\n8101 (90.5%)\n849 (9.5%)\n921 (87.7%)\n129 (12.3%)\n978 (9.8%)\n5000\n8556 (95.6%)\n394 (4.4%)\n943 (89.8%)\n107 (10.2%)\n501 (5.0%)\n10000\n8691 (97.1%)\n259 (2.9%)\n972 (92.6%)\n78 (7.4%)\n337 (3.4%)\nDim.=10\nn =1000\n27825 (80.6%)\n6698 (19.4%)\n8171 (78.0%)\n2306 (22.0%)\n9004 (20.0%)\n5000\n31623 (91.6%)\n2900 (8.4%)\n9350 (89.2%)\n1127 (10.8%)\n4027 (8.9%)\n10000\n32477 (94.1%)\n2046 (5.9%)\n9466 (90.4%)\n1011 (9.6%)\n3057 (6.8%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f9551ba8dd7b5ca09099591d",
+              "unit": null,
+              "value_raw_text": "Dim.=5, n=1000: 129 (12.3%); n=5000: 107 (10.2%); n=10000: 78 (7.4%). Dim.=10, n=1000: 2306 (22.0%); n=5000: 1127 (10.8%); n=10000: 1011 (9.6%)."
+            }
+          ],
+          "unit_id": "su_f133276364268a4d383aa7a1"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

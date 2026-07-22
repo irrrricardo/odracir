@@ -1,0 +1,599 @@
+{
+  "coverage_ledger": {
+    "321eedd54f10ad63a756": "extracted",
+    "348ae57dc86def6e0284": "not_selected",
+    "4003496dfc6c58acc9ab": "not_selected",
+    "4bd08068006863240b71": "not_selected",
+    "590a401d334f0d596c42": "extracted",
+    "64e3c1d1526506bb31ff": "not_selected",
+    "6f21a5d6395eaf8996e5": "not_selected",
+    "b09e607209f29c33d45f": "not_selected",
+    "b3c87f59d82c812f4d61": "not_selected",
+    "d2e3b493c184398573c3": "extracted",
+    "d2e6fc5786eb9dd2992d": "extracted",
+    "ea9289a9d8d0cf69307c": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Lossless codelengths are not competitive with other likelihood-based generative models.",
+    "Training on the true variational bound yields better codelengths but worse sample quality than the simplified objective.",
+    "Learning reverse process variances leads to unstable training and poorer sample quality.",
+    "The simplified objective down-weights loss terms for small t, which may affect reconstruction of fine details."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "10_1.pdf",
+    "source_sha256": "cb471d4c0063cad56f8d74b6a72fa7dad1677f8423a0a81349487a63bb58d3de"
+  },
+  "paper_id": "10_1",
+  "quality_assessment": {
+    "correct_item_count": 32,
+    "deterministic_rule_score": 0.9453,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 32,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can diffusion probabilistic models achieve high quality image synthesis, and how do they compare to existing generative models?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_166d70e4f096c1bfba62f473",
+              "inference_basis_ids": [
+                "res_b4f25649a85c28e3c37f8ed0",
+                "res_ba18f49c03c3f3021b01d300",
+                "res_c79be7096e1eff8b4f7208d1",
+                "res_ea97c24e53d129468a6d0ad0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Predicting ϵ, as we proposed, performs approximately as well as predicting μ~ when trained on the variational bound with fixed variances, but much better when trained with our simplified objective."
+              },
+              "statement": "Predicting ϵ performs approximately as well as predicting μ~ when trained on the variational bound with fixed variances, but much better when trained with our simplified objective."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_205530c494c647fd72261f00",
+              "inference_basis_ids": [
+                "res_55e490abc560511200abfd5c",
+                "res_ab96d3734c3cd9c2e427a722",
+                "res_b365c9c3ff9f287b9182512e",
+                "res_fe9dc8e7ffff0d7066f4b092"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "We find that the baseline option of predicting μ~ works well only when trained on the true variational bound instead of unweighted mean squared error, a simplified objective akin to Eq. (14)."
+              },
+              "statement": "Predicting μ~ works well only when trained on the true variational bound instead of unweighted mean squared error."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_42f15cfaa48a09a212a54073",
+              "inference_basis_ids": [
+                "res_b4f25649a85c28e3c37f8ed0",
+                "res_ba18f49c03c3f3021b01d300"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "With our FID score of 3.17, our unconditional model achieves better sample quality than most models in the literature, including class conditional models."
+              },
+              "statement": "Our unconditional model achieves better sample quality than most models in the literature, including class conditional models."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_65a374133cbb3f8169367e9a",
+              "inference_basis_ids": [
+                "res_0c73c9ab91bb66beaaa516cb",
+                "res_0dea3677afdecd355dd4e3b0"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "590a401d334f0d596c42",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "More than half of the lossless codelength describes imperceptible distortions."
+              },
+              "statement": "More than half of the lossless codelength describes imperceptible distortions."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dc49b6e294f24698e335ed25",
+              "inference_basis_ids": [
+                "res_0c73c9ab91bb66beaaa516cb",
+                "res_0dea3677afdecd355dd4e3b0",
+                "res_a83d17a3b8a37e5a179e9da3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "590a401d334f0d596c42",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Since our samples are nonetheless of high quality, we conclude that diffusion models have an inductive bias that makes them excellent lossy compressors."
+              },
+              "statement": "Diffusion models have an inductive bias that makes them excellent lossy compressors."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dd64bbecfe3c336dde063f9a",
+              "inference_basis_ids": [
+                "res_55e490abc560511200abfd5c",
+                "res_fe9dc8e7ffff0d7066f4b092"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "We also see that learning reverse process variances (by incorporating a parameterized diagonal Σθ(xt) into the variational bound) leads to unstable training and poorer sample quality compared to fixed variances."
+              },
+              "statement": "Learning reverse process variances leads to unstable training and poorer sample quality compared to fixed variances."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e935a7a8dff29354f784c123",
+              "inference_basis_ids": [
+                "res_b4f25649a85c28e3c37f8ed0",
+                "res_ba18f49c03c3f3021b01d300"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "We find that training our models on the true variational bound yields better codelengths than training on the simplified objective, as expected, but the latter yields the best sample quality."
+              },
+              "statement": "Training on the simplified objective Lsimple yields the best sample quality."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on reverse process parameterization and training objective for unconditional CIFAR10 generation.",
+            "Analysis of lossless and lossy compression performance of DDPM on CIFAR10.",
+            "Image generation on LSUN Church and Bedroom datasets at 256x256 resolution.",
+            "Unconditional image generation on CIFAR10 dataset."
+          ],
+          "methods": [],
+          "name": "Provisional flat extraction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "NLL Train",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Ours (Lsimple) 9.46±0.11 3.17 ≤3.75 (3.72)"
+              },
+              "quantitative_value": 3.72,
+              "result_id": "res_068f31ecca4e53e7db42aa76",
+              "unit": "bits/dim",
+              "value_raw_text": "3.72"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "590a401d334f0d596c42",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "our CIFAR10 model with the highest quality samples has a rate of 1.78 bits/dim and a distortion of 1.97 bits/dim"
+              },
+              "quantitative_value": 1.78,
+              "result_id": "res_0c73c9ab91bb66beaaa516cb",
+              "unit": "bits/dim",
+              "value_raw_text": "1.78 bits/dim"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Distortion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "590a401d334f0d596c42",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "our CIFAR10 model with the highest quality samples has a rate of 1.78 bits/dim and a distortion of 1.97 bits/dim"
+              },
+              "quantitative_value": 1.97,
+              "result_id": "res_0dea3677afdecd355dd4e3b0",
+              "unit": "bits/dim",
+              "value_raw_text": "1.97 bits/dim"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "590a401d334f0d596c42",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Figure 4: LSUN Bedroom samples. FID=4.90"
+              },
+              "quantitative_value": 4.9,
+              "result_id": "res_5001af9e6a2f0e70db13bc36",
+              "unit": null,
+              "value_raw_text": "4.90"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inception Score (IS)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "μ~ prediction (baseline) L, learned diagonal Σ 7.28±0.10 23.69"
+              },
+              "quantitative_value": 7.28,
+              "result_id": "res_55e490abc560511200abfd5c",
+              "unit": null,
+              "value_raw_text": "7.28±0.10"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "590a401d334f0d596c42",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Figure 3: LSUN Church samples. FID=7.89"
+              },
+              "quantitative_value": 7.89,
+              "result_id": "res_986f76a9d3b23702a2b849fb",
+              "unit": null,
+              "value_raw_text": "7.89"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "590a401d334f0d596c42",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "which amounts to a root mean squared error of 0.95 on a scale from 0 to 255"
+              },
+              "quantitative_value": 0.95,
+              "result_id": "res_a83d17a3b8a37e5a179e9da3",
+              "unit": "scale 0-255",
+              "value_raw_text": "0.95"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inception Score (IS)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "μ~ prediction (baseline) L, fixed isotropic Σ 8.06±0.09 13.22"
+              },
+              "quantitative_value": 8.06,
+              "result_id": "res_ab96d3734c3cd9c2e427a722",
+              "unit": null,
+              "value_raw_text": "8.06±0.09"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID (test set)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "when we compute it with respect to the test set, the score is 5.24"
+              },
+              "quantitative_value": 5.24,
+              "result_id": "res_b18ef334d9ec896e9c23cb74",
+              "unit": null,
+              "value_raw_text": "5.24"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "μ~ prediction (baseline) L, fixed isotropic Σ 8.06±0.09 13.22"
+              },
+              "quantitative_value": 13.22,
+              "result_id": "res_b365c9c3ff9f287b9182512e",
+              "unit": null,
+              "value_raw_text": "13.22"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "d2e3b493c184398573c3",
+                  "page_end": 5,
+                  "page_start": 5,
+                  "paraphrased": true,
+                  "text_excerpt": "ϵ prediction (ours) ∥ϵ~ - ϵθ∥2 (Lsimple) 9.46±0.11 3.17"
+                }
+              ],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Ours (Lsimple) 9.46±0.11 3.17 ≤3.75 (3.72)"
+              },
+              "quantitative_value": 3.17,
+              "result_id": "res_b4f25649a85c28e3c37f8ed0",
+              "unit": null,
+              "value_raw_text": "3.17"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "d2e3b493c184398573c3",
+                  "page_end": 5,
+                  "page_start": 5,
+                  "paraphrased": true,
+                  "text_excerpt": "ϵ prediction (ours) ∥ϵ~ - ϵθ∥2 (Lsimple) 9.46±0.11 3.17"
+                }
+              ],
+              "metric_name": "Inception Score (IS)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Ours (Lsimple) 9.46±0.11 3.17 ≤3.75 (3.72)"
+              },
+              "quantitative_value": 9.46,
+              "result_id": "res_ba18f49c03c3f3021b01d300",
+              "unit": null,
+              "value_raw_text": "9.46±0.11"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "ϵ prediction (ours) L, fixed isotropic Σ 7.67±0.13 13.51"
+              },
+              "quantitative_value": 13.51,
+              "result_id": "res_c79be7096e1eff8b4f7208d1",
+              "unit": null,
+              "value_raw_text": "13.51"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inception Score (IS)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "ϵ prediction (ours) L, fixed isotropic Σ 7.67±0.13 13.51"
+              },
+              "quantitative_value": 7.67,
+              "result_id": "res_ea97c24e53d129468a6d0ad0",
+              "unit": null,
+              "value_raw_text": "7.67±0.13"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NLL Test",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Ours (Lsimple) 9.46±0.11 3.17 ≤3.75 (3.72)"
+              },
+              "quantitative_value": 3.75,
+              "result_id": "res_ec70220147821991458ac137",
+              "unit": "bits/dim",
+              "value_raw_text": "≤3.75"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d2e3b493c184398573c3",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "μ~ prediction (baseline) L, learned diagonal Σ 7.28±0.10 23.69"
+              },
+              "quantitative_value": 23.69,
+              "result_id": "res_fe9dc8e7ffff0d7066f4b092",
+              "unit": null,
+              "value_raw_text": "23.69"
+            }
+          ],
+          "unit_id": "su_6b324d88ee4d7f85b6d1975b"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.flat_fallback",
+      "json_path": "$.research_questions[0].study_units[0]",
+      "message": "The hierarchical output retained structural ID conflicts after its retry budget; a strictly validated flat extraction was used.",
+      "repair": "flattened supported results, claims, and evidence into Provisional flat extraction"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4450 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4346 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4218 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4162 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7049 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7049 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7049 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7049 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5636 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5636 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5636 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5636 on attempt 2"
+    }
+  ]
+}

@@ -1,0 +1,833 @@
+{
+  "coverage_ledger": {
+    "0c270d0dbedc3112e259": "not_selected",
+    "14137cb0020ab1abfbd7": "extracted",
+    "1c378d8237e6fd1aa4d8": "extracted",
+    "1cf1c3d0f09bb37fa1ed": "not_selected",
+    "3efa796637f97b287cec": "not_selected",
+    "458f2e0533e4af4ee375": "not_selected",
+    "4c1884d694c578d99eb1": "not_selected",
+    "558c06e81afc2b363b4a": "not_selected",
+    "5f25a9b63f44e5dd1c2e": "not_selected",
+    "5ff2343ac6483e82f227": "not_selected",
+    "64738123c61d2935c91f": "not_selected",
+    "6db215e485d2bf3f4685": "not_selected",
+    "6ed1cabf68354144f242": "not_selected",
+    "6f0e45c3595bd8712d6b": "not_selected",
+    "808fa781a3d5116c4bb2": "not_selected",
+    "8d37bd2ee34db037c58b": "not_selected",
+    "8fe0aae6dd17b7d0ddcd": "not_selected",
+    "95033592a3f1c0293219": "not_selected",
+    "9538992fa517eb8d036a": "not_selected",
+    "97c071aa7cd59d617775": "not_selected",
+    "a67a21e2e746a7e43f1e": "not_selected",
+    "adcbfe2d568f8f951158": "not_selected",
+    "bee28b5724001c07542b": "not_selected",
+    "c9b5a1edd47a1d941063": "extracted",
+    "cff770b02913f7191643": "not_selected",
+    "d857dbc01b9fe3a6c934": "not_selected",
+    "e4c51d4287ac14883b9c": "not_selected",
+    "ed3db2926a11d03552ff": "not_selected",
+    "f37248592105f6af2e50": "extracted",
+    "fdac5d8cfb12222fa42d": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Theoretical results do not extend to multi-graphs.",
+    "Current methodology is agnostic to node features; curvature and rewiring only consider graph topology."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_5.pdf",
+    "source_sha256": "dfc8e61d6f08e336b01be3282e14fdddc32574f37348b49c81dfc4ff6b9b400c"
+  },
+  "paper_id": "7_5",
+  "quality_assessment": {
+    "correct_item_count": 56,
+    "deterministic_rule_score": 0.8711,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 56,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does over-squashing in GNNs arise from graph bottlenecks, and can curvature-based rewiring alleviate it?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b641b4dce8fb9d05e576d3cf",
+              "inference_basis_ids": [
+                "res_91c3c45bda3f5c28743efaf2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c9b5a1edd47a1d941063",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We also rigorously show that a random-walk based rewiring method might generally fail to obtain an edge set E′ with a significant improvement in its bottleneckedness as measured by the Cheeger constant."
+              },
+              "statement": "SDRF can reduce graph bottlenecks more effectively than random-walk based rewiring."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose Stochastic Discrete Ricci Flow (SDRF) algorithm to rewire graphs by adding edges around negatively curved edges and removing positively curved edges.",
+            "Theoretically compare SDRF with random-walk based rewiring in terms of Cheeger constant improvement."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Stochastic Discrete Ricci Flow (SDRF)",
+              "protocol_description": "Iteratively add an edge to support the most negatively curved edge (within 1-hop neighborhoods) and remove the most positively curved edge, using Balanced Forman curvature. Temperature τ controls stochasticity of edge addition."
+            }
+          ],
+          "name": "Curvature-based rewiring method (SDRF)",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Theoretical claim",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c9b5a1edd47a1d941063",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We also rigorously show that a random-walk based rewiring method might generally fail to obtain an edge set E′ with a significant improvement in its bottleneckedness as measured by the Cheeger constant."
+              },
+              "quantitative_value": null,
+              "result_id": "res_91c3c45bda3f5c28743efaf2",
+              "unit": null,
+              "value_raw_text": "Random-walk based rewiring may fail to significantly improve the Cheeger constant."
+            }
+          ],
+          "unit_id": "su_5618e6072ae1c99ec7b79bda"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7ec09e935e379c9445b0c9c4",
+              "inference_basis_ids": [
+                "res_087e1aea63f1405a0e1dabbd",
+                "res_130cceaa4fed1467f01f1574",
+                "res_1a63f8d43bbcb8a86a5400bf",
+                "res_42d48b4a3c74c21962c90eb6",
+                "res_441902e207fe5f878f3aa25d",
+                "res_76830d17cd55cba939e6b9a3",
+                "res_7ab7843e9f9355b8543611d5",
+                "res_8ec042082ee16bf8fd7297c7",
+                "res_bb0db1f4d8f394756b49cb03",
+                "res_c17095049711451bc089e8f0",
+                "res_f946a5b752cda278f6480e15",
+                "res_fbf22a780d034f7803a77089"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF preserves the graph topology to a far greater extent than DIGL due to its surgical nature."
+              },
+              "statement": "SDRF preserves graph topology and degree distribution better than DIGL."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a3245bd782cbdda0884948e8",
+              "inference_basis_ids": [
+                "res_1b932e3285596bfd1b45279b",
+                "res_2ecce6e3e1c718245bad2c5e",
+                "res_30a8fc3b2248028d81f309d9",
+                "res_3be5200802e2d835fdaeceaa",
+                "res_774f1617c7533abc7cbd9b03",
+                "res_8d3bca5256668d3a74014e2e",
+                "res_9d092f4e363a191134a5470b",
+                "res_cd22ffc86d458d85ec07e640",
+                "res_fd8607cf84fa8f22c62ed5f8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We also see that SDRF matches or outperforms DIGL and +FA on most datasets, supporting our argument that curvature-based rewiring is a viable candidate for improving GNN performance."
+              },
+              "statement": "SDRF matches or outperforms DIGL and +FA on most datasets."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b9ee2e212bebedfc12483eb0",
+              "inference_basis_ids": [
+                "res_1b932e3285596bfd1b45279b",
+                "res_2ecce6e3e1c718245bad2c5e",
+                "res_30a8fc3b2248028d81f309d9",
+                "res_3be5200802e2d835fdaeceaa",
+                "res_774f1617c7533abc7cbd9b03",
+                "res_8d3bca5256668d3a74014e2e",
+                "res_9d092f4e363a191134a5470b",
+                "res_cd22ffc86d458d85ec07e640",
+                "res_fd8607cf84fa8f22c62ed5f8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We see that SDRF improves upon the baseline in all cases, and that the largest improvements are seen on the low-homophily datasets."
+              },
+              "statement": "SDRF improves accuracy over baseline on all datasets, with largest gains on low-homophily graphs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "WebKB dataset, low homophily (H=0.11)",
+              "name": "Cornell",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "WebKB dataset, low homophily (H=0.06)",
+              "name": "Texas",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D3",
+              "description": "WebKB dataset, low homophily (H=0.16)",
+              "name": "Wisconsin",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Wikipedia network, low homophily (H=0.25)",
+              "name": "Chameleon",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D5",
+              "description": "Wikipedia network, low homophily (H=0.22)",
+              "name": "Squirrel",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D6",
+              "description": "Co-occurrence network, low homophily (H=0.24)",
+              "name": "Actor",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D7",
+              "description": "Citation network, high homophily (H=0.83)",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D8",
+              "description": "Citation network, high homophily (H=0.71)",
+              "name": "Citeseer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D9",
+              "description": "Citation network, high homophily (H=0.79)",
+              "name": "Pubmed",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare degree distribution changes and edge modifications.",
+            "Evaluate SDRF, DIGL, +FA, and baselines on nine node classification datasets with varying homophily."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "GCN",
+              "protocol_description": "Base model: Graph Convolutional Network (Kipf & Welling, 2017). Hyperparameters optimized separately for each dataset-preprocessing combination via random search over 100 data splits."
+            },
+            {
+              "method_id": "M5",
+              "name": "DIGL (PPR)",
+              "protocol_description": "Diffusion-based rewiring using personalized PageRank kernel (Klicpera et al., 2019)."
+            },
+            {
+              "method_id": "M6",
+              "name": "+FA",
+              "protocol_description": "Fully adjacent last layer (Alon & Yahav, 2021)."
+            },
+            {
+              "method_id": "M7",
+              "name": "Undirected",
+              "protocol_description": "Make graph undirected before training."
+            },
+            {
+              "method_id": "M8",
+              "name": "SDRF + Undirected",
+              "protocol_description": "Make graph undirected before applying SDRF."
+            },
+            {
+              "method_id": "M9",
+              "name": "DIGL + Undirected",
+              "protocol_description": "Symmetrize diffusion matrix as in Klicpera et al. (2019)."
+            }
+          ],
+          "name": "Node classification experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 6.4% / 6.4%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_087e1aea63f1405a0e1dabbd",
+              "unit": "%",
+              "value_raw_text": "6.4% / 6.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Wasserstein distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "W1(Original, SDRF) = 1.03"
+              },
+              "quantitative_value": 1.03,
+              "result_id": "res_130cceaa4fed1467f01f1574",
+              "unit": null,
+              "value_raw_text": "W1(Original, SDRF) = 1.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 5.4% / 9.9%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1a63f8d43bbcb8a86a5400bf",
+              "unit": "%",
+              "value_raw_text": "5.4% / 9.9%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 72.58 ± 0.20"
+              },
+              "quantitative_value": 72.58,
+              "result_id": "res_1b932e3285596bfd1b45279b",
+              "unit": "%",
+              "value_raw_text": "72.58 ± 0.20"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 43.75 ± 0.31"
+              },
+              "quantitative_value": 43.75,
+              "result_id": "res_2ecce6e3e1c718245bad2c5e",
+              "unit": "%",
+              "value_raw_text": "43.75 ± 0.31"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 82.76 ± 0.23"
+              },
+              "quantitative_value": 82.76,
+              "result_id": "res_30a8fc3b2248028d81f309d9",
+              "unit": "%",
+              "value_raw_text": "82.76 ± 0.23"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 55.51 ± 0.27"
+              },
+              "quantitative_value": 55.51,
+              "result_id": "res_3be5200802e2d835fdaeceaa",
+              "unit": "%",
+              "value_raw_text": "55.51 ± 0.27"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 0.2% / 0.2%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_42d48b4a3c74c21962c90eb6",
+              "unit": "%",
+              "value_raw_text": "0.2% / 0.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 1.4% / 7.5%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_441902e207fe5f878f3aa25d",
+              "unit": "%",
+              "value_raw_text": "1.4% / 7.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 1.0% / 1.0%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_76830d17cd55cba939e6b9a3",
+              "unit": "%",
+              "value_raw_text": "1.0% / 1.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 29.70 ± 0.13"
+              },
+              "quantitative_value": 29.7,
+              "result_id": "res_774f1617c7533abc7cbd9b03",
+              "unit": "%",
+              "value_raw_text": "29.70 ± 0.13"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 2.4% / 10.4%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7ab7843e9f9355b8543611d5",
+              "unit": "%",
+              "value_raw_text": "2.4% / 10.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 64.46 ± 0.38"
+              },
+              "quantitative_value": 64.46,
+              "result_id": "res_8d3bca5256668d3a74014e2e",
+              "unit": "%",
+              "value_raw_text": "64.46 ± 0.38"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Wasserstein distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "W1(Original, SDRF) = 0.03"
+              },
+              "quantitative_value": 0.03,
+              "result_id": "res_8ec042082ee16bf8fd7297c7",
+              "unit": null,
+              "value_raw_text": "W1(Original, SDRF) = 0.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "SDRF 54.60 ± 0.39"
+              },
+              "quantitative_value": 54.6,
+              "result_id": "res_9d092f4e363a191134a5470b",
+              "unit": "%",
+              "value_raw_text": "54.60 ± 0.39"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 7.8% / 33.3%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bb0db1f4d8f394756b49cb03",
+              "unit": "%",
+              "value_raw_text": "7.8% / 33.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 0.7% / 0.7%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c17095049711451bc089e8f0",
+              "unit": "%",
+              "value_raw_text": "0.7% / 0.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 40.97 ± 0.14"
+              },
+              "quantitative_value": 40.97,
+              "result_id": "res_cd22ffc86d458d85ec07e640",
+              "unit": "%",
+              "value_raw_text": "40.97 ± 0.14"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edges added/removed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 1.1% / 1.1%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f946a5b752cda278f6480e15",
+              "unit": "%",
+              "value_raw_text": "1.1% / 1.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Wasserstein distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14137cb0020ab1abfbd7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "W1(Original, SDRF) = 0.28"
+              },
+              "quantitative_value": 0.28,
+              "result_id": "res_fbf22a780d034f7803a77089",
+              "unit": null,
+              "value_raw_text": "W1(Original, SDRF) = 0.28"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f37248592105f6af2e50",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SDRF 79.10 ± 0.11"
+              },
+              "quantitative_value": 79.1,
+              "result_id": "res_fd8607cf84fa8f22c62ed5f8",
+              "unit": "%",
+              "value_raw_text": "79.10 ± 0.11"
+            }
+          ],
+          "unit_id": "su_81e62980e2595f8bf058ba64"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_937d8783f490fee18e8092c6",
+              "inference_basis_ids": [
+                "res_75e25dd8b89781ad999e072e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1c378d8237e6fd1aa4d8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we introduce a new edge-based combinatorial curvature and prove that negatively curved edges are responsible for the over-squashing issue."
+              },
+              "statement": "Negatively curved edges cause over-squashing in GNNs."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Derive Jacobian-based bound relating over-squashing to graph topology.",
+            "Introduce Balanced Forman curvature and relate it to Ollivier curvature.",
+            "Prove that negatively curved edges cause over-squashing."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Jacobian analysis",
+              "protocol_description": "Analyze the Jacobian of node representations with respect to input features to bound message distortion, linking over-squashing to graph topology."
+            },
+            {
+              "method_id": "M2",
+              "name": "Balanced Forman curvature",
+              "protocol_description": "Define a new edge-based combinatorial Ricci curvature (Balanced Forman curvature) and prove its relationship to Ollivier curvature."
+            }
+          ],
+          "name": "Theoretical analysis of over-squashing and curvature",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Theoretical result",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c378d8237e6fd1aa4d8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we introduce a new edge-based combinatorial curvature and prove that negatively curved edges are responsible for the over-squashing issue."
+              },
+              "quantitative_value": null,
+              "result_id": "res_75e25dd8b89781ad999e072e",
+              "unit": null,
+              "value_raw_text": "Negatively curved edges are responsible for over-squashing."
+            }
+          ],
+          "unit_id": "su_95ce8a35219f2acb4ac5a6fb"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5158 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    }
+  ]
+}

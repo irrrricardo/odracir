@@ -1,0 +1,607 @@
+{
+  "coverage_ledger": {
+    "0430eceb07f402a53ecf": "not_selected",
+    "0a455828bba679174e55": "not_selected",
+    "1c600a78f81de49c41a4": "extracted",
+    "26aed8297d1b57d7b279": "not_selected",
+    "3514323b9d7bc8b7086f": "not_selected",
+    "3f69ae622781d29864a8": "not_selected",
+    "486d5efdfcf1f9d32314": "extracted",
+    "4c6f6a7637044179831a": "not_selected",
+    "702cca2faf2a614744e0": "not_selected",
+    "7fdadcdc4e482c0cf9a0": "not_selected",
+    "88aaabbfe58aa59aa8f4": "not_selected",
+    "9cc37aab9b687a5835f4": "not_selected",
+    "a8ddbe95d6d1d245e0d5": "not_selected",
+    "ba12ce1b9192646a1765": "extracted",
+    "c4f010dd38d59d211004": "not_selected",
+    "c752f41561bc4c059354": "not_selected",
+    "c7ca8570d73f44ffb0b8": "not_selected",
+    "d6d66fb13835f1a7b87d": "extracted",
+    "e6140d180a190c37b4be": "not_selected",
+    "e9a384781beee5b66ef7": "not_selected",
+    "ec80e5622f867df000c7": "not_selected",
+    "f655aad723273eea8e09": "not_selected",
+    "fd3f72fb5809a702d57e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study is limited to the Tau-P301S mouse model; human relevance requires further validation.",
+    "C1q antibody treatment was acute (5 days); long-term effects and functional outcomes (e.g., LTP) were not improved.",
+    "Proteomic changes were assessed at a single time point (9 months); earlier or later stages may differ.",
+    "The causal link between GTPase regulator loss and spine loss is based on in vitro knockdown and pharmacological rescue; in vivo genetic validation is lacking.",
+    "Microglial engulfment was inferred from lysosomal content; direct visualization of synapse elimination was not performed.",
+    "The study does not address whether C1q tagging is specific to phospho-Tau-containing synapses or a general response."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_5.pdf",
+    "source_sha256": "5bd4bf520f8d7935f98748851f63121a18e0c32b6b518e2cb70782920371e256"
+  },
+  "paper_id": "2_5",
+  "quality_assessment": {
+    "correct_item_count": 50,
+    "deterministic_rule_score": 0.902,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0526
+    },
+    "extracted_item_count": 50,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What are the molecular changes at hippocampal synapses in Tau-P301S mice prior to neurodegeneration?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d015edf00a6d962a61a5844c",
+              "inference_basis_ids": [
+                "res_5ebf6e4a5d2a63efbe46d212",
+                "res_a7d0e3ded66b18df20fe8fe9",
+                "res_e95ee94b7aa3f4570161d019"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "we observed a significant reduction in a set of proteins that regulate small GTPase signaling in Tau-P301S PSDs... the most highly increased proteins in Tau-P301S PSD fractions are subunits of C1q"
+              },
+              "statement": "Tau-P301S mice exhibit altered protein composition of the postsynaptic density, including reduction of GTPase regulatory proteins and increase of C1q subunits."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Quantitative MS data of the PSD proteome for nonTg and Tau-P301S mice, including statistics of differentially expressed proteins and disease associations.",
+              "name": "PSD proteome dataset",
+              "version_or_split": "Table S1"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Quantitative mass spectrometry of postsynaptic density (PSD) fractions from hippocampi of 9-month-old Tau-P301S transgenic mice and non-transgenic (nonTg) controls."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Mass spectrometry-based proteomics",
+              "protocol_description": "PSD fractions were prepared from mouse hippocampi and analyzed by quantitative mass spectrometry to identify differentially abundant proteins."
+            }
+          ],
+          "name": "PSD proteomic profiling in Tau-P301S mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Cntn1, Rimbp2, and Ctnna2, whose biology is not well understood, were significantly decreased in Tau-P301S PSDs"
+              },
+              "quantitative_value": null,
+              "result_id": "res_00aacb2eacce9602078fd4a7",
+              "unit": null,
+              "value_raw_text": "Cntn1, Rimbp2, and Ctnna2 were significantly decreased in Tau-P301S PSDs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "amyloid precursor protein (APP) was significantly more abundant in Tau-P301S PSD fractions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1fb72adbc429040b6cd9b98c",
+              "unit": null,
+              "value_raw_text": "APP was significantly more abundant in Tau-P301S PSD fractions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of disease-associated proteins",
+              "n_sample_size": null,
+              "p_value": 0.0008,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "there was a significant enrichment of such disease-associated proteins among the decreased proteins in Tau-P301S PSDs (Figure 2E; p = 0.0008)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2bdf9124b06554c44fc33d7b",
+              "unit": null,
+              "value_raw_text": "significant enrichment of disease-associated proteins among the decreased proteins in Tau-P301S PSDs (p = 0.0008)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "we could confirm by immunoblotting in an independent mouse cohort that Clu/ApoJ in PSD fractions was ~65% increased"
+              },
+              "quantitative_value": 65.0,
+              "result_id": "res_57d0830ea332f4022d04b839",
+              "unit": "% increase",
+              "value_raw_text": "Clu/ApoJ in PSD fractions was ~65% increased by immunoblotting"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the most highly increased proteins in Tau-P301S PSD fractions are subunits of C1q"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5ebf6e4a5d2a63efbe46d212",
+              "unit": null,
+              "value_raw_text": "the most highly increased proteins in Tau-P301S PSD fractions are subunits of C1q"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Clusterin/ApoJ, which shows GWAS association with late-onset AD, was increased ~1.5-fold in Tau-P301S PSDs by MS analysis but did not reach statistical significance"
+              },
+              "quantitative_value": 1.5,
+              "result_id": "res_a3f5f628fdda5712b02d1c5e",
+              "unit": "fold change",
+              "value_raw_text": "Clusterin/ApoJ was increased ~1.5-fold in Tau-P301S PSDs by MS analysis but did not reach statistical significance"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "we observed a significant reduction in a set of proteins that regulate small GTPase signaling in Tau-P301S PSDs"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a7d0e3ded66b18df20fe8fe9",
+              "unit": null,
+              "value_raw_text": "significant reduction in a set of proteins that regulate small GTPase signaling in Tau-P301S PSDs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "proteins that showed enrichment in Tau-P301S PSDs are mainly involved in translation and biosynthetic processes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e95ee94b7aa3f4570161d019",
+              "unit": null,
+              "value_raw_text": "proteins that showed enrichment in Tau-P301S PSDs are mainly involved in translation and biosynthetic processes"
+            }
+          ],
+          "unit_id": "su_5be2a0bfd6f88d7dacfcc817"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Does loss of GTPase regulatory proteins contribute to dendritic spine loss in tauopathy?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_009c1db3a05f0a750726a8b9",
+              "inference_basis_ids": [
+                "res_2a1884d05bd0ba03963f2865",
+                "res_51b97202a4a7844de5f02b1b",
+                "res_53490ff518a4e9bfff24d670",
+                "res_6d50315efcbabc602e1fad81",
+                "res_ceb17cf3bec4fe246c8576f6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "these results highlight that the synaptic GTPase-regulating proteins... are specifically decreased in the PSD compartment of Tau-P301S mice, which can lead to dysregulation of the actin cytoskeleton and potentially contribute to the spine loss seen in AD and other tauopathies."
+              },
+              "statement": "Loss of GTPase regulatory proteins Iqgap1, Iqgap2, Iqsec2, Kalirin, and Trio contributes to dendritic spine loss through dysregulation of the actin cytoskeleton."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunoblotting of PSD fractions from 9-month-old Tau-P301S and nonTg hippocampi to confirm MS findings.",
+            "In vivo F-actin staining with phalloidin in hippocampal CA1 region of nonTg and Tau-P301S mice.",
+            "Pharmacological stabilization of F-actin with phallacidin in siRNA-treated neurons.",
+            "siRNA-mediated knockdown of Iqgap1, Iqgap2, Iqsec2, Kalirin, Trio, and Iqsec3 in cultured hippocampal neurons."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Immunoblotting",
+              "protocol_description": "PSD fractions were immunoblotted for Iqgap2, Iqsec2, Kalirin, and Trio to confirm protein level changes."
+            },
+            {
+              "method_id": "M3",
+              "name": "siRNA knockdown in cultured neurons",
+              "protocol_description": "Hippocampal neurons were transfected with siRNAs targeting specific GTPase regulators, and spine density was assessed."
+            },
+            {
+              "method_id": "M4",
+              "name": "Phalloidin staining",
+              "protocol_description": "F-actin was stained with phalloidin in brain sections, and colocalization with Homer1 was quantified."
+            }
+          ],
+          "name": "Validation of GTPase regulatory protein reduction and functional impact on spines",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Spine density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "siRNA against Iqsec3, which was not changed in Tau-P301S PSDs, had no effect on spine density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_281920ead02b6ec3b54d5c0e",
+              "unit": null,
+              "value_raw_text": "siRNA against Iqsec3 had no effect on spine density"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Postsynaptic F-actin intensity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The fluorescence intensity of phalloidin signal that colocalized with Homer1 clusters (a measure of the amount of postsynaptic F-actin) was reduced ~30% in Tau-P301S versus nonTg mice"
+              },
+              "quantitative_value": 30.0,
+              "result_id": "res_2a1884d05bd0ba03963f2865",
+              "unit": "% reduction",
+              "value_raw_text": "phalloidin signal that colocalized with Homer1 clusters was reduced ~30% in Tau-P301S versus nonTg mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein level in PSD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "The RhoGEF Trio... was also significantly reduced by ~30% in Tau-P301S-PSD fractions by immunoblot analysis of an independent cohort"
+              },
+              "quantitative_value": 30.0,
+              "result_id": "res_51b97202a4a7844de5f02b1b",
+              "unit": "% reduction",
+              "value_raw_text": "Trio was significantly reduced by ~30% in Tau-P301S-PSD fractions by immunoblot"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Spine density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Neurons incubated with individual siRNAs against Iqgap1, Iqgap2, Iqsec2, Kalirin, or Trio showed 30%–50% decreased spine density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_53490ff518a4e9bfff24d670",
+              "unit": "% decrease",
+              "value_raw_text": "siRNA against Iqgap1, Iqgap2, Iqsec2, Kalirin, or Trio showed 30%–50% decreased spine density"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein level in PSD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "we confirmed by immunoblotting the significant decrease of PSD levels of Iqgap2, Iqsec2, and Kalirin in 9-month-old Tau-P301S hippocampi"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6d50315efcbabc602e1fad81",
+              "unit": null,
+              "value_raw_text": "significant decrease of PSD levels of Iqgap2, Iqsec2, and Kalirin in 9-month-old Tau-P301S hippocampi"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Spine density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Phallacidin had no effect on spines in control cultures but restored spine density in neurons treated with siRNAs targeting Iqsec2, Kalirin, Trio, or Iqgap1 and Iqgap2, or even led to spine density greater than control neurons"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ceb17cf3bec4fe246c8576f6",
+              "unit": null,
+              "value_raw_text": "Phallacidin restored spine density in neurons treated with siRNAs targeting Iqsec2, Kalirin, Trio, or Iqgap1 and Iqgap2, or even led to spine density greater than control neurons"
+            }
+          ],
+          "unit_id": "su_f8a9447984852a442087231c"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Does complement C1q tag Tau-affected synapses and drive microglial engulfment leading to synapse loss?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_61912a125557daf88818ba13",
+              "inference_basis_ids": [
+                "res_192719c0baa9e8ea42eb0514",
+                "res_999b7d607a2b4f9c2c13cda3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "C1q was greatly increased... in PSDs of 9-month-old Tau-P301S hippocampi... These biochemical data suggest"
+              },
+              "statement": "Complement C1q accumulates at synapses in Tau-P301S mice, tagging them for microglial recognition."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Western blotting of PSD fractions and hippocampal lysates from 9-month-old Tau-P301S and nonTg mice to assess C1q levels."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Western blotting",
+              "protocol_description": "C1q protein levels were measured in PSD fractions and total hippocampal lysates by western blot."
+            }
+          ],
+          "name": "C1q accumulation at synapses in Tau-P301S mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q protein level in PSD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "we confirmed that C1q was greatly increased (with high inter-animal variability) in PSDs of 9-month-old Tau-P301S hippocampi and barely detectable in the nonTg PSD"
+              },
+              "quantitative_value": null,
+              "result_id": "res_192719c0baa9e8ea42eb0514",
+              "unit": null,
+              "value_raw_text": "C1q was greatly increased (with high inter-animal variability) in PSDs of 9-month-old Tau-P301S hippocampi and barely detectable in the nonTg PSD"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q protein level in lysate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c600a78f81de49c41a4",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "C1q levels were also increased in hippocampal lysates from Tau-P301S mice, although to a lesser degree than in PSD fractions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_999b7d607a2b4f9c2c13cda3",
+              "unit": null,
+              "value_raw_text": "C1q levels were also increased in hippocampal lysates from Tau-P301S mice, although to a lesser degree than in PSD fractions"
+            }
+          ],
+          "unit_id": "su_8c480abcdd66953fbd2593e1"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ4",
+      "statement": "Can a C1q-blocking antibody prevent microglial synapse removal and rescue synapse density in Tau-P301S mice?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b72ea316b8e7f3a4cce48f56",
+              "inference_basis_ids": [
+                "res_0acc23553eae1c51382cc6ac",
+                "res_8d6a810c0ec495deb73ae310"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "486d5efdfcf1f9d32314",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "our results demonstrate that C1q antibodies can reduce synapse removal by microglia and lead to a recovery of synapse density in cultures and in vivo."
+              },
+              "statement": "C1q-blocking antibody reduces microglial synapse engulfment and rescues synapse density in Tau-P301S mice."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunostaining for injected antibodies, C1q, PSD-95, Synapsin, and CD68+ lysosomes.",
+            "Quantification of engulfed synaptic puncta and synapse density in CA1 region.",
+            "Stereotaxic injection of C1q-blocking or isotype control antibodies into the right dorsal hippocampus of 9-month-old Tau-P301S mice, with analysis 5 days later."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Stereotaxic antibody injection",
+              "protocol_description": "C1q-blocking or control IgG antibodies were injected into the right dorsal hippocampus of 9-month-old Tau-P301S mice."
+            },
+            {
+              "method_id": "M7",
+              "name": "Immunofluorescence and confocal imaging",
+              "protocol_description": "Brain sections were stained for C1q, PSD-95, Synapsin, and CD68, and imaged by confocal microscopy. 3D rendering was used to quantify engulfed puncta."
+            }
+          ],
+          "name": "C1q antibody injection and synapse rescue in vivo",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Synapse density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "486d5efdfcf1f9d32314",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "we measured a slight but significant increase in PSD-95 and Synapsin puncta density in CA1 at 5 days after injection of C1q blocking antibody, relative to control IgG"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0acc23553eae1c51382cc6ac",
+              "unit": null,
+              "value_raw_text": "slight but significant increase in PSD-95 and Synapsin puncta density in CA1 at 5 days after injection of C1q blocking antibody, relative to control IgG"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q staining intensity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "486d5efdfcf1f9d32314",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "In brains injected with anti-C1q, the intensity of C1q staining was reduced in the ipsilateral hippocampus, while control IgG injection had no effect"
+              },
+              "quantitative_value": null,
+              "result_id": "res_361df4cdf7e584b04286c076",
+              "unit": null,
+              "value_raw_text": "in brains injected with anti-C1q, the intensity of C1q staining was reduced in the ipsilateral hippocampus, while control IgG injection had no effect"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfed synaptic puncta",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "486d5efdfcf1f9d32314",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "the C1q-blocking antibody resulted in ~50% reduction in PSD-95 or Synapsin puncta within microglial lysosomes, as compared to control IgG"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_8d6a810c0ec495deb73ae310",
+              "unit": "% reduction",
+              "value_raw_text": "C1q-blocking antibody resulted in ~50% reduction in PSD-95 or Synapsin puncta within microglial lysosomes, as compared to control IgG"
+            }
+          ],
+          "unit_id": "su_78e5c2dd950ec3038e4bfa58"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8476 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8864 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,668 @@
+{
+  "coverage_ledger": {
+    "0606630b838205ffb237": "extracted",
+    "08c998abaace4e46262a": "not_selected",
+    "183e4754ea0df65e146f": "not_selected",
+    "19550e207bfcaef17cbd": "not_selected",
+    "1c4d19a87bf769f78d33": "not_selected",
+    "581a49bc335738caf6bc": "not_selected",
+    "5dbdc68f225d02df6da1": "not_selected",
+    "6694aa1a0f1627da7d0c": "not_selected",
+    "79666e5f6c1dbf1d58c9": "not_selected",
+    "7a8661474e4ba3e67dbe": "not_selected",
+    "7cae35d20073dcb8bb48": "not_selected",
+    "900a9be16106c55dfaad": "not_selected",
+    "a151d67548c8252d8fa6": "extracted",
+    "c346a5792b66ad911024": "extracted",
+    "daf8dc623b5042604752": "not_selected",
+    "df1d34245128b6c39e2d": "not_selected",
+    "e5ce50816a5aa1ef995e": "not_selected",
+    "f8efcfff715dc570ea02": "not_selected",
+    "fae1ca6ace154fa23d5e": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses SCC cell lines (SCC12, A431) and may not generalize to all carcinoma types.",
+    "In vivo relevance is supported by clinical sample analysis but not directly tested in animal models.",
+    "The role of fibronectin and tenascin-C deposition was ruled out, but other matrix components may contribute.",
+    "Off-target effects of pharmacological inhibitors (e.g., Y27632) cannot be completely excluded.",
+    "The requirement for Cdc42/MRCK was shown only in SCC cells; other carcinoma cells may use different pathways."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_8.pdf",
+    "source_sha256": "429a35117c85ed4a84ea88b3b1b83da8d5a778e23ff882aa5a00d2208a5d452e"
+  },
+  "paper_id": "3_8",
+  "quality_assessment": {
+    "correct_item_count": 59,
+    "deterministic_rule_score": 0.9291,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 59,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What are the roles of stromal fibroblasts and carcinoma cells in collective invasion, and what molecular pathways are required in each cell type?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_99984d7a50c96c7ad84d0220",
+              "inference_basis_ids": [
+                "res_d8627358cd18fba6215d9a7f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fae1ca6ace154fa23d5e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the requirement for integrins α3 or α5 is confined to the leading fibroblast in collectively invading cocultures."
+              },
+              "statement": "Integrins α3 and α5 are required in leading fibroblasts, but not in following carcinoma cells, for collective invasion."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Clinical sample analysis for integrin α5 upregulation.",
+            "Invasion assay with integrin knockdown.",
+            "siRNA-mediated depletion of integrin α3 or α5 in fibroblasts or SCC cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "siRNA knockdown",
+              "protocol_description": "siRNA targeting integrin α3 or α5 transfected into fibroblasts or SCC cells; invasion assessed."
+            }
+          ],
+          "name": "Integrin requirement in leading fibroblasts",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin α5 upregulation in clinical samples",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fae1ca6ace154fa23d5e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "integrin α5 was frequently upregulated in stromal fibroblasts in clinical SCC samples"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5b02ec89ddec6f4e73e94127",
+              "unit": null,
+              "value_raw_text": "Integrin α5 was frequently upregulated in stromal fibroblasts in clinical SCC samples."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion with integrin α3/α5 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fae1ca6ace154fa23d5e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "siRNA-mediated depletion of either integrin α3 or integrin α5 in stromal fibroblasts, but not in SCC cells, reduced the collective invasion of SCC cells."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d8627358cd18fba6215d9a7f",
+              "unit": null,
+              "value_raw_text": "siRNA-mediated depletion of integrin α3 or α5 in stromal fibroblasts, but not in SCC cells, reduced collective invasion of SCC cells."
+            }
+          ],
+          "unit_id": "su_4d44059313c2e3e20835861f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_30d10a5f65602b186b55d017",
+              "inference_basis_ids": [
+                "res_892b89b4381da75a643702c8",
+                "res_d9fe88fe8f1b3b71976c5e81"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the physical generation of tracks through the combined action of force- and protease-mediated matrix remodelling is crucial."
+              },
+              "statement": "Fibroblast-mediated matrix remodeling requires both protease and force-mediated pathways."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_54dd8e2811094558eedac553",
+              "inference_basis_ids": [
+                "res_060b1b057bc5afb39e139060",
+                "res_6118e11599b31e6c29dec670",
+                "res_892b89b4381da75a643702c8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In support of a role for Rho–ROCK signalling in regulating force-generation, of the many ROCK substrates that were examined, only changes in MLC phosphorylation correlated with the ability of stromal fibroblasts to generate tracks in the matrix"
+              },
+              "statement": "Rho-ROCK signaling regulates force-mediated matrix remodeling through MLC phosphorylation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_796951f2881cc80c4eb762ca",
+              "inference_basis_ids": [
+                "res_549a52f81ca7a67bb75dad67"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "These data demonstrate that soluble factors are not responsible for fibroblast-stimulated invasion of SCC cells and suggest that physical conditioning of the ECM can promote the invasion of SCCs."
+              },
+              "statement": "Physical conditioning of ECM by fibroblasts is sufficient to promote SCC invasion, independent of soluble factors."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Collagen contraction assay.",
+            "Fibroblast removal after matrix conditioning: fibroblasts embedded in matrix for 5 days, then killed with puromycin or extraction buffer; SCC cells added.",
+            "Inhibition of MMP (GM6001), Rho (Tat-C3), ROCK (Y27632), myosin (blebbistatin) in fibroblasts.",
+            "Reflectance imaging of matrix tracks."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Fibroblast removal assay",
+              "protocol_description": "Fibroblasts cultured in matrix for 5 days, then removed by puromycin treatment or extraction buffer; SCC cells added and invasion assessed."
+            },
+            {
+              "method_id": "M4",
+              "name": "Inhibitor treatment",
+              "protocol_description": "Cells treated with Tat-C3 (Rho inhibitor), Y27632 (ROCK inhibitor), blebbistatin (myosin inhibitor), or GM6001 (MMP inhibitor)."
+            },
+            {
+              "method_id": "M5",
+              "name": "Collagen contraction assay",
+              "protocol_description": "Fibroblasts embedded in matrix; gel diameter measured after 4 days; contraction calculated as (well diameter - gel diameter)/well diameter."
+            }
+          ],
+          "name": "Matrix remodeling requirement for fibroblast-led invasion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC phosphorylation correlation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "of the many ROCK substrates that were examined, only changes in MLC phosphorylation correlated with the ability of stromal fibroblasts to generate tracks in the matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_060b1b057bc5afb39e139060",
+              "unit": null,
+              "value_raw_text": "Only changes in MLC phosphorylation correlated with ability of fibroblasts to generate tracks."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion after fibroblast removal",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "removed supports SCC invasion, whereas naïve mock-treated matrix does not (Fig. 2c, d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_549a52f81ca7a67bb75dad67",
+              "unit": null,
+              "value_raw_text": "SCC cells invaded into matrix pre-conditioned by fibroblasts, but not into naïve mock-treated matrix."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix contraction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Control fibroblasts were shown to contract the matrix over a number of days (see Supplementary Information, Fig. S3a), typically by 16%, whereas Rho or ROCK inhibition reduced this to <5%"
+              },
+              "quantitative_value": 16.0,
+              "result_id": "res_6118e11599b31e6c29dec670",
+              "unit": "%",
+              "value_raw_text": "Control fibroblasts contracted matrix by 16%; Rho or ROCK inhibition reduced contraction to <5%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix track formation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "blockade of Rho (Tat C3), ROCK (Y27632) or non-muscle myosin (blebbistatin) function prevented the formation of holes in the ECM and concentration of matrix around the cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_892b89b4381da75a643702c8",
+              "unit": null,
+              "value_raw_text": "Blockade of Rho, ROCK, or myosin prevented formation of holes in ECM and concentration of matrix around cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMP inhibition effect",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Inhibition of MMP function using GM6001 prevented the formation of tracks in the matrix by fibroblasts and disrupted the normal elongated morphology of fibroblasts (Fig. 3a). GM6001 also prevented the invasion of fibroblasts into three-dimensional matrices."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d9fe88fe8f1b3b71976c5e81",
+              "unit": null,
+              "value_raw_text": "GM6001 prevented track formation and disrupted fibroblast morphology; also prevented fibroblast invasion into 3D matrices."
+            }
+          ],
+          "unit_id": "su_829814fddbfb1d3bef89b45e"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a88c22fe84e771d55dcb1159",
+              "inference_basis_ids": [
+                "res_067f708a72e083c42688b6f5",
+                "res_5999c018e98464a3369b7da6",
+                "res_7acbe2582af6de4c77ad85f6",
+                "res_823e2852b0e359b149483200",
+                "res_b8062996e22005568d2da36c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "These data demonstrate that following SCC cells do not require MMP or Rho function to invade into matrix once it has been remodelled by fibroblasts."
+              },
+              "statement": "Rho-ROCK function is required in leading fibroblasts but not in following carcinoma cells for collective invasion."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c9fc83857c183e0789c09a86",
+              "inference_basis_ids": [
+                "res_b8062996e22005568d2da36c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "these data suggest that inhibition of ROCK in fibroblast–SCC cocultures should not prevent fibroblasts invading, but that SCC cells will not be able to follow them because the necessary tracks in the ECM will not be formed."
+              },
+              "statement": "Fibroblast-generated tracks are necessary for SCC invasion; ROCK inhibition in fibroblasts prevents track formation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Fibroblast removal assay with inhibitor pretreatment of fibroblasts.",
+            "ROCK inhibitor (Y27632) treatment in fibroblast-SCC cocultures with differential labeling.",
+            "Specific blockade of Rho or ROCK in fibroblasts or SCC cells using Tat-C3 pretreatment or siRNA against ROCK1/2.",
+            "Western blot confirmation of knockdown."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Cell-type-specific inhibition",
+              "protocol_description": "Pretreatment of fibroblasts or SCC cells with Tat-C3 or siRNA against ROCK1/2 before coculture."
+            },
+            {
+              "method_id": "M7",
+              "name": "ROCK inhibitor imaging",
+              "protocol_description": "Y27632-treated invasion assays with differentially labeled fibroblasts (red) and SCC cells; matrix imaged by reflectance."
+            }
+          ],
+          "name": "Differential requirement for Rho-ROCK in leading vs following cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion with SCC-specific Rho/ROCK inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Interestingly, inhibition of Rho or ROCK1 and ROCK2 in SCC12 cells did not affect the ability of SCC12 cells to invade in the presence of fibroblasts."
+              },
+              "quantitative_value": null,
+              "result_id": "res_067f708a72e083c42688b6f5",
+              "unit": null,
+              "value_raw_text": "Inhibition of Rho or ROCK1/2 in SCC12 cells did not affect their ability to invade with fibroblasts."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion after fibroblast removal with inhibitor pretreatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "blockade of either Rho or ROCK function in the fibroblasts was sufficient to prevent the invasion of untreated SCC cells. In addition, inhibition of MMP function in the fibroblasts before the addition of SCC cells also prevented the invasion of SCC cells (Fig. 3e). ... When fibroblasts had been allowed to remodel the matrix before being removed, then the invasion of SCC cells was no longer blocked by inhibition of MMP or Rho function, whereas a modest reduction in invasion was observed when ROCK function was inhibited using Y27632"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5999c018e98464a3369b7da6",
+              "unit": null,
+              "value_raw_text": "Blockade of Rho, ROCK, or MMP in fibroblasts before removal prevented SCC invasion; after removal, SCC invasion was not blocked by MMP or Rho inhibition, but modestly reduced by Y27632."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion with fibroblast-specific Rho/ROCK inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Figure 3c shows that blockade of Rho or ROCK1 and ROCK2 function only in fibroblasts prevented the invasion of SCC12 cells."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7acbe2582af6de4c77ad85f6",
+              "unit": null,
+              "value_raw_text": "Blockade of Rho or ROCK1/2 only in fibroblasts prevented SCC12 invasion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion with fibroblast-specific Rho/ROCK inhibition in A431",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Rho function was also required in fibroblasts for their ability to promote the collective invasion of another SCC cell line, A431 (Fig. 3d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_823e2852b0e359b149483200",
+              "unit": null,
+              "value_raw_text": "Rho function was required in fibroblasts for A431 invasion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion with ROCK inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c346a5792b66ad911024",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In both control and Y27632-treated samples, fibroblasts (in red) invade, but tracks in the matrix (in grey), and subsequent invasion of SCC cells, are only observed in the control sample."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b8062996e22005568d2da36c",
+              "unit": null,
+              "value_raw_text": "In Y27632-treated cocultures, fibroblasts invaded but SCC cells did not follow; tracks were absent."
+            }
+          ],
+          "unit_id": "su_92ce7cd3b374b0db3bedbabe"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_65021a252ff5163226640c57",
+              "inference_basis_ids": [
+                "res_f07891ac55d03780aeccf893"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a151d67548c8252d8fa6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "SCC cells were motile, even in the absence of fibroblasts, and their motility was not significantly changed in the presence of fibroblasts"
+              },
+              "statement": "SCC cell motility alone is insufficient for invasion; fibroblast-mediated matrix remodeling is required."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c36ee3a3af4bdf2389f78b24",
+              "inference_basis_ids": [
+                "res_05f262960afdc3e085026f9f",
+                "res_9f933ff133742dfe2e6d6cfc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a151d67548c8252d8fa6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Imaging of collectively invading cocultures of carcinoma cells and stromal fibroblasts reveals that the leading cell is always a fibroblast and that carcinoma cells move within tracks in the extracellular matrix behind the fibroblast."
+              },
+              "statement": "Stromal fibroblasts lead collective invasion of SCC cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Multi-photon confocal time-lapse imaging to track cell movement.",
+            "Organotypic culture of SCC cells (SCC12, A431) on collagen I-Matrigel matrix with or without carcinoma-associated fibroblasts (HN-CAF, V-CAF).",
+            "Phalloidin staining and epithelial marker analysis."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Organotypic invasion assay",
+              "protocol_description": "SCC cells grown on dense collagen I-Matrigel matrix supported by a metal bridge; fibroblasts embedded in matrix; invasion assessed after 7 days by H&E staining."
+            },
+            {
+              "method_id": "M2",
+              "name": "Time-lapse confocal imaging",
+              "protocol_description": "Multi-photon confocal time-lapse imaging of organotypic cultures with fluorescently labeled cells."
+            }
+          ],
+          "name": "Fibroblast-led collective invasion observation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion phenotype",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a151d67548c8252d8fa6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Introduction of fibroblasts isolated from either oral or vulval squamous cell carcinomas (HN-CAF or V-CAF, respectively) into the matrix caused two different SCC cell lines (SCC12 and A431), but not untransformed keratinocytes (HaCAT), to invade"
+              },
+              "quantitative_value": null,
+              "result_id": "res_05f262960afdc3e085026f9f",
+              "unit": null,
+              "value_raw_text": "SCC cells invaded as collective chains only in the presence of fibroblasts; untransformed keratinocytes (HaCAT) did not invade."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leading cell identity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a151d67548c8252d8fa6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Imaging of collectively invading cocultures of carcinoma cells and stromal fibroblasts reveals that the leading cell is always a fibroblast"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9f933ff133742dfe2e6d6cfc",
+              "unit": null,
+              "value_raw_text": "The leading cell in collectively invading chains is always a fibroblast."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SCC cell motility",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a151d67548c8252d8fa6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Interestingly, SCC cells were motile, even in the absence of fibroblasts, and their motility was not significantly changed in the presence of fibroblasts"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f07891ac55d03780aeccf893",
+              "unit": null,
+              "value_raw_text": "SCC cells were motile even without fibroblasts; motility was not significantly changed by fibroblast presence."
+            }
+          ],
+          "unit_id": "su_9979c69103e263eb8dec19c7"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_48fa45d303e0949c2345da67",
+              "inference_basis_ids": [
+                "res_1ea39619188b8e0699973c83",
+                "res_526059d02ba893252c773618",
+                "res_aae5f5715d521da712d48428"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fae1ca6ace154fa23d5e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Instead, they use the related small G-protein Cdc42 to regulate actomyosin organization and generate the force needed to follow the tracks generated by stromal fibroblasts."
+              },
+              "statement": "Carcinoma cells use Cdc42 and MRCK to regulate MLC and follow fibroblast-generated tracks."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunofluorescence for MLC localization.",
+            "Invasion assay with Cdc42/MRCK knockdown.",
+            "siRNA-mediated knockdown of Cdc42 or MRCKα/β in SCC cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M9",
+              "name": "siRNA knockdown in SCC cells",
+              "protocol_description": "siRNA targeting Cdc42 or MRCKα/β transfected into SCC cells; MLC localization and invasion assessed."
+            }
+          ],
+          "name": "Cdc42 and MRCK requirement in following carcinoma cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion with Cdc42/MRCK knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fae1ca6ace154fa23d5e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "interference with either Cdc42 or MRCK in the SCC cells blocked their ability to invade in response to stromal fibroblasts"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ea39619188b8e0699973c83",
+              "unit": null,
+              "value_raw_text": "Interference with Cdc42 or MRCK in SCC cells blocked their ability to invade in response to stromal fibroblasts."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fae1ca6ace154fa23d5e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "in collectively invading chains of SCC cells, MLC was clearly localized to regions of the cell cortex in contact with the ECM"
+              },
+              "quantitative_value": null,
+              "result_id": "res_526059d02ba893252c773618",
+              "unit": null,
+              "value_raw_text": "In collectively invading SCC cells, MLC localized to cell cortex in contact with ECM."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC localization after Cdc42/MRCK knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fae1ca6ace154fa23d5e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "siRNA-mediated knockdown of either Cdc42 or both MRCK isoforms clearly disrupted the localization and phosphorylation of MLC at the cortex of SCC cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aae5f5715d521da712d48428",
+              "unit": null,
+              "value_raw_text": "siRNA knockdown of Cdc42 or both MRCK isoforms disrupted MLC localization and phosphorylation at the cortex of SCC cells."
+            }
+          ],
+          "unit_id": "su_f91210645e2e8cc14b76a2cf"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6623 on attempt 1"
+    }
+  ]
+}

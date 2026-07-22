@@ -1,0 +1,505 @@
+{
+  "coverage_ledger": {
+    "02f232683223f57435cb": "not_selected",
+    "13e21816d6549b443b33": "not_selected",
+    "20710ea7f0bd8b4e78e5": "extracted",
+    "4b5e8de554c62d882512": "not_selected",
+    "65b2914fe33f154ddf3e": "not_selected",
+    "6cf3b6861f21fc46917a": "extracted",
+    "7dfe987625c58e9e4fa3": "not_selected",
+    "8656b01abe92c723f5d6": "not_selected",
+    "a8fe8f23a3ff6bfe085c": "not_selected",
+    "b391cb0f9530808db87c": "not_selected",
+    "c3a277cfe8ea0e7c9e8d": "not_selected",
+    "cedb518286d09e50b71c": "not_selected",
+    "d8048de2ea679966fd29": "extracted",
+    "f095da3f46ad89fa06c9": "not_selected",
+    "fa657d78aa369df36d85": "extracted",
+    "ffdd5834ad637a686299": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Model incorporated information from only two species: human and mouse. Attempts to include other species may be offset by species-specific gene expression patterns.",
+    "Current prior knowledge does not include enhancers and protein sequences; other essential information should be explored.",
+    "Only single-cell transcriptional data used; epigenomic, proteomic, and metabolomic data are not integrated.",
+    "Potential for improvement in integrating multimodal information.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_17.pdf",
+    "source_sha256": "f992a22fdb2602f157288ba1079ea50199a37db879dbb8bb49d18c544632ed5d"
+  },
+  "paper_id": "1_17",
+  "quality_assessment": {
+    "correct_item_count": 37,
+    "deterministic_rule_score": 0.9279,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 37,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a knowledge-informed cross-species foundation model pre-trained on large-scale single-cell transcriptomes decipher universal gene regulatory mechanisms and outperform state-of-the-art models in diverse downstream tasks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_418e932dbd9cd21c3215970a",
+              "inference_basis_ids": [
+                "res_5505a003a05a7a4f0b1c71c9",
+                "res_7f979a0f4e788db561fc3080",
+                "res_81c92a784facd44bdfbb7e0b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Immunofluorescence results demonstrated that overexpression of either gene alone in human ESCs could induce gonadal gene programs... A comprehensive transcriptome comparison analysis revealed a significant upregulation of known marker genes associated with reproductive development... The DEGs were found to be enriched in gonadal-related biological processes."
+              },
+              "statement": "Overexpression of NR5A1 or GATA4 in human ESCs induces gonadal gene programs and upregulates reproductive development markers, validating their role in gonadal differentiation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_968d3da617428ecf47e23743",
+              "inference_basis_ids": [
+                "res_2ee34aeefcf60b06b32419fe"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "By comparing the cosine similarities among initial, simulated, and target cell embeddings, we identified the top five genes, i.e., NR2F1, NR5A1, WT1, TCF21, and GATA4, whose simulated cell embeddings exhibited higher similarity to both gonadal progenitors and mature Leydig cells while lower similarity to the original ESCs."
+              },
+              "statement": "GeneCompass can predict key regulatory factors for cell fate transitions; the top five predicted genes (NR2F1, NR5A1, WT1, TCF21, GATA4) are candidate triggers for differentiation of ESCs into gonadal progenitor cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f211e9b056527c87057ac0ce",
+              "inference_basis_ids": [
+                "res_f1c1db94b7b121c1e74e698a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with the actual knockout results, we observed that all simulated knockout cells exhibited a shift towards the endoderm state. Importantly, we found a positive correlation between the extent of shifting and the in silico knockout levels."
+              },
+              "statement": "In silico quantitative knockouts of Zfp131 and Zbtb11 in mouse ESCs recapitulate the endoderm differentiation phenotype observed in actual knockout experiments, with a positive correlation between knockout level and shift extent."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Used for in silico knockout experiments of Zfp131 and Zbtb11.",
+              "name": "Mouse ESC single-cell transcriptomes",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Used for in silico overexpression and wet-lab validation of gonadal differentiation.",
+              "name": "Human ESC single-cell transcriptomes",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "By comparing the cosine similarities among initial, simulated, and target cell embeddings, we identified the top five genes, i.e., NR2F1, NR5A1, WT1, TCF21, and GATA4, whose simulated cell embeddings exhibited higher similarity to both gonadal progenitors and mature Leydig cells while lower similarity to the original ESCs.",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "By comparing the cosine similarities among initial, simulated, and target cell embeddings, we identified the top five genes, i.e., NR2F1, NR5A1, WT1, TCF21, and GATA4, whose simulated cell embeddings exhibited higher similarity to both gonadal progenitors and mature Leydig cells while lower similarity to the original ESCs."
+              },
+              "span_id": "ES4"
+            },
+            {
+              "content": "Consistent with the actual knockout results, we observed that all simulated knockout cells exhibited a shift towards the endoderm state. Importantly, we found a positive correlation between the extent of shifting and the in silico knockout levels.",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with the actual knockout results, we observed that all simulated knockout cells exhibited a shift towards the endoderm state. Importantly, we found a positive correlation between the extent of shifting and the in silico knockout levels."
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "In silico overexpression of each gene in human ESCs to predict key factors for gonadal lineage differentiation.",
+            "In silico quantitative knockouts of Zfp131 and Zbtb11 in mouse ESCs to simulate endoderm differentiation.",
+            "Wet-lab validation: overexpression of NR5A1 and GATA4 in human ESCs, followed by differentiation induction and immunofluorescence/transcriptome analysis."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "In silico quantitative perturbation",
+              "protocol_description": "In silico knockout by decreasing target gene expression value; in silico overexpression by increasing expression to a specific level. Post-perturbation cell embeddings obtained from GeneCompass. Effect measured by cosine similarity between post-perturbation and ground-truth cell embeddings."
+            },
+            {
+              "method_id": "M3",
+              "name": "Wet-lab validation of TF overexpression",
+              "protocol_description": "Lentiviral overexpression of NR5A1 or GATA4 in hESCs, followed by differentiation towards gonadal lineage. Immunofluorescence for marker genes, transcriptome comparison, and DEG enrichment analysis."
+            }
+          ],
+          "name": "In silico perturbation and cell fate transition prediction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Identification of top 5 candidate genes for gonadal differentiation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "By comparing the cosine similarities among initial, simulated, and target cell embeddings, we identified the top five genes, i.e., NR2F1, NR5A1, WT1, TCF21, and GATA4, whose simulated cell embeddings exhibited higher similarity to both gonadal progenitors and mature Leydig cells while lower similarity to the original ESCs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2ee34aeefcf60b06b32419fe",
+              "unit": null,
+              "value_raw_text": "By comparing the cosine similarities among initial, simulated, and target cell embeddings, we identified the top five genes, i.e., NR2F1, NR5A1, WT1, TCF21, and GATA4, whose simulated cell embeddings exhibited higher similarity to both gonadal progenitors and mature Leydig cells while lower similarity to the original ESCs."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Upregulation of reproductive development marker genes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "A comprehensive transcriptome comparison analysis revealed a significant upregulation of known marker genes associated with reproductive development in NR5A1- or GATA4-overexpressed cells, compared to ESCs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5505a003a05a7a4f0b1c71c9",
+              "unit": null,
+              "value_raw_text": "A comprehensive transcriptome comparison analysis revealed a significant upregulation of known marker genes associated with reproductive development in NR5A1- or GATA4-overexpressed cells, compared to ESCs."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Activation of gonadal gene programs by NR5A1 or GATA4 overexpression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Immunofluorescence results demonstrated that overexpression of either gene alone in human ESCs could induce gonadal gene programs, as evidenced by the activation of marker genes associated with the gonadal progenitors."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7f979a0f4e788db561fc3080",
+              "unit": null,
+              "value_raw_text": "Immunofluorescence results demonstrated that overexpression of either gene alone in human ESCs could induce gonadal gene programs, as evidenced by the activation of marker genes associated with the gonadal progenitors."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of DEGs in gonadal-related biological processes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The DEGs were found to be enriched in gonadal-related biological processes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_81c92a784facd44bdfbb7e0b",
+              "unit": null,
+              "value_raw_text": "The DEGs were found to be enriched in gonadal-related biological processes."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Shift towards endoderm state",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with the actual knockout results, we observed that all simulated knockout cells exhibited a shift towards the endoderm state. Importantly, we found a positive correlation between the extent of shifting and the in silico knockout levels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f1c1db94b7b121c1e74e698a",
+              "unit": null,
+              "value_raw_text": "Consistent with the actual knockout results, we observed that all simulated knockout cells exhibited a shift towards the endoderm state. Importantly, we found a positive correlation between the extent of shifting and the in silico knockout levels."
+            }
+          ],
+          "unit_id": "su_9e918ac7bb22ed587e8071f7"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_350fbb5de9beaaaeb7753bad",
+              "inference_basis_ids": [
+                "res_694278f14098e5ed214b8db4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fa657d78aa369df36d85",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GeneCompass outperformed state-of-the-art models in diverse applications for a single species and unlocked new realms of cross-species biological investigations."
+              },
+              "statement": "GeneCompass outperforms state-of-the-art models in diverse downstream tasks for a single species and enables cross-species biological investigations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_baaf9a49dd913876cf5c312a",
+              "inference_basis_ids": [
+                "res_0092df1209dac68026d7c997"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "We found that GeneCompass using large-scale cross-species data for downstream tasks of single species followed the scaling law: larger-scale multi-species pre-training data produce superior pre-training representations compared to single-species data, further enhancing downstream tasks performance."
+              },
+              "statement": "Larger-scale multi-species pre-training data produce superior pre-training representations compared to single-species data, enhancing downstream task performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c8daf52d9f87feb29a8c9c29",
+              "inference_basis_ids": [
+                "res_294c49f6dc8f6eff44807c63",
+                "res_358ac397feef9a96c8e58c03",
+                "res_b59be822666c545f49c3f77c",
+                "res_b970b3440740b25f19049b29",
+                "res_be2033521d1d7c54f4453ac1",
+                "res_c208753782a6b6a9b25610f9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "GeneCompass shows enhanced performance for the gene perturbation prediction task."
+              },
+              "statement": "GeneCompass shows enhanced performance for the gene perturbation prediction task compared to GEARS."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Over 120 million human and mouse single-cell transcriptomes collected, after preprocessing 101,768,420 cells retained.",
+              "name": "GeneCompass pre-training dataset",
+              "version_or_split": "101,768,420 single-cell transcriptomes"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "GeneCompass outperformed state-of-the-art models in diverse applications for a single species and unlocked new realms of cross-species biological investigations.",
+              "provenance": {
+                "chunk_id": "fa657d78aa369df36d85",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GeneCompass outperformed state-of-the-art models in diverse applications for a single species and unlocked new realms of cross-species biological investigations."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "We found that GeneCompass using large-scale cross-species data for downstream tasks of single species followed the scaling law: larger-scale multi-species pre-training data produce superior pre-training representations compared to single-species data, further enhancing downstream tasks performance.",
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "We found that GeneCompass using large-scale cross-species data for downstream tasks of single species followed the scaling law: larger-scale multi-species pre-training data produce superior pre-training representations compared to single-species data, further enhancing downstream tasks performance."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Comparing GeneCompass performance against state-of-the-art models (Geneformer, scGPT, GEARS, etc.) on these tasks.",
+            "Fine-tuning GeneCompass on multiple downstream tasks: cell type annotation, GRN inference, drug dose response prediction, gene expression profiling, gene dosage sensitivity prediction, and gene perturbation prediction.",
+            "Pre-training GeneCompass on 101,768,420 human and mouse single-cell transcriptomes with four types of prior biological knowledge."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GeneCompass",
+              "protocol_description": "A knowledge-informed cross-species foundation model based on Transformer self-attention. During pre-training, genes are ranked and combined with expression values for dual encoding input. Four types of prior biological knowledge are integrated in a self-supervised manner. Fine-tuned for downstream tasks."
+            }
+          ],
+          "name": "GeneCompass pre-training and downstream evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Scaling law observation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "We found that GeneCompass using large-scale cross-species data for downstream tasks of single species followed the scaling law: larger-scale multi-species pre-training data produce superior pre-training representations compared to single-species data, further enhancing downstream tasks performance."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0092df1209dac68026d7c997",
+              "unit": null,
+              "value_raw_text": "GeneCompass using large-scale cross-species data for downstream tasks of single species followed the scaling law: larger-scale multi-species pre-training data produce superior pre-training representations compared to single-species data, further enhancing downstream tasks performance."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of top 20 DEGs with incorrect direction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "d Total number of the top 20 DEGs genes where the predicted post-perturbation differential expression was in the incorrect direction of the ground truth."
+              },
+              "quantitative_value": null,
+              "result_id": "res_294c49f6dc8f6eff44807c63",
+              "unit": null,
+              "value_raw_text": "Total number of the top 20 DEGs genes where the predicted post-perturbation differential expression was in the incorrect direction of the ground truth."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Predicted expression changes for TGFBR2 and PRTG perturbation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "g Expression changes for the combined TGFBR2 and PRTG perturbation in true experiment post perturbation were predicted by GeneCompass and GEARS."
+              },
+              "quantitative_value": null,
+              "result_id": "res_358ac397feef9a96c8e58c03",
+              "unit": null,
+              "value_raw_text": "Expression changes for the combined TGFBR2 and PRTG perturbation in true experiment post perturbation were predicted by GeneCompass and GEARS."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance comparison",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fa657d78aa369df36d85",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "GeneCompass outperformed state-of-the-art models in diverse applications for a single species and unlocked new realms of cross-species biological investigations."
+              },
+              "quantitative_value": null,
+              "result_id": "res_694278f14098e5ed214b8db4",
+              "unit": null,
+              "value_raw_text": "GeneCompass outperformed state-of-the-art models in diverse applications for a single species and unlocked new realms of cross-species biological investigations."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of perturbations with smaller deviation by GeneCompass",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "f Percentage of perturbations that exhibited a smaller deviation between the prediction results and ground truth when comparing GeneCompass with GEARs, using the deviation in the top 20 DEGs as the criterion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b59be822666c545f49c3f77c",
+              "unit": null,
+              "value_raw_text": "Percentage of perturbations that exhibited a smaller deviation between the prediction results and ground truth when comparing GeneCompass with GEARs, using the deviation in the top 20 DEGs as the criterion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Spearman correlation of predicted vs true expression changes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "c Scatter plot of the predicted and true changes in gene expression. Each dot represents a specific gene, and Spearman's correlation is marked as 'ρ'."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b970b3440740b25f19049b29",
+              "unit": null,
+              "value_raw_text": "Spearman's correlation is marked as 'ρ'."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene perturbation prediction MSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "b MSE in predicting the expression changes in the top 20 DEGs by GeneCompass and GEARS. MSE only considered on the top 20 most DEGs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_be2033521d1d7c54f4453ac1",
+              "unit": null,
+              "value_raw_text": "MSE in predicting the expression changes in the top 20 DEGs by GeneCompass and GEARS."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Expression deviation between predicted and true changes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "20710ea7f0bd8b4e78e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "e Expression deviation between the predicted and true changes in gene expression for the top 20 DEGs analyzed by GeneCompass and GEARS."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c208753782a6b6a9b25610f9",
+              "unit": null,
+              "value_raw_text": "Expression deviation between the predicted and true changes in gene expression for the top 20 DEGs analyzed by GeneCompass and GEARS."
+            }
+          ],
+          "unit_id": "su_c8eb2e113fe48fab813866d0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

@@ -1,0 +1,516 @@
+{
+  "coverage_ledger": {
+    "62cb83344e2c8b611ffe": "extracted",
+    "79a3fd131ade85fb5653": "not_selected",
+    "83180b62a75a2cbd6393": "extracted",
+    "8be2acc5adb341b7af76": "not_selected",
+    "9d2413495a7961cc2b0d": "not_selected",
+    "bdea53f9d8f3f2e7e2f8": "not_selected",
+    "d6d54990e00d2e7a5bcd": "extracted",
+    "f2b7faea6622eca29f13": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The practical method is feasible only for very small networks (roughly N ≤ 7) due to combinatorial explosion.",
+    "Multiple hypothesis testing problem is not properly addressed.",
+    "The method assumes additive noise and independence; model mismatch leads to rejection.",
+    "Gaussian Process regression assumes Gaussian noise, which may be inconsistent with the general setting; other regression methods may be needed for significant outliers.",
+    "The method returns all consistent DAGs, including unnecessarily complex ones; current implementation removes such graphs but may not be optimal."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_9.pdf",
+    "source_sha256": "f500496b888614e68893543f57a2574cc824a1e46af554972ab7b832cecd1bf4"
+  },
+  "paper_id": "5_9",
+  "quality_assessment": {
+    "correct_item_count": 32,
+    "deterministic_rule_score": 0.9226,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 34,
+    "f1": 0.8,
+    "incorrect_item_count": 2,
+    "incorrect_items": [
+      {
+        "description": "The extracted value_raw_text states 'length -> age p=? (not fully reported in chunk).' This is not supported by the source chunk, which only provides the p-value for the forward model and does not mention the reverse p-value. The excerpt is incomplete and the '?' is not in the source.",
+        "item_id": "result:su_6d59d141bb3c335774bfe473:res_53bb4b7466029408df67911b",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'the method accepts the correct direction (age -> length) with p=0.19.' The source excerpt only says the correct model leads to a p-value of 0.19, but does not explicitly state that the method accepts it. The acceptance is inferred but not directly stated in the excerpt.",
+        "item_id": "claim:su_6d59d141bb3c335774bfe473:clm_f38b149e2a6b6a981576d020",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 14,
+    "missed_core_items": [
+      {
+        "description": "The method was also applied to altitude-temperature data, with results: altitude causes temperature p=0.017, reverse p=8e-15.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "The correct model “altitude causes temperature” leads to p = 0.017, while “temperature causes altitude” can clearly be rejected (p = 8 × 10−15)",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The method was applied to a third real-world dataset: altitude and temperature from 349 German weather stations.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "Finally, we assay the method on a simple example involving two observed variables: The altitude above sea level (in meters) and the local yearly average outdoor temperature in centigrade, for 349 weather stations in Germany, collected over the time period of 1961–1990 [19].",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The Abalone dataset description includes that it is from the UCI ML repository and contains measurements of number of rings (age) and shell length.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "The second dataset, the “Abalone” dataset from the UCI ML repository [18], contains measurements of the number of rings in the shell of abalone (a group of shellﬁsh), which indicate their age, and the length of the shell.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The Old Faithful dataset description includes that it contains data about duration of eruption and time interval between subsequent eruptions.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "The ﬁrst dataset, the “Old Faithful” dataset [17] contains data about the duration of an eruption and the time interval between subsequent eruptions of the Old Faithful geyser in Yellowstone National Park, USA.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The synthetic two-variable data generation uses 300 samples per trial and 100 trials per parameter setting.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "We used 300 (x, y) samples for each trial and used a signiﬁcance level of 2% for rejecting the null hypothesis of independence of residuals and cause. For each b value (or q value) we repeated the experiment 100 times in order to estimate the acceptance probabilities.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The synthetic four-variable diamond data generation uses 500 samples.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "We sampled 500 (w, x, y, z) tuples from the model and applied the algorithm described in Section 4 in order to reconstruct the DAG structure.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The method uses a significance level of 2% for independence tests.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "We used 300 (x, y) samples for each trial and used a signiﬁcance level of 2% for rejecting the null hypothesis of independence of residuals and cause.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The method's regression uses GPML code with Gaussian kernel and independent Gaussian noise, optimizing hyperparameters.",
+        "item_id": null,
+        "source_chunk_id": "83180b62a75a2cbd6393",
+        "source_excerpt": "For the regression, we used the GPML code from [14] corresponding to [12], using a Gaussian kernel and independent Gaussian noise, optimizing the hyperparameters for each regression individually.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The independence test uses HSIC with Gaussian kernel and gamma approximation for p-value.",
+        "item_id": null,
+        "source_chunk_id": "83180b62a75a2cbd6393",
+        "source_excerpt": "For the independence test, we implemented the HSIC [13] with a Gaussian kernel, where we used the gamma distribution as an approximation for the distribution of the HSIC under the null hypothesis of independence in order to calculate the p-value of the test result.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The method assumes additive noise and independence; model mismatch leads to rejection.",
+        "item_id": null,
+        "source_chunk_id": "d6d54990e00d2e7a5bcd",
+        "source_excerpt": "Hence, our simple nonlinear model with independent additive noise is not consistent with the data in either direction.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The practical method is feasible only for very small networks (roughly N ≤ 7) due to combinatorial explosion.",
+        "item_id": null,
+        "source_chunk_id": "83180b62a75a2cbd6393",
+        "source_excerpt": "The above procedure is obviously feasible only for very small networks (roughly N ≤7 or so) and also suffers from the problem of multiple hypothesis testing; an important future improvement would be to take this properly into account.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Multiple hypothesis testing problem is not properly addressed.",
+        "item_id": null,
+        "source_chunk_id": "83180b62a75a2cbd6393",
+        "source_excerpt": "The above procedure is obviously feasible only for very small networks (roughly N ≤7 or so) and also suffers from the problem of multiple hypothesis testing; an important future improvement would be to take this properly into account.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Gaussian Process regression assumes Gaussian noise, which may be inconsistent with the general setting; other regression methods may be needed for significant outliers.",
+        "item_id": null,
+        "source_chunk_id": "83180b62a75a2cbd6393",
+        "source_excerpt": "The assumption of Gaussian noise is somewhat inconsistent with our general setting where the residuals are allowed to have any distribution (we even prefer the noise to be non-Gaussian); in practice however, the regression yields acceptable results as long as the noise is sufﬁciently similar to Gaussian noise. In case of signiﬁcant outliers, other regression methods may yield better results.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The method returns all consistent DAGs, including unnecessarily complex ones; current implementation removes such graphs but may not be optimal.",
+        "item_id": null,
+        "source_chunk_id": "83180b62a75a2cbd6393",
+        "source_excerpt": "Furthermore, the above algorithm returns all DAGs consistent with the data, including all those for which consistent subgraphs exist. Our current implementation removes any such unnecessarily complex graphs from the output.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9412,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.6957
+  },
+  "quality_score": 0.8,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can nonlinear additive noise models identify causal direction from observational data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a955123c82b3fb804d206343",
+              "inference_basis_ids": [
+                "res_f4769735a6fef357f3c593ce"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Thus, we accept the model where the time interval between the current and the next eruption is a function of the duration of the current eruption, but reject the reverse model. This is in line with the chronological ordering of these events."
+              },
+              "statement": "On Old Faithful data, the method accepts the chronologically correct causal direction (duration -> interval) and rejects the reverse."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e9d678e13ecc86b2c82a8714",
+              "inference_basis_ids": [
+                "res_fed26646cce407a9ef7b1be4"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Hence, our simple nonlinear model with independent additive noise is not consistent with the data in either direction."
+              },
+              "statement": "On time-shifted Old Faithful data, the model is rejected in both directions, indicating model mismatch."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f38b149e2a6b6a981576d020",
+              "inference_basis_ids": [
+                "res_53bb4b7466029408df67911b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The correct model “age causes length” leads to a p-value of 0.19"
+              },
+              "statement": "On Abalone data, the method accepts the correct direction (age -> length) with p=0.19."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Duration of eruption and time interval between subsequent eruptions.",
+              "name": "Old Faithful",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Number of rings (age) and shell length.",
+              "name": "Abalone",
+              "version_or_split": "subsample of 500 datapoints"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply method to Abalone data (rings vs. length).",
+            "Apply method to Old Faithful geyser data (duration vs. interval)."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "GP regression and HSIC test",
+              "protocol_description": "Same as M3."
+            }
+          ],
+          "name": "Real-world data experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "p-value",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The correct model “age causes length” leads to a p-value of 0.19, while the reverse model “length causes age” comes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_53bb4b7466029408df67911b",
+              "unit": null,
+              "value_raw_text": "Abalone: age -> length p=0.19; length -> age p=? (not fully reported in chunk)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "p-value",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Our method obtains a p-value of 0.5 for the (forward) model “current duration causes next interval length” and a p-value of 4.4 × 10−9 for the (backward) model “next interval length causes current duration”."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f4769735a6fef357f3c593ce",
+              "unit": null,
+              "value_raw_text": "Forward model (duration -> interval): p=0.5; backward: p=4.4e-9."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "p-value",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Time-shifting the data by one time step, we obtain for the (forward) model “current interval length causes next duration” a p-value smaller than 10−15 and for the (backward) model “next duration causes current interval length” we get a p-value of 1.8 × 10−8. Hence, our simple nonlinear model with independent additive noise is not consistent with the data in either direction."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fed26646cce407a9ef7b1be4",
+              "unit": null,
+              "value_raw_text": "Time-shifted: forward (interval -> duration) p<1e-15; backward p=1.8e-8. Neither direction accepted."
+            }
+          ],
+          "unit_id": "su_6d59d141bb3c335774bfe473"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_971e0ddbe13d6f39a1229410",
+              "inference_basis_ids": [
+                "res_c83a805ecf0b9c7d5abcfc04"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f2b7faea6622eca29f13",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for nonlinear models with additive noise almost any nonlinearities (invertible or not) will typically yield identiﬁable models."
+              },
+              "statement": "Nonlinearities in additive noise models typically allow identification of causal direction."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Theoretical analysis of identifiability for two-variable nonlinear additive noise models."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Nonlinear additive noise model",
+              "protocol_description": "Model: y := f(x) + n, with x and n independent, f nonlinear. Identifiability based on asymmetry: if forward model holds, residuals are independent of cause; reverse model typically yields dependent residuals."
+            }
+          ],
+          "name": "Two-variable identifiability analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Identifiability condition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f2b7faea6622eca29f13",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for nonlinear models with additive noise almost any nonlinearities (invertible or not) will typically yield identiﬁable models."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c83a805ecf0b9c7d5abcfc04",
+              "unit": null,
+              "value_raw_text": "For nonlinear models with additive noise, almost any nonlinearities (invertible or not) will typically yield identifiable models."
+            }
+          ],
+          "unit_id": "su_a2dbb214bf23191cb0fba310"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ca52813f276b35118502404b",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "83180b62a75a2cbd6393",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "We test whether a model y := f(x)+n is consistent with the data, simply by doing a nonlinear regression of y on x (to get an estimate ˆf of f), calculating the corresponding residuals ˆn = y −ˆf(x), and testing whether ˆn is independent of x. If so, we accept the model y := f(x) + n; if not, we reject it."
+              },
+              "statement": "The proposed method can infer causal direction by testing independence of residuals and cause."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose a method to infer causal graph from sample data using nonlinear regression and independence tests."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Two-step causal direction test",
+              "protocol_description": "For two variables x,y: (1) test independence; if dependent, (2) regress y on x, compute residuals, test independence of residuals and x; if independent, accept forward model. Repeat for reverse direction. Generalize to N variables by testing each DAG: regress each variable on parents, test mutual independence of residuals."
+            }
+          ],
+          "name": "Practical method for causal discovery",
+          "results": [],
+          "unit_id": "su_ead0a770a894a260ec73b881"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_89b953b7c06ca6f6d5e484c4",
+              "inference_basis_ids": [
+                "res_29e343a120c92ddadf281093",
+                "res_cc4fe799e541b91cf7997185"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Panel (a) shows that our method can solve the well-known linear but non-Gaussian special case [7]. ... Then, in panel (b) we similarly demonstrate that we can identify the correct direction for the Gaussian marginal and Gaussian noise model when the functional relationship is sufﬁciently nonlinear."
+              },
+              "statement": "The method correctly identifies causal direction in simulations when nonlinearity or non-Gaussianity is sufficient."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9e73fd16df062a39e82448a6",
+              "inference_basis_ids": [
+                "res_fe239f8c4d3c50c0d886c005"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The simplest DAG that was consistent with the data (with signiﬁcance level 2% for each test) turned out to be precisely the true causal structure."
+              },
+              "statement": "The method recovers the true causal graph in a 4-variable nonlinear simulation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "y = x + b x^3 + n; x,n ~ Gaussian, absolute value raised to power q, sign preserved. 300 samples per trial, 100 trials per parameter setting.",
+              "name": "Synthetic two-variable data",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "w ~ U(-3,3), x = w^2 + nx, nx ~ U(-1,1), y = 4 sqrt(|w|) + ny, ny ~ U(-1,1), z = 2 sin x + 2 sin y + nz, nz ~ U(-1,1). 500 samples.",
+              "name": "Synthetic four-variable diamond data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Simulate 4-variable diamond structure with nonlinear functions and uniform noise.",
+            "Simulate data from two-variable model y = x + b x^3 + n, with x,n Gaussian raised to power q (keeping sign). Vary b (nonlinearity) and q (non-Gaussianity)."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Gaussian Process regression with HSIC independence test",
+              "protocol_description": "Regression: GPML with Gaussian kernel, independent Gaussian noise, hyperparameters optimized. Independence test: HSIC with Gaussian kernel, p-value via gamma approximation. Significance level 2%."
+            }
+          ],
+          "name": "Simulation experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Acceptance probability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Panel (a) shows that our method can solve the well-known linear but non-Gaussian special case [7]. By plotting the acceptance probability of the correct and the reverse model as a function of non-Gaussianity we can see that when the distributions are sufﬁciently non-Gaussian the method is able to infer the correct causal direction. Then, in panel (b) we similarly demonstrate that we can identify the correct direction for the Gaussian marginal and Gaussian noise model when the functional relationship is sufﬁciently nonlinear."
+              },
+              "quantitative_value": null,
+              "result_id": "res_29e343a120c92ddadf281093",
+              "unit": null,
+              "value_raw_text": "When q is sufficiently non-Gaussian, method infers correct direction (panel a). When b is sufficiently nonlinear, method infers correct direction even for Gaussian noise (panel b)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Identifiability with invertible function",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Note in particular, that the model is identiﬁable also for positive b in which case the function is invertible, indicating that non-invertibility is not a necessary condition for identiﬁcation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cc4fe799e541b91cf7997185",
+              "unit": null,
+              "value_raw_text": "Model is identifiable also for positive b (invertible function), indicating non-invertibility is not necessary."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Graph recovery",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d54990e00d2e7a5bcd",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The simplest DAG that was consistent with the data (with signiﬁcance level 2% for each test) turned out to be precisely the true causal structure."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fe239f8c4d3c50c0d886c005",
+              "unit": null,
+              "value_raw_text": "For 4-variable diamond structure, the simplest consistent DAG was the true causal structure."
+            }
+          ],
+          "unit_id": "su_ecd0f65f434d7c2b822f6192"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7667 on attempt 1"
+    }
+  ]
+}

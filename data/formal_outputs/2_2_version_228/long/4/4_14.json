@@ -1,0 +1,603 @@
+{
+  "coverage_ledger": {
+    "065acd19d52c5f4d55e5": "not_selected",
+    "12382d61ebfbd15a2582": "not_selected",
+    "16d8e0908afc519c8e5e": "not_selected",
+    "1ad75cf6b09749bc2e20": "extracted",
+    "20581f068e35e3d8dd1a": "not_selected",
+    "3085fba2247dcba877b0": "not_selected",
+    "3da1cf5b9d7da35c64a3": "not_selected",
+    "4188b3c4c327f22cbf15": "not_selected",
+    "426f588f28583b7136d0": "not_selected",
+    "54337b6b2863b4a62db1": "extracted",
+    "5752a67265ae06504ee7": "not_selected",
+    "5f1239a4b4d54ab82e09": "extracted",
+    "62db9b909c91b6911e41": "not_selected",
+    "76145b305ee2508f461e": "not_selected",
+    "87c41ade48499161a923": "not_selected",
+    "8e34d762bd2712c5be0a": "not_selected",
+    "943157277a68494783f9": "not_selected",
+    "97467ab0208f23ed9712": "not_selected",
+    "9b556ab596b079f2d8ec": "not_selected",
+    "a9cbfb0cc67156474b37": "not_selected",
+    "acc72885bc0e909e4f9c": "not_selected",
+    "b3f1a2145ef93a2e4d4e": "not_selected",
+    "b55813e2902d4f239619": "not_selected",
+    "c17f0909853845dcfeef": "not_selected",
+    "c72cbbad4c3e6c3c1b37": "not_selected",
+    "d9218cc3bc1a5faeab37": "not_selected",
+    "d96f5ea1aba3a63ca1d0": "extracted",
+    "db21463e50880f145c2a": "not_selected",
+    "e599d41a3252c7ea75d6": "not_selected",
+    "f5660fb56bcb40836f33": "not_selected",
+    "f75d4657365269f57610": "not_selected",
+    "f96d32cee4c44ae93e84": "not_selected",
+    "fccda144a5bd2a416f38": "not_selected",
+    "ff585649f09c624ec939": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study focuses on the earliest phase of organoid development (up to 120h) and may not capture later stages of maturation.",
+    "Causal claims are based on correlations and perturbation experiments; direct mechanistic proof of the Yap1-Notch/Dll1 switch may require further validation.",
+    "Some experiments were repeated only once (e.g., 4i multiplexing, certain stainings), limiting statistical power.",
+    "The role of other pathways interacting with Yap1/Notch is not explored.",
+    "Organoid formation efficiency assays were normalized to controls, but absolute efficiencies are not reported.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_14.pdf",
+    "source_sha256": "4ad3e552c1a534af02e4aecca2ea8f37a38df55046be262866d92685bd550c14"
+  },
+  "paper_id": "4_14",
+  "quality_assessment": {
+    "correct_item_count": 53,
+    "deterministic_rule_score": 0.8667,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 53,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does Yap1 activity regulate symmetry breaking and cell fate specification during intestinal organoid development?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b4c339c7130bbd604d53b850",
+              "inference_basis_ids": [
+                "res_1245fa48fbc09662e6239430",
+                "res_56951cf90eaf2d3be67efe22",
+                "res_8129cb681cbf26016c3890a3",
+                "res_b8cbc813a493e5b7110449df",
+                "res_ed3b51abd2c2ff8448950242"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Taken together, this shows that variability in nuclear Yap1 initiates a Notch/Dll1 event. Cells with a high level of nuclear Yap1 become Dll1+ cells and subsequently Paneth cells. Once having become a Paneth cell, the upstream regulation of Yap1 on Dll1 is then lost."
+              },
+              "statement": "Variability in nuclear Yap1 initiates a Notch/Dll1 lateral inhibition event: cells with high nuclear Yap1 become Dll1+ and subsequently Paneth cells, after which Yap1 regulation of Dll1 is lost."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "scRNA-seq at multiple time points during organoid development",
+              "name": "Single-cell RNA-seq time course",
+              "version_or_split": "GSE115956"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of Yap1 target gene and Notch ligand expression",
+            "Immunofluorescence for Yap1, Dll1, Hes1, and Paneth cell markers",
+            "Single-cell RNA sequencing at different time points"
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Single-cell RNA sequencing and analysis",
+              "protocol_description": "scRNA-seq at different time points; analysis of Yap1 target genes and Notch ligands; correlation of expression levels"
+            },
+            {
+              "method_id": "M6",
+              "name": "Immunofluorescence and imaging",
+              "protocol_description": "Staining for Yap1, Dll1, Hes1, and Paneth cell markers; quantification of nuclear Yap1 and Dll1 expression"
+            }
+          ],
+          "name": "Single-cell RNA-seq and Yap1/Notch/Dll1 relationship",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Paneth cell appearance and Yap1 loss",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Between the 16-cell and the 32-cell stages, Paneth cells appear, which are all positive for Dll1 and start losing nuclear Yap1 (Fig. 5e, f, Extended Data Fig. 10a, b)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1245fa48fbc09662e6239430",
+              "unit": null,
+              "value_raw_text": "Between the 16-cell and the 32-cell stages, Paneth cells appear, which are all positive for Dll1 and start losing nuclear Yap1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Notch/Dll1 event after Yap1 perturbation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We then homogeneously inactivated or activated Yap1, and in both conditions, no Notch/Dll1 event is observed (Extended Data Fig. 10c, d). In contrary, when we used Ereg, Notch/Dll1 is activated (Extended Data Fig. 10c, d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_56951cf90eaf2d3be67efe22",
+              "unit": null,
+              "value_raw_text": "when we homogeneously inactivated or activated Yap1, no Notch/Dll1 event is observed; when we used Ereg, Notch/Dll1 is activated"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Symmetry breaking and Paneth cells after Notch inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "All these inhibitors reduce symmetry breaking and Paneth cell differentiation, resulting in an increased fraction of enterocysts (Fig. 5g, Extended Data Fig. 10e)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8129cb681cbf26016c3890a3",
+              "unit": null,
+              "value_raw_text": "gamma-secretase inhibitors reduce symmetry breaking and Paneth cell differentiation, resulting in an increased fraction of enterocysts"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear Yap1 and Dll1 expression timing",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Yap1 nuclear localization is variable between cells after the 4-cell stage and precedes the expression of Dll1 in few cells between the 8-cell and 16-cell stages. Dll1 expression occurs in cells with high level of nuclear Yap1 (Fig. 5d, e, f, Extended Data Fig. 10a)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b8cbc813a493e5b7110449df",
+              "unit": null,
+              "value_raw_text": "Yap1 nuclear localization is variable between cells after the 4-cell stage and precedes the expression of Dll1 in few cells between the 8-cell and 16-cell stages. Dll1 expression occurs in cells with high level of nuclear Yap1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Yap1 target gene and Dll1 correlation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "A subset of cells from organoids at 72h shows a high expression of Yap1 target genes (Fig. 5b, Table S1), whose levels correlate with the expression level of Notch ligands, such as Dll1 (Fig. 5b, c, Extended Data Fig. 9d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ed3b51abd2c2ff8448950242",
+              "unit": null,
+              "value_raw_text": "A subset of cells from organoids at 72h shows a high expression of Yap1 target genes, whose levels correlate with the expression level of Notch ligands, such as Dll1"
+            }
+          ],
+          "unit_id": "su_470c78dccd7ac969ed117d6c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1a6b73b0e7d6e825c272edf8",
+              "inference_basis_ids": [
+                "res_c55e34e6a7fe4e8c1a626904"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Thus, this support a model where organoid development follows a regenerative response with a transient activation of Yap1 target genes in a Lgr5- sphere."
+              },
+              "statement": "Organoid development follows a regenerative response with transient activation of Yap1 target genes in a Lgr5- sphere."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Bulk RNA-seq data from organoid development time points",
+              "name": "Bulk RNA-seq time course",
+              "version_or_split": "GSE115955"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Correlation of early expressed genes (24h vs 0h) with Yap1-dependent gene expression",
+            "Quantification of transcription factor binding motifs in promoters of genes expressed at 24h"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Transcription factor binding motif analysis",
+              "protocol_description": "Quantified transcription factor binding motifs in promoters of genes expressed at 24h"
+            },
+            {
+              "method_id": "M2",
+              "name": "Gene expression correlation analysis",
+              "protocol_description": "Correlated expression levels of early expressed genes (24h vs 0h) with Yap1-dependent gene expression"
+            }
+          ],
+          "name": "Transcriptional motif analysis and Yap1 target gene correlation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation coefficient",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "When we correlated the expression levels of the early expressed genes (24h vs 0h) in organoid development with the expression levels of Yap1-dependent gene expression 28, we observed a good correlation (r=0.45) (Fig. 3f)."
+              },
+              "quantitative_value": 0.45,
+              "result_id": "res_c55e34e6a7fe4e8c1a626904",
+              "unit": null,
+              "value_raw_text": "r=0.45"
+            }
+          ],
+          "unit_id": "su_8b1a10207a623d9f739ced75"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_99c06290d54e93aa32c8f13b",
+              "inference_basis_ids": [
+                "res_127f7298ec122149ef3a2e40",
+                "res_4778b1afe8e329a81244650e",
+                "res_7c731cb4fef0e3ee8eed5cf8",
+                "res_7d7de803348f420323553763",
+                "res_99b56db0c428f67d1da34b7a",
+                "res_be49af0a1088071800f8521e",
+                "res_e9ff09a21d87a0cb8f3b0bec",
+                "res_ed2ab1623280272b64955c79",
+                "res_fbc2f13e29bc84e724367e5a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "From these findings, we conclude that during the first 72h of organoid development, Yap1 is transiently active in every cell and induces cell proliferation, after which it becomes inactive in only few cells. Both, homogeneous inactivation and overactivation of Yap1 in spheres abolish symmetry breaking and organoid formation suggesting that it is not the absolute levels of Yap1, but its varying state between single cells that drives symmetry breaking."
+              },
+              "statement": "Yap1 is transiently active in every cell during the first 72h, inducing proliferation, and then becomes inactive in a subset of cells; both homogeneous inactivation and overactivation abolish symmetry breaking, indicating that variability in Yap1 state between cells drives symmetry breaking."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Efficiency of organoid formation under various Yap1 perturbations",
+              "name": "Organoid formation assays",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ereg activation",
+            "Generation of organoids from single cells with high Yap1 activity",
+            "Homogeneous Yap1 inhibition after 48h",
+            "Inducible Lats1/2 knock-out",
+            "Inhibition of Yap1 with Verteporfin",
+            "Yap1 knock-out",
+            "Yap1 overexpression"
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Organoid formation efficiency assay",
+              "protocol_description": "Organoids generated from single cells; efficiency measured as fraction forming organoids; normalization to control; fixed at indicated times; two-sided t-test"
+            }
+          ],
+          "name": "Yap1 perturbation experiments and organoid formation efficiency",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid formation efficiency (Ereg)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "ectopic activation of Yap1 using Yap1 overexpression, or activation of its downstream effector Ereg28, increases organoid formation efficiency (Fig. 4f)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_127f7298ec122149ef3a2e40",
+              "unit": null,
+              "value_raw_text": "increases organoid formation efficiency"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Paneth cell differentiation and enterocyst formation (homogeneous Yap1 inhibition)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Yap1 homogeneous inhibitions after 48 hours in all cells reduces Paneth cell differentiation, and increases the number of enterocysts."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4778b1afe8e329a81244650e",
+              "unit": null,
+              "value_raw_text": "reduces Paneth cell differentiation, and increases the number of enterocysts"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Symmetry breaking and Paneth cells (Lats1/2 KO)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Also inducible Lats1/2 knock-out organoids28, remain symmetrical and contain no Paneth cells. (Extended Data Fig. 7g, h)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7c731cb4fef0e3ee8eed5cf8",
+              "unit": null,
+              "value_raw_text": "remain symmetrical and contain no Paneth cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enterocyst formation (Ereg)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5f1239a4b4d54ab82e09",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "We then activated Yap1 in a heterogeneous manner with Ereg, which decreased enterocyst formation (Fig. 4g)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d7de803348f420323553763",
+              "unit": null,
+              "value_raw_text": "decreased enterocyst formation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid formation efficiency (Yap1 KO)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Inhibition of Yap1 and Yap1 knock-out result in reduced organoid efficiency (Fig. 4d, e, Extended Data Fig. 7e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_99b56db0c428f67d1da34b7a",
+              "unit": null,
+              "value_raw_text": "reduced organoid efficiency"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid formation efficiency (high Yap1 cells)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "When we generated organoids from single cells that on average have more Yap1 activity (all single cells extracted from 72h-old organoids), we observed a strong increase in efficiency in organoid formation (Fig. 4c, Extended Data Fig. 7d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_be49af0a1088071800f8521e",
+              "unit": null,
+              "value_raw_text": "strong increase in efficiency"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid formation efficiency (Verteporfin)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Inhibition of Yap1 and Yap1 knock-out result in reduced organoid efficiency (Fig. 4d, e, Extended Data Fig. 7e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e9ff09a21d87a0cb8f3b0bec",
+              "unit": null,
+              "value_raw_text": "reduced organoid efficiency"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organoid formation efficiency (Yap1 OE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "ectopic activation of Yap1 using Yap1 overexpression, or activation of its downstream effector Ereg28, increases organoid formation efficiency (Fig. 4f)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ed2ab1623280272b64955c79",
+              "unit": null,
+              "value_raw_text": "increases organoid formation efficiency"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Paneth cell differentiation and symmetry breaking (Yap1 overexpression)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "this phenotype is similar to Yap1-overexpression organoids, where Yap1 is homogeneously active in all cells, and form neither Paneth cells nor display symmetry breaking (Fig. 4g, h, Extended Data Fig. 7g, h)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fbc2f13e29bc84e724367e5a",
+              "unit": null,
+              "value_raw_text": "form neither Paneth cells nor display symmetry breaking"
+            }
+          ],
+          "unit_id": "su_a61412d621b9afaae2a1286b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2d744bfbda54caad2e48be3c",
+              "inference_basis_ids": [
+                "res_539a1ece7f38f45f074b0737",
+                "res_ca81ae77fb5890163bc06037"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Yap1 protein abundance in organoids shows an initial increase until 48h (Fig. 4a, b), while its subcellular localization starts to become variable between single-cells after 24h... in the 8-cell and 16-cell stages, when cells are more crowded, Yap1 is translocated to the cytosol, and thus inactivated, in a subset of cells (Fig. 4a)."
+              },
+              "statement": "Yap1 protein abundance increases until 48h and then becomes variable in subcellular localization, with nuclear Yap1 decreasing in a subset of cells at later stages."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Yap1 localization in Lgr5::DTR-EGFP organoids",
+              "name": "Immunofluorescence imaging of organoids",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of Yap1 protein abundance and subcellular localization over time",
+            "Measurement of Yap1 protein levels after Wnt removal"
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Immunofluorescence and pseudotime analysis",
+              "protocol_description": "Yap1 protein abundance along pseudotime (n=6892 organoids)"
+            }
+          ],
+          "name": "Yap1 protein dynamics and localization during organoid development",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Yap1 protein abundance change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Yap1 protein abundance in organoids shows an initial increase until 48h (Fig. 4a, b)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_539a1ece7f38f45f074b0737",
+              "unit": null,
+              "value_raw_text": "Yap1 protein abundance in organoids shows an initial increase until 48h"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Yap1 protein level after Wnt removal",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "After Wnt removal, Yap1 protein levels strongly decreased (Fig. 4b)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a783783d5e3cea665246fab7",
+              "unit": null,
+              "value_raw_text": "Yap1 protein levels strongly decreased"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Yap1 localization variability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ad75cf6b09749bc2e20",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "its subcellular localization starts to become variable between single-cells after 24h, increasing entropy in its ON and OFF state (Extended Data Fig. 7a,b)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ca81ae77fb5890163bc06037",
+              "unit": null,
+              "value_raw_text": "subcellular localization starts to become variable between single-cells after 24h, increasing entropy in its ON and OFF state"
+            }
+          ],
+          "unit_id": "su_c37352989b06f8afdbfa4745"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4766 on attempt 1"
+    }
+  ]
+}

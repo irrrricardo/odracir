@@ -1,0 +1,1642 @@
+{
+  "coverage_ledger": {
+    "0bcab1a9ff2db92b77fb": "extracted",
+    "17c24bcdf66767648b41": "not_selected",
+    "5232969c01d241d8e4a3": "not_selected",
+    "5cfb3929f3712a1d8f0e": "not_selected",
+    "6a7d3276657687b8ee28": "not_selected",
+    "6cffb716995193903cbc": "not_selected",
+    "6ea873084ea59cee5e05": "not_selected",
+    "7dbe06970870fabe9f57": "not_selected",
+    "9471efdabfe53de9d345": "extracted",
+    "ace2929312595cfffdbf": "not_selected",
+    "ba94cbd36adc35154785": "extracted",
+    "c4926246027e42f76883": "not_selected",
+    "cd78fffb155b0c957670": "not_selected",
+    "d04cff75790829cb0f76": "extracted",
+    "e411ba0cd8a9c90f085f": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Numerical issues can occur in estimating the filter matrices H(0), H(1), G(0), G(1) for large values of k due to floating-point precision."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_19.pdf",
+    "source_sha256": "9930707dfc39827dfdd63d708a2552f05d17c1dba3645431d320f37c78c40860"
+  },
+  "paper_id": "7_19",
+  "quality_assessment": {
+    "correct_item_count": 87,
+    "deterministic_rule_score": 0.9406,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 87,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can a multiwavelet-based neural operator learn the solution operator of PDEs with higher accuracy and resolution independence compared to existing neural operators?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_46bca385cc8a28fdee4bef4a",
+              "inference_basis_ids": [
+                "res_0388b89833c468f04045365f",
+                "res_05df385dfbe8ab027961b059",
+                "res_1a699d71e10b70f015a4f487",
+                "res_1ba2c5b976aa9bfa1c28c468",
+                "res_1cea3bdbfaf6176f0a2945bd",
+                "res_2fd430442e966a931369ecf9",
+                "res_300c40cd5f6c2d9287532068",
+                "res_3ee2ebe2c7cf29337410f0b5",
+                "res_458af4258f66a73772138793",
+                "res_4d3dcff43a0c500e7ee6388f",
+                "res_65f576a21ce3e1aed475a372",
+                "res_660e1681a87a358836108035",
+                "res_77475ed136737e055c2191d9",
+                "res_7b48a2b21f101a9e65084fd8",
+                "res_7f149f0f4618ec5cc5b43f44",
+                "res_8cc25316635a1f8e8a777b06",
+                "res_90396547528e18c29eab2ec5",
+                "res_99ace65828c903c253e067ab",
+                "res_a5fd139dbe3a8725990240c3",
+                "res_b1c703b240a98c6ddf3ce64c",
+                "res_c3dd37fc6ca75494411f30dc",
+                "res_cb06bf963dbe1765cb5acfb0",
+                "res_d0aa7cc6731aec4184570638",
+                "res_e9adfabe488bd7476db38515",
+                "res_ebea79073d786ff89a393819",
+                "res_f34985d7981dc66fbe0f84b1",
+                "res_fdc6dbe61d5794f07d4a54dc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "MWT Leg again obtains the lowest relative error compared to other neural operators at various resolutions."
+              },
+              "statement": "MWT Leg obtains the lowest relative L2 error on Darcy Flow compared to other neural operators at various resolutions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "2-D Darcy Flow on unit box; coefficient a ~ N(0, (-Δ+3^2 I)^{-2}) with zero Neumann BC, thresholded for ellipticity; solution u obtained by 2nd-order finite difference on 512x512 grid; lower resolutions by subsampling.",
+              "name": "Darcy Flow dataset",
+              "version_or_split": "various resolutions s=32,64,128,256,512"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learning the operator mapping coefficient a(x) to solution u(x) for the 2-D Darcy Flow equation."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup3",
+              "name": "MWT Leg",
+              "protocol_description": "Multiwavelet-based neural operator using Legendre polynomial basis; trained for 500 epochs with Adam optimizer, initial LR 0.001, decay factor 0.5 every 100 epochs; loss is relative L2 error."
+            },
+            {
+              "method_id": "M2__dup3",
+              "name": "MWT Chb",
+              "protocol_description": "Multiwavelet-based neural operator using Chebyshev polynomial basis; same training protocol."
+            },
+            {
+              "method_id": "M3__dup3",
+              "name": "FNO",
+              "protocol_description": "Fourier neural operator; same training protocol."
+            },
+            {
+              "method_id": "M4__dup3",
+              "name": "MGNO",
+              "protocol_description": "Multipole graph neural operator; same training protocol."
+            },
+            {
+              "method_id": "M5__dup3",
+              "name": "LNO",
+              "protocol_description": "Low-rank neural operator; same training protocol."
+            },
+            {
+              "method_id": "M7",
+              "name": "MWT Rnd",
+              "protocol_description": "Multiwavelet-based neural operator with random filter matrices; same training protocol."
+            }
+          ],
+          "name": "Darcy Flow benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO 0.0111"
+              },
+              "quantitative_value": 0.0111,
+              "result_id": "res_0388b89833c468f04045365f",
+              "unit": null,
+              "value_raw_text": "0.0111"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00722"
+              },
+              "quantitative_value": 0.00722,
+              "result_id": "res_05df385dfbe8ab027961b059",
+              "unit": null,
+              "value_raw_text": "0.00722"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Rnd 0.2432"
+              },
+              "quantitative_value": 0.2432,
+              "result_id": "res_1a699d71e10b70f015a4f487",
+              "unit": null,
+              "value_raw_text": "0.2432"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00654"
+              },
+              "quantitative_value": 0.00654,
+              "result_id": "res_1ba2c5b976aa9bfa1c28c468",
+              "unit": null,
+              "value_raw_text": "0.00654"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MGNO 0.0547"
+              },
+              "quantitative_value": 0.0547,
+              "result_id": "res_1cea3bdbfaf6176f0a2945bd",
+              "unit": null,
+              "value_raw_text": "0.0547"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.00872"
+              },
+              "quantitative_value": 0.00872,
+              "result_id": "res_2fd430442e966a931369ecf9",
+              "unit": null,
+              "value_raw_text": "0.00872"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO 0.0107"
+              },
+              "quantitative_value": 0.0107,
+              "result_id": "res_300c40cd5f6c2d9287532068",
+              "unit": null,
+              "value_raw_text": "0.0107"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00899"
+              },
+              "quantitative_value": 0.00899,
+              "result_id": "res_3ee2ebe2c7cf29337410f0b5",
+              "unit": null,
+              "value_raw_text": "0.00899"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.00891"
+              },
+              "quantitative_value": 0.00891,
+              "result_id": "res_458af4258f66a73772138793",
+              "unit": null,
+              "value_raw_text": "0.00891"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Rnd 0.2434"
+              },
+              "quantitative_value": 0.2434,
+              "result_id": "res_4d3dcff43a0c500e7ee6388f",
+              "unit": null,
+              "value_raw_text": "0.2434"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Rnd 0.2431"
+              },
+              "quantitative_value": 0.2431,
+              "result_id": "res_65f576a21ce3e1aed475a372",
+              "unit": null,
+              "value_raw_text": "0.2431"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "LNO 0.0524"
+              },
+              "quantitative_value": 0.0524,
+              "result_id": "res_660e1681a87a358836108035",
+              "unit": null,
+              "value_raw_text": "0.0524"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "LNO 0.0453"
+              },
+              "quantitative_value": 0.0453,
+              "result_id": "res_77475ed136737e055c2191d9",
+              "unit": null,
+              "value_raw_text": "0.0453"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO 0.0106"
+              },
+              "quantitative_value": 0.0106,
+              "result_id": "res_7b48a2b21f101a9e65084fd8",
+              "unit": null,
+              "value_raw_text": "0.0106"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MGNO 0.0519"
+              },
+              "quantitative_value": 0.0519,
+              "result_id": "res_7f149f0f4618ec5cc5b43f44",
+              "unit": null,
+              "value_raw_text": "0.0519"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO 0.0121"
+              },
+              "quantitative_value": 0.0121,
+              "result_id": "res_8cc25316635a1f8e8a777b06",
+              "unit": null,
+              "value_raw_text": "0.0121"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "MWT Chb 0.0174"
+              },
+              "quantitative_value": 0.0174,
+              "result_id": "res_90396547528e18c29eab2ec5",
+              "unit": null,
+              "value_raw_text": "0.0174"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00747"
+              },
+              "quantitative_value": 0.00747,
+              "result_id": "res_99ace65828c903c253e067ab",
+              "unit": null,
+              "value_raw_text": "0.00747"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "LNO 0.0428"
+              },
+              "quantitative_value": 0.0428,
+              "result_id": "res_a5fd139dbe3a8725990240c3",
+              "unit": null,
+              "value_raw_text": "0.0428"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "MGNO 0.0501"
+              },
+              "quantitative_value": 0.0501,
+              "result_id": "res_b1c703b240a98c6ddf3ce64c",
+              "unit": null,
+              "value_raw_text": "0.0501"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.00892"
+              },
+              "quantitative_value": 0.00892,
+              "result_id": "res_c3dd37fc6ca75494411f30dc",
+              "unit": null,
+              "value_raw_text": "0.00892"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FNO 0.0177"
+              },
+              "quantitative_value": 0.0177,
+              "result_id": "res_cb06bf963dbe1765cb5acfb0",
+              "unit": null,
+              "value_raw_text": "0.0177"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MGNO 0.0542"
+              },
+              "quantitative_value": 0.0542,
+              "result_id": "res_d0aa7cc6731aec4184570638",
+              "unit": null,
+              "value_raw_text": "0.0542"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "MWT Leg 0.0152"
+              },
+              "quantitative_value": 0.0152,
+              "result_id": "res_e9adfabe488bd7476db38515",
+              "unit": null,
+              "value_raw_text": "0.0152"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.0108"
+              },
+              "quantitative_value": 0.0108,
+              "result_id": "res_ebea79073d786ff89a393819",
+              "unit": null,
+              "value_raw_text": "0.0108"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "LNO 0.0457"
+              },
+              "quantitative_value": 0.0457,
+              "result_id": "res_f34985d7981dc66fbe0f84b1",
+              "unit": null,
+              "value_raw_text": "0.0457"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d04cff75790829cb0f76",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "MWT Rnd 0.2435"
+              },
+              "quantitative_value": 0.2435,
+              "result_id": "res_fdc6dbe61d5794f07d4a54dc",
+              "unit": null,
+              "value_raw_text": "0.2435"
+            }
+          ],
+          "unit_id": "su_2a7c03395d7016e60a460447"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f44514992d0e606ea329e389",
+              "inference_basis_ids": [
+                "res_e222cffdb16645bed51a5418"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ba94cbd36adc35154785",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the proposed method exhibits a (2X−10X) improvement (0.0018 (0.0033) relative L2 error for Burgers’ (KdV) equation)"
+              },
+              "statement": "The proposed method exhibits a 2X-10X improvement in relative L2 error for Burgers' equation compared to existing neural operator approaches."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "1-D Burgers' equation with periodic boundary conditions; initial condition u0 ~ N(0, 5^4(-Δ+5^2 I)^{-2}); viscosity ν=0.1; solved at resolution 2^13, lower resolutions by subsampling.",
+              "name": "Burgers' dataset",
+              "version_or_split": "various resolutions s=256,2048,4096,8192"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learning the operator mapping initial condition u0(x) to solution u(x,1) for the 1-D Burgers' equation."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup2",
+              "name": "MWT Leg",
+              "protocol_description": "Multiwavelet-based neural operator using Legendre polynomial basis; trained for 500 epochs with Adam optimizer, initial LR 0.001, decay factor 0.5 every 100 epochs; loss is relative L2 error."
+            },
+            {
+              "method_id": "M2__dup2",
+              "name": "MWT Chb",
+              "protocol_description": "Multiwavelet-based neural operator using Chebyshev polynomial basis; same training protocol."
+            },
+            {
+              "method_id": "M3__dup2",
+              "name": "FNO",
+              "protocol_description": "Fourier neural operator; modified for 1-D with careful parameter selection and removal of Batch-normalization; same training protocol."
+            },
+            {
+              "method_id": "M4__dup2",
+              "name": "MGNO",
+              "protocol_description": "Multipole graph neural operator; same training protocol."
+            },
+            {
+              "method_id": "M5__dup2",
+              "name": "LNO",
+              "protocol_description": "Low-rank neural operator; same training protocol."
+            },
+            {
+              "method_id": "M6__dup2",
+              "name": "GNO",
+              "protocol_description": "Graph neural operator; same training protocol."
+            }
+          ],
+          "name": "Burgers' equation benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ba94cbd36adc35154785",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "0.0018 (0.0033) relative L2 error for Burgers’ (KdV) equation"
+              },
+              "quantitative_value": 0.0033,
+              "result_id": "res_8f94c014114687e50ab43ccb",
+              "unit": null,
+              "value_raw_text": "0.0033"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ba94cbd36adc35154785",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "0.0018 (0.0033) relative L2 error for Burgers’ (KdV) equation"
+              },
+              "quantitative_value": 0.0018,
+              "result_id": "res_e222cffdb16645bed51a5418",
+              "unit": null,
+              "value_raw_text": "0.0018"
+            }
+          ],
+          "unit_id": "su_30a8f3c8cfc7a297aee43ab6"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_18e9a9525109311c6eefaf49",
+              "inference_basis_ids": [
+                "res_03f798929b774366862d01b1",
+                "res_058d777d7d9d8c1be6701377",
+                "res_159139bf492394b29e44b37e",
+                "res_1665987a734e8aa84f4c273c",
+                "res_1a9d025a8c3313b37722026b",
+                "res_215dcc763480c1c87808de87",
+                "res_30962925ad5708abbd28f7c7",
+                "res_30f717bc702f7452754632db",
+                "res_37a797f858488d6b9dab2a25",
+                "res_37be85afd4b18a3738ba9c05",
+                "res_3d36b589d39154b18dd33177",
+                "res_4332e97623b2fb0973c9e607",
+                "res_446afedac1a6db5bf0db58cf",
+                "res_5f4189ef79cd707102a3b73e",
+                "res_6831c5bb8d050566c50d5ec4",
+                "res_6cba6c648bfa526e95ad91e9",
+                "res_727d057000092b55748f63ba",
+                "res_74542d25c254fa586a689b26",
+                "res_8080602fc7f11b80641be688",
+                "res_97711dc5e6cb623fdbb71fbd",
+                "res_990fb0f1acb6c92def8c97a0",
+                "res_a15fd6f8250e36343c27de68",
+                "res_b2173fb55b9905140b0a8da0",
+                "res_b23dff60ee5a5b1c18c7f409",
+                "res_bbcc0b8823e58d57fa17525b",
+                "res_c1851c9175de0711c8d0dbf2",
+                "res_e25b8bd87daad02ddedce62f",
+                "res_edaa17db1569dd0fe3997a89",
+                "res_f59ca2b80a95ac440e96e9df"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The MWT model demonstrates the highest accuracy in all the experiments."
+              },
+              "statement": "MWT Leg achieves the lowest relative L2 error on the KdV equation across all resolutions compared to MWT Chb, FNO, MGNO, LNO, and GNO."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "1-D KdV equation solved with periodic boundary conditions; initial condition u0(x) = cos(πx) + λ cos(2πx) with λ=0.02.",
+              "name": "KdV dataset",
+              "version_or_split": "various resolutions s=64,128,256,512,1024"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learning the operator mapping initial condition u0(x) to solution u(x,1) for the Korteweg-de Vries equation."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "MWT Leg",
+              "protocol_description": "Multiwavelet-based neural operator using Legendre polynomial basis; trained for 500 epochs with Adam optimizer, initial LR 0.001, decay factor 0.5 every 100 epochs; loss is relative L2 error."
+            },
+            {
+              "method_id": "M2",
+              "name": "MWT Chb",
+              "protocol_description": "Multiwavelet-based neural operator using Chebyshev polynomial basis; same training protocol as MWT Leg."
+            },
+            {
+              "method_id": "M3",
+              "name": "FNO",
+              "protocol_description": "Fourier neural operator; modified for 1-D with careful parameter selection and removal of Batch-normalization; same training protocol."
+            },
+            {
+              "method_id": "M4",
+              "name": "MGNO",
+              "protocol_description": "Multipole graph neural operator; same training protocol."
+            },
+            {
+              "method_id": "M5",
+              "name": "LNO",
+              "protocol_description": "Low-rank neural operator; same training protocol."
+            },
+            {
+              "method_id": "M6",
+              "name": "GNO",
+              "protocol_description": "Graph neural operator; same training protocol."
+            }
+          ],
+          "name": "KdV equation benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GNO 0.0760"
+              },
+              "quantitative_value": 0.076,
+              "result_id": "res_03f798929b774366862d01b1",
+              "unit": null,
+              "value_raw_text": "0.0760"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "FNO 0.0122"
+              },
+              "quantitative_value": 0.0122,
+              "result_id": "res_058d777d7d9d8c1be6701377",
+              "unit": null,
+              "value_raw_text": "0.0122"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GNO 0.0789"
+              },
+              "quantitative_value": 0.0789,
+              "result_id": "res_159139bf492394b29e44b37e",
+              "unit": null,
+              "value_raw_text": "0.0789"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.00675"
+              },
+              "quantitative_value": 0.00675,
+              "result_id": "res_1665987a734e8aa84f4c273c",
+              "unit": null,
+              "value_raw_text": "0.00675"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.00712"
+              },
+              "quantitative_value": 0.00712,
+              "result_id": "res_1a9d025a8c3313b37722026b",
+              "unit": null,
+              "value_raw_text": "0.00712"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GNO 0.0699"
+              },
+              "quantitative_value": 0.0699,
+              "result_id": "res_215dcc763480c1c87808de87",
+              "unit": null,
+              "value_raw_text": "0.0699"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "FNO 0.0126"
+              },
+              "quantitative_value": 0.0126,
+              "result_id": "res_30962925ad5708abbd28f7c7",
+              "unit": null,
+              "value_raw_text": "0.0126"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "MWT Leg 0.00338"
+              },
+              "quantitative_value": 0.00338,
+              "result_id": "res_30f717bc702f7452754632db",
+              "unit": null,
+              "value_raw_text": "0.00338"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MGNO 0.1363"
+              },
+              "quantitative_value": 0.1363,
+              "result_id": "res_37a797f858488d6b9dab2a25",
+              "unit": null,
+              "value_raw_text": "0.1363"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00389"
+              },
+              "quantitative_value": 0.00389,
+              "result_id": "res_37be85afd4b18a3738ba9c05",
+              "unit": null,
+              "value_raw_text": "0.00389"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.00604"
+              },
+              "quantitative_value": 0.00604,
+              "result_id": "res_3d36b589d39154b18dd33177",
+              "unit": null,
+              "value_raw_text": "0.00604"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "LNO 0.0447"
+              },
+              "quantitative_value": 0.0447,
+              "result_id": "res_4332e97623b2fb0973c9e607",
+              "unit": null,
+              "value_raw_text": "0.0447"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "MGNO 0.1296"
+              },
+              "quantitative_value": 0.1296,
+              "result_id": "res_446afedac1a6db5bf0db58cf",
+              "unit": null,
+              "value_raw_text": "0.1296"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MGNO 0.1355"
+              },
+              "quantitative_value": 0.1355,
+              "result_id": "res_5f4189ef79cd707102a3b73e",
+              "unit": null,
+              "value_raw_text": "0.1355"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "LNO 0.0425"
+              },
+              "quantitative_value": 0.0425,
+              "result_id": "res_6831c5bb8d050566c50d5ec4",
+              "unit": null,
+              "value_raw_text": "0.0425"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "FNO 0.0125"
+              },
+              "quantitative_value": 0.0125,
+              "result_id": "res_6cba6c648bfa526e95ad91e9",
+              "unit": null,
+              "value_raw_text": "0.0125"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MGNO 0.1515"
+              },
+              "quantitative_value": 0.1515,
+              "result_id": "res_727d057000092b55748f63ba",
+              "unit": null,
+              "value_raw_text": "0.1515"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "LNO 0.0557"
+              },
+              "quantitative_value": 0.0557,
+              "result_id": "res_74542d25c254fa586a689b26",
+              "unit": null,
+              "value_raw_text": "0.0557"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "LNO 0.0429"
+              },
+              "quantitative_value": 0.0429,
+              "result_id": "res_8080602fc7f11b80641be688",
+              "unit": null,
+              "value_raw_text": "0.0429"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00418"
+              },
+              "quantitative_value": 0.00418,
+              "result_id": "res_97711dc5e6cb623fdbb71fbd",
+              "unit": null,
+              "value_raw_text": "0.00418"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "MWT Chb 0.00715"
+              },
+              "quantitative_value": 0.00715,
+              "result_id": "res_990fb0f1acb6c92def8c97a0",
+              "unit": null,
+              "value_raw_text": "0.00715"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MGNO 0.1345"
+              },
+              "quantitative_value": 0.1345,
+              "result_id": "res_a15fd6f8250e36343c27de68",
+              "unit": null,
+              "value_raw_text": "0.1345"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "LNO 0.0414"
+              },
+              "quantitative_value": 0.0414,
+              "result_id": "res_b2173fb55b9905140b0a8da0",
+              "unit": null,
+              "value_raw_text": "0.0414"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "FNO 0.0124"
+              },
+              "quantitative_value": 0.0124,
+              "result_id": "res_b23dff60ee5a5b1c18c7f409",
+              "unit": null,
+              "value_raw_text": "0.0124"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Chb 0.00769"
+              },
+              "quantitative_value": 0.00769,
+              "result_id": "res_bbcc0b8823e58d57fa17525b",
+              "unit": null,
+              "value_raw_text": "0.00769"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00375"
+              },
+              "quantitative_value": 0.00375,
+              "result_id": "res_c1851c9175de0711c8d0dbf2",
+              "unit": null,
+              "value_raw_text": "0.00375"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MWT Leg 0.00393"
+              },
+              "quantitative_value": 0.00393,
+              "result_id": "res_e25b8bd87daad02ddedce62f",
+              "unit": null,
+              "value_raw_text": "0.00393"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GNO 0.0695"
+              },
+              "quantitative_value": 0.0695,
+              "result_id": "res_edaa17db1569dd0fe3997a89",
+              "unit": null,
+              "value_raw_text": "0.0695"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9471efdabfe53de9d345",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GNO 0.0721"
+              },
+              "quantitative_value": 0.0721,
+              "result_id": "res_f59ca2b80a95ac440e96e9df",
+              "unit": null,
+              "value_raw_text": "0.0721"
+            }
+          ],
+          "unit_id": "su_c1ee20fb787a0d82a79d1dde"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[4].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M5 -> M5__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[5].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M6 -> M6__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[4].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[5].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M5 -> M5__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9286 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9286 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9286 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9286 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9091 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8571 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    }
+  ]
+}

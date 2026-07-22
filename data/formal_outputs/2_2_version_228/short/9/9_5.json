@@ -1,0 +1,1176 @@
+{
+  "coverage_ledger": {
+    "069482b2ee9fba8bfbbc": "extracted",
+    "07afd94469ac228a52ed": "extracted",
+    "1b3f8102f0decdc28ce3": "not_selected",
+    "1d256a373c79f8f433f8": "extracted",
+    "1f1d29a1ff83fa5493ce": "not_selected",
+    "3b942b7d1d31bbb90a02": "not_selected",
+    "47ccb9da76972f714f91": "extracted",
+    "54ec1c68e529350d661e": "extracted",
+    "5afda7095fa2f6fafef6": "not_selected",
+    "693735c958868fb2c11d": "not_selected",
+    "7d5ce3f23e0eca157552": "extracted",
+    "8dc5afca74bdf46d8cba": "not_selected",
+    "9312a97f5ec068f369b5": "extracted",
+    "a3f893a887b0c340792b": "not_selected",
+    "a89ca279704c7782f693": "not_selected",
+    "b2b02f05a074961d7840": "not_selected",
+    "fe56174eb15ee21ea404": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The synthetic data is derived from high-school and undergraduate-level competition problems, which may not cover advanced mathematical domains.",
+    "The approach relies on the quality of autoformalization and proof generation; errors in these steps can propagate.",
+    "The model's performance is evaluated only on miniF2F and FIMO benchmarks; generalization to other formal mathematics tasks is not assessed.",
+    "The iterative training process may plateau after several iterations.",
+    "The method requires significant computational resources for large-scale proof generation and verification."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "9_5.pdf",
+    "source_sha256": "5731f6e680035a6aab3e35f11eedcc558b7939de5b290a589f43322251eb3e04"
+  },
+  "paper_id": "9_5",
+  "quality_assessment": {
+    "correct_item_count": 74,
+    "deterministic_rule_score": 0.9588,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.075,
+      "sample_size_log_score": 0.7243,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 79,
+    "f1": 0.9193,
+    "incorrect_item_count": 5,
+    "incorrect_items": [
+      {
+        "description": "The extracted result claims iteration 3 pass@128 is 45.1% on miniF2F-valid, but the source table shows iteration 3 valid is 54.5% and test is 45.1%. The provenance excerpt 'iteration 3 ... 45.1%' is ambiguous, but the additional provenance also cites 'iteration 1 ... 45.1%'. The correct mapping from Table 4 is: iteration 3 valid=54.5%, test=45.1%. The extracted result does not specify valid or test, but the metric is pass@128 and the value 45.1% matches test, not valid. However, the provenance is paraphrased and may be misattributed. Since the extraction does not clearly indicate which split, and the value 45.1% appears for iteration 1 valid and iteration 3 test, it is ambiguous. But the item is presented as a result for the iterative training task, and the value 45.1% is correct for iteration 3 test. However, the provenance excerpt 'iteration 3 ... 45.1%' is not directly found in the source; the source table shows iteration 3 valid 54.5% and test 45.1%. The paraphrased excerpt could be referring to test. But the additional provenance includes 'iteration 1 ... 45.1%', which is also correct for iteration 1 valid. The item is not clearly incorrect, but the provenance is messy. However, the audit protocol says to mark an extracted item incorrect only for unsupported, contradicted, or materially overstated content. The value 45.1% is supported for iteration 3 test. The item is not incorrect.",
+        "item_id": "result:su_ae4b165fd534970bb7706a15:res_4fab33fdfbf7aa2357570907",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Performance on miniF2F improves proportionally to the exponential increase in dataset size.' The source says 'performance on the miniF2F benchmark improves proportionally to the exponential increase in dataset size.' This is a direct quote, so the claim is supported. Not incorrect.",
+        "item_id": "claim:su_49fa4529529a95943f386e75:clm_2e7587008dd5180f78b3356f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'DeepSeek-Prover outperforms GPT-4 and tree search methods on miniF2F test.' The provenance excerpt says 'DeepSeek-Prover outperforms all with cumulative scores of 60.2% on miniF2F-valid and 52.0% on miniF2F-test, significantly higher than other methods, including GPT-4 which scores 25.41% and 22.95%, respectively.' This supports the claim. Not incorrect.",
+        "item_id": "claim:su_dabdbdd4f6a8f470f16aacdc:clm_5a14f025f3f7369c8d0e3372",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'High-score proof data yields 4.5% higher pass@128 than low-score data.' The source says 'the model trained on high-score proof data outperformed the model trained on low-score proof data by 4.5%.' This is supported. Not incorrect.",
+        "item_id": "claim:su_e61d42a09e301b81129eceec:clm_05d841e6133683f3de95dc6d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The iterative training process may plateau after several iterations.' The source does not explicitly state that the process may plateau; it says 'This iterative process continues until no further gains are observed.' This implies that it may plateau, but the boundary is a reasonable inference. However, the source does not explicitly mention plateauing; it says the process continues until no further gains, which is a stopping condition. The boundary is not contradicted, but it is not directly stated. The audit protocol says to mark an extracted item incorrect only for unsupported, contradicted, or materially overstated content. This boundary is a plausible limitation, but it is not explicitly stated in the source. The source says 'This iterative process continues until no further gains are observed.' That implies that gains may diminish, but 'may plateau' is a slight overstatement? It is a reasonable abstraction. I will not mark it as incorrect.",
+        "item_id": "boundary:4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "The synthetic dataset comprises 8 million formal statements with proofs.",
+        "item_id": null,
+        "source_chunk_id": "07afd94469ac228a52ed",
+        "source_excerpt": "After fine-tuning the DeepSeekMath 7B model on this synthetic dataset, which comprises 8 million formal statements with proofs",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "DeepSeek-Prover achieved 60.2% cumulative pass@k on miniF2F-valid.",
+        "item_id": null,
+        "source_chunk_id": "47ccb9da76972f714f91",
+        "source_excerpt": "DeepSeek-Prover outperforms all with cumulative scores of 60.2% on miniF2F-valid and 52.0% on miniF2F-test",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The base model is DeepSeekMath-Base 7B, a decoder-only transformer pre-trained on 120 billion math-related tokens.",
+        "item_id": null,
+        "source_chunk_id": "1d256a373c79f8f433f8",
+        "source_excerpt": "DeepSeek-Prover is built upon DeepSeekMath-Base 7B model [Shao et al., 2024], a decoder-only transformer [Vaswani et al., 2017] pre-trained on a corpus comprising 120 billion math-related tokens.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The autoformalization dataset consists of 869,659 high-quality natural language math problems scraped from online resources.",
+        "item_id": null,
+        "source_chunk_id": "5afda7095fa2f6fafef6",
+        "source_excerpt": "we employed web scraping and careful data cleaning techniques to extract problems from online resources featuring high school and undergraduate exercises, exams, and competitions, resulting in a dataset of 869,659 high-quality natural language math problems.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "After quality filtering, 712,073 high-quality formal statements were obtained.",
+        "item_id": null,
+        "source_chunk_id": "b2b02f05a074961d7840",
+        "source_excerpt": "By applying this dual strategy of model scoring and hypothesis rejection, we curated a refined set of 712,073 high-quality formal statements",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The model was fine-tuned with global batch size 512, constant learning rate 1e-4, and 6000 warmup steps.",
+        "item_id": null,
+        "source_chunk_id": "1d256a373c79f8f433f8",
+        "source_excerpt": "We fine-tuned this model using a global batch size of 512 and a constant learning rate of 1 × 10−4, incorporating 6,000 warmup steps with synthetic data.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The approach uses dual concurrent proof searches for each statement and its negation to improve efficiency.",
+        "item_id": null,
+        "source_chunk_id": "b2b02f05a074961d7840",
+        "source_excerpt": "We implemented dual concurrent proof searches for each synthetic statement—one for the statement Γ ⊢P and another for its negation Γ ⊢¬P.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The work focuses on algebra and number theory at middle school and undergraduate levels, with plans to expand diversity.",
+        "item_id": null,
+        "source_chunk_id": "8dc5afca74bdf46d8cba",
+        "source_excerpt": "Currently, our work mainly focuses on algebra and number theory at the middle school and undergraduate levels. In future work, we will aim to expand the diversity of mathematical problems addressed",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9367,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9024
+  },
+  "quality_score": 0.9193,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can large-scale synthetic data generated from informal math problems improve LLM-based theorem proving in Lean 4?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2e7587008dd5180f78b3356f",
+              "inference_basis_ids": [
+                "res_2696b2ddfa968102ce9db988",
+                "res_3bf9d7f408f1afc601f8f643",
+                "res_442d580e0171a097e8cca973",
+                "res_4892b4a1918c9ce090b1c34f",
+                "res_5d18fae45d88ed73a7b88abc",
+                "res_818709c3d2dc655d1c3f8677",
+                "res_839d6a4ddb2fb22fa518a855",
+                "res_a5be084d2e4e3fc7b52aa75d",
+                "res_be0acc1dea7bca8cd380625a",
+                "res_cfcd06106201cbb9914845c5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "performance on the miniF2F benchmark improves proportionally to the exponential increase in dataset size."
+              },
+              "statement": "Performance on miniF2F improves proportionally to the exponential increase in dataset size."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "Benchmark for evaluation.",
+              "name": "miniF2F",
+              "version_or_split": "valid and test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate pass@128 on miniF2F with increasing fractions of synthetic data."
+          ],
+          "methods": [
+            {
+              "method_id": "M15",
+              "name": "Scaling data size",
+              "protocol_description": "Train on subsets of 1K, 10K, 100K, 1M, 8M synthetic proofs."
+            }
+          ],
+          "name": "Ablation: Scaling Synthetic Data",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1,000,000 ... 38.11%"
+              },
+              "quantitative_value": 38.11,
+              "result_id": "res_2696b2ddfa968102ce9db988",
+              "unit": "%",
+              "value_raw_text": "38.11%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "10,000 ... 31.97%"
+              },
+              "quantitative_value": 31.97,
+              "result_id": "res_3bf9d7f408f1afc601f8f643",
+              "unit": "%",
+              "value_raw_text": "31.97%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "100,000 ... 36.07%"
+              },
+              "quantitative_value": 36.07,
+              "result_id": "res_442d580e0171a097e8cca973",
+              "unit": "%",
+              "value_raw_text": "36.07%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1,000 ... 24.18%"
+              },
+              "quantitative_value": 24.18,
+              "result_id": "res_4892b4a1918c9ce090b1c34f",
+              "unit": "%",
+              "value_raw_text": "24.18%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "8,066,621 ... 40.16%"
+              },
+              "quantitative_value": 40.16,
+              "result_id": "res_5d18fae45d88ed73a7b88abc",
+              "unit": "%",
+              "value_raw_text": "40.16%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "10,000 ... 32.79%"
+              },
+              "quantitative_value": 32.79,
+              "result_id": "res_818709c3d2dc655d1c3f8677",
+              "unit": "%",
+              "value_raw_text": "32.79%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1,000 ... 22.95%"
+              },
+              "quantitative_value": 22.95,
+              "result_id": "res_839d6a4ddb2fb22fa518a855",
+              "unit": "%",
+              "value_raw_text": "22.95%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "100,000 ... 37.7%"
+              },
+              "quantitative_value": 37.7,
+              "result_id": "res_a5be084d2e4e3fc7b52aa75d",
+              "unit": "%",
+              "value_raw_text": "37.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1,000,000 ... 39.34%"
+              },
+              "quantitative_value": 39.34,
+              "result_id": "res_be0acc1dea7bca8cd380625a",
+              "unit": "%",
+              "value_raw_text": "39.34%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "8,066,621 ... 42.62%"
+              },
+              "quantitative_value": 42.62,
+              "result_id": "res_cfcd06106201cbb9914845c5",
+              "unit": "%",
+              "value_raw_text": "42.62%"
+            }
+          ],
+          "unit_id": "su_49fa4529529a95943f386e75"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1b8c3931cba3564284cb6d1e",
+              "inference_basis_ids": [
+                "res_13f3a94dcc1c198649e5c7cf",
+                "res_46b37930b120bfd1531e6952",
+                "res_4fab33fdfbf7aa2357570907",
+                "res_5bb05d7e42793d68455fdc3d",
+                "res_611a82b941b601354163ea76",
+                "res_98e4a455cfb4fa400f3c8459",
+                "res_9c57009e7a5d8578ad8ac268",
+                "res_b4a9c75fee33069976ac93ea",
+                "res_cded65cd1f0d0894d2abec8c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Table 4 demonstrates a distinct correlation between the number of iterations in data synthesis and enhanced performance in theorem proving."
+              },
+              "statement": "Iterative training progressively improves theorem proving performance."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Benchmark for evaluation.",
+              "name": "miniF2F",
+              "version_or_split": "valid and test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate pass@128 on miniF2F across training iterations 0-4."
+          ],
+          "methods": [
+            {
+              "method_id": "M14",
+              "name": "Iterative training",
+              "protocol_description": "Successive fine-tuning iterations with incremental synthetic data."
+            }
+          ],
+          "name": "Ablation: Iterative Enhancement",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 2 ... 49.2%"
+              },
+              "quantitative_value": 49.2,
+              "result_id": "res_13f3a94dcc1c198649e5c7cf",
+              "unit": "%",
+              "value_raw_text": "49.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 3 ... 54.5%"
+              },
+              "quantitative_value": 54.5,
+              "result_id": "res_46b37930b120bfd1531e6952",
+              "unit": "%",
+              "value_raw_text": "54.5%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "54ec1c68e529350d661e",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "iteration 1 ... 45.1%"
+                }
+              ],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 3 ... 45.1%"
+              },
+              "quantitative_value": 45.1,
+              "result_id": "res_4fab33fdfbf7aa2357570907",
+              "unit": "%",
+              "value_raw_text": "45.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 1 ... 39.3%"
+              },
+              "quantitative_value": 39.3,
+              "result_id": "res_5bb05d7e42793d68455fdc3d",
+              "unit": "%",
+              "value_raw_text": "39.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 4 ... 46.3%"
+              },
+              "quantitative_value": 46.3,
+              "result_id": "res_611a82b941b601354163ea76",
+              "unit": "%",
+              "value_raw_text": "46.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 0 ... 34.0%"
+              },
+              "quantitative_value": 34.0,
+              "result_id": "res_98e4a455cfb4fa400f3c8459",
+              "unit": "%",
+              "value_raw_text": "34.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 0 ... 38.1%"
+              },
+              "quantitative_value": 38.1,
+              "result_id": "res_9c57009e7a5d8578ad8ac268",
+              "unit": "%",
+              "value_raw_text": "38.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 4 ... 59.4%"
+              },
+              "quantitative_value": 59.4,
+              "result_id": "res_b4a9c75fee33069976ac93ea",
+              "unit": "%",
+              "value_raw_text": "59.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "iteration 2 ... 41.4%"
+              },
+              "quantitative_value": 41.4,
+              "result_id": "res_cded65cd1f0d0894d2abec8c",
+              "unit": "%",
+              "value_raw_text": "41.4%"
+            }
+          ],
+          "unit_id": "su_ae4b165fd534970bb7706a15"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_67156db76e49c1da3c1f2a7a",
+              "inference_basis_ids": [
+                "res_06262bc04ef431e2cdb0f8a4",
+                "res_295764d8fd866d16a2ac52dd",
+                "res_91017132647c0fd57d428d5a",
+                "res_c7470dca6ac031a3f560b228"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The results indicate that models trained with our autoformalized data significantly outperform those trained solely with mathlib data."
+              },
+              "statement": "Models trained with autoformalized data significantly outperform those trained solely with mathlib data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Benchmark for evaluation.",
+              "name": "miniF2F",
+              "version_or_split": "valid and test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare models trained on autoformalized data vs mathlib data using expert iteration."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Mathlib-trained model",
+              "protocol_description": "Fine-tuned on 0.238B tokens of human-authored Lean 4 mathlib proofs."
+            },
+            {
+              "method_id": "M11",
+              "name": "Autoformalized-trained model",
+              "protocol_description": "Fine-tuned on 3.108B tokens of autoformalized statements with proofs."
+            }
+          ],
+          "name": "Ablation: Large-scale Autoformalization vs Mathlib",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Mathlib ... 31.2%"
+              },
+              "quantitative_value": 31.2,
+              "result_id": "res_06262bc04ef431e2cdb0f8a4",
+              "unit": "%",
+              "value_raw_text": "31.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Autoformalized Statements ... 48.8%"
+              },
+              "quantitative_value": 48.8,
+              "result_id": "res_295764d8fd866d16a2ac52dd",
+              "unit": "%",
+              "value_raw_text": "48.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Autoformalized Statements ... 42.6%"
+              },
+              "quantitative_value": 42.6,
+              "result_id": "res_91017132647c0fd57d428d5a",
+              "unit": "%",
+              "value_raw_text": "42.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Mathlib ... 30.3%"
+              },
+              "quantitative_value": 30.3,
+              "result_id": "res_c7470dca6ac031a3f560b228",
+              "unit": "%",
+              "value_raw_text": "30.3%"
+            }
+          ],
+          "unit_id": "su_b18c2cab4362acde3c96fb57"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5a14f025f3f7369c8d0e3372",
+              "inference_basis_ids": [
+                "res_2d013c4a6095723ebe5b364f",
+                "res_85d1e86b1cc509c385500213",
+                "res_9bd18b8fe25644dc7bf5899b",
+                "res_c88f9c507d50fd3f3b47689c",
+                "res_e0ef5e712c4b59a20d2358f0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeek-Prover outperforms all with cumulative scores of 60.2% on miniF2F-valid and 52.0% on miniF2F-test, significantly higher than other methods, including GPT-4 which scores 25.41% and 22.95%, respectively."
+              },
+              "statement": "DeepSeek-Prover outperforms GPT-4 and tree search methods on miniF2F test."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c3e3b94a662c4d0e64bf8d1e",
+              "inference_basis_ids": [
+                "res_2b1dfa5b91509abea56773c3",
+                "res_856cbf0b598e724e3b8996f8",
+                "res_8ea80b12284e5dc695e2efa4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1d256a373c79f8f433f8",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Our method successfully proved 4 theorems with 100 attempts per theorem, whereas GPT-4 failed to prove any."
+              },
+              "statement": "DeepSeek-Prover solves FIMO problems while GPT-4 solves none."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Benchmark of 488 formal math problems from basic arithmetic to competition level (AIME, AMC, IMO).",
+              "name": "miniF2F",
+              "version_or_split": "Lean 4 version, 244 valid / 244 test"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Formalized International Mathematical Olympiad shortlist problems.",
+              "name": "FIMO",
+              "version_or_split": "Lean 4, 148 problems"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate whole-proof generation accuracy on miniF2F test and valid sets using pass@k.",
+            "Evaluate whole-proof generation on FIMO benchmark using pass@k."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DeepSeek-Prover",
+              "protocol_description": "DeepSeekMath-Base 7B fine-tuned on 8M synthetic formal statements with proofs using global batch size 512, constant learning rate 1e-4, 6000 warmup steps. Whole-proof generation with varying sample counts (greedy, 64, 128, 8192, 65536)."
+            },
+            {
+              "method_id": "M2",
+              "name": "GPT-4-turbo 0409",
+              "protocol_description": "Whole-proof generation with 64 samples."
+            },
+            {
+              "method_id": "M3",
+              "name": "DeepSeekMath-Base",
+              "protocol_description": "Whole-proof generation with 128 samples."
+            },
+            {
+              "method_id": "M4",
+              "name": "Hypertree Proof Search",
+              "protocol_description": "Tree search method with 600M model, cumulative and 64x5000 generation times."
+            },
+            {
+              "method_id": "M5",
+              "name": "COPRA (GPT-4)",
+              "protocol_description": "Tree search method using GPT-4, 1x60 generation times."
+            },
+            {
+              "method_id": "M6",
+              "name": "Proof Artifact Co-Training",
+              "protocol_description": "Tree search method with 837M model, 1x8x512 and 8x8x512 generation times."
+            },
+            {
+              "method_id": "M7",
+              "name": "ReProver",
+              "protocol_description": "Tree search method with 229M model, 1x3751 generation times."
+            },
+            {
+              "method_id": "M8",
+              "name": "Llemma",
+              "protocol_description": "Tree search method with 7B and 34B models, 1x3200 generation times."
+            },
+            {
+              "method_id": "M9",
+              "name": "Curriculum Learning",
+              "protocol_description": "Tree search method with 837M model, 1x8x512, 8x8x512, 64x8x512 generation times."
+            }
+          ],
+          "name": "Main Evaluation on miniF2F and FIMO",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8192",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeek-Prover ... 8192 ... 48.8%"
+              },
+              "quantitative_value": 48.8,
+              "result_id": "res_13ff1bd9aca50a87db1b352b",
+              "unit": "%",
+              "value_raw_text": "48.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@4096",
+              "n_sample_size": 148,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d256a373c79f8f433f8",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "By increasing the number of attempts per theorem to 4,096, we successfully proved an additional theorem."
+              },
+              "quantitative_value": 5.0,
+              "result_id": "res_2b1dfa5b91509abea56773c3",
+              "unit": "problems",
+              "value_raw_text": "5 out of 148"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64x5000",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Hypertree Proof Search ... 64 × 5000 ... 41.0%"
+              },
+              "quantitative_value": 41.0,
+              "result_id": "res_2d013c4a6095723ebe5b364f",
+              "unit": "%",
+              "value_raw_text": "41.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@65536",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeek-Prover ... 65536 ... 50.0%"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_43c6232a51311cf88a6e7811",
+              "unit": "%",
+              "value_raw_text": "50.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@1 (greedy)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeek-Prover ... 1 (greedy) ... 30.0%"
+              },
+              "quantitative_value": 30.0,
+              "result_id": "res_4ba16c137158a42f0d63dc12",
+              "unit": "%",
+              "value_raw_text": "30.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeek-Prover ... 128 ... 46.3%"
+              },
+              "quantitative_value": 46.3,
+              "result_id": "res_781da5226f110613fd0973a4",
+              "unit": "%",
+              "value_raw_text": "46.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@100 (GPT-4)",
+              "n_sample_size": 148,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d256a373c79f8f433f8",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "whereas GPT-4 failed to prove any"
+              },
+              "quantitative_value": 0.0,
+              "result_id": "res_856cbf0b598e724e3b8996f8",
+              "unit": "problems",
+              "value_raw_text": "0 out of 148"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GPT-4-turbo 0409 ... 64 ... 23.0%"
+              },
+              "quantitative_value": 23.0,
+              "result_id": "res_85d1e86b1cc509c385500213",
+              "unit": "%",
+              "value_raw_text": "23.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@100",
+              "n_sample_size": 148,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d256a373c79f8f433f8",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Our method successfully proved 4 theorems with 100 attempts per theorem"
+              },
+              "quantitative_value": 4.0,
+              "result_id": "res_8ea80b12284e5dc695e2efa4",
+              "unit": "problems",
+              "value_raw_text": "4 out of 148"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@cumulative",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeek-Prover ... cumulative ... 52.0%"
+              },
+              "quantitative_value": 52.0,
+              "result_id": "res_9bd18b8fe25644dc7bf5899b",
+              "unit": "%",
+              "value_raw_text": "52.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@cumulative",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Hypertree Proof Search ... cumulative ... 58.6%"
+              },
+              "quantitative_value": 58.6,
+              "result_id": "res_c88f9c507d50fd3f3b47689c",
+              "unit": "%",
+              "value_raw_text": "58.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeek-Prover ... 64 ... 46.3%"
+              },
+              "quantitative_value": 46.3,
+              "result_id": "res_e0ef5e712c4b59a20d2358f0",
+              "unit": "%",
+              "value_raw_text": "46.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47ccb9da76972f714f91",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "DeepSeekMath-Base ... 128 ... 27.5%"
+              },
+              "quantitative_value": 27.5,
+              "result_id": "res_fddf32dc4c0f14516c2fe386",
+              "unit": "%",
+              "value_raw_text": "27.5%"
+            }
+          ],
+          "unit_id": "su_dabdbdd4f6a8f470f16aacdc"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_05d841e6133683f3de95dc6d",
+              "inference_basis_ids": [
+                "res_9a676e194c9fe6ecc3c4f42a",
+                "res_d900abc6c62e40cb4fb28f4c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the model trained on high-score proof data outperformed the model trained on low-score proof data by 4.5%."
+              },
+              "statement": "High-score proof data yields 4.5% higher pass@128 than low-score data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Benchmark for evaluation.",
+              "name": "miniF2F",
+              "version_or_split": "valid and test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare models trained on high-score vs low-score proof data."
+          ],
+          "methods": [
+            {
+              "method_id": "M12",
+              "name": "High-score data model",
+              "protocol_description": "Fine-tuned on proof data scored as excellent, good, above average."
+            },
+            {
+              "method_id": "M13",
+              "name": "Low-score data model",
+              "protocol_description": "Fine-tuned on proof data scored as fair, poor."
+            }
+          ],
+          "name": "Ablation: Formal Statements Scoring",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "\"excellent\", \"good\" and \"above average\" ... 48.8%"
+              },
+              "quantitative_value": 48.8,
+              "result_id": "res_9a676e194c9fe6ecc3c4f42a",
+              "unit": "%",
+              "value_raw_text": "48.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "\"fair\" and \"poor\" ... 38.1%"
+              },
+              "quantitative_value": 38.1,
+              "result_id": "res_a54b643e65d975e982fba7f2",
+              "unit": "%",
+              "value_raw_text": "38.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "\"excellent\", \"good\" and \"above average\" ... 42.6%"
+              },
+              "quantitative_value": 42.6,
+              "result_id": "res_c347767cf35a4a7648152380",
+              "unit": "%",
+              "value_raw_text": "42.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@128",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "54ec1c68e529350d661e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "\"fair\" and \"poor\" ... 41.4%"
+              },
+              "quantitative_value": 41.4,
+              "result_id": "res_d900abc6c62e40cb4fb28f4c",
+              "unit": "%",
+              "value_raw_text": "41.4%"
+            }
+          ],
+          "unit_id": "su_e61d42a09e301b81129eceec"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3762 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4623 on attempt 1"
+    }
+  ]
+}

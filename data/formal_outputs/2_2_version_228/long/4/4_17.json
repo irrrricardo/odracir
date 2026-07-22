@@ -1,0 +1,671 @@
+{
+  "coverage_ledger": {
+    "0cbd0736f23f90109432": "not_selected",
+    "134bf4a98490836fdf05": "not_selected",
+    "2d31bc6d860109bd9b67": "not_selected",
+    "32e6fb758126b2c1c911": "not_selected",
+    "3b19167ba1ab390ee4df": "not_selected",
+    "42978ce2888d727798b5": "not_selected",
+    "4b137d6b57bc8e191445": "not_selected",
+    "6f9430a21d2c92d5cf68": "not_selected",
+    "7a24e85bbeac6bc4ecd1": "not_selected",
+    "7d1074682d9513c9fe68": "not_selected",
+    "9c38f30ac2ab31d65609": "extracted",
+    "a907815d490525f492dd": "not_selected",
+    "bc64cebb419a3e270641": "extracted",
+    "c0de1879f094674071c2": "not_selected",
+    "c1ed52a2458abf373efe": "not_selected",
+    "c32f3f4b8461e56f03e7": "extracted",
+    "d0678cc1c44053685375": "extracted",
+    "d4655440bbc7bc39478f": "not_selected",
+    "d97b73b3e51151496bdb": "not_selected",
+    "f3d3e11b262171641a38": "not_selected",
+    "fa4cf2c00d47a15442ec": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study focuses on zebrafish embryos; generalizability to other vertebrates is implied but not directly tested.",
+    "The foam model assumes a 3D-disordered monodispersed foam, which may not capture all complexities of living tissues.",
+    "Blebbistatin treatment is a partial inhibition of myosin II; complete loss-of-function effects were not examined.",
+    "The causal chain from N-cadherin gradient to jamming is supported by mutant and inhibitor experiments, but direct manipulation of extracellular volume fraction was not performed.",
+    "Measurements are limited to the posterior body axis; anterior elongation mechanisms may differ.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_17.pdf",
+    "source_sha256": "21d1ba6bf806bed29e1ed5add84d94f062f00362b13e92e8fa5839200bcc86ae"
+  },
+  "paper_id": "4_17",
+  "quality_assessment": {
+    "correct_item_count": 50,
+    "deterministic_rule_score": 0.9136,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 54,
+    "f1": 0.9174,
+    "incorrect_item_count": 4,
+    "incorrect_items": [
+      {
+        "description": "The extracted result states 'graded reduction of cellular movements from MPZ to PSM', but the source chunk only describes the method (tracks and MSRD) and does not explicitly state this result. The excerpt is paraphrased and does not contain the claimed finding.",
+        "item_id": "result:su_88500c3127cf7488fce85658:res_b165ada22c484cf6a864d09f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result states 'yield stress increases from the MPZ to the PSM', but the source chunk does not explicitly state this. The excerpt discusses cdh2 mutants and loss of gradient, but the direct statement of the gradient in wild-type is not present in the provided chunk.",
+        "item_id": "result:su_de75549583c759f8782e39dd:res_3c295305f56f2b36c5826cd6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'An anteroposterior gradient in yield stress provides increasing mechanical integrity to the PSM, consistent with a foam-like architecture.' The source excerpt only discusses cdh2 mutants and the necessity of N-cadherin for the gradient, not the foam-like architecture. The foam analogy is from a different chunk.",
+        "item_id": "claim:su_de75549583c759f8782e39dd:clm_c21de1c6eb03727f1391c5cd",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim is directly supported by the source excerpt, but the provenance is marked as paraphrased. The excerpt is copied verbatim, so the paraphrased flag is incorrect. However, the claim itself is accurate. Since the audit is about factual correctness, this is not an incorrect item. (No action needed; this is a false positive in the audit request.)",
+        "item_id": "claim:su_de75549583c759f8782e39dd:clm_fa0e9fdd1c3c7ce5e8fcd9d8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "The yield stress is spatially graded and minimal in the MPZ, revealing a posterior-to-anterior gradient of increasing tissue mechanical integrity.",
+        "item_id": null,
+        "source_chunk_id": "f3d3e11b262171641a38",
+        "source_excerpt": "Performing these experiments along the body axis shows that the yield stress is spatially graded and minimal in the MPZ (Fig. 2d; Methods), revealing a posterior- to-anterior gradient of increasing tissue mechanical integrity that parallels PSM maturation.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The volume fraction of extracellular spaces decreases away from the posterior end.",
+        "item_id": null,
+        "source_chunk_id": "f3d3e11b262171641a38",
+        "source_excerpt": "We measured the volume fraction of extracellular spaces along the anteroposterior axis using fluorescent dextran (Methods) and observed decreasing spaces between cells away from the posterior end (Fig. 2e).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Disruption of N-cadherin-mediated adhesion resulted in larger extracellular spaces in the PSM, but not in the MPZ.",
+        "item_id": null,
+        "source_chunk_id": "f3d3e11b262171641a38",
+        "source_excerpt": "Disruption of N-cadherin-mediated adhesion resulted in larger extracellular spaces in the PSM, but not in the MPZ (Fig. 2g, h;",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The maximal stress fluctuations are well above the yield stress in the MPZ, but below it in the anterior PSM.",
+        "item_id": null,
+        "source_chunk_id": "c32f3f4b8461e56f03e7",
+        "source_excerpt": "Comparison of the yield stress and the magnitude of cell-scale stresses shows that the maximal stress fluctuations are well above the yield stress in the MPZ, but below it in the anterior PSM (A-PSM, Fig. 3a)",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Simulations show that unidirectional body axis elongation naturally occurs in the presence of the observed fluid-to-solid jamming transition, and in its absence the tissue expands isotropically.",
+        "item_id": null,
+        "source_chunk_id": "7a24e85bbeac6bc4ecd1",
+        "source_excerpt": "simulations of tissue morphogenesis based solely on first principles (Fig. 4c–e; Methods; Supplementary Note 1) show that unidirectional body axis elongation naturally occurs in the presence of the observed fluid-to-solid jamming transition (Fig. 4d; Supplementary Video 2). In absence of jamming transition, the tissue expands isotropically like a growing spherical blob and no unidirectional axis elongation occurs (Fig. 4e; Supplementary Video 3).",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9259,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9091
+  },
+  "quality_score": 0.9174,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does a fluid-to-solid jamming transition occur during vertebrate body axis elongation, and what is its physical mechanism?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bd53ac357f2f412770877938",
+              "inference_basis_ids": [
+                "res_0d05b5b0350315d11ae13be1",
+                "res_b1726df5969bf8b30ffc307a",
+                "res_d4ff26d9c11b0d638dc9857e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9c38f30ac2ab31d65609",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "These data indicate that supracellular stresses guide morphogenetic flows and reveal an increase in mediolateral constriction during PSM maturation"
+              },
+              "statement": "Supracellular stresses guide morphogenetic flows and increase in mediolateral constriction during PSM maturation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyzed ellipsoidal deformation of droplets to detect spatial variations in supracellular stresses.",
+            "Measured endogenous mechanical stresses along the anteroposterior axis of zebrafish embryos using magnetically responsive oil microdroplets inserted between cells.",
+            "Monitored ellipsoidal droplet deformation over time to assess persistence of supracellular stresses."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Magnetic droplet stress measurement",
+              "protocol_description": "Magnetically responsive oil microdroplets were inserted between cells in the tissue. In the absence of an applied magnetic field, droplet deformations provide a readout of local mechanical stresses. Ellipsoidal deformation analysis was used to quantify supracellular stresses."
+            }
+          ],
+          "name": "Supracellular stress measurement along anteroposterior axis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Supracellular stress persistence time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9c38f30ac2ab31d65609",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Monitoring the ellipsoidal droplet deformation over time shows that supracellular stresses persist over more than 30 min (Fig. 1g)"
+              },
+              "quantitative_value": 30.0,
+              "result_id": "res_0d05b5b0350315d11ae13be1",
+              "unit": "min",
+              "value_raw_text": "persist over more than 30 min"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Supracellular stress magnitude",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9c38f30ac2ab31d65609",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our analysis shows a posterior-to-anterior increase in the magnitude of supracellular stresses (Fig. 1e)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b1726df5969bf8b30ffc307a",
+              "unit": null,
+              "value_raw_text": "posterior-to-anterior increase in the magnitude of supracellular stresses"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Supracellular stress orientation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9c38f30ac2ab31d65609",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the axis of droplet elongation oriented mediolaterally in the medial MPZ (M-MPZ) and progressively reorienting along the anteroposterior axis in the PSM (Fig. 1f)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d4ff26d9c11b0d638dc9857e",
+              "unit": null,
+              "value_raw_text": "axis of droplet elongation oriented mediolaterally in the medial MPZ and progressively reorienting along the anteroposterior axis in the PSM"
+            }
+          ],
+          "unit_id": "su_49027ff474777f54b9348fff"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_df051aa55a22cf1b19ff4b13",
+              "inference_basis_ids": [
+                "res_89f86276336214e31eae89a7",
+                "res_e6751e06109003e5ad9219cf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9c38f30ac2ab31d65609",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "These data show that cell-scale stresses are non-persistent at developmental timescales (0.5 to 1h) and uniform throughout the tissue, suggesting that their role may be to introduce active stress fluctuations (causing cell ‘jiggling’)"
+              },
+              "statement": "Cell-scale stresses are non-persistent at developmental timescales and uniform throughout the tissue, suggesting they introduce active stress fluctuations."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyzed deviations in droplet shapes from ellipsoidal deformations to quantify cell-sized stress inhomogeneities.",
+            "Performed temporal autocorrelation analysis of higher order droplet deformations to determine persistence time of cell-scale stresses."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Cell-scale stress analysis",
+              "protocol_description": "Deviations in droplet shapes from ellipsoidal deformations were used to quantify cell-sized stress inhomogeneities. Temporal autocorrelation analysis of higher order droplet deformations was performed to measure persistence time."
+            }
+          ],
+          "name": "Cell-scale stress measurement and temporal analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell-scale stress spatial uniformity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9c38f30ac2ab31d65609",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Both the average and maximal values of these cell-scale stresses are uniform along the anteroposterior axis (Fig. 1i)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_89f86276336214e31eae89a7",
+              "unit": null,
+              "value_raw_text": "Both the average and maximal values of these cell-scale stresses are uniform along the anteroposterior axis"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell-scale stress persistence time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9c38f30ac2ab31d65609",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Temporal autocorrelation analysis of these higher order droplet deformations shows that cell-scale stresses are short-lived, with a persistence time of approximately 1 min (Fig. 1k)"
+              },
+              "quantitative_value": 1.0,
+              "result_id": "res_e6751e06109003e5ad9219cf",
+              "unit": "min",
+              "value_raw_text": "persistence time of approximately 1 min"
+            }
+          ],
+          "unit_id": "su_81e73d007bb22d193c2b9bfe"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e98753cf52aedf498cb52b55",
+              "inference_basis_ids": [
+                "res_b165ada22c484cf6a864d09f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Since cellular movements result from the combined effect of active stresses and mechanical constraints (tissue material properties), their"
+              },
+              "statement": "Cellular movements result from the combined effect of active stresses and mechanical constraints (tissue material properties)."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Calculated normalized mean square relative displacement (MSRD) to quantify cellular movements.",
+            "Tracked nuclear movements in A-PSM, P-PSM, and MPZ over a 30-min window."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Nuclear tracking and MSRD analysis",
+              "protocol_description": "Nuclear tracking was performed to follow cellular movements. Normalized mean square relative displacement (MSRD) was calculated for cell pairs in different regions over a 30-min time window."
+            }
+          ],
+          "name": "Cellular movement analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cellular movement gradient",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "h, i, Tracks (h; absolute and relative; nuclear tracking) and normalized mean square relative displacement (MSRD) (i; n = 1,937 (A-PSM), 1,776 (P-PSM) and 2,523 (MPZ) analysed cell pairs, from 5, 5 and 6 embryos, respectively) of cellular movements during a 30-min time window."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b165ada22c484cf6a864d09f",
+              "unit": null,
+              "value_raw_text": "graded reduction of cellular movements from MPZ to PSM"
+            }
+          ],
+          "unit_id": "su_88500c3127cf7488fce85658"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2c49bfd0db4d9d5d3f687b65",
+              "inference_basis_ids": [
+                "res_157db9e3753a5f14b3bb40cc",
+                "res_bb5360758f5211bd7f2606c4",
+                "res_fed643bda7898dfc8112a578"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Partial inhibition of myosin activity with blebbistatin led to smaller cell–cell contact length fluctuations (narrower distribution; Fig. 3f), decreased neighbour exchange rate (Fig. 3f, inset) and increased yield stress in the MPZ (Fig. 3g), thereby rigidifying the tissue"
+              },
+              "statement": "Myosin II-dependent force generation is required to maintain fluid-like state of MPZ; its inhibition rigidifies the tissue."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_42fc6827dc043292bf1a5748",
+              "inference_basis_ids": [
+                "res_2a5ec9a2023c831c2966bc29",
+                "res_933015195a5790ac74fe7119"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "indicating that, at developmental timescales (approximately 0.5–1 h), cell–cell contact dynamics can be seen as short-lived, active fluctuations"
+              },
+              "statement": "Cell–cell contact dynamics can be seen as short-lived, active fluctuations at developmental timescales."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8346b13790db608d4ef58268",
+              "inference_basis_ids": [
+                "res_ea15a27104e87f3eaa0b2ef4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "consistent with the MPZ being in a fluid-like state and the PSM in a solid-like state"
+              },
+              "statement": "The MPZ is in a fluid-like state and the PSM in a solid-like state, as indicated by higher neighbour exchange rate in MPZ."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessed effect of myosin II inhibition (blebbistatin) on cell–cell contact length fluctuations, neighbour exchange rate, and yield stress in MPZ.",
+            "Characterized dynamics of cell–cell contacts in PSM and MPZ using live imaging.",
+            "Measured distribution of cell–cell contact lengths in PSM and MPZ.",
+            "Performed autocorrelation analysis of cell–cell contact lengths to determine temporal and spatial correlation scales.",
+            "Quantified neighbour exchange rates in PSM and MPZ."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Cell–cell contact analysis",
+              "protocol_description": "Cell–cell contacts were imaged and their lengths measured over time. Autocorrelation analysis was used to determine temporal and spatial correlation scales. Neighbour exchange events were identified and rates calculated. Myosin II was partially inhibited with 100 μM blebbistatin."
+            }
+          ],
+          "name": "Cell–cell contact dynamics and neighbour exchange analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of blebbistatin on yield stress in MPZ",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "increased yield stress in the MPZ (Fig. 3g)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_157db9e3753a5f14b3bb40cc",
+              "unit": null,
+              "value_raw_text": "increased yield stress in the MPZ"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell–cell contact length temporal correlation time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Autocorrelation analysis shows that cell–cell contact lengths become temporally uncorrelated within less than 1 min"
+              },
+              "quantitative_value": 1.0,
+              "result_id": "res_2a5ec9a2023c831c2966bc29",
+              "unit": "min",
+              "value_raw_text": "less than 1 min"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell–cell contact length distribution breadth",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Our results show a broader distribution in the MPZ, with large fluctuations being considerably more frequent in this region than in the PSM (Fig. 3e)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_64078d77acd01214699d52b5",
+              "unit": null,
+              "value_raw_text": "broader distribution in the MPZ, with large fluctuations being considerably more frequent in this region than in the PSM"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell–cell contact length spatial correlation length",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "spatially uncorrelated beyond 2–3 cell sizes (Fig. 3c, d)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_933015195a5790ac74fe7119",
+              "unit": "cell sizes",
+              "value_raw_text": "beyond 2–3 cell sizes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of blebbistatin on cell–cell contact length fluctuations",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Partial inhibition of myosin activity with blebbistatin led to smaller cell–cell contact length fluctuations (narrower distribution; Fig. 3f)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bb5360758f5211bd7f2606c4",
+              "unit": null,
+              "value_raw_text": "smaller cell–cell contact length fluctuations (narrower distribution)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Neighbour exchange rate ratio MPZ vs PSM",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "we found that the neighbour exchange rate is 6 times higher in the MPZ than in the PSM (Fig. 3e, inset)"
+              },
+              "quantitative_value": 6.0,
+              "result_id": "res_ea15a27104e87f3eaa0b2ef4",
+              "unit": "fold",
+              "value_raw_text": "6 times higher in the MPZ than in the PSM"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of blebbistatin on neighbour exchange rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "decreased neighbour exchange rate (Fig. 3f, inset)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fed643bda7898dfc8112a578",
+              "unit": null,
+              "value_raw_text": "decreased neighbour exchange rate"
+            }
+          ],
+          "unit_id": "su_8a16140d80a813d2397bf607"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b3ffe6d7cc20f651a30ba92d",
+              "inference_basis_ids": [
+                "res_a8cb29952a3ea29b297f3527"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "our measurements indicate that jamming in 3D embryonic tissues is consistent with classical jamming scenarios in foams, where the volume fraction of extracellular spaces has a prominent role"
+              },
+              "statement": "Jamming in 3D embryonic tissues is consistent with classical jamming scenarios in foams, where extracellular volume fraction has a prominent role."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c21de1c6eb03727f1391c5cd",
+              "inference_basis_ids": [
+                "res_3c295305f56f2b36c5826cd6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "the yield stress in cdh2 mutants is altered in the PSM but not in the MPZ (Fig. 2i). No significant spatial variation in yield stress was observed in cdh2 mutants, indicating that N-cadherin-mediated adhesion is necessary to maintain the anteroposterior gradient in extracellular spaces and tissue mechanical integrity (yield stress)."
+              },
+              "statement": "An anteroposterior gradient in yield stress provides increasing mechanical integrity to the PSM, consistent with a foam-like architecture."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fa0e9fdd1c3c7ce5e8fcd9d8",
+              "inference_basis_ids": [
+                "res_b7d59cf0ca96f76e773883b4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "the yield stress in cdh2 mutants is altered in the PSM but not in the MPZ (Fig. 2i). No significant spatial variation in yield stress was observed in cdh2 mutants, indicating that N-cadherin-mediated adhesion is necessary to maintain the anteroposterior gradient in extracellular spaces and tissue mechanical integrity (yield stress)."
+              },
+              "statement": "N-cadherin-mediated adhesion is necessary to maintain the anteroposterior gradient in extracellular spaces and tissue mechanical integrity (yield stress)."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Applied a controlled, uniform magnetic field for 15 min to droplets inserted in the tissue to induce large deformations.",
+            "Compared yield stress values with predictions from a foam model based on extracellular volume fraction.",
+            "Measured yield stress along the anteroposterior axis in wild-type embryos.",
+            "Measured yield stress in cdh2 (N-cadherin) mutant embryos.",
+            "Upon removal of the magnetic field, monitored droplet relaxation to measure residual deformation and infer yield stress."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Magnetic droplet actuation yield stress measurement",
+              "protocol_description": "A controlled, uniform magnetic field was applied for 15 min to droplets previously inserted in the tissue, causing large deformations (>1 cell size, 50–150% strain). After field removal, droplets relaxed towards a spherical shape due to interfacial tension but arrested before reaching it, revealing a residual deformation. Yield stress was calculated from the residual deformation and known capillary stress."
+            }
+          ],
+          "name": "Yield stress measurement via magnetic droplet actuation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Yield stress spatial gradient",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "the yield stress in cdh2 mutants is altered in the PSM but not in the MPZ (Fig. 2i). No significant spatial variation in yield stress was observed in cdh2 mutants, indicating that N-cadherin-mediated adhesion is necessary to maintain the anteroposterior gradient in extracellular spaces and tissue mechanical integrity (yield stress)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3c295305f56f2b36c5826cd6",
+              "unit": null,
+              "value_raw_text": "yield stress increases from the MPZ to the PSM"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Yield stress foam model agreement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "both the measured values of yield stress along the anteroposterior axis in wild-type embryos and the changes in yield stress between control and cdh2−/− mutant embryos can be accounted for (with no adjustable parameters) by assuming that such changes result solely from the observed variations in extracellular volume fraction in a tissue that behaves like a 3D-disordered monodispersed foam (Fig. 2f, j; Methods)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a8cb29952a3ea29b297f3527",
+              "unit": null,
+              "value_raw_text": "measured values of yield stress along the anteroposterior axis in wild-type embryos and changes in yield stress between control and cdh2−/− mutant embryos can be accounted for by assuming changes result solely from observed variations in extracellular volume fraction in a tissue that behaves like a 3D-disordered monodispersed foam"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Yield stress in cdh2 mutants",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c32f3f4b8461e56f03e7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the yield stress in cdh2 mutants is altered in the PSM but not in the MPZ (Fig. 2i). No significant spatial variation in yield stress was observed in cdh2 mutants"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b7d59cf0ca96f76e773883b4",
+              "unit": null,
+              "value_raw_text": "yield stress in cdh2 mutants is altered in the PSM but not in the MPZ; no significant spatial variation in yield stress"
+            }
+          ],
+          "unit_id": "su_de75549583c759f8782e39dd"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

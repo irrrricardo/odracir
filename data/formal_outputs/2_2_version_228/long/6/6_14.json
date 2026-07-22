@@ -1,0 +1,553 @@
+{
+  "coverage_ledger": {
+    "11762d18cb5b55a3714a": "extracted",
+    "2db6dd1aa81f91848a9c": "not_selected",
+    "636c3fece5582b57b417": "not_selected",
+    "66d184b01e66321c68bb": "not_selected",
+    "86d38b18092ba5bda2ed": "not_selected",
+    "b34adb28e276d12584c5": "extracted",
+    "b845af35669e612def8f": "not_selected",
+    "da7e775bf3b3d420ff53": "extracted",
+    "e0b3157315d45eeaa2a2": "not_selected",
+    "fdd9be8134528a2a197a": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The empirical evaluation of over-smoothing mitigation methods is qualitative, based on Dirichlet energy plots, without quantitative performance metrics.",
+    "The study focuses on over-smoothing and does not address other deep GNN issues like over-squashing or vanishing gradients.",
+    "The conclusion that mitigating over-smoothing is not sufficient is based on illustrative examples and may not generalize to all tasks or architectures."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_14.pdf",
+    "source_sha256": "1dd2b5329a2a61975188c402641634c5bdf106146a89f1991b9f97cf9c56371d"
+  },
+  "paper_id": "6_14",
+  "quality_assessment": {
+    "correct_item_count": 47,
+    "deterministic_rule_score": 0.911,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 49,
+    "f1": 0.8952,
+    "incorrect_item_count": 2,
+    "incorrect_items": [
+      {
+        "description": "The dataset is described as 'Large-scale Facebook network', but the source chunks refer to 'Cornell5' as part of the 'Facebook 100 dataset' without specifying it as large-scale. The description 'Large-scale Facebook network' is not explicitly supported; the source only mentions 'large-scale Cornell5 graph' in the context of experiments, but the dataset itself is not described as large-scale in the dataset listing.",
+        "item_id": "dataset:su_4060b729c205978c2ec57ba8:DS3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Same as above: 'Cornell5' is described as 'Large-scale Facebook network', but the source does not explicitly label it as large-scale in the dataset description; it is only referred to as 'large-scale Cornell5 graph' in experimental context.",
+        "item_id": "dataset:su_04b6a00d185695fe812f4fbe:DS6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 9,
+    "missed_core_items": [
+      {
+        "description": "The study extends the empirical evaluation to higher dimensional node features and real-world graphs, including Texas, Cora, and Cornell5.",
+        "item_id": null,
+        "source_chunk_id": "e0b3157315d45eeaa2a2",
+        "source_excerpt": "We extend this empirical study in two directions, first to higher dimensional node features and also to real-world graphs, namely Texas (Pei et al., 2020), Cora (McCallum et al., 2000), and Cornell5 (Facebook 100 dataset).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The input node features for Cora are replaced with standard normal random variables for the empirical evaluation.",
+        "item_id": null,
+        "source_chunk_id": "e0b3157315d45eeaa2a2",
+        "source_excerpt": "Since we are interested only in the dynamics of the Dirichlet energy and MAD associated with the propagation of node features through different GNN architectures, we omit the original input node features of the real-world graph dataset Cora and exchange them for standard normal random variables, i.e., Xjk ∼N(0, 1) for all nodes j and every feature k.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The input and hidden dimension of node features is set to 128 for the empirical evaluation.",
+        "item_id": null,
+        "source_chunk_id": "e0b3157315d45eeaa2a2",
+        "source_excerpt": "In Fig. 1 we set the input and hidden dimension of the node features to 128",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study observes that algebraic convergence is not sufficient for over-smoothing; exponential convergence is required.",
+        "item_id": null,
+        "source_chunk_id": "e0b3157315d45eeaa2a2",
+        "source_excerpt": "It is important to emphasize the importance of the exponential convergence of the layer-wise over-smoothing measure µ to zero in Deﬁnition 1. Algebraic convergence is not sufﬁcient for the GNN to suffer from over-smoothing.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study constructs a deep GCN with shared parameters and bias that keeps Dirichlet energy constant but performs poorly, demonstrating that mitigating over-smoothing is not sufficient.",
+        "item_id": null,
+        "source_chunk_id": "86d38b18092ba5bda2ed",
+        "source_excerpt": "It turns out that simply adding a bias vector to a deep GCN with shared parameters among layers, i.e., Xn = σ( ˆD−1 2 ˆA ˆD−1 2 Xn−1W + b), ∀n = 1, . . . , N, with weights W ∈Rm×m and bias b ∈Rm, is sufﬁcient for the optimizer to keep the resulting layer-wise Dirichlet energy of the model approximately constant.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study shows that PairNorm keeps Dirichlet energy constant but accuracy drops after 32 layers on Cora.",
+        "item_id": null,
+        "source_chunk_id": "86d38b18092ba5bda2ed",
+        "source_excerpt": "However, the performance in terms of test accuracy on the Cora graph dataset drops exponentially after using more than 32 layers.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study concludes that only G2 fully mitigates over-smoothing while increasing expressive power for increasing number of layers.",
+        "item_id": null,
+        "source_chunk_id": "86d38b18092ba5bda2ed",
+        "source_excerpt": "In fact, based on our experiments, only G2 (among the considered models here) fully mitigates the over-smoothing issue by keeping the node-similarity measure approximately constant, while at the same time increasing its expressive power for increasing number of layers.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study extends the over-smoothing definition to continuous-time GNNs as exponential convergence in time of a node-similarity measure.",
+        "item_id": null,
+        "source_chunk_id": "11762d18cb5b55a3714a",
+        "source_excerpt": "Based on this framework, we can easily extend our deﬁnition of over-smoothing 1 to continuous-time GNNs, by deﬁning over-smoothing as the exponential convergence in time of a node-similarity measure.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study provides a formal definition for continuous-time over-smoothing: µ(X(t)) ≤ C1 e^{-C2 t} for t ≥ 0 with constants C1, C2 > 0.",
+        "item_id": null,
+        "source_chunk_id": "11762d18cb5b55a3714a",
+        "source_excerpt": "µ(X(t)) ≤C1e−C2t, for t ≥0 with some constants C1, C2 > 0.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9592,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8393
+  },
+  "quality_score": 0.8952,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can over-smoothing in GNNs be axiomatically defined and measured?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_69b55de606f508ec99ecbfee",
+              "inference_basis_ids": [
+                "res_73c53cf3a77d79e837cb29c5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "11762d18cb5b55a3714a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "we test the qualitative behavior of those measures on three different graph datasets, i.e., small-scale Texas graph, medium-scale Cora graph, and large-scale Cornell5 graph, and observe an exponential convergence to zero of all measures for standard GNN models (i.e., GCN, GAT, and GraphSAGE)."
+              },
+              "statement": "Standard GNNs (GCN, GAT, GraphSAGE) exhibit exponential convergence of node-similarity measures to zero."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f2bf5edb40d64bd01fa4bfd1",
+              "inference_basis_ids": [
+                "res_73c53cf3a77d79e837cb29c5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fdd9be8134528a2a197a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we axiomatically define as the exponential convergence of suitable similarity measures on the node features."
+              },
+              "statement": "Over-smoothing can be axiomatically defined as the exponential convergence of node-similarity measures."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Small-scale graph dataset",
+              "name": "Texas",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Medium-scale citation network",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Large-scale Facebook network",
+              "name": "Cornell5",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Define over-smoothing axiomatically as the exponential convergence of suitable similarity measures on node features.",
+            "Empirically demonstrate exponential convergence of similarity measures on small-, medium-, and large-scale graphs for standard GNNs (GCN, GAT, GraphSAGE).",
+            "Review existing node-similarity measures (e.g., Dirichlet energy, cosine similarity) and unify them under the definition."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Over-smoothing definition",
+              "protocol_description": "Over-smoothing is defined as the exponential convergence of a node-similarity measure μ to zero as the number of layers increases: μ(X(n)) ≤ C1 e^{-C2 n} for constants C1, C2 > 0."
+            }
+          ],
+          "name": "Axiomatic definition and measurement of over-smoothing",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy constancy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b34adb28e276d12584c5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "all other methods we consider here mitigate over-smoothing by keeping the layer-wise Dirichlet energy approximately constant."
+              },
+              "quantitative_value": null,
+              "result_id": "res_56c28291eef080ae051d1033",
+              "unit": null,
+              "value_raw_text": "keeping the layer-wise Dirichlet energy approximately constant"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy convergence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b34adb28e276d12584c5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we can see in Fig. 2 that DropEdge-GCN and Res-GCN suffer from an exponential convergence of the layer-wise Dirichlet energy to zero (and thus from over-smoothing) on all three graphs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_73c53cf3a77d79e837cb29c5",
+              "unit": null,
+              "value_raw_text": "exponential convergence of the layer-wise Dirichlet energy to zero"
+            }
+          ],
+          "unit_id": "su_4060b729c205978c2ec57ba8"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How effective are existing methods at mitigating over-smoothing in deep GNNs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_092bc37c3b1249c0a8d8c570",
+              "inference_basis_ids": [
+                "res_7fec8a37aeec35a18566d065"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "b34adb28e276d12584c5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "DropEdge-GCN and Res-GCN suffer from an exponential convergence of the layer-wise Dirichlet energy to zero (and thus from over-smoothing) on all three graphs."
+              },
+              "statement": "DropEdge and Res-GCN fail to mitigate over-smoothing, exhibiting exponential Dirichlet energy decay."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a694c0bb1d047df89e2a9bfe",
+              "inference_basis_ids": [
+                "res_4eb8770d6f2000778178fc07"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b34adb28e276d12584c5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "all other methods we consider here mitigate over-smoothing by keeping the layer-wise Dirichlet energy approximately constant."
+              },
+              "statement": "PairNorm, GraphCON, G2, and GCNII successfully mitigate over-smoothing by maintaining approximately constant Dirichlet energy."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Small-scale graph dataset",
+              "name": "Texas",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Medium-scale citation network",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "Large-scale Facebook network",
+              "name": "Cornell5",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assess whether methods keep Dirichlet energy approximately constant (mitigation) or exhibit exponential decay (over-smoothing).",
+            "Evaluate layer-wise Dirichlet energy on Texas, Cora, and Cornell5 graphs.",
+            "Select two representative methods from each strategy: normalization/regularization (DropEdge, PairNorm), change of GNN dynamics (GraphCON, G2), and residual connections (Res-GCN, GCNII)."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "DropEdge",
+              "protocol_description": "Randomly drop edges during training to regularize message passing."
+            },
+            {
+              "method_id": "M3",
+              "name": "PairNorm",
+              "protocol_description": "Normalize node features to prevent feature divergence."
+            },
+            {
+              "method_id": "M4",
+              "name": "GraphCON",
+              "protocol_description": "Use a graph-coupled oscillator system to model GNN dynamics."
+            },
+            {
+              "method_id": "M5",
+              "name": "G2",
+              "protocol_description": "Gradient Gating: learnable node-wise early-stopping mechanism using graph-gradient gating."
+            },
+            {
+              "method_id": "M6",
+              "name": "Res-GCN",
+              "protocol_description": "GCN with residual connection: Xn = Xn-1 + F_θn(Xn-1, G)."
+            },
+            {
+              "method_id": "M7",
+              "name": "GCNII",
+              "protocol_description": "GCN with initial residual connection and identity mapping: Xn = σ(((1-αn) D^{-1/2} A D^{-1/2} Xn-1 + αn X0) ((1-βn)I + βn Wn))."
+            }
+          ],
+          "name": "Empirical evaluation of over-smoothing mitigation methods",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy constancy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b34adb28e276d12584c5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "all other methods we consider here mitigate over-smoothing by keeping the layer-wise Dirichlet energy approximately constant."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4eb8770d6f2000778178fc07",
+              "unit": null,
+              "value_raw_text": "keeping the layer-wise Dirichlet energy approximately constant"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy convergence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b34adb28e276d12584c5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "DropEdge-GCN and Res-GCN suffer from an exponential convergence of the layer-wise Dirichlet energy to zero (and thus from over-smoothing) on all three graphs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7fec8a37aeec35a18566d065",
+              "unit": null,
+              "value_raw_text": "exponential convergence of the layer-wise Dirichlet energy to zero"
+            }
+          ],
+          "unit_id": "su_04b6a00d185695fe812f4fbe"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Is mitigating over-smoothing sufficient for building expressive deep GNNs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_247d36f5fd3223554b654de5",
+              "inference_basis_ids": [
+                "res_6849ec171108a8b8e54e1e32",
+                "res_862a438a7aa93dbe14826322"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "11762d18cb5b55a3714a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "mitigating over-smoothing is only a necessary condition, among many others, for building deep GNNs, while a particular focus in designing methods in this context has to be on the maintenance or potential enhancement of the expressive power of the underlying model."
+              },
+              "statement": "Mitigating over-smoothing is necessary but not sufficient for building expressive deep GNNs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3f17596922bfe92358aff28d",
+              "inference_basis_ids": [
+                "res_fa07069c441a255d439930e8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "11762d18cb5b55a3714a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "there exist methods that are able to mitigate over-smoothing while at the same time maintaining its expressive power on our task, i.e., G2."
+              },
+              "statement": "G2 is an example of a method that mitigates over-smoothing while maintaining expressive power."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "Medium-scale citation network",
+              "name": "Cora",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Highlight G2 as a method that mitigates over-smoothing while maintaining expressive power.",
+            "Illustrate with a deep GCN with shared parameters and bias that mitigates over-smoothing but fails to outperform baseline on Cora.",
+            "Observe that some methods keep Dirichlet energy constant but accuracy drops with depth."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "Deep GCN with shared parameters and bias",
+              "protocol_description": "A deep GCN where parameters are shared across layers and a bias is added, which the optimizer can tune to keep Dirichlet energy constant."
+            },
+            {
+              "method_id": "M9",
+              "name": "G2",
+              "protocol_description": "Gradient Gating: learnable node-wise early-stopping mechanism using graph-gradient gating."
+            }
+          ],
+          "name": "Sufficiency of over-smoothing mitigation for deep GNN expressiveness",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "11762d18cb5b55a3714a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "this model fails to outperform its underlying baseline (i.e., same GCN model without a bias) which suffers from over-smoothing."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6849ec171108a8b8e54e1e32",
+              "unit": null,
+              "value_raw_text": "fails to outperform its underlying baseline"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy drop with depth",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "11762d18cb5b55a3714a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the accuracy of the model drops significantly for increasing number of layers."
+              },
+              "quantitative_value": null,
+              "result_id": "res_862a438a7aa93dbe14826322",
+              "unit": null,
+              "value_raw_text": "accuracy of the model drops significantly for increasing number of layers"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Expressive power maintenance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "11762d18cb5b55a3714a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "there exist methods that are able to mitigate over-smoothing while at the same time maintaining its expressive power on our task, i.e., G2."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fa07069c441a255d439930e8",
+              "unit": null,
+              "value_raw_text": "mitigate over-smoothing while at the same time maintaining its expressive power"
+            }
+          ],
+          "unit_id": "su_9dc22037d893fcf980b25842"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ4",
+      "statement": "How can the definition of over-smoothing be extended to continuous-time GNNs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d20abcdf504f2105f99a7315",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "11762d18cb5b55a3714a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "we can easily extend our definition of over-smoothing 1 to continuous-time GNNs, by defining over-smoothing as the exponential convergence in time of a node-similarity measure."
+              },
+              "statement": "The definition of over-smoothing can be extended to continuous-time GNNs as exponential convergence in time of node-similarity measures."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Define continuous-time over-smoothing as exponential convergence in time of a node-similarity measure.",
+            "Provide formal definition: μ(X(t)) ≤ C1 e^{-C2 t} for t ≥ 0, with C1, C2 > 0."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Continuous-time over-smoothing definition",
+              "protocol_description": "Over-smoothing in continuous-time GNNs is defined as the exponential convergence in time of a node-similarity measure μ to zero: μ(X(t)) ≤ C1 e^{-C2 t} for t ≥ 0, with constants C1, C2 > 0."
+            }
+          ],
+          "name": "Extension of over-smoothing definition to continuous-time GNNs",
+          "results": [],
+          "unit_id": "su_6beb0ebd3d63d6138c705ffa"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[2].study_units[0].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M5 -> M5__dup2 on attempt 1"
+    }
+  ]
+}

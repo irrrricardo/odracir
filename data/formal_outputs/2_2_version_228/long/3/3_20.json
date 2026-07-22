@@ -1,0 +1,1190 @@
+{
+  "coverage_ledger": {
+    "0249a23358810959c9e6": "not_selected",
+    "03f99b3edc8619b3dc0b": "not_selected",
+    "073ef3ab7ac5566987fd": "not_selected",
+    "14c10e4e8bd7bb5f8560": "extracted",
+    "1ea27188adf67e40d8fd": "extracted",
+    "86f8f7826a25e0eb1650": "not_selected",
+    "8f29be59de98034b86e4": "extracted",
+    "9f3e32da19a35f02a51f": "not_selected",
+    "addda6edde91e91f0df4": "extracted",
+    "aec9f60e14f648887c89": "extracted",
+    "b1ce1cd1a259b48429ec": "extracted",
+    "b5f43170ebf2592f5af5": "not_selected",
+    "c598501daf9f9fcc8c2c": "extracted",
+    "dd052543bbb5bf248214": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses in vitro 3D culture models and mouse tumor tissues; direct in vivo manipulation of tissue stiffness was not performed.",
+    "The causal chain from matrix stiffness to malignant transformation is inferred from correlations and pharmacological/genetic perturbations; long-term in vivo tumorigenesis assays are lacking.",
+    "The role of other mechanosensitive pathways beyond ERK and Rho was not explored.",
+    "The study focuses on mammary epithelial cells and fibroblasts; generalizability to other cell types is not established.",
+    "The force threshold for integrin aggregation and FA assembly was demonstrated using exogenous shear; endogenous force dynamics in 3D may differ.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_20.pdf",
+    "source_sha256": "df3f203bc30c053f99739eb1e5a8038194d44973f204358013acf14eb42407d6"
+  },
+  "paper_id": "3_20",
+  "quality_assessment": {
+    "correct_item_count": 89,
+    "deterministic_rule_score": 0.9693,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 89,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does tissue stiffness promote malignant behavior by modulating integrins?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2d69e708e4bfa991982df51c",
+              "inference_basis_ids": [
+                "res_17fc1629b3f9274c75c18322"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Normal mammary tissue was found to be extremely soft, whereas the stromal matrix adjacent to the transformed cells and the tumor itself was quite stiff."
+              },
+              "statement": "Tumors are stiffer than normal tissue."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_940324c5edb2e54845d1667b",
+              "inference_basis_ids": [
+                "res_e2a7f4edc2e1688ce422c291"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "MECs could only phosphorylate FAKpY397 and recruit vinculin to their (α3)β1 integrin adhesions when interacting in 2D or 3D with a rigid BM."
+              },
+              "statement": "Matrix stiffness modulates integrin adhesions, with stiff matrices promoting focal adhesion assembly (FAKpY397 and vinculin recruitment)."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a19222a79cc159e9720351ee",
+              "inference_basis_ids": [
+                "res_ed1736bcf6e44b64723a59eb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Even a small increase in matrix stiffness (170–1200 Pa) significantly increased EGF-dependent growth, compromised tissue organization, inhibited lumen formation, and destabilized AJs."
+              },
+              "statement": "Matrix stiffness perturbs epithelial morphogenesis by disrupting tissue organization, inhibiting lumen formation, and destabilizing adherens junctions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Normal and malignant breast tissues from MMTV-Her2/neu, Myc, and Ras transgenic mice.",
+              "name": "Mouse mammary tissue stiffness",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Collagen gels, basement membrane gels, and BM/COL gels with varying stiffness.",
+              "name": "Reconstituted ECM stiffness",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of MEC morphogenesis (acini formation, lumen formation, AJ stability, basal polarity) on BM/COL gels of varying stiffness.",
+            "Measurement of elastic moduli of reconstituted ECMs (collagen gels, basement membrane gels) and comparison to tissue stiffness.",
+            "Unconfined compression analysis of normal and malignant breast tissues from MMTV-Her2/neu, Myc, and Ras transgenic mice using an electro-mechanical indentor."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Unconfined compression analysis",
+              "protocol_description": "Electromechanical computer-controlled indenter with miniature linear stepper motor, force transducer, and linear variable displacement transducer. Tangent elastic modulus calculated between 5% and 15% constant strain."
+            },
+            {
+              "method_id": "M2",
+              "name": "3D morphogenesis assay",
+              "protocol_description": "MECs cultured on BM/COL gels of defined stiffness, overlaid with BM to induce morphogenesis. Assessed for acini formation, lumen formation, AJ stability (β-catenin localization), and basal polarity (β4 integrin localization)."
+            }
+          ],
+          "name": "Tissue stiffness measurement and correlation with malignant phenotype",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Elastic modulus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Normal mammary tissue was found to be extremely soft, whereas the stromal matrix adjacent to the transformed cells and the tumor itself was quite stiff."
+              },
+              "quantitative_value": null,
+              "result_id": "res_17fc1629b3f9274c75c18322",
+              "unit": null,
+              "value_raw_text": "Normal mammary tissue was found to be extremely soft, whereas the stromal matrix adjacent to the transformed cells and the tumor itself was quite stiff."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin adhesion composition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "MECs interacting in 3D with a soft (175 Pa) and stiff (1200 Pa) BM, and in 2D with a stiff BM (1–2 GPa), formed (α3)β1 integrin adhesions, indicated by FAKpY861 and talin that colocalized with β1 integrin. However, MECs could only phosphorylate FAKpY397 and recruit vinculin to their (α3)β1 integrin adhesions when interacting in 2D or 3D with a rigid BM."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e2a7f4edc2e1688ce422c291",
+              "unit": null,
+              "value_raw_text": "MECs interacting in 3D with a soft (175 Pa) and stiff (1200 Pa) BM, and in 2D with a stiff BM (1–2 GPa), formed (α3)β1 integrin adhesions, indicated by FAKpY861 and talin that colocalized with β1 integrin. However, MECs could only phosphorylate FAKpY397 and recruit vinculin to their (α3)β1 integrin adhesions when interacting in 2D or 3D with a rigid BM."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Colony morphology",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "MCF10A and HMT3522 S-1 MECs formed small growth-arrested and polarized acini with AJs and a central lumen on soft BM/COL gels (167 Pa). Even a small increase in matrix stiffness (170–1200 Pa) significantly increased EGF-dependent growth, compromised tissue organization, inhibited lumen formation, and destabilized AJs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ed1736bcf6e44b64723a59eb",
+              "unit": null,
+              "value_raw_text": "MCF10A and HMT3522 S-1 MECs formed small growth-arrested and polarized acini with AJs and a central lumen on soft BM/COL gels (167 Pa). Even a small increase in matrix stiffness (170–1200 Pa) significantly increased EGF-dependent growth, compromised tissue organization, inhibited lumen formation, and destabilized AJs."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Elastic modulus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Reconstituted ECMs, such as 1 mg/ml collagen (COL) gels and basement membrane (BM) gels, that support normal mammary tissue morphogenesis in culture were also very soft, with elastic moduli virtually identical to normal mammary tissue."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f92a6694fcb7a06ce2247275",
+              "unit": null,
+              "value_raw_text": "Reconstituted ECMs, such as 1 mg/ml collagen (COL) gels and basement membrane (BM) gels, that support normal mammary tissue morphogenesis in culture were also very soft, with elastic moduli virtually identical to normal mammary tissue."
+            }
+          ],
+          "unit_id": "su_035e1d50a985f915528afcfe"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6bf4b41319f3ae4a7f684810",
+              "inference_basis_ids": [
+                "res_1e191e54a15fa831e92caf5d",
+                "res_4a412a913a65d53409eec1d2",
+                "res_89027ac8dcab5dda25237bd0",
+                "res_8f17a8af0721f2ce8fa9168f",
+                "res_a4afbf9387b39908aa2567e9",
+                "res_b2197b3d62820a22f7d68522"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ERK and Rho constitute part of an integrated mechanoregulatory circuit linking matrix stiffness to cytoskeletal tension through integrins to regulate tissue phenotype."
+              },
+              "statement": "ERK and Rho constitute part of an integrated mechanoregulatory circuit linking matrix stiffness to cytoskeletal tension through integrins to regulate tissue phenotype."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cb73745920ad3856a81d312b",
+              "inference_basis_ids": [
+                "res_1e191e54a15fa831e92caf5d",
+                "res_4a412a913a65d53409eec1d2",
+                "res_89027ac8dcab5dda25237bd0",
+                "res_8f17a8af0721f2ce8fa9168f",
+                "res_a4afbf9387b39908aa2567e9",
+                "res_b2197b3d62820a22f7d68522"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "This indicates that matrix compliance (exogenous force)-dependent integrin clustering regulates GF-dependent ERK activation to control cell growth and tissue behavior by influencing Rho-generated cytoskeletal tension and FA formation."
+              },
+              "statement": "Matrix stiffness induces integrin clustering to enhance GF-dependent ERK activation and Rho-generated force, thereby modifying tissue growth and morphology."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "MECs and fibroblasts with Rho activity modulated by inhibitors or V14Rho expression.",
+              "name": "Rho manipulation",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Effect of ERK inhibition on cytoskeletal tension and ROCK levels.",
+            "Expression of constitutively active V14Rho and assessment of force, FA assembly, cell spreading, and morphogenesis.",
+            "Inhibition of ROCK (Y-27632) or myosin (ML-7, Blebbistatin) and assessment of cell-generated force.",
+            "Measurement of Rho activity on stiff matrices.",
+            "Phenotypic normalization of V14Rho-expressing MECs by MEK inhibitor U0126 or myosin II inhibitor Blebbistatin."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Inhibitor treatments",
+              "protocol_description": "ROCK inhibitor Y-27632 (40 µM), myosin inhibitor Blebbistatin (50 mM), MEK inhibitor U0126 (12.5 µM)."
+            },
+            {
+              "method_id": "M9",
+              "name": "Rho activity assay",
+              "protocol_description": "Rhotekin pulldown assay to measure Rho GTPase activity."
+            }
+          ],
+          "name": "Rho-ROCK-myosin contractility and ERK in matrix stiffness response",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "ERK inhibition reduces tension and ROCK",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "ERK inhibition decreased cytoskeletal tension (endogenous force) and reduced ROCK levels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1e191e54a15fa831e92caf5d",
+              "unit": null,
+              "value_raw_text": "ERK inhibition decreased cytoskeletal tension (endogenous force) and reduced ROCK levels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Morphogenesis with V14Rho",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "V14Rho also increases the size of EGF-dependent mammary colonies in BM, increases FAs, and compromises MEC morphogenesis (diffuse β-catenin and absence of cleared lumens)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4a412a913a65d53409eec1d2",
+              "unit": null,
+              "value_raw_text": "V14Rho increases the size of EGF-dependent mammary colonies in BM, increases FAs, and compromises MEC morphogenesis (diffuse β-catenin and absence of cleared lumens)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Force and FA assembly with V14Rho",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Expressing a constitutively active V14Rho elevates cell-generated force, increases the number and size of FAs, and significantly increases cell spreading on a soft gel."
+              },
+              "quantitative_value": null,
+              "result_id": "res_89027ac8dcab5dda25237bd0",
+              "unit": null,
+              "value_raw_text": "Expressing constitutively active V14Rho elevates cell-generated force, increases the number and size of FAs, and significantly increases cell spreading on a soft gel."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phenotypic reversion of V14Rho",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The aberrant V14Rho tissue phenotype could be phenotypically normalized by inhibiting EGF-dependent ERK activation (using the U0126 MEK inhibitor) or by inhibiting cell contractility (using a myosin II inhibitor, Blebbistatin)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8f17a8af0721f2ce8fa9168f",
+              "unit": null,
+              "value_raw_text": "The aberrant V14Rho tissue phenotype could be phenotypically normalized by inhibiting EGF-dependent ERK activation (U0126) or by inhibiting cell contractility (Blebbistatin)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rho activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We found that matrix rigidity increases Rho activity."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a4afbf9387b39908aa2567e9",
+              "unit": null,
+              "value_raw_text": "Matrix rigidity increases Rho activity."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell-generated force",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Inhibiting ROCK using Y-27632, or myosins using ML-7 or Blebbistatin, significantly reduces cell-generated force."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b2197b3d62820a22f7d68522",
+              "unit": null,
+              "value_raw_text": "Inhibiting ROCK using Y-27632, or myosins using ML-7 or Blebbistatin, significantly reduces cell-generated force."
+            }
+          ],
+          "unit_id": "su_0ea3fb01ff36cf5428aabe8b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c2791cabc58a28a33b2b04fb",
+              "inference_basis_ids": [
+                "res_00589d4e347a3c22f5e78d15",
+                "res_45400e4cca8fdd451c24cec5",
+                "res_8925652c14861d9cd58e89b8",
+                "res_abe30b80a5a322f96c8e9c81"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Thus, although in tumors integrin and GF-dependent ERK activation can become uncoupled from exogenous force cues (matrix stiffness), some transformed cells do retain functional links between cytoskeletal tension and Rho signaling, such that normalizing mechanosignaling can repress their malignant phenotype."
+              },
+              "statement": "Transformed MECs retain functional links between cytoskeletal tension and Rho signaling, and normalizing mechanosignaling can repress their malignant phenotype."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dbc70ed8f702cfee47b2553c",
+              "inference_basis_ids": [
+                "res_45400e4cca8fdd451c24cec5",
+                "res_8925652c14861d9cd58e89b8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We determined that a highly contractile, EGFR-transformed epithelium with elevated Rho and ERK activity can be phenotypically reverted to form differentiated acini lacking FAs with reduced EGFR activity if Rho-generated cytoskeletal tension or ERK activity is decreased."
+              },
+              "statement": "A highly contractile, EGFR-transformed epithelium with elevated Rho and ERK activity can be phenotypically reverted to form differentiated acini lacking FAs if Rho-generated cytoskeletal tension or ERK activity is decreased."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS8",
+              "description": "Nonmalignant S-1 and EGFR-transformed T4-2 MECs.",
+              "name": "HMT3522 progression series",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of nonmalignant S-1 and EGFR-transformed T4-2 MECs in 3D BM culture: spreading, force generation, Rho activity, FA assembly, morphogenesis.",
+            "Inhibition of Rho (dominant-negative N19Rho, Y-27632) or myosin (Blebbistatin) in T4-2 cells and assessment of contractility, spreading, FAKpY397, polarity, AJs, lumen formation, colony size, ROCK expression, ERK activity, and EGFR levels."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "Dominant-negative Rho expression",
+              "protocol_description": "EGFP-tagged N19RhoA in LZRS-IRES-blasticidin retroviral vector."
+            },
+            {
+              "method_id": "M12",
+              "name": "Phenotypic reversion assay",
+              "protocol_description": "T4-2 cells treated with Y-27632, Blebbistatin, or expressing N19Rho; assessed for morphogenesis, signaling, and proliferation."
+            }
+          ],
+          "name": "Phenotypic reversion of transformed MECs by targeting Rho-ROCK or ERK",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell spreading and force",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "T4-2s spread more and exert significantly higher force on a soft BM gel, as compared to S-1s."
+              },
+              "quantitative_value": null,
+              "result_id": "res_00589d4e347a3c22f5e78d15",
+              "unit": null,
+              "value_raw_text": "T4-2s spread more and exert significantly higher force on a soft BM gel compared to S-1s."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Signaling changes upon reversion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Normalizing tumor cytoskeletal tension also reduces ROCK expression and ERK activity and lowers total and activated EGFR."
+              },
+              "quantitative_value": null,
+              "result_id": "res_45400e4cca8fdd451c24cec5",
+              "unit": null,
+              "value_raw_text": "Normalizing tumor cytoskeletal tension reduces ROCK expression and ERK activity and lowers total and activated EGFR."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phenotypic reversion by Rho/ROCK/myosin inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Inhibiting Rho or myosin activity by expressing a dominant-negative N19Rho, or by treatment with Y-27632 or Blebbistatin, significantly represses T4-2 contractility and cell spreading. Reducing Rho-ROCK-dependent cytoskeletal tension in these mammary tumors also reduces FAKpY397, reestablishes tissue polarity (basal β4 integrin and LN-5), restores cell-cell interactions (less diffuse β-catenin), permits lumen formation, and reduces colony size."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8925652c14861d9cd58e89b8",
+              "unit": null,
+              "value_raw_text": "Inhibiting Rho or myosin activity (N19Rho, Y-27632, Blebbistatin) significantly represses T4-2 contractility and cell spreading, reduces FAKpY397, reestablishes tissue polarity (basal β4 integrin and LN-5), restores cell-cell interactions (less diffuse β-catenin), permits lumen formation, and reduces colony size."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rho activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c598501daf9f9fcc8c2c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "T4-2s also have higher Rho activity."
+              },
+              "quantitative_value": null,
+              "result_id": "res_abe30b80a5a322f96c8e9c81",
+              "unit": null,
+              "value_raw_text": "T4-2s have higher Rho activity."
+            }
+          ],
+          "unit_id": "su_136840a6f42c17e7c339a5d0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4747885b0db5f7f2bfe78533",
+              "inference_basis_ids": [
+                "res_97bf83b0d4daea2c0135bc63"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Integrin clustering preceded rather than followed the appearance of FAKpY397 and cell spreading, implying that force-dependent integrin aggregation (anisotropy) promotes FA assembly."
+              },
+              "statement": "Force-dependent integrin aggregation promotes FA assembly."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fe76dbd77b7c7ef8d3ad9a9b",
+              "inference_basis_ids": [
+                "res_3797947ad0ae4ced5dc6dcd0",
+                "res_97bf83b0d4daea2c0135bc63"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Contractility (integral of the force magnitudes), cell spreading (cell area), and FAKpY397 positively correlate with matrix rigidity, confirming that force is likely required for FA assembly and/or stabilization."
+              },
+              "statement": "Force is required for FA assembly and/or stabilization."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Cells on PA gels with fluorescent beads; bead displacement measured before and after trypsinization.",
+              "name": "Traction force microscopy",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Application of exogenous shear force to fibroblasts on soft FN gels and assessment of integrin clustering, FAKpY397, and cell spreading over time.",
+            "Traction force microscopy to correlate contractility, cell spreading, and FAKpY397 with matrix rigidity."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Traction force microscopy",
+              "protocol_description": "Images of cells on PA gels containing fluorescent beads collected before and after trypsinization; bead displacement used to calculate traction forces."
+            },
+            {
+              "method_id": "M6",
+              "name": "Shear force application",
+              "protocol_description": "Cells on FN-crosslinked PA gel-coated coverslips subjected to centrifugal shear force (100–140 dynes for 5 min) and analyzed for morphology, integrin adhesions, and FAK."
+            }
+          ],
+          "name": "Force-dependent integrin aggregation and FA assembly",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Contractility",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Contractility (integral of the force magnitudes), cell spreading (cell area), and FAKpY397 positively correlate with matrix rigidity."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3797947ad0ae4ced5dc6dcd0",
+              "unit": null,
+              "value_raw_text": "Contractility (integral of the force magnitudes), cell spreading (cell area), and FAKpY397 positively correlate with matrix rigidity."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin clustering and FA assembly after shear",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "A 5 min shear force of 100–140 dynes was sufficient to increase the size of α5β1 integrin adhesions and induce FAKpY397 and cell spreading. Yet, integrin clustering preceded rather than followed the appearance of FAKpY397 and cell spreading (lag time 20–30 min)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_97bf83b0d4daea2c0135bc63",
+              "unit": null,
+              "value_raw_text": "A 5 min shear force of 100–140 dynes was sufficient to increase the size of α5β1 integrin adhesions and induce FAKpY397 and cell spreading. Integrin clustering preceded the appearance of FAKpY397 and cell spreading (lag time 20–30 min)."
+            }
+          ],
+          "unit_id": "su_283f23fc2873c3fa99a3ab87"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a534458ec4152a62fc559378",
+              "inference_basis_ids": [
+                "res_1523479cdef6741f9ff3106d",
+                "res_15e63bfdabf04a2ad767cd78",
+                "res_4f8db90b79b221ef77505068",
+                "res_cd7f58c4ac13b9c5d4e55fc8",
+                "res_fa0a10c79c386333d85e3c6d",
+                "res_fac2c47d400fd86f957c211d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "These data extend previous work highlighting the existence of a functional link between cytoskeletal tension-regulated FA assembly and ERK-dependent growth to show that matrix compliance (exogenous force) can influence tissue phenotype by regulating integrin aggregation to enhance GF-dependent ERK activation, induce cell tension (endogenous force), and drive or stabilize FA assembly."
+              },
+              "statement": "Matrix compliance influences tissue phenotype by regulating integrin aggregation to enhance GF-dependent ERK activation, induce cell tension, and drive FA assembly."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e59245af22c7cd0207a757f9",
+              "inference_basis_ids": [
+                "res_1523479cdef6741f9ff3106d",
+                "res_15e63bfdabf04a2ad767cd78",
+                "res_4f8db90b79b221ef77505068",
+                "res_cd7f58c4ac13b9c5d4e55fc8",
+                "res_fac2c47d400fd86f957c211d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "V737N β1 integrin-expressing cells spread significantly more, formed larger integrin adhesions with more FAKpY397, activated more ERK in response to GF stimulation, exerted greater force, and exhibited aberrant morphogenetic behavior."
+              },
+              "statement": "Integrin clustering enhances GF-dependent ERK activation and induces cell tension to perturb tissue behavior."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "MECs and fibroblasts expressing wild-type or mutant β1 integrin (V737N, G744N).",
+              "name": "Integrin mutant cells",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Expression of mutants in MECs and fibroblasts on compliant gels; assessment of cell spreading, integrin adhesion size, FAKpY397, ERK activation, force generation, and morphogenesis.",
+            "Generation of β1 integrin transmembrane mutants (V737N, G744N) to enhance self-association.",
+            "Phenotypic reversion of V737N-expressing MECs by MEK inhibitor U0126."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "Site-directed mutagenesis and expression",
+              "protocol_description": "V737N and G744N mutations generated using QuikChange Site-Directed Mutagenesis Kit from full-length human β1 integrin cDNA; constructs fused to EGFP or expressed bicistronically."
+            },
+            {
+              "method_id": "M8",
+              "name": "Morphogenesis assay with inhibitor",
+              "protocol_description": "MECs expressing mutant integrins cultured in BM with or without MEK inhibitor U0126; assessed for colony size, polarity, AJs, and lumen formation."
+            }
+          ],
+          "name": "Integrin clustering mutants and mechanoregulatory circuit",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell spreading",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "V737N β1 integrin-expressing cells spread significantly more."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1523479cdef6741f9ff3106d",
+              "unit": null,
+              "value_raw_text": "V737N β1 integrin-expressing cells spread significantly more on soft gels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin adhesion size and FAKpY397",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "V737N β1 integrin-expressing cells formed larger integrin adhesions with more FAKpY397."
+              },
+              "quantitative_value": null,
+              "result_id": "res_15e63bfdabf04a2ad767cd78",
+              "unit": null,
+              "value_raw_text": "V737N β1 integrin-expressing cells formed larger integrin adhesions with more FAKpY397."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Force generation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "V737N β1 integrin-expressing cells exerted greater force."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4f8db90b79b221ef77505068",
+              "unit": null,
+              "value_raw_text": "V737N β1 integrin-expressing cells exerted greater force."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Morphogenesis",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "V737N β1 integrin MECs formed larger, nonpolarized colonies lacking AJs and assembled spheroids lacking a completely cleared lumens."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cd7f58c4ac13b9c5d4e55fc8",
+              "unit": null,
+              "value_raw_text": "V737N β1 integrin-expressing MECs formed larger, nonpolarized colonies lacking AJs and assembled spheroids lacking completely cleared lumens."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phenotypic reversion by MEK inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "The abnormal phenotype could be phenotypically reverted if ERK activity was repressed."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fa0a10c79c386333d85e3c6d",
+              "unit": null,
+              "value_raw_text": "The abnormal phenotype of V737N β1 integrin-expressing MECs could be phenotypically reverted if ERK activity was repressed (U0126)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ERK activation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "V737N β1 integrin-expressing cells activated more ERK in response to GF stimulation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fac2c47d400fd86f957c211d",
+              "unit": null,
+              "value_raw_text": "V737N β1 integrin-expressing cells activated more ERK in response to GF stimulation."
+            }
+          ],
+          "unit_id": "su_35b510b77d63c110249d2fa2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6692f1f35aa1198d005ebc10",
+              "inference_basis_ids": [
+                "res_389c359a81e557cf243a80fd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "MECs on stiff BM gels showed increased FAKpY397 and vinculin recruitment compared to soft gels."
+              },
+              "statement": "Matrix stiffness promotes focal adhesion assembly, as indicated by FAKpY397 phosphorylation and vinculin recruitment."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ae709cff6a81212535caf187",
+              "inference_basis_ids": [
+                "res_bc6327b92a930c2d3a5dfcb3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "EGF-induced phospho-ERK was higher in MECs on stiff BM gels compared to soft gels."
+              },
+              "statement": "Matrix stiffness enhances EGF-dependent ERK activation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d0720632d0cebd8a52025363",
+              "inference_basis_ids": [
+                "res_00eba5a2c9234e49d285cb7d",
+                "res_7bb5157acca582c5713d1bbd",
+                "res_b4ee506d5dd06dc2e7ae5d6c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Fibroblasts also spread significantly better on stiff versus soft FN gels. Fibroblasts adhered equally to soft and stiff FN gels, and when adhesion strength was measured using a spinning disc apparatus fibroblasts detached with virtually the same force per cm2 from soft and stiff FN gels. α5β1 integrin adhesions were much larger in fibroblasts spread on stiff FN gels."
+              },
+              "statement": "Matrix stiffness regulates cell behavior by inducing focal adhesions, independent of adhesion strength."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e842df906ca2601d0c395ba7",
+              "inference_basis_ids": [
+                "res_389c359a81e557cf243a80fd",
+                "res_ed95ce2337340d5479d57a25"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "MECs on soft BM gels had higher levels of total and activated LynpY507 and LckpY505 kinases than MECs on stiff gels, and MECs grew and survived in 3D quite well, consistent with integrin activation, FAKpY861, and adhesion assembly."
+              },
+              "statement": "Soft matrices promote focal complex assembly with active Src family kinases, while stiff matrices drive focal adhesion maturation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "MECs on BM-crosslinked PA gels of varying stiffness.",
+              "name": "MEC stiffness response",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Fibroblasts on FN-crosslinked PA gels of varying stiffness.",
+              "name": "Fibroblast stiffness response",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Culture of fibroblasts on soft and stiff FN-crosslinked PA gels, assessment of cell spreading, integrin adhesion composition, adhesion strength, and effect of integrin mutants.",
+            "Culture of MECs on soft and stiff BM-crosslinked PA gels, assessment of cell area, colony size, integrin adhesion composition (FAKpY397, FAKpY861, talin, vinculin), and signaling (phospho-FAK, Src family kinases, phospho-ERK)."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Immunofluorescence and immunoblotting",
+              "protocol_description": "Cells fixed and stained for integrin adhesions components; lysates immunoblotted for total and phospho-proteins."
+            },
+            {
+              "method_id": "M4",
+              "name": "Adhesion strength assay",
+              "protocol_description": "Spinning disc apparatus to measure shear force required to detach fibroblasts from FN gels."
+            }
+          ],
+          "name": "Matrix stiffness effects on integrin adhesions and signaling in MECs and fibroblasts",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibroblast adhesion strength",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Fibroblasts adhered equally to soft and stiff FN gels, and when adhesion strength was measured using a spinning disc apparatus fibroblasts detached with virtually the same force per cm2 from soft and stiff FN gels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_00eba5a2c9234e49d285cb7d",
+              "unit": null,
+              "value_raw_text": "Fibroblasts adhered equally to soft and stiff FN gels, and detached with virtually the same force per cm2 from soft and stiff FN gels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FAK phosphorylation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "MECs on stiff BM gels showed increased FAKpY397 and vinculin recruitment compared to soft gels. Immunoblot quantification showed elevated phospho-FAK on stiff gels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_389c359a81e557cf243a80fd",
+              "unit": null,
+              "value_raw_text": "MECs on stiff BM gels showed increased FAKpY397 and vinculin recruitment compared to soft gels. Immunoblot quantification showed elevated phospho-FAK on stiff gels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibroblast spreading",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Fibroblasts also spread significantly better on stiff versus soft FN gels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7bb5157acca582c5713d1bbd",
+              "unit": null,
+              "value_raw_text": "Fibroblasts spread significantly better on stiff versus soft FN gels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell area",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Cell area for MECs on soft and stiff BM-crosslinked PA gels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_91e16f23dd10fd90711c857d",
+              "unit": null,
+              "value_raw_text": "Cell area for MECs on soft and stiff BM-crosslinked PA gels (Figure 2A)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Colony size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Colony size of MEC spheroids on BM gels of increasing stiffness (150–5000 Pa), overlaid with BM to induce morphogenesis (3D BM gel)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a8b1528f9586d7c5dc827dba",
+              "unit": null,
+              "value_raw_text": "Colony size of MEC spheroids on BM gels of increasing stiffness (150–5000 Pa), overlaid with BM to induce morphogenesis (3D BM gel)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin adhesion size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "addda6edde91e91f0df4",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "α5β1 integrin adhesions were much larger in fibroblasts spread on stiff FN gels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b4ee506d5dd06dc2e7ae5d6c",
+              "unit": null,
+              "value_raw_text": "α5β1 integrin adhesions were much larger in fibroblasts spread on stiff FN gels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ERK phosphorylation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "aec9f60e14f648887c89",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Graph showing immunoblot quantification of EGF-induced (20 ng/ml) phospho-ERK normalized to E-cadherin in MECs on soft and stiff BM gels for 4 days."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bc6327b92a930c2d3a5dfcb3",
+              "unit": null,
+              "value_raw_text": "EGF-induced phospho-ERK was higher in MECs on stiff BM gels compared to soft gels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Src family kinase activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd052543bbb5bf248214",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "MECs on soft BM gels had higher levels of total and activated LynpY507 and LckpY505 kinases than MECs on stiff gels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ed95ce2337340d5479d57a25",
+              "unit": null,
+              "value_raw_text": "MECs on soft BM gels had higher levels of total and activated LynpY507 and LckpY505 kinases than MECs on stiff gels."
+            }
+          ],
+          "unit_id": "su_db41326f4f20f8dce80459d6"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7566 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9016 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7566 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7524 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9014 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3811 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5405 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4019 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7375 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8722 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9313 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3394 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6552 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6786 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4070 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4671 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8319 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8571 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6784 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8710 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7522 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8843 on attempt 1"
+    }
+  ]
+}

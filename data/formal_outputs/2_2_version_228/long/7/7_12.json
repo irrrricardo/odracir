@@ -1,0 +1,359 @@
+{
+  "coverage_ledger": {
+    "0008e14d4c2804e5bbf5": "not_selected",
+    "064ddb0f03914dbf6bd2": "extracted",
+    "0e911c51aedfff604b29": "not_selected",
+    "21ce4a2caaf6496d1c19": "not_selected",
+    "27cd6b5c0db8062086e6": "not_selected",
+    "29763a841f3354b4cc3d": "not_selected",
+    "2a986530c26e917d9439": "not_selected",
+    "33596176c372e4df18a5": "not_selected",
+    "33bd29775c4407e7666e": "extracted",
+    "3cf7477c63e741771bee": "not_selected",
+    "57dbbaaf381a6a3fd602": "not_selected",
+    "5bd101f6a08595b84c85": "not_selected",
+    "607279d3dd253825321d": "not_selected",
+    "617cac2a5125a211301e": "not_selected",
+    "700df9bdf09ed41b5f71": "not_selected",
+    "7682257f610ff80656b0": "extracted",
+    "85a5657798c56df019ac": "extracted",
+    "86d4c814fd3618d2d289": "not_selected",
+    "98e839ae655fb2a51a45": "not_selected",
+    "9c096d6dc4633d715a76": "not_selected",
+    "af15c2904d423767ed83": "not_selected",
+    "b2f1e3651dd5d298853a": "not_selected",
+    "bf87da7647cf8b0f9366": "not_selected",
+    "c62781e154f013afe307": "not_selected",
+    "cf661dfe955a63f1e2ff": "not_selected",
+    "d33b735d1db0624ed749": "not_selected",
+    "f1f688214f645ff88ef1": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Neural operators cannot perfectly approximate the ground-truth operator when only coarse-resolution training data is provided.",
+    "Generalization of learned neural operators to unseen scenarios and conditions different from training data is challenging."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_12.pdf",
+    "source_sha256": "bc7fbaddfc6f87d5afeb8af7fe757d2224b30ff0d7e9e8f5be38495f46b9985d"
+  },
+  "paper_id": "7_12",
+  "quality_assessment": {
+    "correct_item_count": 27,
+    "deterministic_rule_score": 0.6563,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.8,
+      "sample_size_log_score": 0.3864,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 27,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can a hybrid approach combining training data and physics constraints at different resolutions learn the solution operator of parametric PDEs with high accuracy and zero-shot super-resolution?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1aceda3d984342a4e5418c64",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "064ddb0f03914dbf6bd2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The resulting PINO model can accurately approximate the ground-truth solution operator for many popular PDE families and shows no degradation in accuracy even under zero-shot super-resolution, i.e., being able to predict beyond the resolution of training data."
+              },
+              "statement": "PINO can accurately approximate the ground-truth solution operator for many popular PDE families and shows no degradation in accuracy even under zero-shot super-resolution."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3fa0004f8331b77e1a5d7c2a",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "064ddb0f03914dbf6bd2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "PINO is the first hybrid approach incorporating data and PDE constraints at different resolutions to learn the operator."
+              },
+              "statement": "PINO is the first hybrid approach incorporating data and PDE constraints at different resolutions to learn the operator."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f444a2eb691918508496997e",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "064ddb0f03914dbf6bd2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Moreover, PINO succeeds in settings where no training data is available and only PDE constraints are imposed, while previous approaches, such as the Physics-Informed Neural Network (PINN), fail due to optimization challenges, e.g., in multi-scale dynamic systems such as Kolmogorov flows."
+              },
+              "statement": "PINO succeeds in settings where no training data is available and only PDE constraints are imposed, while previous approaches such as PINN fail due to optimization challenges."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose physics-informed neural operators (PINO) that combine coarse-resolution training data with PDE constraints imposed at a higher resolution to learn the solution operator of parametric PDEs."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Physics-Informed Neural Operator (PINO)",
+              "protocol_description": "PINO uses the Fourier neural operator (FNO) framework, which is a universal approximator for continuous operators and discretization convergent. PDE constraints are added to FNO at a higher resolution than the training data, enabling high-fidelity reconstruction of the ground-truth operator. The approach can also work without training data, using only PDE constraints."
+            }
+          ],
+          "name": "PINO framework description",
+          "results": [],
+          "unit_id": "su_1336a6ef5b81ba8058ff9b9d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_985f7a5a9ac5eff1282ad902",
+              "inference_basis_ids": [
+                "res_082161af28d39f98c73d1087",
+                "res_0fdd8fd8189f0ecd805d267f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "33bd29775c4407e7666e",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "PINO achieves 0.38% relative l2 error averaged over 200 testing instances. PINN-DeepONet achieves 1.38% which is taken from Wang et al. [52] which uses the same problem setting."
+              },
+              "statement": "PINO outperforms PINN-DeepONet on Burgers equation with 0.38% vs 1.38% relative L2 error."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Initial conditions u0 ~ N(0, 625(-Δ+25I)^{-2})",
+              "name": "Burgers equation dataset",
+              "version_or_split": "1000 training initial conditions, 200 test instances"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Train PINO on Burgers equation with 1000 initial conditions and evaluate relative L2 error on 200 test instances."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "PINO for Burgers equation",
+              "protocol_description": "PINO with width=64, mode=15, GeLU activation. Adam optimizer with learning rate 0.001 decaying by half every 100 epochs, 500 epochs total. Training time ~20 minutes on Nvidia 3090 GPU."
+            }
+          ],
+          "name": "Burgers equation experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": 200,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "33bd29775c4407e7666e",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "PINO achieves 0.38% relative l2 error averaged over 200 testing instances."
+              },
+              "quantitative_value": 0.38,
+              "result_id": "res_082161af28d39f98c73d1087",
+              "unit": "%",
+              "value_raw_text": "0.38%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "33bd29775c4407e7666e",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "PINN-DeepONet achieves 1.38% which is taken from Wang et al. [52] which uses the same problem setting."
+              },
+              "quantitative_value": 1.38,
+              "result_id": "res_0fdd8fd8189f0ecd805d267f",
+              "unit": "%",
+              "value_raw_text": "1.38%"
+            }
+          ],
+          "unit_id": "su_66bb859724ce255c030e84ba"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_be2276ed80a3f524baa5c606",
+              "inference_basis_ids": [
+                "res_899909934373d00936e82832",
+                "res_d3914250b7b1db93e59bb4ae",
+                "res_f5855eb04927cc80451f8ce1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "33bd29775c4407e7666e",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "They get 3.04%, 2.87%, and 1.84% relative l2 error on the last time step u(50) over 5 testing instance."
+              },
+              "statement": "PINO with instance-wise fine-tuning achieves the lowest relative L2 error (1.84%) compared to FNO (3.04%) and PINO without fine-tuning (2.87%)."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Initial condition w0 ~ N(0, 7^{3/2}(-Δ+49I)^{-2.5}) with periodic BC. Forcing f(x)=0.1(sin(2π(x1+x2))+cos(2π(x1+x2))).",
+              "name": "Long temporal transient flow dataset",
+              "version_or_split": "5 testing instances"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Study build-up of flow from near-zero initial condition to ergodic state at T=50, l=1. Compare FNO, PINO (no fine-tuning), and PINO (with instance-wise fine-tuning)."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "PINO for long temporal transient flow",
+              "protocol_description": "Weight parameters α=β=5. Compared FNO, PINO (no instance-wise fine-tuning), and PINO (with instance-wise fine-tuning)."
+            }
+          ],
+          "name": "Long temporal transient flow experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error at u(50)",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "33bd29775c4407e7666e",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "They get 3.04%, 2.87%, and 1.84% relative l2 error on the last time step u(50) over 5 testing instance."
+              },
+              "quantitative_value": 1.84,
+              "result_id": "res_899909934373d00936e82832",
+              "unit": "%",
+              "value_raw_text": "1.84%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error at u(50)",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "33bd29775c4407e7666e",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "They get 3.04%, 2.87%, and 1.84% relative l2 error on the last time step u(50) over 5 testing instance."
+              },
+              "quantitative_value": 3.04,
+              "result_id": "res_d3914250b7b1db93e59bb4ae",
+              "unit": "%",
+              "value_raw_text": "3.04%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error at u(50)",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "33bd29775c4407e7666e",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "They get 3.04%, 2.87%, and 1.84% relative l2 error on the last time step u(50) over 5 testing instance."
+              },
+              "quantitative_value": 2.87,
+              "result_id": "res_f5855eb04927cc80451f8ce1",
+              "unit": "%",
+              "value_raw_text": "2.87%"
+            }
+          ],
+          "unit_id": "su_6d5283557147438036c4cc1f"
+        },
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Coefficient a ~ ψ#N(0, (-Δ+9I)^{-2}), ψ(a)=12 if a≥0 else 3. Zero boundary enforced by mollifier sin(πx)sin(πy).",
+              "name": "Darcy Flow dataset",
+              "version_or_split": "1000 training coefficient conditions, test on 61x61 resolution"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Train PINO on Darcy Flow with 1000 coefficient conditions and evaluate relative L2 error on resolution 61x61."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "PINO for Darcy Flow",
+              "protocol_description": "Same parameters as Burgers: width=64, mode=15, GeLU. Training ~1 hour on Nvidia V100 GPU."
+            }
+          ],
+          "name": "Darcy Flow experiment",
+          "results": [],
+          "unit_id": "su_85b745d48ec73ec3876fcd20"
+        },
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "D4",
+              "description": "Initial conditions from Gaussian random field N(0, 7^{3/2}(-Δ+49I)^{-5/2}). Reynolds number 500.",
+              "name": "Kolmogorov flow dataset",
+              "version_or_split": "4000 training instances, 300 test instances (for T=0.5); 200 test instances for super-resolution"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Train PINO on Kolmogorov flow with Reynolds number 500, T=0.125, spatial resolution 64x64, temporal resolution 33. Test on 200 instances at 256x256 spatial, 65 temporal. Also experiment with lower resolution 32x32x17 training."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "PINO for Kolmogorov flow",
+              "protocol_description": "Training with 4k data points plus extra sampled initial conditions. Training up to 2 days on Nvidia V100 GPU. Compared with PINN, LAAF-PINN, SA-PINN using DeepXDE with two-step optimization (Adam + L-BFGS)."
+            }
+          ],
+          "name": "Chaotic Kolmogorov flow experiment",
+          "results": [],
+          "unit_id": "su_f46828f57cc90e19c351c754"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

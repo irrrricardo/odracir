@@ -1,0 +1,1036 @@
+{
+  "coverage_ledger": {
+    "0ad3d2458cd6a258b50b": "not_selected",
+    "14cf727cef9de3613d30": "extracted",
+    "187ad972f49677ae4605": "not_selected",
+    "210f44e69771716fa07f": "not_selected",
+    "4c48feda0fb356d94871": "extracted",
+    "4f5f1648b03d70779f25": "not_selected",
+    "61a18232c7c5539c51cf": "not_selected",
+    "7fbe78f5b78df4708a14": "not_selected",
+    "8cece597675f41a5d7a6": "not_selected",
+    "962521bf3fe2a794f12e": "not_selected",
+    "a6c7df9bc6f6d1197ff0": "extracted",
+    "da55f9e5d9ac3ee5429c": "not_selected",
+    "db8045e0f38df01f6c08": "not_selected",
+    "dd7f29a0244eacff3a16": "not_selected",
+    "e220411196952dd07aaa": "not_selected",
+    "e74df29cdf752a3afe80": "extracted",
+    "f1ae83fe6a331cf68fa5": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "MGKN has slightly higher error on Darcy flow where linear spaces are near-optimal.",
+    "The method is evaluated only on Darcy flow and Burgers' equation; generalization to other PDEs is not shown.",
+    "The paper does not provide detailed hyperparameter settings or training protocols.",
+    "The comparison with baselines may be limited by the specific architectures and hyperparameters chosen."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_11.pdf",
+    "source_sha256": "da51a67f4fbd9705ed52f5d14d687e97c2cf51fc4cda9d7e57d25abb45d089b4"
+  },
+  "paper_id": "7_11",
+  "quality_assessment": {
+    "correct_item_count": 26,
+    "deterministic_rule_score": 0.9462,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 52,
+    "f1": 0.6265,
+    "incorrect_item_count": 26,
+    "incorrect_items": [
+      {
+        "description": "The extracted value 0.0428 is for s=211, but the source chunk shows MGKN error 0.0428 at s=211. However, the provenance excerpt is 'MGKN 0.0428' which matches the source. But the extracted item claims the value is 0.0428 with provenance chunk_id '4c48feda0fb356d94871' and page 16. In the source chunk, Table 4 shows MGKN errors: s=85: 0.0416, s=141: 0.0428, s=211: 0.0428, s=421: 0.0420. The extracted item has value_raw_text '0.0428' and quantitative_value 0.0428, but no indication of which resolution it corresponds to. The provenance excerpt is 'MGKN 0.0428', which appears twice in the table. The extraction is ambiguous but not necessarily incorrect. However, the item is missing the resolution context. But the audit protocol says to mark incorrect only if unsupported, contradicted, or materially overstated. The value 0.0428 is present in the source. So it is supported. Not incorrect.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_022cc9cb716091b1f28f74b1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.1097 for FCN at s=421. Source shows FCN error 0.1097 at s=421. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_13c1f82701e0e774aec1234e",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0255 for RBM at s=211. Source shows RBM error 0.0255 at s=211. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_2c9b5fc6697c4cc47a53cde4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0244 for RBM at s=85. Source shows RBM error 0.0244 at s=85. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_301db36e163451f51f9849ce",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0251 for RBM at s=141. Source shows RBM error 0.0251 at s=141. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_35000c7d9b662194102858a9",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0416 for MGKN at s=85. Source shows MGKN error 0.0416 at s=85. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_4087964584af36d7abd817ce",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0420 for MGKN at s=421. Source shows MGKN error 0.0420 at s=421. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_44d8693620f71f4f493a9000",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted text: 'MGKN achieves similar testing error on different resolutions for Darcy flow'. Source excerpt: 'MGKN achieves similar testing error on s' = 61, 121, 241, independently of the training discretization.' This is a faithful abstraction. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_489810642c445a45edd5f0ac",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.1482 for GCN at s=211. Source shows GCN error 0.1482 at s=211. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_4da7a3f1ddec77e7ef65b9bf",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted text: 'FCN error increases with resolution on Burgers' equation'. Source excerpt: 'the error increases with the resolution since standard convolution layer are parametrized locally and therefore cannot capture the long-range correlations of the solution operator.' This is a faithful abstraction. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_6c9887eeb82c2e94bfa7b178",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0253 for FCN at s=85. Source shows FCN error 0.0253 at s=85. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_77e6607f2da4268506ab1812",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.1579 for GCN at s=421. Source shows GCN error 0.1579 at s=421. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_82f9c2354425b62bb2b82106",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0342 for GKN at s=211. Source shows GKN error 0.0342 at s=211. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_8ce87140a781a2233c9cd190",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0298 for PCA+NN at s=141. Source shows PCA+NN error 0.0298 at s=141. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_96efd6b058416d830667ae41",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.1356 for GCN at s=85. Source shows GCN error 0.1356 at s=85. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_a16fdb7fc9af8972d15b2126",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted text: 'linear in the number of nodes'. Source excerpt: 'the computational complexity of our construction is linear in the number of nodes'. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_a21ffc30f15b43d0d5508df8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0493 for FCN at s=141. Source shows FCN error 0.0493 at s=141. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_a5cf78d1e95408a624ad9682",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0727 for FCN at s=211. Source shows FCN error 0.0727 at s=211. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_b61d57dc82286ab5d1e7b35f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.1716 for NN at s=85. Source shows NN error 0.1716 at s=85. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_b7000ad8411e3f53bcefb2e3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0332 for GKN at s=141. Source shows GKN error 0.0332 at s=141. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_bdd9c84791571a0b52e089b6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted text: 'MGKN achieves constant steady state test error across resolutions on Burgers' equation'. Source excerpt: 'MGKN achieves a constant steady state test error, demonstrating that it has learned the true infinite-dimensional solution operator irrespective of the discretization.' Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_be60463de1c0326dee35c123",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0369 for GKN at s=421. Source shows GKN error 0.0369 at s=421. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_c5eaae316847ffda80660e62",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0346 for GKN at s=85. Source shows GKN error 0.0346 at s=85. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_d08d60c445c316df997cbfa2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0259 for RBM at s=421. Source shows RBM error 0.0259 at s=421. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_d64c8f933d81e2b528f1be9c",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.0299 for PCA+NN at s=85. Source shows PCA+NN error 0.0299 at s=85. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_e8aca4b5124249de206983a4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Extracted value 0.1414 for GCN at s=141. Source shows GCN error 0.1414 at s=141. Supported.",
+        "item_id": "result:su_74c7e026205b68f73e85f1a4:res_ecdfe1c7fef959532e7b8d3a",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "MGKN relative test error on Burgers' equation at various resolutions (s=64 to 8192) is not extracted.",
+        "item_id": null,
+        "source_chunk_id": "da55f9e5d9ac3ee5429c",
+        "source_excerpt": "Table 5: Error of different methods on Burgers’ equation\nNetworks\ns = 64\ns = 128\ns = 256\ns = 512\ns = 1024\ns = 2048\ns = 4096\ns = 8192\n...\nMGKN\n0.0174\n0.0211\n0.0243\n0.0355\n0.0374\n0.0360\n0.0364\n0.0364",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Baseline methods' relative test errors on Burgers' equation (NN, GCN, FCN, PCA+NN, GKN) at various resolutions are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "da55f9e5d9ac3ee5429c",
+        "source_excerpt": "Table 5: Error of different methods on Burgers’ equation\nNetworks\ns = 64\ns = 128\ns = 256\ns = 512\ns = 1024\ns = 2048\ns = 4096\ns = 8192\nNN\n0.4677\n0.4447\n0.4714\n0.4561\n0.4803\n0.4645\n0.4779\n0.4452\nGCN\n0.3135\n0.3612\n0.3999\n0.4138\n0.4176\n0.4157\n0.4191\n0.4198\nFCN\n0.0802\n0.0853\n0.0958\n0.1407\n0.1877\n0.2313\n0.2855\n0.3238\nPCA+NN\n0.0397\n0.0389\n0.0398\n0.0395\n0.0391\n0.0383\n0.0392\n0.0393\nGKN\n0.0367\n0.0316\n0.0555\n0.0594\n0.0651\n0.0663\n0.0666\n0.0699",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "MGKN training and testing times and errors for different multi-level configurations on Darcy flow are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "dd7f29a0244eacff3a16",
+        "source_excerpt": "Table 2: Darcy ﬂow experimental results.\ntraining error\ntesting error\ntraining time\ntesting time\nm = [25]\n0.0181\n0.1054\n0.50s\n0.21s\nm = [100, 25]\n0.0189\n0.0781\n1.59s\n0.69s\nm = [400, 100, 25]\n0.0155\n0.0669\n5.24s\n1.90s\nm = [1600, 400, 100, 25]\n0.0165\n0.0568\n19.75s\n7.94s",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "GKN training and testing times and errors for different configurations on Darcy flow are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "dd7f29a0244eacff3a16",
+        "source_excerpt": "m = [1600]\n0.0679\n0.0744\n10.74s\n4.28s\nm = [1600, 400]\n0.0359\n0.0624\n17.78s\n7.04s\nm = [1600, 400, 100]\n0.0184\n0.0578\n19.50s\n7.70s\nm = [1600, 400, 100, 25]\n0.0165\n0.0568\n19.75s\n7.94s\nm = 25, r = 0.1\n0.0994\n0.1139\n0.45s\n0.16s\nm = 100, r = 0.1\n0.0824\n0.1067\n0.44s\n0.16s\nm = 400, r = 0.1\n0.0514\n0.0769\n1.76s\n0.64s\nm = 1600, r = 0.1\n0.0470\n0.0588\n24.81s\n8.96s\nm = 25, r = 0.2\n0.0728\n0.1169\n0.45s\n0.16s\nm = 100, r = 0.2\n0.0508\n0.0803\n0.59s\n0.19s\nm = 200, r = 0.2\n0.0438\n0.0668\n1.53s\n0.55s\nm = 400, r = 0.2\n0.0462\n0.0601\n5.56s\n2.13s\nm = 800, r = 0.2\n0.0397\n0.0519\n22.31s\n7.86s",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Mesh invariance results: MGKN test errors for different training and testing resolutions on Darcy flow are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "dd7f29a0244eacff3a16",
+        "source_excerpt": "Table 3: Generalization of resolutions on sampled Grids\nResolutions\ns′ = 61\ns′ = 121\ns′ = 241\ns = 31\n0.0643\n0.0594\n0.0634\ns = 41\n0.0630\n0.0606\n0.0609\ns = 61\n0.0579\n0.0590\n0.0589\ns = 121\n0.0650\n0.0628\n0.0664\ns = 241\n0.0630\n0.0680\n0.0665",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.5,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8387
+  },
+  "quality_score": 0.6265,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can graph neural networks capture long-range interactions for learning PDE solution operators with linear time complexity?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_19c5b795dba7d4ec626194f9",
+              "inference_basis_ids": [
+                "res_022cc9cb716091b1f28f74b1",
+                "res_4087964584af36d7abd817ce",
+                "res_44d8693620f71f4f493a9000"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "MKGN has slight higher error on Darcy flow where linear spaces are near-optimal."
+              },
+              "statement": "MGKN has slightly higher error on Darcy flow where linear spaces are near-optimal."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_424393c6a168610786d05b08",
+              "inference_basis_ids": [
+                "res_be60463de1c0326dee35c123"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "14cf727cef9de3613d30",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "For Burger's equation, when linear spaces are no longer near-optimal, MGKN is the best performing method."
+              },
+              "statement": "MGKN is the best performing method on Burgers' equation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_64770c5fac4595cf690f68ee",
+              "inference_basis_ids": [
+                "res_6c9887eeb82c2e94bfa7b178"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "14cf727cef9de3613d30",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the error increases with the resolution since standard convolution layer are parametrized locally and therefore cannot capture the long-range correlations of the solution operator."
+              },
+              "statement": "FCN is mesh-dependent and its error grows with resolution."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6e5f93bbe041c1f3f1148fe9",
+              "inference_basis_ids": [
+                "res_8ce87140a781a2233c9cd190",
+                "res_bdd9c84791571a0b52e089b6",
+                "res_c5eaae316847ffda80660e62",
+                "res_d08d60c445c316df997cbfa2"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "The drawback is its quadratic complexity, constrain GKN from a large radius. Therefore GKN has higher error rates on the Burgers equation where long-range correlation is not negligible."
+              },
+              "statement": "GKN has quadratic complexity, limiting its radius and performance on Burgers' equation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_980f07d8d1b24d7383029786",
+              "inference_basis_ids": [
+                "res_a21ffc30f15b43d0d5508df8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a6c7df9bc6f6d1197ff0",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We develop the multipole graph kernel neural network (MGKN) that can capture long-range correlations in graph-based data with a linear time complexity in the nodes of the graph."
+              },
+              "statement": "MGKN captures long-range correlations with linear time complexity."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cc1a5eaf7665dbb63fcb6f53",
+              "inference_basis_ids": [
+                "res_2c9b5fc6697c4cc47a53cde4",
+                "res_301db36e163451f51f9849ce",
+                "res_35000c7d9b662194102858a9",
+                "res_d64c8f933d81e2b528f1be9c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "Since the solution manifold of (14) exhibits fast decay of its Kolgomorov n-width, linear spaces are near optimal hence it is not surprising that RBM is the best performing method."
+              },
+              "statement": "RBM is the best performing method on Darcy flow due to fast decay of Kolmogorov n-width."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d8886f2c9c4b8d4598b00913",
+              "inference_basis_ids": [
+                "res_4da7a3f1ddec77e7ef65b9bf",
+                "res_82f9c2354425b62bb2b82106",
+                "res_a16fdb7fc9af8972d15b2126",
+                "res_ecdfe1c7fef959532e7b8d3a"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "It shows simple nearest-neighbor graph structures are insufficient."
+              },
+              "statement": "GCN with nearest-neighbor connections is insufficient for capturing long-range interactions."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dca5395a0f48f10dd33bcbe1",
+              "inference_basis_ids": [
+                "res_489810642c445a45edd5f0ac",
+                "res_be60463de1c0326dee35c123"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "14cf727cef9de3613d30",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MGKN achieves a constant steady state test error, demonstrating that it has learned the true infinite-dimensional solution operator irrespective of the discretization."
+              },
+              "statement": "MGKN learns mesh-invariant solution operators."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Linear second-order elliptic equation used for operator learning.",
+              "name": "Darcy flow",
+              "version_or_split": "2-d, training size N=1000, testing size N=100"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Nonlinear PDE with periodic boundary conditions, mapping initial condition to solution at time 1.",
+              "name": "Burgers' equation",
+              "version_or_split": "1-d, viscosity ν=0.1, training size N=1000, testing size N=100"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze computational complexity theoretically and numerically.",
+            "Develop a multi-level graph neural network framework (MGKN) that captures interactions at all ranges with linear complexity, inspired by fast multipole methods.",
+            "Evaluate MGKN on learning solution operators for Darcy flow and Burgers' equation, comparing against baselines: NN, GCN, FCN, PCA+NN, RBM, GKN.",
+            "Test mesh-invariance by training on one discretization and testing on different resolutions."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Multipole Graph Kernel Network (MGKN)",
+              "protocol_description": "A hierarchical multi-scale graph neural network that adds inducing points to capture long-range interactions, using a V-cycle algorithm for message passing, achieving linear time complexity."
+            },
+            {
+              "method_id": "M2",
+              "name": "Neural Network (NN)",
+              "protocol_description": "Simple point-wise feedforward neural network, mesh-free but lacks neighbor information."
+            },
+            {
+              "method_id": "M3",
+              "name": "Graph Convolution Network (GCN)",
+              "protocol_description": "Graph neural network with naive nearest neighbor connections, following architecture in [4]."
+            },
+            {
+              "method_id": "M4",
+              "name": "Fully Convolution Network (FCN)",
+              "protocol_description": "State-of-the-art fully convolutional network [50], mesh-dependent."
+            },
+            {
+              "method_id": "M5",
+              "name": "PCA+NN",
+              "protocol_description": "PCA autoencoder on input/output data with neural network interpolation of latent spaces [11], mesh-independent but evaluates only on training mesh."
+            },
+            {
+              "method_id": "M6",
+              "name": "Reduced Basis Method (RBM)",
+              "protocol_description": "Classical reduced order modeling using linear basis functions, requires variational form of the problem."
+            },
+            {
+              "method_id": "M7",
+              "name": "Graph Kernel Network (GKN)",
+              "protocol_description": "Graph kernel network with radius r=0.25 and m=300, similar to MGKN but without multi-level graph extension, quadratic complexity."
+            }
+          ],
+          "name": "Multipole Graph Kernel Network (MGKN) development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "MGKN 0.0428"
+              },
+              "quantitative_value": 0.0428,
+              "result_id": "res_022cc9cb716091b1f28f74b1",
+              "unit": null,
+              "value_raw_text": "0.0428"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "FCN 0.1097"
+              },
+              "quantitative_value": 0.1097,
+              "result_id": "res_13c1f82701e0e774aec1234e",
+              "unit": null,
+              "value_raw_text": "0.1097"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "RBM 0.0255"
+              },
+              "quantitative_value": 0.0255,
+              "result_id": "res_2c9b5fc6697c4cc47a53cde4",
+              "unit": null,
+              "value_raw_text": "0.0255"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "RBM 0.0244"
+              },
+              "quantitative_value": 0.0244,
+              "result_id": "res_301db36e163451f51f9849ce",
+              "unit": null,
+              "value_raw_text": "0.0244"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "RBM 0.0251"
+              },
+              "quantitative_value": 0.0251,
+              "result_id": "res_35000c7d9b662194102858a9",
+              "unit": null,
+              "value_raw_text": "0.0251"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "MGKN 0.0416"
+              },
+              "quantitative_value": 0.0416,
+              "result_id": "res_4087964584af36d7abd817ce",
+              "unit": null,
+              "value_raw_text": "0.0416"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "MGKN 0.0420"
+              },
+              "quantitative_value": 0.042,
+              "result_id": "res_44d8693620f71f4f493a9000",
+              "unit": null,
+              "value_raw_text": "0.0420"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14cf727cef9de3613d30",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MGKN achieves similar testing error on s' = 61, 121, 241, independently of the training discretization."
+              },
+              "quantitative_value": null,
+              "result_id": "res_489810642c445a45edd5f0ac",
+              "unit": null,
+              "value_raw_text": "MGKN achieves similar testing error on different resolutions for Darcy flow"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "GCN 0.1482"
+              },
+              "quantitative_value": 0.1482,
+              "result_id": "res_4da7a3f1ddec77e7ef65b9bf",
+              "unit": null,
+              "value_raw_text": "0.1482"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14cf727cef9de3613d30",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the error increases with the resolution since standard convolution layer are parametrized locally and therefore cannot capture the long-range correlations of the solution operator."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6c9887eeb82c2e94bfa7b178",
+              "unit": null,
+              "value_raw_text": "FCN error increases with resolution on Burgers' equation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "FCN 0.0253"
+              },
+              "quantitative_value": 0.0253,
+              "result_id": "res_77e6607f2da4268506ab1812",
+              "unit": null,
+              "value_raw_text": "0.0253"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "GCN 0.1579"
+              },
+              "quantitative_value": 0.1579,
+              "result_id": "res_82f9c2354425b62bb2b82106",
+              "unit": null,
+              "value_raw_text": "0.1579"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "GKN 0.0342"
+              },
+              "quantitative_value": 0.0342,
+              "result_id": "res_8ce87140a781a2233c9cd190",
+              "unit": null,
+              "value_raw_text": "0.0342"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "PCA+NN 0.0298"
+              },
+              "quantitative_value": 0.0298,
+              "result_id": "res_96efd6b058416d830667ae41",
+              "unit": null,
+              "value_raw_text": "0.0298"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "GCN 0.1356"
+              },
+              "quantitative_value": 0.1356,
+              "result_id": "res_a16fdb7fc9af8972d15b2126",
+              "unit": null,
+              "value_raw_text": "0.1356"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Computational complexity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a6c7df9bc6f6d1197ff0",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the computational complexity of our construction is linear in the number of nodes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a21ffc30f15b43d0d5508df8",
+              "unit": null,
+              "value_raw_text": "linear in the number of nodes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "FCN 0.0493"
+              },
+              "quantitative_value": 0.0493,
+              "result_id": "res_a5cf78d1e95408a624ad9682",
+              "unit": null,
+              "value_raw_text": "0.0493"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "FCN 0.0727"
+              },
+              "quantitative_value": 0.0727,
+              "result_id": "res_b61d57dc82286ab5d1e7b35f",
+              "unit": null,
+              "value_raw_text": "0.0727"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "NN 0.1716"
+              },
+              "quantitative_value": 0.1716,
+              "result_id": "res_b7000ad8411e3f53bcefb2e3",
+              "unit": null,
+              "value_raw_text": "0.1716"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "GKN 0.0332"
+              },
+              "quantitative_value": 0.0332,
+              "result_id": "res_bdd9c84791571a0b52e089b6",
+              "unit": null,
+              "value_raw_text": "0.0332"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "14cf727cef9de3613d30",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MGKN achieves a constant steady state test error, demonstrating that it has learned the true infinite-dimensional solution operator irrespective of the discretization."
+              },
+              "quantitative_value": null,
+              "result_id": "res_be60463de1c0326dee35c123",
+              "unit": null,
+              "value_raw_text": "MGKN achieves constant steady state test error across resolutions on Burgers' equation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "GKN 0.0369"
+              },
+              "quantitative_value": 0.0369,
+              "result_id": "res_c5eaae316847ffda80660e62",
+              "unit": null,
+              "value_raw_text": "0.0369"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "GKN 0.0346"
+              },
+              "quantitative_value": 0.0346,
+              "result_id": "res_d08d60c445c316df997cbfa2",
+              "unit": null,
+              "value_raw_text": "0.0346"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "RBM 0.0259"
+              },
+              "quantitative_value": 0.0259,
+              "result_id": "res_d64c8f933d81e2b528f1be9c",
+              "unit": null,
+              "value_raw_text": "0.0259"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "PCA+NN 0.0299"
+              },
+              "quantitative_value": 0.0299,
+              "result_id": "res_e8aca4b5124249de206983a4",
+              "unit": null,
+              "value_raw_text": "0.0299"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c48feda0fb356d94871",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "GCN 0.1414"
+              },
+              "quantitative_value": 0.1414,
+              "result_id": "res_ecdfe1c7fef959532e7b8d3a",
+              "unit": null,
+              "value_raw_text": "0.1414"
+            }
+          ],
+          "unit_id": "su_74c7e026205b68f73e85f1a4"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9231 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9231 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    }
+  ]
+}

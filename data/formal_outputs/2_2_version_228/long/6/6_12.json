@@ -1,0 +1,1931 @@
+{
+  "coverage_ledger": {
+    "16068ee5bd2ce8d25e98": "extracted",
+    "1ababd482d6cfb7f8eb4": "extracted",
+    "4c5f5c4b763f117c0e70": "not_selected",
+    "607c9903e327f4596006": "extracted",
+    "750c2499935ef6704970": "not_selected",
+    "7926e811ee0ea04a2a93": "not_selected",
+    "97a3f06a66b37af1dd9b": "extracted",
+    "b04a143f881957220fbb": "extracted",
+    "c3684eacf685b933dbe4": "not_selected",
+    "c8699ccc69d8700ecce5": "extracted",
+    "d19435a457501ff0aa82": "extracted",
+    "f47fd16a2ef013594a70": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The proposed metrics and DGN are evaluated only on transductive node classification tasks with limited datasets.",
+    "The study focuses on over-smoothing and does not address over-fitting or other deep GNN challenges.",
+    "DGN's performance depends on hyperparameter tuning (lambda and G), and extreme lambda values can damage performance.",
+    "The differentiable clustering uses a simple linear model; more advanced clustering methods are not explored.",
+    "The experiments are limited to GCN, GAT, SGC, and GCNII* backbones; applicability to other GNN architectures is not fully tested."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_12.pdf",
+    "source_sha256": "a12ff7372130e31c0f5483a5a7ff22ad2a89291b6c3230ccf07d754f1338630a"
+  },
+  "paper_id": "6_12",
+  "quality_assessment": {
+    "correct_item_count": 104,
+    "deterministic_rule_score": 0.981,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 109,
+    "f1": 0.9585,
+    "incorrect_item_count": 5,
+    "incorrect_items": [
+      {
+        "description": "The extracted result has two conflicting provenance excerpts: 'GCN 70.6 51.3 60.5 69.5' and 'SGC 69.6 58.8 64.8 69.5'. The value 69.5% is attributed to both GCN and SGC, but the source table shows 69.5 for GCN at layers 2/5 and 69.5 for SGC at layers 2/5. The extraction incorrectly merges two distinct results into one.",
+        "item_id": "result:su_eaf1df1eea46d980262387f3:res_3d318fd77de48e7785493260",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result has two conflicting provenance excerpts: '22.6 28.0 41.4 52.6' and '9.4 47.9 47.1 52.6'. The value 52.6% appears in two different rows (GAT and SGC) in the source table, but the extraction merges them into one result.",
+        "item_id": "result:su_eaf1df1eea46d980262387f3:res_e8e65f2648151c720c6cc1d6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result has two conflicting provenance excerpts: 'GCN DGN 72.0 30' and 'GCN DGN 50.2 30'. The optimal layers value 30 is associated with two different accuracies (72.0 and 50.2) from different datasets (Cora and Citeseer), but the extraction merges them into one result.",
+        "item_id": "result:su_f6469aa5ba7312dd180c570d:res_12853b2e0d7d6adadf4485bd",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result has two conflicting provenance excerpts: 'SGC DGN 76.2 90' and 'SGC DGN 58.2 90'. The optimal layers value 90 is associated with two different accuracies (76.2 and 58.2) from different datasets (Pubmed and Citeseer), but the extraction merges them into one result.",
+        "item_id": "result:su_f6469aa5ba7312dd180c570d:res_6d585e7f05c95e6280b8dbad",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result has three conflicting provenance excerpts: 'GCN DGN 76.3 20', 'SGC DGN 85.8 20', and 'GAT DGN 72.3 20'. The optimal layers value 20 is associated with three different accuracies from different models and datasets, but the extraction merges them into one result.",
+        "item_id": "result:su_f6469aa5ba7312dd180c570d:res_7567911db2735e86f93a2ed1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 4,
+    "missed_core_items": [
+      {
+        "description": "The paper proposes two over-smoothing metrics: group distance ratio and instance information gain.",
+        "item_id": null,
+        "source_chunk_id": "97a3f06a66b37af1dd9b",
+        "source_excerpt": "we propose two novel over-smoothing metrics, i.e., group distance ratio and instance information gain.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper evaluates DGN on the GCNII* backbone, which is a deep GNN architecture.",
+        "item_id": null,
+        "source_chunk_id": "1ababd482d6cfb7f8eb4",
+        "source_excerpt": "Recently, model GCNII∗[39] has been proposed to prevent the over-smoothing by the residual connection and the identity mapping, which achieves the new state-of-the-art results with a 64-layer architecture.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports average improvements of DGN over NN, BN, and PN as 37.8%, 7.1%, and 12.8%, respectively.",
+        "item_id": null,
+        "source_chunk_id": "1ababd482d6cfb7f8eb4",
+        "source_excerpt": "The average improvements over NN, BN and PN achieved by DGN are 37.8%, 7.1% and 12.8%, respectively.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper includes node representation visualization to show how DGN clusters nodes into different groups.",
+        "item_id": null,
+        "source_chunk_id": "16068ee5bd2ce8d25e98",
+        "source_excerpt": "Node representation visualization. We investigate how DGN clusters nodes into different groups to tackle the over-smoothing issue.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9541,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.963
+  },
+  "quality_score": 0.9585,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can DGN alleviate the over-smoothing issue in GNNs better than state-of-the-art normalization methods?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a750ca94a8b5a7a58eb939f5",
+              "inference_basis_ids": [
+                "res_06bb7806521675cbc5ce5846",
+                "res_088c2c002ff4438809313612",
+                "res_0ac22b0ec0c9782daed0b9b6",
+                "res_0b9fad0b393f81e331060b45",
+                "res_10bb4bac9015051d7d6e142b",
+                "res_1c4ebadf2545f5c12c1f6a49",
+                "res_1d5a829b76a41bc998d8570b",
+                "res_3091fb1f2d12170124b5d8e1",
+                "res_3712666dabf6cfe288fae094",
+                "res_3b75ea52c56f132dc151d58d",
+                "res_3d318fd77de48e7785493260",
+                "res_4d56aa5a6b959f7f2101c117",
+                "res_4df8c4177820d6ed539404ee",
+                "res_59a4c01179506f7b227ed678",
+                "res_5bb3ee67ef1574b34a957867",
+                "res_6450af7d20863bef3f1241f2",
+                "res_6f9c44e99ca651786e79d7cb",
+                "res_6fd446da29fd27b5dbe45c69",
+                "res_6fe0c7b71042d140558633f5",
+                "res_7c57b65550d79e3f64607605",
+                "res_81b720aa675c230f8a849044",
+                "res_96165f00ae5417d3197d8efe",
+                "res_9b0ac3472a3005f9a5a45d96",
+                "res_ae2fc31750b7edcfa30548fb",
+                "res_b40307eae1aaea1618beac7d",
+                "res_c0b87ddaf9df92c92eb1fe92",
+                "res_c810f62869d5bb2c26d6fa7c",
+                "res_c8b81cc4dc37c957822e28fb",
+                "res_c93a3ac999495436e7fb15af",
+                "res_d15e81d75325181551785d08",
+                "res_d3345d41136a7288d1fddec3",
+                "res_e8e65f2648151c720c6cc1d6",
+                "res_ee62ab2e1fbfc05142258858",
+                "res_f5384d80eaa6e4e41e878e83"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Given the same layers, it can be observed that DGN almost outperforms the other normalizations for all cases."
+              },
+              "statement": "DGN almost outperforms the other normalizations for all cases given the same layers."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d3ba3cbf1fcfdc580f720b48",
+              "inference_basis_ids": [
+                "res_06bb7806521675cbc5ce5846",
+                "res_088c2c002ff4438809313612",
+                "res_0ac22b0ec0c9782daed0b9b6",
+                "res_0b9fad0b393f81e331060b45",
+                "res_10bb4bac9015051d7d6e142b",
+                "res_1c4ebadf2545f5c12c1f6a49",
+                "res_1d5a829b76a41bc998d8570b",
+                "res_3091fb1f2d12170124b5d8e1",
+                "res_3712666dabf6cfe288fae094",
+                "res_3b75ea52c56f132dc151d58d",
+                "res_3d318fd77de48e7785493260",
+                "res_4d56aa5a6b959f7f2101c117",
+                "res_4df8c4177820d6ed539404ee",
+                "res_59a4c01179506f7b227ed678",
+                "res_5bb3ee67ef1574b34a957867",
+                "res_6450af7d20863bef3f1241f2",
+                "res_6f9c44e99ca651786e79d7cb",
+                "res_6fd446da29fd27b5dbe45c69",
+                "res_6fe0c7b71042d140558633f5",
+                "res_7c57b65550d79e3f64607605",
+                "res_81b720aa675c230f8a849044",
+                "res_96165f00ae5417d3197d8efe",
+                "res_9b0ac3472a3005f9a5a45d96",
+                "res_ae2fc31750b7edcfa30548fb",
+                "res_b40307eae1aaea1618beac7d",
+                "res_c0b87ddaf9df92c92eb1fe92",
+                "res_c810f62869d5bb2c26d6fa7c",
+                "res_c8b81cc4dc37c957822e28fb",
+                "res_c93a3ac999495436e7fb15af",
+                "res_d15e81d75325181551785d08",
+                "res_d3345d41136a7288d1fddec3",
+                "res_e8e65f2648151c720c6cc1d6",
+                "res_ee62ab2e1fbfc05142258858",
+                "res_f5384d80eaa6e4e41e878e83"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "DGN significantly slows down the performance dropping with the increment of layers, and alleviates the over-smoothing issue."
+              },
+              "statement": "DGN significantly slows down the performance dropping with the increment of layers, and alleviates the over-smoothing issue."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Citation network dataset for node classification.",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Citation network dataset for node classification.",
+              "name": "Citeseer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Citation network dataset for node classification.",
+              "name": "Pubmed",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Co-authorship network dataset for node classification.",
+              "name": "CoauthorCS",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of DGN against none normalization (NN), batch normalization (BN), and pair normalization (PN) on GCN, GAT, and SGC models.",
+            "Node classification on Cora, Citeseer, Pubmed, and CoauthorCS datasets with varying GNN layers."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Differentiable Group Normalization (DGN)",
+              "protocol_description": "DGN normalizes nodes within the same group independently using a differentiable clustering assignment. It combines the input embedding with a weighted sum of group-normalized embeddings to preserve instance information and increase inter-group distance."
+            },
+            {
+              "method_id": "M2",
+              "name": "Batch Normalization (BN)",
+              "protocol_description": "Standard batch normalization applied to GNN layers."
+            },
+            {
+              "method_id": "M3",
+              "name": "Pair Normalization (PN)",
+              "protocol_description": "Normalization that keeps overall pair distance in a graph, a slim realization of batch normalization without trainable scale and shift."
+            },
+            {
+              "method_id": "M4",
+              "name": "None Normalization (NN)",
+              "protocol_description": "GNN models without any normalization."
+            }
+          ],
+          "name": "Over-smoothing alleviation comparison on attributed networks",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "5.8 30.5 52.6 60.8"
+              },
+              "quantitative_value": 60.8,
+              "result_id": "res_06bb7806521675cbc5ce5846",
+              "unit": "%",
+              "value_raw_text": "60.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "3.3 84.7 64.5 84.4"
+              },
+              "quantitative_value": 84.4,
+              "result_id": "res_088c2c002ff4438809313612",
+              "unit": "%",
+              "value_raw_text": "84.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SGC 89.9 88.7 86.0 90.2"
+              },
+              "quantitative_value": 90.2,
+              "result_id": "res_0ac22b0ec0c9782daed0b9b6",
+              "unit": "%",
+              "value_raw_text": "90.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GAT 91.5 89.4 85.9 91.8"
+              },
+              "quantitative_value": 91.8,
+              "result_id": "res_0b9fad0b393f81e331060b45",
+              "unit": "%",
+              "value_raw_text": "91.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SGC 71.5 76.5 75.8 76.8"
+              },
+              "quantitative_value": 76.8,
+              "result_id": "res_10bb4bac9015051d7d6e142b",
+              "unit": "%",
+              "value_raw_text": "76.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "18.0 46.6 58.2 73.3"
+              },
+              "quantitative_value": 73.3,
+              "result_id": "res_1c4ebadf2545f5c12c1f6a49",
+              "unit": "%",
+              "value_raw_text": "73.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "16.8 33.1 49.6 71.8"
+              },
+              "quantitative_value": 71.8,
+              "result_id": "res_1d5a829b76a41bc998d8570b",
+              "unit": "%",
+              "value_raw_text": "71.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "13.1 67.2 64.3 73.2"
+              },
+              "quantitative_value": 73.2,
+              "result_id": "res_3091fb1f2d12170124b5d8e1",
+              "unit": "%",
+              "value_raw_text": "73.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "60.8 47.3 63.1 64.7"
+              },
+              "quantitative_value": 64.7,
+              "result_id": "res_3712666dabf6cfe288fae094",
+              "unit": "%",
+              "value_raw_text": "64.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "66.3 50.5 65.0 63.4"
+              },
+              "quantitative_value": 63.4,
+              "result_id": "res_3b75ea52c56f132dc151d58d",
+              "unit": "%",
+              "value_raw_text": "63.4%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "f47fd16a2ef013594a70",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": false,
+                  "text_excerpt": "SGC 69.6 58.8 64.8 69.5"
+                }
+              ],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCN 70.6 51.3 60.5 69.5"
+              },
+              "quantitative_value": 69.5,
+              "result_id": "res_3d318fd77de48e7785493260",
+              "unit": "%",
+              "value_raw_text": "69.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GAT 70.2 61.5 62.0 69.3"
+              },
+              "quantitative_value": 69.3,
+              "result_id": "res_4d56aa5a6b959f7f2101c117",
+              "unit": "%",
+              "value_raw_text": "69.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "18.0 70.4 70.4 76.9"
+              },
+              "quantitative_value": 76.9,
+              "result_id": "res_4df8c4177820d6ed539404ee",
+              "unit": "%",
+              "value_raw_text": "76.9%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCN 82.2 73.9 71.0 82.0"
+              },
+              "quantitative_value": 82.0,
+              "result_id": "res_59a4c01179506f7b227ed678",
+              "unit": "%",
+              "value_raw_text": "82.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCN 92.3 86.0 77.8 92.3"
+              },
+              "quantitative_value": 92.3,
+              "result_id": "res_5bb3ee67ef1574b34a957867",
+              "unit": "%",
+              "value_raw_text": "92.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "72.2 78.5 69.5 83.7"
+              },
+              "quantitative_value": 83.7,
+              "result_id": "res_6450af7d20863bef3f1241f2",
+              "unit": "%",
+              "value_raw_text": "83.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "7.7 21.4 33.3 45.6"
+              },
+              "quantitative_value": 45.6,
+              "result_id": "res_6f9c44e99ca651786e79d7cb",
+              "unit": "%",
+              "value_raw_text": "45.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "3.3 16.7 48.1 75.5"
+              },
+              "quantitative_value": 75.5,
+              "result_id": "res_6fd446da29fd27b5dbe45c69",
+              "unit": "%",
+              "value_raw_text": "75.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "10.2 59.7 76.4 81.3"
+              },
+              "quantitative_value": 81.3,
+              "result_id": "res_6fe0c7b71042d140558633f5",
+              "unit": "%",
+              "value_raw_text": "81.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "22.5 73.7 70.6 76.1"
+              },
+              "quantitative_value": 76.1,
+              "result_id": "res_7c57b65550d79e3f64607605",
+              "unit": "%",
+              "value_raw_text": "76.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SGC 75.8 76.3 75.4 77.9"
+              },
+              "quantitative_value": 77.9,
+              "result_id": "res_81b720aa675c230f8a849044",
+              "unit": "%",
+              "value_raw_text": "77.9%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GAT 77.8 76.2 72.4 77.5"
+              },
+              "quantitative_value": 77.5,
+              "result_id": "res_96165f00ae5417d3197d8efe",
+              "unit": "%",
+              "value_raw_text": "77.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "23.1 71.6 76.7 77.1"
+              },
+              "quantitative_value": 77.1,
+              "result_id": "res_9b0ac3472a3005f9a5a45d96",
+              "unit": "%",
+              "value_raw_text": "77.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCN 79.3 74.9 71.1 79.5"
+              },
+              "quantitative_value": 79.5,
+              "result_id": "res_ae2fc31750b7edcfa30548fb",
+              "unit": "%",
+              "value_raw_text": "79.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GAT 80.9 77.8 74.4 81.1"
+              },
+              "quantitative_value": 81.1,
+              "result_id": "res_b40307eae1aaea1618beac7d",
+              "unit": "%",
+              "value_raw_text": "81.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "18.1 70.3 67.2 75.2"
+              },
+              "quantitative_value": 75.2,
+              "result_id": "res_c0b87ddaf9df92c92eb1fe92",
+              "unit": "%",
+              "value_raw_text": "75.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "34.2 75.2 77.1 77.4"
+              },
+              "quantitative_value": 77.4,
+              "result_id": "res_c810f62869d5bb2c26d6fa7c",
+              "unit": "%",
+              "value_raw_text": "77.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "6.0 77.7 53.1 84.5"
+              },
+              "quantitative_value": 84.5,
+              "result_id": "res_c8b81cc4dc37c957822e28fb",
+              "unit": "%",
+              "value_raw_text": "84.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "13.0 25.0 30.2 51.3"
+              },
+              "quantitative_value": 51.3,
+              "result_id": "res_c93a3ac999495436e7fb15af",
+              "unit": "%",
+              "value_raw_text": "51.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "37.5 56.2 68.8 75.9"
+              },
+              "quantitative_value": 75.9,
+              "result_id": "res_d15e81d75325181551785d08",
+              "unit": "%",
+              "value_raw_text": "75.9%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "25.1 51.2 65.5 73.7"
+              },
+              "quantitative_value": 73.7,
+              "result_id": "res_d3345d41136a7288d1fddec3",
+              "unit": "%",
+              "value_raw_text": "73.7%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "f47fd16a2ef013594a70",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": false,
+                  "text_excerpt": "9.4 47.9 47.1 52.6"
+                }
+              ],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "22.6 28.0 41.4 52.6"
+              },
+              "quantitative_value": 52.6,
+              "result_id": "res_e8e65f2648151c720c6cc1d6",
+              "unit": "%",
+              "value_raw_text": "52.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "29.4 72.1 71.7 77.8"
+              },
+              "quantitative_value": 77.8,
+              "result_id": "res_ee62ab2e1fbfc05142258858",
+              "unit": "%",
+              "value_raw_text": "77.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f47fd16a2ef013594a70",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "15.2 46.9 46.7 53.1"
+              },
+              "quantitative_value": 53.1,
+              "result_id": "res_f5384d80eaa6e4e41e878e83",
+              "unit": "%",
+              "value_raw_text": "53.1%"
+            }
+          ],
+          "unit_id": "su_eaf1df1eea46d980262387f3"
+        }
+      ]
+    },
+    {
+      "question_id": "Q2",
+      "statement": "Can DGN help GNN models achieve better performance by enabling deeper GNNs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a4599da8adfc1bc9750863c1",
+              "inference_basis_ids": [
+                "res_37fd87d93490e2ec131a71f9",
+                "res_95416f7191d2c407db9f69b3",
+                "res_975ce24900ca7ae4c1b0dd6f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "These results validate that DGN is a general normalization module to relieve the over-smoothing issue for the different GNN architectures."
+              },
+              "statement": "DGN is a general normalization module to relieve the over-smoothing issue for different GNN architectures."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ca941a4e529d71a5cfcb4fce",
+              "inference_basis_ids": [
+                "res_37fd87d93490e2ec131a71f9",
+                "res_95416f7191d2c407db9f69b3",
+                "res_975ce24900ca7ae4c1b0dd6f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Table 3 shows the test accuracies obtained on dataset Cora, where DGN consistently outperforms the other normalization approaches under the different network depths."
+              },
+              "statement": "DGN consistently outperforms the other normalization approaches under different network depths on GCNII*."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS9",
+              "description": "Cora dataset for node classification.",
+              "name": "Cora",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Node classification on Cora using GCNII* backbone with different normalizations at layers 2, 16, 64."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Batch Normalization (BN)",
+              "protocol_description": "Standard batch normalization applied to GNN layers."
+            },
+            {
+              "method_id": "M11",
+              "name": "Pair Normalization (PN)",
+              "protocol_description": "Normalization that keeps overall pair distance in a graph, a slim realization of batch normalization without trainable scale and shift."
+            },
+            {
+              "method_id": "M12",
+              "name": "None Normalization (NN)",
+              "protocol_description": "GNN models without any normalization, representing the original GCNII* model."
+            },
+            {
+              "method_id": "M9",
+              "name": "Differentiable Group Normalization (DGN)",
+              "protocol_description": "DGN normalizes nodes within the same group independently using a differentiable clustering assignment. It combines the input embedding with a weighted sum of group-normalized embeddings to preserve instance information and increase inter-group distance."
+            }
+          ],
+          "name": "DGN on deep GCNII* architecture",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "85.3 69.2 68.6 85.6"
+              },
+              "quantitative_value": 85.6,
+              "result_id": "res_37fd87d93490e2ec131a71f9",
+              "unit": "%",
+              "value_raw_text": "85.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "84.4 70.2 64.9 84.8"
+              },
+              "quantitative_value": 84.8,
+              "result_id": "res_95416f7191d2c407db9f69b3",
+              "unit": "%",
+              "value_raw_text": "84.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GCNII* 81.9 76.4 67.4 82.7"
+              },
+              "quantitative_value": 82.7,
+              "result_id": "res_975ce24900ca7ae4c1b0dd6f",
+              "unit": "%",
+              "value_raw_text": "82.7%"
+            }
+          ],
+          "unit_id": "su_192606026275105bc53c5f7b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8e583a9a9579f8230cc34861",
+              "inference_basis_ids": [
+                "res_1180ed4de4dbe09939edd4c8",
+                "res_151ed9cfa7c976219b9ef8b1",
+                "res_28e5aa8a8ba3727946195df6",
+                "res_35dd3761ab2c233e1dac38ee",
+                "res_38195c20be8f03be7deeed29",
+                "res_45f29263401f11805276d195",
+                "res_5d27ab66c9c2227b00b4f66a",
+                "res_81b1e3e76d4b95aa7cf2de65",
+                "res_97a7e48f6a3dd281a6764c7c",
+                "res_a128e149274c8ef3cdacef17",
+                "res_a6c6fd0c11f3f53447161170",
+                "res_c21ab85dbceecec60a248082",
+                "res_e799ba0fabd0dd8080a3f82f",
+                "res_ee6ffbedb6bcf39515b42bfc",
+                "res_f53611119f74b970672379eb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "More importantly, DGN significantly outperforms the other normalization methods on all the cases."
+              },
+              "statement": "DGN significantly outperforms the other normalization methods on all the cases in the missing-feature scenario."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c364dc9e5c7825211074b8d5",
+              "inference_basis_ids": [
+                "res_106306aab54bd72c6623530d",
+                "res_1180ed4de4dbe09939edd4c8",
+                "res_12853b2e0d7d6adadf4485bd",
+                "res_28e5aa8a8ba3727946195df6",
+                "res_45f29263401f11805276d195",
+                "res_5d27ab66c9c2227b00b4f66a",
+                "res_6d585e7f05c95e6280b8dbad",
+                "res_7567911db2735e86f93a2ed1",
+                "res_7af2021e44f51e0090f64c20",
+                "res_81b1e3e76d4b95aa7cf2de65",
+                "res_97a7e48f6a3dd281a6764c7c",
+                "res_a128e149274c8ef3cdacef17",
+                "res_a6c6fd0c11f3f53447161170",
+                "res_bcf316e81c3be52ee39bd780",
+                "res_c21ab85dbceecec60a248082",
+                "res_d7d1867dcaa645eea98885ba",
+                "res_dd5551b4444932c4240ac4f7",
+                "res_e799ba0fabd0dd8080a3f82f",
+                "res_ee6ffbedb6bcf39515b42bfc",
+                "res_f53611119f74b970672379eb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Via clustering and disentangling the different groups, DGN tackles the over-smoothing issue to enable the exploration of more powerful deeper architectures."
+              },
+              "statement": "DGN tackles the over-smoothing issue to enable the exploration of more powerful deeper architectures."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Cora dataset with features removed in validation and test sets.",
+              "name": "Cora",
+              "version_or_split": "missing features"
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "Citeseer dataset with features removed in validation and test sets.",
+              "name": "Citeseer",
+              "version_or_split": "missing features"
+            },
+            {
+              "dataset_id": "DS7",
+              "description": "Pubmed dataset with features removed in validation and test sets.",
+              "name": "Pubmed",
+              "version_or_split": "missing features"
+            },
+            {
+              "dataset_id": "DS8",
+              "description": "CoauthorCS dataset with features removed in validation and test sets.",
+              "name": "CoauthorCS",
+              "version_or_split": "missing features"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of DGN against NN, BN, PN on GCN, GAT, SGC models, reporting best accuracy and optimal layer number.",
+            "Node classification on Cora, Citeseer, Pubmed, and CoauthorCS with missing features in validation and test sets."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Differentiable Group Normalization (DGN)",
+              "protocol_description": "DGN normalizes nodes within the same group independently using a differentiable clustering assignment. It combines the input embedding with a weighted sum of group-normalized embeddings to preserve instance information and increase inter-group distance."
+            },
+            {
+              "method_id": "M6",
+              "name": "Batch Normalization (BN)",
+              "protocol_description": "Standard batch normalization applied to GNN layers."
+            },
+            {
+              "method_id": "M7",
+              "name": "Pair Normalization (PN)",
+              "protocol_description": "Normalization that keeps overall pair distance in a graph, a slim realization of batch normalization without trainable scale and shift."
+            },
+            {
+              "method_id": "M8",
+              "name": "None Normalization (NN)",
+              "protocol_description": "GNN models without any normalization."
+            }
+          ],
+          "name": "Deeper GNNs with missing features",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GAT DGN 83.6 15"
+              },
+              "quantitative_value": 15.0,
+              "result_id": "res_106306aab54bd72c6623530d",
+              "unit": null,
+              "value_raw_text": "15"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCN DGN 72.0 30"
+              },
+              "quantitative_value": 72.0,
+              "result_id": "res_1180ed4de4dbe09939edd4c8",
+              "unit": "%",
+              "value_raw_text": "72.0%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "1ababd482d6cfb7f8eb4",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "GCN DGN 50.2 30"
+                }
+              ],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCN DGN 72.0 30"
+              },
+              "quantitative_value": 30.0,
+              "result_id": "res_12853b2e0d7d6adadf4485bd",
+              "unit": null,
+              "value_raw_text": "30"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average improvement over BN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The average improvements over NN, BN and PN achieved by DGN are 37.8%, 7.1% and 12.8%, respectively."
+              },
+              "quantitative_value": 7.1,
+              "result_id": "res_151ed9cfa7c976219b9ef8b1",
+              "unit": "%",
+              "value_raw_text": "7.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SGC DGN 76.2 90"
+              },
+              "quantitative_value": 76.2,
+              "result_id": "res_28e5aa8a8ba3727946195df6",
+              "unit": "%",
+              "value_raw_text": "76.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average improvement over NN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The average improvements over NN, BN and PN achieved by DGN are 37.8%, 7.1% and 12.8%, respectively."
+              },
+              "quantitative_value": 37.8,
+              "result_id": "res_35dd3761ab2c233e1dac38ee",
+              "unit": "%",
+              "value_raw_text": "37.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average improvement over PN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The average improvements over NN, BN and PN achieved by DGN are 37.8%, 7.1% and 12.8%, respectively."
+              },
+              "quantitative_value": 12.8,
+              "result_id": "res_38195c20be8f03be7deeed29",
+              "unit": "%",
+              "value_raw_text": "12.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCN DGN 76.3 20"
+              },
+              "quantitative_value": 76.3,
+              "result_id": "res_45f29263401f11805276d195",
+              "unit": "%",
+              "value_raw_text": "76.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCN DGN 50.2 30"
+              },
+              "quantitative_value": 50.2,
+              "result_id": "res_5d27ab66c9c2227b00b4f66a",
+              "unit": "%",
+              "value_raw_text": "50.2%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "1ababd482d6cfb7f8eb4",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "SGC DGN 58.2 90"
+                }
+              ],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SGC DGN 76.2 90"
+              },
+              "quantitative_value": 90.0,
+              "result_id": "res_6d585e7f05c95e6280b8dbad",
+              "unit": null,
+              "value_raw_text": "90"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "1ababd482d6cfb7f8eb4",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "SGC DGN 85.8 20"
+                },
+                {
+                  "chunk_id": "1ababd482d6cfb7f8eb4",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "GAT DGN 72.3 20"
+                }
+              ],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCN DGN 76.3 20"
+              },
+              "quantitative_value": 20.0,
+              "result_id": "res_7567911db2735e86f93a2ed1",
+              "unit": null,
+              "value_raw_text": "20"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GAT DGN 75.8 8"
+              },
+              "quantitative_value": 8.0,
+              "result_id": "res_7af2021e44f51e0090f64c20",
+              "unit": null,
+              "value_raw_text": "8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SGC DGN 80.2 50"
+              },
+              "quantitative_value": 80.2,
+              "result_id": "res_81b1e3e76d4b95aa7cf2de65",
+              "unit": "%",
+              "value_raw_text": "80.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GAT DGN 83.6 15"
+              },
+              "quantitative_value": 83.6,
+              "result_id": "res_97a7e48f6a3dd281a6764c7c",
+              "unit": "%",
+              "value_raw_text": "83.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GAT DGN 72.3 20"
+              },
+              "quantitative_value": 72.3,
+              "result_id": "res_a128e149274c8ef3cdacef17",
+              "unit": "%",
+              "value_raw_text": "72.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GAT DGN 75.8 8"
+              },
+              "quantitative_value": 75.8,
+              "result_id": "res_a6c6fd0c11f3f53447161170",
+              "unit": "%",
+              "value_raw_text": "75.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCN DGN 83.7 25"
+              },
+              "quantitative_value": 25.0,
+              "result_id": "res_bcf316e81c3be52ee39bd780",
+              "unit": null,
+              "value_raw_text": "25"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GAT DGN 54.5 5"
+              },
+              "quantitative_value": 54.5,
+              "result_id": "res_c21ab85dbceecec60a248082",
+              "unit": "%",
+              "value_raw_text": "54.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GAT DGN 54.5 5"
+              },
+              "quantitative_value": 5.0,
+              "result_id": "res_d7d1867dcaa645eea98885ba",
+              "unit": null,
+              "value_raw_text": "5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimal layers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SGC DGN 80.2 50"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_dd5551b4444932c4240ac4f7",
+              "unit": null,
+              "value_raw_text": "50"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCN DGN 83.7 25"
+              },
+              "quantitative_value": 83.7,
+              "result_id": "res_e799ba0fabd0dd8080a3f82f",
+              "unit": "%",
+              "value_raw_text": "83.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SGC DGN 58.2 90"
+              },
+              "quantitative_value": 58.2,
+              "result_id": "res_ee6ffbedb6bcf39515b42bfc",
+              "unit": "%",
+              "value_raw_text": "58.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ababd482d6cfb7f8eb4",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "SGC DGN 85.8 20"
+              },
+              "quantitative_value": 85.8,
+              "result_id": "res_f53611119f74b970672379eb",
+              "unit": "%",
+              "value_raw_text": "85.8%"
+            }
+          ],
+          "unit_id": "su_f6469aa5ba7312dd180c570d"
+        }
+      ]
+    },
+    {
+      "question_id": "Q3",
+      "statement": "How do the hyperparameters influence the performance of DGN?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_36a8c29074f656d005d47306",
+              "inference_basis_ids": [
+                "res_3b6ab177ec91317a326f3b8f",
+                "res_bddabc2c38643ba187bf0215"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "16068ee5bd2ce8d25e98",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Model performance is not sensitive to the value of G, and an appropriate λ value could be tuned to optimize the trade-off between instance gain and group normalization."
+              },
+              "statement": "Model performance is not sensitive to the value of G, and an appropriate lambda value could be tuned to optimize the trade-off."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4e73017008e794ca448f34ad",
+              "inference_basis_ids": [
+                "res_bddabc2c38643ba187bf0215"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "16068ee5bd2ce8d25e98",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "It is because DGN learns to use the appropriate number of groups by end-to-end training. In particular, some groups might not be used as shown in the right part of Figure 3, at which only 6 out of 10 groups (denoted by black triangles) are adopted."
+              },
+              "statement": "DGN learns to use the appropriate number of groups by end-to-end training; some groups might not be used."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c42e35d649dab8318ac7c7a9",
+              "inference_basis_ids": [
+                "res_efb3737711d5f7540c59f35b"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "16068ee5bd2ce8d25e98",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "The model performance is damaged greatly when λ is close to zero (e.g., λ = 0.001)."
+              },
+              "statement": "Model performance is damaged greatly when lambda is close to zero."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS10",
+              "description": "Cora dataset with missing features.",
+              "name": "Cora",
+              "version_or_split": "missing features"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate DGN on GCN with 20 layers on Cora with missing features, varying group number G and balancing factor lambda."
+          ],
+          "methods": [
+            {
+              "method_id": "M13",
+              "name": "Differentiable Group Normalization (DGN)",
+              "protocol_description": "DGN with varying G in [1,5,10,15,20,30] and lambda in [0.001,0.005,0.01,0.03,0.05,0.1]."
+            }
+          ],
+          "name": "Hyperparameter study on G and lambda",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "16068ee5bd2ce8d25e98",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "e.g., the accuracy of 76.3% where G = 10 and λ = 0.01."
+              },
+              "quantitative_value": 76.3,
+              "result_id": "res_3b6ab177ec91317a326f3b8f",
+              "unit": "%",
+              "value_raw_text": "76.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of groups used",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "16068ee5bd2ce8d25e98",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "only 6 out of 10 groups (denoted by black triangles) are adopted."
+              },
+              "quantitative_value": 6.0,
+              "result_id": "res_bddabc2c38643ba187bf0215",
+              "unit": null,
+              "value_raw_text": "6 out of 10"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "16068ee5bd2ce8d25e98",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Even when G = 1, DGN still outperforms BN by utilizing the self-preserved component to achieve an accuracy of 74.7%, where λ = 0.1."
+              },
+              "quantitative_value": 74.7,
+              "result_id": "res_efb3737711d5f7540c59f35b",
+              "unit": "%",
+              "value_raw_text": "74.7%"
+            }
+          ],
+          "unit_id": "su_cbb623f82b385fe4859a55df"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup3 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup3 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup3 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup3 on attempt 2"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[2].study_units[0].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup4 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4096 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4048 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3508 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3740 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4259 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4615 on attempt 2"
+    }
+  ]
+}

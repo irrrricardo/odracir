@@ -1,0 +1,1939 @@
+{
+  "coverage_ledger": {
+    "01e21a8160fbfc186970": "not_selected",
+    "10cd6f5b08c44ccc891e": "not_selected",
+    "191500df58183c0aac83": "extracted",
+    "455c0799673ecdd86801": "extracted",
+    "4d00d6b2d9b5fb002b0e": "extracted",
+    "4ec9dc1bb6a3bb4f42fe": "not_selected",
+    "5670e5d7a93f54556852": "not_selected",
+    "600b238e8a93ff20a152": "not_selected",
+    "74d00bef7cf70210e448": "not_selected",
+    "7ec67f39808d7de219c2": "extracted",
+    "9d51eda90f2cd11157cf": "not_selected",
+    "a3e65f0aa6b97b118766": "not_selected",
+    "a9c6e545222ac45d001e": "not_selected",
+    "cc7ae031286c95ba9cbc": "not_selected",
+    "cd1f633ae0712505dbf0": "not_selected",
+    "d8b6bf2ff97ac2595e53": "not_selected",
+    "db5d8f368c22a115d94b": "not_selected",
+    "e983a73ea3fb41fc7f47": "not_selected",
+    "f4c71991930e34d57113": "not_selected",
+    "fea629f56c13746d63a7": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The main blocker for future work (and biggest limitation of our work) is the lack of a public, highly curated, and large benchmark for causal discovery. Scalability experiments were limited to inference on synthetic data.",
+    "The approach assumes nonlinear additive Gaussian noise models; it fails to identify the causal graph under linear functions.",
+    "For d=500 and SCORE method, experiments could not be repeated in a reasonable time; values refer to a single run."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_23.pdf",
+    "source_sha256": "fe7650eb2c427c98f5939c3f32c7eb906adf14f8f4a8d585a8af053e7d087193"
+  },
+  "paper_id": "5_23",
+  "quality_assessment": {
+    "correct_item_count": 96,
+    "deterministic_rule_score": 0.9427,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 96,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can the full causal DAG be recovered from the second derivative of the log-likelihood (score function) in observational nonlinear additive Gaussian noise models?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_592724a2d7ee4a2213ce2228",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4d00d6b2d9b5fb002b0e",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Theoretically, this implies that we can get rid of the costly pruning step in SCORE (Rolland et al. (2022)) as all information about the causal structure is already contained in the Jacobian of the score."
+              },
+              "statement": "All information about the causal structure is already contained in the Jacobian of the score, eliminating the need for the costly pruning step in SCORE."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_95a9de6a404d887c9ea38c98",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4d00d6b2d9b5fb002b0e",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "In this work, we show that the second derivative of the log-likelihood allows to recover both the skeleton and the direction of the edges in the causal DAG."
+              },
+              "statement": "The second derivative of the log-likelihood allows recovery of both the skeleton and the direction of edges in the causal DAG."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Demonstrate theoretically that the second derivative of the log-likelihood allows recovery of both skeleton and direction of edges in the causal DAG, extending prior work that only recovered topological order."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Score-based causal discovery theory",
+              "protocol_description": "Under the assumption of nonlinear additive Gaussian noise models, analyze the Jacobian of the score function to show that it contains all information about the causal structure, enabling recovery of the full DAG without the costly pruning step required by SCORE."
+            }
+          ],
+          "name": "Theoretical analysis of score-based causal discovery",
+          "results": [],
+          "unit_id": "su_1017732daedf2e2aee4829ee"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How does the proposed DAS algorithm compare to state-of-the-art methods in terms of accuracy and scalability?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6dcdc4bb90b8bc0aea4bfbe6",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "455c0799673ecdd86801",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "DAS ... reduces the complexity of the pruning by a factor proportional to the graph size."
+              },
+              "statement": "DAS reduces the complexity of the pruning step by a factor proportional to the graph size."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_809e1f4b2fabfe1a6aa4b871",
+              "inference_basis_ids": [
+                "res_0948f07189623687f659d19b",
+                "res_0a2f6d921fe0b2612a025bd4",
+                "res_10c4b81351d9f9ac1b733278",
+                "res_12a1d8698f9ee9e3eeb388ee",
+                "res_2ef8a8dd1ad22908e73ba3af",
+                "res_2f5f16bf2f6212c91a3b2618",
+                "res_316b81f05a4521a83fec4fe2",
+                "res_35ca11ad6967028a40568447",
+                "res_3c1d661102db9c319a1c89a2",
+                "res_41b65a8e2a547e16b4000ace",
+                "res_441a4ba13544ea6df7698d2d",
+                "res_554679142a624c4e5550d0ee",
+                "res_568f56b75df5a7eebbe07921",
+                "res_572aa7c8700eb1ca4a7164ff",
+                "res_64ebfc51f537be68a972c600",
+                "res_770577473987004f76f800a3",
+                "res_84a8f34446d85ca631d1538d",
+                "res_86f02f35c8b57a5f2f59a743",
+                "res_8b5bef3dac67ed86b1d2136b",
+                "res_90755a4ed0db3c4be9bdfb1c",
+                "res_a0de4fbdf69ab0501e709472",
+                "res_ab131a218a08c8c2173fd1fc",
+                "res_aeeb93338939c9e9552ce671",
+                "res_cb4c974bda2806155ad65944",
+                "res_d9ba67237f8da493b29ad36c",
+                "res_eb03c679e81b5b58e05ce85f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "455c0799673ecdd86801",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "DAS achieves competitive accuracy with current state-of-the-art while being over an order of magnitude faster."
+              },
+              "statement": "DAS achieves competitive accuracy with current state-of-the-art while being over an order of magnitude faster."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fedbd2df6f3381d5ec946411",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "we designed an algorithm that is more efficient by a factor of O(d) compared to Rolland et al. (2022)"
+              },
+              "statement": "DAS is more efficient by a factor of O(d) compared to SCORE."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Synthetic data generated from Erdos-Renyi graphs with expected degree 4 (ER4) under nonlinear additive Gaussian noise models.",
+              "name": "ER4 synthetic data",
+              "version_or_split": "d=10,20,50,100,200,500,1000"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare DAS against SCORE, CAM, and GraNDAG on synthetic data generated from ER4 graphs with varying number of nodes (d=10, 20, 50, 100, 200, 500, 1000).",
+            "Measure structural Hamming distance (SHD), structural intervention distance (SID), precision, recall, and execution time."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "DAS (Discovery At Scale)",
+              "protocol_description": "DAS first estimates the score function to recover topological order, then uses the Jacobian of the score to select candidate edges via a t-test with p-value ≤0.01, and finally applies CAM-pruning to reduce false positives. Complexity is O(dn^3 + d^2)."
+            },
+            {
+              "method_id": "M3",
+              "name": "SCORE",
+              "protocol_description": "SCORE estimates the score function, recovers topological order from the Jacobian, and prunes using CAM. Bottleneck is the pruning step with complexity O(d * t * r(n,d))."
+            },
+            {
+              "method_id": "M4",
+              "name": "CAM",
+              "protocol_description": "CAM uses a greedy search with generalized additive models and pruning. Results taken from Rolland et al. (2022)."
+            },
+            {
+              "method_id": "M5",
+              "name": "GraNDAG",
+              "protocol_description": "GraNDAG uses a continuous optimization approach with a DAG constraint. Results taken from Rolland et al. (2022)."
+            }
+          ],
+          "name": "Empirical evaluation of DAS on synthetic data",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "CAM 45.2 ± 10.2"
+              },
+              "quantitative_value": 45.2,
+              "result_id": "res_02b8b70ccd563862feba2949",
+              "unit": null,
+              "value_raw_text": "45.2 ± 10.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "SCORE 313 ± 11"
+              },
+              "quantitative_value": 313.0,
+              "result_id": "res_0948f07189623687f659d19b",
+              "unit": null,
+              "value_raw_text": "313 ± 11"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "DAS (Ours) 56.4 ± 2.5"
+              },
+              "quantitative_value": 56.4,
+              "result_id": "res_0a2f6d921fe0b2612a025bd4",
+              "unit": null,
+              "value_raw_text": "56.4 ± 2.5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "GraNDAG 185 ± 26"
+              },
+              "quantitative_value": 185.0,
+              "result_id": "res_0cc6f5aead05a13d287b43b0",
+              "unit": "s",
+              "value_raw_text": "185 ± 26 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.99 ± 0.01"
+              },
+              "quantitative_value": 0.99,
+              "result_id": "res_0ed5fa963ab5c38f6213db5a",
+              "unit": null,
+              "value_raw_text": "0.99 ± 0.01"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 779 ± 13"
+              },
+              "quantitative_value": 779.0,
+              "result_id": "res_10c4b81351d9f9ac1b733278",
+              "unit": "s",
+              "value_raw_text": "779 ± 13 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "SCORE 144 ± 6"
+              },
+              "quantitative_value": 144.0,
+              "result_id": "res_12a1d8698f9ee9e3eeb388ee",
+              "unit": null,
+              "value_raw_text": "144 ± 6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.27 ± 0.06"
+              },
+              "quantitative_value": 0.27,
+              "result_id": "res_1658239cb4a3fad11233b134",
+              "unit": null,
+              "value_raw_text": "0.27 ± 0.06"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.24 ± 0.03"
+              },
+              "quantitative_value": 0.24,
+              "result_id": "res_1c3bbbd0210d7ec0845174c4",
+              "unit": null,
+              "value_raw_text": "0.24 ± 0.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "GraNDAG 42.0 ± 6.2"
+              },
+              "quantitative_value": 42.0,
+              "result_id": "res_1da54c13cfe4361bc7bf3724",
+              "unit": null,
+              "value_raw_text": "42.0 ± 6.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "GraNDAG 22.2 ± 2.6"
+              },
+              "quantitative_value": 22.2,
+              "result_id": "res_20703537a4fda028db792553",
+              "unit": null,
+              "value_raw_text": "22.2 ± 2.6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.30 ± 0.04"
+              },
+              "quantitative_value": 0.3,
+              "result_id": "res_221bd1ee8d5892b9fea02868",
+              "unit": null,
+              "value_raw_text": "0.30 ± 0.04"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "GraNDAG 49.3 ± 4.5"
+              },
+              "quantitative_value": 49.3,
+              "result_id": "res_2371e92c5b788775816b0d8f",
+              "unit": null,
+              "value_raw_text": "49.3 ± 4.5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "GraNDAG 211 ± 37"
+              },
+              "quantitative_value": 211.0,
+              "result_id": "res_2a896c6e57af93839bf2bedd",
+              "unit": null,
+              "value_raw_text": "211 ± 37"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "SCORE 626 ± 14"
+              },
+              "quantitative_value": 626.0,
+              "result_id": "res_2ef8a8dd1ad22908e73ba3af",
+              "unit": null,
+              "value_raw_text": "626 ± 14"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 4142 ± 35"
+              },
+              "quantitative_value": 4142.0,
+              "result_id": "res_2f5f16bf2f6212c91a3b2618",
+              "unit": "s",
+              "value_raw_text": "4142 ± 35 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "GraNDAG 1432 ± 110"
+              },
+              "quantitative_value": 1432.0,
+              "result_id": "res_2fbe436bbd59c9316a7d01e7",
+              "unit": null,
+              "value_raw_text": "1432 ± 110"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "CAM 1143 ± 79"
+              },
+              "quantitative_value": 1143.0,
+              "result_id": "res_309c09f4935fda370e9ffe98",
+              "unit": "s",
+              "value_raw_text": "1143 ± 79 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE3 25307"
+              },
+              "quantitative_value": 25307.0,
+              "result_id": "res_316b81f05a4521a83fec4fe2",
+              "unit": "s",
+              "value_raw_text": "25307 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 7.9 ± 0.1"
+              },
+              "quantitative_value": 7.9,
+              "result_id": "res_35ca11ad6967028a40568447",
+              "unit": "s",
+              "value_raw_text": "7.9 ± 0.1 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "DAS (Ours) 27.0 ± 2.2"
+              },
+              "quantitative_value": 27.0,
+              "result_id": "res_3c1d661102db9c319a1c89a2",
+              "unit": null,
+              "value_raw_text": "27.0 ± 2.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "CAM 54.2 ± 5.4"
+              },
+              "quantitative_value": 54.2,
+              "result_id": "res_3c62ee2fb4a973b25eb57455",
+              "unit": null,
+              "value_raw_text": "54.2 ± 5.4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "GraNDAG 357 ± 47"
+              },
+              "quantitative_value": 357.0,
+              "result_id": "res_3ca38c90cb2786e787744a14",
+              "unit": "s",
+              "value_raw_text": "357 ± 47 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "SCORE 26.5 ± 1.5"
+              },
+              "quantitative_value": 26.5,
+              "result_id": "res_41b65a8e2a547e16b4000ace",
+              "unit": null,
+              "value_raw_text": "26.5 ± 1.5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "CAM 141 ± 6"
+              },
+              "quantitative_value": 141.0,
+              "result_id": "res_43376be3bc6835a95008cc9d",
+              "unit": null,
+              "value_raw_text": "141 ± 6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 48.3 ± 1.1"
+              },
+              "quantitative_value": 48.3,
+              "result_id": "res_441a4ba13544ea6df7698d2d",
+              "unit": "s",
+              "value_raw_text": "48.3 ± 1.1 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.27 ± 0.04"
+              },
+              "quantitative_value": 0.27,
+              "result_id": "res_48464fef791aa13a25cbf0fa",
+              "unit": null,
+              "value_raw_text": "0.27 ± 0.04"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "CAM 1337 ± 94"
+              },
+              "quantitative_value": 1337.0,
+              "result_id": "res_4eafa7b95910f7a274b47eda",
+              "unit": null,
+              "value_raw_text": "1337 ± 94"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.30 ± 0.03"
+              },
+              "quantitative_value": 0.3,
+              "result_id": "res_515bec23186a50e99533b1ac",
+              "unit": null,
+              "value_raw_text": "0.30 ± 0.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "SCORE3 1642"
+              },
+              "quantitative_value": 1642.0,
+              "result_id": "res_554679142a624c4e5550d0ee",
+              "unit": null,
+              "value_raw_text": "1642"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "7ec67f39808d7de219c2",
+                  "page_end": 12,
+                  "page_start": 12,
+                  "paraphrased": true,
+                  "text_excerpt": "SCORE 0.99 ± 0.00"
+                }
+              ],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.99 ± 0.00"
+              },
+              "quantitative_value": 0.99,
+              "result_id": "res_55b659d5df43756026f1d453",
+              "unit": null,
+              "value_raw_text": "0.99 ± 0.00"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 1308 ± 7"
+              },
+              "quantitative_value": 1308.0,
+              "result_id": "res_568f56b75df5a7eebbe07921",
+              "unit": "s",
+              "value_raw_text": "1308 ± 7 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 16.1 ± 0.3"
+              },
+              "quantitative_value": 16.1,
+              "result_id": "res_572aa7c8700eb1ca4a7164ff",
+              "unit": "s",
+              "value_raw_text": "16.1 ± 0.3 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "CAM 24.4 ± 3.1"
+              },
+              "quantitative_value": 24.4,
+              "result_id": "res_5bcd6cc24cd87f0f75489433",
+              "unit": null,
+              "value_raw_text": "24.4 ± 3.1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 279 ± 4"
+              },
+              "quantitative_value": 279.0,
+              "result_id": "res_64ebfc51f537be68a972c600",
+              "unit": "s",
+              "value_raw_text": "279 ± 4 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "CAM 313 ± 80"
+              },
+              "quantitative_value": 313.0,
+              "result_id": "res_6941119708d656ed989c0f1b",
+              "unit": "s",
+              "value_raw_text": "313 ± 80 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.21 ± 0.04"
+              },
+              "quantitative_value": 0.21,
+              "result_id": "res_6c1838cc533da262c48f04f8",
+              "unit": null,
+              "value_raw_text": "0.21 ± 0.04"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "GraNDAG 1410 ± 73"
+              },
+              "quantitative_value": 1410.0,
+              "result_id": "res_6d32923be2114d98f6b30509",
+              "unit": "s",
+              "value_raw_text": "1410 ± 73 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE3 0.82"
+              },
+              "quantitative_value": 0.82,
+              "result_id": "res_769a986ef63e0017c0cd676e",
+              "unit": null,
+              "value_raw_text": "0.82"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.21 ± 0.05"
+              },
+              "quantitative_value": 0.21,
+              "result_id": "res_76bd65a3198b6ee2bb92dca2",
+              "unit": null,
+              "value_raw_text": "0.21 ± 0.05"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "DAS (Ours) 3951 ± 9"
+              },
+              "quantitative_value": 3951.0,
+              "result_id": "res_770577473987004f76f800a3",
+              "unit": null,
+              "value_raw_text": "3951 ± 9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.30 ± 0.05"
+              },
+              "quantitative_value": 0.3,
+              "result_id": "res_796abae3e6f628bc14061a75",
+              "unit": null,
+              "value_raw_text": "0.30 ± 0.05"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "7ec67f39808d7de219c2",
+                  "page_end": 12,
+                  "page_start": 12,
+                  "paraphrased": true,
+                  "text_excerpt": "DAS (Ours) 0.91 ± 0.03"
+                }
+              ],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.91 ± 0.03"
+              },
+              "quantitative_value": 0.91,
+              "result_id": "res_7c893538e248fccee6fc918c",
+              "unit": null,
+              "value_raw_text": "0.91 ± 0.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "SCORE 57.17 ± 3.1"
+              },
+              "quantitative_value": 57.17,
+              "result_id": "res_84a8f34446d85ca631d1538d",
+              "unit": null,
+              "value_raw_text": "57.17 ± 3.1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "DAS (Ours) 691 ± 13"
+              },
+              "quantitative_value": 691.0,
+              "result_id": "res_86f02f35c8b57a5f2f59a743",
+              "unit": null,
+              "value_raw_text": "691 ± 13"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "DAS (Ours) 1761 ± 15"
+              },
+              "quantitative_value": 1761.0,
+              "result_id": "res_8b5bef3dac67ed86b1d2136b",
+              "unit": null,
+              "value_raw_text": "1761 ± 15"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 40.7 ± 1.8"
+              },
+              "quantitative_value": 40.7,
+              "result_id": "res_90755a4ed0db3c4be9bdfb1c",
+              "unit": "s",
+              "value_raw_text": "40.7 ± 1.8 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 42.3 ± 2.9"
+              },
+              "quantitative_value": 42.3,
+              "result_id": "res_92b54b2cd9878b88c137cd16",
+              "unit": null,
+              "value_raw_text": "42.3 ± 2.9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 213 ± 28"
+              },
+              "quantitative_value": 213.0,
+              "result_id": "res_92f7e95439ccc40b34694c0d",
+              "unit": null,
+              "value_raw_text": "213 ± 28"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.96 ± 0.02"
+              },
+              "quantitative_value": 0.96,
+              "result_id": "res_93d538c7b6e94b81202b2729",
+              "unit": null,
+              "value_raw_text": "0.96 ± 0.02"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "7ec67f39808d7de219c2",
+                  "page_end": 12,
+                  "page_start": 12,
+                  "paraphrased": true,
+                  "text_excerpt": "DAS (Ours) 0.33 ± 0.02"
+                }
+              ],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.33 ± 0.02"
+              },
+              "quantitative_value": 0.33,
+              "result_id": "res_966bff1189addc3091eee3b9",
+              "unit": null,
+              "value_raw_text": "0.33 ± 0.02"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 245 ± 5"
+              },
+              "quantitative_value": 245.0,
+              "result_id": "res_a0de4fbdf69ab0501e709472",
+              "unit": "s",
+              "value_raw_text": "245 ± 5 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "DAS (Ours) 156 ± 4"
+              },
+              "quantitative_value": 156.0,
+              "result_id": "res_ab131a218a08c8c2173fd1fc",
+              "unit": null,
+              "value_raw_text": "156 ± 4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "DAS (Ours) 335 ± 5"
+              },
+              "quantitative_value": 335.0,
+              "result_id": "res_aeeb93338939c9e9552ce671",
+              "unit": null,
+              "value_raw_text": "335 ± 5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 5965 ± 273"
+              },
+              "quantitative_value": 5965.0,
+              "result_id": "res_b32d546887372887d0ebaf56",
+              "unit": null,
+              "value_raw_text": "5965 ± 273"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 1.00 ± 0.00"
+              },
+              "quantitative_value": 1.0,
+              "result_id": "res_b6df060e4b0a1e9d33394731",
+              "unit": null,
+              "value_raw_text": "1.00 ± 0.00"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "GraNDAG 141 ± 10"
+              },
+              "quantitative_value": 141.0,
+              "result_id": "res_b9611307c5b563645beb5ed6",
+              "unit": null,
+              "value_raw_text": "141 ± 10"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 229 ± 23"
+              },
+              "quantitative_value": 229.0,
+              "result_id": "res_bbed89fb8ed155bf37a97062",
+              "unit": null,
+              "value_raw_text": "229 ± 23"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 25147 ± 835"
+              },
+              "quantitative_value": 25147.0,
+              "result_id": "res_c1ea0cfc1e164cb8b74609f7",
+              "unit": null,
+              "value_raw_text": "25147 ± 835"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.80 ± 0.04"
+              },
+              "quantitative_value": 0.8,
+              "result_id": "res_c20bf696968188c53bcbae36",
+              "unit": null,
+              "value_raw_text": "0.80 ± 0.04"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 25707 ± 891"
+              },
+              "quantitative_value": 25707.0,
+              "result_id": "res_c43a60cad2bcc1aa9788565e",
+              "unit": null,
+              "value_raw_text": "25707 ± 891"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.89 ± 0.06"
+              },
+              "quantitative_value": 0.89,
+              "result_id": "res_c48d21c8b5947e22113868de",
+              "unit": null,
+              "value_raw_text": "0.89 ± 0.06"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.08 ± 0.00"
+              },
+              "quantitative_value": 0.08,
+              "result_id": "res_c4e93151e1e81af8c20b4853",
+              "unit": null,
+              "value_raw_text": "0.08 ± 0.00"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.97 ± 0.01"
+              },
+              "quantitative_value": 0.97,
+              "result_id": "res_c582efcfd8b1243906ee7061",
+              "unit": null,
+              "value_raw_text": "0.97 ± 0.01"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 6695 ± 224"
+              },
+              "quantitative_value": 6695.0,
+              "result_id": "res_c82b0640eec11ef0844122d9",
+              "unit": null,
+              "value_raw_text": "6695 ± 224"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 7.7 ± 0.1"
+              },
+              "quantitative_value": 7.7,
+              "result_id": "res_cb4c974bda2806155ad65944",
+              "unit": "s",
+              "value_raw_text": "7.7 ± 0.1 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE3 0.27"
+              },
+              "quantitative_value": 0.27,
+              "result_id": "res_cf0bba1c4340ccf23578c8a8",
+              "unit": null,
+              "value_raw_text": "0.27"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Recall",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.19 ± 0.03"
+              },
+              "quantitative_value": 0.19,
+              "result_id": "res_d1ba09229085e21b877093d4",
+              "unit": null,
+              "value_raw_text": "0.19 ± 0.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 5539 ± 81"
+              },
+              "quantitative_value": 5539.0,
+              "result_id": "res_d9ba67237f8da493b29ad36c",
+              "unit": "s",
+              "value_raw_text": "5539 ± 81 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 114 ± 2"
+              },
+              "quantitative_value": 114.0,
+              "result_id": "res_eb03c679e81b5b58e05ce85f",
+              "unit": "s",
+              "value_raw_text": "114 ± 2 s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 0.76 ± 0.05"
+              },
+              "quantitative_value": 0.76,
+              "result_id": "res_eb743c738d4576a106f2d2fd",
+              "unit": null,
+              "value_raw_text": "0.76 ± 0.05"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 1346 ± 57"
+              },
+              "quantitative_value": 1346.0,
+              "result_id": "res_f68c9258f2ab912b0dc2141b",
+              "unit": null,
+              "value_raw_text": "1346 ± 57"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 43.6 ± 5.8"
+              },
+              "quantitative_value": 43.6,
+              "result_id": "res_f6d6ce3d8557153ee919ea9d",
+              "unit": null,
+              "value_raw_text": "43.6 ± 5.8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "CAM 202 ± 29"
+              },
+              "quantitative_value": 202.0,
+              "result_id": "res_f70cce3c2a5a980aa72b46a6",
+              "unit": null,
+              "value_raw_text": "202 ± 29"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SCORE 0.88 ± 0.04"
+              },
+              "quantitative_value": 0.88,
+              "result_id": "res_f748547030174707ccd6a655",
+              "unit": null,
+              "value_raw_text": "0.88 ± 0.04"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "DAS (Ours) 1460 ± 67"
+              },
+              "quantitative_value": 1460.0,
+              "result_id": "res_f79d53eb3482d743e8b0cd81",
+              "unit": null,
+              "value_raw_text": "1460 ± 67"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7ec67f39808d7de219c2",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "CAM 30.1 ± 3.7"
+              },
+              "quantitative_value": 30.1,
+              "result_id": "res_fb3daaeb2df12f6d58faee7c",
+              "unit": "s",
+              "value_raw_text": "30.1 ± 3.7 s"
+            }
+          ],
+          "unit_id": "su_d3f2928879cf708bc288b9a5"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9326 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8421 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7619 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8095 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[30].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8125 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[31].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8125 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[33].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[34].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[35].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[36].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7619 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[38].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[39].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[40].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[41].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[43].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[44].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[46].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[47].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[49].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8095 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[50].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[51].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[52].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8889 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[54].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[55].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[56].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[57].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7857 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[59].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[60].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[61].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[62].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8889 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[64].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[65].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[66].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[67].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[69].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[70].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[71].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7895 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[73].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[74].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[75].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[77].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[78].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[79].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    }
+  ]
+}

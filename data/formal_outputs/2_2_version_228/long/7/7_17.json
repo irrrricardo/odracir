@@ -1,0 +1,1724 @@
+{
+  "coverage_ledger": {
+    "206f3e22f3fb2af38e62": "extracted",
+    "2cf7e0f9460daf127ca1": "not_selected",
+    "2f6de011311e40a16818": "not_selected",
+    "32892a1387bac9fb5884": "extracted",
+    "59d3f4ce92f7684069ed": "extracted",
+    "5e0be7adc65f37a4a49a": "extracted",
+    "648356278598a13b7018": "not_selected",
+    "7425634b88833ef64a3c": "extracted",
+    "7cfe2d940fe462c32f1a": "not_selected",
+    "8197ca436d441dc4b96d": "extracted",
+    "8d7bfbb4953bb5fb7f75": "not_selected",
+    "b447792390bc834d87da": "not_selected",
+    "b6aeebbca116a509deb9": "extracted",
+    "c37e0279f1a86a4eca7c": "extracted",
+    "d6427381eb29dafbf235": "not_selected",
+    "d72b9b1a3e9ac010c231": "not_selected",
+    "d7bcecc8555d826bf7c0": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "U-NO still carries the fundamental and inherent memory usage limitation of integral operators.",
+    "Designing an FNO architecture matching the parameter count of U-NO is impractical due to high computational requirements.",
+    "U-NO's advantages are demonstrated only on Darcy flow and Navier-Stokes benchmarks; generalization to other PDEs is not shown.",
+    "The paper does not provide theoretical convergence guarantees for U-NO.",
+    "High-resolution 3D U-NO still requires 850MB memory, which may limit scaling to larger 3D problems."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_17.pdf",
+    "source_sha256": "3fbc6ea67c73e968c3e76e0c32d235cb954dcfcce987675bc9ab8ecd6f8fe57f"
+  },
+  "paper_id": "7_17",
+  "quality_assessment": {
+    "correct_item_count": 67,
+    "deterministic_rule_score": 0.9618,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 78,
+    "f1": 0.8535,
+    "incorrect_item_count": 11,
+    "incorrect_items": [
+      {
+        "description": "The extracted result attributes a relative error of 0.83% to 3D U-NO at ν=1e-3, but the source chunk (b6aeebbca116a509deb9, page 10) shows 0.83 is for 2D U-NO on high-resolution (256x256) data, not 3D U-NO. The 3D U-NO error at ν=1e-3 is 0.31±3.9e−2.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_1b10ad3693b5490e59ba8410",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a relative error of 8.2% to 3D U-NO at ν=1e-6, but the source chunk (b6aeebbca116a509deb9, page 10) shows 8.2 is for 3D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 3D U-NO error at ν=1e-6 is 5.10±1.0e−1.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_95c47b38068bfa4ee99e44c8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a relative error of 11.2% to 3D U-NO at ν=1e-5, but the source chunk (b6aeebbca116a509deb9, page 10) shows 11.2 is for 3D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 3D U-NO error at ν=1e-5 is 7.03±4.6e−2.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_9e32be8b6af4260454d43d0b",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a relative error of 8.3% to 3D U-NO at ν=1e-4, but the source chunk (b6aeebbca116a509deb9, page 10) shows 8.3 is for 3D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 3D U-NO error at ν=1e-4 is 5.59±2.9e−1.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_b1a061065c1e14c7971b1084",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a relative error of 5.9% to 2D U-NO at ν=1e-4, but the source chunk (b6aeebbca116a509deb9, page 10) shows 5.9 is for 2D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 2D U-NO error at ν=1e-4 is 3.44±6.3e−2.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_4f7f739eac35c59698d17cde",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a relative error of 7.0% to 2D U-NO at ν=1e-5, but the source chunk (b6aeebbca116a509deb9, page 10) shows 7.0 is for 2D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 2D U-NO error at ν=1e-5 is 2.94±4.9e−2.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_11dfd9d78bcab35825bb4032",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a relative error of 4.4% to 2D U-NO at ν=1e-6, but the source chunk (b6aeebbca116a509deb9, page 10) shows 4.4 is for 2D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 2D U-NO error at ν=1e-6 is 1.76±1.4e−2.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_f2ffc9dff8e9571978485369",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a relative error of 0.51% to 2D U-NO at ν=1e-3, but the source chunk (b6aeebbca116a509deb9, page 10) shows 0.51 is for 2D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 2D U-NO error at ν=1e-3 is 0.28±2.1e−2.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_c7c5fb49c952da1e3235616a",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a memory requirement of 850 MB to 3D U-NO, but the source chunk (b6aeebbca116a509deb9, page 10) shows 850 MB is for 3D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 3D U-NO memory requirement is 108 MB.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_294c7bd304d31ff59fe5aaba",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes a memory requirement of 86 MB to 2D U-NO, but the source chunk (b6aeebbca116a509deb9, page 10) shows 86 MB is for 2D U-NO on high-resolution (256x256) data, not the standard resolution. The standard resolution 2D U-NO memory requirement is 16 MB.",
+        "item_id": "result:su_0a881256c2b416fade1bc776:res_af1441edf5392f3bfbacbe5f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states U-NO can be trained on high-resolution (256x256) Navier-Stokes data on a single 24GB GPU, achieving low error rates even with compact architecture and less data. The source chunk (b6aeebbca116a509deb9, page 10) supports this, but the inference_basis_ids include results from standard resolution (e.g., res_1b10ad3693b5490e59ba8410, res_95c47b38068bfa4ee99e44c8, etc.) which are not the high-resolution results. The claim's inference basis is partially incorrect because it mixes standard and high-resolution results. However, the claim itself is supported by the text and the high-resolution results in Table 4. The error is in the inference_basis_ids, not the claim statement. Since the audit protocol says to mark an extracted item incorrect only for unsupported, contradicted, or materially overstated content, and the claim statement is supported, but the inference basis is partially wrong, we consider this a minor error. However, the instruction says to return incorrect items with item_id. We include it because the inference basis is factually incorrect for some IDs.",
+        "item_id": "claim:su_0a881256c2b416fade1bc776:clm_8817ca91f7d0045194458ff5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 12,
+    "missed_core_items": [
+      {
+        "description": "The paper reports that U-NO achieves an average of 26% prediction improvement on Darcy flow and 44% on Navier-Stokes over the state of the art, with 37% improvement on the 3D spatiotemporal Navier-Stokes task.",
+        "item_id": null,
+        "source_chunk_id": "206f3e22f3fb2af38e62",
+        "source_excerpt": "We demonstrate that U-NO achieves average performance improvements of 26% on high resolution simulations of Darcy’s flow equation, and 44% on Navier-Stokes equation, with the best improvement of 51%. On Navier-Stokes 3D spatio-temporal operator learning task, for which the input functions are defined on the 3D spatio-temporal domain, we show U-NO provides 37% improvement over the state of art FNO model.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper mentions that U-NO is the first neural operator trained for mapping from function spaces with 3D domains.",
+        "item_id": null,
+        "source_chunk_id": "206f3e22f3fb2af38e62",
+        "source_excerpt": "It is important to note that U-NO is the first neural operator trained for mapping from function spaces with 3D domains.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper states that U-NO allows for much deeper models (3×) with far more parameters (25×), while still providing some performance improvement.",
+        "item_id": null,
+        "source_chunk_id": "206f3e22f3fb2af38e62",
+        "source_excerpt": "We further show that U-NO allows for much deeper models (3×) with far more parameters (25×), while still providing some performance improvement (Appendix A.2).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that U-NO is much faster to train and easier to tune than FNO.",
+        "item_id": null,
+        "source_chunk_id": "206f3e22f3fb2af38e62",
+        "source_excerpt": "We observe that U-NO is much faster to train (Appendix A.6)and also much easier to tune.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper mentions that U-NO is able to perform zero-shot super-resolution in both time and spatial domain, unlike FNO.",
+        "item_id": null,
+        "source_chunk_id": "b6aeebbca116a509deb9",
+        "source_excerpt": "Also unlike FNO, U-NO is able to perform zero-shot super-resolution in both time and spacial domain (Appendix A.5).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper states that for the 3D spatio-temporal FNO setting, the domain of the input function is extended to match the solution function, but U-NO does not require such modification.",
+        "item_id": null,
+        "source_chunk_id": "b6aeebbca116a509deb9",
+        "source_excerpt": "It is important to note that, for spatio-temporal FNO setting, the domain of the input function is extended to match the solution function as it maps between the function spaces with same domains. Capable of mapping between function spaces with different domains, no such modification is required for U-NO.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that U-NO† requires 23% less training memory than FNO while having 7.5 times more parameters on Darcy flow.",
+        "item_id": null,
+        "source_chunk_id": "7425634b88833ef64a3c",
+        "source_excerpt": "we also notice that U-NO† requires 23% less training memory while having 7.5 times more parameters.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper mentions that designing an FNO architecture matching the parameter count of U-NO is impractical due to high computational requirements.",
+        "item_id": null,
+        "source_chunk_id": "b6aeebbca116a509deb9",
+        "source_excerpt": "It is important to note that designing an FNO architecture matching the parameter count of U-NO is impractical due to high computational requirements (see Fig. 3).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper states that U-NO still carries the fundamental and inherent memory usage limitation of integral operators.",
+        "item_id": null,
+        "source_chunk_id": "32892a1387bac9fb5884",
+        "source_excerpt": "This approach, while advancing neural operator research, significantly improves the performance and learning paradigm, still carries the fundamental and inherent memory usage limitation of integral operators.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that U-NO's advantages are demonstrated only on Darcy flow and Navier-Stokes benchmarks; generalization to other PDEs is not shown.",
+        "item_id": null,
+        "source_chunk_id": "206f3e22f3fb2af38e62",
+        "source_excerpt": "We establish our empirical study on Darcy’s flow and the Navier-Stokes equations, two PDEs which have served as benchmarks for the study of neural operator models.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper does not provide theoretical convergence guarantees for U-NO.",
+        "item_id": null,
+        "source_chunk_id": "32892a1387bac9fb5884",
+        "source_excerpt": "This approach, while advancing neural operator research, significantly improves the performance and learning paradigm, still carries the fundamental and inherent memory usage limitation of integral operators.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper mentions that high-resolution 3D U-NO still requires 850MB memory, which may limit scaling to larger 3D problems.",
+        "item_id": null,
+        "source_chunk_id": "b6aeebbca116a509deb9",
+        "source_excerpt": "3D U-NO ... Memory Requirement ... 850",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.859,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8481
+  },
+  "quality_score": 0.8535,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a U-shaped neural operator architecture improve performance, memory efficiency, and depth over existing neural operators like FNO?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_08220cd73ea051e5cb6e3de4",
+              "inference_basis_ids": [
+                "res_44150d3eb1a7a9370e75ea55",
+                "res_b4925d30c342766a392e7a4a",
+                "res_e65024b7589aa764bfd68eb8",
+                "res_f7b6603515b9e7a43b86b9af"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO achieves the best performance, with nearly a 50% reduction in the relative error over FNO in some experimental settings; it even achieves nearly a 1.76% relative error on a problem with a Reynolds number of 2 × 10^4"
+              },
+              "statement": "U-NO achieves the best performance on Navier-Stokes, with nearly 50% reduction in relative error over FNO in some settings, reaching 1.76% error at ν=1e-6."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5fc7bbd41a262f05e96080fc",
+              "inference_basis_ids": [
+                "res_7bc83b6e349d43e977809d3d",
+                "res_ddfc4dd9f51de1d21571e0e1",
+                "res_e4bdbe67dbbc6c96a18c5ee0",
+                "res_f7b6603515b9e7a43b86b9af"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "the U-NO† with aggressive contraction ( and expansion) factor, performs significantly better than FNO–while requiring less memory."
+              },
+              "statement": "U-NO† with aggressive contraction performs significantly better than FNO while requiring less memory."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8817ca91f7d0045194458ff5",
+              "inference_basis_ids": [
+                "res_11dfd9d78bcab35825bb4032",
+                "res_1b10ad3693b5490e59ba8410",
+                "res_294c7bd304d31ff59fe5aaba",
+                "res_4f7f739eac35c59698d17cde",
+                "res_95c47b38068bfa4ee99e44c8",
+                "res_9e32be8b6af4260454d43d0b",
+                "res_af1441edf5392f3bfbacbe5f",
+                "res_b1a061065c1e14c7971b1084",
+                "res_c7c5fb49c952da1e3235616a",
+                "res_f2ffc9dff8e9571978485369"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Due to U-shaped encoding decoding structure–which allow us to train U-NO on very high resolution (256×256) data on a single GPU with a 24GB memory. ... Even with such a compact architecture and lower training data, U-NO achieves lower error rate on high resolution data"
+              },
+              "statement": "U-NO can be trained on high-resolution (256x256) Navier-Stokes data on a single 24GB GPU, achieving low error rates even with compact architecture and less data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_93abb6796e125acbc9dd72cb",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "32892a1387bac9fb5884",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "For U-NO, an increase in depth, does not significantly raise the memory requirement. ... we can observe a linear increase in memory requirement for FNO with the increase of depth."
+              },
+              "statement": "U-NO memory requirement increases negligibly with depth compared to FNO, which shows linear growth."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bd1db7d2835508592bd4150b",
+              "inference_basis_ids": [
+                "res_0519eebbecb7543945768cde",
+                "res_18fb0e1741c88ca34f338c66",
+                "res_44977a976495f71a39163454",
+                "res_4934431f67196aa53e49b9e4",
+                "res_710dc94a4a31afa6681b4d18",
+                "res_bf915a93fe15fd8bc0181ca3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO achieved 37% lower relative error while requiring 50% less memory on average with 19 times more parameters."
+              },
+              "statement": "3D U-NO achieves 37% lower relative error than 3D FNO while requiring 50% less memory on average with 19 times more parameters."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "2D Navier-Stokes vorticity-streamfunction formulation on unit torus. Viscosities 1e-3 to 1e-6. Time intervals: T=50s (ν=1e-3), 30s, 20s, 15s; Tin=10s (6s for ν=1e-6). High-res: 256x256, N=2400 (ν=1e-3), 6000 (others).",
+              "name": "Navier-Stokes Simulations",
+              "version_or_split": "N varies: 5000 (ν=1e-3), 11000 (others); 10% test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the operator mapping initial vorticity to future vorticity for 2D Navier-Stokes on unit torus. Viscosities ν ∈ {1e-3, 1e-4, 1e-5, 1e-6}. Auto-regressive 2D models (U-NO, U-NO†, FNO) and 3D spatio-temporal models (U-NO, FNO). 10% test split. Evaluate relative error. High-resolution (256x256) experiments with adjusted contraction factors. Memory usage vs depth analysis."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "U-NO (2D auto-regressive)",
+              "protocol_description": "U-NO with 2D integral operators, auto-regressive in time. Lifting dim d0=32. Skip connections. Adam, LR halved every 100 epochs, GELU. Single 24GB GPU."
+            },
+            {
+              "method_id": "M4",
+              "name": "U-NO† (2D auto-regressive)",
+              "protocol_description": "U-NO with aggressive contraction/expansion factors. Same training protocol."
+            },
+            {
+              "method_id": "M5",
+              "name": "FNO (2D auto-regressive)",
+              "protocol_description": "FNO baseline, same training protocol."
+            },
+            {
+              "method_id": "M6",
+              "name": "U-NO (3D spatio-temporal)",
+              "protocol_description": "U-NO with 7 stacked 3D integral operators, spatial contraction/expansion, temporal expansion. Lifting dim d0=8. Clifford torus positional embedding. Single GPU."
+            },
+            {
+              "method_id": "M7",
+              "name": "FNO (3D spatio-temporal)",
+              "protocol_description": "FNO with 3D integral operators, input domain extended to match output. Same training protocol."
+            }
+          ],
+          "name": "Navier-Stokes Benchmark",
+          "results": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "b6aeebbca116a509deb9",
+                  "page_end": 10,
+                  "page_start": 10,
+                  "paraphrased": true,
+                  "text_excerpt": "2D FNO ... # Parameters ... 1.3"
+                }
+              ],
+              "metric_name": "Number of Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D FNO ... # Parameters ... 1.3"
+              },
+              "quantitative_value": 1300000.0,
+              "result_id": "res_0519eebbecb7543945768cde",
+              "unit": null,
+              "value_raw_text": "1.3 × 10^6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D U-NO ... ν = 1e−5 ... 7.0"
+              },
+              "quantitative_value": 7.0,
+              "result_id": "res_11dfd9d78bcab35825bb4032",
+              "unit": "%",
+              "value_raw_text": "7.0"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... ν = 1e−5 ... 3.60±1.2e−2"
+              },
+              "quantitative_value": 3.6,
+              "result_id": "res_13263d3d90f2d9a684f47152",
+              "unit": "%",
+              "value_raw_text": "3.60±1.2e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D FNO ... Avg. Mem. Req. ... 216"
+              },
+              "quantitative_value": 216.0,
+              "result_id": "res_18fb0e1741c88ca34f338c66",
+              "unit": "MB",
+              "value_raw_text": "216"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−3 ... 0.83"
+              },
+              "quantitative_value": 0.83,
+              "result_id": "res_1b10ad3693b5490e59ba8410",
+              "unit": "%",
+              "value_raw_text": "0.83"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... ν = 1e−5 ... 5.12±0.7e−2"
+              },
+              "quantitative_value": 5.12,
+              "result_id": "res_24c5975a95673895342460e8",
+              "unit": "%",
+              "value_raw_text": "5.12±0.7e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... ν = 1e−4 ... 3.56±4.3e−2"
+              },
+              "quantitative_value": 3.56,
+              "result_id": "res_27657ed925890fa36d33ca5c",
+              "unit": "%",
+              "value_raw_text": "3.56±4.3e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... Memory Requirement ... 850"
+              },
+              "quantitative_value": 850.0,
+              "result_id": "res_294c7bd304d31ff59fe5aaba",
+              "unit": "MB",
+              "value_raw_text": "850"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... ν = 1e−6 ... 2.2±1.5e−2"
+              },
+              "quantitative_value": 2.2,
+              "result_id": "res_41223f7e9477018d5e7e4d81",
+              "unit": "%",
+              "value_raw_text": "2.2±1.5e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO ... ν = 1e−6 ... 1.76±1.4e−2"
+              },
+              "quantitative_value": 1.76,
+              "result_id": "res_44150d3eb1a7a9370e75ea55",
+              "unit": "%",
+              "value_raw_text": "1.76±1.4e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−3 ... 0.31±3.9e−2"
+              },
+              "quantitative_value": 0.31,
+              "result_id": "res_44977a976495f71a39163454",
+              "unit": "%",
+              "value_raw_text": "0.31±3.9e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D FNO ... ν = 1e−3 ... 0.68±0.8e−2"
+              },
+              "quantitative_value": 0.68,
+              "result_id": "res_4934431f67196aa53e49b9e4",
+              "unit": "%",
+              "value_raw_text": "0.68±0.8e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D U-NO ... # Parameters ... 15.3"
+              },
+              "quantitative_value": 15300000.0,
+              "result_id": "res_49620fb1b29b0b6a714e9efc",
+              "unit": null,
+              "value_raw_text": "15.3 × 10^6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D U-NO ... ν = 1e−4 ... 5.9"
+              },
+              "quantitative_value": 5.9,
+              "result_id": "res_4f7f739eac35c59698d17cde",
+              "unit": "%",
+              "value_raw_text": "5.9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D FNO ... ν = 1e−4 ... 9.60±5.4e−2"
+              },
+              "quantitative_value": 9.6,
+              "result_id": "res_520f8b76d9a15a344a8a660d",
+              "unit": "%",
+              "value_raw_text": "9.60±5.4e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D FNO ... ν = 1e−6 ... 7.35±6.3e−1"
+              },
+              "quantitative_value": 7.35,
+              "result_id": "res_59dd919437920b373b10159a",
+              "unit": "%",
+              "value_raw_text": "7.35±6.3e−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... ν = 1e−4 ... 5.57±7.7e−2"
+              },
+              "quantitative_value": 5.57,
+              "result_id": "res_5ea20c2218ea0486f34ec71d",
+              "unit": "%",
+              "value_raw_text": "5.57±7.7e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−4 ... 5.59±2.9e−1"
+              },
+              "quantitative_value": 5.59,
+              "result_id": "res_64e1c9e200f6274327ecc60f",
+              "unit": "%",
+              "value_raw_text": "5.59±2.9e−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D FNO ... ν = 1e−5 ... 8.67±1.2e−1"
+              },
+              "quantitative_value": 8.67,
+              "result_id": "res_69fb769e2129ba07df2a195f",
+              "unit": "%",
+              "value_raw_text": "8.67±1.2e−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... Avg. Mem. Req. ... 108"
+              },
+              "quantitative_value": 108.0,
+              "result_id": "res_710dc94a4a31afa6681b4d18",
+              "unit": "MB",
+              "value_raw_text": "108"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−6 ... 5.10±1.0e−1"
+              },
+              "quantitative_value": 5.1,
+              "result_id": "res_7a32029596e1185ffe1abd73",
+              "unit": "%",
+              "value_raw_text": "5.10±1.0e−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... Avg. Mem. Req. ... 11"
+              },
+              "quantitative_value": 11.0,
+              "result_id": "res_7bc83b6e349d43e977809d3d",
+              "unit": "MB",
+              "value_raw_text": "11"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−6 ... 8.2"
+              },
+              "quantitative_value": 8.2,
+              "result_id": "res_95c47b38068bfa4ee99e44c8",
+              "unit": "%",
+              "value_raw_text": "8.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... # Parameters ... 6.7"
+              },
+              "quantitative_value": 6700000.0,
+              "result_id": "res_9865b9fdb5236b4c7d8aadea",
+              "unit": null,
+              "value_raw_text": "6.7 × 10^6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−5 ... 11.2"
+              },
+              "quantitative_value": 11.2,
+              "result_id": "res_9e32be8b6af4260454d43d0b",
+              "unit": "%",
+              "value_raw_text": "11.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D U-NO ... Memory Requirement ... 86"
+              },
+              "quantitative_value": 86.0,
+              "result_id": "res_af1441edf5392f3bfbacbe5f",
+              "unit": "MB",
+              "value_raw_text": "86"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−4 ... 8.3"
+              },
+              "quantitative_value": 8.3,
+              "result_id": "res_b1a061065c1e14c7971b1084",
+              "unit": "%",
+              "value_raw_text": "8.3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... ν = 1e−6 ... 3.33±0.7e−2"
+              },
+              "quantitative_value": 3.33,
+              "result_id": "res_b4925d30c342766a392e7a4a",
+              "unit": "%",
+              "value_raw_text": "3.33±0.7e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... # Parameters ... 24.0"
+              },
+              "quantitative_value": 24000000.0,
+              "result_id": "res_bf915a93fe15fd8bc0181ca3",
+              "unit": null,
+              "value_raw_text": "24.0 × 10^6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D U-NO ... ν = 1e−3 ... 0.51"
+              },
+              "quantitative_value": 0.51,
+              "result_id": "res_c7c5fb49c952da1e3235616a",
+              "unit": "%",
+              "value_raw_text": "0.51"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D FNO ... Avg. Mem. Req. ... 13"
+              },
+              "quantitative_value": 13.0,
+              "result_id": "res_ddfc4dd9f51de1d21571e0e1",
+              "unit": "MB",
+              "value_raw_text": "13"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO ... ν = 1e−4 ... 3.44±6.3e−2"
+              },
+              "quantitative_value": 3.44,
+              "result_id": "res_e16f88a0577b9082497a026e",
+              "unit": "%",
+              "value_raw_text": "3.44±6.3e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO ... ν = 1e−5 ... 2.94±4.9e−2"
+              },
+              "quantitative_value": 2.94,
+              "result_id": "res_e1c0be19b90a2108641bc27b",
+              "unit": "%",
+              "value_raw_text": "2.94±4.9e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... ν = 1e−3 ... 0.35±2.0e−2"
+              },
+              "quantitative_value": 0.35,
+              "result_id": "res_e4bdbe67dbbc6c96a18c5ee0",
+              "unit": "%",
+              "value_raw_text": "0.35±2.0e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "U-NO ... ν = 1e−3 ... 0.28±2.1e−2"
+              },
+              "quantitative_value": 0.28,
+              "result_id": "res_e65024b7589aa764bfd68eb8",
+              "unit": "%",
+              "value_raw_text": "0.28±2.1e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D U-NO ... Avg. Mem. Req. ... 16"
+              },
+              "quantitative_value": 16.0,
+              "result_id": "res_e8c8f12703801a0cabc91060",
+              "unit": "MB",
+              "value_raw_text": "16"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "3D U-NO ... ν = 1e−5 ... 7.03±4.6e−2"
+              },
+              "quantitative_value": 7.03,
+              "result_id": "res_edb9305cded31771726ff3d2",
+              "unit": "%",
+              "value_raw_text": "7.03±4.6e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "2D U-NO ... ν = 1e−6 ... 4.4"
+              },
+              "quantitative_value": 4.4,
+              "result_id": "res_f2ffc9dff8e9571978485369",
+              "unit": "%",
+              "value_raw_text": "4.4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6aeebbca116a509deb9",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... ν = 1e−3 ... 0.58±1.4e−2"
+              },
+              "quantitative_value": 0.58,
+              "result_id": "res_f7b6603515b9e7a43b86b9af",
+              "unit": "%",
+              "value_raw_text": "0.58±1.4e−2"
+            }
+          ],
+          "unit_id": "su_0a881256c2b416fade1bc776"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0666952687eaa45eeaac3c85",
+              "inference_basis_ids": [
+                "res_29748eb417713a9bbe9e96eb",
+                "res_e81692bc59609bff1a94cfc4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5e0be7adc65f37a4a49a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "U-NO† achieve lower relative error on every resolution with 27% improvement on high resolution (421 × 421) simulations."
+              },
+              "statement": "U-NO† achieves lower relative error than FNO on Darcy flow at all resolutions, with 27% improvement at high resolution (421x421)."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_51fea402b19216b9a46b39f9",
+              "inference_basis_ids": [
+                "res_3ab6922e49d2aba32cc2006d",
+                "res_539133c8e7ba9a9c69125612"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "We observe U-NO† archives lower percentage relative error rate."
+              },
+              "statement": "U-NO† outperforms FNO in zero-shot super-resolution on Darcy flow."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_74997dabff6c60df27cab448",
+              "inference_basis_ids": [
+                "res_2546fbcb0fbd75da58ebbeeb",
+                "res_29dcd7b80a3b6fc7c55a65e5",
+                "res_cc14875600105233a512c353",
+                "res_e2f6e9e0b2a9b8f4007b7843"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "U-NO† requires 23% less training memory while having 7.5 times more parameters."
+              },
+              "statement": "U-NO† requires 23% less training memory than FNO while having 7.5 times more parameters."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Diffusion coefficients a ~ μ = ψ# N(0, (-Δ+9I)^-2), forcing f=1. Solutions on 421x421 grid via second-order finite difference, downsampled for lower resolutions.",
+              "name": "Darcy Flow Simulations",
+              "version_or_split": "N=2000, 250 test, rest train/val"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the solution operator mapping diffusion coefficient a to velocity u for 2D Darcy flow with Dirichlet boundary conditions on domain (0,1)^2. Dataset: 2000 simulations, 250 test, rest train/val. Train for 700 epochs. Evaluate relative error at resolutions 421x421, 211x211, 141x141, 85x85. Zero-shot super-resolution: train on lower resolution, test on higher."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "U-NO†",
+              "protocol_description": "U-shaped neural operator with 9 layers (integral, lifting, projection). Lifting dim d0=32. Skip connections from first three integral operators to last three. Fourier-based integral operators. Adam optimizer, initial LR scaled by 0.5 every 100 epochs. GELU activation. Trained on single 24GB GPU."
+            },
+            {
+              "method_id": "M2",
+              "name": "FNO",
+              "protocol_description": "Fourier Neural Operator baseline as in Li et al. (2020a). Same training protocol: Adam, LR schedule, GELU, single GPU."
+            }
+          ],
+          "name": "Darcy Flow Benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... s = 85 ... 0.87±3.0e−2"
+              },
+              "quantitative_value": 0.87,
+              "result_id": "res_123c0baf37811db8b426c539",
+              "unit": "%",
+              "value_raw_text": "0.87±3.0e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... # Parameter ... 8.2"
+              },
+              "quantitative_value": 8200000.0,
+              "result_id": "res_2546fbcb0fbd75da58ebbeeb",
+              "unit": null,
+              "value_raw_text": "8.2 × 10^6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... s = 421 ... 0.57±1.4e−2"
+              },
+              "quantitative_value": 0.57,
+              "result_id": "res_29748eb417713a9bbe9e96eb",
+              "unit": "%",
+              "value_raw_text": "0.57±1.4e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... Mem. Req. ... 166"
+              },
+              "quantitative_value": 166.0,
+              "result_id": "res_29dcd7b80a3b6fc7c55a65e5",
+              "unit": "MB",
+              "value_raw_text": "166"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... s = 211 ... 0.84±5.5e−2"
+              },
+              "quantitative_value": 0.84,
+              "result_id": "res_2be9208017018a3f87abe712",
+              "unit": "%",
+              "value_raw_text": "0.84±5.5e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Zero-shot Super-Resolution Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... s=85 ... 4.7 ... 6.2 ... 8.3"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3ab6922e49d2aba32cc2006d",
+              "unit": "%",
+              "value_raw_text": "Train s=85, Test s=141: 4.7; Test s=211: 6.2; Test s=421: 8.3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Zero-shot Super-Resolution Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... s=85 ... 7.5 ... 14.1 ... 23.9"
+              },
+              "quantitative_value": null,
+              "result_id": "res_539133c8e7ba9a9c69125612",
+              "unit": "%",
+              "value_raw_text": "Train s=85, Test s=141: 7.5; Test s=211: 14.1; Test s=421: 23.9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... s = 85 ... 0.73±0.1e−2"
+              },
+              "quantitative_value": 0.73,
+              "result_id": "res_5633c3d1dac6b0dcd9b0b133",
+              "unit": "%",
+              "value_raw_text": "0.73±0.1e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... s = 141 ... 0.60±0.5e−2"
+              },
+              "quantitative_value": 0.6,
+              "result_id": "res_5cf4c09ad512ded5466d9d00",
+              "unit": "%",
+              "value_raw_text": "0.60±0.5e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "U-NO† ... s = 211 ... 0.58±0.4e−2"
+              },
+              "quantitative_value": 0.58,
+              "result_id": "res_b3ab48727d7c3dd4db2e7f4f",
+              "unit": "%",
+              "value_raw_text": "0.58±0.4e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... # Parameter ... 1.1"
+              },
+              "quantitative_value": 1100000.0,
+              "result_id": "res_cc14875600105233a512c353",
+              "unit": null,
+              "value_raw_text": "1.1 × 10^6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory Requirement (MB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... Mem. Req. ... 214"
+              },
+              "quantitative_value": 214.0,
+              "result_id": "res_e2f6e9e0b2a9b8f4007b7843",
+              "unit": "MB",
+              "value_raw_text": "214"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... s = 421 ... 0.78±4.0e−2"
+              },
+              "quantitative_value": 0.78,
+              "result_id": "res_e81692bc59609bff1a94cfc4",
+              "unit": "%",
+              "value_raw_text": "0.78±4.0e−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative Error (%)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7425634b88833ef64a3c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "FNO ... s = 141 ... 0.84±1.1e−2"
+              },
+              "quantitative_value": 0.84,
+              "result_id": "res_f864b4a548d8f74d2ad2cc40",
+              "unit": "%",
+              "value_raw_text": "0.84±1.1e−2"
+            }
+          ],
+          "unit_id": "su_4aad49b244d40363bea5d72a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6061 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5862 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6296 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4737 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5789 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6452 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5455 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5806 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5152 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5484 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4074 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4400 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3318 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4769 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4643 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6952 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5419 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6061 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5152 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5278 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5588 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4545 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3871 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4062 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4118 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3939 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5758 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5806 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5758 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5806 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5938 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[30].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5172 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[31].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5357 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[32].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5357 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[33].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6071 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[34].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5172 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[35].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5357 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[36].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5172 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[37].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[38].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5946 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[39].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5789 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6061 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6176 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5758 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5455 on attempt 1"
+    }
+  ]
+}

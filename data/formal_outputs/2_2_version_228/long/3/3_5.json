@@ -1,0 +1,1241 @@
+{
+  "coverage_ledger": {
+    "06bfa002be2b2a5573e1": "not_selected",
+    "0b4eef3b58b339bd26a3": "not_selected",
+    "333a4cd70802457c3603": "not_selected",
+    "38e078607c65a6887d1b": "extracted",
+    "3a5f7bc353dcc1c2305b": "not_selected",
+    "426b527568e2677ce8b5": "extracted",
+    "72ea74c8d61136c690b0": "not_selected",
+    "949f1fbc8d077f512590": "not_selected",
+    "995d2efbcdf1963a5653": "not_selected",
+    "9994532722597b8b4e1b": "not_selected",
+    "a4de2079bd8577d51fe6": "not_selected",
+    "ad8af6dfc168d49c9d8f": "not_selected",
+    "b6ecf1e1a9392a189575": "not_selected",
+    "d9b76bca0bac18e4d218": "extracted",
+    "dd336a2bb62ced0af4d6": "extracted",
+    "f5fb87911b06c4b20ffe": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses the MMTV-Neu mouse model and MCF10A human cell lines; generalizability to other breast cancer subtypes or species is not established.",
+    "The in vivo LOX inhibition experiments were performed in parous mice, which may not fully recapitulate nulliparous tumorigenesis.",
+    "The role of other ECM components and crosslinking enzymes beyond LOX was not explored.",
+    "The study does not directly measure integrin-GFR crosstalk at the molecular level; the proposed mechanism is inferred from pharmacological and genetic perturbations.",
+    "Long-term effects of LOX inhibition on normal tissue homeostasis were not assessed.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_5.pdf",
+    "source_sha256": "d61d16c07fa7bbb9043694d535ff2cea709d629199974a06e734282ce3c5147d"
+  },
+  "paper_id": "3_5",
+  "quality_assessment": {
+    "correct_item_count": 109,
+    "deterministic_rule_score": 0.965,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 109,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does collagen crosslinking stiffen the ECM and promote breast malignancy by altering integrin signaling?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ac0dcf4034de4f811246c786",
+              "inference_basis_ids": [
+                "res_0d4a9f54008531dac6fc76b4",
+                "res_389a87e61d461903b3985111",
+                "res_53655ad31f712346c56d18a0",
+                "res_a5014d7859c897b4af1e73f9",
+                "res_b2737afc2207da912d491504",
+                "res_db039bee0d8bcd7c52d56677",
+                "res_e4a4a24358b242432bbb8f2a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "These findings demonstrate how ECM crosslinking and stiffening can induce focal adhesions and promote the growth and invasion of an oncogene-initiated mammary epithelium in vivo."
+              },
+              "statement": "LOX-mediated collagen crosslinking and ECM stiffening promote focal adhesions and the growth and invasion of an oncogene-initiated mammary epithelium in vivo."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "BAPN treatment at time of MEC injection to rule out direct LOX effects.",
+            "Conditioning of inguinal mammary fat pads of NOD/SCID mice with control fibroblasts or LOX-expressing fibroblasts.",
+            "Injection of Ha-ras MCF10AT MEC organoids into preconditioned fat pads.",
+            "Rheological measurement, picrosirius red staining, SHG imaging, and immunostaining for FAKpY397 and p130Cas."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "SHG imaging",
+              "protocol_description": "SHG imaging to assess collagen linearization."
+            },
+            {
+              "method_id": "M11",
+              "name": "Immunostaining",
+              "protocol_description": "Immunostaining for FAKpY397 and p130Cas."
+            },
+            {
+              "method_id": "M12",
+              "name": "BAPN treatment",
+              "protocol_description": "Treatment with BAPN, an irreversible inhibitor of lysyl oxidase activity, at time of MEC injection."
+            },
+            {
+              "method_id": "M7",
+              "name": "Fibroblast preconditioning",
+              "protocol_description": "Inguinal mammary fat pads of NOD/SCID mice, surgically cleared of epithelium, were conditioned with control fibroblasts or those expressing elevated LOX."
+            },
+            {
+              "method_id": "M8",
+              "name": "Rheological measurement",
+              "protocol_description": "Rheological measurement of mammary glands."
+            },
+            {
+              "method_id": "M9",
+              "name": "Picrosirius red staining",
+              "protocol_description": "Picrosirius red staining to visualize fibrillar collagen."
+            }
+          ],
+          "name": "LOX-mediated collagen crosslinking and tissue stiffening promote focal adhesions and tumor progression in vivo",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Lesion size and invasion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "LOX preconditioning and stiffening of the mammary gland promoted the growth and invasion of Ha-ras premalignant mammary organoids injected into these tissues as revealed by a significant increase in lesion size and tumors that lacked margins (Figures 2F–2H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0d4a9f54008531dac6fc76b4",
+              "unit": null,
+              "value_raw_text": "significant increase in lesion size and tumors that lacked margins"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Focal adhesions in MECs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "MECs in the LOX preconditioned glands also had more focal adhesions, as revealed by elevated FAKpY397 (Figure 2H) and p130Cas (data not shown)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_389a87e61d461903b3985111",
+              "unit": null,
+              "value_raw_text": "MECs in the LOX preconditioned glands also had more focal adhesions, as revealed by elevated FAKpY397"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue stiffness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Rheological measurement revealed that the mammary glands conditioned with LOX expressing fibroblasts were stiffer (Figure 2B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_53655ad31f712346c56d18a0",
+              "unit": null,
+              "value_raw_text": "mammary glands conditioned with LOX expressing fibroblasts were stiffer"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Focal adhesions in stromal cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "resident fibroblasts in the epithelial-cleared LOX-treated glands showed more FAKpY397 and p130Cas immunostaining, indicative of increased focal adhesions and mechanosignaling in the stromal cells (Figure 2C, bottom)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a5014d7859c897b4af1e73f9",
+              "unit": null,
+              "value_raw_text": "more FAKpY397 and p130Cas immunostaining, indicative of increased focal adhesions and mechanosignaling in the stromal cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibrillar collagen",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "picrosirius red staining showed that they had more fibrillar collagen (Figures 2C and 2D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b2737afc2207da912d491504",
+              "unit": null,
+              "value_raw_text": "more fibrillar collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen linearization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "SHG imaging revealed that they had more linearized collagen (Figures 2C and 2E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_db039bee0d8bcd7c52d56677",
+              "unit": null,
+              "value_raw_text": "more linearized collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of BAPN on tumor growth and invasion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Because BAPN treatment had no effect on tumor growth, invasion, and focal adhesions (Figures S4–S6), we concluded that it was LOX preconditioning of the stroma and ECM stiffness that promoted mammary tumor progression, and not any direct effect of LOX on the mammary epithelium."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e4a4a24358b242432bbb8f2a",
+              "unit": null,
+              "value_raw_text": "BAPN treatment had no effect on tumor growth, invasion, and focal adhesions"
+            }
+          ],
+          "unit_id": "su_0e2cd6d1b2b6db20461cf61d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6253799a3c304548e23a8382",
+              "inference_basis_ids": [
+                "res_2490f481d711b9ce577f5d57",
+                "res_5faf2713c342e6bce5d2d41a",
+                "res_60630b3a9bbbf9932f71e4c7",
+                "res_68808de5afee05e2c0b1e17a",
+                "res_8aeb30378dea51d2495b4891",
+                "res_91cc3e1dda1b241e50e88ee8",
+                "res_927144971788697ffdb1200a",
+                "res_b01ff6da0f0bfd5207a9b4a7",
+                "res_b6674c723d622c02ca4df699",
+                "res_ddc5e7302832c97a5f4ef705",
+                "res_f4b2ae9ce57bd1bd28d0f5fe"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "These results show how inhibition of LOX activity reduces collagen crosslinking, tempers tissue fibrosis, decreases focal adhesions, and impedes tumor progression to reduce breast tumor incidence."
+              },
+              "statement": "Inhibition of LOX activity reduces collagen crosslinking, tempers tissue fibrosis, decreases focal adhesions, and impedes tumor progression to reduce breast tumor incidence."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of tumor latency, incidence, size, proliferation, and histopathology.",
+            "Inhibition of LOX activity in five-month-old parous MMTV-Neu mice using BAPN or LOX-specific function-blocking polyclonal antibody for one month, followed by one month recovery.",
+            "Measurement of serum LOX activity, collagen crosslinks (DHLNL, HLNL, pyridinoline), collagen linearization, fibrillar collagen, and FAKpY397 immunostaining."
+          ],
+          "methods": [
+            {
+              "method_id": "M13",
+              "name": "LOX inhibition in vivo",
+              "protocol_description": "Inhibition of LOX activity using BAPN or a LOX-specific function-blocking polyclonal antibody in five-month-old parous MMTV-Neu mice for one month, followed by one month recovery."
+            },
+            {
+              "method_id": "M14",
+              "name": "Serum LOX activity assay",
+              "protocol_description": "Measurement of active LOX levels in serum."
+            },
+            {
+              "method_id": "M15",
+              "name": "Collagen crosslink quantification",
+              "protocol_description": "Quantification of reducible (DHLNL, HLNL) and nonreducible (pyridinoline) collagen crosslinks."
+            },
+            {
+              "method_id": "M16",
+              "name": "SHG imaging",
+              "protocol_description": "SHG imaging to assess collagen linearization."
+            },
+            {
+              "method_id": "M17",
+              "name": "Picrosirius red staining",
+              "protocol_description": "Picrosirius red staining to quantify fibrillar collagen."
+            },
+            {
+              "method_id": "M18",
+              "name": "Immunostaining",
+              "protocol_description": "Immunostaining for FAKpY397."
+            },
+            {
+              "method_id": "M19",
+              "name": "Tumor assessment",
+              "protocol_description": "Assessment of tumor latency, incidence, size, proliferation (Ki67), and histopathology (H&E, cytokeratin 14)."
+            }
+          ],
+          "name": "Inhibition of LOX-mediated collagen crosslinking decreases fibrosis and reduces focal adhesions to inhibit breast tumor progression in vivo",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Serum LOX activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "At the time of sacrifice, the non-treated MMTV-Neu mice had high levels of active LOX in the serum, whereas BAPN or LOX-inhibitory polyclonal antibody-treated animals had reduced levels (Figure 3B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2490f481d711b9ce577f5d57",
+              "unit": null,
+              "value_raw_text": "non-treated MMTV-Neu mice had high levels of active LOX in the serum, whereas BAPN or LOX-inhibitory polyclonal antibody-treated animals had reduced levels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Lesion grade",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Hematoxylin and eosin (H&E) sections revealed that a significantly greater proportion of the lesions in the LOX-inhibited animals were hyperplastic or premalignant (hyperplastic alveolar nodules [HANs] or mammary intraepithelial neoplasias [MINs]) and the tumors that did develop were mostly low grade as opposed to the high grade carcinomas typically observed in the untreated Neu mice (Figures 4G and 4F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5faf2713c342e6bce5d2d41a",
+              "unit": null,
+              "value_raw_text": "a significantly greater proportion of the lesions in the LOX-inhibited animals were hyperplastic or premalignant (HANs or MINs) and the tumors that did develop were mostly low grade as opposed to the high grade carcinomas typically observed in the untreated Neu mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proliferation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "less proliferative (Figure 4E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_60630b3a9bbbf9932f71e4c7",
+              "unit": null,
+              "value_raw_text": "less proliferative"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen crosslinks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Mice with reduced LOX activity showed significant decreases in LOX-mediated collagen crosslinks, both reducible (DHLNL and HLNL) and nonreducible (pyridinoline) (Figures 3C and 3D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_68808de5afee05e2c0b1e17a",
+              "unit": null,
+              "value_raw_text": "significant decreases in LOX-mediated collagen crosslinks, both reducible (DHLNL and HLNL) and nonreducible (pyridinoline)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Focal adhesions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "had less focal adhesions, as indicated by negligible FAKpY397 (Figure 3I)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8aeb30378dea51d2495b4891",
+              "unit": null,
+              "value_raw_text": "had less focal adhesions, as indicated by negligible FAKpY397"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Myoepithelium retention",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "LOX-inhibited mammary glands also stained positively for cytokeratin 14 along the basal periphery of the ducts, implying retention of their myoepithelium (Figures 4H and 4I)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_91cc3e1dda1b241e50e88ee8",
+              "unit": null,
+              "value_raw_text": "stained positively for cytokeratin 14 along the basal periphery of the ducts, implying retention of their myoepithelium"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor latency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Inhibition of LOX activity also increased tumor latency (Figure 4A)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_927144971788697ffdb1200a",
+              "unit": null,
+              "value_raw_text": "increased tumor latency"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "the palpable lesions formed in the LOX-inhibited animals were smaller (Figure 4D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b01ff6da0f0bfd5207a9b4a7",
+              "unit": null,
+              "value_raw_text": "palpable lesions formed in the LOX-inhibited animals were smaller"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor incidence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "decreased tumor incidence (Figure 4B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b6674c723d622c02ca4df699",
+              "unit": null,
+              "value_raw_text": "decreased tumor incidence"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibrillar collagen",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "LOX inhibition reduced fibrillar collagen (Figures 3G and 3H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ddc5e7302832c97a5f4ef705",
+              "unit": null,
+              "value_raw_text": "LOX inhibition reduced fibrillar collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen linearization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "the collagen fibrils adjacent to the epithelial lesions were less linear (Figures 3E and 3F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f4b2ae9ce57bd1bd28d0f5fe",
+              "unit": null,
+              "value_raw_text": "collagen fibrils adjacent to the epithelial lesions were less linear"
+            }
+          ],
+          "unit_id": "su_20bc967fa72ea0808fc3e4dd"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7dd738301f4573fe83f57bd5",
+              "inference_basis_ids": [
+                "res_22caaab298f335c14c192d7c",
+                "res_6dc80859d526a464cea42b27",
+                "res_722bd7327398b4bbbe528192",
+                "res_8bb55b5168cb0a52e7b5070a",
+                "res_a6e4a015d4547096b0e78bec",
+                "res_dd413ce6faf23044372ca2f3",
+                "res_ff92a508ef5144dc61375aeb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "These data are consistent with a role for integrin mechanotransduction in PI3K-mediated breast tumor invasion. The findings suggest that ECM stiffness, as induced by elevated collagen crosslinking could promote breast malignancy by enhancing integrin-GFR crosstalk (Figure 7I) (Miranti and Brugge, 2002)."
+              },
+              "statement": "ECM stiffness, as induced by elevated collagen crosslinking, could promote breast malignancy by enhancing integrin-GFR crosstalk and PI3K signaling."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of Akt signaling in MMTV-Neu mammary tissue and in ribose-stiffened collagen gels.",
+            "Culture of MECs on rBM-functionalized polyacrylamide gels with elastic moduli of 140–400 Pa (soft) and 5000–10,000 Pa (stiff) to measure EGF- or ErbB2-activated AktpS473.",
+            "Expression of b1 integrin cluster mutant on soft gels and measurement of AktpS473 after EGF stimulation.",
+            "Immunostaining for active Akt/PI3K substrate in LOX-inhibited Neu mice.",
+            "Pharmacological inhibition of PI3K with LY294002 in ErbB2-activated MECs in ribose-crosslinked collagen gels."
+          ],
+          "methods": [
+            {
+              "method_id": "M28",
+              "name": "Akt signaling assessment",
+              "protocol_description": "Immunoblotting or immunostaining for AktpS473 in tissue and culture samples."
+            },
+            {
+              "method_id": "M29",
+              "name": "Polyacrylamide gel culture",
+              "protocol_description": "MECs plated on rBM-functionalized polyacrylamide gels with elastic moduli of 140–400 Pa (soft) and 5000–10,000 Pa (stiff)."
+            },
+            {
+              "method_id": "M30",
+              "name": "PI3K inhibition",
+              "protocol_description": "Pharmacological inhibition of PI3K activity with LY294002."
+            },
+            {
+              "method_id": "M31",
+              "name": "Immunostaining",
+              "protocol_description": "Immunostaining for active Akt/PI3K substrate."
+            }
+          ],
+          "name": "Collagen crosslinking and tissue stiffness promote integrin clustering and enhance PI3K signaling to regulate invasion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Akt signaling in stiffened gels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "and in the mammary colonies in the ribose-stiffened collagen gels (Figure 7B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_22caaab298f335c14c192d7c",
+              "unit": null,
+              "value_raw_text": "Akt signaling elevated in the mammary colonies in the ribose-stiffened collagen gels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PI3K signaling in LOX-inhibited mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "The epithelium from the LOX-inhibited Neu mice also had lower PI3K signaling, as revealed by fainter active Akt/PI3K substrate staining (Figure 7H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6dc80859d526a464cea42b27",
+              "unit": null,
+              "value_raw_text": "The epithelium from the LOX-inhibited Neu mice also had lower PI3K signaling, as revealed by fainter active Akt/PI3K substrate staining"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ErbB2-activated AktpS473 on stiff",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "and increased ErbB2-activated AktpS473 (Figure 7D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_722bd7327398b4bbbe528192",
+              "unit": null,
+              "value_raw_text": "increased ErbB2-activated AktpS473"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "EGF-activated AktpS473 on stiff vs soft",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Although substrate stiffness did not increase the levels of AktpS473 in unstimulated MECs, ECM stiffness potentiated the magnitude of EGF-activated AktpS473 (Figure 7C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8bb55b5168cb0a52e7b5070a",
+              "unit": null,
+              "value_raw_text": "substrate stiffness did not increase the levels of AktpS473 in unstimulated MECs, ECM stiffness potentiated the magnitude of EGF-activated AktpS473"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin clustering effect on AktpS473",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "MECs on soft gels that expressed the b1 integrin cluster mutant, but not the wild-type b1 integrin, also showed a significant increase in AktpS473 activity after EGF stimulation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a6e4a015d4547096b0e78bec",
+              "unit": null,
+              "value_raw_text": "MECs on soft gels that expressed the b1 integrin cluster mutant, but not the wild-type b1 integrin, also showed a significant increase in AktpS473 activity after EGF stimulation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Akt signaling in tissue",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We found Akt signaling, an established target of PI3K, to be elevated in the premalignant and malignant, rigid mammary tissue (Figure 7A)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd413ce6faf23044372ca2f3",
+              "unit": null,
+              "value_raw_text": "Akt signaling, an established target of PI3K, to be elevated in the premalignant and malignant, rigid mammary tissue"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of PI3K inhibition on invasion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Pharmacological inhibition of PI3K activity with LY294002 restored the colony architecture of ErbB2-activated MECs in ribose crosslinked collagen gels toward that of a noninvasive, polarized, cohesive colony (Figures 7F and 7G)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ff92a508ef5144dc61375aeb",
+              "unit": null,
+              "value_raw_text": "Pharmacological inhibition of PI3K activity with LY294002 restored the colony architecture of ErbB2-activated MECs in ribose crosslinked collagen gels toward that of a noninvasive, polarized, cohesive colony"
+            }
+          ],
+          "unit_id": "su_24801b6b89cd3068d17f72a0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a11f75bbe71ff239b66d39da",
+              "inference_basis_ids": [
+                "res_1214956d8c0704e4bef171f8",
+                "res_45ab2ffc19d1be35d9237492",
+                "res_aec8615e4e1d2ce13dddd3e7",
+                "res_f68436fbfcc7bf887e3ab7b0",
+                "res_ffeee07d5f35c8579f53c7a3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "38e078607c65a6887d1b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We found that breast tumorigenesis is accompanied by collagen crosslinking, ECM stiffening, and increased focal adhesions."
+              },
+              "statement": "Breast tumorigenesis is accompanied by collagen crosslinking, ECM stiffening, and increased focal adhesions."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Picrosirius red staining and SHG imaging to assess fibrillar collagen and collagen linearization.",
+            "Quantification of collagen crosslinks (DHLNL, HLNL) and LOX expression by immunohistochemistry.",
+            "Unconfined compression and rheological testing of mammary glands from MMTV-Neu mice at different stages of tumor progression."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Unconfined compression",
+              "protocol_description": "Elastic modulus of mammary glands measured by unconfined compression."
+            },
+            {
+              "method_id": "M2",
+              "name": "Shear rheology",
+              "protocol_description": "Shear rheology of mammary glands."
+            },
+            {
+              "method_id": "M3",
+              "name": "Picrosirius red staining",
+              "protocol_description": "Staining with picrosirius red and hematoxylin, viewed under parallel and orthogonal polarizing filters."
+            },
+            {
+              "method_id": "M4",
+              "name": "Second harmonics generation (SHG) imaging",
+              "protocol_description": "SHG imaging to visualize collagen linearization."
+            },
+            {
+              "method_id": "M5",
+              "name": "Collagen crosslink quantification",
+              "protocol_description": "Quantification of reducible bifunctional collagen crosslinks DHLNL and HLNL."
+            },
+            {
+              "method_id": "M6",
+              "name": "Immunohistochemistry",
+              "protocol_description": "Confocal imaging of tissues stained for LOX and DAPI."
+            }
+          ],
+          "name": "ECM stiffening and collagen crosslinking in MMTV-Neu breast tumor progression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen crosslinks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We noted an increase in the levels of the major reducible bifunctional collagen crosslinks, dehydrodihydroxylysinonorleucine (DHLNL), and hydroxylysinonorleucine (HLNL) in the breast tumors, reflecting elevated crosslinked collagen (Figure 1G)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1214956d8c0704e4bef171f8",
+              "unit": null,
+              "value_raw_text": "increase in the levels of the major reducible bifunctional collagen crosslinks, dehydrodihydroxylysinonorleucine (DHLNL), and hydroxylysinonorleucine (HLNL) in the breast tumors"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibrillar collagen amount",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Total levels (Figure S1 available online) and amount of fibrillar collagen increased markedly (Figures 1C and 1D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_45ab2ffc19d1be35d9237492",
+              "unit": null,
+              "value_raw_text": "amount of fibrillar collagen increased markedly"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "LOX expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We further detected increased amounts of the amine oxidase crosslinking enzyme, LOX, in the stromal cells of the premalignant Min foci and invasive tumors and in the invading transformed epithelium (Figure 1H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aec8615e4e1d2ce13dddd3e7",
+              "unit": null,
+              "value_raw_text": "increased amounts of the amine oxidase crosslinking enzyme, LOX, in the stromal cells of the premalignant Min foci and invasive tumors and in the invading transformed epithelium"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Elastic modulus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Unconfined compression and rheological testing showed an incremental stiffening of the mammary gland as it transitioned from normal to premalignant to invasive cancer (Figures 1A–1C, top)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f68436fbfcc7bf887e3ab7b0",
+              "unit": null,
+              "value_raw_text": "incremental stiffening of the mammary gland as it transitioned from normal to premalignant to invasive cancer"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen linearization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dd336a2bb62ced0af4d6",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "second harmonics generation (SHG) imaging revealed the progressive linearization of the collagen adjacent to the developing epithelial lesions (Figures 1E and 1F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ffeee07d5f35c8579f53c7a3",
+              "unit": null,
+              "value_raw_text": "progressive linearization of the collagen adjacent to the developing epithelial lesions"
+            }
+          ],
+          "unit_id": "su_9edf80ed4be3172380e59154"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d9370a551282867168d5c278",
+              "inference_basis_ids": [
+                "res_3d8e15bae404e1dcc3c41666",
+                "res_5d05a3e9a7e59192082e3289",
+                "res_a01d9fb0e71a4d22e865ec38",
+                "res_adf1ba3348748be737efdc6d",
+                "res_b1777fd7b7f6615695db1c00",
+                "res_e026b56cab1e24d92afa7414",
+                "res_f2a4e225031686e75672c8b0",
+                "res_f6df0df78f48a7bb8bed8d47"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "These findings show how collagen crosslinking and ECM stiffening, per se, cooperate with oncogenes such as ErbB2 to promote the invasive behavior of a mammary epithelium."
+              },
+              "statement": "Collagen crosslinking and ECM stiffening cooperate with oncogenes such as ErbB2 to promote the invasive behavior of a mammary epithelium."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of colony morphology, invasion, focal adhesions (b1 integrin, FAKpY397, p130Cas), and collagen organization by SHG.",
+            "Culture of MCF10A acini in 3D soft collagen I/reconstituted basement membrane gel with or without ribose to induce nonspecific collagen crosslinking.",
+            "Inhibition of b1 integrin with AIIB2 antibody or expression of FRNK to test integrin signaling requirement.",
+            "Use of MCF10A cells expressing ErbB2 chimera (ErbB2.chim) or ErbB2.TetOn to control ErbB2 activation."
+          ],
+          "methods": [
+            {
+              "method_id": "M20",
+              "name": "3D culture with ribose crosslinking",
+              "protocol_description": "MCF10A acini embedded in 3D soft collagen I/reconstituted basement membrane gel with ribose added to induce nonspecific collagen crosslinking."
+            },
+            {
+              "method_id": "M21",
+              "name": "ErbB2 activation",
+              "protocol_description": "ErbB2.chim activated by AP1510 (1 µM); ErbB2.TetOn induced by doxycycline (0.2 µg/mL)."
+            },
+            {
+              "method_id": "M22",
+              "name": "Immunostaining and imaging",
+              "protocol_description": "Confocal imaging for b4 integrin, beta catenin, b1 integrin, FAKpY397, p130Cas; SHG imaging for collagen."
+            },
+            {
+              "method_id": "M23",
+              "name": "Integrin inhibition",
+              "protocol_description": "Inhibition of b1 integrin activity with function blocking antibody AIIB2 or expression of inducible FRNK (FRNK.TetOn)."
+            }
+          ],
+          "name": "Collagen crosslinking and ECM stiffening promote focal adhesions and drive invasion of oncogenically initiated mammary tissues in culture",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion without ErbB2 activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Nevertheless, in the absence of ErbB2 activity, ECM stiffening did not drive MEC invasion (Figures 5E and 5F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3d8e15bae404e1dcc3c41666",
+              "unit": null,
+              "value_raw_text": "in the absence of ErbB2 activity, ECM stiffening did not drive MEC invasion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue organization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "disrupted tissue organization, as revealed by diffusely localized beta catenin and the appearance of random cells within the lumens (Figure 5E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5d05a3e9a7e59192082e3289",
+              "unit": null,
+              "value_raw_text": "disrupted tissue organization, as revealed by diffusely localized beta catenin and the appearance of random cells within the lumens"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion with ErbB2 activation and stiff ECM",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Yet, when ErbB2 was activated in colonies in the crosslinked, stiffened gels, colony architecture disintegrated, as revealed by the absence of detectable beta catenin and disorganized b4 integrin staining, and MECs invaded into the gels (Figure 5E, white arrows; quantified in Figure 5F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a01d9fb0e71a4d22e865ec38",
+              "unit": null,
+              "value_raw_text": "when ErbB2 was activated in colonies in the crosslinked, stiffened gels, colony architecture disintegrated, as revealed by the absence of detectable beta catenin and disorganized b4 integrin staining, and MECs invaded into the gels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen reorganization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "SHG imaging revealed that individually, ErbB2 activation and ECM stiffening were accompanied by the appearance of prominent collagen bundles surrounding the colonies and showed that MECs with activated ErbB2 invaded on fibrils that extended perpendicularly into the crosslinked, stiffened gels (Figurs 5E, white arrows highlight an invasive MEC, yellow arrows indicate collagen reorganization; Figure S9)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_adf1ba3348748be737efdc6d",
+              "unit": null,
+              "value_raw_text": "MECs with activated ErbB2 invaded on fibrils that extended perpendicularly into the crosslinked, stiffened gels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin signaling requirement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "inhibition of b1 integrin activity, with the function blocking antibody AIIB2, or reduction of integrin signaling by expression of an inducible FRNK (FRNK.TetOn; Figure S10) prevented the force-mediated invasion of the ErbB2 activated mammary organoids (Figures 5G and 5H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b1777fd7b7f6615695db1c00",
+              "unit": null,
+              "value_raw_text": "inhibition of b1 integrin activity, with the function blocking antibody AIIB2, or reduction of integrin signaling by expression of an inducible FRNK prevented the force-mediated invasion of the ErbB2 activated mammary organoids"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Colony size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "increased colony size (Figure 5C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e026b56cab1e24d92afa7414",
+              "unit": null,
+              "value_raw_text": "increased colony size"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ECM stiffness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Glycation-mediated crosslinking stiffened the collagen (Figure 5B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f2a4e225031686e75672c8b0",
+              "unit": null,
+              "value_raw_text": "Glycation-mediated crosslinking stiffened the collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Focal adhesions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "426b527568e2677ce8b5",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "MECs within the ribose crosslinked collagen gels also had elevated levels and colocalized b1 integrin and FAKpY397, indicative of tension-induced focal adhesions (Figure 5D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f6df0df78f48a7bb8bed8d47",
+              "unit": null,
+              "value_raw_text": "MECs within the ribose crosslinked collagen gels also had elevated levels and colocalized b1 integrin and FAKpY397, indicative of tension-induced focal adhesions"
+            }
+          ],
+          "unit_id": "su_b699e52a1476817614929a1c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b9919394fcbeeefd54a07bcc",
+              "inference_basis_ids": [
+                "res_2afa2ddfe3f4ea32f922dfce",
+                "res_68d2d3623f4b5c58ced1e181",
+                "res_7f628e4d6d9dda93b461521f",
+                "res_99a8c3ccbb0ab2da5fca36dd",
+                "res_b0fa8a797502bc0aa71ea87f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "These findings implicate tension-dependent integrin clustering and focal adhesions in breast tumor invasion. However, because integrin clustering could only promote invasion in Ha-ras premalignant MECs, they also illustrate how integrin-mediated mechanotransduction cooperates with oncogenic signaling to drive malignancy."
+              },
+              "statement": "Tension-dependent integrin clustering and focal adhesions are implicated in breast tumor invasion, but require cooperation with oncogenic signaling."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of focal adhesions (FAKpY397), colony architecture, and invasion in rBM culture.",
+            "Expression of integrin constructs (V737N, wild-type, constitutively active) in nonmalignant MCF10A and Ha-ras premalignant MCF10AT MECs.",
+            "Injection of V737N-expressing MCF10AT organoids into nude mice and analysis of lesion size, invasion, and FAKpY397."
+          ],
+          "methods": [
+            {
+              "method_id": "M24",
+              "name": "Integrin construct expression",
+              "protocol_description": "Expression of V737N integrin, wild-type b1 integrin, or constitutively active b1 integrin in MCF10A and MCF10AT cells."
+            },
+            {
+              "method_id": "M25",
+              "name": "3D culture in rBM",
+              "protocol_description": "Culture of MECs in reconstituted basement membrane (rBM) to assess colony morphology and invasion."
+            },
+            {
+              "method_id": "M26",
+              "name": "In vivo injection",
+              "protocol_description": "Injection of MCF10AT organoids expressing V737N integrin into nude mice."
+            },
+            {
+              "method_id": "M27",
+              "name": "Immunostaining",
+              "protocol_description": "Immunostaining for FAKpY397 and b4 integrin."
+            }
+          ],
+          "name": "Integrin clustering promotes focal adhesions to drive invasion of a Ha-ras mammary epithelium in vitro and in vivo",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion in MCF10AT",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the V737N integrin induced the invasion of the Ha-ras premalignant MCF10AT colonies in rBM (Figures 6D and 6E)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2afa2ddfe3f4ea32f922dfce",
+              "unit": null,
+              "value_raw_text": "the V737N integrin induced the invasion of the Ha-ras premalignant MCF10AT colonies in rBM"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion in MCF10A",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "while the V737N b1 integrin mutant failed to promote invasion of the MCF10A MECs (Figure 6C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_68d2d3623f4b5c58ced1e181",
+              "unit": null,
+              "value_raw_text": "the V737N b1 integrin mutant failed to promote invasion of the MCF10A MECs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "In vivo lesion size and invasion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Upon injection into nude mice, the V737N integrin not only promoted focal adhesions and increased lesion size (Figure 6F), but also induced the invasive behavior of the Ha-ras MCF10AT organoids, as revealed by the loss of epithelial lesion margins and increased FAKpY397 (see arrows in Figure 6G)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7f628e4d6d9dda93b461521f",
+              "unit": null,
+              "value_raw_text": "the V737N integrin not only promoted focal adhesions and increased lesion size, but also induced the invasive behavior of the Ha-ras MCF10AT organoids, as revealed by the loss of epithelial lesion margins and increased FAKpY397"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Colony architecture",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "disrupted the integrity of mammary colonies in rBM, revealed by luminal filling and altered b4 integrin localization (Figure 6C, top)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_99a8c3ccbb0ab2da5fca36dd",
+              "unit": null,
+              "value_raw_text": "disrupted the integrity of mammary colonies in rBM, revealed by luminal filling and altered b4 integrin localization"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Focal adhesions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d9b76bca0bac18e4d218",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Expression of the V737N integrin, which recapitulates tension-dependent integrin clustering, promoted focal adhesions, indicated by elevated FAKpY397 (Figure 6C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b0fa8a797502bc0aa71ea87f",
+              "unit": null,
+              "value_raw_text": "Expression of the V737N integrin promoted focal adhesions, indicated by elevated FAKpY397"
+            }
+          ],
+          "unit_id": "su_d06562f3a1c5d57bc19d3a01"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5642 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6118 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8844 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4862 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4948 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3218 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3713 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9388 on attempt 1"
+    }
+  ]
+}

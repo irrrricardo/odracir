@@ -1,0 +1,534 @@
+{
+  "coverage_ledger": {
+    "147d0ae01f09f1184555": "not_selected",
+    "3ed60a99eee791936a85": "not_selected",
+    "4240bf1ce9f0654a54cc": "not_selected",
+    "4a5854bd6a463f8c7911": "extracted",
+    "6ffc4394f1e85898f269": "extracted",
+    "79f98628c27f4c7b85dc": "extracted",
+    "b0aad455d9088f7279ac": "extracted",
+    "f08c74003ce2550571ab": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study uses mouse ES cell aggregates and may not fully recapitulate in vivo optic cup development; the role of surface ectoderm and lens is bypassed in this system.",
+    "Long-term neural retina culture beyond day 35 leads to loss of tissue integrity; further optimization is needed for functional photoreceptor maturation.",
+    "The computer simulation is based on assumptions derived from experimental results and simplifies the three-dimensional geometry to an axisymmetric model.",
+    "The AFM measurements were performed at room temperature, which may differ from physiological conditions.",
+    "The ablation experiments may trigger secondary wound healing responses that complicate interpretation of mechanical properties."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_12.pdf",
+    "source_sha256": "f73f04294e86d83d90affb52e530fa8ad4ad8c08d6883e371aeeef4d6b427cee"
+  },
+  "paper_id": "4_12",
+  "quality_assessment": {
+    "correct_item_count": 34,
+    "deterministic_rule_score": 0.9625,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0556,
+      "sample_size_log_score": 0.5691,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 34,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does the optic cup structure self-organize from mouse embryonic stem cell aggregates in three-dimensional culture?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_675b09dd5b91b31896defee8",
+              "inference_basis_ids": [
+                "res_032512523f276449641a9e3f",
+                "res_32834074fba03b647810bf03",
+                "res_6f2494cd05f9484a7768a9f2",
+                "res_b132e5e670007c14f19d368c",
+                "res_b21d9d9c5f47e799f50e7034"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6ffc4394f1e85898f269",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "the formation of the optic cup in the ES cell culture occurred in the absence of a lens (no crystalline+ tissue; n = 50 aggregates) or surface ectodermal tissues ... indicating that the invagination was not caused by external structures but occurred in a self-directed fashion"
+              },
+              "statement": "Optic cup morphogenesis can occur autonomously in 3D ES cell culture without lens or surface ectoderm."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Mouse ES cells were cultured as floating aggregates under low growth-factor conditions (SFEBq) with modifications: addition of 2% matrigel on day 1, or purified laminin/entactin plus Nodal during days 1–7. Culture medium was G-MEM with 1.5% KSR, non-essential amino acids, pyruvate, and 2-mercaptoethanol. On day 7, aggregates were transferred to bacterial-grade dishes in DMEM/F12/N2 under 40% O2/5% CO2."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "SFEBq culture with matrigel",
+              "protocol_description": "ES cells dissociated to single cells, re-aggregated in 96-well low-cell-adhesion plates (3,000 cells/100 µl/well) in differentiation medium (G-MEM, 1.5% KSR, 0.1 mM non-essential amino acids, 1 mM pyruvate, 1 mM 2-mercaptoethanol). On day 1, growth-factor-reduced matrigel added to 2% (v/v). On day 7, aggregates transferred to bacterial-grade dishes in DMEM/F12/N2 under 40% O2/5% CO2."
+            }
+          ],
+          "name": "Optic-cup self-formation in 3D ES cell culture",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of Rx+ spheres (vesicles) per aggregate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ffc4394f1e85898f269",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "73.7 ± 2.5% Rx+ spheres"
+              },
+              "quantitative_value": 73.7,
+              "result_id": "res_032512523f276449641a9e3f",
+              "unit": "%",
+              "value_raw_text": "73.7 ± 2.5% Rx+ spheres"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Lens or surface ectoderm absence",
+              "n_sample_size": 50,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ffc4394f1e85898f269",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "no crystalline+ tissue; n = 50 aggregates"
+              },
+              "quantitative_value": null,
+              "result_id": "res_32834074fba03b647810bf03",
+              "unit": null,
+              "value_raw_text": "no crystalline+ tissue; n = 50 aggregates"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of Rx-GFP+ cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ffc4394f1e85898f269",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "These modifications successfully improved the efficiency of retinal induction, resulting in 30–70% Rx–GFP+ cells in total cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6f2494cd05f9484a7768a9f2",
+              "unit": null,
+              "value_raw_text": "30–70% Rx–GFP+ cells in total cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of vesicles forming two-walled cup-like morphology",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ffc4394f1e85898f269",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "57.0 ± 4.7% of vesicles"
+              },
+              "quantitative_value": 57.0,
+              "result_id": "res_b132e5e670007c14f19d368c",
+              "unit": "%",
+              "value_raw_text": "57.0 ± 4.7% of vesicles"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of aggregates strongly positive for Rx-GFP",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ffc4394f1e85898f269",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "typically, ~80% of aggregates were strongly positive for Rx–GFP"
+              },
+              "quantitative_value": 80.0,
+              "result_id": "res_b21d9d9c5f47e799f50e7034",
+              "unit": "%",
+              "value_raw_text": "~80% of aggregates were strongly positive for Rx–GFP"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Optic cup diameter",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ffc4394f1e85898f269",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "typically 200–400 µm in diameter"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d04b2a1ef6bcbf195690c1ec",
+              "unit": "µm",
+              "value_raw_text": "typically 200–400 µm in diameter"
+            }
+          ],
+          "unit_id": "su_0010c595dde9946fb534e371"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_df95d8be5b5a5a8105be6581",
+              "inference_basis_ids": [
+                "res_5ac3e6280ee1349f03a7ac1f",
+                "res_5d798142c124ed44fc8a04eb",
+                "res_617f03cd7d043def11855d3f",
+                "res_6feecfb0c8797d009c4cf565",
+                "res_c06d6ea3b54242fa0e883409"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "these findings indicate that RPE differentiation requires tissue interactions involving diffusible induction factors from neuroectodermal epithelium. In contrast, the neural retina fate is tissue-autonomously determined"
+              },
+              "statement": "RPE differentiation requires tissue interactions involving diffusible induction factors from neuroectodermal epithelium, while neural retina fate is tissue-autonomously determined."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Phase-1 Rx+ vesicles were mechanically excised from day-7 aggregates with or without adjacent non-retinal neuroectodermal epithelium (Rx−). Isolated vesicles cultured in suspension (DMEM/F12/N2, 40% O2/5% CO2). Co-culture with Wnt3a-expressing L cell aggregates or addition of soluble Wnt3a protein. Whole aggregates treated with Wnt secretion inhibitor IWP2 (4 µM) or Wnt agonist BIO (500 nM)."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Vesicle excision and culture",
+              "protocol_description": "Rx-GFP+ optic vesicles mechanically excised with or without non-retinal neuroectodermal epithelium from day-7 SFEB aggregates using no. 5 forceps. Cultured in suspension under 40% O2/5% CO2 in DMEM/F12/N2. For co-culture, Wnt3a-expressing or control L cell pellets entrapped in matrigel droplet with a 100–150 µm gap from isolated vesicle."
+            }
+          ],
+          "name": "Self-patterning into neural retina and RPE domains",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Optic cup formation from excised vesicles with neuroectoderm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the Rx+ vesicles excised with a small amount of non-retinal neuroectodermal epithelium developed into spatially ordered RPE and neural retina epithelium, and even formed an optic-cup structure"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5ac3e6280ee1349f03a7ac1f",
+              "unit": null,
+              "value_raw_text": "developed into spatially ordered RPE and neural retina epithelium, and even formed an optic-cup structure"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of IWP2 on invagination and RPE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "treating the whole aggregates with the Wnt secretion inhibitor IWP2 interfered with invagination, reduced RPE tissues and increased the percentage of Chx10+ tissues"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5d798142c124ed44fc8a04eb",
+              "unit": null,
+              "value_raw_text": "interfered with invagination, reduced RPE tissues and increased the percentage of Chx10+ tissues"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rescue by Wnt3a co-culture or protein",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "both the RPE differentiation and neural retina invagination were substantially rescued"
+              },
+              "quantitative_value": null,
+              "result_id": "res_617f03cd7d043def11855d3f",
+              "unit": null,
+              "value_raw_text": "both the RPE differentiation and neural retina invagination were substantially rescued"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fate of isolated Rx+ epithelium without neuroectoderm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Rx+ epithelium isolated without non-retinal tissues failed to invaginate, and predominantly expressed Chx10 on day 10 ... whereas only a small number of cells were Chx10−Pax6+"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6feecfb0c8797d009c4cf565",
+              "unit": null,
+              "value_raw_text": "failed to invaginate, predominantly expressed Chx10; only a small number of cells were Chx10−Pax6+"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of BIO on RPE and neural retina",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "the Wnt agonist BIO ... strongly promoted RPE differentiation and suppressed neural retina generation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c06d6ea3b54242fa0e883409",
+              "unit": null,
+              "value_raw_text": "strongly promoted RPE differentiation and suppressed neural retina generation"
+            }
+          ],
+          "unit_id": "su_c0af92fab90f3db5026c37fe"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c6b9a0a97b6cf3d4e63aacc0",
+              "inference_basis_ids": [
+                "res_2a0a544f7ae1668ed0fe102d",
+                "res_8fac343ae165b96d91cfe591",
+                "res_95373155a43efca8879bca8c",
+                "res_985683c5450ed777d4969505",
+                "res_9be96c6d89dba9aa639a8ad4",
+                "res_9f545b3d7c51f6d210ea0276",
+                "res_fc3be0b37d89b99fecbc0c1d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "these findings demonstrate that the self-formed retinal epithelium sequentially acquires quantitatively distinct morphological, biochemical, mechanical and gene-expression properties in a domain-specific manner during early eye-cup morphogenesis"
+              },
+              "statement": "The retinal epithelium sequentially acquires distinct mechanical and molecular properties in a domain-specific manner during optic cup morphogenesis."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "ES-cell-derived retinal epithelium was analyzed at phases 1–4 for pMLC2 levels, tissue rigidity (AFM), cell ablation response, and marker expression (Chx10, Pax6, Rx). Inhibitors: Y-27632 (ROCK), blebbistatin (myosin II), cytochalasin D (actin). AFM cantilever with glass bead (100 µm diameter, spring constant ~0.1 N/m) used to measure Young's modulus on apical side. Multi-photon laser ablation (900 nm) performed on targeted cells; gap closure monitored. Mitotic inhibitor aphidicolin (5 µM) used to assess proliferation role in gap filling."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "AFM-based tissue rigidity measurement",
+              "protocol_description": "Force probe with glass bead (100 µm diameter) attached to tipless silicon cantilever (450 µm long, 50 µm wide, 2 µm thick; nominal spring constant ~0.02 N/m, with bead ~0.1 N/m). Measurement in contact mode using Nano-Wizard system with Cell-Hesion module. Tissues pressed with 20 nN force, approach/retraction speeds 10–20 µm/s. Young's modulus calculated from force-distance curve. Inhibitor treatments for 60 min at 37°C before measurement. All measurements at room temperature."
+            },
+            {
+              "method_id": "M3",
+              "name": "Multi-photon laser ablation",
+              "protocol_description": "900-nm laser beam from Mai-Tai Deep-See eHP at full power condensed on target cells via 25× water-immersion lens (N.A. 1.05) using spot illumination or line scan until cell rupture (0.4–2 s). Gap area quantified in optical sections over time."
+            }
+          ],
+          "name": "Stepwise acquisition of domain-specific epithelial properties",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation gap behavior in phases 1–2",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "at phases 1–2, the ablation-induced gaps, whether in the distal or proximal epithelia, did not close after ablation but began to increase, presumably by local pulling tension"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2a0a544f7ae1668ed0fe102d",
+              "unit": null,
+              "value_raw_text": "gaps increased after ablation, indicating pulling tension"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pMLC2 levels in phases 2–3",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the pMLC2 levels at phases 2–3 were reduced in the neural retina but remained high in the RPE and hinge epithelium"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8fac343ae165b96d91cfe591",
+              "unit": null,
+              "value_raw_text": "reduced in the neural retina but remained high in the RPE and hinge epithelium"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue rigidity (Young's modulus) of phase 4 RPE vs neural retina",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the mechanical rigidity of the RPE tissue in the phase-4 optic cup was substantially higher than that of the neural retina as measured by a force probe using an atomic force microscope (AFM) cantilever, whereas this difference disappeared after treatment with ROCK or actomyosin inhibitors"
+              },
+              "quantitative_value": null,
+              "result_id": "res_95373155a43efca8879bca8c",
+              "unit": "Pa",
+              "value_raw_text": "RPE tissue rigidity substantially higher than neural retina; difference abolished by ROCK or actomyosin inhibitors"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Chx10 expression onset",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Chx10 expression started by phase 2 in the distal retinal epithelium, whereas the proximal portion was Chx10−Pax6+ and showed decreased Rx expression"
+              },
+              "quantitative_value": null,
+              "result_id": "res_985683c5450ed777d4969505",
+              "unit": null,
+              "value_raw_text": "Chx10 expression started by phase 2 in distal retinal epithelium; proximal portion Chx10− Pax6+ with decreased Rx"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation gap closure in phase 4",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "When a few cells were ablated ... the ablated space in the phase-4 RPE and neural retina, but not in the hinge, soon disappeared by compression from neighbouring cells ... Mitotic inhibitor treatment inhibited the gap-filling behaviour"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9be96c6d89dba9aa639a8ad4",
+              "unit": null,
+              "value_raw_text": "ablated space in RPE and neural retina closed quickly; hinge gap did not close; closure inhibited by mitotic inhibitor"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pMLC2 levels in phase 4",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "The pMLC2 levels of the neural retina became particularly low at phase 4"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9f545b3d7c51f6d210ea0276",
+              "unit": null,
+              "value_raw_text": "particularly low in neural retina; high in RPE and hinge"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pMLC2 levels in phase 1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b0aad455d9088f7279ac",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "The proximal and distal epithelia of the phase-1 vesicle showed comparable levels of pMLC2"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fc3be0b37d89b99fecbc0c1d",
+              "unit": null,
+              "value_raw_text": "comparable levels of pMLC2 in proximal and distal epithelia"
+            }
+          ],
+          "unit_id": "su_e8cb30a160ac0e786df0d369"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6993 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9130 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9024 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7617 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9483 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8743 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7921 on attempt 1"
+    }
+  ]
+}

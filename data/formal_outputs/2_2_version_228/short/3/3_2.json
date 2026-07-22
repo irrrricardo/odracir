@@ -1,0 +1,500 @@
+{
+  "coverage_ledger": {
+    "01d5b02edc8b5e8e2a23": "extracted",
+    "03a1ef0c0c625df1306d": "not_selected",
+    "0b295ba6e5568eeaa990": "extracted",
+    "152e261392880d46eec1": "not_selected",
+    "1bb59bcb323203f3fc81": "not_selected",
+    "267e6c58edfc059df190": "not_selected",
+    "3ef1cefa2cb554226a02": "not_selected",
+    "4d0bb28ef156d9b33838": "not_selected",
+    "79d0c88902359ac7f08a": "not_selected",
+    "a06ad39fdb02aed7e1c7": "not_selected",
+    "c03fb8a88fb5f750b3cd": "not_selected",
+    "d313eec5c8e22c462b1a": "extracted",
+    "f2c25ac4ee361daecddb": "extracted",
+    "f30b0e460ccaac16742d": "not_selected",
+    "f96eea191b1d9e8f5fcf": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study does not rule out the possibility that axonal material may also be engulfed by microglia.",
+    "The precise temporal dynamics of microglia-mediated engulfment relative to synaptic pruning events are not fully resolved.",
+    "The role of other complement receptors or phagocytic pathways was not investigated.",
+    "The study focuses on the retinogeniculate system; generalizability to other CNS regions requires further investigation.",
+    "The engulfment assay may not capture all phagocytic events, and the quantification of engulfment is based on static images.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_2.pdf",
+    "source_sha256": "7902153953e75f121276e05643d3e4f5217c71c26063f57dcf2870f0429768d3"
+  },
+  "paper_id": "3_2",
+  "quality_assessment": {
+    "correct_item_count": 46,
+    "deterministic_rule_score": 0.9263,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.1667,
+      "sample_size_log_score": 0.2739,
+      "statistical_support_coverage": 0.0833
+    },
+    "extracted_item_count": 46,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What is the role of microglia in activity-dependent synaptic pruning in the postnatal retinogeniculate system, and what molecular mechanisms underlie microglia-synapse interactions?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4a8f5b6aca297c0ac796988a",
+              "inference_basis_ids": [
+                "res_a59c43c8e72f92f3e21c6ba7",
+                "res_abbdb033a328e3e2e5d2efca"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "If CR3/C3-dependent signaling in microglia is a mechanism underlying developmental synaptic pruning, then a sustained increase in synapse density would be expected in the absence of these molecules."
+              },
+              "statement": "Disruption of CR3/C3 signaling in microglia results in sustained deficits in synaptic connectivity."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Array tomography to quantify retinogeniculate synapse density in adult (P32-P35) CR3 KO and WT littermates.",
+            "Immunostaining for VGlut2 (presynaptic) and GluR1 (postsynaptic)."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "Array tomography",
+              "protocol_description": "High resolution imaging and quantification of synaptic density using serial sections immunostained for VGlut2 and GluR1."
+            }
+          ],
+          "name": "Sustained deficits in synaptic connectivity in CR3 KO mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Total VGlut2-positive puncta density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "there was also a significant increase in the density of total (both synapse associated and nonassociated) VGlut2-positive puncta in CR3 KOs (1.8-fold increase) as compared to WT littermates"
+              },
+              "quantitative_value": 1.8,
+              "result_id": "res_a59c43c8e72f92f3e21c6ba7",
+              "unit": "fold change",
+              "value_raw_text": "1.8-fold increase in total VGlut2-positive puncta in CR3 KOs as compared to WT littermates"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Retinogeniculate synapse density",
+              "n_sample_size": 3,
+              "p_value": 0.03,
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "there was a statistically significant increase (1.3-fold increase) in RGC synapse density (i.e., juxtaposed GluR1 and VGlut2 puncta) in adult CR3 KOs as compared to WT littermates"
+              },
+              "quantitative_value": 1.3,
+              "result_id": "res_abbdb033a328e3e2e5d2efca",
+              "unit": "fold change",
+              "value_raw_text": "1.3-fold increase in RGC synapse density in adult CR3 KOs as compared to WT littermates"
+            }
+          ],
+          "unit_id": "su_4f7fa72553ec109724904be0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_563da97179630965a4e45447",
+              "inference_basis_ids": [
+                "res_2186d6785ded35b471afde37",
+                "res_54e923654cb85d0485f9fd76",
+                "res_cf4f13e41f053c1a220a1b44"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Together, we demonstrate that microglia phagocytose RGC inputs during a peak period of synaptic pruning in the dLGN."
+              },
+              "statement": "Microglia phagocytose RGC inputs during a peak period of synaptic pruning in the dLGN."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "At an age consistent with robust synaptic pruning (P5), microglial processes were in close association with RGC presynaptic inputs.",
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "At an age consistent with robust synaptic pruning (P5), microglial processes were in close association with RGC presynaptic inputs"
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Colocalization analysis with CD68 lysosomal marker.",
+            "Confocal imaging to assess microglia-RGC input interactions.",
+            "Genetic labeling of RGC inputs using Chx10-cre/Rosa26-STOP-tdTomato mice.",
+            "Intraocular injection of anterograde tracers CTB-594 and CTB-647 to label contralateral and ipsilateral RGC inputs in P5 CX3CR1+/GFP mice.",
+            "pHrodo-dextran anterograde tracing to confirm phagocytosis."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Confocal microscopy",
+              "protocol_description": "High resolution confocal imaging of fluorescently labeled RGC inputs and microglia in P5 dLGN sections."
+            },
+            {
+              "method_id": "M2",
+              "name": "Immunohistochemistry",
+              "protocol_description": "Staining for CD68 to label lysosomes in microglia."
+            },
+            {
+              "method_id": "M3",
+              "name": "pHrodo-dextran tracing",
+              "protocol_description": "Anterograde tracer that fluoresces in acidic lysosomal compartments to confirm phagocytosis."
+            }
+          ],
+          "name": "Microglia engulf RGC inputs during peak pruning",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pHrodo-positive RGC inputs in microglia",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "pHrodo-positive RGC inputs were localized within microglia"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2186d6785ded35b471afde37",
+              "unit": null,
+              "value_raw_text": "pHrodo-positive RGC inputs were localized within microglia"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Colocalization of engulfed inputs with lysosomes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the majority of engulfed RGC inputs were completely colocalized within lysosomal compartments"
+              },
+              "quantitative_value": null,
+              "result_id": "res_54e923654cb85d0485f9fd76",
+              "unit": null,
+              "value_raw_text": "the majority of engulfed RGC inputs were completely colocalized within lysosomal compartments"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment of RGC inputs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "we detected numerous fluorescently labeled RGC inputs within the processes and soma of microglia"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cf4f13e41f053c1a220a1b44",
+              "unit": null,
+              "value_raw_text": "numerous fluorescently labeled RGC inputs within the processes and soma of microglia"
+            }
+          ],
+          "unit_id": "su_6b566dbc500c4944fcfa9753"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_36fedc1191f97350fd2a67cf",
+              "inference_basis_ids": [
+                "res_d232014407e55e2610724d3a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "To begin to address whether microglia-mediated engulfment of RGC inputs contributes to the normal process of synaptic pruning, we assessed the developmental regulation of microglia phagocytic capacity."
+              },
+              "statement": "Microglia-mediated engulfment of RGC inputs is developmentally regulated."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Characterization of microglia activation state through development (P5 vs P30) by morphology and CD68 immunoreactivity.",
+            "In vivo phagocytosis assay to assess engulfment of RGC inputs at different developmental ages."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "In vivo phagocytosis assay",
+              "protocol_description": "Assay to quantify engulfment of RGC inputs by microglia at different postnatal ages."
+            }
+          ],
+          "name": "Developmental regulation of microglia engulfment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglia activation state",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Microglia within the early postnatal dLGN had characteristic features of more 'activated' cells traditionally associated with disease including increased phagocytic capacity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d232014407e55e2610724d3a",
+              "unit": null,
+              "value_raw_text": "Microglia within the early postnatal dLGN had characteristic features of more 'activated' cells traditionally associated with disease including increased phagocytic capacity"
+            }
+          ],
+          "unit_id": "su_d14d5cb71a651963013db3d1"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f1c3c7f6f41a6373bb2c8735",
+              "inference_basis_ids": [
+                "res_24a271de6171671fdc4794f5",
+                "res_8a1e871bef111c895d348ef4",
+                "res_e77542fef9c5e912c63c8319"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "these ultrastructural data reveal that microglia engulf presynaptic terminals specific to RGCs"
+              },
+              "statement": "Microglia engulf presynaptic terminals specific to RGCs."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "3D-SIM imaging of VGlut2-labeled RGC presynaptic terminals within microglia in P5 CX3CR1+/EGFP dLGN.",
+            "Double immunoEM for iba-1 (microglia) and VGlut2 (RGC terminals) in P5 dLGN."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "3D structured illumination microscopy (3D-SIM)",
+              "protocol_description": "Super-resolution imaging of VGlut2 immunostaining within microglia."
+            },
+            {
+              "method_id": "M6",
+              "name": "Double immunoelectron microscopy (immunoEM)",
+              "protocol_description": "Immunogold labeling for VGlut2 and DAB for iba-1 to visualize engulfed presynaptic terminals at ultrastructural level."
+            }
+          ],
+          "name": "Ultrastructural evidence of microglia engulfing presynaptic terminals",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "VGlut2 localization within microglia by 3D-SIM",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Yellow arrow designates examples of engulfed VGlut2-positive elements"
+              },
+              "quantitative_value": null,
+              "result_id": "res_24a271de6171671fdc4794f5",
+              "unit": null,
+              "value_raw_text": "VGlut2-positive elements were engulfed within microglia"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "VGlut2 immunogold in microglial cytoplasm and lysosomes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "microglial cytoplasm (DAB), and lysosomes contain VGlut2 immunogold labeling"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8a1e871bef111c895d348ef4",
+              "unit": null,
+              "value_raw_text": "microglial cytoplasm (DAB), and lysosomes contain VGlut2 immunogold labeling"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative probability of VGlut2 localization",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "cumulative probability calculations demonstrated an increased probability of VGlut2 localized to an RGC terminal or microglia as compared to random immunoreactivity throughout the neuropil"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e77542fef9c5e912c63c8319",
+              "unit": null,
+              "value_raw_text": "increased probability of VGlut2 localized to an RGC terminal or microglia as compared to random immunoreactivity throughout the neuropil"
+            }
+          ],
+          "unit_id": "su_d1aa8d840466e0772c2b90f2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ac9137d0e02acb12a94fef4f",
+              "inference_basis_ids": [
+                "res_12b5855a73a53d47f74746a5",
+                "res_21aa87a8f48df9305ca729d7",
+                "res_70fb605663d5171aa46632d1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "we hypothesized that C3 ligand-receptor signaling may be one molecular mechanism by which microglia interact with and engulf RGC synaptic inputs."
+              },
+              "statement": "CR3/C3-dependent phagocytic signaling is a molecular mechanism by which microglia engulf RGC synaptic inputs."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of C3 enrichment in synaptic regions of P5 dLGN.",
+            "Assessment of CR3 expression in microglia in P5 dLGN by immunohistochemistry.",
+            "In vivo phagocytosis assay in P5 CR3 KO and C3 KO mice to quantify engulfment of RGC inputs."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "In vivo phagocytosis assay",
+              "protocol_description": "Quantification of engulfed RGC inputs within microglia in CR3 KO and C3 KO mice compared to WT."
+            }
+          ],
+          "name": "CR3/C3 signaling mediates microglial engulfment of RGC inputs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment in CR3 KO and C3 KO mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Microglia sampled from P5 CR3 or C3 KO mice had a statistically significant decrease in"
+              },
+              "quantitative_value": null,
+              "result_id": "res_12b5855a73a53d47f74746a5",
+              "unit": null,
+              "value_raw_text": "Microglia sampled from P5 CR3 or C3 KO mice had a statistically significant decrease in engulfment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CR3 expression in microglia",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "CR3, a high-affinity receptor for activated C3, was specifically upregulated in microglia in the P5 dLGN and downregulated at later developmental time points"
+              },
+              "quantitative_value": null,
+              "result_id": "res_21aa87a8f48df9305ca729d7",
+              "unit": null,
+              "value_raw_text": "CR3 was specifically upregulated in microglia in the P5 dLGN and downregulated at later developmental time points"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C3 enrichment in synaptic regions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0b295ba6e5568eeaa990",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "immunohistochemistry for CR3 ligand, C3, was enriched in synaptic regions of P5 dLGN and downregulated by P9"
+              },
+              "quantitative_value": null,
+              "result_id": "res_70fb605663d5171aa46632d1",
+              "unit": null,
+              "value_raw_text": "C3 was enriched in synaptic regions of P5 dLGN and downregulated by P9"
+            }
+          ],
+          "unit_id": "su_e3e637bbbf7686471c1172cf"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7707 on attempt 1"
+    }
+  ]
+}

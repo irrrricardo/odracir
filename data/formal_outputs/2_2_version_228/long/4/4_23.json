@@ -1,0 +1,620 @@
+{
+  "coverage_ledger": {
+    "168de93814327fac3f3f": "extracted",
+    "1f3ef7361257ddf77341": "not_selected",
+    "394ec18e7f2cb5db17fd": "extracted",
+    "3b5ec5fcedd0dfc61c22": "not_selected",
+    "40a7a538f77bb610b4e6": "not_selected",
+    "416159bffa443e1d473c": "extracted",
+    "5b3723fff215daae5d35": "not_selected",
+    "63d236702ebc7b1d761e": "not_selected",
+    "697c36f5645d1654b592": "not_selected",
+    "75eba844107131deb51b": "not_selected",
+    "7fd9a534bed4b17cf4b0": "not_selected",
+    "9d292212420cc36dc172": "not_selected",
+    "c7dbb4d99f762adf2a85": "not_selected",
+    "e375e18dee4169add6f5": "not_selected",
+    "eaf77261b4eb86e9abb1": "not_selected",
+    "eb058e8929de6fa370d4": "extracted",
+    "fdba794a6f7618288b9c": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "HaCaT cells showed stronger correlation with −1/2 defects, possibly due to multi-stratified organization and higher elasticity.",
+    "Caspase-3 activation only occurred when there was an extrusion; inhibition eliminated extrusions but defect density was maintained.",
+    "Cell division inhibition did not alter extensile nature of MDCK.",
+    "Extrusion–defect spatial correlation slightly reduced under blebbistatin treatment, suggesting stress regulation through actomyosin activity.",
+    "The study primarily uses MDCK cells; other epithelial types tested but with limited sample sizes.",
+    "The mechanism is proposed for apoptotic extrusion; other extrusion types (e.g., oncogenic) not directly tested.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_23.pdf",
+    "source_sha256": "5745f8c2c043c9067ac7eed5035b9644904b34c11af9a8bcc557d2a008ba8785"
+  },
+  "paper_id": "4_23",
+  "quality_assessment": {
+    "correct_item_count": 54,
+    "deterministic_rule_score": 0.9169,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.3846,
+      "sample_size_log_score": 0.8277,
+      "statistical_support_coverage": 0.1538
+    },
+    "extracted_item_count": 54,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What is the relationship between apoptotic cell extrusion and topological defects in epithelial monolayers?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e18680d9bb2dcf212aa6cb77",
+              "inference_basis_ids": [
+                "res_7150f77e2e7a8fec03302c4b",
+                "res_ddfc5e9d1e8f0570e25f24fd",
+                "res_e5e9e3ceb1243c63d3cd1cc5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eb058e8929de6fa370d4",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Importantly, the defect-driven extrusion mechanism depends on intercellular junctions, because the weakening of cell–cell interactions in an α-catenin knockdown monolayer reduces the defect size and increases both the number of defects and extrusion rates, as is also predicted by our model."
+              },
+              "statement": "The defect-driven extrusion mechanism depends on intercellular junctions, because weakening cell–cell interactions in α-catenin knockdown reduces defect size and increases both the number of defects and extrusion rates."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS10",
+              "description": "Defect density: 685 frames (WT) from 3 movies, 360 frames (α-catKD) from 3 movies; extrusion rate: 6 movies each.",
+              "name": "α-catKD defect density and extrusion rate",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS11",
+              "description": "1,940 defects from 3 independent movies.",
+              "name": "α-catKD stress around +1/2 defects",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of defect density, extrusion rate, and stress patterns between WT and α-catenin knockdown (α-catKD) MDCK monolayers."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "α-catenin knockdown",
+              "protocol_description": "Stable α-catenin knockdown MDCK cell line used; compared to WT."
+            }
+          ],
+          "name": "Modulation of extrusion by cell–cell junction strength (α-catenin knockdown)",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Defect density in α-catKD vs WT",
+              "n_sample_size": null,
+              "p_value": 0.001,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "g, Average defect areal density in WT and α-catKD MDCK. g, n = 685 frames from 3 independent movies in 2 independent experiments (WT), n = 360 frames from 3 independent movies (α-catKD). Two sample t-test, ***P < 0.001."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7150f77e2e7a8fec03302c4b",
+              "unit": "per 10^4 μm^2",
+              "value_raw_text": "Average total defect density significantly higher in α-catKD compared to WT (P < 0.001)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Extrusion rate in α-catKD vs WT",
+              "n_sample_size": null,
+              "p_value": 0.01,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "h, Average extrusion rate in WT and α-catKD MDCK. h, n = 6 independent movies in 4 independent experiments (WT), n = 6 independent movies in 2 independent experiments (α-catKD). ks-test, **P < 0.01."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ddfc5e9d1e8f0570e25f24fd",
+              "unit": "per 10^4 μm^2 per h",
+              "value_raw_text": "Average extrusion rate significantly higher in α-catKD compared to WT (P < 0.01)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Isotropic stress around +1/2 defects in α-catKD",
+              "n_sample_size": 1940,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "f, Average isotropic stress around +1/2 defect (α-catKD experiments). n = 1,940 defects from 3 independent movies."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e5e9e3ceb1243c63d3cd1cc5",
+              "unit": null,
+              "value_raw_text": "Compressive stress pattern around +1/2 defects in α-catKD experiments shown; defect size reduced."
+            }
+          ],
+          "unit_id": "su_2e8f5dd7c5af89ea6113b6f7"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6f12fafbc9ece66158511692",
+              "inference_basis_ids": [
+                "res_cbff5873a6291786a3e39228",
+                "res_cf5421214e6fe7f2d023e697",
+                "res_dde47283bc598610489a9326"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eb058e8929de6fa370d4",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Here we show that apoptotic cell extrusion is provoked by singularities in cell alignments in the form of comet-shaped topological defects."
+              },
+              "statement": "Apoptotic cell extrusion is provoked by singularities in cell alignments in the form of comet-shaped topological defects (+1/2)."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "50 extrusions from 4 independent movies in 3 independent experiments.",
+              "name": "MDCK WT extrusion-defect correlation",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "61 extrusions from 3 independent movies in 2 independent experiments.",
+              "name": "MDCK mytomycin C extrusion-defect correlation",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "85 extrusions in 2 independent movies.",
+              "name": "MCF10A extrusion-defect correlation",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "79 extrusions in 2 independent movies.",
+              "name": "HaCaT extrusion-defect correlation",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "We found that extrusion events were strongly correlated with the positions of a subset of +1/2 defects (and less so with −1/2 defects).",
+              "provenance": {
+                "chunk_id": "394ec18e7f2cb5db17fd",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We found that extrusion events were strongly correlated with the positions of a subset of +1/2 defects (and less so with −1/2 defects) (Fig. 1f, Extended Data Fig. 1e–h, Methods)."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Automated nematic characterization to detect topological defects and measure distance from extrusions.",
+            "Time-lapse imaging of confluent MDCK, MCF10A, and HaCaT monolayers to observe extrusion events and cell orientation."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Automated nematic characterization",
+              "protocol_description": "Phase contrast or fluorescence images smoothed with Bandpass Filter; OrientationJ used to detect direction of largest eigenvector of structure tensor; local nematic order parameter tensor Q calculated; defects detected by winding number; only stably detected defects (≥2 consecutive frames) considered."
+            }
+          ],
+          "name": "Correlation between extrusion and +1/2 defects",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Temporal correlation between defects and extrusion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "394ec18e7f2cb5db17fd",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "Defects occurred well before cell extrusion and caspase activation (at about 100 min) (Extended Data Fig. 1i), consistent with spatio-temporal cellular flows observed in these regions."
+              },
+              "quantitative_value": 100.0,
+              "result_id": "res_cbff5873a6291786a3e39228",
+              "unit": "min",
+              "value_raw_text": "Defects occurred well before cell extrusion and caspase activation (at about 100 min)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Normalized areal probability of +1/2 defects near extrusions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "394ec18e7f2cb5db17fd",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We found that extrusion events were strongly correlated with the positions of a subset of +1/2 defects (and less so with −1/2 defects) (Fig. 1f, Extended Data Fig. 1e–h, Methods)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cf5421214e6fe7f2d023e697",
+              "unit": null,
+              "value_raw_text": "Strong correlation between extrusion sites and positions of +1/2 defects; normalized areal probability peaks at small distances."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Extrusion correlation with defects across cell types",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "394ec18e7f2cb5db17fd",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We further found similar extrusion–defect links in different types of epithelium (Fig. 1f and Extended Data Fig. 1e–h), including a cell-division-inhibited (treated with mytomycin C) MDCK monolayer, a breast cell line (MCF10A) and human epithelial skin (HaCaT). In the last case, we found a correlation between extrusions and defects, but with a stronger correlation with −1/2 defects, which may be attributed to the multi-stratified organization of HaCaT cells as well as the HaCaT cell layers being more elastic than the MDCK monolayer."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dde47283bc598610489a9326",
+              "unit": null,
+              "value_raw_text": "Similar extrusion–defect links found in MDCK (WT and mytomycin C treated), MCF10A, and HaCaT; HaCaT showed stronger correlation with −1/2 defects."
+            }
+          ],
+          "unit_id": "su_bee52669b0f038ff53cfdce1"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c3bd0238f1ff6af3e03be6f4",
+              "inference_basis_ids": [
+                "res_56500e01c085e5b20f994e32",
+                "res_7f13ccb4dec5c013bf65f4db",
+                "res_9fc370085665c03695eaa071",
+                "res_c770f929649524b619fb3afc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eb058e8929de6fa370d4",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The results confirm the active nematic nature of epithelia, and demonstrate that defect-induced isotropic stresses are the primary precursors of mechanotransductive responses in cells, including YAP (Yes-associated protein) transcription factor activity, caspase-3-mediated cell death, and extrusions."
+              },
+              "statement": "Defect-induced isotropic stresses are the primary precursors of mechanotransductive responses in cells, including YAP transcription factor activity, caspase-3-mediated cell death, and extrusions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "1,339 (+1/2) and 2,454 (−1/2) defects from 2 independent experiments.",
+              "name": "Stress maps around +1/2 and −1/2 defects",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS8",
+              "description": "32 extrusions in 2 independent experiments.",
+              "name": "Isotropic stress evolution before extrusion",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS9",
+              "description": "78 (+1/2), 77 (−1/2), 78 random points from 17 independent movies in 2 independent experiments.",
+              "name": "YAP localization at defects",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Caspase-3 inhibition with Z-VAD-FMK to assess extrusion dependence on apoptosis.",
+            "Measurement of isotropic stress evolution for cells destined to extrude.",
+            "Traction force microscopy (TFM) and Bayesian inversion stress microscopy (BISM) to measure monolayer stress around defects.",
+            "YAP immunostaining and quantification of nuclear/cytoplasmic localization at +1/2 and −1/2 defects."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Traction Force Microscopy (TFM) and Bayesian Inversion Stress Microscopy (BISM)",
+              "protocol_description": "Soft silicone gel (10–20 kPa) with fluorescent beads; bead displacements measured and converted to traction forces; BISM used to infer 2D monolayer stress."
+            },
+            {
+              "method_id": "M5",
+              "name": "YAP antibody staining",
+              "protocol_description": "Cells fixed with 4% PFA, blocked with 5% horse serum/0.3% Triton X-100, incubated with YAP antibody (1:500) and secondary antibody (1:1000); nucleus-to-cytoplasmic ratio measured."
+            },
+            {
+              "method_id": "M6",
+              "name": "Caspase-3 inhibition",
+              "protocol_description": "Z-VAD-FMK added at 50 μM to inhibit apoptosis."
+            }
+          ],
+          "name": "Compressive stress at +1/2 defects triggers extrusion and YAP response",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of caspase-3 inhibition on extrusion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Along these lines, we found that caspase-3 inhibition largely eliminated the occurrence of extrusions (Extended Data Fig. 3g), even though the defect density was maintained."
+              },
+              "quantitative_value": null,
+              "result_id": "res_56500e01c085e5b20f994e32",
+              "unit": null,
+              "value_raw_text": "Caspase-3 inhibition largely eliminated the occurrence of extrusions, even though defect density was maintained."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Isotropic stress around +1/2 vs −1/2 defects",
+              "n_sample_size": 1339,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "The isotropic stress provides a clear distinction between +1/2 and −1/2 defects as it is only highly compressive (negative) at the head portion of a +1/2 defect, while being more tensile at a −1/2 defect (Fig. 3a, Experiment)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7f13ccb4dec5c013bf65f4db",
+              "unit": null,
+              "value_raw_text": "Isotropic stress is highly compressive (negative) at the head of +1/2 defects, while more tensile at −1/2 defects."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP cytoplasmic sequestration at +1/2 defects",
+              "n_sample_size": 78,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We observed that there were substantially more cells at the head region of +1/2 defects than in −1/2 defect cores that had YAP sequestered in their cytoplasm (Fig. 3d, e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9fc370085665c03695eaa071",
+              "unit": null,
+              "value_raw_text": "Substantially more cells at the head region of +1/2 defects had YAP sequestered in their cytoplasm compared to −1/2 defect cores or random points."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Isotropic stress evolution before extrusion",
+              "n_sample_size": 32,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "We then measured the time evolution of the average isotropic stress for cells that were going to extrude, and found that such cells were being increasingly compressed (increasingly negative isotropic stress with time, see Fig. 3b) in the time leading up to their extrusion. Notably, the time at which stress started to become more compressive (about −110 min) was consistent with the start of the long-range flow and with the rise in the defect–extrusion correlation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c770f929649524b619fb3afc",
+              "unit": null,
+              "value_raw_text": "Cells destined to extrude experienced increasingly negative isotropic stress (compression) starting around −110 min, with significant compression at later time points."
+            }
+          ],
+          "unit_id": "su_d3bc4f86706178cd0a4a1bce"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4233f8c14b7a08d6cc11d3d5",
+              "inference_basis_ids": [
+                "res_6809f5f14131119ae2b8775b",
+                "res_d4ce54032ff20175bf04d883",
+                "res_f26cfecbd06b2b77845c8cf5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Altogether, these results confirm that the epithelium is behaving as an active nematic liquid crystal and that topological defects are spontaneously formed by active stresses in the monolayer."
+              },
+              "statement": "The MDCK epithelium behaves as an extensile active nematic liquid crystal, and topological defects are spontaneously formed by active stresses."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "2,142 defects from 4 independent movies in 3 independent experiments.",
+              "name": "MDCK WT strain rate and velocity around +1/2 defects",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "6 different time frames binned over 120 min, 4 independent movies.",
+              "name": "Blebbistatin defect density time course",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Blebbistatin treatment (10 μM and 50 μM) to modulate actomyosin activity and measure defect density changes.",
+            "Comparison of experimental strain rate and velocity fields with numerical simulations of active nematic liquid crystals.",
+            "Particle image velocimetry (PIV) to measure velocity and strain rate fields around +1/2 defects in MDCK WT.",
+            "Washout of blebbistatin to observe recovery of defect density."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Particle Image Velocimetry (PIV)",
+              "protocol_description": "Velocity field obtained using PIVlab with three passes (64×64, 32×32, 16×16 pixel interrogation windows, 50% overlap)."
+            },
+            {
+              "method_id": "M3",
+              "name": "Blebbistatin treatment",
+              "protocol_description": "Blebbistatin added at 10 μM for 1 h before imaging for actomyosin reduction; 50 μM added for defect density temporal evolution, followed by washout."
+            }
+          ],
+          "name": "Active nematic nature of MDCK epithelium",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Defect density under blebbistatin treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "The rates of defect density decrease and increase were similar, as the defect density dropped to about 33% of its original value after approximately 10 h of blebbistatin treatment, and increased back to about 66% of the original density in approximately 6 h of washout."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6809f5f14131119ae2b8775b",
+              "unit": null,
+              "value_raw_text": "Defect density dropped to about 33% of original after ~10 h of 50 μM blebbistatin, and increased to ~66% after ~6 h washout."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Strain rate and velocity field match with simulations",
+              "n_sample_size": 2142,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "394ec18e7f2cb5db17fd",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "The close match between strain rate patterns and velocity fields around +1/2 topological defects in experiments and simulations (Fig. 2a) revealed that the epithelium monolayer of cells indeed behaves as an extensile, active nematic."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d4ce54032ff20175bf04d883",
+              "unit": null,
+              "value_raw_text": "Close match between strain rate patterns and velocity fields around +1/2 topological defects in experiments and simulations, revealing extensile active nematic behavior."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Extensile flow maintained under blebbistatin",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "416159bffa443e1d473c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "The blebbistatin treated monolayer maintained an extensile flow field (Extended Data Fig. 2b, Blebbistatin 10 μM)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f26cfecbd06b2b77845c8cf5",
+              "unit": null,
+              "value_raw_text": "Blebbistatin treated monolayer maintained an extensile flow field."
+            }
+          ],
+          "unit_id": "su_ffed183d94ae344be515c3a2"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6983 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6983 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3662 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4511 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4583 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4721 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3123 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4912 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4602 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3619 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8858 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7828 on attempt 1"
+    }
+  ]
+}

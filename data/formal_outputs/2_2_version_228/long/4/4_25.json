@@ -1,0 +1,539 @@
+{
+  "coverage_ledger": {
+    "012d2342fed0ae645239": "not_selected",
+    "3afd7243f8414f63ecb9": "not_selected",
+    "4d983d829675b28e9ab2": "extracted",
+    "9341fccdeb10252db49d": "extracted",
+    "99a3552cd50543a2e51c": "not_selected",
+    "9c10d6c45d7a49c70235": "not_selected",
+    "a2b8742bdd2e7d9d8f5f": "extracted",
+    "b5616d32df3b4b099be4": "extracted",
+    "ce0bdabb7812a54a33c5": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Theory assumes persistence time τ ≪ alpha-relaxation time τα; deviations appear when τ > τα.",
+    "Continuum elastic approximation valid only at low q.",
+    "Normal mode analysis restricted to thermal equilibrium in current experimental methods.",
+    "Model neglects cell–cell dissipation (wet vs. dry active materials) which could modify scalings.",
+    "Assumption of uncoordinated activity between cells; local alignment mechanisms not included.",
+    "Experimental correlation length sensitive to uncontrolled conditions; only qualitative features robust.",
+    "High-q peak disappearance in experiments not fully explained.",
+    "Simulations with division show additional tail in velocity distribution due to division algorithm."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_25.pdf",
+    "source_sha256": "0a52170571e5f93c7f5bd1641241cf1acfe95feb1f6f83b7605e26c15c2f6f1c"
+  },
+  "paper_id": "4_25",
+  "quality_assessment": {
+    "correct_item_count": 52,
+    "deterministic_rule_score": 0.9443,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0667,
+      "sample_size_log_score": 0.2593,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 52,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can persistent uncoordinated cell motility coupled to collective elastic modes of a cell sheet produce observed swirl-like velocity correlations in confluent epithelial monolayers?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3eaac9a21728a95960306a0a",
+              "inference_basis_ids": [
+                "res_8a352753c8e0972a04bbf2f2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4d983d829675b28e9ab2",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "In the opposite, high persistence limit when τ →∞, we obtain instead Eν ¼ ζ2v2 0=4λν, i.e. a divergence of the contribution of the lowest modes."
+              },
+              "statement": "In the high persistence limit τ → ∞, the lowest modes dominate, leading to a divergence of their energy contribution."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4853dcb23f3f56e434de5778",
+              "inference_basis_ids": [
+                "res_450b28cf0d46da7b053c9bcb",
+                "res_47c1979afd19ccea3ec8e64b",
+                "res_8a352753c8e0972a04bbf2f2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9341fccdeb10252db49d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "persistent uncoordinated cell motility coupled to the collective elastic modes of the cell sheet is sufﬁcient to produce swirl-like correlations."
+              },
+              "statement": "Persistent uncoordinated cell motility coupled to collective elastic modes is sufficient to produce swirl-like velocity correlations."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Develop a linear response formalism for dense active matter by linearizing interaction forces around a mechanically stable configuration.",
+            "Project dynamics onto normal modes of the dynamical matrix to derive mode energy and velocity correlations.",
+            "Recast normal mode results into continuum elastic formulation to obtain Fourier-space velocity correlation function."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Linear response theory",
+              "protocol_description": "Linearize interaction forces around a mechanically stable configuration (energy minimum) assuming persistence time τ ≪ alpha-relaxation time τα. Derive mode energy Eν = ζ v0^2 τ / [4 (1 + λν τ / ζ)] and Fourier velocity correlation 〈|v(q)|²〉 = Σν [v0² / (2(1 + λν τ / ζ))] |ξν(q)|²."
+            },
+            {
+              "method_id": "M2",
+              "name": "Continuum elastic formulation",
+              "protocol_description": "Map normal mode results to continuum elasticity with longitudinal and transverse correlation lengths ξL and ξT. Derive 〈|v(q)|²〉 = (N v0² / 2) [1/(1 + ξL² q²) + 1/(1 + ξT² q²)]."
+            }
+          ],
+          "name": "Active linear elasticity theory and normal mode analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Continuum velocity correlation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "h vðqÞ j j2i ¼ N 2 v0 v 2 1 1 þ ξ2 Lq2 þ 1 1 þ ξ2 Tq2 \" # ;"
+              },
+              "quantitative_value": null,
+              "result_id": "res_450b28cf0d46da7b053c9bcb",
+              "unit": null,
+              "value_raw_text": "〈|v(q)|²〉 = (N v0² / 2) [1/(1 + ξL² q²) + 1/(1 + ξT² q²)]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fourier velocity correlation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4d983d829675b28e9ab2",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "hjvðqÞj2i ¼ X ν v2 0 2ð1 þ λντ=ζÞ jξνðqÞj2;"
+              },
+              "quantitative_value": null,
+              "result_id": "res_47c1979afd19ccea3ec8e64b",
+              "unit": null,
+              "value_raw_text": "〈|v(q)|²〉 = Σν [v0² / (2(1 + λν τ / ζ))] |ξν(q)|²"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mode energy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4d983d829675b28e9ab2",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Eν ¼ 1 2 λνha2 νi ¼ ζv2 0τ 4 1 þ λντ=ζ ð Þ ;"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8a352753c8e0972a04bbf2f2",
+              "unit": null,
+              "value_raw_text": "Eν = ζ v0^2 τ / [4 (1 + λν τ / ζ)]"
+            }
+          ],
+          "unit_id": "su_35cd4efadaa291528a9e4f32"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a23e05976fcb42542c0464cd",
+              "inference_basis_ids": [
+                "res_1ab2f1d2966b24e30cb4e320",
+                "res_adb4c13dbc7ce5fea0209725"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9341fccdeb10252db49d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our analytical model quantitatively matches measured velocity correlation functions over more than a decade with a single ﬁtting parameter."
+              },
+              "statement": "The analytical model quantitatively matches measured velocity correlation functions over more than a decade with a single fitting parameter."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e07a7a1cbb1ac5d028d4a984",
+              "inference_basis_ids": [
+                "res_adb4c13dbc7ce5fea0209725"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "This indicates that the precise value of the correlation length is very sensitive to the exact experimental conditions that are not simple to accurately control. The qualitative features of the correlation function are, however, robust."
+              },
+              "statement": "The precise value of the correlation length is very sensitive to exact experimental conditions, but qualitative features are robust."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "7 experimental runs, N~1400 cells, field of view 867×662 μm, PIV grid 54×40, resolution 16 μm.",
+              "name": "Experimental PIV data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compute Fourier velocity correlation and temporal autocorrelation, and fit to theoretical model.",
+            "Culture immortalized human corneal epithelial cells (HCE-S) to confluence on tissue culture plastic.",
+            "Extract velocity fields using Particle Image Velocimetry (PIV).",
+            "Perform time-lapse phase-contrast microscopy at 10 min intervals for ~48 h."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "Cell culture and imaging",
+              "protocol_description": "HCE-S cells plated in 12-well plate with DMEM/F12 Glutamax, 10% FBS, 1% penicillin/streptomycin. Incubated at 37°C, 5% CO2 overnight to confluence. Before imaging, washed with PBS, medium replaced with HEPES-buffered medium. Imaged with phase-contrast Leica DM IRB at 37°C, 10× magnification, 10 min intervals, 1300×1000 pixels, ~48 h."
+            },
+            {
+              "method_id": "M8",
+              "name": "Particle Image Velocimetry (PIV)",
+              "protocol_description": "Iterative PIV plugin for ImageJ, finest resolution level 3, 54×40 grid, 16 μm resolution. Extruded cells and nucleoli serve as tracer particles."
+            },
+            {
+              "method_id": "M9",
+              "name": "Velocity correlation analysis",
+              "protocol_description": "Normalize velocity by instantaneous spatial mean-square average. Compute Fourier transform on PIV grid, then |ṽ(q)|². Fit to Eq. (16) with single parameter ξT, assuming (μ+B)/μ=4.3."
+            }
+          ],
+          "name": "In-vitro experiments on corneal epithelial cell sheets",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Best-fit μ/(σ²ζ)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "μ∕(σ2ζ) = 60.5 h−1"
+              },
+              "quantitative_value": 60.5,
+              "result_id": "res_16e5f8a4c1a0e6f3ed39774e",
+              "unit": "h⁻¹",
+              "value_raw_text": "60.5 h⁻¹"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ratio v0 / mean speed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The q = 0 intercept of the correlation function gives a ratio v0=v 10"
+              },
+              "quantitative_value": 10.0,
+              "result_id": "res_1ab2f1d2966b24e30cb4e320",
+              "unit": null,
+              "value_raw_text": "≈10"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Area per cell",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we ﬁnd an area per cell of 〈A〉≈380 μm2"
+              },
+              "quantitative_value": 380.0,
+              "result_id": "res_1ff67489b9a5b9826df2cb02",
+              "unit": "μm²",
+              "value_raw_text": "≈380 μm²"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Particle radius",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "corresponding to a particle radius of 〈σ〉≈11 μm"
+              },
+              "quantitative_value": 11.0,
+              "result_id": "res_25ead59196902b26d7b453a1",
+              "unit": "μm",
+              "value_raw_text": "≈11 μm"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best-fit autocorrelation time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "We settled on a best ﬁt autocorrelation time of τ = 2.5 h"
+              },
+              "quantitative_value": 2.5,
+              "result_id": "res_5ef6ee3967413ed7465d6658",
+              "unit": "h",
+              "value_raw_text": "τ = 2.5 h"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean cell speed",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "v ¼ ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ hjvðr; tÞj2i q ¼ 12 ± 2μm=h (n = 5 experiments"
+              },
+              "quantitative_value": 12.0,
+              "result_id": "res_a18633941645861ab7b2c101",
+              "unit": "μm/h",
+              "value_raw_text": "12 ± 2 μm/h"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best-fit transverse correlation length",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The best ﬁt to the theory is obtained with ξT = 100 μm"
+              },
+              "quantitative_value": 100.0,
+              "result_id": "res_adb4c13dbc7ce5fea0209725",
+              "unit": "μm",
+              "value_raw_text": "ξT = 100 μm"
+            }
+          ],
+          "unit_id": "su_794879e397c99bd5a3a13e14"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3dd32f4ef8cad5af85508a70",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Now ﬁxing the effective temperature, the system becomes more glassy when τ increases."
+              },
+              "statement": "The active glass transition becomes more glassy when persistence time τ increases at fixed effective temperature Teff."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_be7bd276a78d6062c22b869c",
+              "inference_basis_ids": [
+                "res_3996212dfc906ea40e57fa51",
+                "res_f797342aa49de8ce7dce751e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9341fccdeb10252db49d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Simulations and normal mode analysis perfectly match when tissue-level reorganisation occurs on times longer than the persistence time of cell motility."
+              },
+              "statement": "Simulations and normal mode analysis perfectly match when tissue-level reorganization occurs on times longer than the persistence time of cell motility."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "N=3183 particles, periodic boundary conditions, φ=1, 30% polydispersity, various τ and Teff.",
+              "name": "Soft disk simulation data",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "N=3183 cells, open boundary conditions, p0=3.6, 30% variability in A0, various τ and Teff.",
+              "name": "SPV simulation data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compute velocity correlation functions, alpha-relaxation time, and compare with analytical predictions.",
+            "Simulate self-propelled Voronoi (SPV) model at dimensionless shape parameter p0=3.6 with open boundary conditions.",
+            "Simulate soft elastic particle model with overdamped active Brownian dynamics at packing fraction φ=1 and 30% polydispersity."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Soft disk model simulation",
+              "protocol_description": "Overdamped active Brownian dynamics: ζ ṙ_i = v0 n̂_i - ∇_{r_i} V_i, with harmonic repulsion V_i = Σ_j (k/2) (σ_i + σ_j - |r_j - r_i|)² if within interaction range. Packing fraction φ=1, 30% polydispersity in radius. Time step δt=0.01, simulation length 5×10⁴ time units, first 1250 discarded."
+            },
+            {
+              "method_id": "M4",
+              "name": "SPV model simulation",
+              "protocol_description": "Overdamped active Brownian dynamics with Voronoi-based cell shape energy V_i = (K/2)(A_i - A_0)² + (Γ/2)(P_i - P_0)². Dimensionless shape parameter p0=3.6, 30% variability in A_0. Open boundary conditions with boundary line tension λ=0.3. Time step δt=0.01, simulation length 5×10⁴ time units, first 1250 discarded."
+            },
+            {
+              "method_id": "M5",
+              "name": "Velocity correlation computation",
+              "protocol_description": "Compute Fourier transform of particle velocities, then |v(q)|² = v(q)·v*(q), radial q average, and time average. For SPV, use cell center positions."
+            },
+            {
+              "method_id": "M6",
+              "name": "Alpha-relaxation time computation",
+              "protocol_description": "Compute self-intermediate scattering function S(q,t) at q=2π/σ. τα is first time where S(q,t) < 0.5, bounded by simulation time."
+            }
+          ],
+          "name": "Numerical simulations of agent-based cell models",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Velocity correlation slope",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "for soft disks at low Teff = 0.005, where the system is solid, the correlation function develops a dramatic 1∕q2 slope as τ increases (dots), exactly in line with our modes predictions (lines)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3996212dfc906ea40e57fa51",
+              "unit": null,
+              "value_raw_text": "1/q² slope at low Teff and high τ"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean-square velocity normalized by v0",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The dramatic drop corresponds to elastic energy being stored in distortions of the sheet, and it is in very good agreement with our analytical prediction in Eq. (11) (solid lines)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_48fbd0904b15a3764bf1fe36",
+              "unit": null,
+              "value_raw_text": "Dramatic drop corresponding to elastic energy storage, in very good agreement with analytical prediction Eq. (11)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Bulk modulus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "B = 1.684 ± 0.008"
+              },
+              "quantitative_value": 1.684,
+              "result_id": "res_7cf0f36e73e76d6f92f200db",
+              "unit": null,
+              "value_raw_text": "B = 1.684 ± 0.008"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Shear modulus",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "μ = 0.510 ± 0.004"
+              },
+              "quantitative_value": 0.51,
+              "result_id": "res_891639b783a6fdafa1c9a526",
+              "unit": null,
+              "value_raw_text": "μ = 0.510 ± 0.004"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Agreement with continuum predictions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b5616d32df3b4b099be4",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "At low q, where the continuum elastic approximation is valid, we have excellent agreement"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f797342aa49de8ce7dce751e",
+              "unit": null,
+              "value_raw_text": "Excellent agreement at low q"
+            }
+          ],
+          "unit_id": "su_8b35a597f0c63fcdc04aba95"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9344 on attempt 1"
+    }
+  ]
+}

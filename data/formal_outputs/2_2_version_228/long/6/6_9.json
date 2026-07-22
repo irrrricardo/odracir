@@ -1,0 +1,484 @@
+{
+  "coverage_ledger": {
+    "0741a19f2a4b82305506": "extracted",
+    "10c44c41651b36c9b42e": "extracted",
+    "151077e3c4b670b6be33": "extracted",
+    "57b5c8b1fb4574fcb6fc": "extracted",
+    "9c71d6fd6597b1f7e0a4": "extracted",
+    "af15ce2fc47761b8bb98": "extracted",
+    "cb394671dcbe0d5c2cf7": "extracted",
+    "d079551d1c039fa1b56c": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "GCN graph convolution is a localized filter and cannot effectively propagate labels with few labeled data.",
+    "GCN requires additional validation data for early stopping, which is undesirable for semi-supervised learning.",
+    "Over-smoothing occurs with many convolutional layers, mixing features of different clusters.",
+    "Deep GCNs are difficult to train.",
+    "Co-training depends on random walk model performance; may not work well on graphs with many isolated components.",
+    "Self-training may not utilize graph structure effectively.",
+    "Experiments limited to citation networks; generalization to other graph types not tested.",
+    "Hyperparameters (e.g., number of added labels) chosen heuristically; sensitivity not fully explored."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_9.pdf",
+    "source_sha256": "b6fa332ad0682ffb557d5cacc26d90e99c6fd16bffcb10881652b81d479142ff"
+  },
+  "paper_id": "6_9",
+  "quality_assessment": {
+    "correct_item_count": 48,
+    "deterministic_rule_score": 0.834,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 48,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What are the mechanisms and fundamental limits of the GCN model for semi-supervised learning?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0786da58414b1bac97dc5e35",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cb394671dcbe0d5c2cf7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "We thus call the graph convolution a special form of Laplacian smoothing – symmetric Laplacian smoothing."
+              },
+              "statement": "The graph convolution in GCN is a special form of Laplacian smoothing."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0f36c3a1026d3f500563caa5",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "151077e3c4b670b6be33",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "it requires an additional validation set for early stopping in training, which is essentially using the prediction accuracy on the validation set for model selection. ... This is certainly undesirable as it defeats the purpose of semi-supervised learning."
+              },
+              "statement": "GCN requires additional validation data for early stopping, which defeats the purpose of semi-supervised learning."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3446f6d3362d9b7216c83c32",
+              "inference_basis_ids": [
+                "res_61ceebb9b7681991afa417bd"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "af15ce2fc47761b8bb98",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "repeatedly applying Laplacian smoothing may mix the features of vertices from different clusters and make them indistinguishable."
+              },
+              "statement": "Repeated Laplacian smoothing leads to over-smoothing, making features of different clusters indistinguishable."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b077fdeb5ccbfb9c0a83a798",
+              "inference_basis_ids": [
+                "res_666013195d5c8c05ac8d5965"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "af15ce2fc47761b8bb98",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Since vertices in the same cluster tend to be densely connected, the smoothing makes their features similar, which makes the subsequent classification task much easier."
+              },
+              "statement": "Laplacian smoothing makes features of vertices in the same cluster similar, easing classification."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e52a5291dafa599b56c85641",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "151077e3c4b670b6be33",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "a shallow GCN cannot sufficiently propagate the label information to the entire graph with only a few labels."
+              },
+              "statement": "A shallow GCN cannot effectively propagate label information to the entire graph with few labels."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Citation network with 2708 nodes, 5429 edges, 7 classes, 1433 features.",
+              "name": "Cora",
+              "version_or_split": "20 labels per class"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Small social network with 34 vertices, 2 classes, 78 edges.",
+              "name": "Zachary's karate club",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare GCN and fully-connected network (FCN) performance on Cora with 20 labels per class.",
+            "Prove Theorem 1 on convergence of repeated Laplacian smoothing.",
+            "Visualize vertex embeddings of Zachary's karate club network with GCNs of 1 to 5 layers."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GCN",
+              "protocol_description": "Two-layer GCN with ReLU and softmax, using symmetric normalized adjacency matrix for graph convolution."
+            },
+            {
+              "method_id": "M2",
+              "name": "FCN",
+              "protocol_description": "Fully-connected network with same architecture as GCN but without graph convolution."
+            }
+          ],
+          "name": "Analysis of GCN mechanisms and over-smoothing",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Embedding visualization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "af15ce2fc47761b8bb98",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Applying the smoothing once, the points are not well-separated (Fig. 2a). Applying the smoothing twice, the points from the two classes are separated relatively well. Applying the smoothing again and again, the points are mixed (Fig. 2c, 2d, 2e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_61ceebb9b7681991afa417bd",
+              "unit": null,
+              "value_raw_text": "With 1 layer, points not well-separated; 2 layers, points separated relatively well; 3-5 layers, points mixed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cb394671dcbe0d5c2cf7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Table 1: GCNs vs. Fully-connected networks\nOne-layer\nFCN\nTwo-layer\nFCN\nOne-layer\nGCN\nTwo-layer\nGCN\n0.530860\n0.559260\n0.707940\n0.798361"
+              },
+              "quantitative_value": null,
+              "result_id": "res_666013195d5c8c05ac8d5965",
+              "unit": null,
+              "value_raw_text": "One-layer GCN: 0.707940; Two-layer GCN: 0.798361; One-layer FCN: 0.530860; Two-layer FCN: 0.559260"
+            }
+          ],
+          "unit_id": "su_61cd5991bbf90d727359a4fb"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How can we overcome the limits of GCNs for semi-supervised learning with very few labels?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1c4cb58b8d6dce6f6b6e83a0",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "151077e3c4b670b6be33",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "We propose to co-train a GCN with a random walk model as the latter can explore the global graph structure, which complements the GCN model."
+              },
+              "statement": "Co-training a GCN with a random walk model complements the GCN by exploring global graph topology."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_248fc1b6f68e7895a1034515",
+              "inference_basis_ids": [
+                "res_7b4966877aa818285765df9d",
+                "res_e337be9acdd71c8373e4f691",
+                "res_fd8a07a9082aaa554970f3d8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57b5c8b1fb4574fcb6fc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "When the training size is small, all our methods are far better than GCN-V, and much better than GCN+V in most cases."
+              },
+              "statement": "Our methods outperform GCNs by a large margin when training size is small."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_29386d5411d148be3a91b58a",
+              "inference_basis_ids": [
+                "res_7b4966877aa818285765df9d",
+                "res_e337be9acdd71c8373e4f691",
+                "res_fd8a07a9082aaa554970f3d8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0741a19f2a4b82305506",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Combining both the co-training and self-training approaches can substantially improve the GCN model for semi-supervised learning with very few labels, and exempt it from requiring additional labeled data for validation."
+              },
+              "statement": "Combining co-training and self-training substantially improves GCN with very few labels and removes the need for validation data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c3815cd92f6efef0c03be887",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "151077e3c4b670b6be33",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "By self-training a GCN, we can exploit its feature extraction capability to overcome its localized nature."
+              },
+              "statement": "Self-training a GCN exploits its feature extraction capability to overcome its localized nature."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e37cfe991413b7684ddbcd5d",
+              "inference_basis_ids": [
+                "res_7b4966877aa818285765df9d",
+                "res_fd8a07a9082aaa554970f3d8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57b5c8b1fb4574fcb6fc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "If the data has strong manifold structure, such as PubMed, Co-Training performs the best. In contrast, Self-Training is the worst on PubMed, as it does not utilize the graph structure. But Self-Training does well on CiteSeer where Co-Training is overall the worst."
+              },
+              "statement": "Co-training performs best on PubMed due to strong manifold structure; Self-training performs best on CiteSeer."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Citation network with 2708 nodes, 5429 edges, 7 classes, 1433 features.",
+              "name": "Cora",
+              "version_or_split": "0.5%, 1%, 2%, 3%, 4%, 5% training size"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Citation network with 3327 nodes, 4732 edges, 6 classes, 3703 features.",
+              "name": "CiteSeer",
+              "version_or_split": "0.5%, 1%, 2%, 3%, 4%, 5% training size"
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Citation network with 19717 nodes, 44338 edges, 3 classes, 500 features.",
+              "name": "PubMed",
+              "version_or_split": "0.03%, 0.05%, 0.1%, 0.3% training size"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Co-train GCN with ParWalks random walk model to expand label set.",
+            "Combine co-training and self-training (Union and Intersection).",
+            "Evaluate on Cora, CiteSeer, PubMed with varying label rates.",
+            "Self-train GCN by adding most confident predictions."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Cheby",
+              "protocol_description": "GCN with Chebyshev filter, polynomial degree K=2."
+            },
+            {
+              "method_id": "M3",
+              "name": "Co-training",
+              "protocol_description": "Use ParWalks to find most confident vertices for each class and add them to training set; train GCN on expanded set without validation."
+            },
+            {
+              "method_id": "M4",
+              "name": "Self-training",
+              "protocol_description": "Train GCN, select top t most confident predictions per class by softmax, add to label set, retrain GCN with pre-trained initialization."
+            },
+            {
+              "method_id": "M5",
+              "name": "Union",
+              "protocol_description": "Combine co-training and self-training by adding labels from both methods."
+            },
+            {
+              "method_id": "M6",
+              "name": "Intersection",
+              "protocol_description": "Combine co-training and self-training by adding labels found by both methods."
+            },
+            {
+              "method_id": "M7",
+              "name": "GCN+V",
+              "protocol_description": "Two-layer GCN with 500 additional labels for validation and early stopping."
+            },
+            {
+              "method_id": "M8",
+              "name": "GCN-V",
+              "protocol_description": "Two-layer GCN optimized on training accuracy without validation."
+            },
+            {
+              "method_id": "M9",
+              "name": "LP",
+              "protocol_description": "Label propagation using ParWalks."
+            }
+          ],
+          "name": "Proposed co-training and self-training methods",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10c44c41651b36c9b42e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "CiteSeer\nLabel Rate\n0.5%\n1%\n2%\n3%\n4%\n5%\n...\nGCN-V\n33.4\n46.5\n62.6\n66.9\n68.4\n69.5\nGCN+V\n43.6\n55.3\n64.9\n67.5\n68.7\n69.6\nCo-training\n47.3\n55.7\n62.1\n62.5\n64.5\n65.5\nSelf-training\n43.3\n58.1\n68.2\n69.8\n70.4\n71.0\nUnion\n46.3\n59.1\n66.7\n66.7\n67.6\n68.2\nIntersection\n42.9\n59.1\n68.6\n70.1\n70.8\n71.2"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7b4966877aa818285765df9d",
+              "unit": null,
+              "value_raw_text": "On CiteSeer with 1% label rate: Co-training 55.7, Self-training 58.1, Union 59.1, Intersection 59.1, GCN-V 46.5, GCN+V 55.3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10c44c41651b36c9b42e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Table 6: Accuracy under 20 Labels per Class\nMethod\nCiteSeer\nCora\nPubmed\n...\nGCN+V\n68.9\n80.3\n79.1\n...\nUnion\n65.7\n80.5\n78.3"
+              },
+              "quantitative_value": null,
+              "result_id": "res_80ad282a449d603f1881005a",
+              "unit": null,
+              "value_raw_text": "With 20 labels per class: GCN+V 80.3 on Cora, 68.9 on CiteSeer, 79.1 on PubMed; Union 80.5 on Cora, 65.7 on CiteSeer, 78.3 on PubMed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10c44c41651b36c9b42e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Cora\nLabel Rate\n0.5%\n1%\n2%\n3%\n4%\n5%\n...\nGCN-V\n42.6\n56.9\n67.8\n74.9\n77.6\n79.3\nGCN+V\n50.9\n62.3\n72.2\n76.5\n78.4\n79.7\nCo-training\n56.6\n66.4\n73.5\n75.9\n78.9\n80.8\nSelf-training\n53.7\n66.1\n73.8\n77.2\n79.4\n80.0\nUnion\n58.5\n69.9\n75.9\n78.5\n80.4\n81.7\nIntersection\n49.7\n65.0\n72.9\n77.1\n79.4\n80.2"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e337be9acdd71c8373e4f691",
+              "unit": null,
+              "value_raw_text": "On Cora with 1% label rate: Co-training 66.4, Self-training 66.1, Union 69.9, Intersection 65.0, GCN-V 56.9, GCN+V 62.3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10c44c41651b36c9b42e",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "PubMed\nLabel Rate\n0.03%\n0.05%\n0.1%\n0.3%\n...\nGCN-V\n46.4\n49.7\n56.3\n76.6\nGCN+V\n60.5\n57.5\n65.9\n77.8\nCo-training\n62.2\n68.3\n72.7\n78.2\nSelf-training\n51.9\n58.7\n66.8\n77.0\nUnion\n58.4\n64.0\n70.7\n79.2\nIntersection\n52.0\n59.3\n69.4\n77.6"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fd8a07a9082aaa554970f3d8",
+              "unit": null,
+              "value_raw_text": "On PubMed with 0.05% label rate: Co-training 68.3, Self-training 58.7, Union 64.0, Intersection 59.3, GCN-V 49.7, GCN+V 57.5"
+            }
+          ],
+          "unit_id": "su_c6b301ee4e8a0b3d7a120910"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4857 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4151 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8986 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8929 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6942 on attempt 1"
+    }
+  ]
+}

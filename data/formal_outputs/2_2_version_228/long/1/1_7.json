@@ -1,0 +1,398 @@
+{
+  "coverage_ledger": {
+    "02388b22a5152c7760b5": "not_selected",
+    "1dc90a117a983b7791ed": "not_selected",
+    "2785d86101e83ee9d2c0": "not_selected",
+    "3875971aab7c6369bab3": "not_selected",
+    "45f46d1a6550c0ec14b7": "extracted",
+    "5afed6b41c0d27374211": "not_selected",
+    "5d32b79058b839d7ad43": "not_selected",
+    "629f0d21a539207325c8": "extracted",
+    "6ec46e4901b91ebe0265": "not_selected",
+    "83908d91644788102e8c": "not_selected",
+    "847eabb1a51e8b0472a7": "extracted",
+    "93a065449a2631a426fc": "not_selected",
+    "9b52b4ef6b3751da3ce5": "not_selected",
+    "a0b260d5dceaea50253f": "not_selected",
+    "b1efa103c1463355a6e9": "not_selected",
+    "bb160ec50039ec232eee": "not_selected",
+    "ce04ff66054e3a83ac78": "not_selected",
+    "d7aa6c9c3f73ea88ad01": "not_selected",
+    "dad6a45bd657a795adcd": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "CPA requires a sufficient number of cells per condition to estimate the latent space.",
+    "chemCPA's performance diminishes significantly when low dosage values are included in training.",
+    "Clear distribution shift induced by Alvespimycin and Panobinostat combination could not be fully identified by either CPA or chemCPA.",
+    "In OOD setting excluding single-drug perturbation, median R² decreased from 0.85 to 0.38 for DEGs, indicating reliance on single-drug observations.",
+    "The study focuses on scRNA-seq data; applicability to other modalities is not demonstrated.",
+    "Combinatorial space exploration remains computationally guided; experimental validation is limited to the datasets used."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_7.pdf",
+    "source_sha256": "9082a03a215f000c431a6cc726909f3122a22eb59985d729b3ed23fabc301dde"
+  },
+  "paper_id": "1_7",
+  "quality_assessment": {
+    "correct_item_count": 30,
+    "deterministic_rule_score": 0.9025,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 30,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a compositional perturbation autoencoder (CPA) predict single-cell transcriptional responses to unseen drug combinations, dosages, cell types, time points, and species?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1713871b349ce43d90768c8c",
+              "inference_basis_ids": [
+                "res_f13a74f7c52198894f51ef01"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Using newly generated single-cell drug combination data, we validate that CPA can predict unseen drug combinations while outperforming baseline models."
+              },
+              "statement": "CPA can predict unseen drug combinations while outperforming baseline models."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_194982bb33603e5619c85fa0",
+              "inference_basis_ids": [
+                "res_13a3fc362d5bcf3eb0035889",
+                "res_5d9dd81ea8a422e822e1eae5",
+                "res_8860f20347e42b4b146ebcec",
+                "res_8c7ef22c6797756c2cfc46d9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "chemCPA outperformed CPA overall. ... chemCPA generalized particularly well for compounds that belonged to the histone deacetylation pathway"
+              },
+              "statement": "chemCPA outperforms CPA in predicting unseen drug combinations, especially for compounds in the histone deacetylation pathway."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3718e704cb0939ebef353d6b",
+              "inference_basis_ids": [
+                "res_db759d1283452240e1bfc6a9"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The results for this OOD setting (Fig 4G) show that in the combination scenario, access to the single-drug influence is crucial. While the median R2 decreased from 0.85 to 0.38 for the DEGs"
+              },
+              "statement": "Access to single-drug influence is crucial for predicting combination effects; excluding it reduces median R² from 0.85 to 0.38 on DEGs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7369c0828238bb591f66299a",
+              "inference_basis_ids": [
+                "res_13a3fc362d5bcf3eb0035889",
+                "res_8860f20347e42b4b146ebcec"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Additionally, the architecture’s modularity enables incorporating the chemical representation of the drugs, allowing the prediction of cellular response to completely unseen drugs."
+              },
+              "statement": "Incorporating chemical representation of drugs enables prediction of cellular response to completely unseen drugs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_763e5c0a93124f4f772fad9d",
+              "inference_basis_ids": [
+                "res_1e1f220852abb6d2cf9cb664"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Furthermore, CPA is also applicable to genetic combinatorial screens. We demonstrate this by imputing in silico 5,329 missing combinations (97.6% of all possibilities) in a single-cell Perturb-seq experiment with diverse genetic interactions."
+              },
+              "statement": "CPA is applicable to genetic combinatorial screens, imputing 5,329 missing combinations (97.6% of all possibilities) in Perturb-seq."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_df05a5280334f9a9070b9272",
+              "inference_basis_ids": [
+                "res_f13a74f7c52198894f51ef01"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "CPA learns to in silico predict transcriptional perturbation response at the single-cell level for unseen dosages, cell types, time points, and species."
+              },
+              "statement": "CPA can predict transcriptional perturbation response at the single-cell level for unseen dosages, cell types, time points, and species."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Single-cell RNA-seq drug perturbation screen across three cancer cell lines.",
+              "name": "sci-Plex3",
+              "version_or_split": "290,889 cells; A549, K562, MCF7 cell lines; 188 compounds"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Novel non-small cell lung cancer dataset with single and combinatorial drug perturbations.",
+              "name": "Newly generated single-cell drug combination dataset",
+              "version_or_split": "A549 cells; 32 single and combinatorial drug perturbations"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Single-cell RNA-seq pooled CRISPR screen assessing overexpression of single or combinatorial interactions of 105 genes.",
+              "name": "Perturb-seq (Norman et al, 2019)",
+              "version_or_split": "~108,000 K562 cells; 284 conditions (131 unique combination pairs, single gene perturbations, controls)"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Additionally, the architecture’s modularity enables incorporating the chemical representation of the drugs, allowing the prediction of cellular response to completely unseen drugs.",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Additionally, the architecture’s modularity enables incorporating the chemical representation of the drugs, allowing the prediction of cellular response to completely unseen drugs."
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "CPA learns to in silico predict transcriptional perturbation response at the single-cell level for unseen dosages, cell types, time points, and species.",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "CPA learns to in silico predict transcriptional perturbation response at the single-cell level for unseen dosages, cell types, time points, and species."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "Using newly generated single-cell drug combination data, we validate that CPA can predict unseen drug combinations while outperforming baseline models.",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Using newly generated single-cell drug combination data, we validate that CPA can predict unseen drug combinations while outperforming baseline models."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "We demonstrate this by imputing in silico 5,329 missing combinations (97.6% of all possibilities) in a single-cell Perturb-seq experiment with diverse genetic interactions.",
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We demonstrate this by imputing in silico 5,329 missing combinations (97.6% of all possibilities) in a single-cell Perturb-seq experiment with diverse genetic interactions."
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Apply CPA to Perturb-seq genetic interaction data (105 genes, 284 conditions, ~108,000 K562 cells) to impute missing combinatorial genetic perturbations.",
+            "Extend CPA to chemCPA by incorporating chemical descriptors via a perturbation network, and evaluate on held-out compounds and combinations.",
+            "Train CPA on newly generated single-cell drug combination data (32 single and combinatorial perturbations in A549 cells) to predict unseen drug combinations.",
+            "Train CPA on sci-Plex3 single-cell drug perturbation data (188 drugs across A549, K562, MCF7 cell lines) to predict held-out highest-dose responses."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Compositional Perturbation Autoencoder (CPA)",
+              "protocol_description": "CPA combines interpretability of linear models with flexibility of deep learning. It learns factorized latent representations of perturbations and covariates (cell type, dose, time, species) using an adversarial loss to ensure independence. Perturbation effects are modeled as additive in a nonlinear latent space, with continuous dose encoded via a learned drug-response curve. At prediction time, embeddings are recombined to predict novel perturbation-covariate combinations."
+            },
+            {
+              "method_id": "M2",
+              "name": "chemCPA",
+              "protocol_description": "Extension of CPA that replaces the perturbation embedding dictionary with a perturbation network encoding small molecules using known chemical descriptors. It comprises a pre-trained molecule encoder G, a perturbation encoder M, and an amortized dosage scaler S. M maps chemical embeddings to latent perturbation effects, while S maps to effective dose given chemical embedding and applied dosage."
+            }
+          ],
+          "name": "CPA model development and evaluation on sci-Plex3 and combination datasets",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "R² score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The results in this setting illustrate how the chemical prior improved perturbation predictions on both the whole gene set and DEGs across dosages (Fig 4B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_13a3fc362d5bcf3eb0035889",
+              "unit": null,
+              "value_raw_text": "chemCPA improved perturbation predictions on both the whole gene set and DEGs across dosages (Fig 4B)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Imputation of missing combinations",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "45f46d1a6550c0ec14b7",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We demonstrate this by imputing in silico 5,329 missing combinations (97.6% of all possibilities) in a single-cell Perturb-seq experiment with diverse genetic interactions."
+              },
+              "quantitative_value": 5329.0,
+              "result_id": "res_1e1f220852abb6d2cf9cb664",
+              "unit": "combinations",
+              "value_raw_text": "CPA imputed in silico 5,329 missing combinations (97.6% of all possibilities) in Perturb-seq experiment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R² score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "While both models performed well in this scenario, chemCPA outperformed CPA overall. We should highlight that the clear distribution shift induced by the combination of Alvespimycin and Panobinostat (Fig 3A) could not be fully identified by either model, and both models achieved an R2 of about 0.3 on DEGs. In contrast, the other combinations could be predicted with R2 higher than 0.6 for the DEGs in the case of the chemCPA model (Fig 4E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5d9dd81ea8a422e822e1eae5",
+              "unit": null,
+              "value_raw_text": "chemCPA outperformed CPA overall on combination drug dataset; R² about 0.3 on DEGs for Alvespimycin+Panobinostat, >0.6 for other combinations (Fig 4E)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R² score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We report the results from (Hetzel et al, 2022) where the OOD drugs were excluded entirely from training and validation (Fig 4D) and observe that the inclusion of the low dosage values diminished chemCPA’s performance significantly"
+              },
+              "quantitative_value": null,
+              "result_id": "res_64eb8213604ff7d3605c3b5a",
+              "unit": null,
+              "value_raw_text": "Inclusion of low dosage values diminished chemCPA's performance significantly (Fig 4D)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R² score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Furthermore, we observed that chemCPA generalized particularly well for compounds that belonged to the histone deacetylation pathway (Fig 4C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8860f20347e42b4b146ebcec",
+              "unit": null,
+              "value_raw_text": "chemCPA generalized particularly well for compounds that belonged to the histone deacetylation pathway (Fig 4C)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R² score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The most significant improvement to CPA can be seen in the combination of Panobinostat and SRT2104 (Fig 4F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8c7ef22c6797756c2cfc46d9",
+              "unit": null,
+              "value_raw_text": "Most significant improvement to CPA seen in combination of Panobinostat and SRT2104 (Fig 4F)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R² score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The results for this OOD setting (Fig 4G) show that in the combination scenario, access to the single-drug influence is crucial. While the median R2 decreased from 0.85 to 0.38 for the DEGs, the single-drug perturbation of Panobinostat could still be predicted with high accuracy (Fig 4H)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_db759d1283452240e1bfc6a9",
+              "unit": null,
+              "value_raw_text": "In OOD setting excluding single-drug perturbation, median R² decreased from 0.85 to 0.38 for DEGs; single-drug Panobinostat still predicted with high accuracy (Fig 4G, 4H)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R² score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dad6a45bd657a795adcd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Box plots of R2 scores for predicted and real cells for 36 compounds and 108 unique held out conditions across different cell lines."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f13a74f7c52198894f51ef01",
+              "unit": null,
+              "value_raw_text": "R² scores for predicted and real cells for 36 compounds and 108 unique held out conditions across different cell lines (box plots, Fig 2D)"
+            }
+          ],
+          "unit_id": "su_1d059a347db88d63584c2395"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

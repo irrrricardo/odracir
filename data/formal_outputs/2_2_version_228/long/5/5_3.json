@@ -1,0 +1,276 @@
+{
+  "coverage_ledger": {
+    "062565f0d8efcbd70caa": "not_selected",
+    "297cc3b9b15a57eafb73": "not_selected",
+    "4a374d94eb4a0cb94107": "extracted",
+    "73c122e2bac471e6dfc0": "extracted",
+    "7a770bffdecb9cf95796": "extracted",
+    "989d1b199ac054021bee": "not_selected",
+    "bb6942efd4b989b4af00": "not_selected",
+    "cc18566baa381fc20b7e": "not_selected",
+    "cd03db1cae2026ec72dd": "not_selected",
+    "e56317f91307981753a5": "not_selected",
+    "ed374bcb2ab74f5ca1e1": "not_selected",
+    "f03e5fcbf778e418759b": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Assumes discrete distributions.",
+    "Requires faithfulness and injective noise.",
+    "Requires either known noise entropies or weakly monotonically increasing noise entropies along directed paths.",
+    "Additionally requires one of: mild extension of faithfulness, strictly monotonically increasing noise entropies, or expanded noise injectivity.",
+    "No assumption on graph topology (e.g., sparsity), functional form (e.g., linearity), or noise distribution.",
+    "Algorithms access data only via a conditional entropy oracle.",
+    "Theoretical results; no empirical validation provided.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_3.pdf",
+    "source_sha256": "fb9cba23101627a7a02d74aa277c883b03f940ee525388df2c402bfdaac2326b"
+  },
+  "paper_id": "5_3",
+  "quality_assessment": {
+    "correct_item_count": 23,
+    "deterministic_rule_score": 0.8825,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 23,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can we recover layerings of a causal graph from discrete data using a conditional entropy oracle?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8e129fb7ddf3038ff2e1a595",
+              "inference_basis_ids": [
+                "res_45b7529ac544e6f1785adf0a",
+                "res_ec1806828e978ba22d746357"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f03e5fcbf778e418759b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we can separate sources from non-sources and sinks from non-sinks by comparing their conditional entropy (with appropriate conditioning) to their unconditional noise entropy"
+              },
+              "statement": "Sources can be identified by equality of conditional entropy to noise entropy, while non-sources have larger conditional entropy."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_daa0e31d1f9b756849697f3c",
+              "inference_basis_ids": [
+                "res_3b55418084d22cea65a19226",
+                "res_caefc10a184502cc21dc09ed"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f03e5fcbf778e418759b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we can separate sources from non-sources and sinks from non-sinks by comparing their conditional entropy (with appropriate conditioning) to their unconditional noise entropy"
+              },
+              "statement": "Sinks can be identified by equality of conditional entropy to noise entropy, while non-sinks have smaller conditional entropy."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Derive bounds on conditional entropy of variables relative to their noise entropy under faithfulness and injective noise assumptions."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Information-theoretic analysis",
+              "protocol_description": "Using d-separation and properties of entropy, prove that for sources in SOUR, conditional entropy equals noise entropy, and for non-sources it is larger; for sinks in SIR, conditional entropy equals noise entropy, and for non-sinks it is smaller."
+            }
+          ],
+          "name": "Theoretical derivation of entropy bounds for sources and sinks",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Conditional entropy inequality for non-sinks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f03e5fcbf778e418759b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "the conditional entropy of non-sinks is smaller than the entropy of their noise"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3b55418084d22cea65a19226",
+              "unit": null,
+              "value_raw_text": "H(v|Vcur - {v}) < H(N_v) for non-sinks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Conditional entropy equality for sources",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f03e5fcbf778e418759b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we show that the conditional entropy of new sources equals the conditional entropy of their noise"
+              },
+              "quantitative_value": null,
+              "result_id": "res_45b7529ac544e6f1785adf0a",
+              "unit": null,
+              "value_raw_text": "H(v|S) = H(N_v) for sources"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Conditional entropy equality for sinks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f03e5fcbf778e418759b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "the conditional entropy of new sinks equals the conditional entropy of their noise"
+              },
+              "quantitative_value": null,
+              "result_id": "res_caefc10a184502cc21dc09ed",
+              "unit": null,
+              "value_raw_text": "H(v|Vcur - {v}) = H(N_v) for sinks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Conditional entropy inequality for non-sources",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f03e5fcbf778e418759b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the conditional entropy of non-sources is larger than the entropy of their noise"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ec1806828e978ba22d746357",
+              "unit": null,
+              "value_raw_text": "H(v|S) > H(N_v) for non-sources"
+            }
+          ],
+          "unit_id": "su_8972b44ceb5ceda0a750d5de"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_662dadea164815bada987c15",
+              "inference_basis_ids": [
+                "res_5a0ce4e0bd8e043e24a88eee",
+                "res_b283a6a5037f05da97fac4ce"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4a374d94eb4a0cb94107",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "our algorithms are provably correct and have a polynomial (quadratic) worst-case running-time"
+              },
+              "statement": "The proposed SOUR and SIR algorithms are provably correct and run in worst-case quadratic time."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Implement repeated source removal (SOUR) and repeated sink removal (SIR) using conditional entropy oracle to identify sources/sinks."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "SOUR algorithm (causal discovery)",
+              "protocol_description": "Iteratively remove sources by selecting variables with conditional entropy equal to noise entropy (if known) or minimal conditional entropy (if noise entropies are weakly monotonically increasing)."
+            },
+            {
+              "method_id": "M3",
+              "name": "SIR algorithm (causal discovery)",
+              "protocol_description": "Iteratively remove sinks by selecting variables with conditional entropy equal to noise entropy (if known) or maximal conditional entropy (if noise entropies are weakly monotonically increasing or under extended injectivity)."
+            }
+          ],
+          "name": "Causal discovery algorithms SOUR and SIR",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correctness of SOUR and SIR",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4a374d94eb4a0cb94107",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "our algorithms are provably correct"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5a0ce4e0bd8e043e24a88eee",
+              "unit": null,
+              "value_raw_text": "provably correct"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Worst-case oracle calls",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "73c122e2bac471e6dfc0",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "make O(|Vc|2) oracle calls in the worst-case"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b283a6a5037f05da97fac4ce",
+              "unit": "oracle calls",
+              "value_raw_text": "O(|V_c|^2)"
+            }
+          ],
+          "unit_id": "su_c5a8dbdddc87008486503f4a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9390 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8987 on attempt 1"
+    }
+  ]
+}

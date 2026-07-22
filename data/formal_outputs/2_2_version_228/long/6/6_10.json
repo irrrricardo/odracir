@@ -1,0 +1,315 @@
+{
+  "coverage_ledger": {
+    "043e66b03c98742cad82": "extracted",
+    "15ebd04c6e8a2f272917": "not_selected",
+    "638345a59af46b2af2a9": "not_selected",
+    "7bfa18c076120538710a": "extracted",
+    "b2c6c768e407cf0d9cfc": "extracted",
+    "c1e462582d2b9782cdf3": "extracted",
+    "cc59fb2e500fd55aa345": "not_selected",
+    "d8fdb8b9c946d6bd41fc": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "AdaEdge suffers from wrong graph adjustment operations when the ratio of incorrect operations is too large, which can bring serious interference and little or no improvement.",
+    "MADReg can hardly improve performance when over-smoothing is not severe (small number of GNN layers).",
+    "The study focuses on node classification tasks; applicability to other graph-based tasks is not explored.",
+    "The analysis is limited to the 10 GNN models and 7 datasets used; generalizability to other architectures or domains is not guaranteed."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_10.pdf",
+    "source_sha256": "9c5bbc5c76c0eed9b1ebfdf1763a8a5553d5979a220c0bcbaa4285ccf2b7c336"
+  },
+  "paper_id": "6_10",
+  "quality_assessment": {
+    "correct_item_count": 28,
+    "deterministic_rule_score": 0.9364,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.1429
+    },
+    "extracted_item_count": 28,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What is the key factor leading to the over-smoothing problem in GNNs, and how can it be measured and alleviated?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_02fb37d9bcf041fcde4a8533",
+              "inference_basis_ids": [
+                "res_fa07ac5c45c32415967cc3fd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c1e462582d2b9782cdf3",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We observe that the MAD values of various GNNs become smaller as the number of GNN layers increases, which supports the argument that smoothing is the essential nature of GNNs."
+              },
+              "statement": "Smoothing is the essential nature of GNNs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_055609b4e65a8095ccde5ba1",
+              "inference_basis_ids": [
+                "res_9d896728b9a24b4758b6d0a5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b2c6c768e407cf0d9cfc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Experimental results show that the AdaEdge method can effectively improve the model performance in most cases, which proves that optimizing the graph topology is quite helpful for improving model performance."
+              },
+              "statement": "AdaEdge improves model performance in most cases across 7 datasets."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_60452b8ea946ed6a0e3b3d28",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b2c6c768e407cf0d9cfc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Above all, both AdaEdge and MADReg are effective for improving GNNs performance, and AdaEdge generalizes better when the over-smoothing issue is not severe."
+              },
+              "statement": "AdaEdge generalizes better than MADReg when over-smoothing is not severe."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6f8ba5ddc3a2ed863a2840b4",
+              "inference_basis_ids": [
+                "res_536c4de35882d0d2849a65a3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b2c6c768e407cf0d9cfc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "And we can find that the two proposed methods can effectively relieve the over-smoothing issue and improve model performance in most cases."
+              },
+              "statement": "MADReg and AdaEdge effectively relieve over-smoothing and improve model performance in high-order layers."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_981a4d19aeb01ba73123720b",
+              "inference_basis_ids": [
+                "res_0b4422e85c86dcc451e54497"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7bfa18c076120538710a",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "To prove our assumption, we optimize the graph topology by removing inter-class edges and adding intra-class edges based on the gold labels, which proves very effective in relieving over-smoothing and improving model performance."
+              },
+              "statement": "Optimizing graph topology based on gold labels effectively relieves over-smoothing and improves model performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bbb00a0e4596ccd7e5b03941",
+              "inference_basis_ids": [
+                "res_d96b01ad0dae1247efdc9bb3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7bfa18c076120538710a",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Further experiments show that both the model performance and the MADGap value rise as the information-to-noise ratio increases, which verifies our assumption that the information-to-noise ratio affects the smoothness of graph representation to a great extent."
+              },
+              "statement": "The information-to-noise ratio affects the smoothness of graph representation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e669633b470c38988f0c38cc",
+              "inference_basis_ids": [
+                "res_0528fa512e527f476678a1f5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c1e462582d2b9782cdf3",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We can observe a significantly high correlation between the accuracy and MADGap in two different situations: (a) Different models: Results of GCNs with different number of layers; (b) Different training periods: Results after each epoch in the 2-layer GCN. The Pearson correlation coefficient is shown in the title and ** means statistically significant with p < 0.01."
+              },
+              "statement": "MADGap has a significantly high correlation with model performance."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze the effect of information-to-noise ratio on smoothness and over-smoothness.",
+            "Apply AdaEdge (adaptive edge optimization) to iteratively adjust graph topology based on predictions.",
+            "Apply MADReg (MADGap-based regularizer) to training objective.",
+            "Evaluate AdaEdge on all 7 datasets with various GNN models.",
+            "Evaluate effect on over-smoothing and model performance.",
+            "Evaluate on 10 GNN models with 4 layers on CORA, CiteSeer, PubMed.",
+            "Measure over-smoothness using MADGap and correlate with model performance.",
+            "Measure smoothness of node representations using MAD on multiple GNN models and layers.",
+            "Optimize graph topology by removing inter-class edges and adding intra-class edges based on gold labels."
+          ],
+          "methods": [],
+          "name": "Provisional flat extraction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Pearson correlation between MADGap and accuracy",
+              "n_sample_size": null,
+              "p_value": 0.01,
+              "provenance": {
+                "chunk_id": "c1e462582d2b9782cdf3",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We can observe a significantly high correlation between the accuracy and MADGap in two different situations: (a) Different models: Results of GCNs with different number of layers; (b) Different training periods: Results after each epoch in the 2-layer GCN. The Pearson correlation coefficient is shown in the title and ** means statistically significant with p < 0.01."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0528fa512e527f476678a1f5",
+              "unit": null,
+              "value_raw_text": "significantly high correlation between the accuracy and MADGap"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Over-smoothing relief and performance improvement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7bfa18c076120538710a",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "To prove our assumption, we optimize the graph topology by removing inter-class edges and adding intra-class edges based on the gold labels, which proves very effective in relieving over-smoothing and improving model performance."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0b4422e85c86dcc451e54497",
+              "unit": null,
+              "value_raw_text": "optimizing the graph topology by removing inter-class edges and adding intra-class edges based on the gold labels, which proves very effective in relieving over-smoothing and improving model performance"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Prediction accuracy and MADGap improvement with MADReg and AdaEdge",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b2c6c768e407cf0d9cfc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "And we can find that the two proposed methods can effectively relieve the over-smoothing issue and improve model performance in most cases."
+              },
+              "quantitative_value": null,
+              "result_id": "res_536c4de35882d0d2849a65a3",
+              "unit": null,
+              "value_raw_text": "the two proposed methods can effectively relieve the over-smoothing issue and improve model performance in most cases"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy improvement with AdaEdge on 7 datasets",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b2c6c768e407cf0d9cfc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Experimental results show that the AdaEdge method can effectively improve the model performance in most cases, which proves that optimizing the graph topology is quite helpful for improving model performance."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9d896728b9a24b4758b6d0a5",
+              "unit": null,
+              "value_raw_text": "AdaEdge method can effectively improve the model performance in most cases"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy values for baselines and AdaEdge on all datasets",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "043e66b03c98742cad82",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Table 3: Controlled experiments of AdaEdge (+AE) on all the 7 datasets. We show the mean value, the standard deviation and the t-test significance of 50 turns results."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b83ecfe01349e222a41ab827",
+              "unit": null,
+              "value_raw_text": "Table 3 shows accuracy values for each model and dataset"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Model performance and MADGap vs. information-to-noise ratio",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7bfa18c076120538710a",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Further experiments show that both the model performance and the MADGap value rise as the information-to-noise ratio increases, which verifies our assumption that the information-to-noise ratio affects the smoothness of graph representation to a great extent."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d96b01ad0dae1247efdc9bb3",
+              "unit": null,
+              "value_raw_text": "both the model performance and the MADGap value rise as the information-to-noise ratio increases"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MAD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c1e462582d2b9782cdf3",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We observe that the MAD values of various GNNs become smaller as the number of GNN layers increases, which supports the argument that smoothing is the essential nature of GNNs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fa07ac5c45c32415967cc3fd",
+              "unit": null,
+              "value_raw_text": "MAD values become smaller as the number of GNN layers increases"
+            }
+          ],
+          "unit_id": "su_08106a2abd7d8602fffa23d6"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.flat_fallback",
+      "json_path": "$.research_questions[0].study_units[0]",
+      "message": "The hierarchical output retained structural ID conflicts after its retry budget; a strictly validated flat extraction was used.",
+      "repair": "flattened supported results, claims, and evidence into Provisional flat extraction"
+    }
+  ]
+}

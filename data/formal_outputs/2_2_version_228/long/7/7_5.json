@@ -1,0 +1,392 @@
+{
+  "coverage_ledger": {
+    "0f96e12aff2242c24822": "not_selected",
+    "17860dd9c6c9dce47c52": "extracted",
+    "2761c371a17b052f680d": "not_selected",
+    "303ac2ac354d7bfa868f": "not_selected",
+    "341b1ec3fc0e5b0fed12": "not_selected",
+    "4045bfa186ebb75fef71": "not_selected",
+    "45c85c351f72d27b6556": "not_selected",
+    "47fd72bea8ecfa78fbd7": "not_selected",
+    "53dfa07cf38247acc94a": "not_selected",
+    "5a3a0fad96323a7750db": "not_selected",
+    "63b1e5912b2a4c584d95": "not_selected",
+    "6a473d5cef6205d3b40f": "not_selected",
+    "6fae290d6b576c66b05f": "not_selected",
+    "7a39d498a746308560ed": "not_selected",
+    "82a97c3dc3dcd0000945": "extracted",
+    "909a9210f6a2a633209f": "not_selected",
+    "b68e826ef4116782c706": "extracted",
+    "ba2bd22b4a8029173035": "not_selected",
+    "c8cc90c6fc7c5f30bfdf": "not_selected",
+    "d577540cad776cc3472f": "extracted",
+    "e2fe7036226b26e7ba7d": "not_selected",
+    "efdfc03fbf4a186360f6": "not_selected",
+    "f511b261d7b517c877a0": "not_selected",
+    "f9b1a9c688a5279e4fc9": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "There is much that is not known yet about SA-PINNs (exact scope unspecified)."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_5.pdf",
+    "source_sha256": "789cb3ce10a008172feaee272515900e605b217cc7fe67ce87524da7030d2ea7"
+  },
+  "paper_id": "7_5",
+  "quality_assessment": {
+    "correct_item_count": 28,
+    "deterministic_rule_score": 0.6766,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.6667,
+      "sample_size_log_score": 0.3471,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 28,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a self-adaptive training method for PINNs, using trainable pointwise weights, improve accuracy on stiff PDEs compared to existing PINN algorithms?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_15a968933dc1f327bacf0d35",
+              "inference_basis_ids": [
+                "res_1820056311896fa3d2f21ef1",
+                "res_3fca498f1774ab0ae330ab01",
+                "res_b54cd445e7f4664338d3424c",
+                "res_b90388aa5cfd1f6ed321d3a8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b68e826ef4116782c706",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "The average L2-error across 10 runs with random restarts was 2.1e−2 ± 1.21e−2, while the L2-error on 10 runs obtained by the time-adaptive approach in [4] was 8.0e−2±0.56e−2. Neither the baseline PINN nor the nonadaptive weighted scheme ... were able to solve this PDE satisfactorily, with L2 errors 96.15e−2 ± 6.45e−2 and 49.61e−2 ± 2.50e−2, respectively"
+              },
+              "statement": "SA-PINN outperforms baseline PINN, nonadaptive weighting, and time-adaptive schemes on the Allen-Cahn PDE in terms of L2 error."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Allen-Cahn reaction-diffusion PDE: ut - 0.0001 uxx + 5u^3 - 5u = 0, x in [-1,1], t in [0,1]; initial condition u(x,0)=x^2 cos(pi x); periodic boundary conditions u(t,-1)=u(t,1), ux(t,-1)=ux(t,1).",
+              "name": "Allen-Cahn PDE",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Solve the Allen-Cahn reaction-diffusion PDE (stiff, with periodic boundary conditions) using SA-PINN, baseline PINN, nonadaptive weighting, and time-adaptive schemes. Compare L2 error over 10 random restarts."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "SA-PINN (Allen-Cahn)",
+              "protocol_description": "Fully connected network [2,128,128,128,128,1]. Nr=20,000 residue points, N0=100 initial points, Nb=100 boundary points (200 due to periodic). Boundary weights fixed at 1; initial and residue weights trained. Initial weights initialized Uniform[0,100], residue weights Uniform[0,1]. Training on single Nvidia V100 GPU, 65ms/iteration."
+            },
+            {
+              "method_id": "M3",
+              "name": "Baseline PINN",
+              "protocol_description": "Standard PINN without adaptive weighting, as described in [2]."
+            },
+            {
+              "method_id": "M4",
+              "name": "Nonadaptive weighting",
+              "protocol_description": "PINN with fixed initial condition weight C=100."
+            },
+            {
+              "method_id": "M5",
+              "name": "Time-adaptive scheme",
+              "protocol_description": "Approach 1 from [4]."
+            }
+          ],
+          "name": "Allen-Cahn PDE experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 error",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b68e826ef4116782c706",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The average L2-error across 10 runs with random restarts was 2.1e−2 ± 1.21e−2"
+              },
+              "quantitative_value": 0.021,
+              "result_id": "res_1820056311896fa3d2f21ef1",
+              "unit": null,
+              "value_raw_text": "2.1e-2 ± 1.21e-2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 error",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b68e826ef4116782c706",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "the L2-error on 10 runs obtained by the time-adaptive approach in [4] was 8.0e−2±0.56e−2"
+              },
+              "quantitative_value": 0.08,
+              "result_id": "res_3fca498f1774ab0ae330ab01",
+              "unit": null,
+              "value_raw_text": "8.0e-2 ± 0.56e-2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 error",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b68e826ef4116782c706",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Neither the baseline PINN nor the nonadaptive weighted scheme, with initial condition weight C = 100, were able to solve this PDE satisfactorily, with L2 errors 96.15e−2 ± 6.45e−2 and 49.61e−2 ± 2.50e−2, respectively"
+              },
+              "quantitative_value": 0.9615,
+              "result_id": "res_b54cd445e7f4664338d3424c",
+              "unit": null,
+              "value_raw_text": "96.15e-2 ± 6.45e-2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 error",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b68e826ef4116782c706",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Neither the baseline PINN nor the nonadaptive weighted scheme, with initial condition weight C = 100, were able to solve this PDE satisfactorily, with L2 errors 96.15e−2 ± 6.45e−2 and 49.61e−2 ± 2.50e−2, respectively"
+              },
+              "quantitative_value": 0.4961,
+              "result_id": "res_b90388aa5cfd1f6ed321d3a8",
+              "unit": null,
+              "value_raw_text": "49.61e-2 ± 2.50e-2"
+            }
+          ],
+          "unit_id": "su_9176889de24174c65aabf4ef"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_35860008e0a81aaabbae232f",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d577540cad776cc3472f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": true,
+                "text_excerpt": "We can see that the eigenvalues become closely matched in scale between Kuu and Krr, removing the imbalance between these two loss components and enabling convergence to the solution ... Importantly, the shape of the eigenvalue distribution is also nicely equalized, as opposed to simply being scaled up as would be the case with traditional weighting of the entire loss component."
+              },
+              "statement": "NTK eigenvalue analysis shows that SA-PINN equalizes the magnitudes and smooths the distribution of eigenvalues between loss components, unlike simple linear scaling."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8f88f673f62ad2a563ae9efe",
+              "inference_basis_ids": [
+                "res_1519bed77f38021ca7989e54",
+                "res_4a130e811e8fcde06c4a7aee"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d577540cad776cc3472f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "the baseline PINN failed to grasp even the rough structure of the solution, while the SA-PINN was able to approximate the solution within 5% L2 error"
+              },
+              "statement": "SA-PINN achieves much lower L2 error than baseline PINN on the advection PDE with discontinuous initial condition."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Univariate advection PDE: qt + u_bar qx = 0, x in [0,L], t in [0,T]; Dirichlet BC q(0,t)=q(L,t)=0; initial condition g(x) with discontinuities, zero outside an interval.",
+              "name": "Advection PDE",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Solve the univariate advection PDE with a complex initial condition containing discontinuities using SA-PINN and baseline PINN. Analyze NTK eigenvalues to show equalization effect."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "SA-PINN (Advection)",
+              "protocol_description": "Network [2,400,400,400,400,1], trained for 10k Adam iterations, NN weight learning rate 0.001, self-adaptive weight learning rate 0.1, Glorot Normal init, single V100 GPU, ~7s training."
+            },
+            {
+              "method_id": "M7",
+              "name": "Baseline PINN (Advection)",
+              "protocol_description": "Same architecture and training as SA-PINN but without self-adaptive weights."
+            }
+          ],
+          "name": "Advection PDE NTK analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d577540cad776cc3472f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "the SA-PINN was able to approximate the solution within 5% L2 error"
+              },
+              "quantitative_value": 0.05,
+              "result_id": "res_1519bed77f38021ca7989e54",
+              "unit": null,
+              "value_raw_text": "within 5% L2 error"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution quality",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d577540cad776cc3472f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "the baseline PINN failed to grasp even the rough structure of the solution"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4a130e811e8fcde06c4a7aee",
+              "unit": null,
+              "value_raw_text": "failed to grasp even the rough structure of the solution"
+            }
+          ],
+          "unit_id": "su_eb51a4694e5ae17d4bc4c86d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1a813170209439ff9fa98525",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "82a97c3dc3dcd0000945",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The self-adaptation weights specify a soft multiplicative soft attention mask, which is reminiscent of similar mechanisms used in computer vision."
+              },
+              "statement": "The self-adaptation weights specify a soft multiplicative soft attention mask, reminiscent of similar mechanisms used in computer vision."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_68b45405f2400c62b8fd7b30",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "82a97c3dc3dcd0000945",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Finally, we derive the Neural Tangent Kernel matrix for SA-PINNs and use it to obtain a heuristic understanding of the effect of the self-adaptive weights on the dynamics of training in the limiting case of infinitely-wide PINNs, which suggests that SA-PINNs work by producing a smooth equalization of the eigenvalues of the NTK matrix corresponding to the different loss terms."
+              },
+              "statement": "The NTK matrix for SA-PINNs is derived, and analysis suggests that SA-PINNs work by producing a smooth equalization of the eigenvalues of the NTK matrix corresponding to the different loss terms."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_841804361c26e44f51ab507a",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "82a97c3dc3dcd0000945",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In this paper, we propose a fundamentally new way to train PINNs adaptively, where the adaptation weights are fully trainable and applied to each training point individually, so the neural network learns autonomously which regions of the solution are difficult and is forced to focus on them."
+              },
+              "statement": "SA-PINNs introduce a fundamentally new way to train PINNs adaptively, where adaptation weights are fully trainable and applied to each training point individually."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9f1c68bd6104cfa8b8204909",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "82a97c3dc3dcd0000945",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In addition, we show how to build a continuous map of self-adaptive weights using Gaussian Process regression, which allows the use of stochastic gradient descent in problems where conventional gradient descent is not enough to produce accurate solutions."
+              },
+              "statement": "A continuous map of self-adaptive weights can be built using Gaussian Process regression, allowing the use of stochastic gradient descent in problems where conventional gradient descent is not enough."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e0160f221649076dd681f011",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "82a97c3dc3dcd0000945",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The basic idea behind these SA-PINNs is to make the weights increase as the corresponding losses increase, which is accomplished by training the network to simultaneously minimize the losses and maximize the weights."
+              },
+              "statement": "The basic idea behind SA-PINNs is to make the weights increase as the corresponding losses increase, which is accomplished by training the network to simultaneously minimize the losses and maximize the weights."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose Self-Adaptive PINNs (SA-PINNs) with trainable pointwise weights that act as a soft multiplicative attention mask, trained to find a saddle point by minimizing losses and maximizing weights."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "SA-PINN",
+              "protocol_description": "SA-PINNs apply trainable weights on each training point, trained concurrently with network weights. The adaptation weights increase as corresponding losses increase, achieved by training to simultaneously minimize losses and maximize weights (saddle point problem). A continuous map of self-adaptive weights can be built using Gaussian Process regression to enable SGD. The NTK matrix for SA-PINNs is derived to analyze training dynamics."
+            }
+          ],
+          "name": "SA-PINN method description",
+          "results": [],
+          "unit_id": "su_fd8c7dcaf7f85d95788a5bd3"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8819 on attempt 1"
+    }
+  ]
+}

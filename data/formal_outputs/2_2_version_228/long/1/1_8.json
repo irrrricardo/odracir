@@ -1,0 +1,290 @@
+{
+  "coverage_ledger": {
+    "02ca5ddaf5569fb37f99": "extracted",
+    "0abd1d6de3860a938b5b": "not_selected",
+    "1116574e0e255017daed": "not_selected",
+    "14067956b64d789d08a5": "not_selected",
+    "1714ee3a168245895e77": "not_selected",
+    "2f056764f4b35243442c": "not_selected",
+    "3139fa07d669f7a936fc": "not_selected",
+    "51e7fab8a94bde8ec6f8": "not_selected",
+    "64ec87bb4dbbcb383ad6": "extracted",
+    "859eb9fd6187101ddb1c": "not_selected",
+    "86ef8f999d362ec673f7": "not_selected",
+    "8c230ab32cc00231c04f": "not_selected",
+    "911561195e3426b434e0": "not_selected",
+    "940bb73dd7bf2fe489f7": "not_selected",
+    "95fc598f94068058c5c1": "extracted",
+    "a1209380d93484378f5c": "not_selected",
+    "aa4e01784c7b497f1b43": "extracted",
+    "bf1a9a2fef304127b63c": "not_selected",
+    "bf2dc22816dab9ab3245": "not_selected",
+    "dc6978a14483d40bd383": "not_selected",
+    "fd51fce00429458d95df": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "GEARS's ability to predict outcomes for perturbing previously unperturbed genes is limited if those genes are not well connected in the knowledge graph.",
+    "GEARS uses a Bayesian formulation to output an uncertainty metric inversely correlated with model performance."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_8.pdf",
+    "source_sha256": "13ba4d9f8557d30a36503e31cb4759295777b2f97da139ee3497668b597bb9df"
+  },
+  "paper_id": "1_8",
+  "quality_assessment": {
+    "correct_item_count": 20,
+    "deterministic_rule_score": 0.8211,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 20,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can a deep learning method integrating a gene–gene knowledge graph predict transcriptional responses to single and multigene perturbations, including unseen combinations?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2dde3863b4be67171e9be942",
+              "inference_basis_ids": [
+                "res_890081b31995ce49e4a5810a",
+                "res_b3adb2308af9f67131858daa",
+                "res_ffdd3bf47dfcd787e349daa5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS significantly outperformed all baselines on both datasets with an m.s.e. improvement of 30–50%"
+              },
+              "statement": "GEARS outperforms baselines in predicting single-gene perturbation transcriptional responses."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8168ba211f98211bc9c534d3",
+              "inference_basis_ids": [
+                "res_7bc490959ad55fe146bf758e",
+                "res_fcd80207f2981ce01fad6d65"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS improved precision@10 by more than 40% for four of five genetic interaction subtypes, and the improvement exceeded 90% for redundancy and epistasis"
+              },
+              "statement": "GEARS predicts non-additive combinatorial perturbation effects better than existing methods."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dc003703127c01f6ab0cff3e",
+              "inference_basis_ids": [
+                "res_36c760c13c8f435826555fb5",
+                "res_41b04883cb1e7cb518a56fa6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "GEARS improves performance by more than 30% across all cases, with the highest improvement of 53% observed when both perturbed genes in the combination are unseen."
+              },
+              "statement": "GEARS predicts multigene perturbation outcomes even when genes are unseen during training."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare GEARS against baselines: no perturbation, gene regulatory network (CellOracle), and CPA.",
+            "Compare GEARS against baselines using precision@10 and top ten accuracy.",
+            "Define five genetic interaction subtypes: synergy, suppression, neomorphism, redundancy, epistasis.",
+            "Define three generalization classes: zero unseen, one unseen, two unseen genes in combination.",
+            "Evaluate GEARS on held-out single-gene perturbations from Perturb-seq screens in RPE-1 and K562 cells.",
+            "Evaluate GEARS on predicting genetic interaction scores and top-ranked interactions.",
+            "Evaluate GEARS on two-gene perturbations from Norman et al. Perturb-seq dataset (131 two-gene perturbations)."
+          ],
+          "methods": [],
+          "name": "Provisional flat extraction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance improvement across generalization classes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "GEARS improves performance by more than 30% across all cases, with the highest improvement of 53% observed when both perturbed genes in the combination are unseen."
+              },
+              "quantitative_value": null,
+              "result_id": "res_36c760c13c8f435826555fb5",
+              "unit": null,
+              "value_raw_text": "GEARS improves performance by more than 30% across all cases, with the highest improvement of 53% observed when both perturbed genes in the combination are unseen."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment in most significant differentially expressed genes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We also measured 50% greater enrichment in the most significant differentially expressed genes as predicted by GEARS than observed with baseline methods"
+              },
+              "quantitative_value": null,
+              "result_id": "res_41b04883cb1e7cb518a56fa6",
+              "unit": null,
+              "value_raw_text": "50% greater enrichment in the most significant differentially expressed genes as predicted by GEARS than observed with baseline methods"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Top ten accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS demonstrated a twofold increase in accuracy when predicting the ten strongest interactions for a specific genetic interaction subtype"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7bc490959ad55fe146bf758e",
+              "unit": null,
+              "value_raw_text": "GEARS demonstrated a twofold increase in accuracy when predicting the ten strongest interactions for a specific genetic interaction subtype"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean squared error (top 20 differentially expressed genes)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS significantly outperformed all baselines on both datasets with an m.s.e. improvement of 30–50%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_890081b31995ce49e4a5810a",
+              "unit": null,
+              "value_raw_text": "GEARS significantly outperformed all baselines on both datasets with an m.s.e. improvement of 30–50%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Direction of change in expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS displayed a clear improvement in capturing the right direction of change in expression following perturbation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b3adb2308af9f67131858daa",
+              "unit": null,
+              "value_raw_text": "GEARS displayed a clear improvement in capturing the right direction of change in expression following perturbation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision@10 improvement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS improved precision@10 by more than 40% for four of five genetic interaction subtypes, and the improvement exceeded 90% for redundancy and epistasis"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fcd80207f2981ce01fad6d65",
+              "unit": null,
+              "value_raw_text": "GEARS improved precision@10 by more than 40% for four of five genetic interaction subtypes, and the improvement exceeded 90% for redundancy and epistasis"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pearson correlation (all genes)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95fc598f94068058c5c1",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GEARS exhibited more than two times better performance in the case of both cell lines"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ffdd3bf47dfcd787e349daa5",
+              "unit": null,
+              "value_raw_text": "GEARS exhibited more than two times better performance in the case of both cell lines"
+            }
+          ],
+          "unit_id": "su_76360854df6f0ada2287a2b5"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.flat_fallback",
+      "json_path": "$.research_questions[0].study_units[0]",
+      "message": "The hierarchical output retained structural ID conflicts after its retry budget; a strictly validated flat extraction was used.",
+      "repair": "flattened supported results, claims, and evidence into Provisional flat extraction"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9264 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9264 on attempt 1"
+    }
+  ]
+}

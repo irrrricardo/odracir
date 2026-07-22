@@ -1,0 +1,868 @@
+{
+  "coverage_ledger": {
+    "035fc79c1c1a93081852": "not_selected",
+    "074e390f08f90424d56e": "not_selected",
+    "0b8b8c056ea6f9ca60fd": "not_selected",
+    "0d082a02c84222c06ec2": "not_selected",
+    "193a140cf28ad972f1ff": "not_selected",
+    "1bf733d287f142fd489c": "extracted",
+    "1fb069e4f0aada5c8711": "extracted",
+    "271db4385d2bea4b088a": "extracted",
+    "273679e5a63d05c69a72": "not_selected",
+    "2964fa676833b9cec9b4": "not_selected",
+    "3268302ec1ce199c7b23": "not_selected",
+    "49fc71ae0e1db1dc81a6": "not_selected",
+    "540e7fec8ae34d339e9b": "not_selected",
+    "5a3d2f92557440f0c4be": "not_selected",
+    "69f2c7e71df04410ec81": "not_selected",
+    "7624e9579b02a78e9f0d": "not_selected",
+    "867f39d85ffcb858e8c0": "not_selected",
+    "9365084fc5cc4bd471d8": "not_selected",
+    "9e6e0e0e73d547dc36f3": "extracted",
+    "a93d14e66cc2918abdd9": "not_selected",
+    "b28612e5cc00d1de2137": "not_selected",
+    "ed8ff018d8946ebe725a": "not_selected",
+    "fab78b4f00917e03baa4": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Suboptimal performance in predicting combined-perturbation effects; scouter's improvement over baselines was limited, and other deep learning/foundation models performed worse than baselines.",
+    "Limited generalizability of deep learning and foundation models, especially for combined perturbations.",
+    "Chemical perturbation prediction, especially for chemical combinations, remains underdeveloped; baseReg baseline achieved highest accuracy, indicating a gap in specialized algorithms.",
+    "The study's conclusions are based on the specific datasets and preprocessing choices; performance may vary with different data characteristics.",
+    "Scalability and robustness assessments were limited; scFoundation had long runtime and was not evaluated for robustness.",
+    "The benchmark focused on transcriptomic responses; other modalities or downstream functional effects were not assessed."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_18.pdf",
+    "source_sha256": "eaeaeef08d3b63b2edaf48afb9a451978617c8bed88a5da9498b2989172039ca"
+  },
+  "paper_id": "1_18",
+  "quality_assessment": {
+    "correct_item_count": 89,
+    "deterministic_rule_score": 0.8802,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 89,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do 27 computational methods for single-cell perturbation response prediction perform across diverse cellular contexts and perturbation scenarios, and what factors influence their generalizability?",
+      "study_units": [
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Human PBMC data from 8 donors stimulated with interferon-beta and controls (GSE96583).",
+              "name": "kangCrossCell",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS10",
+              "description": "Expression data from 4 species (mouse, rat, rabbit, pig).",
+              "name": "CrossSpecies",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS11",
+              "description": "Perturbation dataset from biolord tutorial.",
+              "name": "Afriat",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Human PBMC data from 8 donors stimulated with interferon-beta and controls (GSE96583).",
+              "name": "kangCrossPatient",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Intestinal epithelial cells infected with bacterial and helminth infections (GSE92332).",
+              "name": "Haber",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Overexpression data for 8 transcription factors across 3 cell lines.",
+              "name": "Parekh",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Single-cell perturbation data for 6 patients in response to Panobinostat and Etoposide.",
+              "name": "CrossPatient",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "3 human cancer cell lines (A549, MCF7, K562) perturbed with 188 chemicals at 4 dosages; only 9 most effective chemicals used for testing.",
+              "name": "sciPlex3",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS7",
+              "description": "PBMC data from 3 donors, 5 cell types exposed to 144 chemicals.",
+              "name": "KaggleCrossPatient",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS8",
+              "description": "PBMC data from 3 donors, 5 cell types exposed to 144 chemicals.",
+              "name": "KaggleCrossCell",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS9",
+              "description": "6 human cancer cell lines exposed to 11 chemicals.",
+              "name": "McFarland",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "In the cellular context generalization scenario, we selected 14 methods, including 10 published methods, namely, biolord, CellOT, inVAE, scDisInFact, scGen, scPRAM, scPreGAN, SCREEN, scVIDR and trVAE and 4 baseline models.",
+              "provenance": {
+                "chunk_id": "1fb069e4f0aada5c8711",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": false,
+                "text_excerpt": "In the cellular context generalization scenario, we selected 14 methods, including 10 published methods, namely, biolord16, CellOT14, inVAE17, scDisInFact18, scGen4, scPRAM15, scPreGAN19, SCREEN20, scVIDR21 and trVAE22 and 4 baseline models."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluated 14 methods (10 published + 4 baselines) on 12 datasets spanning multiple cell types, species, and individuals to assess prediction of perturbation effects in unseen cellular contexts."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "biolord",
+              "protocol_description": "Disentanglement of single-cell data."
+            },
+            {
+              "method_id": "M10",
+              "name": "trVAE",
+              "protocol_description": "Conditional out-of-distribution generation for unpaired data using transfer VAE."
+            },
+            {
+              "method_id": "M11",
+              "name": "Baseline models (4)",
+              "protocol_description": "Four baseline models used for comparison."
+            },
+            {
+              "method_id": "M2",
+              "name": "CellOT",
+              "protocol_description": "Neural optimal transport for perturbation response prediction."
+            },
+            {
+              "method_id": "M3",
+              "name": "inVAE",
+              "protocol_description": "Homogeneous space construction and projection for single-cell expression prediction."
+            },
+            {
+              "method_id": "M4",
+              "name": "scDisInFact",
+              "protocol_description": "Disentangled learning for integration and prediction of multi-batch multi-condition scRNA-seq data."
+            },
+            {
+              "method_id": "M5",
+              "name": "scGen",
+              "protocol_description": "Predicts single-cell perturbation responses."
+            },
+            {
+              "method_id": "M6",
+              "name": "scPRAM",
+              "protocol_description": "Attention-based prediction of single-cell gene expression perturbation response."
+            },
+            {
+              "method_id": "M7",
+              "name": "scPreGAN",
+              "protocol_description": "Deep generative model for predicting single-cell expression response to perturbation."
+            },
+            {
+              "method_id": "M8",
+              "name": "SCREEN",
+              "protocol_description": "Optimal transport for predicting single-cell gene expression perturbation responses."
+            },
+            {
+              "method_id": "M9",
+              "name": "scVIDR",
+              "protocol_description": "Generative modeling of single-cell gene expression for dose-dependent chemical perturbations."
+            }
+          ],
+          "name": "Benchmarking in cellular context generalization scenario",
+          "results": [],
+          "unit_id": "su_4dc2b1de663cce58eb727e24"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2a383d7bea4e05e89854d903",
+              "inference_basis_ids": [
+                "res_05d3174db1dd9fb6cd2d2f09"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "In predicting genetic combined-perturbation effects, linearModel and scouter perform the best."
+              },
+              "statement": "linearModel and scouter are the best methods for predicting genetic combined-perturbation effects."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2f98b7d680d2e9621a6c1d96",
+              "inference_basis_ids": [
+                "res_de3c24ad64769ab829c75938"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "In chemical single-perturbation effect prediction, chemCPA is the preferred choice."
+              },
+              "statement": "chemCPA is the preferred method for chemical single-perturbation effect prediction."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3d759806fec7b8485c54a1f6",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "These results indicate that LLM-derived gene embeddings may capture high-level functional and contextual knowledge that is otherwise hard to extract from gene expression data alone."
+              },
+              "statement": "LLM-derived gene embeddings may capture high-level functional and contextual knowledge, providing genuine representational advantages."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_83fe6712edd7680627b65cdb",
+              "inference_basis_ids": [
+                "res_91a37ca9b83bb0abf939ddaa"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "To predict genetic single-perturbation effects, GenePert is an optimal choice when the training dataset is small. However, when the fine-tuning dataset is sufficient, deep learning and foundation models such as CPA and scGPT are preferable."
+              },
+              "statement": "GenePert is optimal for small training datasets, while CPA and scGPT are preferable with sufficient fine-tuning data for genetic single-perturbation prediction."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8aa689d6fafe11cbe9a7016c",
+              "inference_basis_ids": [
+                "res_3b5a1e3c3b80792e8d90c54e",
+                "res_428ca4ba7fdd352e6b4ba402",
+                "res_f2b04b36b1fe2512ee5ee3fe"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "This suggests that deep learning models have superior generalizability when fine-tuned on sufficiently large datasets."
+              },
+              "statement": "Deep learning models like CPA show superior generalizability when fine-tuned on large datasets, as their advantage over baselines increases with decreasing similarity between test and training perturbations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d5397a20e63e3445f8c791a3",
+              "inference_basis_ids": [
+                "res_b310709a9eaa6cfe33bc316e"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Limited generalizability of deep learning and foundation models. ... Other deep learning models and foundation models even performed worse than the baseline models did"
+              },
+              "statement": "Deep learning and foundation models have limited generalizability, sometimes performing worse than baselines on combined perturbations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ebb24e1d50a60d274c5d8f7e",
+              "inference_basis_ids": [
+                "res_55f683c7f76e2cbc48f32921",
+                "res_b310709a9eaa6cfe33bc316e"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Suboptimal performance in predicting combined-perturbation effects. Although scouter performed best among all the evaluated methods in the combined-perturbation prediction setting, its improvement over the baseline models was limited"
+              },
+              "statement": "Current methods have suboptimal performance in predicting combined-perturbation effects, with limited improvement over baselines."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fc059b04fe244a62c6c7bb19",
+              "inference_basis_ids": [
+                "res_671b4ad265d169b1ef48d9e2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "At present, methods for predicting chemical combined-perturbation effects are limited, and the baseReg baseline model achieves the highest accuracy."
+              },
+              "statement": "baseReg achieves the highest accuracy for chemical combined-perturbation effects, indicating a gap in current methods."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS12",
+              "description": "Genetic perturbation dataset.",
+              "name": "Adamson",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS13",
+              "description": "Genetic perturbation dataset.",
+              "name": "Frangieh",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS14",
+              "description": "CRISPR activation experiments.",
+              "name": "TianActivation",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS15",
+              "description": "CRISPR inhibition experiments.",
+              "name": "TianInhibition",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS16",
+              "description": "Single-cell perturbation data from Replogle et al. experiment 6.",
+              "name": "Replogle-exp6",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS17",
+              "description": "Single-cell perturbation data from Replogle et al. experiment 7.",
+              "name": "Replogle-exp7",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS18",
+              "description": "Single-cell perturbation data from Replogle et al. experiment 8.",
+              "name": "Replogle-exp8",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS19",
+              "description": "Genetic perturbation dataset.",
+              "name": "Papalexi",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS20",
+              "description": "Single-cell perturbation data for RPE1 cell line.",
+              "name": "Replogle-RPE1essential",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS21",
+              "description": "Single-cell perturbation data for K562 cell line.",
+              "name": "Replogle-K562essential",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS22",
+              "description": "Genetic perturbation dataset with gene interaction categories.",
+              "name": "Norman",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS23",
+              "description": "Genetic perturbation dataset.",
+              "name": "Wessels",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS24",
+              "description": "CRISPR activation and interference screens in primary human T cells.",
+              "name": "Schmidt",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS25",
+              "description": "A549 cell line perturbed with 188 chemicals at 4 dosages.",
+              "name": "sciPlex-A549",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS26",
+              "description": "K562 cell line perturbed with 188 chemicals at 4 dosages.",
+              "name": "sciPlex3-K562",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS27",
+              "description": "MCF7 cell line perturbed with 188 chemicals at 4 dosages.",
+              "name": "sciPlex3-MCF7",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS28",
+              "description": "Chemical combination perturbation dataset.",
+              "name": "sciPlex3-comb",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "In the perturbation generalization scenario, we examined 18 methods: AttentionPert, biolord, CPA, GEARS, GenePert, linearModel, scFoundation, scGPT, chemCPA, scouter, scELMo, GeneCompass, PRnet, cycleCDR and 4 baseline models.",
+              "provenance": {
+                "chunk_id": "1fb069e4f0aada5c8711",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": false,
+                "text_excerpt": "In the perturbation generalization scenario, we examined 18 methods: AttentionPert23, biolord16, CPA24, GEARS5, GenePert25, linearModel12, scFoundation6, scGPT7, chemCPA26, scouter27, scELMo28, GeneCompass29, PRnet30, cycleCDR31 and 4 baseline models."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluated 18 methods on 17 datasets covering genetic and chemical perturbations, including single and combined perturbations, to assess prediction of unseen perturbations."
+          ],
+          "methods": [
+            {
+              "method_id": "M12",
+              "name": "AttentionPert",
+              "protocol_description": "Models multiplexed genetic perturbations with multi-scale effects."
+            },
+            {
+              "method_id": "M13",
+              "name": "biolord",
+              "protocol_description": "Disentanglement of single-cell data."
+            },
+            {
+              "method_id": "M14",
+              "name": "CPA",
+              "protocol_description": "Predicts cellular responses to complex perturbations."
+            },
+            {
+              "method_id": "M15",
+              "name": "GEARS",
+              "protocol_description": "Predicts transcriptional outcomes of novel multigene perturbations."
+            },
+            {
+              "method_id": "M16",
+              "name": "GenePert",
+              "protocol_description": "Simple and effective embedding model for single-cell biology built from ChatGPT."
+            },
+            {
+              "method_id": "M17",
+              "name": "linearModel",
+              "protocol_description": "Linear baseline model."
+            },
+            {
+              "method_id": "M18",
+              "name": "scFoundation",
+              "protocol_description": "Large-scale foundation model on single-cell transcriptomics."
+            },
+            {
+              "method_id": "M19",
+              "name": "scGPT",
+              "protocol_description": "Foundation model for single-cell multi-omics using generative AI."
+            },
+            {
+              "method_id": "M20",
+              "name": "chemCPA",
+              "protocol_description": "Predicts cellular responses to novel drug perturbations at single-cell resolution."
+            },
+            {
+              "method_id": "M21",
+              "name": "scouter",
+              "protocol_description": "Predicts transcriptional responses to genetic perturbations with LLM embeddings."
+            },
+            {
+              "method_id": "M22",
+              "name": "scELMo",
+              "protocol_description": "Embeddings from language models for single-cell data analysis."
+            },
+            {
+              "method_id": "M23",
+              "name": "GeneCompass",
+              "protocol_description": "Knowledge-informed cross-species foundation model."
+            },
+            {
+              "method_id": "M24",
+              "name": "PRnet",
+              "protocol_description": "Predicts transcriptional responses to novel chemical perturbations using deep generative model."
+            },
+            {
+              "method_id": "M25",
+              "name": "cycleCDR",
+              "protocol_description": "Predicts single-cell cellular responses to perturbations using cycle consistency learning."
+            },
+            {
+              "method_id": "M26",
+              "name": "Baseline models (4)",
+              "protocol_description": "Four baseline models including trainMean."
+            }
+          ],
+          "name": "Benchmarking in perturbation generalization scenario",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance ranking",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "In predicting genetic combined-perturbation effects, linearModel and scouter perform the best."
+              },
+              "quantitative_value": null,
+              "result_id": "res_05d3174db1dd9fb6cd2d2f09",
+              "unit": null,
+              "value_raw_text": "linearModel and scouter perform the best in predicting genetic combined-perturbation effects."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE and PCC-delta",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "in the Schmidt dataset38, scGPT substantially outperformed the baseline model in terms of the MSE and PCC-delta metrics, especially for the combo-seen0 perturbation type"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1a60c64d55800c3430ee52f6",
+              "unit": null,
+              "value_raw_text": "scGPT substantially outperformed the baseline model in terms of MSE and PCC-delta on the Schmidt dataset, especially for combo-seen0."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance on chemical combined-perturbation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "baseReg outperformed CPA on all six metrics"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1e70c6658641fff0a45f5c81",
+              "unit": null,
+              "value_raw_text": "baseReg outperformed CPA on all six metrics."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance on chemical single-perturbation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "chemCPA achieved the best performance on the population-average metrics, outperforming the baseline model by a substantial margin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_289920774bfa0337e05242fc",
+              "unit": null,
+              "value_raw_text": "chemCPA achieved the best performance on the population-average metrics, outperforming the baseline model by a substantial margin."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance vs. similarity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Further analysis revealed that the performance advantage of CPA over trainMean increased as the similarity between the test and training perturbations decreased"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3b5a1e3c3b80792e8d90c54e",
+              "unit": null,
+              "value_raw_text": "The performance advantage of CPA over trainMean increased as the similarity between the test and training perturbations decreased."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance vs. fine-tuning data size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The results showed a clear trend that the performance of scGPT improved with increasing amounts of fine-tuning data, whereas the trainMean baseline model remained stable or showed slight degradation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_428ca4ba7fdd352e6b4ba402",
+              "unit": null,
+              "value_raw_text": "scGPT performance improved with increasing amounts of fine-tuning data, whereas trainMean remained stable or slightly degraded."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance on combo-seen0",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "In all four combined-perturbation datasets, the performance of all tools is the worst for combo-seen0 prediction"
+              },
+              "quantitative_value": null,
+              "result_id": "res_55f683c7f76e2cbc48f32921",
+              "unit": null,
+              "value_raw_text": "In all four combined-perturbation datasets, the performance of all tools is the worst for combo-seen0 prediction."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Scalability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "none of the algorithms encountered out-of-memory issues, and their runtimes were within acceptable limits, except for scFoundation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_580394eb3a6619751b1aa33d",
+              "unit": null,
+              "value_raw_text": "None of the algorithms encountered out-of-memory issues, and their runtimes were within acceptable limits, except for scFoundation."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance ranking",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "At present, methods for predicting chemical combined-perturbation effects are limited, and the baseReg baseline model achieves the highest accuracy."
+              },
+              "quantitative_value": null,
+              "result_id": "res_671b4ad265d169b1ef48d9e2",
+              "unit": null,
+              "value_raw_text": "baseReg baseline model achieves the highest accuracy for chemical combined-perturbation effects."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Robustness to noise",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Regarding the impact of noise, PRnet and cycleCDR were the most stable"
+              },
+              "quantitative_value": null,
+              "result_id": "res_76cb7423630334fa1cdea9d6",
+              "unit": null,
+              "value_raw_text": "PRnet and cycleCDR were the most stable regarding the impact of noise."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene interaction prediction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "CPA performed best on the potentiation, epistasis and redundant gene interaction types"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8008b44e98c9aa6061e908ce",
+              "unit": null,
+              "value_raw_text": "CPA performed best on the potentiation, epistasis and redundant gene interaction types."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Robustness to sparsity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Regarding the impact of sparsity, PRnet and chemCPA were the most stable."
+              },
+              "quantitative_value": null,
+              "result_id": "res_877b19c459637f744431f26f",
+              "unit": null,
+              "value_raw_text": "PRnet and chemCPA were the most stable regarding the impact of sparsity."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance ranking",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "To predict genetic single-perturbation effects, GenePert is an optimal choice when the training dataset is small. However, when the fine-tuning dataset is sufficient, deep learning and foundation models such as CPA and scGPT are preferable."
+              },
+              "quantitative_value": null,
+              "result_id": "res_91a37ca9b83bb0abf939ddaa",
+              "unit": null,
+              "value_raw_text": "GenePert is an optimal choice when the training dataset is small. However, when the fine-tuning dataset is sufficient, deep learning and foundation models such as CPA and scGPT are preferable."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Robustness to noise and sparsity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "All the algorithms’ performance was affected by data noise and sparsity, with greater sensitivity to sparsity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b261abb858a14d145e2e7ab6",
+              "unit": null,
+              "value_raw_text": "All algorithms' performance was affected by data noise and sparsity, with greater sensitivity to sparsity."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy by perturbation category",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "linearModel and scouter achieved the highest overall accuracy across all categories"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b310709a9eaa6cfe33bc316e",
+              "unit": null,
+              "value_raw_text": "linearModel and scouter achieved the highest overall accuracy across combo-seen2, combo-seen1, and combo-seen0 categories."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene interaction prediction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The additive-based linearModel and trainMean achieved the best performance on the additive interaction type"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c060ce7d5523b63204e72e52",
+              "unit": null,
+              "value_raw_text": "additive-based linearModel and trainMean achieved the best performance on the additive interaction type."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance ranking",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "In chemical single-perturbation effect prediction, chemCPA is the preferred choice."
+              },
+              "quantitative_value": null,
+              "result_id": "res_de3c24ad64769ab829c75938",
+              "unit": null,
+              "value_raw_text": "chemCPA is the preferred choice for chemical single-perturbation effect prediction."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE and PCC-delta",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1bf733d287f142fd489c",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "in the Replogle-RPE1essential and Replogle-K562essential datasets41, CPA achieved the highest accuracy in terms of both MSE and PCC-delta24"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f2b04b36b1fe2512ee5ee3fe",
+              "unit": null,
+              "value_raw_text": "CPA achieved the highest accuracy in terms of both MSE and PCC-delta on Replogle-RPE1essential and Replogle-K562essential datasets."
+            }
+          ],
+          "unit_id": "su_ffa1846a3f75ce41fa8744e2"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6587 on attempt 1"
+    }
+  ]
+}

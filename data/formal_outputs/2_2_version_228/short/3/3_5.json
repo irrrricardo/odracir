@@ -1,0 +1,871 @@
+{
+  "coverage_ledger": {
+    "07dbf406a2411c37f606": "not_selected",
+    "1b98869505158fddeb74": "not_selected",
+    "26220e04f99f4752b1b0": "not_selected",
+    "2a11e772f41ff1b7cc02": "not_selected",
+    "3bb62b4e6ff8c9a10dfc": "not_selected",
+    "4d7d9dffc094f48a1e02": "not_selected",
+    "560b0176bc29745f6116": "not_selected",
+    "634061a0b467779c0e23": "not_selected",
+    "71bf969fc91c36ed6118": "extracted",
+    "72695367607644606c8c": "not_selected",
+    "79515c82566ec657f90c": "not_selected",
+    "814864797e51183f6b62": "not_selected",
+    "81e8b497e693c1117045": "not_selected",
+    "8b45a63fca4b3e4e63c4": "not_selected",
+    "99372271a38672703248": "extracted",
+    "9f99a9bbeff010802a33": "not_selected",
+    "a999918ce9652381e0a7": "not_selected",
+    "acb42355acd6106e87ec": "extracted",
+    "c21275d2b3346d27127f": "not_selected",
+    "d4c865764bf7866a1f07": "not_selected",
+    "dbae77222e42773330c9": "extracted",
+    "e35909d9382781829f31": "not_selected",
+    "e5b28eb5db9b9ded2f78": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses the PS19 tauopathy mouse model; generalizability to other tauopathy models or human AD requires further validation.",
+    "C3aR-KO is global; cell-type-specific contributions of C3aR signaling are not fully dissected.",
+    "The pharmacological STAT3 inhibitor SH-4-54 may have off-target effects.",
+    "Human AD network analysis is correlational and does not establish causality.",
+    "Sample sizes for some experiments (e.g., n=6) are modest."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_5.pdf",
+    "source_sha256": "a17f75cbaad5c3818291cfb1696979e0b1b3f383b27f320fee3dda4cdcdbeca1"
+  },
+  "paper_id": "3_5",
+  "quality_assessment": {
+    "correct_item_count": 82,
+    "deterministic_rule_score": 0.9247,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.375,
+      "sample_size_log_score": 0.295,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 82,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does complement C3aR inactivation attenuate tau pathology and reverse immune network deregulation in tauopathy models?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_19167e5f4ce8640c419d8211",
+              "inference_basis_ids": [
+                "res_22a7bca6c49947b65e70adf7",
+                "res_e245389acff29661d8c64493"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "synapse loss was significantly restored by C3aR KO"
+              },
+              "statement": "C3aR inactivation rescues synapse loss in PS19 mice."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_49cdba885ae36fe9b32409d3",
+              "inference_basis_ids": [
+                "res_436f435ce26d66db29b2f038"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "C3ar1 ablation in PS19 mice led to a robust rescue of neurodegeneration"
+              },
+              "statement": "C3aR inactivation rescues neuronal loss in PS19 mice."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "3D reconstruction of Syp and PSD-95 puncta inside Iba1+ microglia using Imaris.",
+            "Immunostaining for synaptophysin (Syp) and PSD-95 in hippocampal CA3 area.",
+            "Unbiased stereology for NeuN+ neurons in CA1 and CA3."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Immunofluorescence and confocal imaging",
+              "protocol_description": "Immunostaining of presynaptic protein synaptophysin and postsynaptic PSD-95; quantification of puncta intensity and colocalization; n=6 per genotype, 5-7 planes per mouse; one-way ANOVA with Sidak's HSD."
+            },
+            {
+              "method_id": "M6",
+              "name": "3D Imaris reconstruction",
+              "protocol_description": "3D rendering of Syp and PSD-95 signals inside Iba1+ microglia; 10-15 cells per mouse quantified; n=6 per genotype; one-way ANOVA with Sidak's HSD."
+            },
+            {
+              "method_id": "M7",
+              "name": "Unbiased stereology",
+              "protocol_description": "NeuN immunohistochemistry; neuronal counts in CA1 and CA3 using optical fractionator; three equidistant planes separated by 150 um per animal; n=6 per genotype; one-way ANOVA with Sidak's HSD."
+            }
+          ],
+          "name": "Synaptic and neuronal rescue by C3aR KO",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Synaptic puncta (pre-, post-, double-positive)",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "coimmunostaining of Syp with postsynaptic marker PSD-95 revealed reduced pre-, post-, and double-positive-synaptic puncta in PS19 mice, and the synapse loss was significantly restored by C3aR KO"
+              },
+              "quantitative_value": null,
+              "result_id": "res_22a7bca6c49947b65e70adf7",
+              "unit": null,
+              "value_raw_text": "synapse loss was significantly restored by C3aR KO"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Neuronal numbers in CA1 and CA3",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "C3ar1 ablation in PS19 mice led to a robust rescue of neurodegeneration, evidenced by the insignificant differences between PS19/C3aR-KO and WT controls"
+              },
+              "quantitative_value": null,
+              "result_id": "res_436f435ce26d66db29b2f038",
+              "unit": null,
+              "value_raw_text": "robust rescue of neurodegeneration, evidenced by the insignificant differences between PS19/C3aR-KO and WT controls"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Synaptophysin immunoreactivity",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Deletion of C3ar1 on PS19 background resulted in significant elevation of Syp immunoreactivity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e245389acff29661d8c64493",
+              "unit": null,
+              "value_raw_text": "significant elevation of Syp immunoreactivity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglial engulfment of synaptic puncta",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "measurement of the volume of Syp-positive or PSD-95-positive puncta within Iba1-marked microglia, rendered by Imaris 3D imaging, revealed a negative association between total synaptic puncta and those inside the microglia in all genotypes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e8073f77a2e9a8aae85f3cca",
+              "unit": null,
+              "value_raw_text": "negative association between total synaptic puncta and those inside the microglia in all genotypes"
+            }
+          ],
+          "unit_id": "su_05065da4528e6490d00817b5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_53ea3009b32eeac2d7bf6a51",
+              "inference_basis_ids": [
+                "res_85e32a5c5b3c79551e0ca621",
+                "res_d5bc33f097321cf5016e8746",
+                "res_d988b162bf09bc1f865d8b79"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "C3aR Controls the Expression of an Immune Network Conserved between Human AD and PS19 Mice"
+              },
+              "statement": "C3aR controls an immune network that is conserved between human AD and PS19 mice."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "RNA-seq of hippocampal tissues from 9-month-old WT, C3aR-KO, PS19, PS19/C3aR-KO mice.",
+              "name": "Mouse hippocampal RNA-seq",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Eight human AD expression datasets from Mount Sinai Brain Bank, Harvard Brain Tissue Resource, and ROS-MAP.",
+              "name": "Human AD expression datasets",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Construction of C3AR1-centered correlation network across eight human AD expression datasets.",
+            "Differential expression analysis (adjusted p<0.01).",
+            "GO analysis of upregulated DEGs.",
+            "Intersection of human network with 526 rescued mouse genes.",
+            "RNA-seq of hippocampal tissues from 9-month-old WT, C3aR-KO, PS19, PS19/C3aR-KO mice.",
+            "Unsupervised clustering of DEGs."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "RNA-seq and differential expression",
+              "protocol_description": "RNA-seq of hippocampal tissues; PCA outlier removal; DEGs identified with adjusted p<0.01; 1,726 DEGs in PS19 vs WT."
+            },
+            {
+              "method_id": "M9",
+              "name": "Gene network analysis",
+              "protocol_description": "C3AR1-centered correlation network across eight human AD datasets; intersection with 526 rescued genes; enrichment tested with Fisher's exact test."
+            }
+          ],
+          "name": "Transcriptomic analysis of C3aR-dependent immune network",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Rescue of immune pathway genes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "all these categories were significantly rescued in PS19/C3aR-KO mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_85e32a5c5b3c79551e0ca621",
+              "unit": null,
+              "value_raw_text": "all these categories were significantly rescued in PS19/C3aR-KO mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of DEGs rescued by C3aR KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "it resulted in the reversal of almost one-third of PS19 DEGs (526 out of 1,726 PS19 DEGs were rescued)"
+              },
+              "quantitative_value": 526.0,
+              "result_id": "res_d5bc33f097321cf5016e8746",
+              "unit": "genes",
+              "value_raw_text": "526 out of 1,726 PS19 DEGs were rescued"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of rescued genes in human AD networks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "acb42355acd6106e87ec",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We observed a significant enrichment in the expression of these DEGs in at least five human datasets"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d988b162bf09bc1f865d8b79",
+              "unit": null,
+              "value_raw_text": "significant enrichment in the expression of these DEGs in at least five human datasets"
+            }
+          ],
+          "unit_id": "su_43a9b8713efad5e759efab6a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bde5dfb19fca27f21be0fa50",
+              "inference_basis_ids": [
+                "res_5f2498961d3e14fe510cac08"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "C3aR KO is protective against the hippocampal-dependent memory impairment."
+              },
+              "statement": "C3ar1 deletion rescues hippocampal-dependent memory impairment in PS19 mice."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d076107748c5db5c1fc13e8d",
+              "inference_basis_ids": [
+                "res_f52fde20bdd4fe32b62ef8fa"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "genetic deletion of C3ar1 exerts beneficial effects on synaptic plasticity and cognitive function in PS19 mice."
+              },
+              "statement": "C3ar1 deletion improves synaptic plasticity in PS19 mice."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f766d92d244baae505370368",
+              "inference_basis_ids": [
+                "res_38985b7836dcd2e535135b93",
+                "res_8f5331b21a01ccf3745c2e90"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "C3aR ablation results in the amelioration of pathological tau, but not total tau."
+              },
+              "statement": "Genetic deletion of C3ar1 reduces tau pathology in PS19 mice."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Fear conditioning test at 8 months (contextual and cued).",
+            "Immunoblot analysis of brain lysates at 9 months for phospho-tau (PHF1, CP13) and total tau.",
+            "Immunostaining for PHF1 and MC1 in cortex and hippocampus with quantification of positive neurons.",
+            "LTP recordings of Schaffer collateral pathway in hippocampal slices.",
+            "PS19 mice (tauopathy model) crossed with C3aR-KO to generate PS19/C3aR-KO mice."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Immunoblotting",
+              "protocol_description": "Brain lysates from 9-month-old PS19 and PS19/C3aR-KO mice probed with anti-phospho-tau antibodies PHF1 and CP13; gamma-tubulin as loading control; n=6 per genotype; Student's t-test."
+            },
+            {
+              "method_id": "M2",
+              "name": "Immunohistochemistry",
+              "protocol_description": "PHF1 and MC1 immunostaining on brain sections from 9-month-old mice; quantification of positive neurons in cortex and hippocampus; n=6 per genotype; Student's t-test."
+            },
+            {
+              "method_id": "M3",
+              "name": "Fear conditioning",
+              "protocol_description": "Contextual and cued fear conditioning test at 8 months; WT (n=14), C3aR-KO (n=17), PS19 (n=14), PS19/C3aR-KO (n=15); one-way ANOVA with Sidak's HSD."
+            },
+            {
+              "method_id": "M4",
+              "name": "Electrophysiology",
+              "protocol_description": "LTP recordings of fEPSP slope in Schaffer collateral pathway; theta burst stimulation; WT, C3aR-KO, PS19, PS19/C3aR-KO; two-way repeated-measures ANOVA with Tukey's HSD."
+            }
+          ],
+          "name": "Genetic deletion of C3ar1 in PS19 mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Total tau protein level",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "total tau levels were not significantly changed between PS19 and PS19/C3aR-KO mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_25892b021789ef44f5142b74",
+              "unit": null,
+              "value_raw_text": "total tau levels were not significantly changed between PS19 and PS19/C3aR-KO mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PHF1-positive neurons",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "C3ar1 deletion resulted in an almost complete rescue of tau pathology"
+              },
+              "quantitative_value": null,
+              "result_id": "res_38985b7836dcd2e535135b93",
+              "unit": null,
+              "value_raw_text": "almost complete rescue of tau pathology"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Contextual fear response",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We observed a reduction in contextual but not cued fear response in PS19 mice and a significant rescue in PS19/C3aR-KO animals"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5f2498961d3e14fe510cac08",
+              "unit": null,
+              "value_raw_text": "significant rescue in PS19/C3aR-KO animals"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phospho-tau protein level",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Immunoblot analysis of PS19 and PS19/C3aR-KO mice at 9 months of age using anti-phospho-tau antibodies PHF1 and CP13 revealed a significant reduction of the hyperphosphorylated tau species in PS19/C3aR-KO brains compared to the PS19 controls"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8f5331b21a01ccf3745c2e90",
+              "unit": null,
+              "value_raw_text": "significant reduction of the hyperphosphorylated tau species in PS19/C3aR-KO brains compared to the PS19 controls"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "LTP induction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbae77222e42773330c9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The LTP induction was drastically reduced in PS19 mice compared to WT and C3aR-KO groups, and this phenotype was significantly improved in PS19/C3aR-KO mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f52fde20bdd4fe32b62ef8fa",
+              "unit": null,
+              "value_raw_text": "significantly improved in PS19/C3aR-KO mice"
+            }
+          ],
+          "unit_id": "su_4ba004d4ba8c4e83c9bf4eca"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0c2cc0c25de2bc8a5c54b926",
+              "inference_basis_ids": [
+                "res_12a1c0c1e89fa2e879fb0dba",
+                "res_418781194d87d06e25bbc842",
+                "res_41de0a7ac3d3d57bbaea0075",
+                "res_6523f95a2d1b76beed289383",
+                "res_b8a69032693a60e2ec253597",
+                "res_e78339d2360ca81d720e2efd",
+                "res_fd79291d2510cb52d776d129"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "these studies establish a novel signaling pathway that links C3-C3aR with STAT3 phosphorylation and activation."
+              },
+              "statement": "STAT3 is a specific downstream target of C3-C3aR signaling."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "C3 treatment of C3aR-overexpressing BV2 cells with/without C3aRA.",
+            "Primary microglia cultures from WT and C3aR KO mice treated with IL6 or C3 ± C3aRA.",
+            "qPCR of hub genes in microglia and astrocytes.",
+            "RPPA proteomics for total and phospho-STAT3.",
+            "STAT3 luciferase reporter assay and SOCS3 qPCR in BV2 cells.",
+            "Transcription factor network analysis of PS19 DEGs.",
+            "Western blot confirmation of pSTAT3 in brain lysates."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Transcription factor network analysis",
+              "protocol_description": "TRANSFAC database used to build TF network from 1,726 DEGs; hub genes identified."
+            },
+            {
+              "method_id": "M11",
+              "name": "qPCR",
+              "protocol_description": "qPCR analysis of hub gene expression in CoBrA-isolated microglia and astrocytes; n=6 per genotype; Student's t-test."
+            },
+            {
+              "method_id": "M12",
+              "name": "RPPA and western blot",
+              "protocol_description": "Reverse-phase protein array for total and phospho-STAT3; western blot confirmation in brain lysates."
+            },
+            {
+              "method_id": "M13",
+              "name": "Cell culture and treatments",
+              "protocol_description": "BV2 microglia cell line overexpressing C3aR; treated with IL6 or C3 ± C3aRA; primary microglia from WT and C3aR KO mice treated similarly."
+            },
+            {
+              "method_id": "M14",
+              "name": "Luciferase reporter assay",
+              "protocol_description": "STAT3 response-element-dependent luciferase activity measured after treatments."
+            }
+          ],
+          "name": "STAT3 as downstream target of C3-C3aR",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pSTAT3 protein level in PS19 vs PS19/C3aR-KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "independent proteomics analysis using the reverse-phase protein array (RPPA) platform identified total- and phospho-STAT3 (pY705) as a candidate upregulated in PS19 mice and subsequently rescued by C3aR KO"
+              },
+              "quantitative_value": null,
+              "result_id": "res_12a1c0c1e89fa2e879fb0dba",
+              "unit": null,
+              "value_raw_text": "total- and phospho-STAT3 (pY705) as a candidate upregulated in PS19 mice and subsequently rescued by C3aR KO"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Stat3 expression rescue in microglia",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "only Stat3 expression was rescued by C3aR KO in bulk brain samples as well as in purified microglia"
+              },
+              "quantitative_value": null,
+              "result_id": "res_418781194d87d06e25bbc842",
+              "unit": null,
+              "value_raw_text": "Stat3 expression was rescued by C3aR KO in bulk brain samples as well as in purified microglia"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C3aRA blockade of C3-induced STAT3 phosphorylation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "These effects were effectively blocked by treating the cells with a C3aR antagonist (C3aRA)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_41de0a7ac3d3d57bbaea0075",
+              "unit": null,
+              "value_raw_text": "These effects were effectively blocked by treating the cells with a C3aR antagonist (C3aRA)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C3-induced STAT3 phosphorylation in BV2 cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "C3 induced STAT3 phosphorylation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6523f95a2d1b76beed289383",
+              "unit": null,
+              "value_raw_text": "C3 induced STAT3 phosphorylation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SOCS3 mRNA expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "SOCS3 mRNA levels in both IL6- and C3-treated cells, and the C3 effects were blocked by C3aRA"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b8a69032693a60e2ec253597",
+              "unit": null,
+              "value_raw_text": "SOCS3 mRNA levels increased in both IL6- and C3-treated cells, and the C3 effects were blocked by C3aRA"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C3-induced pSTAT3 in WT vs C3aR KO primary microglia",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "the C3-mediated pSTAT3 and SOCS3 were only observed in WT, but not in C3ar1-deficient microglia"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e78339d2360ca81d720e2efd",
+              "unit": null,
+              "value_raw_text": "C3-mediated pSTAT3 and SOCS3 were only observed in WT, but not in C3ar1-deficient microglia"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "STAT3 luciferase reporter activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "we observed increased luciferase reporter activity in both IL6- and C3-treated cells, and the C3 effects were blocked by C3aRA"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fd79291d2510cb52d776d129",
+              "unit": null,
+              "value_raw_text": "increased luciferase reporter activity in both IL6- and C3-treated cells, and the C3 effects were blocked by C3aRA"
+            }
+          ],
+          "unit_id": "su_c03b2b06bfd464404c09a4da"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e087c069725f6ce127147296",
+              "inference_basis_ids": [
+                "res_1699a445b25aa726a08fd0c7",
+                "res_23b15e4afe939960705cd846",
+                "res_36749480739a42711ea2550f",
+                "res_5b61c802105609c6a50c4934",
+                "res_6d7f811ba291e78569627caa"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "the direct activation of pSTAT3 signaling by C3-C3aR in vitro and the similar effects exerted by the blockade of C3aR or pSTAT3 in vivo provide support for a mechanistic and functional crosstalk between the complement and STAT3 signaling pathways in mediating tau pathogenic process."
+              },
+              "statement": "Pharmacological inhibition of pSTAT3 mitigates tau pathology and neuroinflammation in PS19 mice."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "ELISA for proinflammatory cytokines (TNFa, IL1b, IL6).",
+            "Immunostaining for PHF1, MC1, pSTAT3, GFAP, Iba1.",
+            "Treatment of WT and PS19 mice with STAT3 inhibitor SH-4-54 (10 mg/kg, 3x/week, 2 months starting at 7 months).",
+            "Western blot for pSTAT3 and phospho-tau (PHF1, CP13)."
+          ],
+          "methods": [
+            {
+              "method_id": "M15",
+              "name": "In vivo STAT3 inhibition",
+              "protocol_description": "SH-4-54 (10 mg/kg) or vehicle i.p. three times per week for 2 months starting at 7 months; WT and PS19 mice."
+            },
+            {
+              "method_id": "M16",
+              "name": "Immunoblotting and immunohistochemistry",
+              "protocol_description": "Western blot for pSTAT3, PHF1, CP13; immunostaining for PHF1, MC1, pSTAT3, GFAP, Iba1; quantification in hippocampus and cortex."
+            },
+            {
+              "method_id": "M17",
+              "name": "Cytokine ELISA",
+              "protocol_description": "ELISA for TNFa, IL1b, IL6 in brain lysates."
+            }
+          ],
+          "name": "Pharmacological inhibition of pSTAT3 in PS19 mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Phospho-tau after SH treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "This is accompanied by reduced PHF1- and CP13-positive phospho-tau proteins"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1699a445b25aa726a08fd0c7",
+              "unit": null,
+              "value_raw_text": "reduced PHF1- and CP13-positive phospho-tau proteins"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proinflammatory cytokines after SH treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "This result is correlated with reduced levels of proinflammatory cytokines TNFa, IL1b, and IL6 in SH-treated PS19 mouse brains"
+              },
+              "quantitative_value": null,
+              "result_id": "res_23b15e4afe939960705cd846",
+              "unit": null,
+              "value_raw_text": "reduced levels of proinflammatory cytokines TNFa, IL1b, and IL6 in SH-treated PS19 mouse brains"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reactive gliosis after SH treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "Immunostaining analysis using antibodies against pSTAT3, GFAP, and Iba1 demonstrated a significant reduction of reactive astrogliosis and microgliosis as well as diminished pSTAT3 staining in the hippocampus of SH-treated PS19 mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_36749480739a42711ea2550f",
+              "unit": null,
+              "value_raw_text": "significant reduction of reactive astrogliosis and microgliosis as well as diminished pSTAT3 staining in the hippocampus of SH-treated PS19 mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pSTAT3 protein level after SH treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "SH-treated PS19 mice exhibited significantly lower pSTAT3 protein levels"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5b61c802105609c6a50c4934",
+              "unit": null,
+              "value_raw_text": "SH-treated PS19 mice exhibited significantly lower pSTAT3 protein levels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PHF1 and MC1 immunoreactivity after SH treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "99372271a38672703248",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "reduced PHF1 and MC1 immunoreactivities in the hippocampus (HPC) and cortex (CTX) of PS19 mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6d7f811ba291e78569627caa",
+              "unit": null,
+              "value_raw_text": "reduced PHF1 and MC1 immunoreactivities in the hippocampus and cortex of PS19 mice"
+            }
+          ],
+          "unit_id": "su_fe8dc56b4c5845b8e63a7db9"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6600 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5426 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4124 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8571 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6825 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8710 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7474 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8723 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7698 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,659 @@
+{
+  "coverage_ledger": {
+    "06994719f26cf3de5c3d": "not_selected",
+    "1265a373ae5fed88dacc": "not_selected",
+    "1dddf8ef7edca821f4f8": "not_selected",
+    "28cf9f784bd2f6ef791a": "not_selected",
+    "2aaafb5abfd79b32a970": "not_selected",
+    "2c6d057e22a23d2bcc4c": "extracted",
+    "2dad20925dc118dcd5bc": "not_selected",
+    "4199046a09cd021a86ab": "not_selected",
+    "42f6c34ef838e4f9f2b5": "extracted",
+    "468e35c528b9473327e0": "not_selected",
+    "6bf2eecd91af58152a79": "not_selected",
+    "6cb23294a0c34ba212ec": "not_selected",
+    "88e7bf8f88893dc28360": "extracted",
+    "978f7afd34e1693829fb": "not_selected",
+    "9e4479bdb72a8465190c": "not_selected",
+    "a8ff2340229ac2cb5613": "not_selected",
+    "aa37477744ee7c066260": "not_selected",
+    "bca690dd22a163ddc983": "not_selected",
+    "be6afbf3010d165296fc": "not_selected",
+    "c2de919b4d16007a23e2": "not_selected",
+    "c72a61c92dd6295c8acf": "not_selected",
+    "c8bd297f9d016929b59f": "extracted",
+    "ccdb5a7e59a38ed9c0e8": "not_selected",
+    "e076fee585779c99fe44": "not_selected",
+    "fce00adb8aa40c0d746a": "not_selected",
+    "feebe851cf52945c3b91": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Geo-FNO requires learning a deformation mapping, which may add computational overhead.",
+    "Performance on highly irregular geometries not extensively tested beyond presented cases.",
+    "Inverse design demonstration limited to airfoil shape optimization with seven spline nodes.",
+    "Cost-accuracy study limited to Euler equation airfoil test; generalization to other PDEs not quantified.",
+    "Discretization convergence shown only for airfoil problem; may not hold for all PDEs."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "8_5.pdf",
+    "source_sha256": "f5f2f9cc2f305bf77f06812808521696ddbbc06852f4b0db1a970bb322c0c9cb"
+  },
+  "paper_id": "8_5",
+  "quality_assessment": {
+    "correct_item_count": 39,
+    "deterministic_rule_score": 0.8765,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 41,
+    "f1": 0.75,
+    "incorrect_item_count": 2,
+    "incorrect_items": [
+      {
+        "description": "The extracted value 'at least 10^4x faster' contradicts the source excerpt 'Geo-FNO is at least 104x faster'.",
+        "item_id": "result:su_59301f7b09300126780a4754:res_f8b65d53cace4f4c93790901",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'at least 10^4 times faster', but the source excerpt says 'at least 104x faster'.",
+        "item_id": "claim:su_59301f7b09300126780a4754:clm_0f4ab10f60b8a5e6f4545d1d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 24,
+    "missed_core_items": [
+      {
+        "description": "Geo-FNO achieves up to 10^5 acceleration compared to numerical solver (abstract).",
+        "item_id": null,
+        "source_chunk_id": "2c6d057e22a23d2bcc4c",
+        "source_excerpt": "Comprehensive cost-accuracy experiments show that Geo-FNO is 105 times faster than the standard numerical solvers and twice more accurate compared to direct interpolation on existing ML-based PDE solvers such as the standard FNO.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO has up to 10^5 acceleration compared to the numerical solver (contributions).",
+        "item_id": null,
+        "source_chunk_id": "9e4479bdb72a8465190c",
+        "source_excerpt": "The cost-accuracy experiments show that Geo-FNO has up to 105 acceleration compared to the numerical solver, as well as half the error rate compared to previous interpolation-based methods as shown in Figure 3.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can accelerate numerical solvers up to 10^5 times on the airfoil problem.",
+        "item_id": null,
+        "source_chunk_id": "2aaafb5abfd79b32a970",
+        "source_excerpt": "It can accelerate the numerical solvers up to 105 times on the airfoil problem (See section 4.4).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO is twice more accurate compared to direct interpolation on existing ML-based PDE solvers.",
+        "item_id": null,
+        "source_chunk_id": "2c6d057e22a23d2bcc4c",
+        "source_excerpt": "Comprehensive cost-accuracy experiments show that Geo-FNO is 105 times faster than the standard numerical solvers and twice more accurate compared to direct interpolation on existing ML-based PDE solvers such as the standard FNO.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO has half the error rate compared to previous interpolation-based methods.",
+        "item_id": null,
+        "source_chunk_id": "9e4479bdb72a8465190c",
+        "source_excerpt": "The cost-accuracy experiments show that Geo-FNO has up to 105 acceleration compared to the numerical solver, as well as half the error rate compared to previous interpolation-based methods as shown in Figure 3.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO maintains discretization-convergence.",
+        "item_id": null,
+        "source_chunk_id": "9e4479bdb72a8465190c",
+        "source_excerpt": "Further, Geo-FNO maintains discretization-convergence.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can be trained on low resolution datasets and directly evaluated at high resolution cases.",
+        "item_id": null,
+        "source_chunk_id": "9e4479bdb72a8465190c",
+        "source_excerpt": "The model trained on low resolution datasets can be directly evaluated at high resolution cases.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO is as fast as the original FNO.",
+        "item_id": null,
+        "source_chunk_id": "fce00adb8aa40c0d746a",
+        "source_excerpt": "It is as fast as the original FNO but can represent the variations in solutions and domain shapes more efficiently and accurately.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can be extended to general topologies via decomposition techniques.",
+        "item_id": null,
+        "source_chunk_id": "fce00adb8aa40c0d746a",
+        "source_excerpt": "In principle, our Geo-FNO framework can be directly extended to general topologies. Given complex input topology we can apply the decomposition techniques such as triangle tessellation to divide the domain into sub-domains such as each sub-domain is regular.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can be extended to physics-informed neural operator setting.",
+        "item_id": null,
+        "source_chunk_id": "fce00adb8aa40c0d746a",
+        "source_excerpt": "Furthermore, it is possible to extend the Geo-FNO framework to the physics-informed neural operator setting which incorporates PDE constraints (Li et al., 2021).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO with learned deformation has better accuracy than fixed heuristic deformations (R-mesh and O-mesh) on elasticity problem.",
+        "item_id": null,
+        "source_chunk_id": "468e35c528b9473327e0",
+        "source_excerpt": "Notice that the Geo-FNO with a learned deformation has better accuracy compared to Geo-FNO with fixed heuristic deformations (R-mesh) and (O-mesh).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO correctly predicts evolution of shape and displacement in plasticity problem, with moderate error on top of material.",
+        "item_id": null,
+        "source_chunk_id": "e076fee585779c99fe44",
+        "source_excerpt": "As shown in fig. 6, Geo-FNO correctly predicts the evolution of the shape and the displacement. It has a moderate error on the top of the material, which is flat in the ground truth but curved in the prediction.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO inference time for plasticity is around 0.01 second per sample.",
+        "item_id": null,
+        "source_chunk_id": "e076fee585779c99fe44",
+        "source_excerpt": "Geo-FNO is equivalent to directly applying the standard FNO on the structured mesh, and hence it perseveres the speed of standard FNO with an inference time of around 0.01 second per.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "For inverse design, both Geo-FNO and traditional numerical solver lead to drag coefficient 0.04 and lift coefficient 0.29.",
+        "item_id": null,
+        "source_chunk_id": "c8bd297f9d016929b59f",
+        "source_excerpt": "For the optimized design shape, both Geo-FNO and traditional numerical solver lead to a drag coefficient of 0.04 and a lift coefficient of 0.29.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Geo-FNO can capture boundary layer in pipe flow.",
+        "item_id": null,
+        "source_chunk_id": "aa37477744ee7c066260",
+        "source_excerpt": "the Geo-FNO is able to capture the boundary layer, and the prediction matches well with the reference.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO outperforms interpolation-based ML methods on pipe flow.",
+        "item_id": null,
+        "source_chunk_id": "1265a373ae5fed88dacc",
+        "source_excerpt": "Geo-FNO also outperforms these interpolation-based ML ethods, which directly interpolates the target on a larger rectangular space, as shown in table 2.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can be applied on irregular domains and non-uniform meshes.",
+        "item_id": null,
+        "source_chunk_id": "2aaafb5abfd79b32a970",
+        "source_excerpt": "We demonstrate that Geo-FNO can be applied on irregular domains and non-uniform meshes (See figs. 2 and 8)",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO is more accurate than combining direct interpolation with existing ML-based PDE solvers.",
+        "item_id": null,
+        "source_chunk_id": "2aaafb5abfd79b32a970",
+        "source_excerpt": "show it is more accurate than combining direct interpolation with existing ML-based PDE solvers such as the standard FNO (Li et al., 2020a) and UNet(Ronneberger et al., 2015)",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO perseveres the speed of standard FNO.",
+        "item_id": null,
+        "source_chunk_id": "2aaafb5abfd79b32a970",
+        "source_excerpt": "Meanwhile, Geo-FNO perseveres the speed of standard FNO.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can accelerate numerical solvers up to 10^5 times on the airfoil problem.",
+        "item_id": null,
+        "source_chunk_id": "2aaafb5abfd79b32a970",
+        "source_excerpt": "It can accelerate the numerical solvers up to 105 times on the airfoil problem (See section 4.4).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO with learned deformation has better accuracy than fixed heuristic deformations on elasticity.",
+        "item_id": null,
+        "source_chunk_id": "468e35c528b9473327e0",
+        "source_excerpt": "Notice that the Geo-FNO with a learned deformation has better accuracy compared to Geo-FNO with fixed heuristic deformations (R-mesh) and (O-mesh).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can be extended to physics-informed settings.",
+        "item_id": null,
+        "source_chunk_id": "1265a373ae5fed88dacc",
+        "source_excerpt": "In this case, we can use the physics-informed setting by optimizing the physics-informed equation loss.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can handle general topologies via Fourier continuation and decomposition.",
+        "item_id": null,
+        "source_chunk_id": "1265a373ae5fed88dacc",
+        "source_excerpt": "Thankfully, we can use the Fourier continuation and decomposition to convert the problem domain into simpler ones.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Geo-FNO can be extended to theoretical guarantees via universal approximation bounds.",
+        "item_id": null,
+        "source_chunk_id": "1265a373ae5fed88dacc",
+        "source_excerpt": "it will be interesting to extend the universal approximation bound of Fourier neural operator(Kovachki et al., 2021a) to the solution operator of PDEs defined on general geometries.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.9512,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.619
+  },
+  "quality_score": 0.75,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can Fourier neural operators be extended to handle PDEs on arbitrary geometries while retaining computational efficiency?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0f4ab10f60b8a5e6f4545d1d",
+              "inference_basis_ids": [
+                "res_f8b65d53cace4f4c93790901"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c8bd297f9d016929b59f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO is at least 104x faster while having the same accuracy"
+              },
+              "statement": "Geo-FNO is at least 10^4 times faster than traditional numerical solvers while achieving comparable accuracy."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_284d4409062baaa15426db87",
+              "inference_basis_ids": [
+                "res_20f144b18925f80c47714ea6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c8bd297f9d016929b59f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "The proposed Geo-FNO model, on the other hand, extends FNO (with FFT) to non-uniform meshes, and retains discretization-convergence."
+              },
+              "statement": "Geo-FNO retains discretization convergence, unlike standard FNO with FFT."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_72581f4017a990a55e467266",
+              "inference_basis_ids": [
+                "res_017a801e1e616db83c5a0c43",
+                "res_14e12299c2de69490e8fd029",
+                "res_1e45705fb61b5f2b3160fa4d",
+                "res_8c8cfc423e82c49f30de0f28",
+                "res_fa494708caedb32fe49ead10"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO can work on topology differently than torus or disk. Through domain decomposition, particularly by splitting the sphere into the northern and southern hemispheres, we can apply FFT2D for the spherical problem without raising dimensionality."
+              },
+              "statement": "Geo-FNO can handle different topologies (e.g., sphere) via domain decomposition without raising dimensionality."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a514a3ef7dc307e95cf1ece4",
+              "inference_basis_ids": [
+                "res_3785c2c84d1628277a5132b5",
+                "res_3b741580701ea1f2b514717f",
+                "res_49b584246303f548c8682730",
+                "res_7023bc8eca74cbd7cd5dd4b7",
+                "res_7b3d63f14936d2b0005d4ad9",
+                "res_b70c8655ab629d7c983b9037",
+                "res_d9f2341787aa6a2906dd959e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO outperforms both FNO and UNet with interpolation."
+              },
+              "statement": "Geo-FNO outperforms interpolation-based ML methods (FNO and UNet) on airfoil, pipe, and plasticity problems."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Transonic flow over airfoil governed by Euler equations; shape parameterized by design elements; reference data from 220x50 grid with 2000 implicit backward-Euler iterations.",
+              "name": "Airfoil Euler dataset",
+              "version_or_split": "training/testing"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Pipe flow problem with structured meshes.",
+              "name": "Pipe flow dataset",
+              "version_or_split": "training/testing"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Plasticity problem requiring mesh as target output; structured meshes.",
+              "name": "Plasticity dataset",
+              "version_or_split": "training/testing"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Advection equation on unit sphere; 1000 training, 200 test; inputs as point clouds of size ~8000; target solution at t=256/3.",
+              "name": "Advection on sphere dataset",
+              "version_or_split": "training/testing"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assess discretization convergence by training on low-resolution mesh and testing on higher resolutions.",
+            "Compare Geo-FNO against standard numerical solvers and interpolation-based ML methods (FNO interpolation, UNet interpolation).",
+            "Demonstrate inverse design by optimizing airfoil shape parameters to minimize drag-lift ratio.",
+            "Evaluate Geo-FNO on PDEs including Elasticity, Plasticity, Euler, and Navier-Stokes equations for forward modeling and inverse design.",
+            "Perform cost-accuracy study comparing Geo-FNO with traditional Euler solvers at different resolutions and time integrators.",
+            "Propose Geo-FNO, which learns to deform irregular physical domain into a latent uniform grid where FNO with FFT is applied."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Geo-FNO",
+              "protocol_description": "Learns a deformation mapping from irregular physical domain to a latent uniform grid; applies FNO with FFT in latent space; supports point clouds, meshes, and design parameters as inputs."
+            },
+            {
+              "method_id": "M2",
+              "name": "FNO interpolation",
+              "protocol_description": "Standard FNO applied after interpolating irregular domain onto a uniform rectangular grid."
+            },
+            {
+              "method_id": "M3",
+              "name": "UNet interpolation",
+              "protocol_description": "UNet applied after interpolating irregular domain onto a uniform rectangular grid."
+            },
+            {
+              "method_id": "M4",
+              "name": "FNO2D",
+              "protocol_description": "2D Fourier neural operator on torus topology."
+            },
+            {
+              "method_id": "M5",
+              "name": "FNO3D",
+              "protocol_description": "3D Fourier neural operator embedding sphere into R^3."
+            },
+            {
+              "method_id": "M6",
+              "name": "UNet2D",
+              "protocol_description": "2D UNet applied on spherical map projection."
+            },
+            {
+              "method_id": "M7",
+              "name": "DeepONet",
+              "protocol_description": "Deep operator network applied on spherical map projection."
+            }
+          ],
+          "name": "Geo-FNO framework",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO2D testing error 0.0381 on Advection sphere"
+              },
+              "quantitative_value": 0.0381,
+              "result_id": "res_017a801e1e616db83c5a0c43",
+              "unit": null,
+              "value_raw_text": "0.0381"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "DeepONet testing error 0.1599 on Advection sphere"
+              },
+              "quantitative_value": 0.1599,
+              "result_id": "res_14e12299c2de69490e8fd029",
+              "unit": null,
+              "value_raw_text": "0.1599"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO3D testing error > 100% on Advection sphere"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1e45705fb61b5f2b3160fa4d",
+              "unit": null,
+              "value_raw_text": "> 100%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Discretization convergence test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c8bd297f9d016929b59f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "On the Airfoil problem, we train Geo-FNO on a 56 × 51 mesh. It achieves test errors of 0.0147, 0.0329, and 0.0428 on 56 × 51, 111 × 51, and 221 × 51 meshes, respectively."
+              },
+              "quantitative_value": null,
+              "result_id": "res_20f144b18925f80c47714ea6",
+              "unit": null,
+              "value_raw_text": "0.0147, 0.0329, 0.0428 on 56x51, 111x51, 221x51 meshes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO interpolation testing error 0.0421 on Airfoil"
+              },
+              "quantitative_value": 0.0421,
+              "result_id": "res_3785c2c84d1628277a5132b5",
+              "unit": null,
+              "value_raw_text": "0.0421"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO testing error 0.0138 on Airfoil"
+              },
+              "quantitative_value": 0.0138,
+              "result_id": "res_3b741580701ea1f2b514717f",
+              "unit": null,
+              "value_raw_text": "0.0138"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO interpolation testing error 0.0151 on Pipe"
+              },
+              "quantitative_value": 0.0151,
+              "result_id": "res_49b584246303f548c8682730",
+              "unit": null,
+              "value_raw_text": "0.0151"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO testing error 0.0074 on Plasticity"
+              },
+              "quantitative_value": 0.0074,
+              "result_id": "res_7023bc8eca74cbd7cd5dd4b7",
+              "unit": null,
+              "value_raw_text": "0.0074"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UNet interpolation testing error 0.0519 on Airfoil"
+              },
+              "quantitative_value": 0.0519,
+              "result_id": "res_7b3d63f14936d2b0005d4ad9",
+              "unit": null,
+              "value_raw_text": "0.0519"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UNet2D testing error 0.3132 on Advection sphere"
+              },
+              "quantitative_value": 0.3132,
+              "result_id": "res_8c8cfc423e82c49f30de0f28",
+              "unit": null,
+              "value_raw_text": "0.3132"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO testing error 0.0067 on Pipe"
+              },
+              "quantitative_value": 0.0067,
+              "result_id": "res_b70c8655ab629d7c983b9037",
+              "unit": null,
+              "value_raw_text": "0.0067"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UNet interpolation testing error 0.0182 on Pipe"
+              },
+              "quantitative_value": 0.0182,
+              "result_id": "res_d9f2341787aa6a2906dd959e",
+              "unit": null,
+              "value_raw_text": "0.0182"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Speedup factor",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c8bd297f9d016929b59f",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO is at least 104x faster while having the same accuracy"
+              },
+              "quantitative_value": 10000.0,
+              "result_id": "res_f8b65d53cace4f4c93790901",
+              "unit": null,
+              "value_raw_text": "at least 10^4x faster"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "88e7bf8f88893dc28360",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO2D testing error 0.0332 on Advection sphere"
+              },
+              "quantitative_value": 0.0332,
+              "result_id": "res_fa494708caedb32fe49ead10",
+              "unit": null,
+              "value_raw_text": "0.0332"
+            }
+          ],
+          "unit_id": "su_59301f7b09300126780a4754"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4386 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,1055 @@
+{
+  "coverage_ledger": {
+    "1942b94a50992c558bd6": "not_selected",
+    "2d32a3c0c8a839d4ea09": "extracted",
+    "4fab25e16d0b1fbe4cf6": "extracted",
+    "502fac0babf55109318d": "not_selected",
+    "721ee3a9b9102042715e": "not_selected",
+    "8dfb71777b3a5bbf55e5": "not_selected",
+    "b71a55d4fd73b7e9a3ff": "not_selected",
+    "ca4081d5b6438d49f5c9": "not_selected",
+    "cfdace761c911f54616f": "extracted",
+    "e58fab687168a1395433": "not_selected",
+    "e899764868f5650020e9": "extracted",
+    "ee9d36ab7a5a0934ed17": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The higher expressiveness of k-order networks comes with a computational cost of processing high order tensors.",
+    "The proposed 2-order network has quadratic complexity, worse than message passing methods.",
+    "The model is useful for problems with dense edge data."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_6.pdf",
+    "source_sha256": "a2ddd6f36a1eb49d00956f078a110c19cf281a4fd59177e5791052cf5086d7be"
+  },
+  "paper_id": "6_6",
+  "quality_assessment": {
+    "correct_item_count": 57,
+    "deterministic_rule_score": 0.9323,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 58,
+    "f1": 0.9344,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The claim states 'The matrix multiplication layer is crucial for achieving high expressiveness and good generalization.' The source excerpt only compares generalization of (MP) and (MP+LIN) versus (LIN), noting that (MP) and (MP+LIN) enjoy better generalization than the linear basis, but does not state that matrix multiplication is crucial for high expressiveness and good generalization. The claim overstates the source.",
+        "item_id": "claim:su_99c56a6db28ec6200e09d5f3:clm_1783845d8918737504034b5d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "The paper proves that k-order invariant GNNs are as expressive as k-WL for k >= 2, establishing a hierarchy of models.",
+        "item_id": null,
+        "source_chunk_id": "4fab25e16d0b1fbe4cf6",
+        "source_excerpt": "we show that such k-order networks can distinguish between non-isomorphic graphs as good as the k-WL tests, which are provably stronger than the 1-WL test for k > 2.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The proposed reduced 2-order network with matrix multiplication achieves provable 3-WL expressive power.",
+        "item_id": null,
+        "source_chunk_id": "4fab25e16d0b1fbe4cf6",
+        "source_excerpt": "a reduced 2-order network containing just scaled identity operator, augmented with a single quadratic operation (matrix multiplication) has a provable 3-WL expressive power.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The model is the first practical invariant/equivariant model with guaranteed 3-WL expressiveness, strictly stronger than message passing models.",
+        "item_id": null,
+        "source_chunk_id": "4fab25e16d0b1fbe4cf6",
+        "source_excerpt": "this is the first practical invariant/equivariant model with guaranteed 3-WL expressiveness, strictly stronger than message passing models.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The model achieves state-of-the-art results on popular graph classification and regression tasks.",
+        "item_id": null,
+        "source_chunk_id": "4fab25e16d0b1fbe4cf6",
+        "source_excerpt": "We validate this model by presenting state of the art results on popular graph classification and regression tasks.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The higher expressiveness of k-order networks comes with a computational cost of processing high order tensors.",
+        "item_id": null,
+        "source_chunk_id": "4fab25e16d0b1fbe4cf6",
+        "source_excerpt": "Unfortunately, the higher expressiveness of these models comes with a computational cost of processing high order tensors.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The proposed 2-order network has quadratic complexity, worse than message passing methods.",
+        "item_id": null,
+        "source_chunk_id": "e899764868f5650020e9",
+        "source_excerpt": "The downside is that its complexity is still quadratic, worse than message passing type methods.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The model is useful for problems with dense edge data.",
+        "item_id": null,
+        "source_chunk_id": "e899764868f5650020e9",
+        "source_excerpt": "This model operates on input tensors of size n2 and therefore useful for problems with dense edge data.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9828,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8906
+  },
+  "quality_score": 0.9344,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can we develop GNN models that possess higher expressiveness than message passing while maintaining scalability?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_71bfa94f8ce12e6eac748490",
+              "inference_basis_ids": [
+                "res_175ad04d938e67b0830fdfde"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fab25e16d0b1fbe4cf6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we show that such k-order networks can distinguish between non-isomorphic graphs as good as the k-WL tests"
+              },
+              "statement": "k-order invariant GNNs are as expressive as the k-WL tests."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Prove that k-order invariant GNNs are as expressive as the k-WL tests for k >= 2."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "k-order invariant GNNs",
+              "protocol_description": "Use k-order invariant and equivariant graph neural networks as defined in Maron et al. (2019a,b) and analyze their ability to distinguish non-isomorphic graphs in relation to the k-WL hierarchy."
+            }
+          ],
+          "name": "Theoretical expressiveness of k-order invariant GNNs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Expressive power equivalence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4fab25e16d0b1fbe4cf6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we show that such k-order networks can distinguish between non-isomorphic graphs as good as the k-WL tests, which are provably stronger than the 1-WL test for k > 2."
+              },
+              "quantitative_value": null,
+              "result_id": "res_175ad04d938e67b0830fdfde",
+              "unit": null,
+              "value_raw_text": "k-order networks can distinguish between non-isomorphic graphs as good as the k-WL tests"
+            }
+          ],
+          "unit_id": "su_5580dbafefad8f0ed2afee05"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_12ba4353565d8e62c3665fec",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fab25e16d0b1fbe4cf6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "this is the first practical invariant/equivariant model with guaranteed 3-WL expressiveness, strictly stronger than message passing models."
+              },
+              "statement": "The proposed model is the first practical invariant/equivariant model with guaranteed 3-WL expressiveness, strictly stronger than message passing models."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1783845d8918737504034b5d",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e899764868f5650020e9",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Although all methods (excluding MLP) are able to achieve a zero training error, the (MP) and (MP+LIN) enjoy better generalization than the linear basis of Maron et al. (2019a). Note that (MP) and (MP+LIN) are comparable, however (MP) is considerably more efficient."
+              },
+              "statement": "The matrix multiplication layer is crucial for achieving high expressiveness and good generalization."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8f69db1db93ca8c15527017c",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fab25e16d0b1fbe4cf6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "a reduced 2-order network containing just scaled identity operator, augmented with a single quadratic operation (matrix multiplication) has a provable 3-WL expressive power."
+              },
+              "statement": "The proposed reduced 2-order network with matrix multiplication achieves 3-WL expressive power."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c26d67461f7deac8882c3c00",
+              "inference_basis_ids": [
+                "res_213d60be2b7c9df650547b58",
+                "res_f994e64f15a563b755536c03"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4fab25e16d0b1fbe4cf6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We validate this model by presenting state of the art results on popular graph classification and regression tasks."
+              },
+              "statement": "The proposed model achieves state-of-the-art results on popular graph classification and regression tasks."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Bioinformatics dataset of chemical compounds, 188 graphs, 2 classes, avg nodes 17.9.",
+              "name": "MUTAG",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Bioinformatics dataset of chemical compounds, 344 graphs, 2 classes, avg nodes 25.5.",
+              "name": "PTC",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Bioinformatics dataset of protein structures, 1113 graphs, 2 classes, avg nodes 39.1.",
+              "name": "PROTEINS",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Bioinformatics dataset of chemical compounds, 4110 graphs, 2 classes, avg nodes 29.8.",
+              "name": "NCI1",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D5",
+              "description": "Bioinformatics dataset of chemical compounds, 4127 graphs, 2 classes, avg nodes 29.6.",
+              "name": "NCI109",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D6",
+              "description": "Social network dataset, 5000 graphs, 3 classes, avg nodes 74.4.",
+              "name": "COLLAB",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D7",
+              "description": "Social network dataset, 1000 graphs, 2 classes, avg nodes 19.7.",
+              "name": "IMDB-B",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D8",
+              "description": "Social network dataset, 1500 graphs, 3 classes, avg nodes 13.",
+              "name": "IMDB-M",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D9",
+              "description": "134K small organic molecules, sizes 4-29 atoms, with adjacency, distance, edge categorical, and node features. Task: predict 12 real-valued physical quantities.",
+              "name": "QM9",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Design a reduced 2-order network using scaled identity operator and matrix multiplication.",
+            "Evaluate the model on graph classification and regression benchmarks.",
+            "Prove that this model achieves 3-WL expressive power."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Proposed 2-order network with matrix multiplication",
+              "protocol_description": "A reduced 2-order network containing scaled identity operator and a single quadratic operation (matrix multiplication). It interleaves MLPs applied to the feature dimension and matrix multiplication. Architectures tested: (1) b=400, d=2, suffix (ii); (2) b=400, d=2, suffix (i); (3) b=256, d=3, suffix (ii). Suffix (i): invariant max pooling (diagonal and off-diagonal) followed by three FC layers (512, 256, #classes). Suffix (ii): invariant max layer applied to output of every block, then a single FC layer to #classes, outputs summed. For QM9, used network (2) with absolute error loss. Parameter search: learning rate in {5e-5, 1e-4, 5e-4, 1e-3}, learning rate decay in [0.5, 1] every 20 epochs. For classification, 10-fold CV with best averaged accuracy; for regression, 80/10/10 split, best validation error."
+            }
+          ],
+          "name": "Development and evaluation of a reduced 2-order network with 3-WL expressiveness",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.318"
+              },
+              "quantitative_value": 0.318,
+              "result_id": "res_043cce2f1d55bf07bfab51b3",
+              "unit": null,
+              "value_raw_text": "0.318"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ranking",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "note that we have scored in the top 3 methods in 6 out of 8 datasets."
+              },
+              "quantitative_value": null,
+              "result_id": "res_213d60be2b7c9df650547b58",
+              "unit": null,
+              "value_raw_text": "scored in the top 3 methods in 6 out of 8 datasets"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.0934"
+              },
+              "quantitative_value": 0.0934,
+              "result_id": "res_2382d5ef79be6bcc69b93a9a",
+              "unit": null,
+              "value_raw_text": "0.0934"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.231"
+              },
+              "quantitative_value": 0.231,
+              "result_id": "res_2b4278d01d4eeb730af22671",
+              "unit": null,
+              "value_raw_text": "0.231"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.00287"
+              },
+              "quantitative_value": 0.00287,
+              "result_id": "res_2d3d8b0b49468f8899c2da38",
+              "unit": null,
+              "value_raw_text": "0.00287"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.382"
+              },
+              "quantitative_value": 0.382,
+              "result_id": "res_3567bd46385c30d8de079673",
+              "unit": null,
+              "value_raw_text": "0.382"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.0021"
+              },
+              "quantitative_value": 0.0021,
+              "result_id": "res_40cf8728ed164c06a5b0480d",
+              "unit": null,
+              "value_raw_text": "0.0021"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.00406"
+              },
+              "quantitative_value": 0.00406,
+              "result_id": "res_4779856280edfc5d0cb9ecf7",
+              "unit": null,
+              "value_raw_text": "0.00406"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.024"
+              },
+              "quantitative_value": 0.024,
+              "result_id": "res_4b31780143fdb269cd496dea",
+              "unit": null,
+              "value_raw_text": "0.024"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Ours 1 90.55±8.7"
+              },
+              "quantitative_value": 90.55,
+              "result_id": "res_4b3983e8368f16a0c4f01eb8",
+              "unit": "%",
+              "value_raw_text": "90.55±8.7"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 77.2±4.73"
+              },
+              "quantitative_value": 77.2,
+              "result_id": "res_4f285d1420c11e172059e783",
+              "unit": "%",
+              "value_raw_text": "77.2±4.73"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 50±3.15"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_571f3004063cda19d2cd7062",
+              "unit": "%",
+              "value_raw_text": "50±3.15"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.184"
+              },
+              "quantitative_value": 0.184,
+              "result_id": "res_5ddf6c12dc9710c83f299a42",
+              "unit": null,
+              "value_raw_text": "0.184"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 3.78"
+              },
+              "quantitative_value": 3.78,
+              "result_id": "res_5fb6dabecb0bbc8edfe34c0b",
+              "unit": null,
+              "value_raw_text": "3.78"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.0294"
+              },
+              "quantitative_value": 0.0294,
+              "result_id": "res_64b3dd2661e64acdefcb2dcf",
+              "unit": null,
+              "value_raw_text": "0.0294"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 80.16±1.11"
+              },
+              "quantitative_value": 80.16,
+              "result_id": "res_708c53d836f2b1d0ec3bf693",
+              "unit": "%",
+              "value_raw_text": "80.16±1.11"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.00174"
+              },
+              "quantitative_value": 0.00174,
+              "result_id": "res_7df9e4378875e2240fe40949",
+              "unit": null,
+              "value_raw_text": "0.00174"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.00276"
+              },
+              "quantitative_value": 0.00276,
+              "result_id": "res_837082779aec3f36145ccedb",
+              "unit": null,
+              "value_raw_text": "0.00276"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 16.07"
+              },
+              "quantitative_value": 16.07,
+              "result_id": "res_849d7b7c4b87b16821d33171",
+              "unit": null,
+              "value_raw_text": "16.07"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.144"
+              },
+              "quantitative_value": 0.144,
+              "result_id": "res_91c9b347e55911afc20adbc1",
+              "unit": null,
+              "value_raw_text": "0.144"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.234"
+              },
+              "quantitative_value": 0.234,
+              "result_id": "res_9593a69fdc10e2506a78cd49",
+              "unit": null,
+              "value_raw_text": "0.234"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.022"
+              },
+              "quantitative_value": 0.022,
+              "result_id": "res_9ec58908e9cedba9520261dc",
+              "unit": null,
+              "value_raw_text": "0.022"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.229"
+              },
+              "quantitative_value": 0.229,
+              "result_id": "res_a469b1fb444201f80083f3fc",
+              "unit": null,
+              "value_raw_text": "0.229"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 81.84±1.85"
+              },
+              "quantitative_value": 81.84,
+              "result_id": "res_aaa88e500374167a3472067c",
+              "unit": "%",
+              "value_raw_text": "81.84±1.85"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 83.19±1.11"
+              },
+              "quantitative_value": 83.19,
+              "result_id": "res_bc61e2ad10c92f1a863f7f92",
+              "unit": "%",
+              "value_raw_text": "83.19±1.11"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 72.6±4.9"
+              },
+              "quantitative_value": 72.6,
+              "result_id": "res_c07ac1f4df79b55f0a428c9b",
+              "unit": "%",
+              "value_raw_text": "72.6±4.9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.238"
+              },
+              "quantitative_value": 0.238,
+              "result_id": "res_c8bab860714153e6d9bed61a",
+              "unit": null,
+              "value_raw_text": "0.238"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 66.17±6.54"
+              },
+              "quantitative_value": 66.17,
+              "result_id": "res_c9894eed57b62d0d10b920e0",
+              "unit": "%",
+              "value_raw_text": "66.17±6.54"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.0504"
+              },
+              "quantitative_value": 0.0504,
+              "result_id": "res_d80e3cd34ef2a2e58589a372",
+              "unit": null,
+              "value_raw_text": "0.0504"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 1 0.00064"
+              },
+              "quantitative_value": 0.00064,
+              "result_id": "res_db17c777570d7a9102adc20d",
+              "unit": null,
+              "value_raw_text": "0.00064"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.000399"
+              },
+              "quantitative_value": 0.000399,
+              "result_id": "res_e95fddacfbcd10a8d96335a4",
+              "unit": null,
+              "value_raw_text": "0.000399"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2d32a3c0c8a839d4ea09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Ours 2 0.0029"
+              },
+              "quantitative_value": 0.0029,
+              "result_id": "res_f95908221ca5f559f198b0b3",
+              "unit": null,
+              "value_raw_text": "0.0029"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Lowest error count",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e899764868f5650020e9",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "our method achieves the lowest error on 5 out of the 12 quantities when using a single network, and the lowest error on 9 out of the 12 quantities in case each quantity is predicted by an independent network."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f994e64f15a563b755536c03",
+              "unit": null,
+              "value_raw_text": "lowest error on 5 out of the 12 quantities when using a single network, and the lowest error on 9 out of the 12 quantities in case each quantity is predicted by an independent network"
+            }
+          ],
+          "unit_id": "su_99c56a6db28ec6200e09d5f3"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6471 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[30].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[31].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6471 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    }
+  ]
+}

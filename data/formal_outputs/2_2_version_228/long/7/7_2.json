@@ -1,0 +1,359 @@
+{
+  "coverage_ledger": {
+    "1741ab5d494eca932870": "not_selected",
+    "1bae38af997e09ec6d03": "not_selected",
+    "23366a9009ca95b10145": "not_selected",
+    "3a6b0553611faddd3751": "not_selected",
+    "422617b5aa2b1e5598db": "not_selected",
+    "455e1dd811ef47945b2b": "not_selected",
+    "60c456ec2687cc42d5af": "extracted",
+    "662cb241d3c5c98e94f6": "extracted",
+    "694c99404e9668f1e42a": "not_selected",
+    "706895cc814bb4553a84": "not_selected",
+    "75cfe0d5c3b328259f92": "not_selected",
+    "761625ec816fb6d9776e": "not_selected",
+    "87e83ae9aa64766104b5": "not_selected",
+    "8dc8eb52ff16d58ae20a": "not_selected",
+    "95176919e2e2f4976b27": "extracted",
+    "a09dcc6f1a2468f36106": "extracted",
+    "a1004bd4729a1f3ae99f": "not_selected",
+    "a1fae2dc04e2ef192be0": "not_selected",
+    "b38c160d9ee4e41e2e87": "not_selected",
+    "b4a6ca4a0c6141ac82bb": "not_selected",
+    "b61dff1536483bccacfa": "not_selected",
+    "b95210b056e490f18cfe": "not_selected",
+    "ce06806b89e00d3c4899": "not_selected",
+    "d6ca9379cb668b3a35eb": "not_selected",
+    "e0d4984884abb43b3e35": "not_selected",
+    "e803d9b780abd327e1cb": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "PINNs are not as accurate as traditional numerical methods for forward problems.",
+    "The choice of the pressure measurement point x* is critical for problems with discontinuities; it must lie between the initial discontinuity and the final shock.",
+    "The study is limited to one-dimensional and two-dimensional Euler equations with smooth solutions, contact discontinuities, and oblique shocks.",
+    "The inverse problem setup requires data on density gradient and point pressure, which may not always be available in practice."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_2.pdf",
+    "source_sha256": "90aa3d4b6dbe46be1131dc2ecca150689498a76835f23b59440d48fc0db88094"
+  },
+  "paper_id": "7_2",
+  "quality_assessment": {
+    "correct_item_count": 31,
+    "deterministic_rule_score": 0.8438,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 31,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can physics-informed neural networks (PINNs) approximate the Euler equations for high-speed aerodynamic flows, and how do they perform on forward and inverse problems?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b437cf4b0999df3f251658e5",
+              "inference_basis_ids": [
+                "res_23ad01db56c52ad665a648f9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we identify the parameter γ accurately."
+              },
+              "statement": "PINNs can accurately learn the adiabatic index γ in the equation of state from flow field data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Data on density, velocity, and pressure for a parameterized two-dimensional oblique shock wave problem.",
+              "name": "Synthetic 2D oblique shock data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Use PINNs to learn the adiabatic index γ in the equation of state from given data of density, velocity, and pressure for a parameterized 2D oblique shock wave problem."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "PINN for parameter identification",
+              "protocol_description": "A PINN is trained to learn the parameter γ in the equation of state by minimizing a loss that includes data on density, velocity, and pressure, along with the Euler equation residual."
+            }
+          ],
+          "name": "Inverse problem: Learn parameter γ in equation of state for 2D oblique shock",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameter identification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we identify the parameter γ accurately."
+              },
+              "quantitative_value": null,
+              "result_id": "res_23ad01db56c52ad665a648f9",
+              "unit": null,
+              "value_raw_text": "We identify the parameter γ accurately."
+            }
+          ],
+          "unit_id": "su_1f1e4acbea43a28faa1b7ff6"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_30ef5e86d336b781c52dd716",
+              "inference_basis_ids": [
+                "res_b89b21baf2288c589499e29a"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for the Sod or Lax problem, we have to choose the position of the point x* from the domain between the initial discontinuous point and the shock position of the final time."
+              },
+              "statement": "The choice of the pressure measurement point x* is critical for problems with discontinuities; it must lie between the initial discontinuity and the final shock."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4becd52277927777310a5588",
+              "inference_basis_ids": [
+                "res_3ca4ecb2e108f1ab9cdd087d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "demonstrating that all inferred states are in good agreement with the reference solutions."
+              },
+              "statement": "PINNs can accurately infer all states (density, velocity, pressure) from density gradient and point pressure data without initial/boundary conditions."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_976cc7ccbe7057424e4dce8e",
+              "inference_basis_ids": [
+                "res_8e045bb7c6d9d3a238390ff0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "showing that the results obtained by using the Euler equations in characteristic form are better than that obtained by using the Euler equations in conservative form."
+              },
+              "statement": "Using the Euler equations in characteristic form yields better inverse problem results than the conservative form."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Data on density gradient ∇ρ(x,t) and pressure p(x*,t) at a specified point, along with global conservation of mass and momentum, for smooth and Riemann problems.",
+              "name": "Synthetic Schlieren-like data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare using Euler equations in conservative form vs. characteristic form.",
+            "Infer density, velocity, and pressure fields using density gradient data, pressure at a single point, and conservation laws, without initial/boundary conditions.",
+            "Investigate the effect of the position of the pressure measurement point x*.",
+            "Test on smooth solutions and Riemann problems (Sod and Lax)."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "PINN for inverse problem",
+              "protocol_description": "A PINN is trained without initial/boundary conditions. The loss includes terms for density gradient data, point pressure data, and global conservation of mass and momentum. The Euler equations (conservative or characteristic form) are used as physics constraints. The network architecture is shared with the forward problem."
+            }
+          ],
+          "name": "Inverse problem: Infer states from density gradient and point pressure",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "demonstrating that all inferred states are in good agreement with the reference solutions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3ca4ecb2e108f1ab9cdd087d",
+              "unit": null,
+              "value_raw_text": "All inferred states are in good agreement with the reference solutions."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Comparison of equation forms",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "showing that the results obtained by using the Euler equations in characteristic form are better than that obtained by using the Euler equations in conservative form."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8e045bb7c6d9d3a238390ff0",
+              "unit": null,
+              "value_raw_text": "Results using Euler equations in characteristic form are better than those using conservative form."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of pressure point position",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for the problem with smooth solutions we can randomly choose the position of the point x* from the computational domain, while for the Sod or Lax problem, we have to choose the position of the point x* from the domain between the initial discontinuous point and the shock position of the final time."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b89b21baf2288c589499e29a",
+              "unit": null,
+              "value_raw_text": "For smooth solutions, x* can be randomly chosen; for Sod/Lax, x* must be between the initial discontinuity and the final shock position."
+            }
+          ],
+          "unit_id": "su_712753d52388b17d09f65528"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_52bd8ac976f5c8ec66b1908a",
+              "inference_basis_ids": [
+                "res_945177f1536d02e9f21ec0e8"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "PINNs are not as accurate as traditional numerical methods for forward problems"
+              },
+              "statement": "For forward problems, PINNs are less accurate than traditional numerical methods."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7e8822ad58214b451e23010a",
+              "inference_basis_ids": [
+                "res_fb6ac0c316163b71d34b9d90"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We demonstrate that we can capture the solutions with only a few scattered points clustered randomly around the discontinuities."
+              },
+              "statement": "PINNs can capture solutions of the Euler equations with discontinuities using only a few scattered points clustered around the discontinuities."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Data generated from the Euler equations with specified initial/boundary conditions for 1D smooth, 1D contact discontinuity, and 2D oblique shock cases.",
+              "name": "Synthetic Euler equation data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Solve a two-dimensional oblique shock wave problem.",
+            "Solve the one-dimensional Euler equations with smooth solutions using initial/boundary conditions.",
+            "Solve the one-dimensional Euler equations with solutions that have a contact discontinuity."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Physics-Informed Neural Network (PINN)",
+              "protocol_description": "A deep neural network approximates density, velocity, and pressure. The loss function combines a data loss (e.g., initial/boundary conditions) and a physics loss (mean squared error of the Euler equation residual). Training points are randomly scattered, with clustering around discontinuities. Automatic differentiation is used to compute derivatives."
+            }
+          ],
+          "name": "Forward problem: 1D Euler with smooth and discontinuous solutions, and 2D oblique shock",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Comparison to traditional methods",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "PINNs are not as accurate as traditional numerical methods for forward problems"
+              },
+              "quantitative_value": null,
+              "result_id": "res_945177f1536d02e9f21ec0e8",
+              "unit": null,
+              "value_raw_text": "PINNs are not as accurate as traditional numerical methods for forward problems."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "95176919e2e2f4976b27",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We demonstrate that we can capture the solutions with only a few scattered points clustered randomly around the discontinuities."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fb6ac0c316163b71d34b9d90",
+              "unit": null,
+              "value_raw_text": "PINNs can capture the solutions with only a few scattered points clustered randomly around the discontinuities."
+            }
+          ],
+          "unit_id": "su_9748a7d7c0f8c921b6688121"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

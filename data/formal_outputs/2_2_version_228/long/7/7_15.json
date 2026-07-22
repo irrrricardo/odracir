@@ -1,0 +1,626 @@
+{
+  "coverage_ledger": {
+    "3469ff92f9a31e0185f9": "not_selected",
+    "3671460b07624cca3a42": "extracted",
+    "470bcf33c3f04a01dcdf": "extracted",
+    "4bef9312221d8ba6e2de": "not_selected",
+    "5dc20fa9702f0c855fbb": "not_selected",
+    "63cc730bf43ab89eb71f": "not_selected",
+    "66729660aff1b21909ad": "not_selected",
+    "7b9f1ece418be2ebd528": "not_selected",
+    "813a0367df0906e174c3": "not_selected",
+    "898a76c025e88ea3fcd5": "not_selected",
+    "8e1fff8788e5d1392d4a": "not_selected",
+    "9095bc4765b93e901c30": "not_selected",
+    "9939a48a44202f7af844": "not_selected",
+    "b00640cb37e1bc8b3b2c": "extracted",
+    "b1e14bdee6e9ac61f720": "not_selected",
+    "bb56fd2aa7d62913c594": "extracted",
+    "c7bf3886b55cde7ecc37": "not_selected",
+    "c94cff9a5fe0ee1d1411": "extracted",
+    "ce9607eb49d8774e9ed5": "extracted",
+    "d3c5780e74376e8fc4e7": "not_selected",
+    "d6cc6f1baa59dd3aed44": "not_selected",
+    "d80a3e47c94ba0fb41bf": "extracted",
+    "eb43f576497d4f665bc6": "extracted",
+    "f02923e94f9a145c2277": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "PI-GANO's physics-informed training may suffer from small collocation point sampling for PDE residual computation, causing the model to overly focus on a small region and not always improve with more epochs.",
+    "The comparison with data-driven models is constrained by equal training times; data-driven models might outperform with extended training.",
+    "The study only considers two PDE problems (Darcy flow and 2D plate) with specific geometry variations; generalization to other PDEs or more complex geometries is not evaluated.",
+    "The model uses a consistent mesh resolution across all FEM results, focusing on geometry generalization rather than mesh generalization."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_15.pdf",
+    "source_sha256": "5a5850acf16225001b5c20a075b6cfd4cf5188f0d4b85c228cf50ebba3e3568b"
+  },
+  "paper_id": "7_15",
+  "quality_assessment": {
+    "correct_item_count": 21,
+    "deterministic_rule_score": 0.8669,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 29,
+    "f1": 0.7119,
+    "incorrect_item_count": 8,
+    "incorrect_items": [
+      {
+        "description": "The extracted value_raw_text states 'Darcy flow: PI-GANO 8.40%, PI-PointNet* 64.3%, PI-DCON 13.50%', but the source chunk (bb56fd2aa7d62913c594) shows PI-DCON mean error is 13.50% for Darcy flow, which matches. However, the quantitative_value is set to 8.4, which corresponds to PI-GANO, but the result item is supposed to represent a single metric. The provenance text_excerpt is paraphrased and incomplete. The item incorrectly aggregates multiple model errors into one result with a single quantitative_value, misrepresenting the source.",
+        "item_id": "result:su_96c8d56f7357e373288d8b56:res_10345a6ca8bb4b030d86fc65",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text states '2D Plate: PI-GANO 2.82%, PI-PointNet* 27.8%, PI-DCON 4.81%', but the metric_name is 'Relative L2 error standard deviation'. The source chunk (bb56fd2aa7d62913c594) shows these are standard deviations of relative error for 2D Plate. The quantitative_value is set to 2.82, which is PI-GANO's standard deviation, but the item aggregates multiple models' standard deviations into one result with a single quantitative_value, misrepresenting the source.",
+        "item_id": "result:su_96c8d56f7357e373288d8b56:res_47cbb09a7129e1712d2f59c8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text states '2D Plate: PI-GANO 7.12%, PI-PointNet* 74.3%, PI-DCON 14.06%', but the quantitative_value is set to 7.12, which is PI-GANO's mean error. The provenance text_excerpt is paraphrased and incomplete. The item incorrectly aggregates multiple model errors into one result with a single quantitative_value, misrepresenting the source.",
+        "item_id": "result:su_96c8d56f7357e373288d8b56:res_8c65e8bce86012ed181f5bbc",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text states 'Darcy flow: PI-GANO 2.53%, PI-PointNet* 24.7%, PI-DCON 5.88%', but the metric_name is 'Relative L2 error standard deviation'. The source chunk (bb56fd2aa7d62913c594) shows these are standard deviations. The quantitative_value is set to 2.53, which is PI-GANO's standard deviation, but the item aggregates multiple models' standard deviations into one result with a single quantitative_value, misrepresenting the source.",
+        "item_id": "result:su_96c8d56f7357e373288d8b56:res_da8d38349e3d39d46d1ec128",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text states 'Ablation: 2D plate error with varying boundary points 7.21%, parametric representation 9.02%, boundary points (fixed+variable) 14.81%, interior+boundary 21.17%', but the quantitative_value is set to 7.21, which is only one of the ablation results. The item incorrectly aggregates multiple ablation results into one result with a single quantitative_value, misrepresenting the source.",
+        "item_id": "result:su_96c8d56f7357e373288d8b56:res_672b7eb569956cbea86e590d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text states 'Ablation: Darcy flow error with varying boundary points 8.40%, parametric representation 8.56%, interior+boundary 11.1%', but the quantitative_value is set to 8.4, which is only one of the ablation results. The item incorrectly aggregates multiple ablation results into one result with a single quantitative_value, misrepresenting the source.",
+        "item_id": "result:su_96c8d56f7357e373288d8b56:res_676267139a801f68032b5114",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'PI-GANO significantly outperforms PI-PointNet* and PI-DCON when both PDE parameters and geometries vary.' The provenance text_excerpt is paraphrased and does not directly support the claim of significant outperformance over PI-DCON. The source chunk (bb56fd2aa7d62913c594) shows PI-GANO errors of 8.40% and 7.12% vs PI-DCON 13.50% and 14.06%, which is an improvement but not explicitly stated as 'significant'. The claim overstates the source.",
+        "item_id": "claim:su_96c8d56f7357e373288d8b56:clm_ad4f72fb09e8d3dacd8e9031",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'PI-GANO can match or exceed data-driven GANO accuracy while requiring less total time.' The source chunk (eb43f576497d4f665bc6) states 'PI-GANO reaches a convergence accuracy comparable to that of data-driven GANO and DCON, while requiring less time to achieve this accuracy level'. The claim adds 'or exceed', which is not supported by the source. The source only says 'comparable', not 'exceed'.",
+        "item_id": "claim:su_96c8d56f7357e373288d8b56:clm_f2b31d59ccc9100d5aa59b55",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 9,
+    "missed_core_items": [
+      {
+        "description": "PI-GANO achieved 39.1% accuracy improvement over PI-PointNet for Darcy flow and 75.0% for 2D Plate in geometry-only generalization.",
+        "item_id": null,
+        "source_chunk_id": "d80a3e47c94ba0fb41bf",
+        "source_excerpt": "our model achieved 39.1% accuracy improvement for the Darcy flow problem and 75.0% accuracy improvement for the 2D Plate problem",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO achieved 60% accuracy improvement over PI-DCON for Darcy flow and 50% for 2D Plate when both PDE parameters and geometries vary.",
+        "item_id": null,
+        "source_chunk_id": "b1e14bdee6e9ac61f720",
+        "source_excerpt": "Compared to PI-DCON, our model achieved a 60% accuracy improvement for the Darcy flow problem and a 50% accuracy improvement for the 2D Plate problem",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO achieved approximately 70% accuracy improvement over PI-DCON on the high geometry variation dataset.",
+        "item_id": null,
+        "source_chunk_id": "d3c5780e74376e8fc4e7",
+        "source_excerpt": "our proposed model achieves approximately a 70% accuracy improvement on this challenging dataset",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Data-driven GANO achieved over 28% accuracy improvement compared to data-driven DCON on the 2D plate problem.",
+        "item_id": null,
+        "source_chunk_id": "eb43f576497d4f665bc6",
+        "source_excerpt": "data-driven GANO achieves over a 28% accuracy improvement compared to data-driven DCON",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO outperforms data-driven GANO in the 2D plate stress problem.",
+        "item_id": null,
+        "source_chunk_id": "eb43f576497d4f665bc6",
+        "source_excerpt": "our proposed PI-GANO outperforms the data-driven version of GANO",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO training time is significantly reduced compared to PI-PointNet for fine meshes (2D plate: 57 min vs 265 min).",
+        "item_id": null,
+        "source_chunk_id": "b1e14bdee6e9ac61f720",
+        "source_excerpt": "we observe a significantly reduced training time for our model when dealing with fine meshes",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO inference time is 0.0021 seconds for Darcy flow and 0.0038 seconds for 2D plate, three orders of magnitude faster than FEM.",
+        "item_id": null,
+        "source_chunk_id": "eb43f576497d4f665bc6",
+        "source_excerpt": "predicting the PDE solutions with the neural operator takes only 0.0021 seconds and 0.0038 seconds, respectively, demonstrating an efficiency improvement of three orders of magnitude",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO fails to provide accurate predictions when training and testing datasets come from distinct geometry distributions.",
+        "item_id": null,
+        "source_chunk_id": "8e1fff8788e5d1392d4a",
+        "source_excerpt": "the model fails to provide accurate predictions when the training and testing datasets come from two distinct distributions",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO's performance drops significantly when training dataset is insufficient (e.g., from 150 to 50 samples, error rises from ~17% to 40%).",
+        "item_id": null,
+        "source_chunk_id": "c7bf3886b55cde7ecc37",
+        "source_excerpt": "when the number of training samples decreases from 150 to 50, the model’s average prediction error rises from approximately 17% to 40%",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.7241,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.7
+  },
+  "quality_score": 0.7119,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a neural operator be developed that simultaneously generalizes across both PDE parameters and domain geometries without requiring training data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_02f3e718e48ffc51732e7714",
+              "inference_basis_ids": [
+                "res_672b7eb569956cbea86e590d",
+                "res_676267139a801f68032b5114"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "the highest model accuracy is achieved when using collocation points from varying boundaries"
+              },
+              "statement": "Using collocation points from varying boundaries as geometry embedding yields the highest accuracy."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_658d1fe17c1e3fe9f176a5eb",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "470bcf33c3f04a01dcdf",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "our proposed model is the first attempt to develop a neural operator that can simultaneously handle varying PDE parameters and domain geometries without need for any training data"
+              },
+              "statement": "PI-GANO is the first neural operator that simultaneously handles varying PDE parameters and domain geometries without training data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a0cb01817a67b66856abd0b8",
+              "inference_basis_ids": [
+                "res_27619337d1bd5393c5651339"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eb43f576497d4f665bc6",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "it is important to include a separate geometry encoder, because the variable parameters in this problem are only imposed on a subset of boundary segments, which do not fully characterize the entire domain"
+              },
+              "statement": "The separate geometry encoder is important when variable PDE parameters do not fully characterize the domain geometry."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ad4f72fb09e8d3dacd8e9031",
+              "inference_basis_ids": [
+                "res_10345a6ca8bb4b030d86fc65",
+                "res_47cbb09a7129e1712d2f59c8",
+                "res_8c65e8bce86012ed181f5bbc",
+                "res_da8d38349e3d39d46d1ec128"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "PI-PointNet* struggles to achieve satisfactory accuracy ... PI-GANO ... 8.40% ... 7.12%"
+              },
+              "statement": "PI-GANO significantly outperforms PI-PointNet* and PI-DCON when both PDE parameters and geometries vary."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d84a4ff97d37b961caeeee9e",
+              "inference_basis_ids": [
+                "res_4943360c36ca72066b5edfaf",
+                "res_ab77a1a4137aba93e38d6185"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d80a3e47c94ba0fb41bf",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "our model achieved 39.1% accuracy improvement for the Darcy flow problem and 75.0% accuracy improvement for the 2D Plate problem"
+              },
+              "statement": "PI-GANO outperforms PI-PointNet in geometry generalization, achieving 39.1% improvement on Darcy flow and 75.0% on 2D plate."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f2b31d59ccc9100d5aa59b55",
+              "inference_basis_ids": [
+                "res_27619337d1bd5393c5651339",
+                "res_5fa2769b844c9b252244bb78"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eb43f576497d4f665bc6",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "PI-GANO reaches a convergence accuracy comparable to that of data-driven GANO and DCON, while requiring less time to achieve this accuracy level"
+              },
+              "statement": "PI-GANO can match or exceed data-driven GANO accuracy while requiring less total time."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Two-dimensional Darcy flow in a five-edge polygon with variable boundary conditions and domain geometry. Meshes contain approximately 1,000 nodes.",
+              "name": "Darcy flow dataset",
+              "version_or_split": "500 PDE samples, 70% train, 10% validation, 20% test"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Two-dimensional plate stress problem with variable boundary conditions and domain geometry including holes. Meshes contain about 20,000 nodes.",
+              "name": "2D plate dataset",
+              "version_or_split": "500 PDE samples, 70% train, 10% validation, 20% test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "2D plate stress problem over variable domain geometries and boundary conditions",
+            "Darcy flow problem over variable domain geometries and boundary conditions"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "PI-GANO",
+              "protocol_description": "Physics-Informed Geometry-Aware Neural Operator. Uses a geometry encoder to capture domain geometry features and integrates it within the Deep Compositional Operator Network architecture. Trained with physics-informed loss without any FEM data. Hyperparameters: Tanh activation, three operator layers of width 512, Adam optimizer (β1=0.9, β2=0.999), learning rate and coordinate sampling size ratio tuned via grid search from {0.001,0.0005,0.0002,0.0001} and {0.3,0.2,0.1,0.05}. Batch size 20 on NVIDIA P100 GPU."
+            },
+            {
+              "method_id": "M2",
+              "name": "PI-PointNet",
+              "protocol_description": "Physics-informed PointNet. Original architecture without PDE parameter generalization. Uses three hidden layers of width 512, Tanh activation, Adam optimizer with same hyperparameters as PI-GANO."
+            },
+            {
+              "method_id": "M3",
+              "name": "PI-PointNet*",
+              "protocol_description": "Modified PI-PointNet to include PDE parameter encoding by concatenating parameter values (or zeros if unavailable) with collocation point coordinates. Three hidden layers of width 512, Tanh activation, Adam optimizer."
+            },
+            {
+              "method_id": "M4",
+              "name": "PI-DCON",
+              "protocol_description": "Physics-informed Deep Compositional Operator Network. Uses three operator layers of width 512, Tanh activation, Adam optimizer. Handles variable PDE parameters on a given irregular domain geometry but does not generalize across geometries."
+            }
+          ],
+          "name": "PI-GANO main evaluation",
+          "results": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "PI-PointNet* ... 64.3%"
+                },
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "PI-DCON ... 13.50%"
+                }
+              ],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "Darcy flow ... PI-GANO ... 8.40%"
+              },
+              "quantitative_value": 8.4,
+              "result_id": "res_10345a6ca8bb4b030d86fc65",
+              "unit": "%",
+              "value_raw_text": "Darcy flow: PI-GANO 8.40%, PI-PointNet* 64.3%, PI-DCON 13.50%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "eb43f576497d4f665bc6",
+                  "page_end": 21,
+                  "page_start": 21,
+                  "paraphrased": true,
+                  "text_excerpt": "Data-driven GANO ... 2D plate ... 9.01%"
+                }
+              ],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb43f576497d4f665bc6",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Data-driven DCON ... 13.5%"
+              },
+              "quantitative_value": 9.01,
+              "result_id": "res_27619337d1bd5393c5651339",
+              "unit": "%",
+              "value_raw_text": "Data-driven GANO 2D plate 9.01%, data-driven DCON 13.5%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "PI-DCON ... 4.81%"
+                },
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "PI-PointNet* ... 27.8%"
+                }
+              ],
+              "metric_name": "Relative L2 error standard deviation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "Standard deviation of relative error ... 2D Plate ... PI-GANO ... 2.82%"
+              },
+              "quantitative_value": 2.82,
+              "result_id": "res_47cbb09a7129e1712d2f59c8",
+              "unit": "%",
+              "value_raw_text": "2D Plate: PI-GANO 2.82%, PI-PointNet* 27.8%, PI-DCON 4.81%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d80a3e47c94ba0fb41bf",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "our model achieved 39.1% accuracy improvement for the Darcy flow problem"
+              },
+              "quantitative_value": 39.1,
+              "result_id": "res_4943360c36ca72066b5edfaf",
+              "unit": "% improvement",
+              "value_raw_text": "39.1% accuracy improvement for Darcy flow"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "eb43f576497d4f665bc6",
+                  "page_end": 21,
+                  "page_start": 21,
+                  "paraphrased": true,
+                  "text_excerpt": "Data-driven DCON ... 8.21%"
+                }
+              ],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb43f576497d4f665bc6",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Data-driven GANO ... Darcy flow ... 8.00%"
+              },
+              "quantitative_value": 8.0,
+              "result_id": "res_5fa2769b844c9b252244bb78",
+              "unit": "%",
+              "value_raw_text": "Data-driven GANO Darcy flow 8.00%, data-driven DCON 8.21%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "Boundary points (fixed and variable) ... 14.81%"
+                },
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "Parameters of parametric representation ... 9.02%"
+                },
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "Interior and boundary points ... 21.17%"
+                }
+              ],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "2D plate ... Boundary points (variable only) ... 7.21%"
+              },
+              "quantitative_value": 7.21,
+              "result_id": "res_672b7eb569956cbea86e590d",
+              "unit": "%",
+              "value_raw_text": "Ablation: 2D plate error with varying boundary points 7.21%, parametric representation 9.02%, boundary points (fixed+variable) 14.81%, interior+boundary 21.17%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "Darcy flow ... Boundary points (variable only) ... 8.40%"
+                },
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "Parameters of parametric representation ... 8.56%"
+                }
+              ],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "Interior and boundary points ... 11.1%"
+              },
+              "quantitative_value": 8.4,
+              "result_id": "res_676267139a801f68032b5114",
+              "unit": "%",
+              "value_raw_text": "Ablation: Darcy flow error with varying boundary points 8.40%, parametric representation 8.56%, interior+boundary 11.1%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "2D Plate ... PI-GANO ... 7.12%"
+                },
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "PI-DCON ... 14.06%"
+                }
+              ],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "PI-PointNet* ... 74.3%"
+              },
+              "quantitative_value": 7.12,
+              "result_id": "res_8c65e8bce86012ed181f5bbc",
+              "unit": "%",
+              "value_raw_text": "2D Plate: PI-GANO 7.12%, PI-PointNet* 74.3%, PI-DCON 14.06%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d80a3e47c94ba0fb41bf",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "75.0% accuracy improvement for the 2D Plate problem"
+              },
+              "quantitative_value": 75.0,
+              "result_id": "res_ab77a1a4137aba93e38d6185",
+              "unit": "% improvement",
+              "value_raw_text": "75.0% accuracy improvement for 2D Plate problem"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "Standard deviation of relative error ... Darcy flow ... PI-GANO ... 2.53%"
+                },
+                {
+                  "chunk_id": "bb56fd2aa7d62913c594",
+                  "page_end": 16,
+                  "page_start": 16,
+                  "paraphrased": true,
+                  "text_excerpt": "PI-DCON ... 5.88%"
+                }
+              ],
+              "metric_name": "Relative L2 error standard deviation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb56fd2aa7d62913c594",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": true,
+                "text_excerpt": "PI-PointNet* ... 24.7%"
+              },
+              "quantitative_value": 2.53,
+              "result_id": "res_da8d38349e3d39d46d1ec128",
+              "unit": "%",
+              "value_raw_text": "Darcy flow: PI-GANO 2.53%, PI-PointNet* 24.7%, PI-DCON 5.88%"
+            }
+          ],
+          "unit_id": "su_96c8d56f7357e373288d8b56"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

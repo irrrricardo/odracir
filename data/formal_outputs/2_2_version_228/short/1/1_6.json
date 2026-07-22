@@ -1,0 +1,814 @@
+{
+  "coverage_ledger": {
+    "04827b371202215fee93": "not_selected",
+    "0dc0adac0292e3702d67": "not_selected",
+    "2791828e6599259626a3": "extracted",
+    "298ff916d27229c1cb5f": "not_selected",
+    "31d40eb0da3403d73d26": "not_selected",
+    "324acfaad8b60b71fdfe": "extracted",
+    "40246f8e36bd1c97830d": "not_selected",
+    "4363a14390d6170dac68": "not_selected",
+    "55af18c33d224e815d8b": "not_selected",
+    "5f8188c11923d6426a12": "not_selected",
+    "6741e3ca17ac8306ffc9": "not_selected",
+    "68646c2501eedcc3273d": "not_selected",
+    "6f7e12d0d1189720ca28": "not_selected",
+    "72f8a0a3c949a8434457": "not_selected",
+    "7d4f751c6f09e54afbfa": "not_selected",
+    "91ab80ec5cbef33502f9": "not_selected",
+    "9d8ebc6c40489653f7ab": "not_selected",
+    "b396dc062962907331b3": "not_selected",
+    "c46fe3dfa0825f36a9a7": "not_selected",
+    "c5284d2263865fdc3690": "not_selected",
+    "cf2a16991978d79eb557": "extracted",
+    "d45e395bb09dedd6981f": "extracted",
+    "d5721c9057ff5899cbca": "not_selected",
+    "e38f17ad0b4fc6ab86e2": "not_selected",
+    "ff6f7dab726cad47204f": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Metabolomic analysis focused primarily on acetaldehyde; comprehensive screening of other aldehydes from microbial sugar fermentation was not performed.",
+    "Long-term stability, engraftment dynamics, and safety profile of the engineered probiotic in the complex gut environment require further systematic assessment for clinical translation.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_6.pdf",
+    "source_sha256": "3666f3a32ef8b9795417e204a910f9ca09c95e3342e11144f401e05072a6b673"
+  },
+  "paper_id": "1_6",
+  "quality_assessment": {
+    "correct_item_count": 67,
+    "deterministic_rule_score": 0.9094,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.5909,
+      "sample_size_log_score": 0.2668,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 67,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does excessive dietary sugar intake accelerate the progression from MASLD to MASH via gut microbiota-generated acetaldehyde?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ef75edf4d0b6d57f8addd659",
+              "inference_basis_ids": [
+                "res_1ccdac0d4040b092b9aa61f6",
+                "res_568f9b509e5de142af30708c",
+                "res_5f47a6ba19a6a5a46d1b244d",
+                "res_60c14d84015f94947f331878",
+                "res_6983fdcc37f4963e8886734c",
+                "res_6b09d80ae71bef82da2b5398",
+                "res_7dfd7e06feb9e81893156da0",
+                "res_89fd49466343b21cf2572dca",
+                "res_8d5b881e687101d37089882c",
+                "res_b47426e7c6fa1b7dc1e8a30d",
+                "res_c80df8fa5731e8006d073f8c",
+                "res_fc45c18f4416df020aab19b7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Acetaldehyde upregulated MMP7 expression in HSCs to drive hepatic fibrosis"
+              },
+              "statement": "Acetaldehyde promotes liver fibrosis by inducing MMP7 expression in hepatic stellate cells."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Public human liver transcriptomic dataset comparing MASH and healthy controls.",
+              "name": "GDS4881",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Public human liver transcriptomic dataset comparing alcoholic hepatitis and healthy controls.",
+              "name": "GDS4389",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "HSC-specific Mmp7 knockdown using AAV-shMmp7 under GfaABC1D promoter in HFHFD-fed mice.",
+            "Liver-specific Aldh2 knockdown using AAV-shAldh2 in HFHFD-fed mice.",
+            "MMP7 inhibition in LX2 cells.",
+            "Oral low-dose acetaldehyde administration to HFD-fed mice for 18 weeks.",
+            "RNA-seq on liver tissues from control, HFD, HFHFD, and HFD+acetaldehyde groups.",
+            "RNA-seq on LX2 human HSCs exposed to low-dose acetaldehyde."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Acetaldehyde intervention in mice",
+              "protocol_description": "Low-dose acetaldehyde (50 mg/kg/day) was administered orally via drinking water to HFD-fed mice for 18 weeks."
+            },
+            {
+              "method_id": "M6",
+              "name": "AAV-mediated liver-specific Aldh2 knockdown",
+              "protocol_description": "AAV vectors with TBG promoter expressing shAldh2 were used to knock down Aldh2 in the liver of HFHFD-fed mice for 20 weeks."
+            },
+            {
+              "method_id": "M7",
+              "name": "RNA-seq and transcriptomic analysis",
+              "protocol_description": "RNA-seq was performed on liver tissues from multiple mouse models and on LX2 cells. DEGs were identified and analyzed by GO, KEGG, and cell-type mapping."
+            },
+            {
+              "method_id": "M8",
+              "name": "MMP7 inhibition in LX2 cells",
+              "protocol_description": "LX2 cells were treated with acetaldehyde and an MMP7 functional inhibitor, and gene expression was measured by qPCR."
+            },
+            {
+              "method_id": "M9",
+              "name": "HSC-specific Mmp7 knockdown in mice",
+              "protocol_description": "AAV vector with GfaABC1D promoter expressing shMmp7 was used to knock down Mmp7 specifically in HSCs of HFHFD-fed mice."
+            }
+          ],
+          "name": "Acetaldehyde promotes fibrosis via HSC activation and MMP7",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic fibrosis after Aldh2 knockdown",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "AAV-shAldh2 mice exhibited exacerbated hepatic fibrosis, evidenced by increased collagen accumulation and higher expression of pro-inflammatory and pro-fibrotic markers compared with AAV-shControl counterparts (Figures 5D–5F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ccdac0d4040b092b9aa61f6",
+              "unit": null,
+              "value_raw_text": "exacerbated hepatic fibrosis, evidenced by increased collagen accumulation and higher expression of pro-inflammatory and pro-fibrotic markers"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell-type mapping",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Cell-type mapping analysis indicated that HSCs were predominantly enriched for these transcriptomic alterations, positioning them as central mediators of fibrosis progression (Figure 5I)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_568f9b509e5de142af30708c",
+              "unit": null,
+              "value_raw_text": "HSCs were predominantly enriched for these transcriptomic alterations"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMP7 protein expression in LX2 and mouse liver",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Western blot validation confirmed increased MMP7 expression in LX2 cells treated with acetaldehyde and in liver tissues from acetaldehyde-administered mice (Figures 5K and 5L)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5f47a6ba19a6a5a46d1b244d",
+              "unit": null,
+              "value_raw_text": "increased MMP7 expression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Overlapping DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Cross-comparison revealed 730 common differentially expressed genes (DEGs) across these conditions (Figure 5G)."
+              },
+              "quantitative_value": 730.0,
+              "result_id": "res_60c14d84015f94947f331878",
+              "unit": "genes",
+              "value_raw_text": "730 common differentially expressed genes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMP7 upregulation in LX2 cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "RNA-seq of LX2 (human HSCs) exposed to low-dose acetaldehyde—reflecting in vivo hepatic levels—showed significant upregulation of MMP7 (Figure 5J)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6983fdcc37f4963e8886734c",
+              "unit": null,
+              "value_raw_text": "significant upregulation of MMP7"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMP7 levels in human MASH and alcoholic hepatitis",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Analysis of public human liver transcriptomic datasets (GEO: GDS4881 and GDS4389) revealed elevated MMP7 levels in patients with MASH and alcoholic hepatitis compared with healthy controls (Figures 5M and S5H)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6b09d80ae71bef82da2b5398",
+              "unit": null,
+              "value_raw_text": "elevated MMP7 levels in patients with MASH and alcoholic hepatitis compared with healthy controls"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic fibrosis after HSC-specific Mmp7 knockdown",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "AAV-shMmp7 mice exhibited significantly ameliorated hepatic fibrosis compared with AAV-shControl mice (Figures 5O–5Q)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7dfd7e06feb9e81893156da0",
+              "unit": null,
+              "value_raw_text": "significantly ameliorated hepatic fibrosis"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic inflammation and collagen deposition",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Histological assessment revealed markedly increased hepatic inflammation and collagen deposition in acetaldehyde-treated mice compared with HFD controls (Figure 5B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_89fd49466343b21cf2572dca",
+              "unit": null,
+              "value_raw_text": "markedly increased hepatic inflammation and collagen deposition"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mmp7 expression in acetaldehyde and Aldh2 knockdown models",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "qPCR analyses revealed elevated Mmp7 expression in mice with acetaldehyde intervention or AAV-shAldh2 treatment, compared with their respective controls (Figures S5I and S5J)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8d5b881e687101d37089882c",
+              "unit": null,
+              "value_raw_text": "elevated Mmp7 expression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pro-inflammatory and pro-fibrotic gene expression after acetaldehyde",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "The qPCR results demonstrated significant upregulation of pro-inflammatory genes (Tnfa and Il1b) and pro-fibrotic genes (Col1a1, Col3a1, Col4a1, Tgfb, and Timp1) following acetaldehyde intervention (Figure 5C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b47426e7c6fa1b7dc1e8a30d",
+              "unit": null,
+              "value_raw_text": "significant upregulation of pro-inflammatory genes (Tnfa and Il1b) and pro-fibrotic genes (Col1a1, Col3a1, Col4a1, Tgfb, and Timp1)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GO enrichment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Gene Ontology (GO) enrichment implicated pathways related to collagen metabolism and extracellular matrix (ECM) organization (Figure 5H)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c80df8fa5731e8006d073f8c",
+              "unit": null,
+              "value_raw_text": "pathways related to collagen metabolism and extracellular matrix (ECM) organization"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of MMP7 inhibition on fibrosis genes",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "MMP7 inhibition significantly attenuated fibrosis-associated gene expression, confirming its functional role in mediating fibrogenesis (Figure 5N)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fc45c18f4416df020aab19b7",
+              "unit": null,
+              "value_raw_text": "MMP7 inhibition significantly attenuated fibrosis-associated gene expression"
+            }
+          ],
+          "unit_id": "su_0274c4970211a2b1afb34498"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a0ece7b08d1ebd83a0d8a21c",
+              "inference_basis_ids": [
+                "res_3c194a73b7c7de759ea03201",
+                "res_505dc0f86de55b286bcd8e80",
+                "res_6a684c5a54776f635f66c8dd",
+                "res_ab82d7eb4fef1b27696aa94d",
+                "res_f51eea9b8577638b9056fd60"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Engineered probiotics targeting acetaldehyde clearance prevent fibrosis effectively."
+              },
+              "statement": "Engineered probiotics targeting acetaldehyde clearance prevent fibrosis effectively."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Groups: PBS, L. salivarius ATCC, isolated L. salivarius, L. salivarius HAM.",
+            "HFHFD feeding for 16 weeks, then oral probiotic treatment every other day for 6 weeks.",
+            "Long-term administration over 28 weeks.",
+            "Metagenomic sequencing to assess gut microbial diversity.",
+            "Subacute toxicity assessment with high-dose probiotics."
+          ],
+          "methods": [
+            {
+              "method_id": "M13",
+              "name": "Probiotic treatment in mice",
+              "protocol_description": "After 16 weeks of HFHFD feeding, mice received oral doses of PBS, standard L. salivarius ATCC, isolated L. salivarius, or engineered L. salivarius HAM every other day for 6 weeks."
+            },
+            {
+              "method_id": "M14",
+              "name": "Subacute toxicity assessment",
+              "protocol_description": "Mice were treated with high-dose (2 × 10^10 CFU) of wild-type or engineered L. salivarius via oral gavage, and organs were examined histologically and serum biochemically."
+            }
+          ],
+          "name": "Probiotic treatment in HFHFD mouse model",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic Mmp7 and pro-inflammatory/fibrotic gene expression",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Both strains notably downregulated hepatic Mmp7 expression and other pro-inflammatory and pro-fibrotic genes, with L. salivarius HAM showing superior efficacy (Figures 6L and 6M)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3c194a73b7c7de759ea03201",
+              "unit": null,
+              "value_raw_text": "notably downregulated hepatic Mmp7 expression and other pro-inflammatory and pro-fibrotic genes, with L. salivarius HAM showing superior efficacy"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Safety profile",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Histological examination of major organs—including the liver, kidney, heart, spleen, lung, and intestine—via H&E staining revealed no observable pathological changes, tissue necrosis, or inflammatory cell infiltration in either treatment group compared with controls (Figure 7A). Furthermore, serum biochemical analysis demonstrated that key indicators of liver function (ALT, AST, and TBIL) and kidney function (CREA) remained within the normal physiological range, showing no significant alterations following probiotic administration (Figure 7B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_505dc0f86de55b286bcd8e80",
+              "unit": null,
+              "value_raw_text": "no observable pathological changes, tissue necrosis, or inflammatory cell infiltration; serum ALT, AST, TBIL, CREA within normal range"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gut microbial diversity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "metagenomic sequencing revealed that probiotic treatment minimally altered the overall gut microbial diversity (Figures S6E and S6F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6a684c5a54776f635f66c8dd",
+              "unit": null,
+              "value_raw_text": "minimally altered the overall gut microbial diversity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic and fecal acetaldehyde levels",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "hepatic and fecal acetaldehyde levels were substantially decreased in probiotic-treated mice compared with controls (Figures 6J and 6K)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ab82d7eb4fef1b27696aa94d",
+              "unit": null,
+              "value_raw_text": "substantially decreased"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Liver function improvement",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Both probiotics significantly improved liver function, evidenced by reductions in ALT and AST levels, decreased liver enlargement and stiffness, and improvements in histological features such as inflammation, fibrosis, and NAS (Figures 6G–6I, S6C, and S6D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f51eea9b8577638b9056fd60",
+              "unit": null,
+              "value_raw_text": "reductions in ALT and AST levels, decreased liver enlargement and stiffness, and improvements in histological features such as inflammation, fibrosis, and NAS"
+            }
+          ],
+          "unit_id": "su_12fa0ee0bc0d415f49f77ba3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_097f4d2270bf0af35db74437",
+              "inference_basis_ids": [
+                "res_c8fa6a306a6bbfe40346050e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "324acfaad8b60b71fdfe",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "These findings suggest that gut-derived acetaldehyde holds promise as a noninvasive biomarker for stratifying patients at risk of MASH progression."
+              },
+              "statement": "Gut-derived acetaldehyde holds promise as a noninvasive biomarker for stratifying patients at risk of MASH progression."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Clinical analysis of fecal acetaldehyde concentrations and fibrosis indices (FIB-4) in MASH patients."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Clinical correlation analysis",
+              "protocol_description": "Fecal acetaldehyde concentrations were measured and correlated with fibrosis indices (FIB-4) in MASH patients."
+            }
+          ],
+          "name": "Clinical correlation of fecal acetaldehyde with fibrosis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between fecal acetaldehyde and FIB-4",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "324acfaad8b60b71fdfe",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "our clinical analysis revealed a robust positive correlation between fecal acetaldehyde concentrations and fibrosis indices (FIB-4)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c8fa6a306a6bbfe40346050e",
+              "unit": null,
+              "value_raw_text": "robust positive correlation between fecal acetaldehyde concentrations and fibrosis indices (FIB-4)"
+            }
+          ],
+          "unit_id": "su_77934905eb24f6488a31235c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3c2b4072a805907e6fae6781",
+              "inference_basis_ids": [
+                "res_c8d4b29680e6f393e3db55ef",
+                "res_c91964da6eff304824112e44"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "This engineered strain exhibited markedly increased acetaldehyde clearance—34.9-fold under ethanol + acetaldehyde conditions and 20.6-fold under acetaldehyde alone, compared with the wild-type strain (Figure 6E)."
+              },
+              "statement": "Engineered L. salivarius HAM exhibits superior acetaldehyde clearance compared to wild-type and standard strains."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Engineering of L. salivarius to overexpress adhE, creating L. salivarius HAM.",
+            "In vitro acetaldehyde clearance assay of engineered strain.",
+            "In vitro enzymatic assay for acetaldehyde degradation activity of isolated bacteria.",
+            "Screening of probiotics from fecal samples of 51 ALD patients with low fibrosis/steatosis scores.",
+            "Whole-genome sequencing and ANI analysis of L. salivarius isolate."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Probiotic screening",
+              "protocol_description": "Fecal samples from 51 ALD patients with low fibrosis and steatosis scores were screened for bacteria with high acetaldehyde-metabolizing capacity using selective media and enzymatic assays."
+            },
+            {
+              "method_id": "M11",
+              "name": "Whole-genome sequencing and ANI",
+              "protocol_description": "WGS was performed on the isolated L. salivarius strain, and ANI analysis confirmed its taxonomic identity."
+            },
+            {
+              "method_id": "M12",
+              "name": "Engineering of L. salivarius HAM",
+              "protocol_description": "The adhE gene was overexpressed in L. salivarius using the pMG36e vector to generate the engineered probiotic strain L. salivarius HAM."
+            }
+          ],
+          "name": "Probiotic screening and engineering for acetaldehyde clearance",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Acetaldehyde clearance activity of isolated L. salivarius",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Enzymatic screening pinpointed L. salivarius as exhibiting superior acetaldehyde clearance, demonstrating 10.9-fold and 5.2-fold greater activity than the standard strain (L. salivarius ATCC 11741) under ethanol + acetaldehyde and acetaldehyde-only conditions, respectively (Figure 6B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c8d4b29680e6f393e3db55ef",
+              "unit": "fold change",
+              "value_raw_text": "10.9-fold and 5.2-fold greater activity than the standard strain (L. salivarius ATCC 11741) under ethanol + acetaldehyde and acetaldehyde-only conditions, respectively"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Acetaldehyde clearance activity of L. salivarius HAM",
+              "n_sample_size": 6,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cf2a16991978d79eb557",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "This engineered strain exhibited markedly increased acetaldehyde clearance—34.9-fold under ethanol + acetaldehyde conditions and 20.6-fold under acetaldehyde alone, compared with the wild-type strain (Figure 6E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c91964da6eff304824112e44",
+              "unit": "fold change",
+              "value_raw_text": "34.9-fold under ethanol + acetaldehyde conditions and 20.6-fold under acetaldehyde alone, compared with the wild-type strain"
+            }
+          ],
+          "unit_id": "su_abd85bd0f83162d743e6bcbc"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_876db0ec735f3e4f01338d91",
+              "inference_basis_ids": [
+                "res_be058c66eabf7c7642c67825",
+                "res_c5c3dc8ed9b68682dceefccd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2791828e6599259626a3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "these findings provide compelling evidence that the excessive acetaldehyde in MASH is primarily of gut microbial origin, instead of host ethanol metabolism or systemic ethanol load."
+              },
+              "statement": "Excessive acetaldehyde in MASH is primarily of gut microbial origin, not host ethanol metabolism."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "In vitro fecal transformation experiments demonstrating sugar-responsive gut bacteria produce acetaldehyde.",
+            "Use of ADH activity inhibitor 4-MP in HFHFD-fed mice to block host ethanol oxidation.",
+            "Whole-body Aldh2 knockout mice to disrupt host acetaldehyde clearance."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "In vitro fecal transformation assay",
+              "protocol_description": "Fecal samples were incubated with sugars to measure acetaldehyde production by gut bacteria."
+            },
+            {
+              "method_id": "M3",
+              "name": "ADH inhibition experiment",
+              "protocol_description": "HFHFD-fed mice were treated with ADH activity inhibitor 4-MP to block host ethanol oxidation, and hepatic acetaldehyde was measured."
+            },
+            {
+              "method_id": "M4",
+              "name": "Aldh2 knockout mouse model",
+              "protocol_description": "Whole-body Aldh2 knockout mice were compared with wild-type mice for hepatic acetaldehyde accumulation."
+            }
+          ],
+          "name": "Microbial origin of acetaldehyde in MASH",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic acetaldehyde level after ADH inhibition",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2791828e6599259626a3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "acetaldehyde was not generated via host ethanol oxidation. Conversely, disrupting the host’s clearance capacity using whole-body Aldh2 knockout mice resulted in a further, significant spike in hepatic acetaldehyde accumulation (Figure 4K), while ethanol concentrations remained unchanged (Figure S4G)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_be058c66eabf7c7642c67825",
+              "unit": null,
+              "value_raw_text": "no significant reduction in hepatic acetaldehyde levels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic acetaldehyde level in Aldh2 KO mice",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2791828e6599259626a3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "disrupting the host’s clearance capacity using whole-body Aldh2 knockout mice resulted in a further, significant spike in hepatic acetaldehyde accumulation (Figure 4K)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c5c3dc8ed9b68682dceefccd",
+              "unit": null,
+              "value_raw_text": "significant spike in hepatic acetaldehyde accumulation"
+            }
+          ],
+          "unit_id": "su_b2718aeeb2a1a21231054c5d"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5455 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4576 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4713 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4857 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4646 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4505 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3723 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3850 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4490 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4773 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3905 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4694 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8019 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3741 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8019 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4762 on attempt 1"
+    }
+  ]
+}

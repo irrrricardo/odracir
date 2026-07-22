@@ -1,0 +1,437 @@
+{
+  "coverage_ledger": {
+    "0949fe3bc249d9d286d3": "not_selected",
+    "1aa713426d8a8f11c09c": "extracted",
+    "2c5250f86b20d8de6d7d": "not_selected",
+    "356567a8ec4352a68733": "extracted",
+    "6e237637cf832e485361": "not_selected",
+    "7ec28d73ef64d7672445": "not_selected",
+    "a72056840b1154d82db2": "not_selected",
+    "b184511f1455c2868dc2": "extracted",
+    "b990dbcfc54749be475c": "not_selected",
+    "be2786fe71bc59b9bdde": "not_selected",
+    "c1b4c5707b060fa34a5e": "not_selected",
+    "daf02b18235dcc0e946b": "not_selected",
+    "e50bea189a9ce3fa1a1c": "extracted",
+    "e9190aff7d04a219219e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Assumes sufficiency (no hidden variables that are common causes of at least two observed variables).",
+    "Does not provide formal guarantees on the learned structure (uncertainty about whether predicted edges correspond to causal relations).",
+    "Experiments limited to synthetic data; no real-world datasets evaluated.",
+    "Hyperparameters not optimized; same ℓ1 penalty coefficient used across all graphs, which may not be optimal.",
+    "Wall time limit of 36 hours may have constrained performance for larger graphs.",
+    "DAGMA's convergence may be affected by choice of s and μ schedule; smaller s requires smaller learning rates.",
+    "Only first-order optimizer (ADAM) used; second-order methods not explored."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_18.pdf",
+    "source_sha256": "b840ade570d3ef791219f9efcecd3c9e179682899088995fbce909676ffaeb5c"
+  },
+  "paper_id": "5_18",
+  "quality_assessment": {
+    "correct_item_count": 34,
+    "deterministic_rule_score": 0.9033,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 34,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a new acyclicity characterization based on the log-determinant function improve DAG learning compared to existing characterizations?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_162639f9ac6fb893063427f0",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "356567a8ec4352a68733",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Lemma 6. Algorithm 1 is guaranteed to return a DAG whenever μ(t) → 0."
+              },
+              "statement": "DAGMA is guaranteed to return a DAG at the limit of the central path."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1bb0c8e75faedee6d702345e",
+              "inference_basis_ids": [
+                "res_46a622cb6b4f53b45f7b0ff5",
+                "res_8ef31d398fed8c97846edbee"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we observe that DAGMA is comparable in SHD to the NONLINEAR NOTEARS but obtains significant speedups"
+              },
+              "statement": "DAGMA is comparable in SHD to NONLINEAR NOTEARS but significantly faster on neural network SEMs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4afca75655249bbaf3cda013",
+              "inference_basis_ids": [
+                "res_33efaa51fad950af1bb080eb",
+                "res_cdb14d4a7118f08a91d07f8a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we similarly observe that DAGMA attains major speedups and improvements on SHD against NOTEARS"
+              },
+              "statement": "DAGMA attains major speedups and SHD improvements over NOTEARS on logistic nonlinear SEMs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ccf877e54d10630f60bcbc6d",
+              "inference_basis_ids": [
+                "res_8075249d5e76d6e150d11a3f",
+                "res_a3045e670fd097c151ca2257",
+                "res_b25ede94253be94f5a5738c3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e50bea189a9ce3fa1a1c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Is better at detecting large cycles; Has better-behaved gradients; Its runtime is in practice about an order of magnitude faster."
+              },
+              "statement": "The proposed log-det acyclicity characterization is better at detecting large cycles, has better-behaved gradients, and is faster than existing characterizations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d883f971e7797f267076e785",
+              "inference_basis_ids": [
+                "res_177a58847f57632ef1316914",
+                "res_68438df3f2b3d445b86120a7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we note that DAGMA obtains significant speedups and improvements in terms of structural accuracy (SHD) against NOTEARS and GOLEM"
+              },
+              "statement": "DAGMA achieves significant speedups and lower SHD compared to NOTEARS and GOLEM on linear SEMs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Linear SEMs with Gaussian, Gumbel, and exponential noises; graphs ER4 and SF4 with d in [20,100] and [200,1000].",
+              "name": "Synthetic linear SEM data",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Nonlinear SEMs with binary data using logistic models; graphs ER4 with d up to 1000.",
+              "name": "Synthetic nonlinear SEM data (logistic)",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Nonlinear SEMs with continuous additive noise model, each relationship modeled by a multilayer perceptron; graphs ER4 with d in [20,100].",
+              "name": "Synthetic nonlinear SEM data (neural networks)",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Is better at detecting large cycles; Has better-behaved gradients; Its runtime is in practice about an order of magnitude faster.",
+              "provenance": {
+                "chunk_id": "e50bea189a9ce3fa1a1c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Is better at detecting large cycles; Has better-behaved gradients; Its runtime is in practice about an order of magnitude faster."
+              },
+              "span_id": "ES4"
+            },
+            {
+              "content": "Lemma 6. Algorithm 1 is guaranteed to return a DAG whenever μ(t) → 0.",
+              "provenance": {
+                "chunk_id": "356567a8ec4352a68733",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Lemma 6. Algorithm 1 is guaranteed to return a DAG whenever μ(t) → 0."
+              },
+              "span_id": "ES5"
+            },
+            {
+              "content": "we note that DAGMA obtains significant speedups and improvements in terms of structural accuracy (SHD) against NOTEARS and GOLEM",
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we note that DAGMA obtains significant speedups and improvements in terms of structural accuracy (SHD) against NOTEARS and GOLEM"
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "we observe that DAGMA is comparable in SHD to the NONLINEAR NOTEARS but obtains significant speedups",
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we observe that DAGMA is comparable in SHD to the NONLINEAR NOTEARS but obtains significant speedups"
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "we similarly observe that DAGMA attains major speedups and improvements on SHD against NOTEARS",
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we similarly observe that DAGMA attains major speedups and improvements on SHD against NOTEARS"
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Develop DAGMA, a method that resembles the central path for barrier methods, solving a sequence of unconstrained problems regularized by the log-det function.",
+            "Evaluate DAGMA against GES, PC, NOTEARS, and GOLEM on linear and nonlinear SEMs with various graph types and noise distributions.",
+            "Propose a new acyclicity characterization based on the log-determinant function, leveraging the nilpotency property of DAGs and relating the domain to M-matrices."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DAGMA",
+              "protocol_description": "Algorithm 1: Initialize θ(0) so that W(θ(0)) ∈ Ws (e.g., zero matrix). For t=0,...,T-1, solve θ(t+1) = arg min_θ μ(t)(Q(fθ; X) + β1∥θ∥1) + hs_ldet(W(θ)) starting at θ(t), then set μ(t+1) = αμ(t). Use ADAM optimizer for the unconstrained subproblems. Parameters: μ(0)=1, α=0.1, β1=0.01, s=1, T iterations."
+            },
+            {
+              "method_id": "M2",
+              "name": "NOTEARS",
+              "protocol_description": "Baseline method using trace exponential acyclicity characterization with augmented Lagrangian and L-BFGS-B. Hyperparameters not optimized; same ℓ1 penalty coefficient used across all graphs."
+            },
+            {
+              "method_id": "M3",
+              "name": "GOLEM",
+              "protocol_description": "Baseline method specialized for linear Gaussian SEMs. Hyperparameters not optimized; same ℓ1 penalty coefficient used across all graphs."
+            },
+            {
+              "method_id": "M4",
+              "name": "NONLINEAR NOTEARS",
+              "protocol_description": "Baseline method for nonlinear SEMs using neural networks. Hyperparameters not optimized; same ℓ1 penalty coefficient used across all graphs."
+            },
+            {
+              "method_id": "M5",
+              "name": "GES",
+              "protocol_description": "Greedy equivalence search baseline. Implementation details in Appendix C."
+            },
+            {
+              "method_id": "M6",
+              "name": "PC",
+              "protocol_description": "PC algorithm baseline. Implementation details in Appendix C."
+            }
+          ],
+          "name": "Log-det acyclicity characterization and DAGMA method",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural Hamming Distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we note that DAGMA obtains significant speedups and improvements in terms of structural accuracy (SHD) against NOTEARS and GOLEM"
+              },
+              "quantitative_value": null,
+              "result_id": "res_177a58847f57632ef1316914",
+              "unit": null,
+              "value_raw_text": "DAGMA obtains improvements in terms of structural accuracy (SHD) against NOTEARS and GOLEM"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we similarly observe that DAGMA attains major speedups and improvements on SHD against NOTEARS"
+              },
+              "quantitative_value": null,
+              "result_id": "res_33efaa51fad950af1bb080eb",
+              "unit": null,
+              "value_raw_text": "DAGMA attains major speedups against NOTEARS for logistic models"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural Hamming Distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we observe that DAGMA is comparable in SHD to the NONLINEAR NOTEARS but obtains significant speedups"
+              },
+              "quantitative_value": null,
+              "result_id": "res_46a622cb6b4f53b45f7b0ff5",
+              "unit": null,
+              "value_raw_text": "DAGMA is comparable in SHD to NONLINEAR NOTEARS but obtains significant speedups"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we note that DAGMA obtains significant speedups and improvements in terms of structural accuracy (SHD) against NOTEARS and GOLEM"
+              },
+              "quantitative_value": null,
+              "result_id": "res_68438df3f2b3d445b86120a7",
+              "unit": null,
+              "value_raw_text": "DAGMA obtains significant speedups against NOTEARS and GOLEM"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e50bea189a9ce3fa1a1c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Its runtime is in practice about an order of magnitude faster."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8075249d5e76d6e150d11a3f",
+              "unit": null,
+              "value_raw_text": "log-det function runtime is about an order of magnitude faster than existing characterizations"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we observe that DAGMA is comparable in SHD to the NONLINEAR NOTEARS but obtains significant speedups"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8ef31d398fed8c97846edbee",
+              "unit": null,
+              "value_raw_text": "DAGMA obtains significant speedups against NONLINEAR NOTEARS"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gradient behavior",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e50bea189a9ce3fa1a1c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Has better-behaved gradients"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a3045e670fd097c151ca2257",
+              "unit": null,
+              "value_raw_text": "log-det function has better-behaved gradients"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cycle detection",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e50bea189a9ce3fa1a1c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Is better at detecting large cycles"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b25ede94253be94f5a5738c3",
+              "unit": null,
+              "value_raw_text": "log-det function is better at detecting large cycles"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural Hamming Distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1aa713426d8a8f11c09c",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we similarly observe that DAGMA attains major speedups and improvements on SHD against NOTEARS"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cdb14d4a7118f08a91d07f8a",
+              "unit": null,
+              "value_raw_text": "DAGMA attains improvements on SHD against NOTEARS for logistic models"
+            }
+          ],
+          "unit_id": "su_c646b0c3b03a929febd91704"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9070 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].evidence_spans[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9070 on attempt 1"
+    }
+  ]
+}

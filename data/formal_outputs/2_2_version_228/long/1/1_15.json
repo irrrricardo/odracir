@@ -1,0 +1,337 @@
+{
+  "coverage_ledger": {
+    "0e15046fe8be1c56c0a6": "not_selected",
+    "148489efc6ec741afc71": "not_selected",
+    "16e03eabaecd322707d5": "not_selected",
+    "1940cbea1941e2014755": "not_selected",
+    "4392208c68ece2421f6c": "not_selected",
+    "5ffe5ec9e72a1b10de06": "not_selected",
+    "6124a016e5a50b689d87": "extracted",
+    "65226933d9de1ae382fb": "extracted",
+    "77db95f5498086c16844": "not_selected",
+    "7d00f3f5bc81fe806e8c": "not_selected",
+    "a0ace218d45b10fd3152": "not_selected",
+    "bc52198a044bf5fd3faa": "extracted",
+    "be9647135a28ecac4c5d": "extracted",
+    "d2e8811727fa8505995f": "not_selected",
+    "ef8d0c5e3060665c3d1c": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The pretraining dataset, while large, is limited to publicly available human scRNA-seq data and may not cover all cell types or states.",
+    "The model's performance on read-depth enhancement was evaluated on downsampled data, which may not fully represent real low-quality samples.",
+    "The study primarily demonstrates performance on a set of downstream tasks; generalizability to other tasks or species is not shown.",
+    "The model's large size may pose computational challenges for fine-tuning by typical users."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_15.pdf",
+    "source_sha256": "82153f8a6ae4c42f7641c9ddd015b6b357ef1c1966566f61788f85197390261e"
+  },
+  "paper_id": "1_15",
+  "quality_assessment": {
+    "correct_item_count": 28,
+    "deterministic_rule_score": 0.9067,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.1429,
+      "sample_size_log_score": 1.0,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 28,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a large-scale foundation model be developed for single-cell transcriptomics that captures complex gene context relations and achieves state-of-the-art performance across diverse downstream tasks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_071e1ec7c3762ff5e8330029",
+              "inference_basis_ids": [
+                "res_1ee48e57764ee38cccfefb71",
+                "res_57532da305a886d4c213514c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We designed a read-depth-aware (RDA) modeling pretraining task that enables scFoundation to not only model the gene co-expression patterns within a cell but also link the cells with different read depths."
+              },
+              "statement": "The RDA pretraining task enables scFoundation to model gene co-expression patterns and link cells with different read depths."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_26417ffd8a87d43053a16325",
+              "inference_basis_ids": [
+                "res_1ee48e57764ee38cccfefb71",
+                "res_43a3f2ac609de6e7a5868635",
+                "res_57532da305a886d4c213514c",
+                "res_7135488822e0ff367cc3b19c",
+                "res_7717ced73b91e7ca1cfaae8d",
+                "res_7c7ab884065718d125131e00",
+                "res_964ae62d9e86d80329a764e6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "be9647135a28ecac4c5d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Experiments showed its merit as a foundation model that achieved state-of-the-art performances in a diverse array of single-cell analysis tasks such as gene expression enhancement, tissue drug response prediction, single-cell drug response classification, single-cell perturbation prediction, cell type annotation and gene module inference."
+              },
+              "statement": "scFoundation is a large-scale foundation model for single-cell transcriptomics that achieves state-of-the-art performance across diverse downstream tasks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_901c89e7cf29859aa2ac9155",
+              "inference_basis_ids": [
+                "res_43a3f2ac609de6e7a5868635"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We found a power-law decline in validation loss correlating with increased model size and computation, which is called ‘scaling law’ in LLMs."
+              },
+              "statement": "scFoundation exhibits a scaling law where validation loss decreases as a power law with increased model size and computation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Comprehensive single-cell dataset collected from GEO, Single Cell Portal, HCA, hECA, DISCO, EMBL-EBI, etc., aligned to 19,264 protein-coding and mitochondrial genes, spanning >100 tissue types.",
+              "name": "scFoundation pretraining dataset",
+              "version_or_split": "over 50 million human scRNA-seq profiles"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Dataset with manually generated downsampled gene expression profiles and reference data, used for imputation comparison.",
+              "name": "Human pancreatic islet dataset (SAVER)",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "~60,000 human peripheral blood mononuclear cells (PBMCs).",
+              "name": "Zheng68K",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Its asymmetric transformer-like architecture and pretraining task design empower effectively capturing complex context relations among genes in a variety of cell types and states.",
+              "provenance": {
+                "chunk_id": "be9647135a28ecac4c5d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Its asymmetric transformer-like architecture and pretraining task design empower effectively capturing complex context relations among genes in a variety of cell types and states."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "scFoundation is a large-scale model in terms of the size of trainable parameters, dimensionality of genes and volume of training data.",
+              "provenance": {
+                "chunk_id": "be9647135a28ecac4c5d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation is a large-scale model in terms of the size of trainable parameters, dimensionality of genes and volume of training data."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Applying scFoundation to Zheng68K PBMC dataset for cell clustering and visualization.",
+            "Assessing read-depth enhancement by downsampling test cells to 1%, 5%, 10%, 20% of original counts and using non-fine-tuned scFoundation to restore expression, measuring MAE, MRE, and PCC.",
+            "Comparing scFoundation with imputation methods (MAGIC, SAVER, scImpute, scVI) on a human pancreatic islet dataset using clustering metrics (NMI, ARI, SIL) and UMAP visualization.",
+            "Evaluating scaling law by training models of 3M, 10M, and 100M parameters and measuring validation loss.",
+            "Pretraining a 100M-parameter transformer model (xTrimoGene) on over 50 million human scRNA-seq profiles covering ~20,000 genes using a read-depth-aware (RDA) masked prediction task."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "scFoundation (xTrimoGene)",
+              "protocol_description": "Asymmetric transformer-like architecture with embedding module converting continuous gene expression scalars to learnable vectors, encoder-decoder structure. Pretrained with RDA task: input is masked gene expression vector and total count indicators T (target) and S (source); model predicts expression at masked positions. Trained on 50M cells. For downstream tasks, cell embeddings from encoder pooling and gene embeddings from decoder are used."
+            },
+            {
+              "method_id": "M2",
+              "name": "MAGIC",
+              "protocol_description": "Imputation method based on data diffusion."
+            },
+            {
+              "method_id": "M3",
+              "name": "SAVER",
+              "protocol_description": "Gene expression recovery method for scRNA-seq."
+            },
+            {
+              "method_id": "M4",
+              "name": "scImpute",
+              "protocol_description": "Imputation method for scRNA-seq data."
+            },
+            {
+              "method_id": "M5",
+              "name": "scVI",
+              "protocol_description": "Deep generative model for single-cell transcriptomics."
+            }
+          ],
+          "name": "scFoundation pretraining and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Read-depth enhancement error reduction",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation demonstrated a notable reduction of half the MAE and MRE from the downsampled data even when the downsampling rate was below 10%."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ee48e57764ee38cccfefb71",
+              "unit": null,
+              "value_raw_text": "reduction of half the MAE and MRE from the downsampled data even when the downsampling rate was below 10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Validation loss scaling",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We found a power-law decline in validation loss correlating with increased model size and computation, which is called ‘scaling law’ in LLMs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_43a3f2ac609de6e7a5868635",
+              "unit": null,
+              "value_raw_text": "power-law decline in validation loss correlating with increased model size and computation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Clustering performance improvement with increased T/S fold",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "As the T/S fold increased, we observed a quick jump in scFoundation’s performance that surpassed all other methods. Its performance reached a plateau on higher T/S folds, indicating the cell embeddings were not sensitive to the value of T higher than 3.5S."
+              },
+              "quantitative_value": null,
+              "result_id": "res_57532da305a886d4c213514c",
+              "unit": null,
+              "value_raw_text": "As the T/S fold increased, we observed a quick jump in scFoundation’s performance that surpassed all other methods. Its performance reached a plateau on higher T/S folds, indicating the cell embeddings were not sensitive to the value of T higher than 3.5S."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Model comparison",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The scFoundation model with 100 million parameters surpassed all other models (Fig. 2a)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7135488822e0ff367cc3b19c",
+              "unit": null,
+              "value_raw_text": "scFoundation model with 100 million parameters surpassed all other models"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cluster label consistency with reference",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation was the only method that aligned all cell cluster assignments consistently with the reference results."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7717ced73b91e7ca1cfaae8d",
+              "unit": null,
+              "value_raw_text": "scFoundation was the only method that aligned all cell cluster assignments consistently with the reference results."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "UMAP visualization quality",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation’s cell embeddings exhibited more distinctive cluster boundaries compared with the baselines and other methods."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7c7ab884065718d125131e00",
+              "unit": null,
+              "value_raw_text": "scFoundation’s cell embeddings exhibited more distinctive cluster boundaries compared with the baselines and other methods."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Clustering performance (NMI, ARI, SIL) on pancreatic islet data",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S (fold change of 1; Fig. 2c)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_964ae62d9e86d80329a764e6",
+              "unit": null,
+              "value_raw_text": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S (fold change of 1)"
+            }
+          ],
+          "unit_id": "su_ff2a1142bb61bfb7b48030f8"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9362 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9362 on attempt 1"
+    }
+  ]
+}

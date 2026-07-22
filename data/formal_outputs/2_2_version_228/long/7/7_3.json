@@ -1,0 +1,466 @@
+{
+  "coverage_ledger": {
+    "07f70625ff4bc8556b9b": "extracted",
+    "147b34ea7f8a4f70778b": "not_selected",
+    "236cb296cde2f72f1a7d": "extracted",
+    "2bac95702469f02b572b": "not_selected",
+    "339ebe734d41f2a622aa": "not_selected",
+    "384a75a3ee0726044eec": "not_selected",
+    "385e7c9a7f6e20374928": "not_selected",
+    "40b0f26b33bc0649c198": "not_selected",
+    "431a8540a265a5e2d627": "not_selected",
+    "589ba6178b2d4bd843b2": "not_selected",
+    "59ac23d7a06ac7a28190": "not_selected",
+    "5b8fcc6a90655b3ab56c": "not_selected",
+    "5f0654744cbaf38dded8": "not_selected",
+    "63da6e5908015e3bcdbe": "extracted",
+    "6413d4be38d4ad88db0a": "not_selected",
+    "8e7e10830da59c7ab387": "not_selected",
+    "a0724d48611614ab381e": "not_selected",
+    "a16a70ae37be0202310c": "not_selected",
+    "a360acf810a6c803e6e3": "not_selected",
+    "a7521bf790351947d777": "not_selected",
+    "abb2aa618943548c7bfa": "extracted",
+    "acedf113ae3233e03a97": "not_selected",
+    "d00afa483a18beeb4867": "not_selected",
+    "e04d08ab51b632322053": "not_selected",
+    "e0a779bcff147e9c1492": "not_selected",
+    "eb5c9c693c06259f84c9": "not_selected",
+    "fd7ac0359559901cb416": "not_selected"
+  },
+  "limitations_and_boundaries": [],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_3.pdf",
+    "source_sha256": "f41546e595d480dd7530122a49e2527e18b3714718787df4570d74b123ebfaf8"
+  },
+  "paper_id": "7_3",
+  "quality_assessment": {
+    "correct_item_count": 43,
+    "deterministic_rule_score": 0.6588,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 43,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can gradient flow pathologies in physics-informed neural networks be understood and mitigated?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d129d2e0a2bc0ef3b6632b49",
+              "inference_basis_ids": [
+                "res_9a28abb06a8cd4f441bd0dc0",
+                "res_be78e14cb7bd14dff9acedd2"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "236cb296cde2f72f1a7d",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "This is a clear manifestation of the imbalanced gradient pathology described in section 2.2, which we believe is the leading mode of failure for conventional PINN models."
+              },
+              "statement": "The imbalanced gradient pathology is the leading mode of failure for conventional PINN models."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze distribution of back-propagated gradients for ∇θLr, ∇θLub, ∇θLu0.",
+            "Train a 5-layer fully connected network with 50 neurons per layer using original PINN formulation (model M1) on Klein–Gordon equation."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "Model M1 (original PINN)",
+              "protocol_description": "Original PINN formulation of Raissi, Perdikaris, and Karniadakis [40] with λub = λu0 = 1."
+            }
+          ],
+          "name": "Klein–Gordon equation gradient analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Gradient distribution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "236cb296cde2f72f1a7d",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "The results summarized in Figure 11 indicate that ∇θLub and ∇θLu0 accumulate at the origin, around which they form two sharp peaks, while ∇θLr stays flat."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9a28abb06a8cd4f441bd0dc0",
+              "unit": null,
+              "value_raw_text": "∇θLub and ∇θLu0 accumulate at the origin, around which they form two sharp peaks, while ∇θLr stays flat."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "236cb296cde2f72f1a7d",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "model M1 fails to accurately fit the initial and boundary conditions data and therefore, as expected, yields a poor prediction for the target solution u(x, t) with a relative L2 error of 17.9%."
+              },
+              "quantitative_value": 17.9,
+              "result_id": "res_be78e14cb7bd14dff9acedd2",
+              "unit": "%",
+              "value_raw_text": "relative L2 error of 17.9%"
+            }
+          ],
+          "unit_id": "su_200188cad28d85c8be71d569"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze histograms of back-propagated gradients of ∇θLr and ∇θLub at each layer at the end of training.",
+            "Train a PINN with the proposed learning rate annealing algorithm (Algorithm 2.1) to solve the Helmholtz equation."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Algorithm 2.1 (learning rate annealing)",
+              "protocol_description": "Algorithm that updates loss weights λi every 10 iterations of stochastic gradient descent using gradient statistics."
+            }
+          ],
+          "name": "Helmholtz equation gradient analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Gradient distribution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "63da6e5908015e3bcdbe",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "Fig. 7. Helmholtz equation: Histograms of back-propagated gradients of ∇θLr and ∇θLub at each layer at the end of training a PINN with the proposed Algorithm 2.1 to solve the Helmholtz equation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_16fb2d13838773917f35c91e",
+              "unit": null,
+              "value_raw_text": "Histograms of back-propagated gradients of ∇θLr and ∇θLub at each layer at the end of training a PINN with the proposed Algorithm 2.1 to solve the Helmholtz equation."
+            }
+          ],
+          "unit_id": "su_2ca4db5671e6319666401b34"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate relative L2 error on Helmholtz equation.",
+            "Train a PINN model with the proposed improved architecture (4 hidden layers, 50 neurons each) using the learning rate annealing algorithm for 40,000 iterations."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Improved architecture + learning rate annealing",
+              "protocol_description": "PINN model with improved architecture (4 hidden layers, 50 neurons each) trained with learning rate annealing algorithm."
+            }
+          ],
+          "name": "Helmholtz equation prediction with improved architecture",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "abb2aa618943548c7bfa",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "Fig. 9. Helmholtz equation: Exact solution versus the prediction of a PINN model with the proposed improved architecture (4 hidden layers, 50 neurons each) after 40,000 iterations of training using the proposed learning rate annealing algorithm (relative L2 error: 3.69e −03)."
+              },
+              "quantitative_value": 0.00369,
+              "result_id": "res_1dc232dfb4c2ea95bd907151",
+              "unit": null,
+              "value_raw_text": "relative L2 error: 3.69e −03"
+            }
+          ],
+          "unit_id": "su_866a7983226d31aa8c88123c"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Track largest eigenvalue of Hessian ∇²θL(θ) during training.",
+            "Train two PINN models (M1: conventional dense 4-layer; M3: improved architecture 4-layer) for Helmholtz problem."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Model M1 (conventional)",
+              "protocol_description": "Conventional dense, 4-layer deep architecture."
+            },
+            {
+              "method_id": "M7",
+              "name": "Model M3 (improved architecture)",
+              "protocol_description": "Proposed improved architecture with depth of 4 layers."
+            }
+          ],
+          "name": "Hessian eigenvalue comparison for Helmholtz",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Largest Hessian eigenvalue",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "abb2aa618943548c7bfa",
+                "page_end": 16,
+                "page_start": 16,
+                "paraphrased": false,
+                "text_excerpt": "Fig. 10. An improved fully connected architecture for PINNs: Largest eigenvalue of the Hessian ∇²θL(θ) during the training of two separate PINN models for approximating the solution to the two-dimensional Helmholtz problem (see (2.7)) with a1 = 1, a2 = 4. Model M1 is a conventional dense, 4-layer deep architecture, while model M3 corresponds to the proposed improved architecture also with a depth of 4 layers."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f4353f61fd69f0f685016c31",
+              "unit": null,
+              "value_raw_text": "Largest eigenvalue of the Hessian ∇²θL(θ) during the training of two separate PINN models for approximating the solution to the two-dimensional Helmholtz problem (see (2.7)) with a1 = 1, a2 = 4."
+            }
+          ],
+          "unit_id": "su_cfaba47e1abd63bb7c8bd115"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5d6b301f97d39e106d69c6a4",
+              "inference_basis_ids": [
+                "res_678ec6b31247220272dea24b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "236cb296cde2f72f1a7d",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": true,
+                "text_excerpt": "It is clear that the proposed methodologies consistently outperform the original implementation of Raissi, Perdikaris, and Karniadakis."
+              },
+              "statement": "The proposed methodologies consistently outperform the original implementation of Raissi, Perdikaris, and Karniadakis."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare performance of models M1–M4 on Klein–Gordon equation using fixed architecture (5 hidden layers, 50 neurons) after 40,000 iterations.",
+            "Report relative L2 prediction error and wall-clock time."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Model M1 (original PINN)",
+              "protocol_description": "Original PINN formulation with λub = λu0 = 1."
+            },
+            {
+              "method_id": "M11",
+              "name": "Model M2 (learning rate annealing)",
+              "protocol_description": "Proposed learning rate annealing algorithm."
+            },
+            {
+              "method_id": "M12",
+              "name": "Model M3 (improved architecture)",
+              "protocol_description": "Proposed improved architecture."
+            },
+            {
+              "method_id": "M13",
+              "name": "Model M4 (combined)",
+              "protocol_description": "Combination of learning rate annealing and improved architecture."
+            }
+          ],
+          "name": "Comparative study of models M1–M4 on Klein–Gordon",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "236cb296cde2f72f1a7d",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": true,
+                "text_excerpt": "A comparative study on the performance of all models (M1–M4) is summarized in Table 5. ... we consider a fixed neural architecture with 5 hidden layers and 50 neurons and report the relative L2 prediction error of each method after 40,000 iterations of training, along with the total wall-clock time required to complete each simulation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_678ec6b31247220272dea24b",
+              "unit": null,
+              "value_raw_text": "relative L2 prediction error of each method after 40,000 iterations of training"
+            }
+          ],
+          "unit_id": "su_d18c523d1e66c77b5bf14766"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Track evolution of loss weights λub and λu0 during training.",
+            "Train PINN models using Algorithm 2.1 for Helmholtz and Klein–Gordon equations."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Algorithm 2.1 (learning rate annealing)",
+              "protocol_description": "Algorithm that updates loss weights λi every 10 iterations of stochastic gradient descent using gradient statistics."
+            }
+          ],
+          "name": "Helmholtz and Klein–Gordon loss weight evolution",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Loss weight evolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "63da6e5908015e3bcdbe",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "Fig. 8. (a) Helmholtz equation: Evolution of the constant λub used to scale the boundary condition loss Lub(θ) in (2.11) during model training using Algorithm 2.1."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bd59121e45c7c4bf31ce5a1f",
+              "unit": null,
+              "value_raw_text": "Evolution of the constant λub used to scale the boundary condition loss Lub(θ) in (2.11) during model training using Algorithm 2.1."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Loss weight evolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "63da6e5908015e3bcdbe",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "(b) Klein–Gordon equation: Evolution of the constants λub and λu0 used to scale the boundary and initial conditions loss, Lub(θ) and Lu0(θ), respectively (see (3.6)), during the training of model M2 using Algorithm 2.1."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f7c15be7c449019deb909b68",
+              "unit": null,
+              "value_raw_text": "Evolution of the constants λub and λu0 used to scale the boundary and initial conditions loss, Lub(θ) and Lu0(θ), respectively (see (3.6)), during the training of model M2 using Algorithm 2.1."
+            }
+          ],
+          "unit_id": "su_e3024fd61f86630853c5ed30"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bf1d7addf1ebf9bf138f1202",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "07f70625ff4bc8556b9b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Taken together, our developments provide new insights into the training of constrained neural networks and consistently improve the predictive accuracy of physics-informed neural networks by a factor of 50–100× across a range of problems in computational physics."
+              },
+              "statement": "The proposed methods consistently improve the predictive accuracy of physics-informed neural networks by a factor of 50–100× across a range of problems in computational physics."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze gradient flow pathologies in PINNs related to numerical stiffness and unbalanced back-propagated gradients.",
+            "Propose a learning rate annealing algorithm that uses gradient statistics to balance composite loss terms.",
+            "Propose an improved neural network architecture more resilient to gradient pathologies."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Learning rate annealing algorithm",
+              "protocol_description": "Algorithm that adaptively updates loss weights λi every 10 iterations of stochastic gradient descent using gradient statistics to balance the interplay between different terms in composite loss functions."
+            },
+            {
+              "method_id": "M2",
+              "name": "Improved fully connected architecture",
+              "protocol_description": "A novel neural network architecture extension to standard fully connected networks, inspired by neural attention mechanisms, that is more resilient to gradient pathologies."
+            }
+          ],
+          "name": "Gradient pathology analysis and proposed methods",
+          "results": [],
+          "unit_id": "su_f56d52dde437ce7600723ce2"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze gradient distributions for ∇θLr, ∇θLub, ∇θLu0.",
+            "Train same neural architecture (5-layer, 50 neurons) using learning rate annealing algorithm (model M2) on Klein–Gordon equation."
+          ],
+          "methods": [
+            {
+              "method_id": "M9",
+              "name": "Model M2 (learning rate annealing)",
+              "protocol_description": "Proposed learning rate annealing algorithm for adaptively choosing constants λub and λu0 during model training."
+            }
+          ],
+          "name": "Klein–Gordon equation with learning rate annealing",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Gradient distribution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "236cb296cde2f72f1a7d",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "We observe that all gradient distributions do not sharply peak around zero values, indicating the fact that a healthy gradient signal is back-propagated through the network from all the contributing terms in the loss function."
+              },
+              "quantitative_value": null,
+              "result_id": "res_977ae97cb660a3d7ced9ab5a",
+              "unit": null,
+              "value_raw_text": "All gradient distributions do not sharply peak around zero values, indicating the fact that a healthy gradient signal is back-propagated through the network from all the contributing terms in the loss function."
+            }
+          ],
+          "unit_id": "su_fe6e9b3a54668a4329d34b25"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[7].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8148 on attempt 1"
+    }
+  ]
+}

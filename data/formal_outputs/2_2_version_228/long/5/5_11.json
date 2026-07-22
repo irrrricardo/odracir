@@ -1,0 +1,385 @@
+{
+  "coverage_ledger": {
+    "39d8d1dab3dbce4f344a": "not_selected",
+    "55c44f19ae052a1e2e16": "extracted",
+    "6889457de01e07a9dca0": "not_selected",
+    "6dd3fad69d576a0005a8": "extracted",
+    "78c00b994badf4e2a354": "extracted",
+    "87aba803fd579862d7f5": "not_selected",
+    "a94033ed8c26bb1aadbf": "extracted",
+    "cc6ebaa654dcf3cb0611": "not_selected",
+    "e359619d5f81b022eeab": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "TiMINo causality may output 'I do not know' when model assumptions are violated, but this can also lead to wrong conclusions on small datasets due to the null hypothesis representing independence.",
+    "The method can be computationally intractable for time series with many components if feedback loops are present.",
+    "For large sample sizes, even smallest differences between the true data generating process and the model may lead to rejected independence tests.",
+    "The algorithm does not yet test for non-vanishing autocorrelations in the residuals.",
+    "The method may fit a model only in the wrong direction, requiring unnatural fine-tuning of functions, relevant only when time series lack time structure or data are non-faithful.",
+    "The Bonferroni correction in HSIC-based independence test may require modifications for a high number of time series components."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_11.pdf",
+    "source_sha256": "10d9089c2ca0cc1fdb7fc307cbd984c07ecee19befa61a1bc2a49b496715476f"
+  },
+  "paper_id": "5_11",
+  "quality_assessment": {
+    "correct_item_count": 40,
+    "deterministic_rule_score": 0.8104,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 40,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can restricted Structural Equation Models for time series (TiMINo) provide identifiability of causal structure, including nonlinear and instantaneous effects, and can an algorithm based on independence tests recover the structure from data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5bca6fdcba6d43e1e6b6a7a6",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6dd3fad69d576a0005a8",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Then, the full time graph of ˜Xt is identiﬁable from the joint distribution of ˜Xt. In particular, the summary time graphs of ˜Xt and Xt are identical and therefore identiﬁable."
+              },
+              "statement": "The summary time graphs of shifted and original time series are identical and identifiable."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Extend TiMINo to time series measured with different unknown time delays."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "TiMINo for shifted time series",
+              "protocol_description": "Update line 5 of Algorithm 1 to additionally include Xi_{t+ℓ} for 0 ≤ ℓ ≤ k for all i in S \\ {k}. Theorem 2 states identifiability of the summary time graph under condition (ii) of Theorem 1."
+            }
+          ],
+          "name": "TiMINo for shifted time series",
+          "results": [],
+          "unit_id": "su_40e9b54933a04d08d609b00d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6bdb89c058e40746e32924a5",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a94033ed8c26bb1aadbf",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "If the data do not satisfy the model assumptions, TiMINo causality remains mostly undecided instead of drawing wrong causal conclusions."
+              },
+              "statement": "If the data do not satisfy the model assumptions, TiMINo causality remains mostly undecided instead of drawing wrong causal conclusions."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Develop an algorithm (TiMINo causality) that recovers the model structure from finite samples, avoiding wrong causal conclusions when model assumptions are violated."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "TiMINo causality algorithm",
+              "protocol_description": "Algorithm 1: For time series without feedback loops, iteratively fit TiMINo for each component using past values and contemporaneous values of other components, test independence of residuals, select the component with weakest dependence, and remove non-required parents. If no model with independent residuals is found, output 'I do not know'."
+            }
+          ],
+          "name": "TiMINo causality algorithm",
+          "results": [],
+          "unit_id": "su_41b8a836743483c592bfdf23"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1947f09fe80c4fe5014b3c82",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a94033ed8c26bb1aadbf",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "In Section 3 we prove that for TiMINo models the full causal structure can be recovered from the distribution."
+              },
+              "statement": "For TiMINo models, the full causal structure can be recovered from the distribution."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Prove identifiability of full time graph for TiMINo models under conditions (i) or (ii)."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "TiMINo model class",
+              "protocol_description": "Time Series Models with Independent Noise (TiMINo) require independent residual time series. The model class is restricted (e.g., additive noise) to achieve identifiability. The full time graph is identifiable from the joint distribution under conditions (i) or (ii) of Theorem 1."
+            }
+          ],
+          "name": "TiMINo theoretical identifiability",
+          "results": [],
+          "unit_id": "su_dd46af080189a16260adcb12"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How does TiMINo compare to existing methods (Granger causality, TS-LiNGAM, ANLTSM) on simulated data with confounders, instantaneous effects, nonlinearities, and shifted time series?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_65c81191bf5ba9f0d7e995b7",
+              "inference_basis_ids": [
+                "res_7ad13fc8b34ed46ae22ce895"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6dd3fad69d576a0005a8",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "G-causality and TS-LiNGAM wrongly infer X → Y . For large a, Yt contains additional information about Xt+1, which leads to the wrong arrow Y → X. TiMINo causality does not decide for any a."
+              },
+              "statement": "TiMINo avoids incorrect causal conclusions in the presence of a hidden confounder, unlike G-causality and TS-LiNGAM."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Z_t = a*Z_{t-1} + N_{Z,t}, X_t = 0.6*X_{t-1} + 0.5*Z_{t-1} + N_{X,t}, Y_t = 0.6*Y_{t-1} + 0.5*Z_{t-2} + N_{Y,t}, with a between 0 and 0.95, N ~ 0.4*N(0,1)^3.",
+              "name": "Simulated confounder data",
+              "version_or_split": "100 data sets, length 1000"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Simulate 100 data sets (length 1000) from a linear system with hidden confounder Z. Compare TiMINo, G-causality, and TS-LiNGAM."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "TiMINo causality",
+              "protocol_description": "TiMINo causality with VAR fitting (TiMINo-linear), order p=2 or 6, alpha=0.05."
+            },
+            {
+              "method_id": "M5",
+              "name": "Granger causality",
+              "protocol_description": "Linear Granger causality based on VAR model and F-test."
+            },
+            {
+              "method_id": "M6",
+              "name": "TS-LiNGAM",
+              "protocol_description": "TS-LiNGAM based on LiNGAM, allows linear instantaneous effects."
+            }
+          ],
+          "name": "Experiment 1: Confounder with time lag",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Causal inference correctness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6dd3fad69d576a0005a8",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "G-causality and TS-LiNGAM wrongly infer X → Y . For large a, Yt contains additional information about Xt+1, which leads to the wrong arrow Y → X. TiMINo causality does not decide for any a."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7ad13fc8b34ed46ae22ce895",
+              "unit": null,
+              "value_raw_text": "G-causality and TS-LiNGAM wrongly infer X → Y. For large a, also Y → X. TiMINo causality does not decide for any a."
+            }
+          ],
+          "unit_id": "su_0e2bc07d71157a1ca98c4f45"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c55a2ac537659d5ee777f2d3",
+              "inference_basis_ids": [
+                "res_9e5851f25601d38c260b38d4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6dd3fad69d576a0005a8",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "TS-LiNGAM and G-causality are not able to recover the true structure (see Table 1). We obtain similar results for non-linear instantaneous interactions."
+              },
+              "statement": "TiMINo can handle linear Gaussian instantaneous effects, while TS-LiNGAM and G-causality fail."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "X_t = A1*X_{t-1} + N_{X,t}, W_t = A2*W_{t-1} + A3*X_t + N_{W,t}, Y_t = A4*Y_{t-1} + A5*W_{t-1} + N_{Y,t}, Z_t = A6*Z_{t-1} + A7*W_t + A8*Y_{t-1} + N_{Z,t}, N ~ 0.4*N(0,1), A_i iid from U([-0.8,-0.2] U [0.2,0.8]).",
+              "name": "Simulated linear Gaussian instantaneous data",
+              "version_or_split": "100 data sets, length 2000"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Simulate 100 data sets (length 2000) from a linear Gaussian system with instantaneous effects. Compare TiMINo, TS-LiNGAM, and G-causality."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "TiMINo causality",
+              "protocol_description": "TiMINo causality with VAR fitting (TiMINo-linear), order p=2 or 6, alpha=0.05."
+            },
+            {
+              "method_id": "M8",
+              "name": "TS-LiNGAM",
+              "protocol_description": "TS-LiNGAM based on LiNGAM, allows linear instantaneous effects."
+            },
+            {
+              "method_id": "M9",
+              "name": "Granger causality",
+              "protocol_description": "Linear Granger causality based on VAR model and F-test."
+            }
+          ],
+          "name": "Experiment 2: Linear, Gaussian with instantaneous effects",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Causal inference correctness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6dd3fad69d576a0005a8",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "TS-LiNGAM and G-causality are not able to recover the true structure (see Table 1)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9e5851f25601d38c260b38d4",
+              "unit": null,
+              "value_raw_text": "TS-LiNGAM and G-causality are not able to recover the true structure (see Table 1)."
+            }
+          ],
+          "unit_id": "su_edcf359bcdbb83afbc95795b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f4f8df6ea76e14113bf32faa",
+              "inference_basis_ids": [
+                "res_3545d79f8fe29b65f1f46f66"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6dd3fad69d576a0005a8",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "TiMINo-gam and TiMINo-GP work well on this data set (Table 2)."
+              },
+              "statement": "TiMINo-gam and TiMINo-GP successfully recover the causal structure in nonlinear non-Gaussian settings, while G-causality methods fail."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "X_t = 0.8X_{t-1} + 0.3N_{X,t}, Y_t = 0.4Y_{t-1} + (X_{t-1} - 1)^2 + 0.3N_{Y,t}, Z_t = 0.4Z_{t-1} + 0.5cos(Y_{t-1}) + sin(Y_{t-1}) + 0.3N_{Z,t}, N ~ U([-0.5,0.5]).",
+              "name": "Simulated nonlinear non-Gaussian data",
+              "version_or_split": "100 data sets, length 500"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Simulate 100 data sets (length 500) from a nonlinear non-Gaussian system without instantaneous effects. Compare TiMINo variants, nonlinear G-causality, and linear G-causality."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "TiMINo-gam",
+              "protocol_description": "TiMINo causality with GAM fitting (additive nonlinear functions)."
+            },
+            {
+              "method_id": "M11",
+              "name": "TiMINo-GP",
+              "protocol_description": "TiMINo causality with GP regression fitting."
+            },
+            {
+              "method_id": "M12",
+              "name": "TiMINo-linear",
+              "protocol_description": "TiMINo causality with VAR fitting (linear)."
+            },
+            {
+              "method_id": "M13",
+              "name": "Nonlinear Granger causality",
+              "protocol_description": "Nonlinear G-causality based on generalized additive models (pairwise)."
+            },
+            {
+              "method_id": "M14",
+              "name": "Linear Granger causality",
+              "protocol_description": "Linear G-causality based on VAR model."
+            }
+          ],
+          "name": "Experiment 3: Nonlinear, non-Gaussian without instantaneous effects",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Causal inference correctness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6dd3fad69d576a0005a8",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Nonlinear G-causality fails since the implementation is only pairwise and it thus always infers an effect from X to Z. Linear G-causality cannot remove the nonlinear effect from Xt−2 to Zt by using Yt−1. Also TiMINo-linear assumes a wrong model but does not make any decision. TiMINo-gam and TiMINo-GP work well on this data set (Table 2)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3545d79f8fe29b65f1f46f66",
+              "unit": null,
+              "value_raw_text": "Nonlinear G-causality fails since the implementation is only pairwise and it thus always infers an effect from X to Z. Linear G-causality cannot remove the nonlinear effect from X_{t-2} to Z_t by using Y_{t-1}. TiMINo-linear assumes a wrong model but does not make any decision. TiMINo-gam and TiMINo-GP work well on this data set (Table 2)."
+            }
+          ],
+          "unit_id": "su_f72299fd1bea2842c4afbff4"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

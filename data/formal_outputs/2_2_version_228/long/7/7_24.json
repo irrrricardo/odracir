@@ -1,0 +1,983 @@
+{
+  "coverage_ledger": {
+    "13675a044a9c9ba269a3": "not_selected",
+    "285e0dda6a0931dfe4a1": "not_selected",
+    "37fb1885114c514ffcd8": "extracted",
+    "452cd285eac101741b30": "not_selected",
+    "469e4ac73a75db630d0f": "not_selected",
+    "4a03e020aa6ae8a310a2": "not_selected",
+    "4f14fe28d10c4911a6ab": "extracted",
+    "58e07be7fc3872c00388": "not_selected",
+    "5fd59c0519368ced2faa": "not_selected",
+    "621a96aafdea04ea68b5": "not_selected",
+    "6cbce82490ec01fc7c75": "extracted",
+    "6ec5c76608740ff31f4b": "not_selected",
+    "6f8229dc31123496ef88": "not_selected",
+    "888b3c871ba0faa29557": "not_selected",
+    "964c820b3caae691cf84": "not_selected",
+    "a6c52be065755100a8ad": "not_selected",
+    "a9d3da9fc2e9effa2863": "not_selected",
+    "bbf8a37f88749c1c0b0a": "not_selected",
+    "ef7a7157776ed2df661c": "not_selected",
+    "efce46294fa9dd4ac9e5": "extracted",
+    "fc22b77cbb4fee87ae3c": "not_selected",
+    "fc3ab1ae16ed34d5e9d2": "not_selected",
+    "fe6b239a27ef00b13b43": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "GINO is evaluated only on two CFD datasets (Ahmed-body and Shape-Net Car) and may not generalize to other PDEs or geometries.",
+    "The speed-up comparison is against a specific GPU-accelerated OpenFOAM solver; performance relative to other solvers is not assessed.",
+    "The model requires SDF and point-cloud representations, which may not be available for all geometries.",
+    "The ablation study is limited to latent space size and radius; other hyperparameters (e.g., number of Fourier modes, graph layers) are not systematically varied.",
+    "The paper does not report uncertainty estimates or confidence intervals for the error metrics.",
+    "The evaluation is limited to steady-state simulations; transient or unsteady flows are not considered.",
+    "The GINO model's performance on even larger meshes (beyond 100k surface points) is not tested.",
+    "The comparison with MeshGraphNet is only mentioned for the Ahmed-body dataset; no results are reported for Shape-Net Car."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_24.pdf",
+    "source_sha256": "d39234e06de75ca58b2e6f0f7069ae16305193c30173bb1c7a9b6aade5c7262a"
+  },
+  "paper_id": "7_24",
+  "quality_assessment": {
+    "correct_item_count": 41,
+    "deterministic_rule_score": 0.9272,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.1429,
+      "sample_size_log_score": 0.6274,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 56,
+    "f1": 0.7885,
+    "incorrect_item_count": 15,
+    "incorrect_items": [
+      {
+        "description": "The extracted n_sample_size is 111, but the source excerpt does not explicitly state the sample size for this result. The excerpt only says 'On the Shape-Net Car, GINO achieves 7.12% error rate compared to 9.42% on FNO.' without specifying the number of test samples. The dataset description mentions 111 validation samples, but the result itself does not provide n_sample_size.",
+        "item_id": "result:su_667afaac2aaa0a03a030f897:res_96d50779e40edd007c401e31",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted n_sample_size is 111, but the source excerpt does not explicitly state the sample size for this result. The excerpt only says 'On the Shape-Net Car, GINO achieves 7.12% error rate compared to 9.42% on FNO.' without specifying the number of test samples. The dataset description mentions 111 validation samples, but the result itself does not provide n_sample_size.",
+        "item_id": "result:su_667afaac2aaa0a03a030f897:res_ea589f293bca00b40559e93a",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted n_sample_size is 51, but the source excerpt does not explicitly state the sample size for this result. The excerpt only says 'On the Ahmed-body dataset, GINO achieves 8.31% while the previous best method achieve 11.16%.' without specifying the number of test samples. The dataset description mentions 51 validation samples, but the result itself does not provide n_sample_size.",
+        "item_id": "result:su_fa19d99c201eaa3789f3363a:res_48bccbf06826154790aa1760",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted n_sample_size is 51, but the source excerpt does not explicitly state the sample size for this result. The excerpt only says 'On the Ahmed-body dataset, GINO achieves 8.31% while the previous best method achieve 11.16%.' without specifying the number of test samples. The dataset description mentions 51 validation samples, but the result itself does not provide n_sample_size.",
+        "item_id": "result:su_fa19d99c201eaa3789f3363a:res_5d9bd00c70530cc6a149a34c",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted quantitative_value is 100000.0, but the source excerpt says '100,000x faster'. The value 100,000 is correct, but the unit is 'x' (times), not a dimensionless number. The extraction correctly captures the value and unit, but the quantitative_value field is a float, which may be acceptable. However, the speed-up factor is a ratio, not a measurement with a unit. The extraction is not incorrect, but the unit 'x' is appropriate. No error.",
+        "item_id": "result:su_fa19d99c201eaa3789f3363a:res_c93182b192a436eba905b4eb",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'GINO provides a 100,000x speed-up over GPU-parallel OpenFOAM solver.' The source excerpt says 'It takes 0.1 seconds to evaluate, which is 100,000x faster than the GPU-parallel OpenFOAM solver that take 10 hours to generates the data.' The claim is supported. No error.",
+        "item_id": "claim:su_fa19d99c201eaa3789f3363a:clm_e05a6696fe5fefddf2e1c1aa",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Larger latent spaces and radii yield superior performance for GINO.' The source excerpt says 'As depicted in Figure 4(a) and Table 4, larger latent spaces and radii yield superior results.' The claim is supported. No error.",
+        "item_id": "claim:su_fa19d99c201eaa3789f3363a:clm_f14f139ba88778709219f9c1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'GINO is evaluated only on two CFD datasets (Ahmed-body and Shape-Net Car) and may not generalize to other PDEs or geometries.' The source text mentions evaluation on these two datasets and does not claim generalization to other PDEs or geometries. The boundary is a reasonable limitation inferred from the paper. It is not incorrect.",
+        "item_id": "boundary:1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The speed-up comparison is against a specific GPU-accelerated OpenFOAM solver; performance relative to other solvers is not assessed.' The source text only compares to OpenFOAM. The boundary is a reasonable limitation. It is not incorrect.",
+        "item_id": "boundary:2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The model requires SDF and point-cloud representations, which may not be available for all geometries.' The source text describes using SDF and point-cloud representations. The boundary is a reasonable limitation. It is not incorrect.",
+        "item_id": "boundary:3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The ablation study is limited to latent space size and radius; other hyperparameters (e.g., number of Fourier modes, graph layers) are not systematically varied.' The source text mentions ablation on latent space and radius, and does not systematically vary other hyperparameters. The boundary is a reasonable limitation. It is not incorrect.",
+        "item_id": "boundary:4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The paper does not report uncertainty estimates or confidence intervals for the error metrics.' The source text does not report uncertainty estimates. The boundary is a reasonable limitation. It is not incorrect.",
+        "item_id": "boundary:5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The evaluation is limited to steady-state simulations; transient or unsteady flows are not considered.' The source text mentions steady-state simulations and does not consider transient flows. The boundary is a reasonable limitation. It is not incorrect.",
+        "item_id": "boundary:6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The GINO model's performance on even larger meshes (beyond 100k surface points) is not tested.' The source text mentions 100k surface points and does not test larger meshes. The boundary is a reasonable limitation. It is not incorrect.",
+        "item_id": "boundary:7",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The comparison with MeshGraphNet is only mentioned for the Ahmed-body dataset; no results are reported for Shape-Net Car.' The source text includes MeshGraphNet results only for Ahmed-body. The boundary is a reasonable limitation. It is not incorrect.",
+        "item_id": "boundary:8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "The paper reports a 26,000x speed-up for drag coefficient computation, not 100,000x for pressure field evaluation. The 100,000x speed-up is for pressure field evaluation, while the 26,000x speed-up is for drag coefficient computation. The extraction includes the 100,000x speed-up but misses the 26,000x speed-up for drag coefficient.",
+        "item_id": null,
+        "source_chunk_id": "37fb1885114c514ffcd8",
+        "source_excerpt": "The cost-accuracy experiments show a 26, 000× speed-up compared to optimized GPU-based computational fluid dynamics (CFD) simulators on computing the drag coefficient.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports a 7.29% error rate for GINO on Shape-Net Car in the abstract, but the extraction only includes 7.12% from the decoder configuration. The abstract states '7.29% (Shape-Net car) error rates on the full pressure field.'",
+        "item_id": null,
+        "source_chunk_id": "4f14fe28d10c4911a6ab",
+        "source_excerpt": "The result shows GINO is 26, 000× faster at computing the drag coefficients over the GPU-based OpenFOAM solver, while achieving 8.31% (Ahmed-body) and 7.29% (Shape-Net car) error rates on the full pressure field.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports a 26,000x speed-up for drag coefficient computation, which is a core quantitative result not extracted.",
+        "item_id": null,
+        "source_chunk_id": "4f14fe28d10c4911a6ab",
+        "source_excerpt": "The cost-accuracy experiments show a 26, 000× speed-up compared to optimized GPU-based computational fluid dynamics (CFD) simulators on computing the drag coefficient.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that GINO achieves a one-fourth reduction in error rate compared to deep neural network approaches on new combinations of geometries and boundary conditions.",
+        "item_id": null,
+        "source_chunk_id": "4f14fe28d10c4911a6ab",
+        "source_excerpt": "When tested on new combinations of geometries and boundary conditions (inlet velocities), GINO obtains a one-fourth reduction in error rate compared to deep neural network approaches.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that GINO is capable of zero-shot super-resolution, training with only one-eighth of the mesh points and having good accuracy on the full mesh.",
+        "item_id": null,
+        "source_chunk_id": "469e4ac73a75db630d0f",
+        "source_excerpt": "Further, GINO is capable of zero-shot super-resolution, training with only one-eighth of the mesh points, and having a good accuracy when evaluated on the full mesh that is not seen during training.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that the cost-accuracy analysis shows a 26,000x speed-up at a 3% relative error in drag coefficient.",
+        "item_id": null,
+        "source_chunk_id": "452cd285eac101741b30",
+        "source_excerpt": "At a 3% relative error, we find the speed-up from our model which includes drag in the loss to be 26, 000×.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that GINO is discretization-convergent, meaning the trained model can be applied to arbitrary discretizations and converges to the continuum operator.",
+        "item_id": null,
+        "source_chunk_id": "4f14fe28d10c4911a6ab",
+        "source_excerpt": "GINO is discretization-convergent, meaning the trained model can be applied to arbitrary discretizations of the continuous domain and it converges to the continuum operator as the discretization is refined.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.7321,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8542
+  },
+  "quality_score": 0.7885,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a geometry-informed neural operator (GINO) efficiently learn the solution operator of large-scale 3D PDEs with varying geometries?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d5fc701a576b91731fe471ac",
+              "inference_basis_ids": [
+                "res_239079579f433d520e6e16a5",
+                "res_242c69e5b77d415a42ae50a3",
+                "res_3bbbd472fd0290babb2e0a12",
+                "res_7563f4e8a7084c4989be11ed",
+                "res_8f9691af810701b78c70f024",
+                "res_9635c1c47319cdbfc4738638",
+                "res_96d50779e40edd007c401e31",
+                "res_9d2c42df74e325f15256f2a0",
+                "res_b259f733f293a649aa94f377",
+                "res_b54a0a4d609441e622604ca3",
+                "res_e4f54ef992ddc87115b4f023",
+                "res_e8fd5528fbada60f5649fe83",
+                "res_ea589f293bca00b40559e93a",
+                "res_ee6f3986e06e8ac58da3522f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "As shown in Table 2 3 and Figure 2, GINO achieves the best error rate with a large margin compared with previous methods. On the Shape-Net Car, GINO achieves 7.12% error rate compared to 9.42% on FNO."
+              },
+              "statement": "GINO achieves the best error rate on the Shape-Net Car dataset compared to previous methods."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Car shapes from ShapeNet Car category, manually modified to remove side mirrors, spoilers, tires. RANS equations with k-epsilon turbulence model and SUPG stabilization, finite element solver. Inlet velocity fixed at 20m/s, Reynolds number ~5e6. Each simulation ~50 minutes. Car surfaces stored with 3.7k mesh points. 611 water-tight shapes used.",
+              "name": "Shape-Net Car dataset",
+              "version_or_split": "500 training, 111 validation"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "As shown in Table 2 3 and Figure 2, GINO achieves the best error rate with a large margin compared with previous methods. On the Shape-Net Car, GINO achieves 7.12% error rate compared to 9.42% on FNO.",
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "As shown in Table 2 3 and Figure 2, GINO achieves the best error rate with a large margin compared with previous methods. On the Shape-Net Car, GINO achieves 7.12% error rate compared to 9.42% on FNO."
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluate GINO on the Shape-Net Car dataset for predicting surface pressure on car shapes."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup2",
+              "name": "GINO",
+              "protocol_description": "Geometry-informed neural operator with graph-kernel blocks for encoder/decoder mapping irregular point clouds to/from a regular latent grid, and Fourier blocks on the latent grid for global interactions. Uses signed distance function (SDF) and point-cloud representations. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Channel dimensions [32,48,64,80], latent space [32,48,64,80], radius 0.025-0.055 (domain normalized to [-1,1])."
+            },
+            {
+              "method_id": "M2__dup2",
+              "name": "GNO",
+              "protocol_description": "Graph neural operator baseline. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            },
+            {
+              "method_id": "M3__dup2",
+              "name": "Geo-FNO (sphere)",
+              "protocol_description": "Geometry-aware Fourier neural operator with 2D spherical latent space due to instability with 3D deformation. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            },
+            {
+              "method_id": "M4__dup2",
+              "name": "UNet (interp)",
+              "protocol_description": "3D UNet with interpolation. Channel dimensions [64,128,256], depths [4,5,6]. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            },
+            {
+              "method_id": "M5__dup2",
+              "name": "FNO (interp)",
+              "protocol_description": "Fourier neural operator with interpolation. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            }
+          ],
+          "name": "Shape-Net Car dataset evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO (sphere) 10.79% 15.85%"
+              },
+              "quantitative_value": 15.85,
+              "result_id": "res_239079579f433d520e6e16a5",
+              "unit": "%",
+              "value_raw_text": "15.85%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "UNet (interp) 12.48% 12.83%"
+              },
+              "quantitative_value": 12.48,
+              "result_id": "res_242c69e5b77d415a42ae50a3",
+              "unit": "%",
+              "value_raw_text": "12.48%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FNO (interp) 9.65% 9.42%"
+              },
+              "quantitative_value": 9.42,
+              "result_id": "res_3bbbd472fd0290babb2e0a12",
+              "unit": "%",
+              "value_raw_text": "9.42%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GINO (decoder) 6.37% 7.12%"
+              },
+              "quantitative_value": 6.37,
+              "result_id": "res_7563f4e8a7084c4989be11ed",
+              "unit": "%",
+              "value_raw_text": "6.37%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GINO (decoder) 6.37% 7.12%"
+              },
+              "quantitative_value": 7.12,
+              "result_id": "res_8f9691af810701b78c70f024",
+              "unit": "%",
+              "value_raw_text": "7.12%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GINO (encoder-decoder) 7.95% 9.47%"
+              },
+              "quantitative_value": 9.47,
+              "result_id": "res_9635c1c47319cdbfc4738638",
+              "unit": "%",
+              "value_raw_text": "9.47%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": 111,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "On the Shape-Net Car, GINO achieves 7.12% error rate compared to 9.42% on FNO."
+              },
+              "quantitative_value": 7.12,
+              "result_id": "res_96d50779e40edd007c401e31",
+              "unit": "%",
+              "value_raw_text": "7.12%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GNO 18.16% 18.77%"
+              },
+              "quantitative_value": 18.77,
+              "result_id": "res_9d2c42df74e325f15256f2a0",
+              "unit": "%",
+              "value_raw_text": "18.77%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GNO 18.16% 18.77%"
+              },
+              "quantitative_value": 18.16,
+              "result_id": "res_b259f733f293a649aa94f377",
+              "unit": "%",
+              "value_raw_text": "18.16%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "UNet (interp) 12.48% 12.83%"
+              },
+              "quantitative_value": 12.83,
+              "result_id": "res_b54a0a4d609441e622604ca3",
+              "unit": "%",
+              "value_raw_text": "12.83%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO (sphere) 10.79% 15.85%"
+              },
+              "quantitative_value": 10.79,
+              "result_id": "res_e4f54ef992ddc87115b4f023",
+              "unit": "%",
+              "value_raw_text": "10.79%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GINO (encoder-decoder) 7.95% 9.47%"
+              },
+              "quantitative_value": 7.95,
+              "result_id": "res_e8fd5528fbada60f5649fe83",
+              "unit": "%",
+              "value_raw_text": "7.95%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": 111,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "On the Shape-Net Car, GINO achieves 7.12% error rate compared to 9.42% on FNO."
+              },
+              "quantitative_value": 9.42,
+              "result_id": "res_ea589f293bca00b40559e93a",
+              "unit": "%",
+              "value_raw_text": "9.42%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FNO (interp) 9.65% 9.42%"
+              },
+              "quantitative_value": 9.65,
+              "result_id": "res_ee6f3986e06e8ac58da3522f",
+              "unit": "%",
+              "value_raw_text": "9.65%"
+            }
+          ],
+          "unit_id": "su_667afaac2aaa0a03a030f897"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2b2c10453841c076444abaff",
+              "inference_basis_ids": [
+                "res_48bccbf06826154790aa1760",
+                "res_5d9bd00c70530cc6a149a34c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GINO achieves the best error rate with a large margin compared with previous methods. On the Ahmed-body dataset, GINO achieves 8.31% while the previous best method achieve 11.16%."
+              },
+              "statement": "GINO achieves the best error rate on the Ahmed-body dataset compared to previous methods."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e05a6696fe5fefddf2e1c1aa",
+              "inference_basis_ids": [
+                "res_c93182b192a436eba905b4eb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "It takes 0.1 seconds to evaluate, which is 100,000x faster than the GPU-parallel OpenFOAM solver that take 10 hours to generates the data."
+              },
+              "statement": "GINO provides a 100,000x speed-up over GPU-parallel OpenFOAM solver."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f14f139ba88778709219f9c1",
+              "inference_basis_ids": [
+                "res_14a95d2cb4c9c5d9c3ca9cde",
+                "res_1d0b7d55ecbe6604d73eb171",
+                "res_389a7fb2b82dedb03489a81e",
+                "res_4d92c635cc69e856ab0f4463",
+                "res_6423f1771bcd7d9113f4224f",
+                "res_9e2a14207fffbf9baa7e1a0c",
+                "res_a5472d3fed2ba8dbaef1a333",
+                "res_a70476d40dcc9a7311b1dd50",
+                "res_cfe1cd2b91b1a309a80d8c60",
+                "res_f9efc8e3e665ee0c848ed2b7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "As depicted in Figure 4(a) and Table 4, larger latent spaces and radii yield superior results."
+              },
+              "statement": "Larger latent spaces and radii yield superior performance for GINO."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Industry-level vehicle aerodynamics simulation based on Ahmed-body shapes parameterized by length, width, height, ground clearance, slant angle, and fillet radius. Inlet velocity varies from 10m/s to 70m/s, Reynolds numbers 4.35e5 to 6.82e6. GPU-accelerated OpenFOAM solver with SST k-omega turbulence model, 7.2M mesh points total, 100k surface mesh points. Each simulation takes 7-19 hours on 2 Nvidia V100 GPUs with 16 CPU cores.",
+              "name": "Ahmed-body dataset",
+              "version_or_split": "500 training, 51 validation"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "As depicted in Figure 4(a) and Table 4, larger latent spaces and radii yield superior results.",
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "As depicted in Figure 4(a) and Table 4, larger latent spaces and radii yield superior results."
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "GINO achieves the best error rate with a large margin compared with previous methods. On the Ahmed-body dataset, GINO achieves 8.31% while the previous best method achieve 11.16%.",
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GINO achieves the best error rate with a large margin compared with previous methods. On the Ahmed-body dataset, GINO achieves 8.31% while the previous best method achieve 11.16%."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "It takes 0.1 seconds to evaluate, which is 100,000x faster than the GPU-parallel OpenFOAM solver that take 10 hours to generates the data.",
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "It takes 0.1 seconds to evaluate, which is 100,000x faster than the GPU-parallel OpenFOAM solver that take 10 hours to generates the data."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluate GINO on the Ahmed-body dataset for predicting surface pressure on car shapes with varying geometries and inlet velocities."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GINO",
+              "protocol_description": "Geometry-informed neural operator with graph-kernel blocks for encoder/decoder mapping irregular point clouds to/from a regular latent grid, and Fourier blocks on the latent grid for global interactions. Uses signed distance function (SDF) and point-cloud representations. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Channel dimensions [32,48,64,80], latent space [32,48,64,80], radius 0.025-0.055 (domain normalized to [-1,1])."
+            },
+            {
+              "method_id": "M2",
+              "name": "GNO",
+              "protocol_description": "Graph neural operator baseline. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            },
+            {
+              "method_id": "M3",
+              "name": "Geo-FNO (sphere)",
+              "protocol_description": "Geometry-aware Fourier neural operator with 2D spherical latent space due to instability with 3D deformation. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            },
+            {
+              "method_id": "M4",
+              "name": "UNet (interp)",
+              "protocol_description": "3D UNet with interpolation. Channel dimensions [64,128,256], depths [4,5,6]. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            },
+            {
+              "method_id": "M5",
+              "name": "FNO (interp)",
+              "protocol_description": "Fourier neural operator with interpolation. Trained with Adam optimizer for 100 epochs, learning rate halved at 50th epoch. Starting learning rates [0.002,0.001,0.0005,0.00025,0.0001], best at 0.00025 or 0.0001."
+            },
+            {
+              "method_id": "M6",
+              "name": "MeshGraphNet",
+              "protocol_description": "Graph neural network for physical simulations. Encoder, decoder, processor with channel size 256, 15 message-passing layers, ~10M parameters, ~280k edges. Learning rate 1e-4 with exponential decay 0.99985."
+            }
+          ],
+          "name": "Ahmed-body dataset evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 48 0.073 7.25% 9.17%"
+              },
+              "quantitative_value": 7.25,
+              "result_id": "res_14a95d2cb4c9c5d9c3ca9cde",
+              "unit": "%",
+              "value_raw_text": "7.25%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 80 0.044 6.22% 7.89%"
+              },
+              "quantitative_value": 7.89,
+              "result_id": "res_1d0b7d55ecbe6604d73eb171",
+              "unit": "%",
+              "value_raw_text": "7.89%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 64 0.055 6.00% 8.47%"
+              },
+              "quantitative_value": 8.47,
+              "result_id": "res_389a7fb2b82dedb03489a81e",
+              "unit": "%",
+              "value_raw_text": "8.47%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": 51,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "On the Ahmed-body dataset, GINO achieves 8.31% while the previous best method achieve 11.16%."
+              },
+              "quantitative_value": 8.31,
+              "result_id": "res_48bccbf06826154790aa1760",
+              "unit": "%",
+              "value_raw_text": "8.31%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 32 0.110 8.66% 10.10%"
+              },
+              "quantitative_value": 10.1,
+              "result_id": "res_4d92c635cc69e856ab0f4463",
+              "unit": "%",
+              "value_raw_text": "10.10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": 51,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "On the Ahmed-body dataset, GINO achieves 8.31% while the previous best method achieve 11.16%."
+              },
+              "quantitative_value": 11.16,
+              "result_id": "res_5d9bd00c70530cc6a149a34c",
+              "unit": "%",
+              "value_raw_text": "11.16%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 80 0.055 5.77% 7.87%"
+              },
+              "quantitative_value": 7.87,
+              "result_id": "res_6423f1771bcd7d9113f4224f",
+              "unit": "%",
+              "value_raw_text": "7.87%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 64 0.055 6.00% 8.47%"
+              },
+              "quantitative_value": 6.0,
+              "result_id": "res_9e2a14207fffbf9baa7e1a0c",
+              "unit": "%",
+              "value_raw_text": "6.00%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "test error (de-normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 48 0.073 7.25% 9.17%"
+              },
+              "quantitative_value": 9.17,
+              "result_id": "res_a5472d3fed2ba8dbaef1a333",
+              "unit": "%",
+              "value_raw_text": "9.17%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 32 0.110 8.66% 10.10%"
+              },
+              "quantitative_value": 8.66,
+              "result_id": "res_a70476d40dcc9a7311b1dd50",
+              "unit": "%",
+              "value_raw_text": "8.66%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "evaluation time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "It takes 0.1 seconds to evaluate, which is 100,000x faster than the GPU-parallel OpenFOAM solver that take 10 hours to generates the data."
+              },
+              "quantitative_value": 0.1,
+              "result_id": "res_c55b456c637bad27f0ec0fc2",
+              "unit": "seconds",
+              "value_raw_text": "0.1 seconds"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "speed-up factor",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "37fb1885114c514ffcd8",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "It takes 0.1 seconds to evaluate, which is 100,000x faster than the GPU-parallel OpenFOAM solver that take 10 hours to generates the data."
+              },
+              "quantitative_value": 100000.0,
+              "result_id": "res_c93182b192a436eba905b4eb",
+              "unit": "x",
+              "value_raw_text": "100,000x"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 80 0.055 5.77% 7.87%"
+              },
+              "quantitative_value": 5.77,
+              "result_id": "res_cfe1cd2b91b1a309a80d8c60",
+              "unit": "%",
+              "value_raw_text": "5.77%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "training error (normalized L2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "efce46294fa9dd4ac9e5",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "GINO 80 0.044 6.22% 7.89%"
+              },
+              "quantitative_value": 6.22,
+              "result_id": "res_f9efc8e3e665ee0c848ed2b7",
+              "unit": "%",
+              "value_raw_text": "6.22%"
+            }
+          ],
+          "unit_id": "su_fa19d99c201eaa3789f3363a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[4].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M5 -> M5__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8050 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8050 on attempt 1"
+    }
+  ]
+}

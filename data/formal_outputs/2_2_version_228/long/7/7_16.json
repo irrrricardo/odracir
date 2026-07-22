@@ -1,0 +1,308 @@
+{
+  "coverage_ledger": {
+    "02109094d0ba50e4cbc2": "not_selected",
+    "1d23c147160359aef55c": "not_selected",
+    "1fb3b30125bfd3aaa5b3": "not_selected",
+    "2bd965cc598b37e09161": "not_selected",
+    "30ace0306f12a77a1539": "not_selected",
+    "40845ca3965f4e39a73b": "not_selected",
+    "43f61d54bf5b6243489e": "not_selected",
+    "4b36bb184276ab84c5b7": "extracted",
+    "512136948eae420cbd38": "not_selected",
+    "536ebdcbabdaa81985bb": "not_selected",
+    "630ba3e1eeab8ffb9529": "not_selected",
+    "69be477c8eacc43f2dac": "not_selected",
+    "7150d2bd72589378ce45": "not_selected",
+    "788ddbeacbcb05148917": "not_selected",
+    "95fcaa77664f2d6e222c": "not_selected",
+    "b1f757da565aaa740b29": "not_selected",
+    "c28025b3a7318fe86e80": "not_selected",
+    "c530c30d84383e654c97": "not_selected",
+    "c6d0fbda6352c42c02ec": "not_selected",
+    "cc8352e1502c76660708": "not_selected",
+    "d037ca3579f935b55902": "not_selected",
+    "dd881369f5cefa8814f9": "extracted",
+    "e5fc8be58886ad41a413": "not_selected",
+    "ee34ae72ff3a1b0a64d6": "extracted",
+    "efc66cfb8a96f5dd839c": "not_selected",
+    "f13de1d6268d17d96e30": "extracted",
+    "f5b669bc346f3bf4bae8": "not_selected",
+    "f5fe9d55e8cc8055192b": "not_selected",
+    "f9365edeb18638c41049": "not_selected",
+    "fd2ebdf60ff183363f92": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "PINTO training may suffer from spectral bias and loss imbalances common in PINN models.",
+    "Adaptive training, sampling, and dynamic weighting strategies are needed to address training discrepancies.",
+    "Extension to 3D spatial cases increases training time, memory, and potential instabilities.",
+    "Cross-attention units increase training cost compared to PI-DeepONet.",
+    "Generalization to geometry or fluid properties requires further parametrization and testing."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_16.pdf",
+    "source_sha256": "fb5dba8ee8112dbdd06fc6cace67853f67f8575719495946527e9c4656033c82"
+  },
+  "paper_id": "7_16",
+  "quality_assessment": {
+    "correct_item_count": 21,
+    "deterministic_rule_score": 0.7993,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 21,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a physics-informed transformer neural operator generalize solutions of PDEs to unseen initial and boundary conditions without simulation data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_03f3dc34d15f1208f03dd493",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f13de1d6268d17d96e30",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": true,
+                "text_excerpt": "The kernel integral operator implemented using the cross-attention unit of PINTO is versatile. ... In the Fourier Neural Operator, this mechanism can be incorporated by performing a cross attention between the input field and solution domain in the Fourier space. Time marching neural operators such as OFormer and GNOs can also benefit from the introduction of cross-attention units to condition the representation space with input functions."
+              },
+              "statement": "PINTO's cross-attention units are versatile and can be incorporated into other neural operators like FNO and OFormer."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_248682c3414e210c85a5daf8",
+              "inference_basis_ids": [
+                "res_3504d1f3d0fa40e53721b316",
+                "res_8a5161dfc739e91ca4300de9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We introduce a physics-informed transformer neural operator (named PINTO) that generalizes efficiently to new conditions, trained solely with physics loss in a simulation-free setting."
+              },
+              "statement": "PINTO generalizes efficiently to new initial and boundary conditions without retraining."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_47b6b6dbc43bbc4ce7300539",
+              "inference_basis_ids": [
+                "res_3504d1f3d0fa40e53721b316",
+                "res_8a5161dfc739e91ca4300de9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Our core innovation is the development of iterative kernel integral operator units that use cross-attention to transform domain points of PDE solutions into initial/boundary condition-aware representation vectors, supporting efficient and generalizable learning."
+              },
+              "statement": "PINTO's cross-attention mechanism transforms domain points into boundary-aware representation vectors, enabling efficient and generalizable learning."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4d71487a95293d4d14fdf9eb",
+              "inference_basis_ids": [
+                "res_036fd3a55905e65898201008"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f13de1d6268d17d96e30",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "We also show that PINTO is able to find solutions outside the temporal domain in which training is performed, the first result of this nature in the neural operator literature."
+              },
+              "statement": "PINTO can solve PDEs at time steps outside the training temporal domain, a first in neural operator literature."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b9b48af95b8160c504dd0942",
+              "inference_basis_ids": [
+                "res_3504d1f3d0fa40e53721b316",
+                "res_8a5161dfc739e91ca4300de9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f13de1d6268d17d96e30",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "Comparative analysis with the PI-DeepONet neural operator model demonstrates the superior performance of PINTO to effectively generalize to unseen initial and boundary conditions."
+              },
+              "statement": "PINTO outperforms PI-DeepONet on unseen initial and boundary conditions across five test cases."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Iterative kernel integral operator units use cross-attention to transform domain points into initial/boundary condition-aware representation vectors.",
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Our core innovation is the development of iterative kernel integral operator units that use cross-attention to transform domain points of PDE solutions into initial/boundary condition-aware representation vectors, supporting efficient and generalizable learning."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "PINTO accurately solves advection and Burgers equations at time steps not present in the training points.",
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "PINTO accurately solves advection and Burgers equations at time steps not present in the training points, an ability absent for other neural operators."
+              },
+              "span_id": "ES4"
+            },
+            {
+              "content": "PINTO finds solutions outside the temporal domain in which training is performed, a first in neural operator literature.",
+              "provenance": {
+                "chunk_id": "f13de1d6268d17d96e30",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "We also show that PINTO is able to find solutions outside the temporal domain in which training is performed, the first result of this nature in the neural operator literature."
+              },
+              "span_id": "ES6"
+            },
+            {
+              "content": "PINTO generalizes efficiently to new conditions, trained solely with physics loss in a simulation-free setting.",
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We introduce a physics-informed transformer neural operator (named PINTO) that generalizes efficiently to new conditions, trained solely with physics loss in a simulation-free setting."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "PINTO's relative error for unseen testing configurations is only 20% to 33% of PI-DeepONet's relative error.",
+              "provenance": {
+                "chunk_id": "f13de1d6268d17d96e30",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "The relative error of PINTO solutions for all test cases in unseen testing configurations is low, only 20% to 33% of the relative error of PI-DeepONet’s solutions."
+              },
+              "span_id": "ES5"
+            },
+            {
+              "content": "Relative errors are 20% to 33% of those obtained by other leading physics-informed neural operator methods.",
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the relative errors compared to analytical or numerical (finite difference and volume) solutions are low, merely 20% to 33% of those obtained by other leading physics-informed neural operator methods"
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Compare PINTO against PI-DeepONet on unseen initial and boundary conditions.",
+            "Develop PINTO architecture with iterative kernel integral operator units using cross-attention to transform domain points into boundary-aware representation vectors.",
+            "Evaluate PINTO on five test cases: 1D advection, 1D Burgers, Kovasznay flow, Beltrami flow, lid-driven cavity flow.",
+            "Test PINTO's ability to solve advection and Burgers equations at time steps outside the training temporal domain.",
+            "Train PINTO using only physics loss (PDE residuals) in a simulation-free setting."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "PINTO",
+              "protocol_description": "Physics-informed transformer neural operator with iterative kernel integral operator units using cross-attention. Trained solely with physics loss (PDE residuals) via automatic differentiation. No simulation data used. Input: initial/boundary conditions as sequence of vectors; output: PDE solution at query points."
+            },
+            {
+              "method_id": "M2",
+              "name": "PI-DeepONet",
+              "protocol_description": "Physics-informed DeepONet used as baseline for comparison. Trained without simulation data."
+            }
+          ],
+          "name": "PINTO model development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Temporal extrapolation capability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "PINTO accurately solves advection and Burgers equations at time steps not present in the training points, an ability absent for other neural operators."
+              },
+              "quantitative_value": null,
+              "result_id": "res_036fd3a55905e65898201008",
+              "unit": null,
+              "value_raw_text": "PINTO accurately solves advection and Burgers equations at time steps not present in the training points"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4b36bb184276ab84c5b7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the relative errors compared to analytical or numerical (finite difference and volume) solutions are low, merely 20% to 33% of those obtained by other leading physics-informed neural operator methods"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3504d1f3d0fa40e53721b316",
+              "unit": null,
+              "value_raw_text": "20% to 33% of those obtained by other leading physics-informed neural operator methods"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f13de1d6268d17d96e30",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "The relative error of PINTO solutions for all test cases in unseen testing configurations is low, only 20% to 33% of the relative error of PI-DeepONet’s solutions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8a5161dfc739e91ca4300de9",
+              "unit": null,
+              "value_raw_text": "low, only 20% to 33% of the relative error of PI-DeepONet’s solutions"
+            }
+          ],
+          "unit_id": "su_e72845857bfadc0fb9600cf9"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

@@ -1,0 +1,588 @@
+{
+  "coverage_ledger": {
+    "0e202fd6f517fe52eab1": "not_selected",
+    "1e675181083a0ba7b147": "not_selected",
+    "388044ea9d3ddf2ccf8b": "not_selected",
+    "5662c1c278d05ca8571c": "not_selected",
+    "5b8914d6844bd3dbd02b": "extracted",
+    "7e7cf638231c62265ca7": "extracted",
+    "8c2b021d1d58994497b8": "not_selected",
+    "97828be6fcc995290d54": "not_selected",
+    "e12c605f595a466f52fa": "not_selected",
+    "ef174e4782e323564caa": "extracted",
+    "f9b3cdd3c1fb19c073f4": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "SGC is a linear model and may not capture complex nonlinear relationships required for some tasks.",
+    "SGC underperforms more expressive models like GIN on graph classification and AdaLNet/LNet on quantum chemistry.",
+    "The performance of SGC relies on the graph structure and the precomputed feature propagation; it may not adapt to dynamic graphs.",
+    "SGC assumes that repeated graph propagation is the primary source of GCNs' expressive power, which may not hold for all applications."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_7.pdf",
+    "source_sha256": "4931c982755617dbfebec28c5172131eb205603d5f022ac063ee047ef54e62f6"
+  },
+  "paper_id": "6_7",
+  "quality_assessment": {
+    "correct_item_count": 63,
+    "deterministic_rule_score": 0.9429,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 63,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can the complexity of Graph Convolutional Networks be reduced by removing nonlinearities and collapsing weight matrices, and does the resulting linear model maintain competitive performance?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_07450a5a8ec37e8c39fdd714",
+              "inference_basis_ids": [
+                "res_c5ccf203c093e8fc67b581c2",
+                "res_e81a27cc60810341a9314fc7"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "7e7cf638231c62265ca7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "which is on par with an GCN counterpart, but far behind GIN. Similarly, on QM8 quantum chemistry dataset ... outperforming SGC’s 0.03 MAE by a large margin."
+              },
+              "statement": "SGC is not sufficient for tasks requiring high expressiveness, such as graph classification where GIN outperforms it."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_26d6b3cb7bd56eb399d12e32",
+              "inference_basis_ids": [
+                "res_16501bd6e3a08e5a9abaf1f8",
+                "res_3ec4ec8767b972e2def55d1f",
+                "res_6ddd3aaf2d1421e7f528f18f",
+                "res_a2e610bdfee32c99e727574c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7e7cf638231c62265ca7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the performance of SGC rivals — if not surpasses — the performance of GCNs and state-of-the-art graph neural network models across a wide range of graph learning tasks."
+              },
+              "statement": "SGC rivals or surpasses GCNs across a wide range of graph learning tasks."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D10",
+              "description": "User geolocation dataset.",
+              "name": "GEOTEXT",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D11",
+              "description": "User geolocation dataset.",
+              "name": "TWITTER-US",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D12",
+              "description": "User geolocation dataset.",
+              "name": "TWITTER-WORLD",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D13",
+              "description": "Relation extraction dataset.",
+              "name": "TACRED",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D14",
+              "description": "Zero-shot image classification dataset.",
+              "name": "ImageNet (zero-shot)",
+              "version_or_split": "2-hop and 3-hop"
+            },
+            {
+              "dataset_id": "D15",
+              "description": "Graph classification dataset.",
+              "name": "NCI1",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D16",
+              "description": "Graph classification dataset.",
+              "name": "COLLAB",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D17",
+              "description": "Quantum chemistry dataset.",
+              "name": "QM8",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D5",
+              "description": "Text classification dataset.",
+              "name": "20NG",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D6",
+              "description": "Text classification dataset.",
+              "name": "R8",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D7",
+              "description": "Text classification dataset.",
+              "name": "R52",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D8",
+              "description": "Text classification dataset.",
+              "name": "Ohsumed",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D9",
+              "description": "Text classification dataset.",
+              "name": "MR",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate SGC on text classification, semi-supervised user geolocation, relation extraction, zero-shot image classification, and graph classification."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "GCN (text classification)",
+              "protocol_description": "2-layer GCN for text classification (Yao et al., 2019)."
+            },
+            {
+              "method_id": "M12",
+              "name": "GCN+H (geolocation)",
+              "protocol_description": "GCN with highway connections (Rahimi et al., 2018)."
+            },
+            {
+              "method_id": "M13",
+              "name": "C-GCN (relation extraction)",
+              "protocol_description": "LSTM followed by GCN and MLP (Zhang et al., 2018c)."
+            },
+            {
+              "method_id": "M14",
+              "name": "GCNZ (zero-shot)",
+              "protocol_description": "GCN for zero-shot image classification (Wang et al., 2018)."
+            },
+            {
+              "method_id": "M15",
+              "name": "ADGPM",
+              "protocol_description": "ADGPM (Kampffmeyer et al., 2018)."
+            },
+            {
+              "method_id": "M16",
+              "name": "EXEM 1-nns",
+              "protocol_description": "EXEM 1-nns (Changpinyo et al., 2018)."
+            },
+            {
+              "method_id": "M17",
+              "name": "DCGCN (graph classification)",
+              "protocol_description": "DCGCN (Zhang et al., 2018b)."
+            },
+            {
+              "method_id": "M18",
+              "name": "GIN (graph classification)",
+              "protocol_description": "Graph Isomorphism Network (Xu et al., 2019)."
+            },
+            {
+              "method_id": "M19",
+              "name": "AdaLNet (graph classification)",
+              "protocol_description": "AdaLNet (Liao et al., 2019)."
+            },
+            {
+              "method_id": "M20",
+              "name": "LNet (graph classification)",
+              "protocol_description": "LNet (Liao et al., 2019)."
+            }
+          ],
+          "name": "Downstream task evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Top-1 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7e7cf638231c62265ca7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Table 7 shows that replacing GCN with an MLP followed by SGC can improve performance while reducing the number of parameters by 55%."
+              },
+              "quantitative_value": null,
+              "result_id": "res_16501bd6e3a08e5a9abaf1f8",
+              "unit": null,
+              "value_raw_text": "MLP-SGCZ improves zero-shot accuracy over GCNZ while reducing parameters by 55%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f9b3cdd3c1fb19c073f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Table 4 shows that an SGC (K = 2) rivals their model on 5 benchmark datasets, while being up to 83.6× faster."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3ec4ec8767b972e2def55d1f",
+              "unit": null,
+              "value_raw_text": "SGC rivals GCN on 5 text classification datasets, up to 83.6x faster."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7e7cf638231c62265ca7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "C-SGC 67.0 ± 0.4"
+              },
+              "quantitative_value": 67.0,
+              "result_id": "res_6ddd3aaf2d1421e7f528f18f",
+              "unit": "%",
+              "value_raw_text": "C-SGC achieves 67.0% on TACRED, setting new state-of-the-art."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f9b3cdd3c1fb19c073f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Table 5 shows that SGC outperforms GCN with highway connections on GEOTEXT, TWITTER-US, and TWITTER-WORLD under Rahimi et al. (2018)’s framework, while saving 30+ hours on TWITTER-WORLD."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a2e610bdfee32c99e727574c",
+              "unit": null,
+              "value_raw_text": "SGC outperforms GCN with highway connections on geolocation datasets, saving 30+ hours on TWITTER-WORLD."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MAE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7e7cf638231c62265ca7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "more advanced AdaLNet and LNet (Liao et al., 2019) get 0.01 MAE on QM8, outperforming SGC’s 0.03 MAE by a large margin."
+              },
+              "quantitative_value": 0.03,
+              "result_id": "res_c5ccf203c093e8fc67b581c2",
+              "unit": "MAE",
+              "value_raw_text": "SGC achieves 0.03 MAE on QM8, outperformed by AdaLNet and LNet (0.01 MAE)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7e7cf638231c62265ca7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We replace the GCN in DCGCN (Zhang et al., 2018b) with an SGC and get 71.0% and 76.2% on NCI1 and COLLAB datasets (Yanardag & Vishwanathan, 2015) respectively, which is on par with an GCN counterpart, but far behind GIN."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e81a27cc60810341a9314fc7",
+              "unit": null,
+              "value_raw_text": "SGC achieves 71.0% on NCI1 and 76.2% on COLLAB, on par with GCN but far behind GIN."
+            }
+          ],
+          "unit_id": "su_0f0de00f1176be181839b172"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_48732cd97bf848071e51d264",
+              "inference_basis_ids": [
+                "res_eaa2a64ee150b71ae45fd526"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b8914d6844bd3dbd02b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "yields up to two orders of magnitude speedup over FastGCN."
+              },
+              "statement": "SGC is up to two orders of magnitude faster than FastGCN."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_567a59133d93398d8aef8b1f",
+              "inference_basis_ids": [
+                "res_2ee313f34e394b77b8c95c3f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f9b3cdd3c1fb19c073f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SGC outperforms the previous sampling-based GCN variants, SAGE-GCN and FastGCN by more than 1%."
+              },
+              "statement": "SGC outperforms sampling-based GCN variants on Reddit."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6b00e59e46eb07e6463c60a0",
+              "inference_basis_ids": [
+                "res_08c1807ed894f7bb8b66fc96"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f9b3cdd3c1fb19c073f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Table 2 shows the performance of SGC can match the performance of GCN and state-of-the-art graph networks on citation networks."
+              },
+              "statement": "SGC performance matches or exceeds GCN and state-of-the-art graph networks on citation networks."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Citation network dataset.",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Citation network dataset.",
+              "name": "Citeseer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Citation network dataset.",
+              "name": "Pubmed",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Social network dataset.",
+              "name": "Reddit",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare against GCN, GAT, FastGCN, LNet, AdaLNet, DGI, GIN, GraphSAGE, GaAN.",
+            "Evaluate SGC on citation networks (Cora, Citeseer, Pubmed) and Reddit dataset."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "GaAN",
+              "protocol_description": "GaAN (Zhang et al., 2018a)."
+            },
+            {
+              "method_id": "M2",
+              "name": "GCN",
+              "protocol_description": "Graph Convolutional Network (Kipf & Welling, 2017)."
+            },
+            {
+              "method_id": "M3",
+              "name": "GAT",
+              "protocol_description": "Graph Attention Network (Velickovic et al., 2018)."
+            },
+            {
+              "method_id": "M4",
+              "name": "FastGCN",
+              "protocol_description": "FastGCN (Chen et al., 2018)."
+            },
+            {
+              "method_id": "M5",
+              "name": "LNet",
+              "protocol_description": "LNet (Liao et al., 2019)."
+            },
+            {
+              "method_id": "M6",
+              "name": "AdaLNet",
+              "protocol_description": "AdaLNet (Liao et al., 2019)."
+            },
+            {
+              "method_id": "M7",
+              "name": "DGI",
+              "protocol_description": "Deep Graph Infomax (Velikovi et al., 2019)."
+            },
+            {
+              "method_id": "M8",
+              "name": "GIN",
+              "protocol_description": "Graph Isomorphism Network (Xu et al., 2019)."
+            },
+            {
+              "method_id": "M9",
+              "name": "GraphSAGE",
+              "protocol_description": "GraphSAGE (Hamilton et al., 2017)."
+            }
+          ],
+          "name": "Empirical evaluation on citation networks and Reddit",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f9b3cdd3c1fb19c073f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "In particular on Citeseer, SGC is about 1% better than GCN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_08c1807ed894f7bb8b66fc96",
+              "unit": null,
+              "value_raw_text": "SGC is about 1% better than GCN on Citeseer."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f9b3cdd3c1fb19c073f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SGC outperforms the previous sampling-based GCN variants, SAGE-GCN and FastGCN by more than 1%."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2ee313f34e394b77b8c95c3f",
+              "unit": null,
+              "value_raw_text": "SGC outperforms SAGE-GCN and FastGCN by more than 1% on Reddit."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training time speedup",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b8914d6844bd3dbd02b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "yields up to two orders of magnitude speedup over FastGCN."
+              },
+              "quantitative_value": null,
+              "result_id": "res_eaa2a64ee150b71ae45fd526",
+              "unit": null,
+              "value_raw_text": "SGC can be trained up to two orders of magnitude faster than FastGCN."
+            }
+          ],
+          "unit_id": "su_bfc18bae1320fd993607a78c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8c854dbb5b2853de0f316077",
+              "inference_basis_ids": [
+                "res_7fe32a0734ef2faaedfe66d5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b8914d6844bd3dbd02b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We theoretically analyze the resulting linear model and show that it corresponds to a fixed low-pass filter followed by a linear classifier."
+              },
+              "statement": "SGC is a linear model that acts as a fixed low-pass filter followed by a linear classifier."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Derive Simple Graph Convolution (SGC) by successively removing nonlinearities between GCN layers and collapsing weight matrices into a single linear transformation.",
+            "Theoretically analyze SGC as a fixed low-pass filter followed by a linear classifier."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Simple Graph Convolution (SGC)",
+              "protocol_description": "SGC removes nonlinearities between GCN layers and collapses weight matrices into a single linear transformation. Feature extraction corresponds to a fixed low-pass filter (using powers of the renormalized adjacency matrix) followed by multi-class logistic regression."
+            }
+          ],
+          "name": "SGC derivation and theoretical analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Theoretical characterization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b8914d6844bd3dbd02b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We theoretically analyze the resulting linear model and show that it corresponds to a fixed low-pass filter followed by a linear classifier."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7fe32a0734ef2faaedfe66d5",
+              "unit": null,
+              "value_raw_text": "SGC corresponds to a fixed low-pass filter followed by a linear classifier."
+            }
+          ],
+          "unit_id": "su_cbcf7ad72da4ae25cf65c79d"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4355 on attempt 1"
+    }
+  ]
+}

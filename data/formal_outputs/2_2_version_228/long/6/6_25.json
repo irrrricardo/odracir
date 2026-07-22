@@ -1,0 +1,688 @@
+{
+  "coverage_ledger": {
+    "10a5a176e601c64e7740": "not_selected",
+    "10dfd5ee667c2c32941c": "extracted",
+    "2d840aebf88a41980752": "not_selected",
+    "3ac330373206148dc1b5": "extracted",
+    "841a91757a588f2c8c63": "not_selected",
+    "8520659ff0d5719dfab9": "not_selected",
+    "90bf0954f33abc45a068": "extracted",
+    "a8503dd3988ce8471f35": "extracted",
+    "b2ff79a76c6016ca99e3": "not_selected",
+    "e158e187c4f3b6511c9b": "not_selected",
+    "fafb4584aa36494b025a": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "SJLR hyperparameter optimization is challenging due to expanded search space.",
+    "SJLR relies on a bank of good edges based on triangles of most negative curvature edges, preventing direct long-distance connections.",
+    "Current implementation may not scale to large graphs due to computational cost of more sophisticated curvature metrics."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_25.pdf",
+    "source_sha256": "865f59b7de09fbb89eff7fa6d7013dc977d0a2cdcec18e3b71583bac31af5dd8"
+  },
+  "paper_id": "6_25",
+  "quality_assessment": {
+    "correct_item_count": 57,
+    "deterministic_rule_score": 0.9606,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 58,
+    "f1": 0.9744,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted text says 'dropping only (SGC) overall trend improves over baseline', but the source excerpt states that addition and removal are complementary and additive, not that dropping alone improves over baseline.",
+        "item_id": "result:su_98d123a4d507ff984e7c3bac:res_4fb65ee7a786a42b27415264",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 2,
+    "missed_core_items": [
+      {
+        "description": "SJLR is the first algorithm to perform edge removal and addition exclusively during training, keeping the original graph unchanged during testing.",
+        "item_id": null,
+        "source_chunk_id": "a8503dd3988ce8471f35",
+        "source_excerpt": "Notably, SJLR stands out as the first algorithm to perform edge removal and addition exclusively during training, ensuring that the original graph remains unchanged.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The theoretical results are only available for linear-based GNNs like SGC or simple spectral graph convolution.",
+        "item_id": null,
+        "source_chunk_id": "10a5a176e601c64e7740",
+        "source_excerpt": "As a consequence, our theoretical results are only available for linear-based GNNs like SGC [51] or simple spectral graph convolution [58] (experimental results on other GNNs are presented in Section 6).",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.9828,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9661
+  },
+  "quality_score": 0.9744,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What is the relationship between over-smoothing and over-squashing in deep GNNs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_60f15fed08dbf30b1e9df7ac",
+              "inference_basis_ids": [
+                "res_e704eca5fa14fce7574b5036"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3ac330373206148dc1b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Over-smoothing and over-squashing are intrinsically related to the spectral gap of the graph Laplacian, resulting in an inevitable trade-off between these two issues, as they cannot be alleviated simultaneously."
+              },
+              "statement": "There is an inevitable trade-off between over-smoothing and over-squashing in deep GNNs."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Application of Cheeger inequality to demonstrate the trade-off.",
+            "Theoretical derivation linking over-smoothing and over-squashing to the spectral gap of the graph Laplacian."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Spectral analysis",
+              "protocol_description": "Leverage properties of the random walk matrix and spectral gap of the Laplacian matrix to analyze over-smoothing and over-squashing. Use Cheeger inequality to show trade-off."
+            }
+          ],
+          "name": "Theoretical analysis of over-smoothing and over-squashing trade-off",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Trade-off existence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3ac330373206148dc1b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Over-smoothing and over-squashing are intrinsically related to the spectral gap of the graph Laplacian, resulting in an inevitable trade-off between these two issues, as they cannot be alleviated simultaneously."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e704eca5fa14fce7574b5036",
+              "unit": null,
+              "value_raw_text": "Over-smoothing and over-squashing are intrinsically related to the spectral gap of the graph Laplacian, resulting in an inevitable trade-off."
+            }
+          ],
+          "unit_id": "su_69381489b199907a5234606c"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How can we mitigate both over-smoothing and over-squashing simultaneously?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_42703da6d115369a81e7ff7b",
+              "inference_basis_ids": [
+                "res_6f0e3e9317fe5749f484855a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We notice the large gap between the computation time of the JLC and BFC, which makes JLC more suitable in practice."
+              },
+              "statement": "JLC is computationally more efficient than BFC, making it more practical."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ad8f6e53b25da8d862518248",
+              "inference_basis_ids": [
+                "res_4fb65ee7a786a42b27415264"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We theoretically (Theorem 3) and empirically (Tables 2, 3, and 4) show that both, removing and adding edges is required to find a good compromise in the over-smoothing over-squashing trade-off."
+              },
+              "statement": "Both edge addition and removal are necessary to find a good compromise in the over-smoothing over-squashing trade-off."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f1bba168930b44081ea1570e",
+              "inference_basis_ids": [
+                "res_08a874e49bb251a03f833a90",
+                "res_19a8c2a64894e2d1e9b96d96"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SJLR shows the overall best performance in both cases."
+              },
+              "statement": "SJLR achieves overall best performance compared to state-of-the-art methods on both SGC and GCN backbones."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Heterophyllous graph dataset.",
+              "name": "Cornell",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Heterophyllous graph dataset.",
+              "name": "Texas",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Heterophyllous graph dataset.",
+              "name": "Wisconsin",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Heterophyllous graph dataset.",
+              "name": "Chameleon",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D5",
+              "description": "Heterophyllous graph dataset.",
+              "name": "Squirrel",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D6",
+              "description": "Heterophyllous graph dataset.",
+              "name": "Actor",
+              "version_or_split": "60/20/20 split"
+            },
+            {
+              "dataset_id": "D7",
+              "description": "Homophilous graph dataset.",
+              "name": "Cora",
+              "version_or_split": "20 nodes per class for training, rest for validation"
+            },
+            {
+              "dataset_id": "D8",
+              "description": "Homophilous graph dataset.",
+              "name": "Citeseer",
+              "version_or_split": "20 nodes per class for training, rest for validation"
+            },
+            {
+              "dataset_id": "D9",
+              "description": "Homophilous graph dataset.",
+              "name": "Pubmed",
+              "version_or_split": "20 nodes per class for training, rest for validation"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on edge addition and removal.",
+            "Comparison with baseline and state-of-the-art methods.",
+            "Node classification on homophilous and heterophyllous graph datasets using SGC and GCN backbones.",
+            "Runtime comparison of curvature metrics."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "RDC",
+              "protocol_description": "Residual/Dense connections and dilated convolutions."
+            },
+            {
+              "method_id": "M11",
+              "name": "FA",
+              "protocol_description": "Fully-adjacent layer added in last GNN layer."
+            },
+            {
+              "method_id": "M2",
+              "name": "SJLR",
+              "protocol_description": "Stochastic Jost and Liu Curvature Rewiring algorithm: dynamically adds and removes edges during GNN training based on JLC curvature, while keeping graph unchanged during testing. Uses a bank of good edges from triangles of most negative curvature edges."
+            },
+            {
+              "method_id": "M3",
+              "name": "Baseline",
+              "protocol_description": "Standard SGC or GCN without rewiring."
+            },
+            {
+              "method_id": "M4",
+              "name": "GDC",
+              "protocol_description": "Graph Diffusion Convolution: rewiring via PageRank-based propagation as pre-processing."
+            },
+            {
+              "method_id": "M5",
+              "name": "DE",
+              "protocol_description": "DropEdge: randomly drops edges during training."
+            },
+            {
+              "method_id": "M6",
+              "name": "PN",
+              "protocol_description": "PairNorm: node-embedding normalization."
+            },
+            {
+              "method_id": "M7",
+              "name": "DGN",
+              "protocol_description": "Deep Graph Normalization: normalization technique."
+            },
+            {
+              "method_id": "M8",
+              "name": "SDRF",
+              "protocol_description": "Stochastic Discrete Ricci Flow: rewiring based on Ricci curvature (implemented with JLC instead of BFC)."
+            },
+            {
+              "method_id": "M9",
+              "name": "FoSR",
+              "protocol_description": "First-order Spectral Rewiring: edge addition method."
+            }
+          ],
+          "name": "Proposal and evaluation of SJLR algorithm",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Overall 58.89"
+              },
+              "quantitative_value": 58.89,
+              "result_id": "res_08a874e49bb251a03f833a90",
+              "unit": "%",
+              "value_raw_text": "SJLR overall average accuracy 58.89% with GCN backbone"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Wisconsin 55.42±0.92"
+              },
+              "quantitative_value": 55.42,
+              "result_id": "res_175225da94de5c780ae9ffd4",
+              "unit": "%",
+              "value_raw_text": "SJLR on Wisconsin with SGC: 55.42±0.92%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Overall 57.78"
+              },
+              "quantitative_value": 57.78,
+              "result_id": "res_19a8c2a64894e2d1e9b96d96",
+              "unit": "%",
+              "value_raw_text": "SJLR overall average accuracy 57.78% with SGC backbone"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Cora 81.95±0.25"
+              },
+              "quantitative_value": 81.95,
+              "result_id": "res_2df86bfc0e5cc03dcd07fbe6",
+              "unit": "%",
+              "value_raw_text": "SJLR on Cora with GCN: 81.95±0.25%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Chameleon 40.17±0.49"
+              },
+              "quantitative_value": 40.17,
+              "result_id": "res_3819dea954041c98ad0015c0",
+              "unit": "%",
+              "value_raw_text": "SJLR on Chameleon with SGC: 40.17±0.49%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Squirrel 41.86±0.29"
+              },
+              "quantitative_value": 41.86,
+              "result_id": "res_3ae9a43accaed7b8cbaeab84",
+              "unit": "%",
+              "value_raw_text": "SJLR on Squirrel with GCN: 41.86±0.29%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Chameleon 41.19±0.46"
+              },
+              "quantitative_value": 41.19,
+              "result_id": "res_4a7e91098b4ebf096993c209",
+              "unit": "%",
+              "value_raw_text": "SJLR on Chameleon with GCN: 41.19±0.46%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "The findings suggest that the addition and removal of nodes are complementary and additive in performance."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4fb65ee7a786a42b27415264",
+              "unit": null,
+              "value_raw_text": "Ablation: dropping only (SGC) overall trend improves over baseline"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Citeseer 69.50±0.33"
+              },
+              "quantitative_value": 69.5,
+              "result_id": "res_5924e84edb6a3069fe8da436",
+              "unit": "%",
+              "value_raw_text": "SJLR on Citeseer with GCN: 69.50±0.33%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Actor 29.89±0.20"
+              },
+              "quantitative_value": 29.89,
+              "result_id": "res_68ff04efbf154e53fc01a127",
+              "unit": "%",
+              "value_raw_text": "SJLR on Actor with GCN: 29.89±0.20%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Actor 30.81±0.18"
+              },
+              "quantitative_value": 30.81,
+              "result_id": "res_6cbbad10e619c5c280e013ce",
+              "unit": "%",
+              "value_raw_text": "SJLR on Actor with SGC: 30.81±0.18%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90bf0954f33abc45a068",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "We notice the large gap between the computation time of the JLC and BFC, which makes JLC more suitable in practice."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6f0e3e9317fe5749f484855a",
+              "unit": null,
+              "value_raw_text": "JLC is significantly faster to compute than BFC"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Cora 81.24±0.77"
+              },
+              "quantitative_value": 81.24,
+              "result_id": "res_9133cc34de994d091c17fe5c",
+              "unit": "%",
+              "value_raw_text": "SJLR on Cora with SGC: 81.24±0.77%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Citeseer 68.39±0.69"
+              },
+              "quantitative_value": 68.39,
+              "result_id": "res_a4e94561f325cee1c3220237",
+              "unit": "%",
+              "value_raw_text": "SJLR on Citeseer with SGC: 68.39±0.69%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Cornell 71.75±1.50"
+              },
+              "quantitative_value": 71.75,
+              "result_id": "res_a96eaff6e50eca63fd5b947e",
+              "unit": "%",
+              "value_raw_text": "SJLR on Cornell with GCN: 71.75±1.50%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Pubmed 78.60±0.33"
+              },
+              "quantitative_value": 78.6,
+              "result_id": "res_ab6d44d112099daa39b5d09b",
+              "unit": "%",
+              "value_raw_text": "SJLR on Pubmed with GCN: 78.60±0.33%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Cornell 67.37±1.64"
+              },
+              "quantitative_value": 67.37,
+              "result_id": "res_b3b953665df6099a8dd5f8e9",
+              "unit": "%",
+              "value_raw_text": "SJLR on Cornell with SGC: 67.37±1.64%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Pubmed 76.28±0.96"
+              },
+              "quantitative_value": 76.28,
+              "result_id": "res_be158029f5fb09b3feb3f88b",
+              "unit": "%",
+              "value_raw_text": "SJLR on Pubmed with SGC: 76.28±0.96%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Texas 58.40±1.48"
+              },
+              "quantitative_value": 58.4,
+              "result_id": "res_c9925718056380ee3a7948cd",
+              "unit": "%",
+              "value_raw_text": "SJLR on Texas with SGC: 58.40±1.48%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Wisconsin 55.16±0.95"
+              },
+              "quantitative_value": 55.16,
+              "result_id": "res_d2e3857357d82e2ab17e97f8",
+              "unit": "%",
+              "value_raw_text": "SJLR on Wisconsin with GCN: 55.16±0.95%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Texas 60.13±0.89"
+              },
+              "quantitative_value": 60.13,
+              "result_id": "res_e900f912a715a1eb35bb3093",
+              "unit": "%",
+              "value_raw_text": "SJLR on Texas with GCN: 60.13±0.89%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "10dfd5ee667c2c32941c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SJLR (ours) ... Squirrel 41.91±0.34"
+              },
+              "quantitative_value": 41.91,
+              "result_id": "res_f470a3ba95d2ec02bfa2401f",
+              "unit": "%",
+              "value_raw_text": "SJLR on Squirrel with SGC: 41.91±0.34%"
+            }
+          ],
+          "unit_id": "su_98d123a4d507ff984e7c3bac"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

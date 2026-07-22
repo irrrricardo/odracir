@@ -1,0 +1,1008 @@
+{
+  "coverage_ledger": {
+    "270e58d4fe5585419ce6": "extracted",
+    "4872e73f60c9cc645a3f": "not_selected",
+    "4f04980c82066cdb6d89": "extracted",
+    "53a51b6a5b4bc76c29ae": "not_selected",
+    "54eba8da5e4062e4b1e6": "extracted",
+    "7039244309161d1d00c2": "not_selected",
+    "75ff80b7f4bf1faa16b0": "extracted",
+    "776ad73f4b89d4a442a6": "not_selected",
+    "90956ba45e672526a200": "extracted",
+    "af0a0e6907112be19adc": "extracted",
+    "c1d3ddcc11e376a2d89b": "not_selected",
+    "ce58fee1678916d234dd": "not_selected",
+    "d66804bc2fcd790fa56d": "not_selected",
+    "e194e04312b7f5457a47": "extracted",
+    "ecb64d7518fb2c84176b": "extracted",
+    "ed2dddb0ab7bdf6711c3": "not_selected",
+    "eed0864756d5b2e575be": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Similar to other operator learners, the subspace on which we aim to learn the operator's responses may be infinite dimensional, but the operator must exhibit certain low-dimensional attributes (e.g., smoothing property of the higher frequencies in GRF).",
+    "It is not efficient for the attention operator to be applied at the full resolution for a 2D problem, and this limits the approximation to a nonsmooth subset such as functions in L∞.",
+    "Due to the order of the matrix product, the proposed linear variant of the scaled dot-product attention is non-causal thus can only apply to encoder-only applications."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_21.pdf",
+    "source_sha256": "272f2357b2c4e77603d1b0b711ef46d76f0bbd61fb099e610024df3e81e503f4"
+  },
+  "paper_id": "7_21",
+  "quality_assessment": {
+    "correct_item_count": 56,
+    "deterministic_rule_score": 0.9484,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 66,
+    "f1": 0.8819,
+    "incorrect_item_count": 10,
+    "incorrect_items": [
+      {
+        "description": "The extracted result attributes the FNO2d (only nf) errors to nf,nc=211,71, but the source table shows these errors under the column for nf,nc=211,71. However, the source excerpt 'FNO2d (only nf) 13.93 13.96 15.04' appears in the table under the column for nf,nc=211,71, so the extracted value_raw_text correctly includes 'for nf only, nf,nc=211,71'. But the source chunk does not explicitly state that these errors are for nf only; it is implied by the table structure. The extraction is faithful.",
+        "item_id": "result:su_0f436d807976fac6fb8e35a2:res_0c5d5bf5f02095b44e6b6d2d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result attributes the FNO2d (only nf) errors to nf,nc=141,36, but the source table shows these errors under the column for nf,nc=141,36. The source excerpt 'FNO2d (only nf) 13.71 13.78 15.12' appears in the table under that column, so the extraction is faithful.",
+        "item_id": "result:su_0f436d807976fac6fb8e35a2:res_1f1c329b4e056d8617fe00b7",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result for ST Ln on Q, K with nf,nc=211,71 has values 1.889, 3.123, 8.788, but the source table shows ST Ln on Q, K under nf,nc=211,71 as 1.889, 3.123, 8.788. The extraction is correct.",
+        "item_id": "result:su_0f436d807976fac6fb8e35a2:res_39064b8098723647952cc5ca",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result for LT Ln on K, V with nf,nc=211,71 has values 2.136, 3.539, 9.622, but the source table shows LT Ln on K, V under nf,nc=211,71 as 2.136, 3.539, 9.622. The extraction is correct.",
+        "item_id": "result:su_0f436d807976fac6fb8e35a2:res_757d7b7493fa923f522086c0",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result for GT Ln on K, V with nf,nc=211,71 has values 1.651, 2.729, 7.903, but the source table shows GT Ln on K, V under nf,nc=211,71 as 1.651, 2.729, 7.903. The extraction is correct.",
+        "item_id": "result:su_0f436d807976fac6fb8e35a2:res_a3f9a9d40be99ad0c95b23f7",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result for FT Ln on Q, K with nf,nc=211,71 has values 1.523, 2.691, 8.286, but the source table shows FT Ln on Q, K under nf,nc=211,71 as 1.523, 2.691, 8.286. The extraction is correct.",
+        "item_id": "result:su_0f436d807976fac6fb8e35a2:res_af8817617cbb93d4e2aaeaeb",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted memory usage values for ST, FT, LT, GT are 18.39, 10.05, 2.55, 2.36 GB, but the source table shows these values under 'Mem' column for Example 1: n=8192, Encoders only. The extraction is correct.",
+        "item_id": "result:su_68e11777fc0cdd1f29a60b12:res_57058ef8e9d8b60539dd9164",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted training speed values for ST, FT, LT, GT are 5.02, 6.10, 12.70, 27.15 iter/s, but the source table shows these values under 'Speed' column for Example 1: n=8192, Encoders only. The extraction is correct.",
+        "item_id": "result:su_68e11777fc0cdd1f29a60b12:res_792c76c84132a20d5c4cb0dc",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted CUDA memory values for ST, FT, LT, GT are 31.06, 22.92, 2.31, 1.93 GB, but the source table shows these values under 'CUDA Mem' column for Example 1: n=8192, Encoders only. The extraction is correct.",
+        "item_id": "result:su_68e11777fc0cdd1f29a60b12:res_9709b4972678bf5f7f9bb168",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted GFLOPs values for ST, FT, LT, GT are 1393, 1138, 606, 275, but the source table shows these values under 'GFLOP' column for Example 1: n=8192, Encoders only. The extraction is correct.",
+        "item_id": "result:su_68e11777fc0cdd1f29a60b12:res_ec511e42df866b74013769a7",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "The paper reports results for FNO2d (only nc) in the inverse Darcy flow experiment, which are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "e194e04312b7f5457a47",
+        "source_excerpt": "FNO2d (only nc) 14.17 14.31 17.30 13.60 13.69 16.04",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports results for FT regular Ln, GT regular Ln, ST regular Ln, LT regular Ln in the inverse Darcy flow experiment, which are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "e194e04312b7f5457a47",
+        "source_excerpt": "FT regular Ln 1.799 2.467 6.814 1.563 2.704 8.110\nGT regular Ln 2.026 2.536 6.659 1.732 2.775 8.024\nST regular Ln 2.434 3.106 7.431 2.069 3.365 8.918\nLT regular Ln 2.254 3.194 9.056 2.063 3.544 9.874",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports results for FT regular Ln, GT regular Ln, ST regular Ln, LT regular Ln in the Burgers' equation experiment, which are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "4f04980c82066cdb6d89",
+        "source_excerpt": "FT regular Ln 1.400 1.477 1.172\nGT regular Ln 2.181 1.512 2.747\nST regular Ln 1.927 2.307 1.981\nLT regular Ln 1.813 1.770 1.617",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports results for FT regular Ln, GT regular Ln, ST regular Ln, LT regular Ln in the Darcy flow experiment, which are not extracted.",
+        "item_id": null,
+        "source_chunk_id": "4f04980c82066cdb6d89",
+        "source_excerpt": "FT regular Ln 0.838 0.847\nGT regular Ln 0.894 0.856\nST regular Ln 1.075 1.131\nLT regular Ln 1.024 1.130",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports results for the efficiency benchmark with encoders only and with full models, but only the encoders-only results are extracted; the full model results are missing.",
+        "item_id": null,
+        "source_chunk_id": "270e58d4fe5585419ce6",
+        "source_excerpt": "Example 1: n = 8192\nEncoders only: n = 8192, d = 128, l = 10\nComputational complexity\nof the dot-product per layer\nMem\nCUDA Mem\nSpeed\nGFLOP\nMem\nCUDA Mem\nSpeed\nGFLOP\nST\n18.39\n31.06\n5.02\n1393\n18.53\n31.34\n4.12\n1876\nO(n2ced)\nFT\n10.05\n22.92\n6.10\n1138\n10.80\n22.32\n5.46\n1610\nO(n2d)\nLT\n2.55\n2.31\n12.70\n606\n2.73\n2.66\n10.98\n773\nO(n(d2 + ced))\nGT\n2.36\n1.93\n27.15\n275\n2.53\n2.33\n19.20\n412\nO(nd2)",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.8485,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.918
+  },
+  "quality_score": 0.8819,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a self-attention mechanism without softmax normalization achieve comparable or superior performance in operator learning for PDEs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_61acb51abc87ebffd3c5bcec",
+              "inference_basis_ids": [
+                "res_325e3068405fe89715a52ace",
+                "res_39064b8098723647952cc5ca",
+                "res_757d7b7493fa923f522086c0",
+                "res_928053f4d20cc6f1a23e4d95",
+                "res_9544311d13e58ff6d0d871a4",
+                "res_a3f9a9d40be99ad0c95b23f7",
+                "res_af8817617cbb93d4e2aaeaeb",
+                "res_d17d5eae35a55c8abce0908c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The attention-based operator learner has capacity to unearth structurally how this inverse operator's responses on a subset, with various benefits articulated in [56, 57, 5, 64, 10]."
+              },
+              "statement": "The attention-based operator learner has capacity to unearth structurally how this inverse operator's responses on a subset."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9f22817c571cf6cb9499a43d",
+              "inference_basis_ids": [
+                "res_0c5d5bf5f02095b44e6b6d2d",
+                "res_1f1c329b4e056d8617fe00b7"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "It is not surprising that FNO2d, an excellent smoother which filters higher modes in the frequency domain, struggles in this example to recover targets consisting of high-frequency traits (irregular interfaces) from low-frequency prevailing data (smooth solution due to ellipticity)."
+              },
+              "statement": "FNO2d struggles in the inverse problem to recover targets consisting of high-frequency traits (irregular interfaces) from low-frequency prevailing data (smooth solution due to ellipticity)."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Dataset for inverse coefficient identification based on Darcy flow data. Inputs are solutions with added noise.",
+              "name": "Inverse Darcy flow dataset",
+              "version_or_split": "nf,nc=141,36 and nf,nc=211,71"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the inverse operator mapping noisy solution u to coefficient a for Darcy flow. Noise levels: 0%, 1%, 10%. The operator is ill-posed."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "Fourier Transformer (FT)",
+              "protocol_description": "Attention-based operator learner with Fourier-type encoder and no softmax normalization. Uses Galerkin projection-type layer normalization on Q and K. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M12",
+              "name": "Galerkin Transformer (GT)",
+              "protocol_description": "Attention-based operator learner with Galerkin-type encoder and no softmax normalization. Uses Galerkin projection-type layer normalization on K and V. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M13",
+              "name": "Standard Transformer (ST)",
+              "protocol_description": "Attention-based operator learner with standard softmax-normalized scaled dot-product attention. Uses Galerkin projection-type layer normalization on Q and K. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M14",
+              "name": "Linear Transformer (LT)",
+              "protocol_description": "Attention-based operator learner with linear attention (two independent softmax normalizations on Q and K). Uses Galerkin projection-type layer normalization on K and V. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M15",
+              "name": "Fourier Neural Operator (FNO2d)",
+              "protocol_description": "Baseline operator learner from Li et al. (2021). Applied only on fine grid (nf) or coarse grid (nc)."
+            }
+          ],
+          "name": "Inverse coefficient identification for Darcy flow",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "FNO2d (only nf) 13.93 13.96 15.04"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0c5d5bf5f02095b44e6b6d2d",
+              "unit": "×10^{-2}",
+              "value_raw_text": "13.93 (ϵ=0), 13.96 (ϵ=0.01), 15.04 (ϵ=0.1) for nf only, nf,nc=211,71"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "FNO2d (only nf) 13.71 13.78 15.12"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1f1c329b4e056d8617fe00b7",
+              "unit": "×10^{-2}",
+              "value_raw_text": "13.71 (ϵ=0), 13.78 (ϵ=0.01), 15.12 (ϵ=0.1) for nf only, nf,nc=141,36"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "GT Ln on K, V 1.944 2.552 6.689"
+              },
+              "quantitative_value": null,
+              "result_id": "res_325e3068405fe89715a52ace",
+              "unit": "×10^{-2}",
+              "value_raw_text": "1.944 (ϵ=0), 2.552 (ϵ=0.01), 6.689 (ϵ=0.1) for nf,nc=141,36"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "ST Ln on Q, K 1.889 3.123 8.788"
+              },
+              "quantitative_value": null,
+              "result_id": "res_39064b8098723647952cc5ca",
+              "unit": "×10^{-2}",
+              "value_raw_text": "1.889 (ϵ=0), 3.123 (ϵ=0.01), 8.788 (ϵ=0.1) for nf,nc=211,71"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "LT Ln on K, V 2.136 3.539 9.622"
+              },
+              "quantitative_value": null,
+              "result_id": "res_757d7b7493fa923f522086c0",
+              "unit": "×10^{-2}",
+              "value_raw_text": "2.136 (ϵ=0), 3.539 (ϵ=0.01), 9.622 (ϵ=0.1) for nf,nc=211,71"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "FT Ln on Q, K 1.921 2.717 6.725"
+              },
+              "quantitative_value": null,
+              "result_id": "res_928053f4d20cc6f1a23e4d95",
+              "unit": "×10^{-2}",
+              "value_raw_text": "1.921 (ϵ=0), 2.717 (ϵ=0.01), 6.725 (ϵ=0.1) for nf,nc=141,36"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "LT Ln on K, V 2.360 3.196 8.656"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9544311d13e58ff6d0d871a4",
+              "unit": "×10^{-2}",
+              "value_raw_text": "2.360 (ϵ=0), 3.196 (ϵ=0.01), 8.656 (ϵ=0.1) for nf,nc=141,36"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "GT Ln on K, V 1.651 2.729 7.903"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a3f9a9d40be99ad0c95b23f7",
+              "unit": "×10^{-2}",
+              "value_raw_text": "1.651 (ϵ=0), 2.729 (ϵ=0.01), 7.903 (ϵ=0.1) for nf,nc=211,71"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "FT Ln on Q, K 1.523 2.691 8.286"
+              },
+              "quantitative_value": null,
+              "result_id": "res_af8817617cbb93d4e2aaeaeb",
+              "unit": "×10^{-2}",
+              "value_raw_text": "1.523 (ϵ=0), 2.691 (ϵ=0.01), 8.286 (ϵ=0.1) for nf,nc=211,71"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e194e04312b7f5457a47",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "ST Ln on Q, K 2.160 2.807 6.995"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d17d5eae35a55c8abce0908c",
+              "unit": "×10^{-2}",
+              "value_raw_text": "2.160 (ϵ=0), 2.807 (ϵ=0.01), 6.995 (ϵ=0.1) for nf,nc=141,36"
+            }
+          ],
+          "unit_id": "su_0f436d807976fac6fb8e35a2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_aa02685020458f93b41cd588",
+              "inference_basis_ids": [
+                "res_149c482ab9de1b0e09cc3440",
+                "res_1d791ce0b800c50d7fb7da29",
+                "res_645968a6148f238d5d72fe94",
+                "res_7e035957fbbae80ab97256aa",
+                "res_8ec3007f7a55cba7ec7d1e9e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "All attention-based operator learners achieve a resolution-invariant performance similar with FNO1d in [57]."
+              },
+              "statement": "All attention-based operator learners achieve resolution-invariant performance similar to FNO1d."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d81fbc731d596fbc6e11d51c",
+              "inference_basis_ids": [
+                "res_149c482ab9de1b0e09cc3440",
+                "res_1d791ce0b800c50d7fb7da29",
+                "res_7e035957fbbae80ab97256aa",
+                "res_8ec3007f7a55cba7ec7d1e9e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The new Galerkin projection-type layer normalization scheme significantly outperforms the regular layer normalization rule in this example, in which both inputs and targets are unnormalized."
+              },
+              "statement": "The Galerkin projection-type layer normalization significantly outperforms the regular layer normalization rule in the Burgers' equation example, where inputs and targets are unnormalized."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Benchmark dataset for the viscous Burgers' equation from Li et al. (2021).",
+              "name": "Burgers' equation dataset",
+              "version_or_split": "n=512, n=2048, n=8192"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the solution operator of the viscous Burgers' equation with periodic boundary conditions on (0,1). The operator maps initial condition u0 to solution at t=1. Initial conditions are sampled from a Gaussian Random Field (GRF)."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Fourier Transformer (FT)",
+              "protocol_description": "Attention-based operator learner with Fourier-type encoder and no softmax normalization. Uses Galerkin projection-type layer normalization on Q and K. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M2",
+              "name": "Galerkin Transformer (GT)",
+              "protocol_description": "Attention-based operator learner with Galerkin-type encoder and no softmax normalization. Uses Galerkin projection-type layer normalization on K and V. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M3",
+              "name": "Standard Transformer (ST)",
+              "protocol_description": "Attention-based operator learner with standard softmax-normalized scaled dot-product attention. Uses Galerkin projection-type layer normalization on Q and K. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M4",
+              "name": "Linear Transformer (LT)",
+              "protocol_description": "Attention-based operator learner with linear attention (two independent softmax normalizations on Q and K). Uses Galerkin projection-type layer normalization on K and V. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M5",
+              "name": "Fourier Neural Operator (FNO1d)",
+              "protocol_description": "Baseline operator learner from Li et al. (2021). Retrained with 1cycle scheduler for 100 epochs. Original results from 500-epoch step scheduler also reported."
+            }
+          ],
+          "name": "Burgers' equation operator learning",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FT Ln on Q, K 1.135 1.123 1.071"
+              },
+              "quantitative_value": null,
+              "result_id": "res_149c482ab9de1b0e09cc3440",
+              "unit": "×10^{-3}",
+              "value_raw_text": "1.135 (n=512), 1.123 (n=2048), 1.071 (n=8192)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GT Ln on K, V 1.203 1.150 1.025"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1d791ce0b800c50d7fb7da29",
+              "unit": "×10^{-3}",
+              "value_raw_text": "1.203 (n=512), 1.150 (n=2048), 1.025 (n=8192)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FNO1d 1cycle 4.373 4.126 4.151"
+              },
+              "quantitative_value": null,
+              "result_id": "res_645968a6148f238d5d72fe94",
+              "unit": "×10^{-3}",
+              "value_raw_text": "4.373 (n=512), 4.126 (n=2048), 4.151 (n=8192)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "ST Ln on Q, K 1.271 1.266 1.330"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7e035957fbbae80ab97256aa",
+              "unit": "×10^{-3}",
+              "value_raw_text": "1.271 (n=512), 1.266 (n=2048), 1.330 (n=8192)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "LT Ln on K, V 1.139 1.149 1.221"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8ec3007f7a55cba7ec7d1e9e",
+              "unit": "×10^{-3}",
+              "value_raw_text": "1.139 (n=512), 1.149 (n=2048), 1.221 (n=8192)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FNO1d [57] 15.8 14.6 13.9"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9f6ff7a4e955859108f4aba5",
+              "unit": "×10^{-3}",
+              "value_raw_text": "15.8 (n=512), 14.6 (n=2048), 13.9 (n=8192)"
+            }
+          ],
+          "unit_id": "su_1e2dc37ddcc02487c374072f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1fc99a25808a7234d3167fb6",
+              "inference_basis_ids": [
+                "res_5236186c26f087e7aeb591f7",
+                "res_577bafddafa89fe673c992e3",
+                "res_5ac298a60e295558c1f4a6fd",
+                "res_6d4a2165d5884e2955c23a6c"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "As the input/output are normalized, in contrast to Example 5.1, the Galerkin projection-type layer normalization scheme does not significantly outperform the regular layer normalization rule in this example."
+              },
+              "statement": "The Galerkin projection-type layer normalization scheme does not significantly outperform the regular layer normalization rule in the Darcy flow example, as the input/output are normalized."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a4c291457df599d1a6393277",
+              "inference_basis_ids": [
+                "res_2f9e00654430df9db751b7fd",
+                "res_5236186c26f087e7aeb591f7",
+                "res_577bafddafa89fe673c992e3",
+                "res_5ac298a60e295558c1f4a6fd",
+                "res_6d4a2165d5884e2955c23a6c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The attention-based operator learners achieve on average 30% to 50% better evaluation results than the baseline FNO2d (only on the fine grid) using the same trainer."
+              },
+              "statement": "The attention-based operator learners achieve on average 30% to 50% better evaluation results than the baseline FNO2d (only on the fine grid) using the same trainer."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Benchmark dataset for Darcy flow with random interface from Li et al. (2021).",
+              "name": "Darcy flow dataset",
+              "version_or_split": "nf,nc=141,43 and nf,nc=211,61"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the solution operator of the Darcy flow equation -∇·(a∇u)=f with zero Dirichlet boundary conditions. The operator maps coefficient a (with random interface geometry) to solution u."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Fourier Neural Operator (FNO2d)",
+              "protocol_description": "Baseline operator learner from Li et al. (2021). Retrained with 1cycle scheduler for 100 epochs. Original results from 500-epoch step scheduler also reported."
+            },
+            {
+              "method_id": "M6",
+              "name": "Fourier Transformer (FT)",
+              "protocol_description": "Attention-based operator learner with Fourier-type encoder and no softmax normalization. Uses Galerkin projection-type layer normalization on Q and K. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M7",
+              "name": "Galerkin Transformer (GT)",
+              "protocol_description": "Attention-based operator learner with Galerkin-type encoder and no softmax normalization. Uses Galerkin projection-type layer normalization on K and V. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M8",
+              "name": "Standard Transformer (ST)",
+              "protocol_description": "Attention-based operator learner with standard softmax-normalized scaled dot-product attention. Uses Galerkin projection-type layer normalization on Q and K. Trained with 1cycle scheduler for 100 epochs."
+            },
+            {
+              "method_id": "M9",
+              "name": "Linear Transformer (LT)",
+              "protocol_description": "Attention-based operator learner with linear attention (two independent softmax normalizations on Q and K). Uses Galerkin projection-type layer normalization on K and V. Trained with 1cycle scheduler for 100 epochs."
+            }
+          ],
+          "name": "Darcy flow operator learning",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FNO2d 1cycle 1.419 1.424"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2f9e00654430df9db751b7fd",
+              "unit": "×10^{-2}",
+              "value_raw_text": "1.419 (141,43), 1.424 (211,61)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "GT Ln on K, V 0.839 0.844"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5236186c26f087e7aeb591f7",
+              "unit": "×10^{-2}",
+              "value_raw_text": "0.839 (141,43), 0.844 (211,61)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "LT Ln on K, V 0.875 0.970"
+              },
+              "quantitative_value": null,
+              "result_id": "res_577bafddafa89fe673c992e3",
+              "unit": "×10^{-2}",
+              "value_raw_text": "0.875 (141,43), 0.970 (211,61)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "ST Ln on Q, K 0.946 0.959"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5ac298a60e295558c1f4a6fd",
+              "unit": "×10^{-2}",
+              "value_raw_text": "0.946 (141,43), 0.959 (211,61)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FT Ln on Q, K 0.873 0.921"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6d4a2165d5884e2955c23a6c",
+              "unit": "×10^{-2}",
+              "value_raw_text": "0.873 (141,43), 0.921 (211,61)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f04980c82066cdb6d89",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "FNO2d [57] 1.09 1.09"
+              },
+              "quantitative_value": null,
+              "result_id": "res_70d388a8e10d300530e712a9",
+              "unit": "×10^{-2}",
+              "value_raw_text": "1.09 (141,43), 1.09 (211,61)"
+            }
+          ],
+          "unit_id": "su_5cea3c82383a8769ef1f84f4"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "What are the computational efficiency gains of softmax-free attention mechanisms compared to softmax-normalized attention?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_387ad430c7d138707210f03b",
+              "inference_basis_ids": [
+                "res_792c76c84132a20d5c4cb0dc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "270e58d4fe5585419ce6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "it offers up to a 120% speed boost over the linear attention in certain tests."
+              },
+              "statement": "The Galerkin attention-based models offer up to a 120% speed boost over the linear attention in certain tests."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ad7ef9bbcca5d4b0330becca",
+              "inference_basis_ids": [
+                "res_57058ef8e9d8b60539dd9164"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "270e58d4fe5585419ce6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the Fourier-type attention features a 40%–50% reduction in memory versus the attention with a softmax normalization."
+              },
+              "statement": "The Fourier-type attention features a 40%–50% reduction in memory versus the attention with a softmax normalization."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Synthetic benchmark for measuring computational efficiency of attention mechanisms.",
+              "name": "Synthetic efficiency benchmark",
+              "version_or_split": "n=8192, d=128, l=10"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare memory usage, FLOPs, and training speed of different attention mechanisms (ST, FT, LT, GT) on a synthetic task with sequence length n=8192, d=128, l=10."
+          ],
+          "methods": [
+            {
+              "method_id": "M16",
+              "name": "Standard Transformer (ST)",
+              "protocol_description": "Standard softmax-normalized scaled dot-product attention. Complexity O(n^2 c_e d)."
+            },
+            {
+              "method_id": "M17",
+              "name": "Fourier Transformer (FT)",
+              "protocol_description": "Fourier-type attention without softmax. Complexity O(n^2 d)."
+            },
+            {
+              "method_id": "M18",
+              "name": "Linear Transformer (LT)",
+              "protocol_description": "Linear attention with two independent softmax normalizations. Complexity O(n(d^2 + c_e d))."
+            },
+            {
+              "method_id": "M19",
+              "name": "Galerkin Transformer (GT)",
+              "protocol_description": "Galerkin-type attention without softmax. Complexity O(n d^2)."
+            }
+          ],
+          "name": "Computational efficiency comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Memory usage (GB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "270e58d4fe5585419ce6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ST 18.39 ... FT 10.05 ... LT 2.55 ... GT 2.36"
+              },
+              "quantitative_value": null,
+              "result_id": "res_57058ef8e9d8b60539dd9164",
+              "unit": "GB",
+              "value_raw_text": "18.39 (ST), 10.05 (FT), 2.55 (LT), 2.36 (GT)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training speed (iterations per second)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "270e58d4fe5585419ce6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ST ... 5.02 ... FT ... 6.10 ... LT ... 12.70 ... GT ... 27.15"
+              },
+              "quantitative_value": null,
+              "result_id": "res_792c76c84132a20d5c4cb0dc",
+              "unit": "iter/s",
+              "value_raw_text": "5.02 (ST), 6.10 (FT), 12.70 (LT), 27.15 (GT)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CUDA memory (GB)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "270e58d4fe5585419ce6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ST ... 31.06 ... FT ... 22.92 ... LT ... 2.31 ... GT ... 1.93"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9709b4972678bf5f7f9bb168",
+              "unit": "GB",
+              "value_raw_text": "31.06 (ST), 22.92 (FT), 2.31 (LT), 1.93 (GT)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GFLOPs (per backward pass)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "270e58d4fe5585419ce6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ST ... 1393 ... FT ... 1138 ... LT ... 606 ... GT ... 275"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ec511e42df866b74013769a7",
+              "unit": "GFLOP",
+              "value_raw_text": "1393 (ST), 1138 (FT), 606 (LT), 275 (GT)"
+            }
+          ],
+          "unit_id": "su_68e11777fc0cdd1f29a60b12"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7419 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7097 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6452 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8065 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8182 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4889 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4262 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4590 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4035 on attempt 1"
+    }
+  ]
+}

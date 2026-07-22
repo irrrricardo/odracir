@@ -1,0 +1,683 @@
+{
+  "coverage_ledger": {
+    "11a31a144c97a37db14b": "not_selected",
+    "1259182b9564eb5e2922": "not_selected",
+    "126dc4be9180d93c151a": "not_selected",
+    "23f3cf84a3a1148f4a35": "extracted",
+    "3cd447a1df47744cf826": "not_selected",
+    "43736fd61e43d7cf3d1c": "not_selected",
+    "4b61b9ed92b5794c2865": "not_selected",
+    "4d48b40a1dc571b09401": "extracted",
+    "5a9f6d25c67f76b9ab37": "not_selected",
+    "5edace30ec18bbf8f23d": "not_selected",
+    "716c339b48996bd1963b": "extracted",
+    "72fa51b08da529126c53": "not_selected",
+    "77bbb8d581f1da12663e": "extracted",
+    "80672708d6c5eb635eb1": "not_selected",
+    "94aaf70727896a481d21": "not_selected",
+    "961d655efc2dddc80897": "not_selected",
+    "a03aefa77b87168be044": "extracted",
+    "a2fdcfd9d07459f68edc": "extracted",
+    "bd590f6dc7820368520d": "not_selected",
+    "becad84fb59f25977063": "not_selected",
+    "d08f64c7b0ce54158f3a": "not_selected",
+    "e989cc75ac4a4ffb44fe": "extracted",
+    "eb32d6c91ba6a9cf9867": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "MINO is evaluated only under the Optimal Flow Matching paradigm; applicability to other functional generative paradigms is not tested.",
+    "The benchmarks are limited to six datasets; generalization to other PDE systems or real-world applications remains to be validated.",
+    "The ablation study only examines encoder cross-attention and decoder query design; other architectural choices (e.g., number of layers, latent grid resolution) are not ablated.",
+    "Scaling experiments are limited to Navier-Stokes; data scaling behavior on irregular grids is not reported.",
+    "The paper does not provide theoretical guarantees on discretization invariance or convergence.",
+    "Computational efficiency comparisons are only made against Transolver; comparisons with other baselines on training/inference cost are not detailed."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_26.pdf",
+    "source_sha256": "cd683e169bf2fea468839c7e1cea493ea67e89acb1887056e55333aca60e75c5"
+  },
+  "paper_id": "7_26",
+  "quality_assessment": {
+    "correct_item_count": 50,
+    "deterministic_rule_score": 0.9174,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.4211,
+      "sample_size_log_score": 0.318,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 50,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can functional generative models be extended to operate on arbitrary domains and irregular grids, overcoming the limitations of Fourier Neural Operator-based approaches?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_33d8fb20cc230a89fc398000",
+              "inference_basis_ids": [
+                "res_abbb05aacb8df62b727053eb",
+                "res_af38886c5ef897244ea0674f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "on regular grid benchmarks, our MINO variants achieve SOTA performance"
+              },
+              "statement": "MINO variants achieve state-of-the-art performance on regular grid benchmarks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7c63a2aee4476834cb5cc9f2",
+              "inference_basis_ids": [
+                "res_105393f304869046c17913ab",
+                "res_2ce7036d7db12bb836131dec"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MINO-U achieves the best results on the Cylinder Flow benchmark, while MINO-T is the top performer on the Mesh-GP and Global Climate benchmarks."
+              },
+              "statement": "MINO-U achieves best results on Cylinder Flow, and MINO-T is top performer on Mesh-GP and Global Climate benchmarks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b727c7caa47c47db743e616c",
+              "inference_basis_ids": [
+                "res_2aa03e74e32ea1f4f263cd93",
+                "res_95b565f49a32859c748479d2",
+                "res_b0aa40fc7cbdfab822433145",
+                "res_dc95487ddbd0015bb3d94f80",
+                "res_e0011b9808d159c5a78e1318",
+                "res_eca68c2345f06bbfcac57c14"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "The results of this study, presented in Table 12, confirm that our proposed design choices are critical for achieving high performance. The standard MINO-T consistently and significantly outperforms both ablated variants across all datasets and metrics. The performance degradation is most severe in the Position-Only Decoder variant."
+              },
+              "statement": "The proposed cross-attention encoder and decoder designs are critical for high performance; removing input bypass in decoder severely degrades performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c35cf8d5055084e15dcf7290",
+              "inference_basis_ids": [
+                "res_f9b31490818b8e7b8148e634"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "our MINO variants are also significantly more efficient than Transolver. As detailed in Table 5, they require substantially less computation to train, are more GPU memory-efficient, and achieve up to a 3.0x speedup during inference"
+              },
+              "statement": "MINO variants are significantly more efficient than Transolver, requiring less computation, being more GPU memory-efficient, and achieving up to 3.0x inference speedup."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dc5e93fc65e8822c8da249eb",
+              "inference_basis_ids": [
+                "res_5b34fbe370d2f9cf236c8623",
+                "res_5c09abfc888180fce963dd5d",
+                "res_7f68892f3304cf87579d8f95",
+                "res_902615745486203d27a42da1",
+                "res_9544fa8647c0e247496ca538",
+                "res_b544c201ed83b3c24c3a559a",
+                "res_d0a4d9c31453ee7869e7a5d9",
+                "res_f0d17b9deb99c6f5e88467c1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "MINO-U consistently outperforms MINO-T across both datasets and metrics."
+              },
+              "statement": "MINO-U consistently outperforms MINO-T across Navier-Stokes and Cylinder-Flow datasets."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "2D Navier-Stokes equations on a torus, regular grid.",
+              "name": "Navier-Stokes",
+              "version_or_split": "64x64 resolution, 30k train / 5k test"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Shallow-water equations for 2D radial dam-break, regular grid.",
+              "name": "Shallow Water",
+              "version_or_split": "64x64 resolution, 30k train / 5k test"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Steady-state 2D Darcy Flow over unit square, regular grid.",
+              "name": "Darcy Flow",
+              "version_or_split": "64x64 resolution, 8k train / 2k test"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Flow past a cylinder on fixed irregular mesh, 3 channels.",
+              "name": "Cylinder Flow",
+              "version_or_split": "1,699 nodes, 30k train / 5k test"
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Synthetic GP with Matérn kernel on irregular mesh.",
+              "name": "MeshGP",
+              "version_or_split": "3,727 nodes, 30k train / 5k test"
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "Real-world global temperature on spherical manifold.",
+              "name": "Global Climate",
+              "version_or_split": "4,140 nodes, 9,676 train / 2,420 test"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "MINO-U achieves best performance on the Navier-Stokes and Shallow Water datasets, while MINO-T excels on the Darcy Flow benchmark.",
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MINO-U achieves best performance on the Navier-Stokes and Shallow Water datasets, while MINO-T excels on the Darcy Flow benchmark."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "MINO-U achieves the best results on the Cylinder Flow benchmark, while MINO-T is the top performer on the Mesh-GP and Global Climate benchmarks.",
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MINO-U achieves the best results on the Cylinder Flow benchmark, while MINO-T is the top performer on the Mesh-GP and Global Climate benchmarks."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "The standard MINO-T consistently and significantly outperforms both ablated variants across all datasets and metrics. The performance degradation is most severe in the Position-Only Decoder variant.",
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "The standard MINO-T consistently and significantly outperforms both ablated variants across all datasets and metrics. The performance degradation is most severe in the Position-Only Decoder variant."
+              },
+              "span_id": "ES4"
+            },
+            {
+              "content": "our MINO variants are also significantly more efficient than Transolver. As detailed in Table 5, they require substantially less computation to train, are more GPU memory-efficient, and achieve up to a 3.0x speedup during inference",
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "our MINO variants are also significantly more efficient than Transolver. As detailed in Table 5, they require substantially less computation to train, are more GPU memory-efficient, and achieve up to a 3.0x speedup during inference"
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Analyze scaling behavior and training stability across random seeds.",
+            "Compare MINO against state-of-the-art neural operators (FNO, GINO, UPT, Transolver, LNO).",
+            "Conduct ablation study on encoder cross-attention and decoder query design.",
+            "Evaluate MINO on six functional generative benchmarks covering regular and irregular grids.",
+            "Propose Mesh-Informed Neural Operator (MINO) as a domain- and discretization-agnostic backbone for generative modeling in function spaces.",
+            "Validate Sliced Wasserstein Distance (SWD) and Maximum Mean Discrepancy (MMD) as standardized evaluation metrics for functional generative models."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "MINO-U",
+              "protocol_description": "MINO variant with Diffusion U-Net as latent space processor. Encoder: GNO projects input to regular grid; Decoder: cross-attention with input bypass."
+            },
+            {
+              "method_id": "M2",
+              "name": "MINO-T",
+              "protocol_description": "MINO variant with pure Transformer-based latent processor. Encoder: GNO + cross-attention blocks; Decoder: cross-attention with input bypass."
+            },
+            {
+              "method_id": "M3",
+              "name": "FNO",
+              "protocol_description": "Fourier Neural Operator baseline for regular grids."
+            },
+            {
+              "method_id": "M4",
+              "name": "GINO",
+              "protocol_description": "Geometry-Informed Neural Operator: GNO encoder/decoder with FNO processor."
+            },
+            {
+              "method_id": "M5",
+              "name": "UPT",
+              "protocol_description": "Universal Physics Transformer: GNN super-node pooling, Transformer processor."
+            },
+            {
+              "method_id": "M6",
+              "name": "Transolver",
+              "protocol_description": "Transformer-based neural operator with slicing/de-slicing operations."
+            },
+            {
+              "method_id": "M7",
+              "name": "LNO",
+              "protocol_description": "Latent Neural Operator baseline."
+            }
+          ],
+          "name": "MINO architecture proposal and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MINO-T is the top performer on the Mesh-GP and Global Climate benchmarks."
+              },
+              "quantitative_value": null,
+              "result_id": "res_105393f304869046c17913ab",
+              "unit": null,
+              "value_raw_text": "MINO-T is the top performer on the Mesh-GP and Global Climate benchmarks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "Position-Only Decoder\n5.7 · 10−1"
+              },
+              "quantitative_value": 0.57,
+              "result_id": "res_2aa03e74e32ea1f4f263cd93",
+              "unit": null,
+              "value_raw_text": "Position-Only Decoder SWD on Navier Stokes: 5.7e-1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MINO-U achieves the best results on the Cylinder Flow benchmark"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2ce7036d7db12bb836131dec",
+              "unit": null,
+              "value_raw_text": "MINO-U achieves best results on Cylinder Flow benchmark"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MINO-T\n... 3.1 · 10−2 (6.0 · 10−3)"
+              },
+              "quantitative_value": 0.031,
+              "result_id": "res_5b34fbe370d2f9cf236c8623",
+              "unit": null,
+              "value_raw_text": "MINO-T mean MMD on Navier-Stokes across 8 seeds: 3.1e-2 ± 6.0e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MINO-U\n... 2.7 · 10−2 (7.5 · 10−3)"
+              },
+              "quantitative_value": 0.027,
+              "result_id": "res_5c09abfc888180fce963dd5d",
+              "unit": null,
+              "value_raw_text": "MINO-U mean MMD on Navier-Stokes across 8 seeds: 2.7e-2 ± 7.5e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MINO-U\n... 2.1 · 10−2 (2.0 · 10−3)"
+              },
+              "quantitative_value": 0.021,
+              "result_id": "res_7f68892f3304cf87579d8f95",
+              "unit": null,
+              "value_raw_text": "MINO-U mean SWD on Cylinder Flow across 8 seeds: 2.1e-2 ± 2.0e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MINO-T\n... 2.9 · 10−2 (2.4 · 10−3)"
+              },
+              "quantitative_value": 0.029,
+              "result_id": "res_902615745486203d27a42da1",
+              "unit": null,
+              "value_raw_text": "MINO-T mean SWD on Cylinder Flow across 8 seeds: 2.9e-2 ± 2.4e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "MINO-U\n3.3 · 10−2 (6.3 · 10−3)"
+              },
+              "quantitative_value": 0.033,
+              "result_id": "res_9544fa8647c0e247496ca538",
+              "unit": null,
+              "value_raw_text": "MINO-U mean SWD on Navier-Stokes across 8 seeds: 3.3e-2 ± 6.3e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "Position-Only Decoder\n... 4.5 · 10−1"
+              },
+              "quantitative_value": 0.45,
+              "result_id": "res_95b565f49a32859c748479d2",
+              "unit": null,
+              "value_raw_text": "Position-Only Decoder MMD on Navier Stokes: 4.5e-1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MINO-T excels on the Darcy Flow benchmark."
+              },
+              "quantitative_value": null,
+              "result_id": "res_abbb05aacb8df62b727053eb",
+              "unit": null,
+              "value_raw_text": "MINO-T excels on the Darcy Flow benchmark"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "on regular grid benchmarks, our MINO variants achieve SOTA performance: MINO-U achieves best performance on the Navier-Stokes and Shallow Water datasets, while MINO-T excels on the Darcy Flow benchmark."
+              },
+              "quantitative_value": null,
+              "result_id": "res_af38886c5ef897244ea0674f",
+              "unit": null,
+              "value_raw_text": "MINO-U achieves best performance on Navier-Stokes and Shallow Water datasets"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "Standard MINO-T\n... 3.6 · 10−2"
+              },
+              "quantitative_value": 0.036,
+              "result_id": "res_b0aa40fc7cbdfab822433145",
+              "unit": null,
+              "value_raw_text": "Standard MINO-T MMD on Navier Stokes: 3.6e-2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "MINO-T\n3.7 · 10−2 (6.8 · 10−3)"
+              },
+              "quantitative_value": 0.037,
+              "result_id": "res_b544c201ed83b3c24c3a559a",
+              "unit": null,
+              "value_raw_text": "MINO-T mean SWD on Navier-Stokes across 8 seeds: 3.7e-2 ± 6.8e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MINO-T\n... 2.6 · 10−2 (3.0 · 10−3)"
+              },
+              "quantitative_value": 0.026,
+              "result_id": "res_d0a4d9c31453ee7869e7a5d9",
+              "unit": null,
+              "value_raw_text": "MINO-T mean MMD on Cylinder Flow across 8 seeds: 2.6e-2 ± 3.0e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "Standard MINO-T\n4.0 · 10−2"
+              },
+              "quantitative_value": 0.04,
+              "result_id": "res_dc95487ddbd0015bb3d94f80",
+              "unit": null,
+              "value_raw_text": "Standard MINO-T SWD on Navier Stokes: 4.0e-2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SWD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": false,
+                "text_excerpt": "Self-Attention Encoder\n5.2 · 10−2"
+              },
+              "quantitative_value": 0.052,
+              "result_id": "res_e0011b9808d159c5a78e1318",
+              "unit": null,
+              "value_raw_text": "Self-Attention Encoder SWD on Navier Stokes: 5.2e-2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "Self-Attention Encoder\n... 5.1 · 10−2"
+              },
+              "quantitative_value": 0.051,
+              "result_id": "res_eca68c2345f06bbfcac57c14",
+              "unit": null,
+              "value_raw_text": "Self-Attention Encoder MMD on Navier Stokes: 5.1e-2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "eb32d6c91ba6a9cf9867",
+                "page_end": 22,
+                "page_start": 22,
+                "paraphrased": true,
+                "text_excerpt": "MINO-U\n... 1.9 · 10−2 (2.8 · 10−3)"
+              },
+              "quantitative_value": 0.019,
+              "result_id": "res_f0d17b9deb99c6f5e88467c1",
+              "unit": null,
+              "value_raw_text": "MINO-U mean MMD on Cylinder Flow across 8 seeds: 1.9e-2 ± 2.8e-3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference speedup",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a2fdcfd9d07459f68edc",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "achieve up to a 3.0x speedup during inference"
+              },
+              "quantitative_value": 3.0,
+              "result_id": "res_f9b31490818b8e7b8148e634",
+              "unit": "x",
+              "value_raw_text": "up to a 3.0x speedup during inference"
+            }
+          ],
+          "unit_id": "su_28ddcb6002a4d8f048c41487"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8649 on attempt 1"
+    }
+  ]
+}

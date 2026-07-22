@@ -1,0 +1,634 @@
+{
+  "coverage_ledger": {
+    "012431be2cbf49739480": "not_selected",
+    "0c97742042bb1a36c747": "not_selected",
+    "0f1598c8f9054a10605c": "not_selected",
+    "15efe180ce225481eaec": "not_selected",
+    "177c8fdde5018d5ff076": "not_selected",
+    "1db87194e2c84f18af3c": "not_selected",
+    "20474424f5aad4321ee9": "not_selected",
+    "265703809e1a7bb54f8f": "not_selected",
+    "2e32505ba09f7bc50a2e": "not_selected",
+    "2e5997e0c27a1097f658": "not_selected",
+    "35afc03b1cd9e0446a37": "not_selected",
+    "39b660f82a08b34ff0fd": "not_selected",
+    "43269749387b8554fe4d": "not_selected",
+    "45f44d6b9dd4ac46b783": "not_selected",
+    "49f008d5d4bb64d041cc": "extracted",
+    "524140aeb6a2beabc341": "extracted",
+    "6733fdf21cb200429a60": "not_selected",
+    "68b0c68837156220baa7": "not_selected",
+    "6bbc725fefb2aac74660": "not_selected",
+    "78302e9e2813dea0967d": "not_selected",
+    "84366d2783f371f6b067": "extracted",
+    "8ff85cf326314f4a6cf7": "not_selected",
+    "92f987c3c63f957a1dd7": "not_selected",
+    "96dfdd215f383f8718a9": "not_selected",
+    "9788a502e78943514862": "not_selected",
+    "a19316651d143851e314": "not_selected",
+    "a2508e234be7aee0306b": "not_selected",
+    "b961b6ab3454af3a4bce": "extracted",
+    "bda85c3bb10107c14da3": "not_selected",
+    "cad753d3c0f1b9a1490b": "not_selected",
+    "cc29bcdf1badb0d4a44a": "not_selected",
+    "d76902f9e90ca385a847": "not_selected",
+    "e46d96b6ecadd5d3954f": "not_selected",
+    "edd7e21fb68c3b1edd04": "not_selected",
+    "f3a75b6a648c5e0b1e42": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study focuses on the zebrafish blastoderm, a non-confluent tissue; applicability to confluent tissues may differ.",
+    "Rigidity percolation theory predicts critical point and linear response, but quantitative viscosity values require more detailed modeling of nonlinear and time-dependent properties.",
+    "2D analysis was used, but 3D connectivity patterns were similar; however, 3D rigidity percolation critical point may differ.",
+    "Perturbation experiments were limited to E-cadherin knockdown and cell fate changes; other adhesion molecules or mechanical factors were not systematically tested.",
+    "Hallmarks of criticality were demonstrated, but finite size effects and measurement precision may limit detection in other systems."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_18.pdf",
+    "source_sha256": "080cb51e749db8328bd0fe8cac2ab70f0e4db2d13dc54e5f3e24a2c7be984ec7"
+  },
+  "paper_id": "4_18",
+  "quality_assessment": {
+    "correct_item_count": 51,
+    "deterministic_rule_score": 0.8651,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 51,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does the zebrafish blastoderm undergo a rigidity percolation transition during morphogenesis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fe58b6f6b81daf63ed772ba4",
+              "inference_basis_ids": [
+                "res_f6fec5716c7a5b03c4b457a4",
+                "res_f711da9cdba3c16026da7593"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Directly interfering with cell connectivity by diminishing E-cadherin expression reduced global cell network connectivity ... and, as predicted by the theory, GC size to values below the critical point"
+              },
+              "statement": "Reducing cell connectivity via E-cadherin knockdown shifts the tissue below the rigidity percolation critical point, consistent with the model."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Embryos injected with e-cadherin-MO or control-MO, with cell connectivity and viscosity measurements.",
+              "name": "E-cadherin MO and control MO embryos",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of different blastoderm regions and cell fate specification changes.",
+            "E-cadherin morpholino (MO) injection to reduce cell-cell adhesion.",
+            "MPA viscosity measurements in perturbed embryos."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Morpholino knockdown",
+              "protocol_description": "Injection of e-cadherin-morpholino to reduce E-cadherin expression."
+            }
+          ],
+          "name": "Perturbation experiments on cell connectivity",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "GC size after E-cadherin MO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "GC size to values below the critical point during the period when control-MO-injected embryos were undergoing tissue fluidization/thickening"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f6fec5716c7a5b03c4b457a4",
+              "unit": null,
+              "value_raw_text": "GC size to values below the critical point during the period when control-MO-injected embryos were undergoing tissue fluidization/thickening"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell connectivity after E-cadherin MO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Directly interfering with cell connectivity by diminishing E-cadherin expression reduced global cell network connectivity within the blastoderm"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f711da9cdba3c16026da7593",
+              "unit": null,
+              "value_raw_text": "reduced global cell network connectivity within the blastoderm"
+            }
+          ],
+          "unit_id": "su_2dccf1b94d0150d0f0e51488"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_419c707b0cfad1b6282434b2",
+              "inference_basis_ids": [
+                "res_22b495128ad2887007f59483",
+                "res_344c50e79457a254dffd42aa",
+                "res_4e94cbe2aef088a5396f051b",
+                "res_e8622d2f6e19c379dc20f8f0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "524140aeb6a2beabc341",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "This argues against the blastoderm undergoing a motion-dependent/density-independent unjamming transition. Moreover, the increase in cell number in time via proliferation ... could not explain the viscosity changes ... However, we observed ... a clear nonlinear relationship between cell fraction and tissue viscosity ... cell connectivity was directly related to cell fraction and consequently displayed a nonlinear relationship with blastoderm viscosity."
+              },
+              "statement": "Blastoderm fluidization is not explained by cell motion, shape changes, or nuclear density, but correlates with cell connectivity changes."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Time-lapse imaging of zebrafish blastoderm during fluidization and thickening, with MPA viscosity measurements.",
+              "name": "Wild-type blastoderm time series",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "the viscosity of the central part of the blastoderm abruptly drops at the onset of morphogenesis by more than an order of magnitude within a few minutes",
+              "provenance": {
+                "chunk_id": "524140aeb6a2beabc341",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "the viscosity of the central part of the blastoderm abruptly drops at the onset of morphogenesis by more than an order of magnitude within a few minutes"
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Comparison of viscosity changes with cell motion (MSRD), cell shape index, and nuclear density.",
+            "Micropipette aspiration (MPA) to measure tissue viscosity over time in zebrafish blastoderm.",
+            "Quantitative image analysis of cell connectivity, cell fraction, and interstitial fluid."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Micropipette aspiration (MPA)",
+              "protocol_description": "MPA used to measure tissue viscosity; details in Petridou et al., 2019 and STAR Methods."
+            },
+            {
+              "method_id": "M2",
+              "name": "Cell connectivity analysis",
+              "protocol_description": "Cell-cell contacts defined by absence of interstitial fluid between neighboring cells; connectivity measured as average number of contacts per cell."
+            }
+          ],
+          "name": "Blastoderm fluidization and thickening characterization",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between nuclear density and viscosity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "524140aeb6a2beabc341",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "analysis of blastoderm cell nuclei density did not reveal any obvious correlation with blastoderm viscosity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_22b495128ad2887007f59483",
+              "unit": null,
+              "value_raw_text": "analysis of blastoderm cell nuclei density did not reveal any obvious correlation with blastoderm viscosity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue viscosity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "524140aeb6a2beabc341",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "the blastoderm returning to its initial viscosity values before fluidization by gradually increasing its viscosity in a slow (~1 h) 'thickening' process"
+              },
+              "quantitative_value": null,
+              "result_id": "res_26dcec4db643f1d162fdeb89",
+              "unit": null,
+              "value_raw_text": "blastoderm returning to its initial viscosity values before fluidization by gradually increasing its viscosity in a slow (~1 h) 'thickening' process"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell connectivity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "cell connectivity was smoothly and gradually reduced ... up to a threshold value of ~3–4 contacts per cell, when blastoderm viscosity abruptly dropped"
+              },
+              "quantitative_value": null,
+              "result_id": "res_344c50e79457a254dffd42aa",
+              "unit": null,
+              "value_raw_text": "cell connectivity was smoothly and gradually reduced before fluidization, continued to a threshold of ~3-4 contacts per cell, then viscosity abruptly dropped"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell connectivity vs viscosity relationship",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "displayed a nonlinear relationship with blastoderm viscosity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4e94cbe2aef088a5396f051b",
+              "unit": null,
+              "value_raw_text": "nonlinear relationship between cell connectivity and blastoderm viscosity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue viscosity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "524140aeb6a2beabc341",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "the viscosity of the central part of the blastoderm abruptly drops at the onset of morphogenesis by more than an order of magnitude within a few minutes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6515342a8c3e060ebae40646",
+              "unit": null,
+              "value_raw_text": "viscosity abruptly drops at the onset of morphogenesis by more than an order of magnitude within a few minutes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relationship between cell fraction and viscosity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "524140aeb6a2beabc341",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "we detected a clear nonlinear relationship between cell fraction and tissue viscosity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6f0bc7d28e0c098641062a70",
+              "unit": null,
+              "value_raw_text": "nonlinear relationship between cell fraction and tissue viscosity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between cell motion/shape and viscosity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "524140aeb6a2beabc341",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "we found no clearly recognizable temporal correlation between these cellular parameters and changes in blastoderm viscosity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e8622d2f6e19c379dc20f8f0",
+              "unit": null,
+              "value_raw_text": "no clearly recognizable temporal correlation between MSRD, cell shape index and changes in blastoderm viscosity"
+            }
+          ],
+          "unit_id": "su_3fd88b28576ca8172795a9f3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ecb6419e3fcb4aacf745eef6",
+              "inference_basis_ids": [
+                "res_2d4fd65bf9a0b842c421a50c",
+                "res_b82a70f1ca05aafa63d27ded",
+                "res_f732ee948f315f7b41488121"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "these findings show that the changes in blastoderm viscosity can be explained by changes in cell connectivity, which control overall tissue rigidity, as predicted by rigidity percolation theory."
+              },
+              "statement": "Rigidity percolation theory accurately predicts blastoderm tissue viscosity changes based on cell connectivity."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "2D triangular lattices of different sizes and connectivity levels used for rigidity analysis.",
+              "name": "Simulated random 2D networks",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "2D cell connectivity networks extracted from blastoderm imaging, ~100 cells per network.",
+              "name": "Experimental blastoderm cell connectivity networks",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of simulated giant cluster (GC) size vs connectivity with experimental cell connectivity networks.",
+            "In silico generation of 2D triangular graphs with varying connectivity to simulate rigidity percolation.",
+            "Temporal mapping of GC size in blastoderm and comparison with viscosity measurements."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Rigidity percolation analysis",
+              "protocol_description": "Rigidity analysis on 2D triangular graphs to determine rigid clusters; critical point at 2/3 of maximum average connectivity."
+            },
+            {
+              "method_id": "M4",
+              "name": "Viscous network modeling",
+              "protocol_description": "2D networks of elastic springs with bonds that break and heal with characteristic timescale t, to simulate viscous response."
+            }
+          ],
+          "name": "Rigidity percolation modeling and in vivo validation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Critical connectivity point",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "the critical point of two-thirds of the maximum average connectivity ... ~4 contacts per cell"
+              },
+              "quantitative_value": 4.0,
+              "result_id": "res_2d4fd65bf9a0b842c421a50c",
+              "unit": "contacts per cell",
+              "value_raw_text": "critical point of two-thirds of the maximum average connectivity (~4 contacts per cell)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GC size temporal change vs viscosity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "the temporal change in the experimentally observed size of the GC in such networks closely matched the temporal changes in tissue viscosity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b82a70f1ca05aafa63d27ded",
+              "unit": null,
+              "value_raw_text": "temporal change in experimentally observed size of the GC closely matched the temporal changes in tissue viscosity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GC size vs connectivity relationship",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b961b6ab3454af3a4bce",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "the relationship between GC size and network connectivity was conserved between simulated and experimentally observed connectivity networks"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f732ee948f315f7b41488121",
+              "unit": null,
+              "value_raw_text": "relationship between GC size and network connectivity was conserved between simulated and experimentally observed connectivity networks"
+            }
+          ],
+          "unit_id": "su_5c8f40214f62d16320a3d62b"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "What are the hallmarks of criticality in the blastoderm rigidity percolation transition?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b5784e71223000da326da508",
+              "inference_basis_ids": [
+                "res_07c870461c183f6b46151354"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "84366d2783f371f6b067",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "we demonstrate hallmarks of criticality in vivo, such as power-law exponents and its associated discontinuities of macroscopic observables at criticality. Given that those hallmarks have not yet been clearly demonstrated in biological settings ... their identification provides additional strong support for biological tissues undergoing material PTs."
+              },
+              "statement": "The blastoderm rigidity percolation transition exhibits hallmarks of criticality, supporting a genuine phase transition."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of power-law exponents and discontinuities of macroscopic observables at criticality.",
+            "Assessment of finite size statistics and measurement precision."
+          ],
+          "methods": [],
+          "name": "Criticality signatures in vivo",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Criticality hallmarks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84366d2783f371f6b067",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "we demonstrate hallmarks of criticality in vivo, such as power-law exponents and its associated discontinuities of macroscopic observables at criticality."
+              },
+              "quantitative_value": null,
+              "result_id": "res_07c870461c183f6b46151354",
+              "unit": null,
+              "value_raw_text": "power-law exponents and its associated discontinuities of macroscopic observables at criticality"
+            }
+          ],
+          "unit_id": "su_0670e0ef0741b0f77162ee80"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "How is cell-cycle synchrony involved in regulating the rigidity percolation transition?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0f233e6660b58f46656c91c8",
+              "inference_basis_ids": [
+                "res_bf1e85e9ab7dc15a61399b95",
+                "res_d97f07ca6bc0962a4f3cd56f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "84366d2783f371f6b067",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "cell-cycle synchrony as a regulatory mechanism conferring robustness to the blastoderm when undergoing a PT."
+              },
+              "statement": "Cell-cycle synchrony ensures a uniform rigidity percolation transition by reducing connectivity variability."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "3 independent embryo batches of WT and Chk1-oe for viscosity and connectivity variability measurements.",
+              "name": "WT and Chk1-oe embryo batches",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of connectivity variability and viscosity robustness factor.",
+            "Comparison of wild-type (synchronous fluidization) and Chk1-oe (heterogeneous phases) embryos."
+          ],
+          "methods": [],
+          "name": "Cell-cycle synchrony and robustness",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Viscosity time course in WT vs Chk1-oe",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84366d2783f371f6b067",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "WT (showing synchronous fluidization) and Chk1-oe (showing heterogeneous phases of fluidization/thickening)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bf1e85e9ab7dc15a61399b95",
+              "unit": null,
+              "value_raw_text": "WT showing synchronous fluidization and Chk1-oe showing heterogeneous phases of fluidization/thickening"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Connectivity variability vs viscosity robustness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84366d2783f371f6b067",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "Plot of normalized connectivity <k> variability, expressed as the Var in normalized connectivity <k> between the quadrants ... as a function of a robustness viscosity factor, expressed as the inverse of coefficient of Var between the viscosity measurements"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d97f07ca6bc0962a4f3cd56f",
+              "unit": null,
+              "value_raw_text": "Var in normalized connectivity <k> between quadrants as a function of a robustness viscosity factor (inverse of coefficient of Var between viscosity measurements)"
+            }
+          ],
+          "unit_id": "su_d6de347817a7a53686296414"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9408 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7800 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8172 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7770 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7910 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4537 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8672 on attempt 1"
+    }
+  ]
+}
