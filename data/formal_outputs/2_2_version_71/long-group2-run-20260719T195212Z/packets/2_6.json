@@ -1,0 +1,516 @@
+{
+  "coverage_ledger": {
+    "01d5b02edc8b5e8e2a23": "extracted",
+    "03a1ef0c0c625df1306d": "not_selected",
+    "0b295ba6e5568eeaa990": "extracted",
+    "152e261392880d46eec1": "not_selected",
+    "1bb59bcb323203f3fc81": "not_selected",
+    "267e6c58edfc059df190": "not_selected",
+    "3ef1cefa2cb554226a02": "not_selected",
+    "4d0bb28ef156d9b33838": "not_selected",
+    "79d0c88902359ac7f08a": "not_selected",
+    "a06ad39fdb02aed7e1c7": "not_selected",
+    "c03fb8a88fb5f750b3cd": "not_selected",
+    "d313eec5c8e22c462b1a": "extracted",
+    "f2c25ac4ee361daecddb": "extracted",
+    "f30b0e460ccaac16742d": "not_selected",
+    "f96eea191b1d9e8f5fcf": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study does not rule out engulfment of axonal material in addition to presynaptic terminals.",
+    "The study focuses on the retinogeniculate system; generalizability to other brain regions is not directly tested.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_6.pdf",
+    "source_sha256": "7902153953e75f121276e05643d3e4f5217c71c26063f57dcf2870f0429768d3"
+  },
+  "paper_id": "2_6",
+  "quality_assessment": {
+    "correct_item_count": 28,
+    "deterministic_rule_score": 0.9176,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 34,
+    "f1": 0.8116,
+    "incorrect_item_count": 6,
+    "incorrect_items": [
+      {
+        "description": "The provenance excerpt states 'Microglia sampled from P5 CR3 or C3 KO mice had a statistically significant decrease in' but does not specify 'engulfment of RGC inputs' in that excerpt. However, the full text in chunk d313eec5c8e22c462b1a (page 8) confirms the decrease for both CR3 and C3 KO. The paraphrased flag is misleading but the content is supported. No correction needed.",
+        "item_id": "result:su_312828970ac04bfb16009d09:res_585a370bc364ebf2e37f7962",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Same as above, the excerpt is truncated but the full text supports the result. No correction needed.",
+        "item_id": "result:su_312828970ac04bfb16009d09:res_a8d51ca625e4564071d4e128",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The provenance excerpt 'determine that this process is regulated by neuronal activity.' does not directly state the result about TTX treatment. The actual result is supported by chunk 152e261392880d46eec1 (page 4) and a06ad39fdb02aed7e1c7 (page 5). The provenance is incorrect but the result itself is correct. Mark as incorrect due to provenance mismatch.",
+        "item_id": "result:su_4b190f8ea3fa0abf7016e0ca:res_a17345b12f63cb2a251c15f4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The provenance excerpt 'engulfment is dependent upon neural activity' is from the summary (chunk f2c25ac4ee361daecddb) and is supported by the TTX/forskolin experiments. No correction needed.",
+        "item_id": "claim:su_4b190f8ea3fa0abf7016e0ca:clm_051d1c2cf1efcbe94ff6bfc8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The provenance excerpt 'To address whether engulfment of RGC inputs was developmentally regulated, we developed an in vivo phagocytosis assay' does not contain the quantitative result. The actual result is in chunk 152e261392880d46eec1 (page 4) which states engulfment is high at P5 and significantly reduced at P9. The provenance is incorrect. Mark as incorrect.",
+        "item_id": "result:su_92b845d83d1a97da58538e2a:res_dd513dab77ec15033ea2d594",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The provenance excerpt is paraphrased and does not directly state the claim. However, the claim is supported by the data in chunk 152e261392880d46eec1. No correction needed.",
+        "item_id": "claim:su_92b845d83d1a97da58538e2a:clm_184ae4c64b3b50aa1219d77f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "Result: Engulfment of RGC inputs is significantly higher in synapse-enriched regions (dLGN) compared to non-synaptic region (optic tract) at P5.",
+        "item_id": null,
+        "source_chunk_id": "152e261392880d46eec1",
+        "source_excerpt": "Engulfment in P5 dLGN occurs most significantly in synapse-enriched (contralateral and ipsilateral dLGN) versus nonsynaptic (optic tract) regions.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Result: Microglia preferentially engulf inputs from the less active (TTX-treated) eye compared to the vehicle-treated eye.",
+        "item_id": null,
+        "source_chunk_id": "a06ad39fdb02aed7e1c7",
+        "source_excerpt": "microglia phagocytosed significantly more inputs from the less active TTX-treated eye (CTB-594, red) as compared to the vehicle-treated eye (CTB-647, blue)",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Result: Microglia preferentially engulf inputs from the vehicle-treated eye compared to the more active (forskolin-treated) eye.",
+        "item_id": null,
+        "source_chunk_id": "a06ad39fdb02aed7e1c7",
+        "source_excerpt": "mice injected with forskolin and vehicle engulfed significantly more inputs from the vehicle-treated eye (CTB-647, blue) as compared to the more active forskolin-treated eye (CTB-594, red)",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Result: CR3 KO mice have a statistically significant increase in ipsilateral and contralateral input overlap at P10 and P30, indicating deficits in eye-specific segregation.",
+        "item_id": null,
+        "source_chunk_id": "f30b0e460ccaac16742d",
+        "source_excerpt": "a statistically significant increase in ipsilateral and contralateral input overlap was observed in P10 and P30 CR3 KOs as compared to WT littermate controls",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Result: Minocycline treatment (P4-P8) reduces microglial phagocytic function and causes deficits in eye-specific segregation at P10.",
+        "item_id": null,
+        "source_chunk_id": "f30b0e460ccaac16742d",
+        "source_excerpt": "minocycline (P4–P8; 75 mg/kg) treatment during the peak of the pruning period resulted in reduced microglial phagocytic function (i.e., reduced RGC input engulfment) at P5 and a statistically significant deficit in eye-specific segregation at P10",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Result: Adult C3 KO mice have a 1.3-fold increase in VGlut2-containing synapses compared to WT.",
+        "item_id": null,
+        "source_chunk_id": "d313eec5c8e22c462b1a",
+        "source_excerpt": "adult C3 KO mice had an identical 1.3-fold increase in VGlut2-containing synapses as compared to WT littermate controls",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Claim: Microglia are the only CNS cell type expressing CR3 in the P5 dLGN, making CR3 manipulation specific to microglia.",
+        "item_id": null,
+        "source_chunk_id": "0b295ba6e5568eeaa990",
+        "source_excerpt": "microglia are the only cell type within the P5 dLGN and surrounding brain tissue to express CR3",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.8235,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8
+  },
+  "quality_score": 0.8116,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "What is the role of microglia in developmental synaptic pruning and what are the underlying mechanisms?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f8fbff01ce56cbcc4458f3d2",
+              "inference_basis_ids": [
+                "res_585a370bc364ebf2e37f7962",
+                "res_a8d51ca625e4564071d4e128"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f2c25ac4ee361daecddb",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the microglia-specific phagocytic signaling pathway, complement receptor 3(CR3)/C3"
+              },
+              "statement": "CR3/C3 signaling is a molecular mechanism underlying microglial engulfment of RGC inputs."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunohistochemistry for CR3 and C3 in P5 dLGN.",
+            "In vivo phagocytosis assay in CR3 KO and C3 KO mice."
+          ],
+          "methods": [
+            {
+              "method_id": "m4",
+              "name": "Phagocytosis assay in knockout mice",
+              "protocol_description": "Quantification of CTB-labeled RGC inputs within microglia in P5 CR3 KO and C3 KO mice compared to WT littermates."
+            }
+          ],
+          "name": "CR3/C3 signaling mediates engulfment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment in C3 KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Microglia sampled from P5 CR3 or C3 KO mice had a statistically significant decrease in"
+              },
+              "quantitative_value": null,
+              "result_id": "res_585a370bc364ebf2e37f7962",
+              "unit": null,
+              "value_raw_text": "Microglia from C3 KO mice had a statistically significant decrease in engulfment of RGC inputs compared to WT."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment in CR3 KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Microglia sampled from P5 CR3 or C3 KO mice had a statistically significant decrease in"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a8d51ca625e4564071d4e128",
+              "unit": null,
+              "value_raw_text": "Microglia from CR3 KO mice had a statistically significant decrease in engulfment of RGC inputs compared to WT."
+            }
+          ],
+          "unit_id": "su_312828970ac04bfb16009d09"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_051d1c2cf1efcbe94ff6bfc8",
+              "inference_basis_ids": [
+                "res_a17345b12f63cb2a251c15f4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f2c25ac4ee361daecddb",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "engulfment is dependent upon neural activity"
+              },
+              "statement": "Microglial engulfment of RGC inputs is dependent on neuronal activity."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Intraocular injection of TTX to block retinal activity in one eye, then assessment of engulfment of inputs from TTX-treated vs untreated eye."
+          ],
+          "methods": [
+            {
+              "method_id": "m3",
+              "name": "Activity blockade assay",
+              "protocol_description": "Intraocular injection of tetrodotoxin (TTX) into one eye of P5 mice to block retinal activity, followed by CTB labeling and quantification of engulfed RGC inputs from each eye within microglia."
+            }
+          ],
+          "name": "Engulfment is activity-dependent",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment of RGC inputs after TTX treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "determine that this process is regulated by neuronal activity."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a17345b12f63cb2a251c15f4",
+              "unit": null,
+              "value_raw_text": "Microglia engulfed fewer RGC inputs from the TTX-treated eye compared to the untreated eye."
+            }
+          ],
+          "unit_id": "su_4b190f8ea3fa0abf7016e0ca"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_56c9abd57f8a400c40f01e45",
+              "inference_basis_ids": [
+                "res_c032032ff1d95824de6ba1a1",
+                "res_d2223f76ca5d1b2983c9644b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Disruption in CR3/C3-Dependent Signaling in Microglia Results in Sustained Deficits in Synaptic Connectivity"
+              },
+              "statement": "Disruption of CR3/C3 signaling leads to sustained deficits in synaptic connectivity in the adult retinogeniculate system."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Array tomography in adult (P32-P35) CR3 KO and WT mice to quantify synapse density."
+          ],
+          "methods": [
+            {
+              "method_id": "m5",
+              "name": "Array tomography",
+              "protocol_description": "High-resolution imaging and quantification of VGlut2 (presynaptic) and GluR1 (postsynaptic) puncta in dLGN of adult mice."
+            }
+          ],
+          "name": "Disruption of CR3/C3 leads to sustained synaptic deficits",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Synapse density (VGlut2/GluR1 colocalization)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "there was a statistically significant increase (1.3-fold increase) in RGC synapse density (i.e., juxtaposed GluR1 and VGlut2 puncta) in adult CR3 KOs as compared to WT littermates"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c032032ff1d95824de6ba1a1",
+              "unit": null,
+              "value_raw_text": "1.3-fold increase in synapse density in CR3 KO compared to WT."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Total VGlut2 puncta density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d313eec5c8e22c462b1a",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "there was also a significant increase in the density of total (both synapse associated and nonassociated) VGlut2-positive puncta in CR3 KOs (1.8-fold increase) as compared to WT littermates"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d2223f76ca5d1b2983c9644b",
+              "unit": null,
+              "value_raw_text": "1.8-fold increase in total VGlut2-positive puncta in CR3 KO compared to WT."
+            }
+          ],
+          "unit_id": "su_77c5eac74a221b6b60d2baa8"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c1c0987d716c6f9f8ce1a006",
+              "inference_basis_ids": [
+                "res_3b2650153fc23b5ef6b36391",
+                "res_3ed52dbbcfb70fe86321fff1",
+                "res_a7324a9a7a46ad36b68bc054",
+                "res_f76d874e9fa7f4ee66e169ee"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f2c25ac4ee361daecddb",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We show that microglia engulf presynaptic inputs during peak retinogeniculate pruning"
+              },
+              "statement": "Microglia engulf RGC presynaptic inputs during peak synaptic pruning in the postnatal dLGN."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Colocalization of CTB-labeled RGC inputs with CD68 (lysosomal marker) in P5 dLGN.",
+            "Genetic labeling of RGCs with tdTomato (Chx10-cre/Rosa26-STOP-tdTomato) to confirm engulfment.",
+            "High-resolution confocal imaging of P5 dLGN in CX3CR1+/GFP mice after intraocular injection of CTB-594 and CTB-647 to label RGC inputs.",
+            "pHrodo-dextran anterograde tracing to confirm phagocytosis."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "In vivo phagocytosis assay",
+              "protocol_description": "Intraocular injection of anterograde tracers (CTB-594, CTB-647, pHrodo-dextran) or genetic labeling (Chx10-cre/Rosa26-STOP-tdTomato) to label RGC inputs, followed by confocal imaging and colocalization analysis with microglial markers (CX3CR1-EGFP, CD68) in P5 dLGN."
+            }
+          ],
+          "name": "Microglia engulf RGC inputs during synaptic pruning",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment of RGC inputs by microglia",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "At an age consistent with robust synaptic pruning (P5), microglial processes were in close association with RGC presynaptic inputs (Figure 1B and S2A). Upon closer examination, we detected numerous fluorescently labeled RGC inputs within the processes and soma of microglia (Figure 1B; Movies S1 and S2)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3b2650153fc23b5ef6b36391",
+              "unit": null,
+              "value_raw_text": "Microglial processes and soma contained fluorescently labeled RGC inputs at P5."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Colocalization of engulfed RGC inputs with lysosomal marker CD68",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the majority of engulfed RGC inputs were completely colocalized within lysosomal compartments (Figures 1C–1E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3ed52dbbcfb70fe86321fff1",
+              "unit": null,
+              "value_raw_text": "Majority of engulfed RGC inputs colocalized with CD68 in P5 dLGN."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phagocytosis confirmation with pHrodo",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "pHrodo-positive RGC inputs were localized within microglia (Figures S1A and S1B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a7324a9a7a46ad36b68bc054",
+              "unit": null,
+              "value_raw_text": "pHrodo-positive RGC inputs were localized within microglia."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment confirmed with genetic labeling",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "we observed tdTomato-labeled RGC inputs within lysosomal compartments of microglia."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f76d874e9fa7f4ee66e169ee",
+              "unit": null,
+              "value_raw_text": "tdTomato-labeled RGC inputs observed within lysosomal compartments of microglia."
+            }
+          ],
+          "unit_id": "su_7d57f5eb1b8b948e02875024"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_184ae4c64b3b50aa1219d77f",
+              "inference_basis_ids": [
+                "res_dd513dab77ec15033ea2d594"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "To address whether microglia-mediated engulfment of RGC inputs contributes to the normal process of synaptic pruning, we assessed the developmental regulation of microglia phagocytic capacity."
+              },
+              "statement": "Microglia-mediated engulfment of RGC inputs is developmentally regulated, peaking during the pruning period."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Characterization of microglia activation state through development (P5 vs P30).",
+            "In vivo phagocytosis assay to quantify engulfment at different ages (P5, P9, P30)."
+          ],
+          "methods": [
+            {
+              "method_id": "m2",
+              "name": "Developmental phagocytosis assay",
+              "protocol_description": "Quantification of CTB-labeled RGC inputs within microglia at P5, P9, and P30 using confocal imaging."
+            }
+          ],
+          "name": "Engulfment is developmentally regulated",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfment index",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "01d5b02edc8b5e8e2a23",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "To address whether engulfment of RGC inputs was developmentally regulated, we developed an in vivo phagocytosis assay"
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd513dab77ec15033ea2d594",
+              "unit": null,
+              "value_raw_text": "Engulfment of RGC inputs was significantly higher at P5 compared to P9 and P30."
+            }
+          ],
+          "unit_id": "su_92b845d83d1a97da58538e2a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

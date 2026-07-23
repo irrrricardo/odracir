@@ -1,0 +1,357 @@
+{
+  "coverage_ledger": {
+    "09b53d7f3929b794422b": "extracted",
+    "0bf2901515b3d2688068": "not_selected",
+    "0d9f9729d21b287472c5": "not_selected",
+    "19fbb57b57f63d37bb65": "not_selected",
+    "201bf67cc4457eafbd44": "not_selected",
+    "26b0932b2f57e3223b91": "not_selected",
+    "2d2f334167981c5a94f9": "not_selected",
+    "2f2126b0d81841b34cdd": "not_selected",
+    "316b098f7075de691f1e": "extracted",
+    "502d1090508eed881169": "not_selected",
+    "676f771859969e3de062": "not_selected",
+    "7c6f701618b03d405c83": "not_selected",
+    "980da9b0f165bf598795": "extracted",
+    "c271c2f147e28d754d15": "not_selected",
+    "c8cf6ee7187e38e602ba": "extracted",
+    "c99e7d1d10cb7805f708": "not_selected",
+    "d5737d5581fc956051e5": "not_selected",
+    "ecd5edc2504e7eefdb80": "not_selected",
+    "ee08409102a17a3892e3": "not_selected",
+    "feb5d1c2019a930b6062": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Current pretraining does not inherently mitigate batch effects, constraining zero-shot performance on datasets with substantial technical variation.",
+    "Evaluation is complex due to frequent absence of definitive biological ground truths and variation in data quality.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_15.pdf",
+    "source_sha256": "a05bd9426e116584999a131ba9e9889d393beb9b732291237c64771542bcf80c"
+  },
+  "paper_id": "1_15",
+  "quality_assessment": {
+    "correct_item_count": 24,
+    "deterministic_rule_score": 0.8121,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 24,
+    "f1": 0.8136,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 11,
+    "missed_core_items": [
+      {
+        "description": "scaling effect: larger pretraining data sizes yield improved performance on downstream tasks",
+        "item_id": null,
+        "source_chunk_id": "c271c2f147e28d754d15",
+        "source_excerpt": "We observed that the performance of fine-tuned models improved as the amount of pretraining data increased (Supplementary Note 4). These results indicate a scaling effect, suggesting that greater pretraining data size leads to better pretrained embeddings and improved performance on downstream tasks.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "in-context pretraining effect: organ-specific models pretrained on relevant cell types perform better on downstream tasks",
+        "item_id": null,
+        "source_chunk_id": "c271c2f147e28d754d15",
+        "source_excerpt": "Our analysis revealed a clear correlation between the relevance of the model's context in pretraining and its subsequent performance for integrating data (Supplementary Fig. 8).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "scGPT outperforms models trained from scratch (scGPT from scratch) in downstream tasks",
+        "item_id": null,
+        "source_chunk_id": "c271c2f147e28d754d15",
+        "source_excerpt": "The results are presented in Supplementary Tables 2–4, where the fine-tuned scGPT consistently showcases performance gain for tasks such as integration and cell type annotation.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "scGPT achieves state-of-the-art performance on batch correction and multi-omic integration tasks",
+        "item_id": null,
+        "source_chunk_id": "d5737d5581fc956051e5",
+        "source_excerpt": "scGPT consistently achieves competitive scores across all integration metrics and demonstrates strong conservation of biological signals (Supplementary Table 3 and Supplementary Figs. 6 and 7).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "scGPT demonstrates superior performance in multi-omic integration on BMMC dataset with 9% improvement in AvgBIO score over Seurat",
+        "item_id": null,
+        "source_chunk_id": "d5737d5581fc956051e5",
+        "source_excerpt": "scGPT presented more defined cluster structures than Seurat (v.4), with a 9% improvement in the AvgBIO score.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "scGPT demonstrates superior performance in mosaic data integration on ASAP PBMC dataset",
+        "item_id": null,
+        "source_chunk_id": "d5737d5581fc956051e5",
+        "source_excerpt": "scGPT demonstrated superior batch correction performance as shown in Fig. 4d, especially in groups of B, myeloid and natural killer (NK) cells.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "scGPT achieves state-of-the-art performance on perturbation prediction, outperforming GEARS and linear regression by 5-20% margins",
+        "item_id": null,
+        "source_chunk_id": "c99e7d1d10cb7805f708",
+        "source_excerpt": "Our results demonstrate that scGPT achieved the highest scores for all three datasets (Fig. 3a and Supplementary Table 6). Particularly, scGPT excelled in predicting post-perturbation changes, consistently outperforming the others by 5–20% margins.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "scGPT achieves 91.4% relevant and 65.7% correct reverse perturbation predictions within top 8, outperforming GEARS and differential gene baseline",
+        "item_id": null,
+        "source_chunk_id": "ee08409102a17a3892e3",
+        "source_excerpt": "scGPT identified on average 91.4% relevant perturbations (6.4 of seven) within the top 1 predictions (blue bars in Fig. 3g) and 65.7% correct perturbations (4.6 of seven test cases) within the top 8 predictions (pink bars in Fig. 3g), outperforming GEARS and the differential gene baseline by a considerable margin.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "scGPT demonstrates ability to group functionally related genes and differentiate functionally distinct genes via learned gene token embeddings (HLA and CD gene networks)",
+        "item_id": null,
+        "source_chunk_id": "7c6f701618b03d405c83",
+        "source_excerpt": "scGPT demonstrates its ability to group functionally related genes and differentiate functionally distinct genes via learned gene token embeddings.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "scGPT uncovers meaningful gene programs with cell type-specific activation, validated by pathway enrichment analysis showing higher number of enriched pathways compared to coexpression network",
+        "item_id": null,
+        "source_chunk_id": "201bf67cc4457eafbd44",
+        "source_excerpt": "scGPT consistently demonstrates a substantially higher number of enriched pathways across all clustering resolutions.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "scGPT attention mechanism captures cell state-specific gene-gene interactions validated by ChIP-Atlas for DDIT3 and BHLHE40 perturbations",
+        "item_id": null,
+        "source_chunk_id": "c271c2f147e28d754d15",
+        "source_excerpt": "In the Adamson CRISPR interference dataset33, scGPT identified the top 20 genes most influenced by repression of DDIT3 (encoding a transcription factor), which were all found to be signaling targets of DDIT3 in the ChIP-Atlas database51 (Fig. 6b).",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.6857
+  },
+  "quality_score": 0.8136,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "Can a generative pretrained transformer foundation model, scGPT, be built for single-cell multi-omics using large-scale single-cell sequencing data and achieve superior performance across diverse downstream tasks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_180b77e935749c0f73061024",
+              "inference_basis_ids": [
+                "res_d2f43a6d86d4a52029a1a306"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "316b098f7075de691f1e",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "achieved a high accuracy of around 0.85"
+              },
+              "statement": "scGPT achieves high accuracy (~0.85) on a multiple sclerosis disease dataset for cell type annotation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5cf68f45af0cd0f13ed7e9f8",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "316b098f7075de691f1e",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "scGPT constantly outperformed the other methods in all classification metrics, including accuracy, precision, recall and macro F1"
+              },
+              "statement": "scGPT consistently outperforms TOSICA and scBERT in cell type annotation across three datasets."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bf07762c8973fbb55ff738ea",
+              "inference_basis_ids": [
+                "res_e6393b6bd7736a310c8072f3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "316b098f7075de691f1e",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "scGPT achieved high precision (>0.8) for most cell types shown in the confusion matrix"
+              },
+              "statement": "scGPT achieves high precision (>0.8) for most cell types in cell type annotation on a human pancreas dataset."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d18aebfb808c9e789c312924",
+              "inference_basis_ids": [
+                "res_9a27e3a4a598dd0458e5b44f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "09b53d7f3929b794422b",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We calculated the Pearsondelta metric, which measures the correlation between predicted and observed post-perturbation expression changes."
+              },
+              "statement": "scGPT can predict unseen genetic perturbation responses using Pearsondelta metric."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "d1",
+              "description": "scRNA-seq data from 33 million human cells under normal conditions, encompassing 51 organs/tissues and 441 studies.",
+              "name": "CELLxGENE collection",
+              "version_or_split": "33 million normal human cells"
+            },
+            {
+              "dataset_id": "d2",
+              "description": "Dataset used for cell type annotation fine-tuning and evaluation.",
+              "name": "Human pancreas dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "d3",
+              "description": "Disease dataset of multiple sclerosis, used for cell type annotation evaluation.",
+              "name": "Multiple sclerosis (MS) dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "d4",
+              "description": "Dataset with six cancer types for reference and three unseen cancer types for query.",
+              "name": "Tumor-infiltrating myeloid dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "d5",
+              "description": "Perturb-seq dataset of leukemia cell lines with 87 one-gene perturbations.",
+              "name": "Adamson Perturb-seq dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "d6",
+              "description": "Curated Perturb-seq dataset with 1,823 one-gene perturbations.",
+              "name": "Replogle Perturb-seq dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "d7",
+              "description": "Perturb-seq dataset with 131 two-gene and 105 one-gene perturbations.",
+              "name": "Norman Perturb-seq dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "scGPT can be optimized for tasks including cell type annotation, multi-batch integration, multi-omic integration, perturbation response prediction and gene network inference.",
+              "provenance": {
+                "chunk_id": "c8cf6ee7187e38e602ba",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "scGPT can be optimized to achieve superior performance across diverse downstream applications. This includes tasks such as cell type annotation, multi-batch integration, multi-omic integration, perturbation response prediction and gene network inference."
+              },
+              "span_id": "es2"
+            },
+            {
+              "content": "scGPT is a foundation model for single-cell biology based on a generative pretrained transformer across over 33 million cells.",
+              "provenance": {
+                "chunk_id": "c8cf6ee7187e38e602ba",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we have constructed a foundation model for single-cell biology, scGPT, based on a generative pretrained transformer across a repository of over 33 million cells."
+              },
+              "span_id": "es1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluated performance on multiple datasets including human pancreas, multiple sclerosis, tumor-infiltrating myeloid, and Perturb-seq datasets.",
+            "Fine-tuned scGPT for cell type annotation, perturbation prediction, batch correction, multi-omic integration, and gene network inference.",
+            "Pretrained scGPT on 33 million normal human cells from CELLxGENE collection."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "scGPT pretraining",
+              "protocol_description": "Generative pretraining on 33 million normal human cells using a transformer with masked attention, trained to predict gene expression in a self-supervised manner."
+            },
+            {
+              "method_id": "m2",
+              "name": "Fine-tuning for cell type annotation",
+              "protocol_description": "A neural network classifier takes scGPT cell embedding as input and is trained with cross-entropy on a reference dataset with expert annotations."
+            },
+            {
+              "method_id": "m3",
+              "name": "Fine-tuning for perturbation prediction",
+              "protocol_description": "Model fine-tuned on a subset of perturbations to predict perturbed expression profile given control cell state and perturbed genes; tested on unseen perturbations."
+            }
+          ],
+          "name": "scGPT pretraining and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Pearsondelta",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "09b53d7f3929b794422b",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We calculated the Pearsondelta metric, which measures the correlation between predicted and observed post-perturbation expression changes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9a27e3a4a598dd0458e5b44f",
+              "unit": null,
+              "value_raw_text": "Pearsondelta metric calculated for perturbation prediction"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "316b098f7075de691f1e",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "achieved a high accuracy of around 0.85"
+              },
+              "quantitative_value": 0.85,
+              "result_id": "res_d2f43a6d86d4a52029a1a306",
+              "unit": null,
+              "value_raw_text": "around 0.85"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Precision",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "316b098f7075de691f1e",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "scGPT achieved high precision (>0.8) for most cell types shown in the confusion matrix"
+              },
+              "quantitative_value": 0.8,
+              "result_id": "res_e6393b6bd7736a310c8072f3",
+              "unit": null,
+              "value_raw_text": ">0.8 for most cell types"
+            }
+          ],
+          "unit_id": "su_4c1c81d601f1cc4b87cd476b"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

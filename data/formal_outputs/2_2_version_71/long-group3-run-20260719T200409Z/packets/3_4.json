@@ -1,0 +1,484 @@
+{
+  "coverage_ledger": {
+    "049301f99214a13bc970": "not_selected",
+    "25c830c247a13bad52f5": "extracted",
+    "29175ec257e8560ffb54": "not_selected",
+    "42f9487e0ff27de57631": "not_selected",
+    "4d212046ea05be4d71b1": "not_selected",
+    "51535af48c898f57e237": "extracted",
+    "77fb74bbead29cee8705": "extracted",
+    "7864598a4a3a3f3f591d": "not_selected",
+    "9709cc56e42e02d539cc": "not_selected",
+    "98c7bbd5a5308ed49792": "not_selected",
+    "c1f31f216be90f5db96d": "not_selected",
+    "ec69e7a91e7ad6f91004": "not_selected",
+    "fca1e8a72e948b89ff74": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study does not provide in vivo evidence for the proposed model.",
+    "The experiments are primarily in cell lines (MCF10A, MII, MDA-MB-231) and may not fully recapitulate in vivo tissue contexts."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_4.pdf",
+    "source_sha256": "222970eda2f06aa5f07d685a812a850d064cc5294ea28ded0e5dc5d4d065263c"
+  },
+  "paper_id": "3_4",
+  "quality_assessment": {
+    "correct_item_count": 24,
+    "deterministic_rule_score": 0.9162,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 24,
+    "f1": 0.9057,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "The study uses a microdevice to apply stretching to epithelial monolayers and shows that stretching overcomes YAP/TAZ inhibition and growth arrest in contact-inhibited cells.",
+        "item_id": null,
+        "source_chunk_id": "049301f99214a13bc970",
+        "source_excerpt": "we developed a microdevice that reproduces some of the mechanical challenges experienced by tissues, such as stretching (Figures 2A and S2A–S2C).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study reports that YAP/TAZ activity depends on formin-dependent F-actin bundles, as shown by inhibitor experiments.",
+        "item_id": null,
+        "source_chunk_id": "ec69e7a91e7ad6f91004",
+        "source_excerpt": "qPCR for CTGF indicated that YAP/TAZ activity mostly depends on F-actin bundles (Figure 3E).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study shows that depletion of CapZ does not decrease YAP phosphorylation, indicating that cytoskeletal regulation of YAP/TAZ is independent of Hippo-mediated phosphorylation.",
+        "item_id": null,
+        "source_chunk_id": "51535af48c898f57e237",
+        "source_excerpt": "knockdown of CapZ left the YAP/TAZ phosphorylation levels completely unchanged, as shown by Phos-TAG analysis (Figure 6D);",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study demonstrates that LATS1/2 depletion alone cannot rescue contact inhibition of proliferation in large fibronectin-coated islands, but combined depletion with CapZ fully rescues proliferation in the center.",
+        "item_id": null,
+        "source_chunk_id": "51535af48c898f57e237",
+        "source_excerpt": "in large square (or round) fibronectin-coated islands, LATS1/2 depletion alone could not rescue CIP (Figures 6I, S6E, S6F) ... combined depletion of CapZ and LATS1/2 fully rescued the blockade of S phase entry in cells located at the center of the epithelial sheets",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study shows that 4SA-TAZ-expressing cells in stiff 3D ECM do not form tubular structures but invade as single cells, indicating unleashed TAZ activity.",
+        "item_id": null,
+        "source_chunk_id": "51535af48c898f57e237",
+        "source_excerpt": "in the more rigid ECM, 4SA-TAZ-expressing cells did not form tubular structures and invaded the matrix as single cells.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8276
+  },
+  "quality_score": 0.9057,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "How do mechanical forces regulate YAP/TAZ activity in multicellular contexts?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_26654dd38458ee1f09727661",
+              "inference_basis_ids": [
+                "res_0d64f0e3b70310768695b1c0",
+                "res_19fc54fb58edfa52dbb205bf",
+                "res_834d7bab103b8f74b428c94c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "LATS1/2 are effective inhibitors of YAP/TAZ only in the context of a mechanically competent F-actin cytoskeleton."
+              },
+              "statement": "LATS-mediated inhibition of YAP/TAZ requires a mechanically competent F-actin cytoskeleton."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_30ccbf2d6a5db96af4aeecd9",
+              "inference_basis_ids": [
+                "res_0d64f0e3b70310768695b1c0",
+                "res_19fc54fb58edfa52dbb205bf",
+                "res_5e83bbffacdcc600792ebc36",
+                "res_834d7bab103b8f74b428c94c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Cytoskeletal Regulation of YAP/TAZ Dominates over Hippo Signaling"
+              },
+              "statement": "Cytoskeletal regulation of YAP/TAZ dominates over Hippo signaling."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_420a03d423026b78678812b4",
+              "inference_basis_ids": [
+                "res_5bab9ddec1a03bbe9c489aef",
+                "res_ec07775887e2a87cc1b47859"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "25c830c247a13bad52f5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We identify the F-actin-capping/severing proteins Cofilin, CapZ, and Gelsolin as essential gatekeepers that limit YAP/TAZ activity in cells experiencing low mechanical stresses, including contact inhibition of proliferation."
+              },
+              "statement": "F-actin-capping/severing proteins Cofilin, CapZ, and Gelsolin are essential gatekeepers that limit YAP/TAZ activity in cells experiencing low mechanical stresses."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9cd0577d4364812b6f99a36c",
+              "inference_basis_ids": [
+                "res_0d64f0e3b70310768695b1c0",
+                "res_19fc54fb58edfa52dbb205bf",
+                "res_5e83bbffacdcc600792ebc36",
+                "res_6eaad4c8d3ae7f6678090e49",
+                "res_834d7bab103b8f74b428c94c",
+                "res_885fbb5f38a038d8d4c65c50",
+                "res_f76ba5b4e1b5a4a7424f26d2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "25c830c247a13bad52f5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We propose that mechanical forces are overarching regulators of YAP/TAZ in multicellular contexts, setting responsiveness to Hippo, WNT, and GPCR signaling."
+              },
+              "statement": "Mechanical forces are overarching regulators of YAP/TAZ in multicellular contexts, setting responsiveness to Hippo, WNT, and GPCR signaling."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d7b05b18583cadfdbea93bf7",
+              "inference_basis_ids": [
+                "res_6eaad4c8d3ae7f6678090e49",
+                "res_f76ba5b4e1b5a4a7424f26d2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "77fb74bbead29cee8705",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "mechanical cues also dominate the cellular response to soluble cues positively affecting YAP and TAZ activity. We show that YAP/TAZ activation by WNT or GPCR signaling requires a mechanically stressed cytoskeleton or, in cells experiencing a soft ECM, inactivation of F-actin capping and severing proteins."
+              },
+              "statement": "Mechanical cues dominate the cellular response to soluble cues (WNT, GPCR) positively affecting YAP/TAZ activity."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Combined depletion of CapZ and LATS1/2 cooperated to fully induce nuclear localization of YAP and TAZ in cells seeded on soft hydrogels and dense conditions.",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "combined depletion of CapZ and LATS1/2 cooperated to fully induce nuclear localization of YAP and TAZ in cells seeded on soft hydrogels and dense conditions (Figures 6E and 6F)"
+              },
+              "span_id": "es4"
+            },
+            {
+              "content": "Combined depletion of CapZ and LATS1/2 fully rescued the blockade of S phase entry in cells located at the center of the epithelial sheets, triggering unabated proliferation evenly throughout the island.",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "combined depletion of CapZ and LATS1/2 fully rescued the blockade of S phase entry in cells located at the center of the epithelial sheets, triggering unabated proliferation evenly throughout the island (Figures 6I and S6F)."
+              },
+              "span_id": "es6"
+            },
+            {
+              "content": "Depletion of LATS1/2 could not rescue YAP/TAZ inhibition by a soft environment.",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "depletion of LATS1/2 could not rescue YAP/TAZ inhibition by a soft environment (Figures 6C)"
+              },
+              "span_id": "es3"
+            },
+            {
+              "content": "Depletion of capping and severing proteins re-empowered YAP/TAZ activation by WNT and GPCR signaling on soft ECM.",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "depletion of capping and severing proteins re-empowered YAP/TAZ activation by WNT and GPCR signaling (Figures 6K, 6L, and data not shown)."
+              },
+              "span_id": "es8"
+            },
+            {
+              "content": "Knockdown of APC caused robust upregulation of YAP/TAZ-dependent transcription on stiff substrates but minimal effect on soft matrix. TRAP6 operated only on stiff matrices.",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "knockdown of APC (mimicking WNT signaling by inactivation of the APC/Axin/GSK3 TAZ destruction complex; Azzolin et al., 2012) caused robust upregulation of YAP/TAZ-dependent transcription in cells cultured on stiff substrates but had minimal effect in cells seeded on a soft matrix. Similarly, addition of TRAP6, a positive inducer of YAP/TAZ activity through GPCR signaling, could operate only in cells cultured on stiff but not soft matrices (Figure 6L)."
+              },
+              "span_id": "es7"
+            },
+            {
+              "content": "LATS1/2 depletion in either soft or dense MEC cultures was inconsequential per se but potently synergized with CapZ depletion to maximize YAP/TAZ transcriptional activity.",
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "LATS1/2 depletion in either soft or dense MEC cultures was inconsequential per se but potently synergized with CapZ depletion to maximize YAP/TAZ transcriptional activity (Figures 6G and 6H)"
+              },
+              "span_id": "es5"
+            },
+            {
+              "content": "We identify the F-actin-capping/severing proteins Cofilin, CapZ, and Gelsolin as essential gatekeepers that limit YAP/TAZ activity in cells experiencing low mechanical stresses, including contact inhibition of proliferation.",
+              "provenance": {
+                "chunk_id": "25c830c247a13bad52f5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We identify the F-actin-capping/severing proteins Cofilin, CapZ, and Gelsolin as essential gatekeepers that limit YAP/TAZ activity in cells experiencing low mechanical stresses, including contact inhibition of proliferation."
+              },
+              "span_id": "es2"
+            },
+            {
+              "content": "YAP/TAZ activity is confined to cells exposed to mechanical stresses, such as stretching, location at edges/curvatures contouring an epithelial sheet, or stiffness of the surrounding extracellular matrix.",
+              "provenance": {
+                "chunk_id": "25c830c247a13bad52f5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "YAP/TAZ activity is confined to cells exposed to mechanical stresses, such as stretching, location at edges/curvatures contouring an epithelial sheet, or stiffness of the surrounding extracellular matrix."
+              },
+              "span_id": "es1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Identification of F-actin-capping/severing proteins (Cofilin, CapZ, Gelsolin) as gatekeepers limiting YAP/TAZ activity under low mechanical stress.",
+            "Investigation of YAP/TAZ localization in response to mechanical stresses such as stretching, edge/curvature location, and ECM stiffness."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "Cell culture and transfection",
+              "protocol_description": "MCF10A and MII cells were used. siRNA transfections were performed with Lipofectamine RNAi-MAX. DNA transfections were done with TransitLT1. Cells were plated on fibronectin-coated hydrogels or micropatterned glass slides."
+            },
+            {
+              "method_id": "m2",
+              "name": "Immunofluorescence and microscopy",
+              "protocol_description": "Cells were fixed and stained with anti-YAP/TAZ antibody. Nuclear localization was scored as nuclear (N), even (N/C), or cytoplasmic (C)."
+            },
+            {
+              "method_id": "m3",
+              "name": "Luciferase reporter assay",
+              "protocol_description": "8XGTIIC-lux reporter was used to measure YAP/TAZ transcriptional activity."
+            },
+            {
+              "method_id": "m4",
+              "name": "3D culture assay",
+              "protocol_description": "Cells were embedded in Growth Factor Reduced Matrigel and Collagen I mixes. Colony size and morphology were assessed."
+            }
+          ],
+          "name": "Mechanical regulation of YAP/TAZ in multicellular sheets",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ transcriptional activity after combined CapZ and LATS1/2 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "LATS1/2 depletion in either soft or dense MEC cultures was inconsequential per se but potently synergized with CapZ depletion to maximize YAP/TAZ transcriptional activity (Figures 6G and 6H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0d64f0e3b70310768695b1c0",
+              "unit": null,
+              "value_raw_text": "LATS1/2 depletion in soft or dense MEC cultures was inconsequential per se but potently synergized with CapZ depletion to maximize YAP/TAZ transcriptional activity."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proliferation in large islands after combined CapZ and LATS1/2 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "combined depletion of CapZ and LATS1/2 fully rescued the blockade of S phase entry in cells located at the center of the epithelial sheets, triggering unabated proliferation evenly throughout the island (Figures 6I and S6F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_19fc54fb58edfa52dbb205bf",
+              "unit": null,
+              "value_raw_text": "Combined depletion of CapZ and LATS1/2 fully rescued the blockade of S phase entry in cells at the center of epithelial sheets, triggering proliferation throughout the island."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ activity after knockdown of F-actin-capping/severing proteins",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "We next sustained endogenous YAP/TAZ activity in cells embedded in the soft ECM through siRNA-mediated knockdown of Cofilin or Gelsolin. Strikingly, this induced the formation of bigger acini and caused the appearance of elongated or branched structures (Figure 5C) and was paralleled by YAP/TAZ-dependent induction of CTGF and CYR61 mRNAs (Figure 5D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5bab9ddec1a03bbe9c489aef",
+              "unit": null,
+              "value_raw_text": "Depletion of Cofilin or Gelsolin in cells embedded in soft ECM induced formation of bigger acini and elongated/branched structures, with YAP/TAZ-dependent induction of CTGF and CYR61 mRNAs."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ activity after LATS1/2 knockdown on soft ECM",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "depletion of LATS1/2 could not rescue YAP/TAZ inhibition by a soft environment (Figures 6C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5e83bbffacdcc600792ebc36",
+              "unit": null,
+              "value_raw_text": "Depletion of LATS1/2 could not rescue YAP/TAZ inhibition by a soft environment."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ activity after WNT or GPCR signaling combined with depletion of capping/severing proteins",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "depletion of capping and severing proteins re-empowered YAP/TAZ activation by WNT and GPCR signaling (Figures 6K, 6L, and data not shown)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6eaad4c8d3ae7f6678090e49",
+              "unit": null,
+              "value_raw_text": "Depletion of capping and severing proteins re-empowered YAP/TAZ activation by WNT and GPCR signaling on soft ECM."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP phosphorylation after LatrunculinA treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Fully confirming these associations, we also found increased YAP/TAZ phosphorylation in cells treated with LatrunculinA, an F-actin inhibitory drug (Figure 6A)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_732e125dddb5284ef837e434",
+              "unit": null,
+              "value_raw_text": "Increased YAP/TAZ phosphorylation in cells treated with LatrunculinA, an F-actin inhibitory drug."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ activity after combined CapZ and LATS1/2 knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "combined depletion of CapZ and LATS1/2 cooperated to fully induce nuclear localization of YAP and TAZ in cells seeded on soft hydrogels and dense conditions (Figures 6E and 6F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_834d7bab103b8f74b428c94c",
+              "unit": null,
+              "value_raw_text": "Combined depletion of CapZ and LATS1/2 cooperated to fully induce nuclear localization of YAP and TAZ in cells on soft hydrogels and dense conditions."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ nuclear localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "25c830c247a13bad52f5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "YAP/TAZ activity is confined to cells exposed to mechanical stresses, such as stretching, location at edges/curvatures contouring an epithelial sheet, or stiffness of the surrounding extracellular matrix."
+              },
+              "quantitative_value": null,
+              "result_id": "res_885fbb5f38a038d8d4c65c50",
+              "unit": null,
+              "value_raw_text": "YAP/TAZ activity is confined to cells exposed to mechanical stresses, such as stretching, location at edges/curvatures, or stiff ECM."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proliferation in 3D acini",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Using phosphohistone-3 as proliferation marker, acini transfected with control siRNA were mainly growth arrested, whereas Cofilin- or Gelsolin-depleted spheroids retained proliferative activity (Figure 5E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ec07775887e2a87cc1b47859",
+              "unit": null,
+              "value_raw_text": "Acini transfected with control siRNA were mainly growth arrested, whereas Cofilin- or Gelsolin-depleted spheroids retained proliferative activity (phosphohistone-3 marker)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ activity after WNT or GPCR signaling on soft vs stiff ECM",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "51535af48c898f57e237",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "knockdown of APC (mimicking WNT signaling by inactivation of the APC/Axin/GSK3 TAZ destruction complex; Azzolin et al., 2012) caused robust upregulation of YAP/TAZ-dependent transcription in cells cultured on stiff substrates but had minimal effect in cells seeded on a soft matrix. Similarly, addition of TRAP6, a positive inducer of YAP/TAZ activity through GPCR signaling, could operate only in cells cultured on stiff but not soft matrices (Figure 6L)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f76ba5b4e1b5a4a7424f26d2",
+              "unit": null,
+              "value_raw_text": "Knockdown of APC (mimicking WNT signaling) caused robust upregulation of YAP/TAZ-dependent transcription on stiff substrates but minimal effect on soft matrix. Similarly, TRAP6 (GPCR inducer) operated only on stiff matrices."
+            }
+          ],
+          "unit_id": "su_d8575f0349b47353119f5331"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

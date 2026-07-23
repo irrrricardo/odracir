@@ -1,0 +1,593 @@
+{
+  "coverage_ledger": {
+    "09d7601319cb1642a677": "not_selected",
+    "12c874da392db6c0457a": "extracted",
+    "26bffe4d7448832a8bdd": "extracted",
+    "2b0071fc5488ac34bfe2": "not_selected",
+    "32e07c1a0b898d77d684": "not_selected",
+    "3b22b17f9739728d26c1": "not_selected",
+    "3fab1b230003a36b9fb6": "not_selected",
+    "568f69c11dd6f3e5fdae": "extracted",
+    "5bc0326e045852889e7a": "not_selected",
+    "7521a5be752b570d6f17": "not_selected",
+    "7ef8e17d4675cdbf4702": "not_selected",
+    "87e555797ad71fb75010": "not_selected",
+    "8e40193a80bffbedf405": "not_selected",
+    "915b400261baf72ebb64": "extracted",
+    "babbba5f23e81398e68a": "not_selected",
+    "dca3f92aec7b1c540363": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study uses a mouse model of LPS-induced neuroinflammation, which may not fully recapitulate human neuroinflammatory conditions.",
+    "The causal role of C1q is inferred from neutralization antibody experiments; genetic knockout or knockdown studies were not performed.",
+    "The study focuses on hippocampal CA1 region; other brain regions may be affected differently."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_15.pdf",
+    "source_sha256": "16782fe29444e20d6eaba800069db8a9cd71f4cd7f841aec81529b8384d50eb4"
+  },
+  "paper_id": "2_15",
+  "quality_assessment": {
+    "correct_item_count": 44,
+    "deterministic_rule_score": 0.9364,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.9375
+    },
+    "extracted_item_count": 44,
+    "f1": 0.9778,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 2,
+    "missed_core_items": [
+      {
+        "description": "Golgi staining experiment showing dendritic spine density reduction in LPS group and rescue by anti-C1q",
+        "item_id": null,
+        "source_chunk_id": "09d7601319cb1642a677",
+        "source_excerpt": "The dendritic spine density was significantly reduced in the LPS + PBS group, which was prevented by C1q-neutralization antibody [Interaction: F(1, 39) = 1.061, P = 0.3093; LPS, F(1, 39) = 28.89, P < 0.0001; Rescue, F(1, 39) = 10.23, P = 0.0027, Fig. 3D–E].",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "In vivo LFP recording showing decreased theta oscillation power in LPS group and rescue by anti-C1q",
+        "item_id": null,
+        "source_chunk_id": "12c874da392db6c0457a",
+        "source_excerpt": "Compared with the control group, mice in the LPS group had a significantly lower power of theta oscillations in the Y maze. Moreover, C1q-neutralization antibody reversed the decreased power of theta oscillations [Interaction: F(1, 23) = 9.210, P = 0.0059; LPS, F(1, 23) = 11.73, P = 0.0023; Rescue, F(1, 23) = 1.602, P = 0.2183, Fig. 8C]",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9565
+  },
+  "quality_score": 0.9778,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "What is the role of complement C1q in microglia-dependent synaptic loss and cognitive impairments in a mouse model of LPS-induced neuroinflammation?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_585765c7e1cd6bf8004642ad",
+              "inference_basis_ids": [
+                "res_628f24ff9337657a810d4278"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "915b400261baf72ebb64",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Repeated LPS injections induced an up-regulation of complement system protein c1q"
+              },
+              "statement": "Repeated LPS injections induce up-regulation of complement system protein C1q in the hippocampus."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Repeated intraperitoneal LPS injections (0.5 mg/kg daily for 7 days) in mice to induce neuroinflammation.",
+            "Transcriptome sequencing and proteomics analysis of hippocampus to identify differentially expressed proteins.",
+            "Western blot validation of C1q protein levels in hippocampus."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "LPS injection protocol",
+              "protocol_description": "Mice received intraperitoneal administrations of LPS (0.5 mg/kg, daily, Escherichia coli O55:B5) for seven consecutive days."
+            },
+            {
+              "method_id": "m2",
+              "name": "Transcriptome and proteomics analysis",
+              "protocol_description": "Hippocampus was harvested for transcriptome and proteomics analysis to identify differentially expressed genes and proteins."
+            },
+            {
+              "method_id": "m3",
+              "name": "Western blotting",
+              "protocol_description": "Hippocampal tissue was processed for Western blotting to measure C1q protein levels."
+            }
+          ],
+          "name": "LPS-induced neuroinflammation model and C1q expression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "TNF-α expression",
+              "n_sample_size": null,
+              "p_value": 0.0373,
+              "provenance": {
+                "chunk_id": "568f69c11dd6f3e5fdae",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "up-regulation of TNF-ɑ [F(4, 15) = 3.364, P = 0.0373; Ctrl vs. 3d: P = 0.0198, Ctrl vs. 5d: P = 0.3045, Ctrl vs. 7d: P = 0.0257, Figs. S2A and C]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1621ae8a1f18ed80eff1f2c6",
+              "unit": null,
+              "value_raw_text": "Up-regulation of TNF-α persisted on day 7 after LPS administration [F(4,15)=3.364, P=0.0373; Ctrl vs. 3d: P=0.0198, Ctrl vs. 5d: P=0.3045, Ctrl vs. 7d: P=0.0257]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q protein expression",
+              "n_sample_size": null,
+              "p_value": 0.0022,
+              "provenance": {
+                "chunk_id": "568f69c11dd6f3e5fdae",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "the protein levels of C1q were significantly increased in the LPS group compared with the control group [t = 5.002, P = 0.0022, Fig. 1D–E]."
+              },
+              "quantitative_value": null,
+              "result_id": "res_628f24ff9337657a810d4278",
+              "unit": null,
+              "value_raw_text": "C1q protein levels were significantly increased in the LPS group compared with the control group [t = 5.002, P = 0.0022]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "IL-1β expression",
+              "n_sample_size": null,
+              "p_value": 0.0043,
+              "provenance": {
+                "chunk_id": "568f69c11dd6f3e5fdae",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "IL-1β [F(4, 15) = 6.000, P = 0.0043; Ctrl vs. 3d: P = 0.0279, Ctrl vs. 5d: P = 0.0203, Ctrl vs. 7d: P = 0.0138, Figs. S2B and D]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_973f6c8513bb2b979b63b4b3",
+              "unit": null,
+              "value_raw_text": "Up-regulation of IL-1β persisted on day 7 after LPS administration [F(4,15)=6.000, P=0.0043; Ctrl vs. 3d: P=0.0279, Ctrl vs. 5d: P=0.0203, Ctrl vs. 7d: P=0.0138]"
+            }
+          ],
+          "unit_id": "su_0299dd2b48234847514b6dd6"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e523d905cd2577368e417d22",
+              "inference_basis_ids": [
+                "res_050830b43e4ac84fd0af2801",
+                "res_fde0bc53745be03daa1bef9e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "568f69c11dd6f3e5fdae",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "mice in the LPS + PBS group showed lesser spontaneous alternation than those in the control + PBS group, which was reversed by C1q-neutralization antibody"
+              },
+              "statement": "C1q-neutralization antibody reverses LPS-induced cognitive impairments in Y-maze and novel object recognition tests."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Behavioral tests: open field, Y-maze, novel object recognition.",
+            "C1q-neutralization antibody injected into hippocampal CA1 to block C1q signaling."
+          ],
+          "methods": [
+            {
+              "method_id": "m4",
+              "name": "C1q-neutralization antibody administration",
+              "protocol_description": "C1q-neutralization antibody was applied in the hippocampal CA1 to block C1q signaling."
+            },
+            {
+              "method_id": "m5",
+              "name": "Behavioral tests",
+              "protocol_description": "Open field test, Y-maze spontaneous alternation, and novel object recognition test were performed to assess cognitive function."
+            }
+          ],
+          "name": "C1q neutralization and cognitive behavior",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Discrimination index in novel object recognition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "568f69c11dd6f3e5fdae",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "In the novel object recognition test, mice in the LPS + PBS group showed decreased discrimination index than those in the control + PBS group, which was reversed by C1q-neutralization antibody [Object1 vs Object2: control + PBS: t = 0.1202, P = 0.9063; control + anti-C1q: t = 0.1980, P = 0.8464; LPS + PBS: t = 0.5802, P = 0.5725; LPS + anti-C1q: t = 1.191, P ="
+              },
+              "quantitative_value": null,
+              "result_id": "res_050830b43e4ac84fd0af2801",
+              "unit": null,
+              "value_raw_text": "Mice in the LPS+PBS group showed decreased discrimination index than control+PBS, reversed by C1q-neutralization antibody [Object1 vs Object2: control+PBS: t=0.1202, P=0.9063; control+anti-C1q: t=0.1980, P=0.8464; LPS+PBS: t=0.5802, P=0.5725; LPS+anti-C1q: t=1.191, P=...]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Spontaneous alternation in Y-maze",
+              "n_sample_size": null,
+              "p_value": 0.044,
+              "provenance": {
+                "chunk_id": "568f69c11dd6f3e5fdae",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "mice in the LPS + PBS group showed lesser spontaneous alternation than those in the control + PBS group, which was reversed by C1q-neutralization antibody [Interaction: F(1, 56) = 4.248, P = 0.0440; LPS, F(1, 56) = 6.116, P = 0.0165; Rescue, F(1, 56) = 3.087, P = 0.0844, Fig. 2C]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fde0bc53745be03daa1bef9e",
+              "unit": null,
+              "value_raw_text": "Mice in the LPS+PBS group showed lesser spontaneous alternation than control+PBS, reversed by C1q-neutralization antibody [Interaction: F(1,56)=4.248, P=0.0440; LPS, F(1,56)=6.116, P=0.0165; Rescue, F(1,56)=3.087, P=0.0844]"
+            }
+          ],
+          "unit_id": "su_17f2c165a401be881c95803b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cf56f68ad39185ee1f06239b",
+              "inference_basis_ids": [
+                "res_01d1ac3e5fd2ffe7fbff0fe0",
+                "res_374e2ab2670cf5c506ba2321",
+                "res_a8f7e577480ff51eac507647",
+                "res_cfd8cde4b87e86bce596794f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "C1q-neutralization antibody attenuated LPS-induced microglia activation in the hippocampal CA1"
+              },
+              "statement": "C1q-neutralization antibody attenuates LPS-induced microglia activation and excessive synaptic phagocytosis in hippocampal CA1."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunostaining for IBA1 and CD68 to assess microglia activation and phagocytosis."
+          ],
+          "methods": [
+            {
+              "method_id": "m7",
+              "name": "Immunohistochemistry",
+              "protocol_description": "Brain sections were stained with antibodies against IBA1, CD68, C1q, PSD95, and c-fos. Microglia morphology and phagocytosis were analyzed using ImageJ and IMARIS."
+            }
+          ],
+          "name": "C1q neutralization and microglia activation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "PSD95 puncta engulfed by microglia",
+              "n_sample_size": null,
+              "p_value": 0.0139,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "microglia in the LPS group engulfed more PSD95 puncta than those in the control group, while the C1q-neutralization antibody reversed the excessive phagocytosis [Interaction: F(1, 16) = 7.624, P = 0.0139; LPS, F(1, 16) = 8.053, P = 0.0119; Rescue, F(1, 16) = 2.793, P = 0.1141, Fig. 6D]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_01d1ac3e5fd2ffe7fbff0fe0",
+              "unit": null,
+              "value_raw_text": "Microglia in LPS group engulfed more PSD95 puncta, reversed by anti-C1q [Interaction: F(1,16)=7.624, P=0.0139; LPS, F(1,16)=8.053, P=0.0119; Rescue, F(1,16)=2.793, P=0.1141]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of IBA1+ cells",
+              "n_sample_size": null,
+              "p_value": 0.003,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the number of IBA1+ cells was increased in the CA1 in the LPS group, which was reversed by C1q-neutralization antibody [Interaction: F(1, 16) = 12.19, P = 0.0030; LPS, F(1, 16) = 25.83, P = 0.0001; Rescue, F(1, 16) = 0.7051, P = 0.4135, Fig. 5C]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_374e2ab2670cf5c506ba2321",
+              "unit": null,
+              "value_raw_text": "Number of IBA1+ cells increased in LPS group, reversed by anti-C1q [Interaction: F(1,16)=12.19, P=0.0030; LPS, F(1,16)=25.83, P=0.0001; Rescue, F(1,16)=0.7051, P=0.4135]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglia solidity",
+              "n_sample_size": null,
+              "p_value": 0.0009,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The solidity of microglia in the LPS group was significantly increased [Interaction: F(1, 16) = 16.44, P = 0.0009; LPS, F(1, 16) = 19.80, P = 0.0004; Rescue, F(1, 16) = 2.577, P = 0.1280, Fig. 5D]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a8f7e577480ff51eac507647",
+              "unit": null,
+              "value_raw_text": "Solidity of microglia increased in LPS group, reversed by anti-C1q [Interaction: F(1,16)=16.44, P=0.0009; LPS, F(1,16)=19.80, P=0.0004; Rescue, F(1,16)=2.577, P=0.1280]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CD68 expression in microglia",
+              "n_sample_size": null,
+              "p_value": 0.0201,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Microglia in the LPS-treated mice had an increased lysosomal protein CD68 of phagocytosis [Interaction: F(1, 16) = 6.657, P = 0.0201; LPS, F(1, 16) = 12.04, P = 0.0032; Rescue, F(1, 16) = 2.865, P = 0.1099, Fig. 6C]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cfd8cde4b87e86bce596794f",
+              "unit": null,
+              "value_raw_text": "Microglia in LPS group had increased CD68, reversed by anti-C1q [Interaction: F(1,16)=6.657, P=0.0201; LPS, F(1,16)=12.04, P=0.0032; Rescue, F(1,16)=2.865, P=0.1099]"
+            }
+          ],
+          "unit_id": "su_79cc85e14aa65e9fcd5e593d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a19acd9ff5c597ba195ebe25",
+              "inference_basis_ids": [
+                "res_7d0eaca03fe80ad69f6edecc",
+                "res_b72616d6e9329140bd8b31b6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "C1q-neutralization antibody attenuated LPS-induced decrease in the membrane excitability and excitatory synaptic transmission in the hippocampal CA1"
+              },
+              "statement": "C1q-neutralization antibody reverses LPS-induced decrease in excitatory synaptic transmission and neuronal excitability in hippocampal CA1."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Whole-cell patch-clamp recording of mEPSCs and action potentials in hippocampal CA1 pyramidal neurons."
+          ],
+          "methods": [
+            {
+              "method_id": "m6",
+              "name": "Whole-cell patch-clamp recording",
+              "protocol_description": "Spontaneous miniature EPSCs (mEPSCs) and action potentials were recorded from CA1 pyramidal neurons in response to depolarizing current injections."
+            }
+          ],
+          "name": "C1q neutralization and synaptic transmission",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of action potentials",
+              "n_sample_size": null,
+              "p_value": 0.0001,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the number of action potentials recorded was also significantly decreased in the LPS group than that of the control group, which was reversed by C1q-neutralization antibody adminstration [240 pA: control vs. LPS: P < 0.0001; LPS vs. LPS + anti-C1q: P = 0.0428, Fig. 4F–G]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d0eaca03fe80ad69f6edecc",
+              "unit": null,
+              "value_raw_text": "Number of action potentials at 240 pA was significantly decreased in LPS group vs control, reversed by anti-C1q [240 pA: control vs. LPS: P<0.0001; LPS vs. LPS+anti-C1q: P=0.0428]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mEPSC frequency",
+              "n_sample_size": null,
+              "p_value": 0.0108,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the mean frequency was significantly decreased in the LPS group [control vs. LPS: P = 0.0108; LPS vs. LPS + anti-C1q: P = 0.0445, Fig. 4D–E]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b72616d6e9329140bd8b31b6",
+              "unit": null,
+              "value_raw_text": "Mean frequency of mEPSCs was significantly decreased in LPS group [control vs. LPS: P=0.0108; LPS vs. LPS+anti-C1q: P=0.0445]"
+            }
+          ],
+          "unit_id": "su_bfb86e07f99da55d1db1cbf6"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_393049a1618e227cfb57bd74",
+              "inference_basis_ids": [
+                "res_b3190512efdd6839fd5a95c6",
+                "res_f90af86809eda2d7aeced5dd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "12c874da392db6c0457a",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "C1q-neutralization antibody attenuated LPS-induced decrease in number of c-fos+ cell and long-term potentiation impairment in the hippocampal CA1"
+              },
+              "statement": "C1q-neutralization antibody rescues LPS-induced decrease in c-fos expression and LTP impairment in hippocampal CA1."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "In vivo LFP recording and LTP measurement in hippocampal CA1."
+          ],
+          "methods": [
+            {
+              "method_id": "m9",
+              "name": "In vivo electrophysiology",
+              "protocol_description": "Local field potentials (LFPs) were recorded in CA1 during Y-maze task. LTP was induced and measured as fEPSP slope."
+            }
+          ],
+          "name": "C1q neutralization and LTP impairment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of c-fos+ cells",
+              "n_sample_size": null,
+              "p_value": 0.0037,
+              "provenance": {
+                "chunk_id": "12c874da392db6c0457a",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the number of c-fos+ cell decreased significantly in LPS group. Furthermore, C1q-neutralization antibody also reversed the decreased number of c-fos+ cell [Interaction: F(1, 14) = 12.13, P = 0.0037; LPS, F(1, 14) = 21.45, P = 0.0004; Rescue, F(1, 14) = 1.232, P = 0.2857, Fig. 9A–B]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b3190512efdd6839fd5a95c6",
+              "unit": null,
+              "value_raw_text": "Number of c-fos+ cells decreased in LPS group, reversed by anti-C1q [Interaction: F(1,14)=12.13, P=0.0037; LPS, F(1,14)=21.45, P=0.0004; Rescue, F(1,14)=1.232, P=0.2857]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "LTP slope",
+              "n_sample_size": null,
+              "p_value": 0.0334,
+              "provenance": {
+                "chunk_id": "12c874da392db6c0457a",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the slope of LTP was decreased significantly in the LPS group as compared with those in control group, which was significantly rescued by C1q-neutralization antibody [Ctrl vs. LPS, P = 0.0334; LPS vs. LPS + anti-C1q, P = 0.0403, Fig. 9E]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f90af86809eda2d7aeced5dd",
+              "unit": null,
+              "value_raw_text": "LTP slope decreased in LPS group vs control, rescued by anti-C1q [Ctrl vs. LPS, P=0.0334; LPS vs. LPS+anti-C1q, P=0.0403]"
+            }
+          ],
+          "unit_id": "su_d127785f4f871b260256c1cf"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cc7f926f5ba1f535ead57e2e",
+              "inference_basis_ids": [
+                "res_8074ac232b98fb6031a6448e",
+                "res_a3722e6453911b1225d9f2d6",
+                "res_a4b4fabe150c182693a75510"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "C1q-neutralization antibody attenuated C1q-mediated microglial recognition and pruning of synapses in the hippocampal CA1"
+              },
+              "statement": "C1q-neutralization antibody attenuates LPS-induced synaptic loss in hippocampal CA1, as indicated by PSD95 and C1q colocalization."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunostaining for PSD95 and C1q, dendritic spine density analysis."
+          ],
+          "methods": [
+            {
+              "method_id": "m8",
+              "name": "Dendritic spine analysis",
+              "protocol_description": "Dendritic spine density was quantified from Golgi-stained or fluorescent images of hippocampal neurons."
+            }
+          ],
+          "name": "C1q neutralization and synaptic loss",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "PSD95 puncta area",
+              "n_sample_size": null,
+              "p_value": 0.0341,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the PSD95 puncta was significantly decreased in the CA1 in the LPS group, which was reversed by C1q-neutralization antibody [Interaction: F(1, 16) = 5.367, P = 0.0341; LPS, F(1, 16) = 14.38, P = 0.0016; Rescue, F(1, 16) = 3.050, P = 0.0999, Fig. 7B]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8074ac232b98fb6031a6448e",
+              "unit": null,
+              "value_raw_text": "PSD95 puncta significantly decreased in LPS group, reversed by anti-C1q [Interaction: F(1,16)=5.367, P=0.0341; LPS, F(1,16)=14.38, P=0.0016; Rescue, F(1,16)=3.050, P=0.0999]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PSD95/C1q positive area ratio",
+              "n_sample_size": null,
+              "p_value": 0.0285,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the positive area ratio of PSD95 and C1q was significantly decreased in the CA1 in the LPS group, which was reversed by C1q-neutralization antibody [Interaction: F(1, 16) = 5.795, P = 0.0285; LPS, F(1, 16) = 21.90, P = 0.0003; Rescue, F(1, 16) = 2.736, P = 0.1176, Fig. 7D]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a3722e6453911b1225d9f2d6",
+              "unit": null,
+              "value_raw_text": "PSD95/C1q ratio decreased in LPS group, reversed by anti-C1q [Interaction: F(1,16)=5.795, P=0.0285; LPS, F(1,16)=21.90, P=0.0003; Rescue, F(1,16)=2.736, P=0.1176]"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q fluorescence intensity",
+              "n_sample_size": null,
+              "p_value": 0.0757,
+              "provenance": {
+                "chunk_id": "26bffe4d7448832a8bdd",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "mice in the LPS group had an increased level of C1q in the CA1 compared with the control group [Interaction: F(1, 16) = 3.608, P = 0.0757; LPS, F(1, 16) = 27.03, P < 0.0001; Rescue, F(1, 16) = 6.127, P = 0.0249, Fig. 7C]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a4b4fabe150c182693a75510",
+              "unit": null,
+              "value_raw_text": "C1q increased in LPS group, reversed by anti-C1q [Interaction: F(1,16)=3.608, P=0.0757; LPS, F(1,16)=27.03, P<0.0001; Rescue, F(1,16)=6.127, P=0.0249]"
+            }
+          ],
+          "unit_id": "su_e36c932cba073246bd33a275"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

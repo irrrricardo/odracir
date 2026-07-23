@@ -1,0 +1,559 @@
+{
+  "coverage_ledger": {
+    "164827b6c2a6f7d9e1a6": "extracted",
+    "3af0af7ef42ffca453ee": "extracted",
+    "3b2c08b066378e908514": "extracted",
+    "49777d3d9f5dfbc9737f": "not_selected",
+    "5ffa869f150fb9dde1ad": "extracted",
+    "613eeb738418c828dd7e": "not_selected",
+    "786be9d7038685429157": "not_selected",
+    "792136a9ca2d63def42b": "not_selected",
+    "9621b05ad8d77104fb94": "extracted",
+    "9cf81932ee887a7c4ec4": "extracted",
+    "a25aab97a652f7cc5109": "extracted",
+    "ab51dc2963f51476861d": "not_selected",
+    "b09864cb3b2e9f2a2aaf": "not_selected",
+    "deb51c4ea0a6dd965537": "extracted",
+    "fc2b548fd183d57cf834": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study does not determine whether complement-labelled and eliminated terminals are connected to WNV-infected or healthy neurons.",
+    "Astrocyte contribution to synapse elimination cannot be completely ruled out.",
+    "Alterations to NMDA receptor-mediated long-term potentiation could also contribute to altered synapse homeostasis and memory.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_19.pdf",
+    "source_sha256": "838fe0c26bfbe58e56f1b5199eadfff8874342570d97e1d6cac63396a79186d5"
+  },
+  "paper_id": "2_19",
+  "quality_assessment": {
+    "correct_item_count": 43,
+    "deterministic_rule_score": 0.9278,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 44,
+    "f1": 0.9348,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The source text states that mice with deficiency in complement C3 or C3a receptor were protected from WNV-induced synaptic terminal loss, but the excerpt also includes Il34-/- mice. The extracted item omits Il34-/- and incorrectly implies only C3-/- and C3aR-/- were tested. However, the claim is still supported by the source. Actually, the source says 'Mice with fewer microglia (Il34−/− mice with a deficiency in IL-34 production) or deficiency in complement C3 or C3a receptor were protected'. The extracted item says 'Mice with deficiency in complement C3 or C3a receptor were protected from WNV-induced synaptic terminal loss.' This is a subset of the source, not incorrect. But the provenance excerpt includes Il34-/-. The item is not incorrect; it is a faithful abstraction. So no incorrect item here.",
+        "item_id": "result:su_450bccbed4986495f02c12f0:res_742df69002b97275e646e72e",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "The study used a WNV-NS5-E218A mutant virus to establish a recovery model with 90% survival, which is a core methodological detail for the behavioral and mechanistic experiments.",
+        "item_id": null,
+        "source_chunk_id": "164827b6c2a6f7d9e1a6",
+        "source_excerpt": "To circumvent this in order to develop a model of recovery from WNV neuroinvasive disease, we used a strain of WNV with a point mutation in nonstructural protein 5 NS5(E218A), which lacks functional 2′-O methyltransferase that generates a 5′ cap on viral RNA to evade type I interferon-mediated restriction of viral translation6,16. While WNV-NS5-E218A replicates in permissive cells, 90% of 8-week-old mice survive intracranial inoculation (Extended Data Fig. 1a), with uniform viral brain burdens peaking between 6–8-days post-infection (dpi)7, followed by viral clearance at 15 dpi (Extended Data Fig. 1b, c).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study found that WNV infection leads to loss of presynaptic terminals in the hippocampal CA3 region in both mice and humans, which is a central finding.",
+        "item_id": null,
+        "source_chunk_id": "9cf81932ee887a7c4ec4",
+        "source_excerpt": "Numbers of colocalized presynaptic and postsynaptic puncta within the stratum lucidum of the hippocampal CA3 (mossy fibre terminals) were decreased at 7 dpi in WNV-NS5-E218A-infected animals compared to mock-infected controls (Fig. 3a).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study demonstrated that microglia engulf presynaptic terminals during acute WNV infection and after recovery, which is a core mechanistic finding.",
+        "item_id": null,
+        "source_chunk_id": "9cf81932ee887a7c4ec4",
+        "source_excerpt": "Three-dimensional reconstructions of microglia from CX3CR1–GFP+/– WNV-NS5-E218A-infected mice (Fig. 3d) revealed synaptophysin-positive puncta within GFP+ cells (Supplementary Videos 3 and 4).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study found that complement C3 and C3aR are required for WNV-mediated synaptic terminal elimination, which is a key causal finding.",
+        "item_id": null,
+        "source_chunk_id": "786be9d7038685429157",
+        "source_excerpt": "WNV-NS5-E218A-infected complement C3−/− and C3ar1−/−, but not CR1/2−/− or Itgam−/− (Itgam is also known as Cr3), mice showed no differences in synaptophysin-positive synaptic terminals compared to mock-infected controls (Fig. 4h).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study found that poor spatial learning after WNV recovery is associated with upregulation of complement and microglial phagocytosis genes in the hippocampus, which is a core result linking gene expression to behavior.",
+        "item_id": null,
+        "source_chunk_id": "164827b6c2a6f7d9e1a6",
+        "source_excerpt": "Hippocampi from WNV-NS5-E218A-recovered mice with poor spatial learning show increased expression of genes that drive synaptic remodelling by microglia via complement.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9773,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8958
+  },
+  "quality_score": 0.9348,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "What mechanisms underlie cognitive impairment after West Nile virus neuroinvasive disease?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_030dedfef21ebd5892088d9d",
+              "inference_basis_ids": [
+                "res_022804e3d9717b6a5bb34608",
+                "res_742df69002b97275e646e72e",
+                "res_ff776d044b64138fcca1d6b9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Mice with fewer microglia (Il34−/− mice with a deficiency in IL-34 production) or deficiency in complement C3 or C3a receptor were protected from WNV-induced synaptic terminal loss."
+              },
+              "statement": "Complement and microglia are required for WNV-induced presynaptic terminal loss."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "C1QA localization studies.",
+            "Testing C3-/- and C3aR-/- mice for protection from synapse loss.",
+            "Testing Il34-/- mice (fewer microglia) for synapse loss at 7 dpi."
+          ],
+          "methods": [],
+          "name": "Complement and microglial requirement for synapse loss",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "C1QA localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "C1QA was upregulated and localized to microglia, infected neurons and presynaptic terminals during WNV neuroinvasive disease."
+              },
+              "quantitative_value": null,
+              "result_id": "res_022804e3d9717b6a5bb34608",
+              "unit": null,
+              "value_raw_text": "C1QA was upregulated and localized to microglia, infected neurons and presynaptic terminals during WNV neuroinvasive disease."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Synapse loss in C3-/- and C3aR-/- mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Mice with fewer microglia (Il34−/− mice with a deficiency in IL-34 production) or deficiency in complement C3 or C3a receptor were protected from WNV-induced synaptic terminal loss."
+              },
+              "quantitative_value": null,
+              "result_id": "res_742df69002b97275e646e72e",
+              "unit": null,
+              "value_raw_text": "Mice with deficiency in complement C3 or C3a receptor were protected from WNV-induced synaptic terminal loss."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Synapse loss in Il34-/- mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Additionally, presynaptic terminals from mice with fewer and less proliferative microglia (Il34−/−) were not eliminated during WNV-NS5-E218A acute infection (Fig. 3e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ff776d044b64138fcca1d6b9",
+              "unit": null,
+              "value_raw_text": "Presynaptic terminals from Il34-/- mice were not eliminated during WNV-NS5-E218A acute infection."
+            }
+          ],
+          "unit_id": "su_450bccbed4986495f02c12f0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f8c6f08ed28fc26a91f068d1",
+              "inference_basis_ids": [
+                "res_5cc87f6b58fa4347c23ce1dc",
+                "res_7348b6a15dfb5d119bcd8bf1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Hippocampi from WNV-NS5-E218A-recovered mice with poor spatial learning show increased expression of genes that drive synaptic remodelling by microglia via complement."
+              },
+              "statement": "Poor spatial learning after WNV recovery is associated with upregulation of complement and microglial phagocytosis genes in the hippocampus."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Hippocampal microarray analysis at 25 dpi comparing mock, WNV good learners, and WNV poor learners.",
+            "qPCR validation of select genes in a separate cohort."
+          ],
+          "methods": [
+            {
+              "method_id": "m4",
+              "name": "Hippocampal RNA isolation and microarray",
+              "protocol_description": "Hippocampal RNA was isolated, amplified, biotinylated, and hybridized onto Illumina MouseWG-6 v2 expression beadchips. Data normalized and analyzed with Partek Genomics Suite."
+            },
+            {
+              "method_id": "m5",
+              "name": "qPCR validation",
+              "protocol_description": "cDNA synthesized using random hexamers and MultiScribe reverse transcriptase. PCR with Power SYBR Green mastermix, normalized to Gapdh."
+            }
+          ],
+          "name": "Transcriptional profiling of good vs poor learners",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Complement cascade gene expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Validation by qPCR of select genes altered between WNV good learners and WNV poor learners using a separate cohort of mice (mock (n=5), WNV good (n=3), and WNV poor (n=3) mice)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5cc87f6b58fa4347c23ce1dc",
+              "unit": null,
+              "value_raw_text": "C1qa, C3, and other complement genes are upregulated in WNV poor learners compared to mock and good learners."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene expression (microarray)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Hippocampi from WNV-NS5-E218A-recovered mice with poor spatial learning show increased expression of genes that drive synaptic remodelling by microglia via complement."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7348b6a15dfb5d119bcd8bf1",
+              "unit": null,
+              "value_raw_text": "Hippocampi from WNV-NS5-E218A-recovered mice with poor spatial learning show increased expression of genes that drive synaptic remodelling by microglia via complement."
+            }
+          ],
+          "unit_id": "su_46fdf18258c0cb9eb311b5da"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_21fe3647a428fc02849466e7",
+              "inference_basis_ids": [
+                "res_4cea388701173449e3592506",
+                "res_7d1ee3a853b762a53e19a553"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Three-dimensional reconstructions of microglia from CX3CR1–GFP+/– WNV-NS5-E218A-infected mice (Fig. 3d) revealed synaptophysin-positive puncta within GFP+ cells"
+              },
+              "statement": "Microglia engulf presynaptic terminals during acute WNV infection and after recovery."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "3D reconstruction of microglia from CX3CR1-GFP+/- mice to visualize synaptophysin puncta within microglia.",
+            "Electron microscopy of CA3 region.",
+            "Quantification of presynaptic terminals within lysosomes of IBA1+ cells at 7, 25, and 52 dpi."
+          ],
+          "methods": [
+            {
+              "method_id": "m7",
+              "name": "Engulfment quantification",
+              "protocol_description": "ImageJ thresholding of single-plane confocal images; region of interest around each IBA1+ cell in CA3; quantification of synaptophysin+, Lamp1+, IBA1+ puncta (0.2-25 μm^2) within each IBA1+ cell. At least 8 images at 63x per mouse from at least 4 sections spaced 50 μm apart."
+            }
+          ],
+          "name": "Microglial engulfment of presynaptic terminals",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglial phagosomes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Electron microscopy of the CA3 and molecular layer (Fig. 3g) during acute WNV neuroinvasive disease identified microglia enriched in phagosomes (Extended Data Fig. 3e) and with processes that surround synapses (Fig. 3g)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4cea388701173449e3592506",
+              "unit": null,
+              "value_raw_text": "Electron microscopy identified microglia enriched in phagosomes and with processes that surround synapses during acute WNV infection."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Engulfed presynaptic terminals in microglia",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Colocalization of synaptophysin, lysosomal-associated membrane protein 1 (LAMP1), and IBA1, revealed increased numbers of presynaptic terminals within the lysosomes of IBA1-positive cells, but not S100β+ astrocytes (Extended Data Fig. 3d), in the CA3 of WNV-NS5-E218A-infected mice at 7 and 25 dpi compared with mock-infected animals (Fig. 3f). Numbers of engulfed presynaptic terminals recover to baseline levels by 52 dpi"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d1ee3a853b762a53e19a553",
+              "unit": null,
+              "value_raw_text": "Increased numbers of presynaptic terminals within lysosomes of IBA1-positive cells in CA3 of WNV-NS5-E218A-infected mice at 7 and 25 dpi compared to mock; numbers recover to baseline by 52 dpi."
+            }
+          ],
+          "unit_id": "su_57af30a00bdec91061ca3c55"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_27afa74111ebdd8d64779a33",
+              "inference_basis_ids": [
+                "res_331909c44762ffa26ec21117",
+                "res_3ff58432ac91a404f9218705",
+                "res_c034448e940c9903c802a2dd",
+                "res_c9601ec5363db5931188bf5c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "WNV-NS5-E218A-recovered mice display impaired spatial learning and persistence of phagocytic microglia without loss of hippocampal neurons or volume."
+              },
+              "statement": "WNV-NS5-E218A-recovered mice exhibit impaired spatial learning without motor or anxiety deficits."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Barnes maze behavioral testing at 46 dpi to assess spatial learning and memory.",
+            "Intracranial infection of 8-week-old C57BL/6J mice with 10^4 pfu WNV-NS5-E218A to establish a recovery model.",
+            "Open-field test at 45 dpi to assess motor activity and anxiety."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "WNV-NS5-E218A intracranial infection",
+              "protocol_description": "Deeply anaesthetized mice were administered 10^4 pfu of WNV-NS5-E218A in 10 μl into the brain's third ventricle via a guided 29 gauge needle."
+            },
+            {
+              "method_id": "m2",
+              "name": "Barnes maze test",
+              "protocol_description": "Mice were tested on the Barnes maze over 5 consecutive days, two trials per day spaced 30 min apart. Each trial: mouse placed in center in covered start box for 10 s, then allowed 3 min to explore and find target hole. Errors (nose pokes over non-target holes) and latency to find target hole were measured."
+            },
+            {
+              "method_id": "m3",
+              "name": "Open-field test",
+              "protocol_description": "Mice were placed in the center of a 54x54 cm open field arena and allowed to explore for 5 min. Locomotor activity (lines crossed) and anxiety (center crossings) were scored."
+            }
+          ],
+          "name": "WNV-NS5-E218A recovery model and behavioral assessment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Motor activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Recovered animals do not exhibit impairments in motor activity or exploratory anxiety in an open-field behavioural assessment at 45 dpi"
+              },
+              "quantitative_value": null,
+              "result_id": "res_331909c44762ffa26ec21117",
+              "unit": null,
+              "value_raw_text": "Recovered animals do not exhibit impairments in motor activity in open-field test at 45 dpi."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Anxiety",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Recovered animals do not exhibit impairments in motor activity or exploratory anxiety in an open-field behavioural assessment at 45 dpi"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3ff58432ac91a404f9218705",
+              "unit": null,
+              "value_raw_text": "Recovered animals do not exhibit impairments in exploratory anxiety in open-field test at 45 dpi."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Spatial learning latency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "WNV-infected mice exhibit slower learning, commit more errors (Fig. 1a) and require more time (Fig. 1b) before locating the target hole than mock-infected controls"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c034448e940c9903c802a2dd",
+              "unit": null,
+              "value_raw_text": "WNV-infected mice require more time to locate the target hole than mock-infected controls at 46 dpi."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Spatial learning errors",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "164827b6c2a6f7d9e1a6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "At 46 dpi, WNV-infected mice exhibit slower learning, commit more errors (Fig. 1a) and require more time (Fig. 1b) before locating the target hole than mock-infected controls"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c9601ec5363db5931188bf5c",
+              "unit": null,
+              "value_raw_text": "WNV-infected mice commit more errors than mock-infected controls on Barnes maze at 46 dpi."
+            }
+          ],
+          "unit_id": "su_bb5cc144aa1841cacfa0d8ab"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e4a8ccc12eb6ae735e829bec",
+              "inference_basis_ids": [
+                "res_153963c9bd65e21e5ae0f641",
+                "res_720d747a502660582eedc6ad",
+                "res_f369e7069b016c1df70a5429"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Numbers of colocalized presynaptic and postsynaptic puncta within the stratum lucidum of the hippocampal CA3 (mossy fibre terminals) were decreased at 7 dpi in WNV-NS5-E218A-infected animals compared to mock-infected controls (Fig. 3a)."
+              },
+              "statement": "WNV infection leads to loss of presynaptic terminals in the hippocampal CA3 region in both mice and humans."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Human post-mortem analysis of CA3 presynaptic terminals.",
+            "Quantification of presynaptic and postsynaptic puncta in CA3 stratum lucidum at 7 dpi and 25 dpi."
+          ],
+          "methods": [
+            {
+              "method_id": "m6",
+              "name": "Synaptic terminal quantification",
+              "protocol_description": "ImageJ thresholding of single-plane confocal images; region of interest encompassing CA3 mossy fibers; puncta count (0.5-25 μm^2). At least 12 images at 63x per mouse from at least 4 sections spaced 50 μm apart."
+            }
+          ],
+          "name": "Synapse loss in hippocampus",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Presynaptic terminal number",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "The decrease in colocalization was traced to a 40% reduction in number, but not size, of presynaptic terminals (Extended Data Fig. 3a), with no change in numbers of postsynaptic terminals (Fig. 3a)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_153963c9bd65e21e5ae0f641",
+              "unit": null,
+              "value_raw_text": "40% reduction in number of presynaptic terminals in CA3 at 7 dpi in WNV-NS5-E218A-infected mice compared to mock."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Human CA3 presynaptic terminals",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Acute post-mortem WNV neuroinvasive disease patient specimens similarly show reduced numbers of CA3 presynaptic terminals compared to age-matched patient controls (Fig. 3c and Supplementary Table 5)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_720d747a502660582eedc6ad",
+              "unit": null,
+              "value_raw_text": "Acute post-mortem WNV neuroinvasive disease patient specimens show reduced numbers of CA3 presynaptic terminals compared to age-matched controls."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "VGlut1 puncta number",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9cf81932ee887a7c4ec4",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Evidence of hippocampal glutamatergic synapse loss was detectable at 25 dpi and WNV-NS5-E218A-recovered mice with poor spatial learning exhibited fewer VGlut1-positive synaptic puncta than WNV-NS5-E218A-infected good learners, which were fewer than in mock-infected controls (Fig. 3b)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f369e7069b016c1df70a5429",
+              "unit": null,
+              "value_raw_text": "WNV-NS5-E218A-recovered mice with poor spatial learning exhibit fewer VGlut1-positive synaptic puncta than good learners, which are fewer than mock controls at 25 dpi."
+            }
+          ],
+          "unit_id": "su_bff4df7c101490cc82e435e6"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8389 on attempt 1"
+    }
+  ]
+}

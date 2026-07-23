@@ -1,0 +1,557 @@
+{
+  "coverage_ledger": {
+    "00ee96ad53632d751650": "not_selected",
+    "09f8fd189d6b711f32ae": "not_selected",
+    "2ebcfc6dfdd4cdc471e2": "not_selected",
+    "2edd6eeff1717ffa033b": "not_selected",
+    "309eaf665a7c9b554f88": "extracted",
+    "4fde982d6fcd25de91c6": "extracted",
+    "586c380179a4351dbbac": "not_selected",
+    "63319b72f28df73280e9": "not_selected",
+    "97c595c481aae44a4321": "not_selected",
+    "a2e7c647ccfedb92f05b": "not_selected",
+    "af35af8462e49197ec67": "not_selected",
+    "c0f100364e6ab15204a5": "not_selected",
+    "d031007b9bbc7a97696f": "extracted",
+    "d2fddad571e9a22e9373": "not_selected",
+    "d607b7ba6d6c14346a1f": "not_selected",
+    "e2a86a42e88922a86610": "extracted",
+    "f5f605be8d8e2ff752f9": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study uses gnotobiotic mice with a defined bacterial consortium (Oligo-MM12), which may not fully represent the complexity of the natural gut microbiome.",
+    "Sex-specific effects were observed, but the study may not be powered to fully dissect sex differences.",
+    "The study does not include a rescue experiment to confirm causality of fungal effects via immune modulation."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_5.pdf",
+    "source_sha256": "7c03df7b4ceaacc8e0ed87257786ebff4a2c022ca62f3202b2d70abf116b253b"
+  },
+  "paper_id": "1_5",
+  "quality_assessment": {
+    "correct_item_count": 32,
+    "deterministic_rule_score": 0.8975,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 33,
+    "f1": 0.9014,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The source states 'an increase in fecal lipid concentration in B+R mice on both diets', but the extracted item says 'Increase in fecal lipid concentration in B+R mice on both diets.' This is correct. However, the source also says 'There were no differences in fecal lipid concentration between B only and B+C or B+M mice on either diet', which is not captured. The item is not incorrect per se, but the claim is incomplete. However, the item itself is accurate. No incorrect items found.",
+        "item_id": "result:su_14e1d6fc8852ac5919309243:res_3693a9a4bce6da785c4a15e5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 6,
+    "missed_core_items": [
+      {
+        "description": "The study found that early-life colonization with C. albicans resulted in leanness and resistance to diet-induced obesity, while R. mucilaginosa and M. restricta increased adiposity on standard diet, but only R. mucilaginosa exacerbated metabolic disease.",
+        "item_id": null,
+        "source_chunk_id": "e2a86a42e88922a86610",
+        "source_excerpt": "R. mucilaginosa and M. restricta increased adiposity in mice fed SD, while only R. mucilaginosa exacerbated metabolic disease. In contrast, C. albicans resulted in leanness and resistance to diet-induced obesity.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study used a gnotobiotic mouse model with Oligo-MM12 bacterial consortium and three fungal species, and assessed metabolic health via body weight, body composition, OGTT, plasma lipids, and metabolic hormones.",
+        "item_id": null,
+        "source_chunk_id": "d2fddad571e9a22e9373",
+        "source_excerpt": "We developed a gnotobiotic DIO model to interrogate the causal impact of three core human gut mycobiome species on host metabolic health in both male and female mice. Germ-free C57Bl/6J mice were inoculated with the Oligo-Mouse-Microbiota (Oligo-MM12) bacterial consortium33 alone or in combination with C. albicans (B + C), R. mucilaginosa (B + R) or M. restricta (B + M) twice at the commencement of breeding",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Fungal colonization did not influence nutrient transporter expression in jejunal enteroids, but IL-17 had a significant effect.",
+        "item_id": null,
+        "source_chunk_id": "d031007b9bbc7a97696f",
+        "source_excerpt": "There were no changes to the expression of Cd36 and Slc5a1 based on colonization status of the mice from which the fecal filtrates were derived, however IL-17 had a significant effect on both genes",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "C. albicans colonization resulted in broad WAT inflammation, including increased γδT cells, ILC1, ILC3, intermediate macrophages, cDC1, CX3CR1+ DCs, and neutrophils in both sexes.",
+        "item_id": null,
+        "source_chunk_id": "f5f605be8d8e2ff752f9",
+        "source_excerpt": "C. albicans colonization resulted in drastic changes to the visceral WAT innate and adaptive immune landscape... B + C mice displayed higher numbers of γδT cells, innate lymphoid cell (ILC) 1, ILC3, intermediate macrophages (CD206lo/intLy6C+MHCII+), conventional dendritic cell (cDC) 1, CX3CR1+ DCs and neutrophils in both sexes compared to B only",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "R. mucilaginosa colonization resulted in hyperglycemia, dyslipidemia, and enhanced hepatic lipid accumulation.",
+        "item_id": null,
+        "source_chunk_id": "2edd6eeff1717ffa033b",
+        "source_excerpt": "colonization with R. mucilaginosa resulted in elevated blood glucose levels (BGL) at several time points",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "M. restricta colonization increased adiposity but did not lead to metabolic disease, suggesting controlled fat expansion.",
+        "item_id": null,
+        "source_chunk_id": "d031007b9bbc7a97696f",
+        "source_excerpt": "B + M mice failed to develop metabolic disease in the presence of increased adiposity",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.9697,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8421
+  },
+  "quality_score": 0.9014,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "What are the causal effects of early-life colonization by the core gut mycobiome species Rhodotorula mucilaginosa, Malassezia restricta, and Candida albicans on metabolic health in mice?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_14971fd9ee5260f2ae6be9a6",
+              "inference_basis_ids": [
+                "res_a30c25ed05b3cbab6f58d0fa"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "This suggests that differential levels of uracil and succinate occurred via C. albicans-induced shifts to the bacterial microbiome."
+              },
+              "statement": "C. albicans-induced shifts in bacterial microbiome composition lead to altered levels of uracil and succinate."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6b4b0dc1fce2ae0faf9432ab",
+              "inference_basis_ids": [
+                "res_215638579a7739c5ee32ba91",
+                "res_3693a9a4bce6da785c4a15e5",
+                "res_4be9df3db65f866931fc5cf3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "These data indicate that fungal colonization had a persistent and substantial impact on the fecal metabolome, including luminal nutrient content in mice."
+              },
+              "statement": "Fungal colonization induces persistent and substantial changes in the fecal metabolome, including luminal nutrient content."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds2",
+              "description": "Untargeted metabolomics data from fecal samples of gnotobiotic mice.",
+              "name": "Fecal metabolomics data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "C. albicans colonization resulted in the greatest number of significantly altered metabolites, with 8 increased and 6 decreased metabolites on SD, and 6 increased and 1 decreased metabolite on HFHS.",
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "C. albicans colonization resulted in the greatest number of significantly altered metabolites, with 8 increased and 6 decreased metabolites on SD, and 6 increased and 1 decreased metabolite on HFHS"
+              },
+              "span_id": "es2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Untargeted metabolomics on fecal samples from gnotobiotic mice at 12 weeks. Community metabolic modeling using MIMOSA2 with custom AGORA database from Oligo-MM12 genomes."
+          ],
+          "methods": [
+            {
+              "method_id": "m5",
+              "name": "Fecal metabolomics",
+              "protocol_description": "Fecal samples homogenized in 50% methanol, analyzed by Q Exactive HF Hybrid Quadrupole-Orbitrap MS with HILIC UHPLC. 86 metabolites in experiment 1, 122 in experiment 2."
+            },
+            {
+              "method_id": "m6",
+              "name": "Community metabolic modeling",
+              "protocol_description": "MIMOSA2 used to infer metabolites governed by the microbiome, with custom AGORA database from Oligo-MM12 whole genome sequences."
+            }
+          ],
+          "name": "Fecal metabolomics and community metabolic modeling",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Metabolite concentration",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Some metabolites also displayed significant fold change with R. mucilaginosa colonization on SD only, where there were 5 increased and 4 decreased metabolites, including mannitol and glucose"
+              },
+              "quantitative_value": null,
+              "result_id": "res_215638579a7739c5ee32ba91",
+              "unit": null,
+              "value_raw_text": "R. mucilaginosa colonization on SD resulted in 5 increased and 4 decreased metabolites, including mannitol and glucose."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fecal lipid concentration",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "an increase in fecal lipid concentration in B+R mice on both diets"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3693a9a4bce6da785c4a15e5",
+              "unit": null,
+              "value_raw_text": "Increase in fecal lipid concentration in B+R mice on both diets."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Metabolite concentration",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "C. albicans colonization resulted in the greatest number of significantly altered metabolites, with 8 increased and 6 decreased metabolites on SD, and 6 increased and 1 decreased metabolite on HFHS"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4be9df3db65f866931fc5cf3",
+              "unit": null,
+              "value_raw_text": "C. albicans colonization resulted in 8 increased and 6 decreased metabolites on SD, and 6 increased and 1 decreased metabolite on HFHS."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Community metabolic potential correlation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In B+C mice, uracil concentrations on SD and succinate on HFHS were significantly correlated with community metabolic potential, with eight of the OligoMM12 contributing to the variance"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a30c25ed05b3cbab6f58d0fa",
+              "unit": null,
+              "value_raw_text": "In B+C mice, uracil on SD and succinate on HFHS were significantly correlated with community metabolic potential, with eight OligoMM12 strains contributing."
+            }
+          ],
+          "unit_id": "su_14e1d6fc8852ac5919309243"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_690e742cb3e5b5d78abde620",
+              "inference_basis_ids": [
+                "res_639139f0ae4c310259131a67"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "R. mucilaginosa and M. restricta increased adiposity in mice fed SD"
+              },
+              "statement": "Early-life colonization with Rhodotorula mucilaginosa increases adiposity in mice fed a standard diet."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_784d8c06591dcbf542e34507",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e2a86a42e88922a86610",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "only R. mucilaginosa exacerbated metabolic disease"
+              },
+              "statement": "Rhodotorula mucilaginosa exacerbates metabolic disease in mice."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9836d55dfb7ff7b8f8692963",
+              "inference_basis_ids": [
+                "res_3511fa1db2b00028a5beb973",
+                "res_5e04691e02285d19f36aed8a",
+                "res_639139f0ae4c310259131a67",
+                "res_67fc58889b3a06325590351d",
+                "res_9f4956cb5f19c592cd68758d",
+                "res_beca754a5062028cb4ed0142"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "C. albicans resulted in leanness and resistance to diet-induced obesity"
+              },
+              "statement": "Early-life colonization with Candida albicans promotes leanness and resistance to diet-induced obesity in gnotobiotic mice."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b70a3c1579b1aa5b7aaf8b3b",
+              "inference_basis_ids": [
+                "res_639139f0ae4c310259131a67",
+                "res_6a7d4bdb785ecc441519820a",
+                "res_7a70c159ad11b9821b6f3b8b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "R. mucilaginosa and M. restricta increased adiposity in mice fed SD"
+              },
+              "statement": "Early-life colonization with Malassezia restricta increases adiposity in mice fed a standard diet."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Body weight, body composition, adipocyte size, OGTT, plasma lipids, and metabolic hormone measurements from gnotobiotic mice.",
+              "name": "Metabolic phenotyping data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "R. mucilaginosa and M. restricta increased adiposity in mice fed SD, while only R. mucilaginosa exacerbated metabolic disease. In contrast, C. albicans resulted in leanness and resistance to diet-induced obesity.",
+              "provenance": {
+                "chunk_id": "e2a86a42e88922a86610",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "R. mucilaginosa and M. restricta increased adiposity in mice fed SD, while only R. mucilaginosa exacerbated metabolic disease. In contrast, C. albicans resulted in leanness and resistance to diet-induced obesity."
+              },
+              "span_id": "es1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Gnotobiotic mice colonized with Oligo-MM12 bacteria alone (B) or with one of three fungal species (B+C, B+R, B+M) were fed standard diet (SD) or high-fat-high-sucrose (HFHS) diet. Metabolic health was assessed via body weight, body composition (TD-NMR), adipocyte size, oral glucose tolerance test (OGTT), plasma lipids, and metabolic hormones."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "Gnotobiotic mouse model",
+              "protocol_description": "Germ-free C57BL/6 mice were colonized at weaning with Oligo-MM12 bacterial consortium alone (B) or with addition of Rhodotorula mucilaginosa (B+R), Malassezia restricta (B+M), or Candida albicans (B+C). Mice were fed standard diet (SD) or high-fat-high-sucrose (HFHS) diet for 12 weeks."
+            },
+            {
+              "method_id": "m2",
+              "name": "Body composition measurement",
+              "protocol_description": "Time-domain nuclear magnetic resonance (TD-NMR) was used to measure fat and lean mass."
+            },
+            {
+              "method_id": "m3",
+              "name": "Oral glucose tolerance test (OGTT)",
+              "protocol_description": "After 6 h fasting, mice were gavaged with 50% dextrose (2 g/kg body weight) and blood glucose measured at 0, 15, 30, 60, 90, 120 min."
+            },
+            {
+              "method_id": "m4",
+              "name": "Adipose tissue histology",
+              "protocol_description": "Peri-gonadal adipose tissue was fixed, paraffin-embedded, sectioned at 4 μm, H&E stained, and adipocyte size quantified using Adiposoft plugin in ImageJ."
+            }
+          ],
+          "name": "Fungal colonization and metabolic phenotyping",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Body weight AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Area under the curve (AUC) for body weight from 3–12 weeks was significantly lower in B+C mice compared to the B only group on both diets in males and on HFHS in females"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3511fa1db2b00028a5beb973",
+              "unit": null,
+              "value_raw_text": "Area under the curve (AUC) for body weight from 3–12 weeks was significantly lower in B+C mice compared to B only on both diets in males and on HFHS in females."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Body fat mass on HFHS",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In obesogenic diet conditions (HFHS), mice colonized with C. albicans failed to gain body fat mass and peri-gonadal fat pad weight"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5e04691e02285d19f36aed8a",
+              "unit": null,
+              "value_raw_text": "On HFHS, mice colonized with C. albicans failed to gain body fat mass and peri-gonadal fat pad weight."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fat mass",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "On SD, C. albicans resulted in lower fat mass, while R. mucilaginosa and M. restricta resulted in higher adiposity compared to the B only group"
+              },
+              "quantitative_value": null,
+              "result_id": "res_639139f0ae4c310259131a67",
+              "unit": null,
+              "value_raw_text": "On SD, C. albicans resulted in lower fat mass, while R. mucilaginosa and M. restricta resulted in higher adiposity compared to B only."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Adipocyte size distribution on HFHS",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "B+C mice displayed a lower proportion of large adipocytes (>70 um diameter) and a greater percentage of small or medium size adipocytes on either diet"
+              },
+              "quantitative_value": null,
+              "result_id": "res_67fc58889b3a06325590351d",
+              "unit": null,
+              "value_raw_text": "B+C mice displayed a lower proportion of large adipocytes (>70 um diameter) and a greater percentage of small or medium size adipocytes on either diet."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Adipocyte size distribution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "a higher proportion of large adipocytes (>70 um diameter) in this depot"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6a7d4bdb785ecc441519820a",
+              "unit": null,
+              "value_raw_text": "B+M mice had a higher proportion of large adipocytes (>70 um diameter) in peri-gonadal depot compared to B only."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Energy intake",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "we did not detect differences in energy intake driven by fungal colonization on either diet, except for an increase in B+C mice at 9 weeks on HFHS"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6f0e07bddd92fc6b1f13a10c",
+              "unit": null,
+              "value_raw_text": "No differences in energy intake driven by fungal colonization on either diet, except for an increase in B+C mice at 9 weeks on HFHS."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Peri-gonadal fat pad weight",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Higher adiposity in B+M mice on SD was consistent with greater weight of the peri-gonadal fat pad (primary visceral fat pad in rodents46) in both sexes compared to B only"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7a70c159ad11b9821b6f3b8b",
+              "unit": null,
+              "value_raw_text": "Higher adiposity in B+M mice on SD was consistent with greater weight of the peri-gonadal fat pad in both sexes compared to B only."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Organ weights on HFHS",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "C. albicans colonization resulted in lower liver, kidney and heart weight on HFHS in both sexes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9f4956cb5f19c592cd68758d",
+              "unit": null,
+              "value_raw_text": "C. albicans colonization resulted in lower liver, kidney and heart weight on HFHS in both sexes."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Lean mass percentage on HFHS",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d031007b9bbc7a97696f",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "these mice displayed a higher lean mass percentage compared to mice harboring bacteria alone"
+              },
+              "quantitative_value": null,
+              "result_id": "res_beca754a5062028cb4ed0142",
+              "unit": null,
+              "value_raw_text": "B+C mice displayed a higher lean mass percentage compared to B only on HFHS."
+            }
+          ],
+          "unit_id": "su_252ac40535ce7af297323952"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5493 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7164 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7164 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "coverage_ledger": {
+    "140a100c37de7b1b4e06": "not_selected",
+    "17943993c97bbc31e509": "not_selected",
+    "1f45e91da6c05db1f7f2": "not_selected",
+    "2853e33b2a7ed204225a": "extracted",
+    "313d6c4e46e82e3d309e": "extracted",
+    "333a8e8b345c6b0eccf1": "not_selected",
+    "34350dc7de82a894fcb4": "not_selected",
+    "51bab8fe32565b256508": "not_selected",
+    "621b3c2cfd3b8e5dce08": "not_selected",
+    "9507b2e4a43bd484b5a9": "not_selected",
+    "9a3d872b09641a5524a9": "not_selected",
+    "9ed7eeb466edf7f6e0b9": "not_selected",
+    "ade947ae78687bec8b2c": "extracted",
+    "b283ca1ec2ed888496dc": "not_selected",
+    "b5e8a9e05d9a995d8441": "not_selected",
+    "c4c7d50310a873051acb": "not_selected",
+    "c80671c96a583987bde0": "extracted",
+    "d040d047505814c6e8de": "not_selected",
+    "ef9ee1c5b7b1954857a6": "not_selected",
+    "f31e0e9eb789dfa77f34": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "scDCA is currently only applicable to transformer-based foundation models.",
+    "scDCA requires the presence of control gene expression data.",
+    "Evaluation of perturbation models is challenged by the limited size of publicly available data."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_17.pdf",
+    "source_sha256": "b1aec6dd0b8868efefad08013a726ac5992450b3439e35cde1052ee6286df57d"
+  },
+  "paper_id": "1_17",
+  "quality_assessment": {
+    "correct_item_count": 23,
+    "deterministic_rule_score": 0.7799,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 23,
+    "f1": 0.8519,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "The dataset used is sciplex3, containing 649,340 cells across 3 human cancer cell lines (A549, MCF7, K562) perturbed with 188 drugs, focusing on 2,000 drug-sensitive genes.",
+        "item_id": null,
+        "source_chunk_id": "9507b2e4a43bd484b5a9",
+        "source_excerpt": "The dataset utilized in this study is sciplex3 (Srivatsan et al., 2020), which includes 649,340 cells across 7,561 drug-sensitive genes on 3 human cancer cell lines (A549, MCF7, and K562) perturbed with 188 drugs. Similar to previous work (Hetzel et al., 2022), we focus on the transcriptional response captured through 2,000 drug-sensitive genes.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Evaluation metric: R-squared on top 20 differentially expressed genes (DEGs), with experiments over 5 runs reporting standard error and average coefficient of determination.",
+        "item_id": null,
+        "source_chunk_id": "313d6c4e46e82e3d309e",
+        "source_excerpt": "In our experiments, we consider the top 20 DEGs. ... the main performance metric used for perturbation prediction is the R-squared (or coefficient of determination) metric R2. ... We conducted all experiments over 5 runs (different random splits), reporting both the standard error and the average coefficient of determination.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "scDCA outperforms all baselines (ChemCPA, BioLORD, SAMS_VAE) across tasks, with most notable improvement in unseen cell line tasks.",
+        "item_id": null,
+        "source_chunk_id": "313d6c4e46e82e3d309e",
+        "source_excerpt": "scDCA consistently outperforms the baseline models for all tasks, with the most notable improvement observed in the unseen cell line (zero-shot and few-shot) tasks.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "scDCA predictions are within single-cell measurement uncertainty.",
+        "item_id": null,
+        "source_chunk_id": "313d6c4e46e82e3d309e",
+        "source_excerpt": "scDCA predictions are within single-cell measurement uncertainty.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "scDCA predictions are robust across different molecular targets, with no significant drops in performance for any subgroup.",
+        "item_id": null,
+        "source_chunk_id": "c80671c96a583987bde0",
+        "source_excerpt": "scDCA's predictive accuracy is consistent across targets, with no significant drops in performance for any subgroup.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Limitation: scDCA is currently only applicable to transformer-based foundation models.",
+        "item_id": null,
+        "source_chunk_id": "c80671c96a583987bde0",
+        "source_excerpt": "One limitation is that our approach is currently only applicable to transformer-based foundation models.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Limitation: scDCA requires the presence of control gene expression data.",
+        "item_id": null,
+        "source_chunk_id": "c80671c96a583987bde0",
+        "source_excerpt": "Additionally, our method requires the presence of control gene expression data.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Limitation: Evaluation of perturbation models is challenged by the limited size of publicly available data.",
+        "item_id": null,
+        "source_chunk_id": "c80671c96a583987bde0",
+        "source_excerpt": "Finally, we believe that the evaluation of perturbation models, especially in the single-cell domain and for the generalization to new cell lines and conditions, is challenged by the limited size of publicly available data.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.7419
+  },
+  "quality_score": 0.8519,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "How can single-cell foundation models be fine-tuned to predict transcriptional responses to novel molecular perturbations, including zero-shot generalization to unseen cell lines?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_208e489dfdf16b6f50673725",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "scDCA predictions are within single-cell measurement uncertainty."
+              },
+              "statement": "scDCA predictions are within single-cell measurement uncertainty."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_733325ed40cdaafb2482782c",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "scDCA consistently outperforms the baseline models for all tasks, with the most notable improvement observed in the unseen cell line (zero-shot and few-shot) tasks."
+              },
+              "statement": "scDCA outperforms all baselines across tasks, with most notable improvement in unseen cell line tasks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_818170517e1fd40cbe4b8417",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c80671c96a583987bde0",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "scDCA's predictive accuracy is consistent across targets, with no significant drops in performance for any subgroup."
+              },
+              "statement": "scDCA predictions are robust across different molecular targets."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e2755b383807b08d052fc08b",
+              "inference_basis_ids": [
+                "res_0b12f89bfc649402ef594aa3",
+                "res_0e023f57d4bdea607d80ab85",
+                "res_77ab31bd9a6b6eae4b9ae534",
+                "res_822eff9afbecd26d125f0c68",
+                "res_a7dfb0cb8ac9808b7c6a988f",
+                "res_b903d2c4cd7f47f956514007",
+                "res_da66b1c56abbc95ca049277d",
+                "res_df88c514f2f81a2b7288a491"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "scDCA consistently outperforms the naive finetuning approach across all tasks. ... the performance gap widens."
+              },
+              "statement": "scDCA outperforms naive fine-tuning across all tasks, with the largest improvement in zero-shot cell line prediction."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Single-cell perturbation dataset used for training and evaluation, containing hundreds of molecules across a few cell lines.",
+              "name": "Perturbation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "ChemCPA is unable to perform the unseen cell line (zero-shot) task due to its architecture, which relies on trained cell line embeddings.",
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "ChemCPA is unable to perform the unseen cell line (zero-shot) task due to its architecture, which relies on trained cell line embeddings as a core component, limiting its ability to handle unseen cell lines."
+              },
+              "span_id": "es2"
+            },
+            {
+              "content": "scDCA utilizes less than 1% of the parameters required by the naive fine-tuning approach, resulting in a faster and more memory-efficient procedure.",
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "scDCA utilizes less than 1% of the parameters required by the naive fine-tuning approach, resulting in a faster and more memory-efficient procedure."
+              },
+              "span_id": "es1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Clustering drugs based on their targets and assessing scDCA robustness across different molecular targets.",
+            "Comparison of scDCA with baseline models (including ChemCPA) across all tasks.",
+            "Comparison of scDCA with naive fine-tuning of scGPT across four tasks: unseen drug, unseen drug-cell-line combo, unseen cell line (few-shot), unseen cell line (zero-shot).",
+            "Evaluation of scDCA predictions against single-cell measurement uncertainty."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "scDCA",
+              "protocol_description": "Single-cell Drug-Conditional Adapter: efficiently fine-tunes a single-cell foundation model by training less than 1% of the original parameters, using a drug-conditional adapter layer that injects molecular information while keeping the FM frozen."
+            },
+            {
+              "method_id": "m2",
+              "name": "Naive fine-tuning",
+              "protocol_description": "Standard fine-tuning of scGPT without adapter, updating all parameters."
+            }
+          ],
+          "name": "scDCA evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Fine-tuning Unseen cell line (few-shot) 0.81 ± 0.005"
+              },
+              "quantitative_value": 0.81,
+              "result_id": "res_0b12f89bfc649402ef594aa3",
+              "unit": null,
+              "value_raw_text": "0.81 ± 0.005"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Unseen cell line (zero-shot) 0.82 ± 0.032"
+              },
+              "quantitative_value": 0.82,
+              "result_id": "res_0e023f57d4bdea607d80ab85",
+              "unit": null,
+              "value_raw_text": "0.82 ± 0.032"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Fine-tuning Unseen drug 0.81 ± 0.021"
+              },
+              "quantitative_value": 0.81,
+              "result_id": "res_77ab31bd9a6b6eae4b9ae534",
+              "unit": null,
+              "value_raw_text": "0.81 ± 0.021"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Unseen cell line (few-shot) 0.88 ± 0.004"
+              },
+              "quantitative_value": 0.88,
+              "result_id": "res_822eff9afbecd26d125f0c68",
+              "unit": null,
+              "value_raw_text": "0.88 ± 0.004"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Fine-tuning Unseen cell line (zero-shot) 0.51 ± 0.021"
+              },
+              "quantitative_value": 0.51,
+              "result_id": "res_a7dfb0cb8ac9808b7c6a988f",
+              "unit": null,
+              "value_raw_text": "0.51 ± 0.021"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "313d6c4e46e82e3d309e",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "scDCA consistently outperforms the naive finetuning approach across all tasks."
+                }
+              ],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Unseen drug 0.81 ± 0.022"
+              },
+              "quantitative_value": 0.81,
+              "result_id": "res_b903d2c4cd7f47f956514007",
+              "unit": null,
+              "value_raw_text": "0.81 ± 0.022"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Fine-tuning Unseen drug-cell-line combo 0.78 ± 0.009"
+              },
+              "quantitative_value": 0.78,
+              "result_id": "res_da66b1c56abbc95ca049277d",
+              "unit": null,
+              "value_raw_text": "0.78 ± 0.009"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "R-squared",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "313d6c4e46e82e3d309e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Unseen drug-cell-line combo 0.83 ± 0.015"
+              },
+              "quantitative_value": 0.83,
+              "result_id": "res_df88c514f2f81a2b7288a491",
+              "unit": null,
+              "value_raw_text": "0.83 ± 0.015"
+            }
+          ],
+          "unit_id": "su_c7d8b1bc13eb41b835f04c70"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9444 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7547 on attempt 1"
+    }
+  ]
+}

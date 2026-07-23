@@ -1,0 +1,409 @@
+{
+  "coverage_ledger": {
+    "00c37e8beda7a85484e4": "not_selected",
+    "0c5363814b2a319571a2": "extracted",
+    "0e0a7090768b876e7bd9": "not_selected",
+    "0fce1cff5aba4c6691fc": "not_selected",
+    "1136d439713c28b10e1c": "not_selected",
+    "15a73556c9e2278917f2": "not_selected",
+    "17bd29eba6bbd704ae61": "not_selected",
+    "1bf6056c76ae78a8df58": "not_selected",
+    "20f5d7cb7ce07e00f5cb": "not_selected",
+    "251bc1b4315e269995f7": "not_selected",
+    "3408a76f216ab2b2b34e": "not_selected",
+    "389fdab546125b3ba2b2": "extracted",
+    "3a6ab01197a16fb06ebc": "not_selected",
+    "586326711f99ae403c6a": "not_selected",
+    "634a9f2e4accfbe5ab5c": "not_selected",
+    "844bf335b396dc872511": "not_selected",
+    "84d32a8357c411f336b8": "not_selected",
+    "869f8a0b55619d0f7b2e": "not_selected",
+    "8dc76f2b239d888eb50f": "not_selected",
+    "9bd8f4d91613fd6da2fe": "not_selected",
+    "9fa367d24fbb46870afe": "not_selected",
+    "a866e79f5c77d40adbb4": "not_selected",
+    "b3891c580e8358620e57": "not_selected",
+    "b3b1736378d48ac99814": "not_selected",
+    "bd0095519ed90d7d5f85": "extracted",
+    "c06b02a9e685cd471dc1": "not_selected",
+    "c79a216669a9dff3d9ef": "not_selected",
+    "cd4143aff5ffdd12d823": "not_selected",
+    "d61c6580b6324aa6b24b": "not_selected",
+    "e11c09a8f48665491df5": "not_selected",
+    "efd8986fb5dbcdf95452": "not_selected",
+    "fb05358d09f5c16c828b": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Current scale of Perturb-seq is suitable for targeted screens; genome-wide screens require further scaling.",
+    "Systematic analysis of higher-order genetic interactions remains challenging due to exponential scaling of combination space.",
+    "The probability of detecting all perturbations and the probability of all perturbations resulting in an effect scale exponentially with the order of perturbations."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_1.pdf",
+    "source_sha256": "9e333c6d3cc2883d17b2df4eea75a355ff973bd18f5988341094c694324cc790"
+  },
+  "paper_id": "1_1",
+  "quality_assessment": {
+    "correct_item_count": 26,
+    "deterministic_rule_score": 0.825,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 26,
+    "f1": 0.8525,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 9,
+    "missed_core_items": [
+      {
+        "description": "The paper reports that Perturb-seq was performed on 200,000 cells across six experiments, including BMDCs and K562 cells, with specific numbers of cells per experiment. This quantitative scale is a core result.",
+        "item_id": null,
+        "source_chunk_id": "0fce1cff5aba4c6691fc",
+        "source_excerpt": "We performed six Perturb-seq experiments, analyzing 200,000 cells (Figure 1C). In bone marrow-derived dendritic cells (BMDCs), we targeted 24 transcription factors (TFs) (Table S1) (Amit et al., 2009; Garber et al., 2012) and measured the effects pre-stimulation (0 hr) and at 3 hr post-lipopolysaccharide (LPS). In K562 cells, we targeted 14 TFs and 10 cell-cycle regulators in separate pooled experiments (Table S1).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper describes a downsampling analysis showing that signature-level effects require fewer cells (tens of cells per perturbation) than gene-level effects (100-200 cells per perturbation). This is a key quantitative finding about scalability.",
+        "item_id": null,
+        "source_chunk_id": "c79a216669a9dff3d9ef",
+        "source_excerpt": "The number of cells and reads required for signature level effects is lower than that needed to detect effects on individual genes (10’s versus 100–200 cells/perturbation; 400 versus 1,000 transcripts; Figures 7A, 7B, S7B–S7H, and S7J–S7L).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that the linear model explains 5% of variance from perturbations alone, 17% with cell quality covariates, and up to 20% with cell-state covariates in stimulated BMDCs. This is a core quantitative result about model performance.",
+        "item_id": null,
+        "source_chunk_id": "b3891c580e8358620e57",
+        "source_excerpt": "For stimulated BMDCs, the perturbations explain 5% of the variance, 17% is explained when adding cell quality covariates, and up to 20% with added cell-state covariates (Figure 2I).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper identifies five transcriptional programs (P1-P5) and four TF modules (M1-M4) in BMDCs, which is a central finding of the study.",
+        "item_id": null,
+        "source_chunk_id": "3a6ab01197a16fb06ebc",
+        "source_excerpt": "There were four TF modules (M1–M4) (Figures 3A and 4A): (M1) the anti-viral TFs Stat1 and Stat2; (M2) the pioneer factor Cebpb, with JunB, Rela, Stat3, and Hif1; (M3) Rel, Irf2, and Atf3; and (M4) the pioneer factor Spi1/Pu.1, with Runx1, Irf4, and Nfkb1. There were five gene programs, each enriched for distinct processes (P1–P5; Figures 4A and 4B; Table S6): (P1) an anti-viral response; (P2) antigen presentation, cytoskeleton, and ribosomal proteins (RP); (P3) mitochondrial function and biogenesis; (P4) an interferon gamma response to intracellular pathogens; and (P5) an inflammatory TNF response.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that the MIMOSCA computational framework uses elastic net regularization and a permutation-based significance test. This is a core methodological detail.",
+        "item_id": null,
+        "source_chunk_id": "efd8986fb5dbcdf95452",
+        "source_excerpt": "We devised a computational framework (MIMOSCA) based on a regularized linear model, to estimate the impact of perturbations on gene expression (Figures 1F, 2, and S2; STAR Methods). In simplest form, the model predicts each gene’s (log) expression level (expression matrix Y) as a linear combination of the effects of guides (design matrix X), fitting the regulatory effect of each guide on each gene (coefficient matrix b). We do not use information on which gene each guide targets or which guides target the same gene. We fit the coefficient matrix with elastic net regularization, to reduce the number of hypotheses tested, and to address correlated covariates and noisy data. We evaluate the significance of the each coefficient with a permutation-based test (Figures S2D–S2G).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that ChIP-seq data supports predicted targets for most TFs, including repressors Irf2, Atf3, and Nfkb1. This is a key validation result.",
+        "item_id": null,
+        "source_chunk_id": "bd0095519ed90d7d5f85",
+        "source_excerpt": "The targets our model predicted for most TFs are strongly supported by chromatin immunoprecipitation sequencing (ChIP-seq) data of the genes bound by these TFs in bulk populations (Garber et al., 2012) (Figures 4E–4G; STAR Methods). For example, targets bound in either unstimulated or stimulated cells by the constitutively bound, activating TFs Rela and Cebpb are downregulated when these TFs are perturbed. Targets bound at 2 hr post-LPS by the dynamically bound activators Stat1 and Stat2 are downregulated in perturbed BMDCs post-stimulation. The model also correctly predicted the targets and logic of repressors (Figures 4F and 4G), such as Irf2, Atf3, and Nfkb1.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that genetic interactions are associated with co-binding, as shown for Nfkb1 and Rela. This is a central finding about the mechanism of genetic interactions.",
+        "item_id": null,
+        "source_chunk_id": "389fdab546125b3ba2b2",
+        "source_excerpt": "Similar cases, where genetic interactions are present only when the two factors are co-bound, are found for additional pairs (e.g., Runx1-Rel, Irf4-Nfkb1).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that Perturb-seq can be applied to cell-cycle regulators, identifying distinct transcriptional profiles associated with similar fitness effects. This is a key demonstration of the method's generality.",
+        "item_id": null,
+        "source_chunk_id": "9bd8f4d91613fd6da2fe",
+        "source_excerpt": "To address this, we targeted in K562 cells 13 genes (33 guides) (Table S1) that were previously identified by a mitotic arrest phenotype in a genome-wide imaging screen in HeLa cells (Figure S6D) (from Neumann et al., 2010).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that Perturb-seq can be performed with pooled cloning, as demonstrated for seven chromatin regulators. This is a key methodological advance.",
+        "item_id": null,
+        "source_chunk_id": "c79a216669a9dff3d9ef",
+        "source_excerpt": "To support the feasibility of large Perturb-seq screens, we also demonstrated that all steps in Perturb-seq could be performed in a single pool (Figure S5). We synthesized an array of sgRNAs targeting seven chromatin regulators and five intergenic controls and performed pooled cloning, virus preparation, transduction, cell growth, scRNA-seq (14,000 cells), and model fitting. Guides to the same gene agreed well (p < 10^-3).",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.7429
+  },
+  "quality_score": 0.8525,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can single-cell RNA sequencing be combined with pooled CRISPR screens to dissect molecular circuits?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ada3ed3ef5a25af502c3d8d2",
+              "inference_basis_ids": [
+                "res_10375bf0887b6a25acf80ae7",
+                "res_f13acc34417a42aeab17aeb1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bd0095519ed90d7d5f85",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "modules M2 and M4 had opposite effects on P2 (repressed by M2 and induced by M4) and P4 and P5 (induced by M2 and repressed by M4)"
+              },
+              "statement": "M2 and M4 TF modules have opposing effects on BMDC cell states and programs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fbc75b8e08b7cd31b02448c7",
+              "inference_basis_ids": [
+                "res_1517a7ca8efd34051530f735"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "389fdab546125b3ba2b2",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "genetic interactions are present only when the two factors are co-bound"
+              },
+              "statement": "Genetic interactions between TFs can be non-additive and are associated with co-binding."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Single-cell RNA-seq data from BMDCs with CRISPR perturbations targeting transcription factors, stimulated with LPS.",
+              "name": "BMDC Perturb-seq dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "M2 and M4 have mutually opposing effects: M2 may promote differentiation, leading to LPS-responsive programs (P4 and P5), whereas M4 promotes a mutually exclusive state that is either less differentiated or less productive ex vivo (P2).",
+              "provenance": {
+                "chunk_id": "bd0095519ed90d7d5f85",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "M2 and M4—with their distinct pioneer factors Cebpb and Spi1, respectively—have mutually opposing effects: M2 may promote differentiation, leading to LPS-responsive programs (P4 and P5), whereas M4 promotes a mutually exclusive state that is either less differentiated or less productive ex vivo (P2)."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Analysis of TF module effects on cell states and programs.",
+            "Genetic interaction analysis using cells with multiple guides.",
+            "Identification of five transcriptional programs (P1-P5) and four transcription factor (TF) modules (M1-M4) using a linear model.",
+            "Pooled CRISPR screen with scRNA-seq readout in bone marrow-derived dendritic cells (BMDCs) stimulated with LPS."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Perturb-seq",
+              "protocol_description": "Pooled CRISPR screen with single-cell RNA-seq readout using the MIMOSCA computational framework."
+            },
+            {
+              "method_id": "M2",
+              "name": "Linear model for gene expression",
+              "protocol_description": "Linear model with cell-state covariates to estimate perturbation effects on gene expression and cell states."
+            }
+          ],
+          "name": "Perturb-seq in BMDCs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell state enrichment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bd0095519ed90d7d5f85",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "cells perturbed for M2 TFs (Cebpb, Rela, JunB) are enriched in clusters matching P2 and depleted in clusters matching P5, whereas those perturbed for M4 TFs (Spi1, Irf4, Nfkb1, Runx1) have the opposite effect"
+              },
+              "quantitative_value": null,
+              "result_id": "res_10375bf0887b6a25acf80ae7",
+              "unit": null,
+              "value_raw_text": "Cells perturbed for M2 TFs are enriched in clusters matching P2 and depleted in clusters matching P5; M4 TFs have the opposite effect."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Genetic interaction type",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "389fdab546125b3ba2b2",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Most TF pairs involving one of Runx1, Irf1, Irf2, or Irf4 had mostly additive effects, whereas pairs with combinations of Stat1, Stat2, Stat3, Rela, Nfkb1, and Spi1 were enriched for interactions. Only those involving Nfkb1 (Stat1-Nfkb1, Stat3-Nfkb1, Rela-Nfkb1, Spi1-Nfkb1) were enriched for buffering interactions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1517a7ca8efd34051530f735",
+              "unit": null,
+              "value_raw_text": "Most TF pairs involving Runx1, Irf1, Irf2, or Irf4 had mostly additive effects; pairs with Stat1, Stat2, Stat3, Rela, Nfkb1, and Spi1 were enriched for interactions; Nfkb1 pairs were enriched for buffering interactions."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TF binding support",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bd0095519ed90d7d5f85",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The targets our model predicted for most TFs are strongly supported by chromatin immunoprecipitation sequencing (ChIP-seq) data"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4fe5b1d74b0f2bcd5eae2bb9",
+              "unit": null,
+              "value_raw_text": "ChIP-seq data supports predicted targets for most TFs, including repressors Irf2, Atf3, and Nfkb1."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TF module effect on program",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bd0095519ed90d7d5f85",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "modules M2 and M4 had opposite effects on P2 (repressed by M2 and induced by M4) and P4 and P5 (induced by M2 and repressed by M4)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f13acc34417a42aeab17aeb1",
+              "unit": null,
+              "value_raw_text": "M2 (Cebpb, Rela, JunB) represses P2 and induces P4/P5; M4 (Spi1, Irf4, Nfkb1, Runx1) induces P2 and represses P4/P5."
+            }
+          ],
+          "unit_id": "su_20f58e187e462318c29532f7"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_10fc87719e18adceb6f04bd5",
+              "inference_basis_ids": [
+                "res_35d604c4e863b5e46573421a",
+                "res_3eb029830117cec862aeb80e",
+                "res_c349f752841a93a8c3005f70"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "389fdab546125b3ba2b2",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "The model correctly predicts individual TF functions. For example, GABPA perturbation represses mitochondrial functions... YY1 perturbation is correctly predicted to represses oxidative phosphorylation and induce an innate immune response"
+              },
+              "statement": "Perturb-seq in K562 cells identifies TF modules and cell-state-specific effects consistent with known functions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Single-cell RNA-seq data from K562 cells with CRISPR perturbations targeting ten transcription factors.",
+              "name": "K562 Perturb-seq dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Identification of two TF modules and nine cell states.",
+            "Model with cell-state covariates to uncover TF-specific effects.",
+            "Perturb-seq targeting ten TFs in K562 cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Perturb-seq in K562",
+              "protocol_description": "Same Perturb-seq method applied to K562 cells, with linear model and cell-state covariates."
+            }
+          ],
+          "name": "Perturb-seq in K562 cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell state enrichment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "389fdab546125b3ba2b2",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "cells perturbed in EGR1 are depleted from cell-state 6, which has an increased expression of hemoglobin biosynthesis genes... Cells perturbed in YY1 are enriched in state 5 (induction of cholesterol biosynthesis genes)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_35d604c4e863b5e46573421a",
+              "unit": null,
+              "value_raw_text": "EGR1 perturbation depletes cells from state 6 (hemoglobin biosynthesis); YY1 perturbation enriches cells in state 5 (cholesterol biosynthesis)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TF-specific effect",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "389fdab546125b3ba2b2",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "GABPA perturbation represses mitochondrial functions... YY1 perturbation is correctly predicted to represses oxidative phosphorylation and induce an innate immune response"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3eb029830117cec862aeb80e",
+              "unit": null,
+              "value_raw_text": "GABPA perturbation represses mitochondrial functions; YY1 perturbation represses oxidative phosphorylation and induces innate immune response."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TF module effect",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "389fdab546125b3ba2b2",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the TFs partition into two modules"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c349f752841a93a8c3005f70",
+              "unit": null,
+              "value_raw_text": "TFs partition into two modules in K562 cells."
+            }
+          ],
+          "unit_id": "su_6b434d08d180d162e2cb7863"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6387 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7202 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7251 on attempt 1"
+    }
+  ]
+}
