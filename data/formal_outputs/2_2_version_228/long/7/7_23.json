@@ -1,0 +1,819 @@
+{
+  "coverage_ledger": {
+    "0a50c711d1b6ff5621bb": "not_selected",
+    "17d21f62213cef81f40a": "not_selected",
+    "1f6343524f75589fffd2": "extracted",
+    "267af7117a3c8c69a77b": "extracted",
+    "351e49be9e9dd09707dd": "not_selected",
+    "35909af58fb32b3155f6": "not_selected",
+    "3bf590f589ae89bcc1a0": "not_selected",
+    "44e97824b26c1917d6e0": "extracted",
+    "5885449d693d6729c86d": "not_selected",
+    "7487b9161c5c7e63aeb2": "not_selected",
+    "7a0555b7cdc154d9ce2c": "not_selected",
+    "7b7d3cfd383edd826972": "not_selected",
+    "8a7d206ecefb70e14182": "not_selected",
+    "9230082e873c7f72c165": "not_selected",
+    "9a146223557aa773b53a": "not_selected",
+    "a2b184d108882ab46b24": "extracted",
+    "a6d74db83bf02ae90127": "not_selected",
+    "b3c228b21d13ac00b80b": "extracted",
+    "b8ce6732138da7151776": "extracted",
+    "c3b44dc3023a580036f9": "not_selected",
+    "dcc792d0ca205c25dcdd": "extracted",
+    "e6cb26d193b5c32c65a5": "not_selected",
+    "f1d9bd35efef9605aa09": "not_selected",
+    "f98f013e3d5da419f526": "extracted",
+    "f9c17f26ca8dfc7446fc": "not_selected",
+    "fbe5505cc3cabd1c0649": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "FNO is limited to rectangular domains with uniform grids due to FFT.",
+    "Interpolation methods cause large errors for non-linear PDEs on non-uniform meshes.",
+    "Geo-FNO requires learning or defining a deformation map, which may be problem-specific.",
+    "3D embedding for spherical problems leads to high error due to data and resolution demands.",
+    "Plasticity problem requires mesh as target output, so interpolation methods do not apply."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_23.pdf",
+    "source_sha256": "5ed021573aaf1f8fe272cfc769d9f5cc4eda90bf81dd0bace8a47880d9a00b30"
+  },
+  "paper_id": "7_23",
+  "quality_assessment": {
+    "correct_item_count": 57,
+    "deterministic_rule_score": 0.9234,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 57,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "How can Fourier neural operators be extended to handle PDEs on arbitrary geometries and non-uniform meshes while retaining computational efficiency?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_574f3b38216fe3e0b8913eff",
+              "inference_basis_ids": [
+                "res_de19e575230b1447b957d4d0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f98f013e3d5da419f526",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO can be trained on a low-resolution dataset and evaluated at a higher resolution."
+              },
+              "statement": "Geo-FNO retains discretization convergence, allowing transfer from low to high resolution."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5bbce5d67ec20d7c60baab69",
+              "inference_basis_ids": [
+                "res_6b6fde7d5e460710868d67f9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dcc792d0ca205c25dcdd",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "both Geo-FNO and traditional numerical solver lead to a drag coefficient of 0.04 and a lift coefficient of 0.29"
+              },
+              "statement": "Geo-FNO can be used for real-time inverse design optimization, matching numerical solver results."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_90a8795b856c3a98cace738b",
+              "inference_basis_ids": [
+                "res_4b00d1881a167127a50ac4c5",
+                "res_9cee2f04502d78083b64074e",
+                "res_e05cfe989f7d5a14c2de4edf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "the Geo-FNO with a learned deformation has better accuracy compared to Geo-FNO with fixed heuristic deformations (R-mesh) and (O-mesh)"
+              },
+              "statement": "Learned deformation in Geo-FNO yields better accuracy than fixed heuristic deformations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c8642f2dfca07deeb9617882",
+              "inference_basis_ids": [
+                "res_1ef8e29861f525b8e4d11cd5",
+                "res_4e670e246af359fbd8e8f13f",
+                "res_e05cfe989f7d5a14c2de4edf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO also has a lower error compared to mesh-free methods such as Graph neural operators (GNO) and DeepONet due to the advantages of the spectral transform"
+              },
+              "statement": "Geo-FNO outperforms mesh-free methods like GNO and DeepONet due to advantages of spectral transform."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f09041e4a4f42526f570c707",
+              "inference_basis_ids": [
+                "res_0b9560334198e55f6b50a9d6",
+                "res_28825b62e5de7543ff549cd9",
+                "res_2edcd0faf0b2160241460f6b",
+                "res_3feb750aeff569ca4fb8be3d",
+                "res_5b0a58d144d037182dda103d",
+                "res_820523f918e3a8cc1b06ef96",
+                "res_85597a728c71114e1cc0c549",
+                "res_d42b5e07ed09b0a5871849fd",
+                "res_e05cfe989f7d5a14c2de4edf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "the Geo-FNO model has a significantly lower error compared to combining direct interpolation with existing ML-based PDE solvers"
+              },
+              "statement": "Geo-FNO achieves significantly lower error than interpolation-based ML methods on irregular geometries."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f2811ab451386c92a266fb2d",
+              "inference_basis_ids": [
+                "res_69d1f088604cb40cc65e2b4b",
+                "res_a15134d60b13abaa112707d6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f98f013e3d5da419f526",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO is at least 10^4x faster while having the same accuracy"
+              },
+              "statement": "Geo-FNO is orders of magnitude faster than traditional numerical solvers while maintaining accuracy."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Point cloud inputs for elasticity PDE on unit cell with void; 1000 training, 200 test samples.",
+              "name": "Elasticity point cloud dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Structured meshes for Euler equations on airfoils; shape parameterization via design elements.",
+              "name": "Airfoil structured mesh dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Structured meshes for Navier-Stokes in pipe; 1000 training, 200 test samples.",
+              "name": "Pipe flow structured mesh dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Structured meshes for plasticity PDE.",
+              "name": "Plasticity structured mesh dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D5",
+              "description": "Point clouds on unit sphere for advection equation; 1000 training, 200 test samples.",
+              "name": "Advection on sphere point cloud dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation: comparison of learned vs. fixed heuristic deformations (R-mesh, O-mesh).",
+            "Cost-accuracy comparison against numerical solvers and interpolation-based ML methods.",
+            "Discretization convergence test on airfoil problem.",
+            "Forward modeling of PDEs on irregular geometries: Elasticity, Plasticity, Advection, Euler, Navier-Stokes equations.",
+            "Inverse design optimization for airfoil shape using trained Geo-FNO."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Geo-FNO (learned deformation)",
+              "protocol_description": "Learns a coordinate transform from irregular physical domain to uniform latent mesh using a neural network, then applies FNO in latent space. End-to-end training."
+            },
+            {
+              "method_id": "M10",
+              "name": "UNet2D",
+              "protocol_description": "UNet on 2D spherical map projection."
+            },
+            {
+              "method_id": "M11",
+              "name": "Numerical solver (Euler)",
+              "protocol_description": "Implicit backward-Euler pseudo-time-stepping with varying spatial resolutions and iterations."
+            },
+            {
+              "method_id": "M2",
+              "name": "Geo-FNO (R mesh)",
+              "protocol_description": "Fixed heuristic radial stretching deformation to create adaptive mesh near void interface; then FNO applied."
+            },
+            {
+              "method_id": "M3",
+              "name": "Geo-FNO (O mesh)",
+              "protocol_description": "Fixed heuristic body-fitted O-type cylindrical mesh; then FNO applied."
+            },
+            {
+              "method_id": "M4",
+              "name": "FNO interpolation",
+              "protocol_description": "Interpolate input point cloud to uniform 41x41 grid, then apply standard FNO."
+            },
+            {
+              "method_id": "M5",
+              "name": "UNet interpolation",
+              "protocol_description": "Interpolate input point cloud to uniform grid, then apply UNet."
+            },
+            {
+              "method_id": "M6",
+              "name": "Graph neural operator (GNO)",
+              "protocol_description": "Graph kernel operator with message passing; full graph with edge radius 0.2, width 64, kernel 128."
+            },
+            {
+              "method_id": "M7",
+              "name": "DeepONet",
+              "protocol_description": "Deep operator network with trunk and branch nets, 5 layers each, width 256."
+            },
+            {
+              "method_id": "M8",
+              "name": "FNO2D",
+              "protocol_description": "Standard FNO on 2D map projection of sphere."
+            },
+            {
+              "method_id": "M9",
+              "name": "FNO3D",
+              "protocol_description": "FNO embedding sphere in 3D; 64x64x64 grid."
+            }
+          ],
+          "name": "Geo-FNO framework and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UNet interpolation ... Airfoil ... testing 0.0519"
+              },
+              "quantitative_value": 0.0519,
+              "result_id": "res_0b9560334198e55f6b50a9d6",
+              "unit": null,
+              "value_raw_text": "0.0519"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UNet2D ... testing error 0.3132"
+              },
+              "quantitative_value": 0.3132,
+              "result_id": "res_1c93e851264e393e3e38af05",
+              "unit": null,
+              "value_raw_text": "0.3132"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "DeepONet ... testing error 0.1599"
+              },
+              "quantitative_value": 0.1599,
+              "result_id": "res_1cc822dfcd6bbddfa276ad6d",
+              "unit": null,
+              "value_raw_text": "0.1599"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO ... Plasticity ... testing 0.0074"
+              },
+              "quantitative_value": 0.0074,
+              "result_id": "res_1cddbc1b07700337eaf77e5c",
+              "unit": null,
+              "value_raw_text": "0.0074"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "GraphNO ... testing error 0.1260"
+              },
+              "quantitative_value": 0.126,
+              "result_id": "res_1ef8e29861f525b8e4d11cd5",
+              "unit": null,
+              "value_raw_text": "0.1260"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UNet interpolation ... Pipe ... testing 0.0182"
+              },
+              "quantitative_value": 0.0182,
+              "result_id": "res_28825b62e5de7543ff549cd9",
+              "unit": null,
+              "value_raw_text": "0.0182"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO2D ... testing error 0.0332"
+              },
+              "quantitative_value": 0.0332,
+              "result_id": "res_2bbbfa6129dccfdd805f0b5a",
+              "unit": null,
+              "value_raw_text": "0.0332"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO ... Pipe ... testing 0.0067"
+              },
+              "quantitative_value": 0.0067,
+              "result_id": "res_2edcd0faf0b2160241460f6b",
+              "unit": null,
+              "value_raw_text": "0.0067"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy improvement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "267af7117a3c8c69a77b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "twice more accurate compared to direct interpolation on existing ML-based PDE solvers such as the standard FNO"
+              },
+              "quantitative_value": 2.0,
+              "result_id": "res_3162bdc37730079580f3710c",
+              "unit": "times more accurate",
+              "value_raw_text": "twice more accurate compared to direct interpolation on existing ML-based PDE solvers"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO ... Airfoil ... testing 0.0138"
+              },
+              "quantitative_value": 0.0138,
+              "result_id": "res_3feb750aeff569ca4fb8be3d",
+              "unit": null,
+              "value_raw_text": "0.0138"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO (O mesh) ... testing error 0.0363"
+              },
+              "quantitative_value": 0.0363,
+              "result_id": "res_4b00d1881a167127a50ac4c5",
+              "unit": null,
+              "value_raw_text": "0.0363"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "DeepONet ... testing error 0.0965"
+              },
+              "quantitative_value": 0.0965,
+              "result_id": "res_4e670e246af359fbd8e8f13f",
+              "unit": null,
+              "value_raw_text": "0.0965"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO3D ... testing error > 100%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_50084348c66ab73ffade0536",
+              "unit": null,
+              "value_raw_text": "> 100%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO interpolation ... Pipe ... testing 0.0151"
+              },
+              "quantitative_value": 0.0151,
+              "result_id": "res_5b0a58d144d037182dda103d",
+              "unit": null,
+              "value_raw_text": "0.0151"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cost-accuracy speedup",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f98f013e3d5da419f526",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO is at least 10^4x faster while having the same accuracy"
+              },
+              "quantitative_value": 10000.0,
+              "result_id": "res_69d1f088604cb40cc65e2b4b",
+              "unit": "times faster",
+              "value_raw_text": "at least 10^4x faster while having the same accuracy"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inverse design drag and lift coefficients",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dcc792d0ca205c25dcdd",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "both Geo-FNO and traditional numerical solver lead to a drag coefficient of 0.04 and a lift coefficient of 0.29"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6b6fde7d5e460710868d67f9",
+              "unit": null,
+              "value_raw_text": "drag coefficient 0.04, lift coefficient 0.29"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "FNO interpolation ... testing error 0.0508"
+              },
+              "quantitative_value": 0.0508,
+              "result_id": "res_820523f918e3a8cc1b06ef96",
+              "unit": null,
+              "value_raw_text": "0.0508"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "UNet interpolation ... testing error 0.0531"
+              },
+              "quantitative_value": 0.0531,
+              "result_id": "res_85597a728c71114e1cc0c549",
+              "unit": null,
+              "value_raw_text": "0.0531"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO (R mesh) ... testing error 0.0536"
+              },
+              "quantitative_value": 0.0536,
+              "result_id": "res_9cee2f04502d78083b64074e",
+              "unit": null,
+              "value_raw_text": "0.0536"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Speedup factor",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "267af7117a3c8c69a77b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Geo-FNO is 10^5 times faster than the standard numerical solvers"
+              },
+              "quantitative_value": 100000.0,
+              "result_id": "res_a15134d60b13abaa112707d6",
+              "unit": "times faster",
+              "value_raw_text": "10^5 times faster than standard numerical solvers"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO interpolation ... Airfoil ... testing 0.0421"
+              },
+              "quantitative_value": 0.0421,
+              "result_id": "res_d42b5e07ed09b0a5871849fd",
+              "unit": null,
+              "value_raw_text": "0.0421"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Discretization convergence test errors",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f98f013e3d5da419f526",
+                "page_end": 20,
+                "page_start": 20,
+                "paraphrased": false,
+                "text_excerpt": "It achieves test errors of 0.0147, 0.0329, and 0.0428 on 56 × 51, 111 × 51, and 221 × 51 meshes, respectively."
+              },
+              "quantitative_value": null,
+              "result_id": "res_de19e575230b1447b957d4d0",
+              "unit": null,
+              "value_raw_text": "0.0147, 0.0329, 0.0428 on 56x51, 111x51, 221x51 meshes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b8ce6732138da7151776",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": true,
+                "text_excerpt": "Geo-FNO (learned) ... testing error 0.0229"
+              },
+              "quantitative_value": 0.0229,
+              "result_id": "res_e05cfe989f7d5a14c2de4edf",
+              "unit": null,
+              "value_raw_text": "0.0229"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b3c228b21d13ac00b80b",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "FNO2D ... testing error 0.0381"
+              },
+              "quantitative_value": 0.0381,
+              "result_id": "res_e4a6d8089540bd05f147d57d",
+              "unit": null,
+              "value_raw_text": "0.0381"
+            }
+          ],
+          "unit_id": "su_781bb053b5e2a44754245a30"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7658 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5952 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6222 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6304 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5366 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5806 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5152 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5152 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5854 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5854 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6190 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6512 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4737 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5417 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5510 on attempt 1"
+    }
+  ]
+}

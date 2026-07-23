@@ -1,0 +1,695 @@
+{
+  "coverage_ledger": {
+    "3afccbffaf638af0fc9b": "not_selected",
+    "51ca485a077a23a5932d": "not_selected",
+    "5ca901a385ea5715f61c": "not_selected",
+    "5dc63af59b5c352d84a0": "not_selected",
+    "6adb28137ced4e4f2319": "not_selected",
+    "6b5bf6d4a996770440da": "not_selected",
+    "76d7ac6583e8a8c19e73": "extracted",
+    "89c4a67efc30aa2b4f0c": "not_selected",
+    "963fbc259b4b0e314f66": "not_selected",
+    "af67a92d72b8173ebb57": "extracted",
+    "c1a05655ae9f565be844": "not_selected",
+    "c348016f72f69cb69779": "not_selected",
+    "c49727c6684415b2e236": "extracted",
+    "cb5cc484e28e55356e56": "extracted",
+    "cfbd1cf6ed804ff85d3a": "not_selected",
+    "daadae65308f7cdc93c7": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Survival analysis in HNSCC and EAC used 'snapshot' imaging of representative stromal regions, while CRC used automated whole-TMA imaging; methods were correlated but not identical.",
+    "Multivariate analysis showed fiber length was an independent prognostic factor in HNSCC and CRC but not in EAC.",
+    "Xenograft model used a single HNSCC cell line (5PT) and one fibroblast line (HFFF2); generalizability to other tumor types and fibroblast sources is unknown.",
+    "Proteomic heterogeneity analysis was performed on a limited number of CAF lines (CAF1807, CAF506) and NOFs.",
+    "The study does not establish a causal mechanism linking collagen fiber elongation to poor survival, only correlation.",
+    "Collagen fiber alignment was not a significant prognostic factor in HNSCC and EAC, and only approached significance in CRC."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_18.pdf",
+    "source_sha256": "6558de564a425f10f4a93ccc100bbdb781cb5e0ad8069b3f71aede029a1080e1"
+  },
+  "paper_id": "3_18",
+  "quality_assessment": {
+    "correct_item_count": 77,
+    "deterministic_rule_score": 0.9319,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.6429,
+      "sample_size_log_score": 0.7011,
+      "statistical_support_coverage": 0.6429
+    },
+    "extracted_item_count": 77,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does collagen fiber structure in the tumor stroma correlate with clinical outcome in head & neck, esophageal, and colorectal cancers?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6f315920354dc901ec8fab51",
+              "inference_basis_ids": [
+                "res_3592dd2b5d7ce015099399f6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "multivariate analysis showed that fiber length was an independent prognostic variable (stage and grade adjusted) in CRC (HR = 3.226, 95% CI [1.27–8.18], adj. p = 0.014)"
+              },
+              "statement": "Collagen fiber length is an independent prognostic factor in CRC after adjusting for stage and grade."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_82c5fa0e3c1c27e3c9119cba",
+              "inference_basis_ids": [
+                "res_92f66ccf70f7f30e67acb3c6"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "increased fiber alignment indicated poor patient survival to a level approaching significance (Figure 5F; Log-rank p = 0.067)"
+              },
+              "statement": "Increased collagen fiber alignment shows a trend towards poor survival in CRC but does not reach statistical significance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_954e7af50595179e893656fd",
+              "inference_basis_ids": [
+                "res_da683299e70409ecc3df61eb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "patients with increased collagen fiber length had significantly poorer rates of cancer-specific survival with a two-fold increased risk of dying (Figure 5E; Log-rank p = 0.034, HR = 2.282 (95% CIs [1.040 to 5.007]))"
+              },
+              "statement": "Increased collagen fiber length significantly correlates with poor cancer-specific survival in CRC."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Tissue microarray from 64 CRC stage I/II patients with uniform treatment.",
+              "name": "CRC TMA cohort",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Automated SHG imaging of whole TMAs from CRC stage I/II patients (n=64, 32 with metastasis within 5 years, 32 metastasis-free).",
+            "Image stitching and splitting into 7 ROIs per core.",
+            "Multivariate analysis correcting for stage and grade.",
+            "Quantitative analysis of collagen fiber length and alignment using CT-FIRE and CT segmentation.",
+            "Survival analysis (Log-rank test) correlating fiber length and alignment with cancer-specific survival."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Automated SHG imaging and analysis",
+              "protocol_description": "Automated slide scanning, image stitching, splitting into 7 ROIs, CT-FIRE and CT segmentation for fiber length and alignment."
+            },
+            {
+              "method_id": "M6",
+              "name": "Survival analysis",
+              "protocol_description": "Log-rank test for cancer-specific survival; multivariate Cox regression adjusting for stage and grade."
+            }
+          ],
+          "name": "Collagen fiber length and alignment survival analysis in CRC",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Multivariate survival (fiber length, CRC)",
+              "n_sample_size": 64,
+              "p_value": 0.014,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "multivariate analysis showed that fiber length was an independent prognostic variable (stage and grade adjusted) in CRC (HR = 3.226, 95% CI [1.27–8.18], adj. p = 0.014)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3592dd2b5d7ce015099399f6",
+              "unit": null,
+              "value_raw_text": "HR = 3.226, 95% CI [1.27–8.18], adj. p = 0.014"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer-specific survival (fiber alignment, CRC)",
+              "n_sample_size": 64,
+              "p_value": 0.067,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "increased fiber alignment indicated poor patient survival to a level approaching significance (Figure 5F; Log-rank p = 0.067)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_92f66ccf70f7f30e67acb3c6",
+              "unit": null,
+              "value_raw_text": "Log-rank p = 0.067"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer-specific survival (fiber length, CRC)",
+              "n_sample_size": 64,
+              "p_value": 0.034,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "patients with increased collagen fiber length had significantly poorer rates of cancer-specific survival with a two-fold increased risk of dying (Figure 5E; Log-rank p = 0.034, HR = 2.282 (95% CIs [1.040 to 5.007]))"
+              },
+              "quantitative_value": null,
+              "result_id": "res_da683299e70409ecc3df61eb",
+              "unit": null,
+              "value_raw_text": "Log-rank p = 0.034, HR = 2.282 (95% CIs [1.040 to 5.007])"
+            }
+          ],
+          "unit_id": "su_290975a94edb9db762724e0c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_473bf8c207b38308fd5dcca8",
+              "inference_basis_ids": [
+                "res_8b365171cca65f65260c88bd",
+                "res_8d90e83ebba4cf71e6f08928"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "increased fiber alignment did not significantly predict for patient survival (Figure 4C– 4D)"
+              },
+              "statement": "Increased collagen fiber alignment does not significantly predict patient survival in HNSCC and EAC."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_50ef6c1f05ffe1a7dbbe2d48",
+              "inference_basis_ids": [
+                "res_6643e991eff9dccde8366502"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "but not EAC (HR = 1.178, 95% CI [0.68–2.06], adj. p = 0.564)"
+              },
+              "statement": "Collagen fiber length is not an independent prognostic factor in EAC after adjusting for stage and grade."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_52f8e03a4d6c3d69711ca1d6",
+              "inference_basis_ids": [
+                "res_5cb62798b6da21cf7425a321",
+                "res_b694b09f4b73779ab0692af7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "patients with increased collagen fiber length had significantly poorer rates of cancer-specific survival and a two-fold increased risk of dying from disease (Figure 4A– 4B; HNSCC Log-rank p = 0.008, HR = 2.172 [95% CIs: 1.208 to 3.907]; and EAC Log Rank p = 0.027, HR = 1.748 [95% CIs: 1.059 to 2.885])"
+              },
+              "statement": "Increased collagen fiber length significantly correlates with poor cancer-specific survival in HNSCC and EAC."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_927f54ff2a2803861d196f57",
+              "inference_basis_ids": [
+                "res_7246170b8cac61355df1f367"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Multivariate analysis (correcting for tumor stage and grade) showed that fiber length was an independent prognostic factor in HNSCC (HNSCC: HR = 2.137, 95% CI [1.15–3.97], adj. p = 0.016)"
+              },
+              "statement": "Collagen fiber length is an independent prognostic factor in HNSCC after adjusting for stage and grade."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Tissue microarray from 213 HNSCC patients.",
+              "name": "HNSCC TMA cohort",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Tissue microarray from 146 EAC patients.",
+              "name": "EAC TMA cohort",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Multivariate analysis correcting for tumor stage and grade.",
+            "Quantitative analysis of collagen fiber length and alignment using CT-FIRE and CT segmentation.",
+            "SHG imaging of TMAs from HNSCC (n=213) and EAC (n=146) patient cohorts.",
+            "Survival analysis (Log-rank test) correlating fiber length and alignment with cancer-specific survival."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Second Harmonic Generation (SHG) imaging",
+              "protocol_description": "Multi-photon laser scanning microscopy with SHG to visualize fibrillar collagen in histological samples."
+            },
+            {
+              "method_id": "M2",
+              "name": "CT-FIRE fiber segmentation",
+              "protocol_description": "Curvelet-denoising filter followed by automated tracking algorithm to isolate individual collagen fibers and measure length."
+            },
+            {
+              "method_id": "M3",
+              "name": "CT alignment analysis",
+              "protocol_description": "CT segmentation to calculate alignment coefficient as vector sum of absolute fiber angles."
+            },
+            {
+              "method_id": "M4",
+              "name": "Survival analysis",
+              "protocol_description": "Log-rank test for cancer-specific survival; multivariate Cox regression adjusting for stage and grade."
+            }
+          ],
+          "name": "Collagen fiber length and alignment survival analysis in HNSCC and EAC",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer-specific survival (fiber length, EAC)",
+              "n_sample_size": 146,
+              "p_value": 0.027,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "EAC Log Rank p = 0.027, HR = 1.748 [95% CIs: 1.059 to 2.885]"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5cb62798b6da21cf7425a321",
+              "unit": null,
+              "value_raw_text": "Log Rank p = 0.027, HR = 1.748 (95% CIs: 1.059 to 2.885)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Multivariate survival (fiber length, EAC)",
+              "n_sample_size": 146,
+              "p_value": 0.564,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "but not EAC (HR = 1.178, 95% CI [0.68–2.06], adj. p = 0.564)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6643e991eff9dccde8366502",
+              "unit": null,
+              "value_raw_text": "HR = 1.178, 95% CI [0.68–2.06], adj. p = 0.564"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Multivariate survival (fiber length, HNSCC)",
+              "n_sample_size": 213,
+              "p_value": 0.016,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Multivariate analysis (correcting for tumor stage and grade) showed that fiber length was an independent prognostic factor in HNSCC (HNSCC: HR = 2.137, 95% CI [1.15–3.97], adj. p = 0.016)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7246170b8cac61355df1f367",
+              "unit": null,
+              "value_raw_text": "HR = 2.137, 95% CI [1.15–3.97], adj. p = 0.016"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer-specific survival (fiber alignment, HNSCC)",
+              "n_sample_size": 213,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "increased fiber alignment did not significantly predict for patient survival (Figure 4C– 4D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8b365171cca65f65260c88bd",
+              "unit": null,
+              "value_raw_text": "increased fiber alignment did not significantly predict for patient survival (Figure 4C– 4D)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer-specific survival (fiber alignment, EAC)",
+              "n_sample_size": 146,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "increased fiber alignment did not significantly predict for patient survival (Figure 4C– 4D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8d90e83ebba4cf71e6f08928",
+              "unit": null,
+              "value_raw_text": "increased fiber alignment did not significantly predict for patient survival (Figure 4C– 4D)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer-specific survival (fiber length, HNSCC)",
+              "n_sample_size": 213,
+              "p_value": 0.008,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "patients with increased collagen fiber length had significantly poorer rates of cancer-specific survival and a two-fold increased risk of dying from disease (Figure 4A– 4B; HNSCC Log-rank p = 0.008, HR = 2.172 [95% CIs: 1.208 to 3.907])"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b694b09f4b73779ab0692af7",
+              "unit": null,
+              "value_raw_text": "Log-rank p = 0.008, HR = 2.172 (95% CIs: 1.208 to 3.907)"
+            }
+          ],
+          "unit_id": "su_e3dc444a0fb9c2a994cc5dbb"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Do myofibroblastic CAFs regulate collagen fiber elongation in the tumor microenvironment?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_770d42f88ef19bd692e9312f",
+              "inference_basis_ids": [
+                "res_4bdf8f1d9abb30200efbb920",
+                "res_678192b9524acccfb6f2b366"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "in tumors implanted with myofibroblasts, there were significant increases in collagen fiber length and alignment compared with tumors co-injected with control or no fibroblasts (Figure 6F–6H)"
+              },
+              "statement": "Myofibroblasts (TGF-β1-treated fibroblasts) induce significant increases in collagen fiber length and alignment in vivo."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Co-injection of 5PT HNSCC cells with control fibroblasts or myofibroblasts into mice.",
+            "Confirmation of human fibroblast persistence by PCR for human vimentin (hVIM).",
+            "Confirmation of transdifferentiation by SMA expression, stress fiber formation, contractility, and upregulation of fibrillar collagens and LOXL2.",
+            "Generation of myofibroblasts by treating HFFF2 fibroblasts with TGF-β1 for 72 hours in vitro.",
+            "IHC staining for SMA to confirm myofibroblastic stroma.",
+            "SHG imaging and quantitative analysis of collagen fiber length and alignment in xenograft tumors.",
+            "Tumor collection after 5 weeks."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "TGF-β1 treatment",
+              "protocol_description": "HFFF2 fibroblasts treated with human recombinant TGF-β1 for 72 hours to induce myofibroblast differentiation."
+            },
+            {
+              "method_id": "M8",
+              "name": "Xenograft model",
+              "protocol_description": "5PT HNSCC cells injected subcutaneously alone or with control fibroblasts or myofibroblasts; tumors harvested after 5 weeks."
+            },
+            {
+              "method_id": "M9",
+              "name": "SHG imaging and collagen quantification",
+              "protocol_description": "SHG imaging of xenograft tumor sections; CT-FIRE and CT segmentation for fiber length and alignment."
+            }
+          ],
+          "name": "In vivo xenograft model of myofibroblast-mediated collagen remodeling",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen fiber length (myofibroblast vs control)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "in tumors implanted with myofibroblasts, there were significant increases in collagen fiber length and alignment compared with tumors co-injected with control or no fibroblasts (Figure 6F–6H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4bdf8f1d9abb30200efbb920",
+              "unit": null,
+              "value_raw_text": "significant increases in collagen fiber length"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen fiber alignment (myofibroblast vs control)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c49727c6684415b2e236",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "in tumors implanted with myofibroblasts, there were significant increases in collagen fiber length and alignment compared with tumors co-injected with control or no fibroblasts (Figure 6F–6H)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_678192b9524acccfb6f2b366",
+              "unit": null,
+              "value_raw_text": "significant increases in collagen fiber alignment"
+            }
+          ],
+          "unit_id": "su_3c10b3f036885bfb95b2d7d3"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Is the SMA-positive CAF population heterogeneous in its ability to organize collagen fibrils?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bac408e6883289eaa877755a",
+              "inference_basis_ids": [
+                "res_fe76212278b57831deaabdf1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "76d7ac6583e8a8c19e73",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "CAF1807 tumors had significantly (p = 0.0016) elongated collagen fibers compared to the CAF 506 tumors, corresponding with the elevated expression of CFOGs from cluster 2 (Figure 7C–7D)"
+              },
+              "statement": "Only a subset of SMA-positive CAFs (e.g., CAF1807) can mediate the formation of elongated collagen fibers in vivo."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_da3648c1a7df45190a8bfd41",
+              "inference_basis_ids": [
+                "res_eb9976d4370804550aef28e0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "76d7ac6583e8a8c19e73",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "CAFs' expression profile was significantly heterogenic, particularly for expression of proteins in cluster 2"
+              },
+              "statement": "SMA-positive CAFs exhibit significant heterogeneity in the expression of collagen fibril organizing proteins."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Proteomic profiles of CAFs from EAC and normal esophageal fibroblasts.",
+              "name": "EAC CAF and NOF proteomic dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of CFOG expression between NOFs and CAFs.",
+            "Isolation of normal esophageal fibroblasts (NOFs) and CAFs from EAC with strong stromal SMA expression.",
+            "Proteomic analysis using multidimensional LC and ultra-high resolution FT-MS.",
+            "SHG imaging of tumors from which CAF1807 and CAF506 were extracted to correlate in vitro protein expression with in vivo collagen fiber length.",
+            "Unsupervised hierarchical clustering of collagen fibril organizing proteins."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Proteomic analysis",
+              "protocol_description": "Multidimensional liquid chromatography and ultra-high resolution FT-MS proteomic analysis of ex-vivo cultured fibroblasts."
+            },
+            {
+              "method_id": "M11",
+              "name": "Unsupervised hierarchical clustering",
+              "protocol_description": "Clustering of protein expression data to identify heterogeneity."
+            }
+          ],
+          "name": "Proteomic and transcriptomic analysis of CAF heterogeneity",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein expression heterogeneity (CAFs vs NOFs)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "76d7ac6583e8a8c19e73",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "CAFs' expression profile was significantly heterogenic, particularly for expression of proteins in cluster 2, which includes the genes up-regulated in EAC compared to normal tissues from the TCGA data (Figure 1: COL1A1, LEPRE1, PLOD3, SERPINH1 & ANXA2)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_eb9976d4370804550aef28e0",
+              "unit": null,
+              "value_raw_text": "CAFs' expression profile was significantly heterogenic, particularly for expression of proteins in cluster 2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen fiber length (CAF1807 vs CAF506 tumors)",
+              "n_sample_size": null,
+              "p_value": 0.0016,
+              "provenance": {
+                "chunk_id": "76d7ac6583e8a8c19e73",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "CAF1807 tumors had significantly (p = 0.0016) elongated collagen fibers compared to the CAF 506 tumors, corresponding with the elevated expression of CFOGs from cluster 2 (Figure 7C–7D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fe76212278b57831deaabdf1",
+              "unit": null,
+              "value_raw_text": "CAF1807 tumors had significantly (p = 0.0016) elongated collagen fibers compared to the CAF 506 tumors"
+            }
+          ],
+          "unit_id": "su_46f4355f44f86f4300ab75fa"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ4",
+      "statement": "Does combining stromal SMA positivity with collagen fiber elongation refine patient prognostication?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a1adf4f1e1e43928ae1e5be3",
+              "inference_basis_ids": [
+                "res_ba904fe7a171e6b2780deae2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "76d7ac6583e8a8c19e73",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "In each tumor type this significantly refined patient stratification (Figure 7E–7G; Log Rank p < 0.003)"
+              },
+              "statement": "Stratifying patients by stromal SMA positivity and collagen fiber elongation provides a highly significant correlation with poor survival in HNSCC, EAC, and CRC."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "HNSCC, EAC, and CRC TMAs with both SMA IHC and SHG collagen data.",
+              "name": "Combined SMA and collagen TMA cohorts",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "IHC staining for SMA on TMAs from HNSCC, EAC, and CRC cohorts.",
+            "Stratification of patients by stromal SMA positivity and collagen fiber elongation status.",
+            "Survival analysis (Log-rank test) comparing SMA+/elongated fibers vs other groups."
+          ],
+          "methods": [
+            {
+              "method_id": "M12",
+              "name": "IHC for SMA",
+              "protocol_description": "Immunohistochemical staining for α-smooth muscle actin on TMA sections."
+            },
+            {
+              "method_id": "M13",
+              "name": "Survival analysis",
+              "protocol_description": "Log-rank test comparing survival of patients stratified by SMA status and collagen fiber elongation."
+            }
+          ],
+          "name": "Combined SMA and collagen fiber length survival analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Survival stratification (SMA+ and elongated fibers vs others)",
+              "n_sample_size": null,
+              "p_value": 0.003,
+              "provenance": {
+                "chunk_id": "76d7ac6583e8a8c19e73",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "In each tumor type this significantly refined patient stratification (Figure 7E–7G; Log Rank p < 0.003)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ba904fe7a171e6b2780deae2",
+              "unit": null,
+              "value_raw_text": "Log Rank p < 0.003"
+            }
+          ],
+          "unit_id": "su_0e546f2819ade1c6c54fd2e2"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

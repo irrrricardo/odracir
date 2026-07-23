@@ -1,0 +1,727 @@
+{
+  "coverage_ledger": {
+    "0dcaef44c0f82518da08": "extracted",
+    "0f2d9fd6b4a8195d200a": "not_selected",
+    "0f428e6f9945e437b78c": "not_selected",
+    "0f81adecc3a5419379c3": "not_selected",
+    "0fad57bcb6e2ab02fdb5": "not_selected",
+    "168c833c9fdf2911ed5f": "not_selected",
+    "1b0548d6fa92090ab347": "not_selected",
+    "288aa2ce6fffff3a69fa": "not_selected",
+    "2e3916c117c1954840a4": "not_selected",
+    "2f849ef0fc68d166594b": "not_selected",
+    "40ee25bbe73f41c1f178": "not_selected",
+    "41aa990499a3bc66b466": "extracted",
+    "436136fd0f05ba89f23a": "not_selected",
+    "4525eb68bec18b638e00": "not_selected",
+    "461c77a97a1c3cee6133": "not_selected",
+    "46c70f4f51abddc6b612": "not_selected",
+    "4c2ebf4113c2931917a3": "not_selected",
+    "53f149a345a0810a437a": "not_selected",
+    "593eb296b292a73104ac": "not_selected",
+    "6046b98b9ab534e2e8cd": "not_selected",
+    "68fc369156c49462a0bc": "not_selected",
+    "6f4841b930e95efb80b4": "not_selected",
+    "7063670e0f703d6252c3": "not_selected",
+    "71926a1c856414b88ed8": "not_selected",
+    "79694f4ce67ab1b50327": "extracted",
+    "856a440e2e40be846322": "not_selected",
+    "8ba27d6885cc1f35e1b3": "not_selected",
+    "8bb5090530928c2c16ad": "not_selected",
+    "8e3b0f351b2b3dbf6738": "not_selected",
+    "9113adc7b9e737ff89d1": "not_selected",
+    "97d32ce6e0d82314929f": "not_selected",
+    "9b33fbb3e052bf24df11": "extracted",
+    "9d4103b5f3ea07874736": "not_selected",
+    "aece41b7cb7f3a91cc5d": "not_selected",
+    "b1d5d92e1a3d4412489c": "not_selected",
+    "b8029f227bc05184d58f": "not_selected",
+    "cb9c05c239abf3a33079": "not_selected",
+    "cecb6feb461c3cb8fe5a": "not_selected",
+    "d7321acb73ca32f3a77b": "not_selected",
+    "d90a1b9ca8c9ba4acb94": "not_selected",
+    "e30f3b71ba440d693f78": "not_selected",
+    "f134099df1011f73c130": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "CD with L2 slightly underperforms PD with L2 on single-step generation for LSUN Bedroom 256x256.",
+    "Consistency models generate better samples than existing single-step generation models except for GANs.",
+    "The continuous-time CT loss requires forward-mode automatic differentiation for efficient implementation."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "10_6.pdf",
+    "source_sha256": "8f65127c770a8e8994777010ed36dfcf64fc38f840042778eef7fe8ab2c12e10"
+  },
+  "paper_id": "10_6",
+  "quality_assessment": {
+    "correct_item_count": 56,
+    "deterministic_rule_score": 0.8143,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 56,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can we design generative models that support efficient single-step generation while retaining the benefits of iterative sampling (compute-quality trade-off and zero-shot editing)?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c99baef632bf825b348bdfc7",
+              "inference_basis_ids": [
+                "res_6a3eb9921043521eea092d0b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "79694f4ce67ab1b50327",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "This corroborates with Theorem 1, which states that the optimal consistency models trained by higher order ODE solvers have smaller estimation errors with the same N."
+              },
+              "statement": "Higher order ODE solvers lead to smaller estimation errors in consistency distillation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f47173d50f4649f6c0f71516",
+              "inference_basis_ids": [
+                "res_b08dcfbbd005d8753da2451f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "79694f4ce67ab1b50327",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Heun ODE solver and N “ 18 are the best choices."
+              },
+              "statement": "Heun ODE solver and N=18 are the best configuration for consistency distillation on CIFAR-10."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_feca433f1fe4090d1265fe5b",
+              "inference_basis_ids": [
+                "res_d12c3a8e1808cedcc027f653"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "79694f4ce67ab1b50327",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the optimal metric for CD is LPIPS, which outperforms both ℓ1 and ℓ2 by a large margin over all training iterations."
+              },
+              "statement": "LPIPS is the optimal metric for consistency distillation on CIFAR-10."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "CIFAR-10 image dataset used for hyperparameter experiments.",
+              "name": "CIFAR-10",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Investigate effect of metric function, ODE solver, and number of discretization steps N on CD performance using CIFAR-10."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Consistency Distillation (CD)",
+              "protocol_description": "Distill a pre-trained diffusion model into a consistency model using a loss that enforces consistency along the PF ODE trajectory. Hyperparameters varied: metric function (squared L2, L1, LPIPS), ODE solver (Euler, Heun), and number of discretization steps N (9,12,18,36,50,60,80,120)."
+            }
+          ],
+          "name": "Consistency Distillation (CD) Hyperparameter Study",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "79694f4ce67ab1b50327",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "with the same N, Heun’s second order solver uniformly outperforms Euler’s first order solver."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6a3eb9921043521eea092d0b",
+              "unit": null,
+              "value_raw_text": "Heun's second order solver uniformly outperforms Euler's first order solver with the same N"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "79694f4ce67ab1b50327",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "once N is sufficiently large, the performance of CD becomes insensitive to N."
+              },
+              "quantitative_value": null,
+              "result_id": "res_713a48bd926b784e7f7af111",
+              "unit": null,
+              "value_raw_text": "once N is sufficiently large, the performance of CD becomes insensitive to N"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "79694f4ce67ab1b50327",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Heun ODE solver and N “ 18 are the best choices."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b08dcfbbd005d8753da2451f",
+              "unit": null,
+              "value_raw_text": "Heun ODE solver and N=18 are the best choices"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "79694f4ce67ab1b50327",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the optimal metric for CD is LPIPS, which outperforms both ℓ1 and ℓ2 by a large margin over all training iterations."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d12c3a8e1808cedcc027f653",
+              "unit": null,
+              "value_raw_text": "LPIPS outperforms both L1 and L2 by a large margin over all training iterations"
+            }
+          ],
+          "unit_id": "su_1fea827ab2dd0857198e9fa1"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d2d8d637ab791d9c69a8bc54",
+              "inference_basis_ids": [
+                "res_4cf5b838cea3da25eda3c378"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0dcaef44c0f82518da08",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "adaptive schedules of N and µ significantly improve the convergence speed and sample quality of CT."
+              },
+              "statement": "Progressively increasing N and μ during consistency training balances convergence speed and sample quality."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "CIFAR-10 image dataset used for CT schedule experiments.",
+              "name": "CIFAR-10",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Investigate effect of adaptive schedules for N and μ on CT convergence and sample quality using CIFAR-10."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Consistency Training (CT)",
+              "protocol_description": "Train a consistency model from scratch without a pre-trained diffusion model, using a loss that enforces consistency between adjacent points on the PF ODE trajectory. Adaptive schedules for N and μ are progressively increased during training."
+            }
+          ],
+          "name": "Consistency Training (CT) Schedule Study",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0dcaef44c0f82518da08",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "adaptive schedules of N and µ significantly improve the convergence speed and sample quality of CT."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4cf5b838cea3da25eda3c378",
+              "unit": null,
+              "value_raw_text": "adaptive schedules of N and μ significantly improve the convergence speed and sample quality of CT"
+            }
+          ],
+          "unit_id": "su_396496807a79fdf94890839f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_11f9aaa3c5df6b8acb6c1305",
+              "inference_basis_ids": [
+                "res_3258740d42be69316eb908c4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9b33fbb3e052bf24df11",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "achieving the new state-of-the-art FID of 3.55 on CIFAR-10 and 6.20 on ImageNet 64 ˆ 64 for one-step generation."
+              },
+              "statement": "Consistency distillation achieves state-of-the-art FID for one-step generation on CIFAR-10 and ImageNet 64x64."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4c1cf0f70d8b67dc13f26358",
+              "inference_basis_ids": [
+                "res_8f5d2691b5e0c9099ab40d1d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0dcaef44c0f82518da08",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "CD uniformly outperforms PD across all datasets, sampling steps, and metric functions considered, except for single-step generation on Bedroom 256 ˆ 256, where CD with ℓ2 slightly underperforms PD with ℓ2."
+              },
+              "statement": "Consistency distillation outperforms progressive distillation across most datasets and sampling steps."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "CIFAR-10 dataset.",
+              "name": "CIFAR-10",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "ImageNet dataset at 64x64 resolution.",
+              "name": "ImageNet 64x64",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D5",
+              "description": "LSUN Bedroom dataset at 256x256 resolution.",
+              "name": "LSUN Bedroom 256x256",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D6",
+              "description": "LSUN Cat dataset at 256x256 resolution.",
+              "name": "LSUN Cat 256x256",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare consistency distillation (CD) against progressive distillation (PD) and other distillation methods on CIFAR-10, ImageNet 64x64, LSUN Bedroom 256x256, LSUN Cat 256x256."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Consistency Distillation (CD)",
+              "protocol_description": "Distill a pre-trained EDM model into a consistency model using LPIPS metric and Heun ODE solver (except where noted)."
+            },
+            {
+              "method_id": "M5",
+              "name": "Progressive Distillation (PD)",
+              "protocol_description": "Progressive distillation method from Salimans & Ho (2022), using either L2 or LPIPS metric."
+            },
+            {
+              "method_id": "M6",
+              "name": "Knowledge Distillation",
+              "protocol_description": "Distillation method that requires constructing a synthetic dataset by generating samples from the diffusion model."
+            },
+            {
+              "method_id": "M7",
+              "name": "DFNO",
+              "protocol_description": "Distillation method that requires constructing a synthetic dataset by generating samples from the diffusion model."
+            }
+          ],
+          "name": "Few-Step Image Generation: Distillation Comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0dcaef44c0f82518da08",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "CD even outperforms distillation approaches that require synthetic dataset construction, such as Knowledge Distillation (Luhman & Luhman, 2021) and DFNO (Zheng et al., 2022)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2092fa2a279bf766c0864085",
+              "unit": null,
+              "value_raw_text": "CD outperforms distillation approaches that require synthetic dataset construction, such as Knowledge Distillation and DFNO"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9b33fbb3e052bf24df11",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "achieving the new state-of-the-art FID of 3.55 on CIFAR-10 and 6.20 on ImageNet 64 ˆ 64 for one-step generation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3258740d42be69316eb908c4",
+              "unit": null,
+              "value_raw_text": "CD achieves FID 3.55 on CIFAR-10 and 6.20 on ImageNet 64x64 for one-step generation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0dcaef44c0f82518da08",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "CD uniformly outperforms PD across all datasets, sampling steps, and metric functions considered, except for single-step generation on Bedroom 256 ˆ 256, where CD with ℓ2 slightly underperforms PD with ℓ2."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8f5d2691b5e0c9099ab40d1d",
+              "unit": null,
+              "value_raw_text": "CD uniformly outperforms PD across all datasets, sampling steps, and metric functions considered, except for single-step generation on Bedroom 256x256"
+            }
+          ],
+          "unit_id": "su_ad1f88eaa60b66f12f5ba9ba"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7ecc97b636dcbb3bbc9876ba",
+              "inference_basis_ids": [
+                "res_021a908e394192abb79c7b67",
+                "res_92dc0aacfd8d038a7ed7474f",
+                "res_9b47a507651b15a38e76cb83"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "we show such a consistency model can colorize gray-scale bedroom images at test time, even though it has never been trained on colorization tasks. ... the same consistency model can generate high-resolution images from low-resolution inputs. ... it can generate images based on stroke inputs created by humans"
+              },
+              "statement": "Consistency models enable zero-shot image editing tasks such as colorization, super-resolution, and stroke-guided generation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D10",
+              "description": "LSUN Bedroom dataset used for training the consistency model for zero-shot editing.",
+              "name": "LSUN Bedroom 256x256",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Demonstrate zero-shot image editing capabilities (colorization, super-resolution, stroke-guided generation) of a consistency model trained on LSUN Bedroom 256x256 using CD."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "Consistency Distillation (CD)",
+              "protocol_description": "Train a consistency model on LSUN Bedroom 256x256 using CD. Zero-shot editing is performed by modifying the multistep sampling process."
+            }
+          ],
+          "name": "Zero-Shot Image Editing",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Qualitative",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "such a consistency model can colorize gray-scale bedroom images at test time, even though it has never been trained on colorization tasks."
+              },
+              "quantitative_value": null,
+              "result_id": "res_021a908e394192abb79c7b67",
+              "unit": null,
+              "value_raw_text": "consistency model can colorize gray-scale bedroom images at test time, even though it has never been trained on colorization tasks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Qualitative",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the same consistency model can generate high-resolution images from low-resolution inputs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_92dc0aacfd8d038a7ed7474f",
+              "unit": null,
+              "value_raw_text": "consistency model can generate high-resolution images from low-resolution inputs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Qualitative",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "it can generate images based on stroke inputs created by humans, as in SDEdit for diffusion models (Meng et al., 2021)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9b47a507651b15a38e76cb83",
+              "unit": null,
+              "value_raw_text": "consistency model can generate images based on stroke inputs created by humans, as in SDEdit for diffusion models"
+            }
+          ],
+          "unit_id": "su_d279814919c103868c9cf191"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0d9496b641aebd9d8993e3ac",
+              "inference_basis_ids": [
+                "res_1c2c8a296e39644e7e6314a1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "CT achieves comparable quality to one-step samples from PD without relying on distillation."
+              },
+              "statement": "Consistency training achieves comparable quality to one-step progressive distillation without requiring a pre-trained diffusion model."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2cf519bdf2e62ebfc663a3c4",
+              "inference_basis_ids": [
+                "res_82d69e826a95f7991188296f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "CT outperforms existing single-step, non-adversarial generative models, i.e., VAEs and normalizing flows, by a significant margin on CIFAR-10."
+              },
+              "statement": "Consistency training outperforms existing one-step, non-adversarial generative models on standard benchmarks."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D7",
+              "description": "CIFAR-10 dataset.",
+              "name": "CIFAR-10",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D8",
+              "description": "ImageNet dataset at 64x64 resolution.",
+              "name": "ImageNet 64x64",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D9",
+              "description": "LSUN dataset at 256x256 resolution (Bedroom and Cat).",
+              "name": "LSUN 256x256",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare consistency training (CT) against other one-step generative models (VAEs, normalizing flows) and distillation methods on CIFAR-10, ImageNet 64x64, LSUN 256x256."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Normalizing Flows",
+              "protocol_description": "Normalizing flow models as one-step generative models."
+            },
+            {
+              "method_id": "M8",
+              "name": "Consistency Training (CT)",
+              "protocol_description": "Train a consistency model from scratch using LPIPS metric and adaptive schedules for N and μ."
+            },
+            {
+              "method_id": "M9",
+              "name": "VAEs",
+              "protocol_description": "Variational Autoencoders as one-step generative models."
+            }
+          ],
+          "name": "Few-Step Image Generation: Direct Generation Comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "CT achieves comparable quality to one-step samples from PD without relying on distillation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1c2c8a296e39644e7e6314a1",
+              "unit": null,
+              "value_raw_text": "CT achieves comparable quality to one-step samples from PD without relying on distillation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "41aa990499a3bc66b466",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "CT outperforms existing single-step, non-adversarial generative models, i.e., VAEs and normalizing flows, by a significant margin on CIFAR-10."
+              },
+              "quantitative_value": null,
+              "result_id": "res_82d69e826a95f7991188296f",
+              "unit": null,
+              "value_raw_text": "CT outperforms existing single-step, non-adversarial generative models, i.e., VAEs and normalizing flows, by a significant margin on CIFAR-10"
+            }
+          ],
+          "unit_id": "su_dfd7cdf911ea14ca246e890f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7ce48f3d0eadbfcfd0a1bbbd",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9b33fbb3e052bf24df11",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "They also support zero-shot data editing, such as image inpainting, colorization, and super-resolution, without requiring explicit training on these tasks."
+              },
+              "statement": "Consistency models support zero-shot data editing, such as image inpainting, colorization, and super-resolution, without requiring explicit training on these tasks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c27130d491675f993face69a",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9b33fbb3e052bf24df11",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "They support fast one-step generation by design, while still allowing multistep sampling to trade compute for sample quality."
+              },
+              "statement": "Consistency models support fast one-step generation by design, while still allowing multistep sampling to trade compute for sample quality."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f9a969af5956f0d59187b36e",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9b33fbb3e052bf24df11",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Consistency models can be trained either by distilling pre-trained diffusion models, or as standalone generative models altogether."
+              },
+              "statement": "Consistency models can be trained either by distilling pre-trained diffusion models, or as standalone generative models altogether."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose consistency models that map any point on a PF ODE trajectory to its origin, enabling one-step generation and multistep sampling."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Consistency Models",
+              "protocol_description": "Models trained to map points on the probability flow ODE trajectory to the initial data point, enforcing self-consistency. Two training paradigms: consistency distillation (distilling a pre-trained diffusion model) and consistency training (standalone training without a pre-trained diffusion model)."
+            }
+          ],
+          "name": "Consistency Models Framework",
+          "results": [],
+          "unit_id": "su_f1412477cb2f6bc355d326f7"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[3].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[4].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[5].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup3 on attempt 1"
+    }
+  ]
+}

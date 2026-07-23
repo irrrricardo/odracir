@@ -1,0 +1,423 @@
+{
+  "coverage_ledger": {
+    "06835ce7a539f7fc3279": "extracted",
+    "0ef5ddb6fcf0c598ef1c": "extracted",
+    "1d61c4af618274557455": "extracted",
+    "387f77a32bd23013b22c": "not_selected",
+    "3c2cf1ed872b39026819": "not_selected",
+    "4f138cda0dcfbe473c61": "not_selected",
+    "4fd183e47969ced4f916": "not_selected",
+    "511435bf297e6cd84dff": "not_selected",
+    "5b52c02206758b02b368": "not_selected",
+    "5ffcda34f5406de9c1f6": "not_selected",
+    "6b8f8b3678c842273333": "not_selected",
+    "762149efbbe80d6f407a": "not_selected",
+    "804adf9ef6b817b40c10": "not_selected",
+    "87b0e30519c227327745": "not_selected",
+    "929189d638af4412639d": "not_selected",
+    "9a2e0fdc8f4f38528437": "not_selected",
+    "9a587b6799dc83733e90": "not_selected",
+    "a5a58707a70079fe4409": "not_selected",
+    "c04f3a4c7dbecefe4b54": "not_selected",
+    "c2de9011f43d7d772ec7": "not_selected",
+    "d56ac19513932b33a88c": "not_selected",
+    "e21e316ba1deb0cc014c": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "DDIMs are derived from a variational perspective and assume the same training objective as DDPMs; the non-Markovian forward processes are designed to match the marginals q(xt|x0).",
+    "The deterministic generative process (σ=0) is an implicit model, which may not capture full data distribution diversity as stochastic models.",
+    "Reconstruction error is evaluated only on CIFAR-10 test set; generalization to other datasets is not shown in these excerpts.",
+    "The speedup claims are based on wall-clock time comparisons on a specific GPU (Nvidia 2080 Ti) and may vary with hardware.",
+    "The interpolation and consistency properties rely on the deterministic nature of DDIM; stochastic variants (σ>0) may not exhibit these properties."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "10_3.pdf",
+    "source_sha256": "07cb8796d7c100bf7c02bc575f16aab72c32630a8f85abd54ad45dc4f63e80fb"
+  },
+  "paper_id": "10_3",
+  "quality_assessment": {
+    "correct_item_count": 29,
+    "deterministic_rule_score": 0.8892,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 29,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can we accelerate sampling in denoising diffusion probabilistic models while maintaining high sample quality?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_14051b991ce9cadd0e524c5d",
+              "inference_basis_ids": [
+                "res_f64a37b4e9e6899503bb28b7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e21e316ba1deb0cc014c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "DDIMs have superior sample generation quality compared to DDPMs, when we accelerate sampling by 10× to 100× using our proposed method."
+              },
+              "statement": "DDIMs have superior sample generation quality compared to DDPMs when sampling is accelerated by 10× to 100×."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_68bee25f980883f76fee0da8",
+              "inference_basis_ids": [
+                "res_9af6bed6ffaee105122a8350"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e21e316ba1deb0cc014c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "we can perform semantically meaningful image interpolation by manipulating the initial latent variable in DDIMs, unlike DDPMs which interpolates near the image space due to the stochastic generative process."
+              },
+              "statement": "DDIMs enable semantically meaningful image interpolation by manipulating the initial latent variable, unlike DDPMs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bed30f09bd6ef11c093df981",
+              "inference_basis_ids": [
+                "res_0bb9e11adfd72ed13cdd0942"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e21e316ba1deb0cc014c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "if we start with the same initial latent variable and generate several samples with Markov chains of various lengths, these samples would have similar high-level features."
+              },
+              "statement": "DDIM samples exhibit consistency: starting from the same initial latent variable, samples generated with different Markov chain lengths share similar high-level features."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ddcaef6377b781c4b406b6d8",
+              "inference_basis_ids": [
+                "res_8390f38cb488e2c6fd5cda19"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0ef5ddb6fcf0c598ef1c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We empirically demonstrate that DDIMs can produce high quality samples 10× to 50× faster in terms of wall-clock time compared to DDPMs"
+              },
+              "statement": "DDIMs can produce high quality samples 10× to 50× faster in wall-clock time than DDPMs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e22abe86413926ceb6ce4939",
+              "inference_basis_ids": [
+                "res_2f144fb74d1fa5d3feff49fe",
+                "res_4af4e1c3d87169d65284e7b4",
+                "res_aac08bc40c73069ebb5c69c0",
+                "res_d6c817cb85c048a12ba3b788",
+                "res_d9080b283fcf6979ca424abe",
+                "res_e6aa8dae8dfff638abd9dfbb",
+                "res_f5a7d9cee9026b4cef7483f1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Our results show that DDIMs have lower reconstruction error for larger S values and have properties similar to Neural ODEs and normalizing flows."
+              },
+              "statement": "DDIMs achieve low reconstruction error from latent space, with error decreasing as the number of steps S increases."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "CIFAR-10 test set used for reconstruction error evaluation.",
+              "name": "CIFAR-10",
+              "version_or_split": "test set"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare sample quality of DDIMs vs DDPMs under accelerated sampling (10x to 100x fewer steps).",
+            "Evaluate DDIM sample consistency across different trajectory lengths.",
+            "Measure reconstruction error from latent space using DDIM.",
+            "Perform image interpolation in latent space using DDIM."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Denoising Diffusion Implicit Models (DDIMs)",
+              "protocol_description": "DDIMs are iterative implicit probabilistic models trained with the same objective as DDPMs. They generalize the forward diffusion process to non-Markovian processes, allowing deterministic generative processes that can be simulated in fewer steps. Sampling uses a non-Markovian reverse process defined by a parameter σ, with σ=0 yielding a deterministic implicit model. The model is trained using the DDPM objective Lγ with γ=1."
+            },
+            {
+              "method_id": "M2",
+              "name": "Denoising Diffusion Probabilistic Models (DDPMs)",
+              "protocol_description": "DDPMs are latent variable models with a fixed Markovian forward diffusion process that gradually adds Gaussian noise. The generative process approximates the reverse of this diffusion, requiring many sequential steps (e.g., T=1000) to produce high-quality samples."
+            }
+          ],
+          "name": "DDIM acceleration and quality evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Sample consistency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e21e316ba1deb0cc014c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "if we start with the same initial latent variable and generate several samples with Markov chains of various lengths, these samples would have similar high-level features."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0bb9e11adfd72ed13cdd0942",
+              "unit": null,
+              "value_raw_text": "if we start with the same initial latent variable and generate several samples with Markov chains of various lengths, these samples would have similar high-level features"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reconstruction error (MSE) for S=100",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "S 100 ... Error 0.0009"
+              },
+              "quantitative_value": 0.0009,
+              "result_id": "res_2f144fb74d1fa5d3feff49fe",
+              "unit": "per-dimension MSE (scaled to [0,1])",
+              "value_raw_text": "0.0009"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reconstruction error (MSE) for S=500",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "S 500 ... Error 0.0001"
+              },
+              "quantitative_value": 0.0001,
+              "result_id": "res_4af4e1c3d87169d65284e7b4",
+              "unit": "per-dimension MSE (scaled to [0,1])",
+              "value_raw_text": "0.0001"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sample quality speedup",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0ef5ddb6fcf0c598ef1c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We empirically demonstrate that DDIMs can produce high quality samples 10× to 50× faster in terms of wall-clock time compared to DDPMs"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8390f38cb488e2c6fd5cda19",
+              "unit": null,
+              "value_raw_text": "10× to 50× faster in terms of wall-clock time compared to DDPMs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Image interpolation capability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e21e316ba1deb0cc014c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "we can perform semantically meaningful image interpolation by manipulating the initial latent variable in DDIMs, unlike DDPMs which interpolates near the image space due to the stochastic generative process."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9af6bed6ffaee105122a8350",
+              "unit": null,
+              "value_raw_text": "we can perform semantically meaningful image interpolation by manipulating the initial latent variable in DDIMs, unlike DDPMs which interpolates near the image space due to the stochastic generative process"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reconstruction error (MSE) for S=50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "S 50 ... Error 0.0023"
+              },
+              "quantitative_value": 0.0023,
+              "result_id": "res_aac08bc40c73069ebb5c69c0",
+              "unit": "per-dimension MSE (scaled to [0,1])",
+              "value_raw_text": "0.0023"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reconstruction error (MSE) for S=200",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "S 200 ... Error 0.0004"
+              },
+              "quantitative_value": 0.0004,
+              "result_id": "res_d6c817cb85c048a12ba3b788",
+              "unit": "per-dimension MSE (scaled to [0,1])",
+              "value_raw_text": "0.0004"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reconstruction error (MSE) for S=20",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "S 20 ... Error 0.0065"
+              },
+              "quantitative_value": 0.0065,
+              "result_id": "res_d9080b283fcf6979ca424abe",
+              "unit": "per-dimension MSE (scaled to [0,1])",
+              "value_raw_text": "0.0065"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reconstruction error (MSE) for S=1000",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "S 1000 ... Error 0.0001"
+              },
+              "quantitative_value": 0.0001,
+              "result_id": "res_e6aa8dae8dfff638abd9dfbb",
+              "unit": "per-dimension MSE (scaled to [0,1])",
+              "value_raw_text": "0.0001"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reconstruction error (MSE) for S=10",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1d61c4af618274557455",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "S 10 ... Error 0.014"
+              },
+              "quantitative_value": 0.014,
+              "result_id": "res_f5a7d9cee9026b4cef7483f1",
+              "unit": "per-dimension MSE (scaled to [0,1])",
+              "value_raw_text": "0.014"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sample quality under acceleration",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e21e316ba1deb0cc014c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "DDIMs have superior sample generation quality compared to DDPMs, when we accelerate sampling by 10× to 100× using our proposed method."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f64a37b4e9e6899503bb28b7",
+              "unit": null,
+              "value_raw_text": "superior sample generation quality compared to DDPMs, when we accelerate sampling by 10× to 100×"
+            }
+          ],
+          "unit_id": "su_a647f8817d1e600748d92c7e"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7391 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6818 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    }
+  ]
+}

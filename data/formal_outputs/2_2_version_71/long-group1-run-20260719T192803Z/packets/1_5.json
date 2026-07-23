@@ -1,0 +1,235 @@
+{
+  "coverage_ledger": {
+    "23708d682c6d46937301": "not_selected",
+    "61a8bafa6f05c204d9b9": "not_selected",
+    "68dcd5b6b4766677c5fd": "not_selected",
+    "723258ed2cbaa4e2c4fa": "extracted",
+    "7391214264c6e828511c": "extracted",
+    "7df789d1238eb283fc2c": "not_selected",
+    "904374fd77ea212b9815": "not_selected",
+    "9546ca9c9ee346a18038": "extracted",
+    "c72ceb96b26187d05270": "not_selected",
+    "d943628211ec106f8108": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "GANs are hard to train for structured high-dimensional data, leading to high-variance predictions with large errors in extrapolation.",
+    "GANs do not allow direct mapping of gene expression vector x to latent space vector z, making it difficult to generate cells with desired properties.",
+    "For structured data, GANs have not yet shown advantages over simpler variational autoencoders.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_5.pdf",
+    "source_sha256": "b7760838427b9a60f1f1319bcfbeef42b71511b4858defb4d922508cc247c224"
+  },
+  "paper_id": "1_5",
+  "quality_assessment": {
+    "correct_item_count": 19,
+    "deterministic_rule_score": 0.8923,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 19,
+    "f1": 0.8837,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "The extraction omits the quantitative result for cross-study prediction: R2 all genes = 0.74 for study B (Zheng et al.) prediction.",
+        "item_id": null,
+        "source_chunk_id": "c72ceb96b26187d05270",
+        "source_excerpt": "R2 all genes= 0.74",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the quantitative result for cross-species prediction: R2 all genes = 0.91 and R2 top 100 DEGs = 0.74 for rat LPS prediction.",
+        "item_id": null,
+        "source_chunk_id": "7391214264c6e828511c",
+        "source_excerpt": "R2 all genes= 0.91, R2 top 100 DEGs= 0.74",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the quantitative result for the average R2 across held-out cell types in the PBMC dataset: average R2 = 0.948 for all genes and 0.936 for top 100 DEGs.",
+        "item_id": null,
+        "source_chunk_id": "7df789d1238eb283fc2c",
+        "source_excerpt": "average R2 = 0.948 and R2 = 0.936 for all and the top 100 differentially expressed genes (DEGs), respectively",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the quantitative result for intestinal epithelial cell predictions: R2 all genes = 0.98 for both Salmonella and H. poly infections.",
+        "item_id": null,
+        "source_chunk_id": "61a8bafa6f05c204d9b9",
+        "source_excerpt": "R2 all genes = 0.98 and R2 all genes = 0.98, respectively",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the limitation that scGen was trained on relatively small datasets and may not be predictive beyond the domain of training data.",
+        "item_id": null,
+        "source_chunk_id": "c72ceb96b26187d05270",
+        "source_excerpt": "scGen has been trained on relatively small data sets, which only reflect subsets of biological and transcriptional variability. Although we demonstrated the predictive power of scGen in these settings, a trained model cannot be expected to be predictive beyond the domain of the training data.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.7917
+  },
+  "quality_score": 0.8837,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "Can a model combining variational autoencoders and latent space vector arithmetics accurately predict single-cell perturbation responses out-of-sample?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4ec7c5380ef7fa0025d07913",
+              "inference_basis_ids": [
+                "res_1658ec2be6fd53e37d0d4e4b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we demonstrate that scGen learns cell-type and species-specific responses implying that it captures features that distinguish responding from non-responding genes and cells."
+              },
+              "statement": "scGen learns cell-type and species-specific responses, capturing features that distinguish responding from non-responding genes and cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_be40ac6dbbdd7cf69f3ed05b",
+              "inference_basis_ids": [
+                "res_1658ec2be6fd53e37d0d4e4b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We show that scGen accurately models perturbation and infection response of cells across cell types, studies and species."
+              },
+              "statement": "scGen accurately models perturbation and infection response of cells across cell types, studies, and species."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Control and stimulated PBMCs, 18,868 cells after filtering, top 6,998 highly variable genes.",
+              "name": "Kang et al. PBMC",
+              "version_or_split": "GSE96583"
+            },
+            {
+              "dataset_id": "ds2",
+              "description": "Epithelial cell responses to Salmonella and H. poly infection, 7,720 cells, top 7,000 highly variable genes.",
+              "name": "Haber et al. intestinal epithelium",
+              "version_or_split": "GSE92332"
+            },
+            {
+              "dataset_id": "ds3",
+              "description": "2,623 cells used for prediction, merged with Kang et al. data.",
+              "name": "Zheng et al. PBMC",
+              "version_or_split": "pbmc3k"
+            },
+            {
+              "dataset_id": "ds4",
+              "description": "14,693 cells, preprocessed.",
+              "name": "Pancreatic data",
+              "version_or_split": "BBKNN objects-pancreas"
+            },
+            {
+              "dataset_id": "ds5",
+              "description": "114,600 cells, preprocessed.",
+              "name": "Mouse cell atlas",
+              "version_or_split": "BBKNN MouseAtlas"
+            },
+            {
+              "dataset_id": "ds6",
+              "description": "77,642 cells from mouse, pig, rabbit, rat; 6,619 one-to-one orthologs.",
+              "name": "LPS data (Hagai et al.)",
+              "version_or_split": "E-MTAB-6754"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "scGen is based on a VAE combined with vector arithmetics, with an architecture adapted for scRNA-seq data.",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we built scGen, which is based on a VAE combined with vector arithmetics, with an architecture adapted for scRNA-seq data."
+              },
+              "span_id": "es1"
+            },
+            {
+              "content": "scGen outperforms linear methods, conditional variational autoencoders (CVAE), and style transfer GANs in a broad benchmark.",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In a broad benchmark, it outperforms other potential modeling approaches, such as linear methods, conditional variational autoencoders (CVAE) and style transfer GANs."
+              },
+              "span_id": "es2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Benchmark scGen against linear methods, conditional variational autoencoders (CVAE), and style transfer GANs.",
+            "Predict perturbation response of cells across cell types, studies, and species using scGen."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "scGen",
+              "protocol_description": "Variational autoencoder combined with vector arithmetics in latent space. Encoder maps expression profile xi to latent representation zi; decoder reconstructs xi. δ vector estimated as avg(z_perturbed) - avg(z_unperturbed) after upsampling and downsampling to balance conditions. Model trained using ELBO loss with reparameterization trick."
+            },
+            {
+              "method_id": "m2",
+              "name": "Preprocessing",
+              "protocol_description": "Filter cells with minimum 500 expressed genes, genes expressed in at least 5 cells. Normalize counts per cell, select top highly variable genes (6,998-7,000), log-transform. For cross-species, use BiomaRt to find one-to-one orthologs."
+            },
+            {
+              "method_id": "m3",
+              "name": "Evaluation metrics",
+              "protocol_description": "Squared Pearson correlation (R2) between predicted and real mean gene expression. Silhouette width based on first 50 PCs. Cosine similarity."
+            }
+          ],
+          "name": "scGen model and benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7391214264c6e828511c",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "R2 all genes= 0.91, R2 top 100 DEGs= 0.74"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1658ec2be6fd53e37d0d4e4b",
+              "unit": null,
+              "value_raw_text": "R2 all genes = 0.91, R2 top 100 DEGs = 0.74"
+            }
+          ],
+          "unit_id": "su_be6b7d0e11a79df7dfc71d56"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

@@ -1,0 +1,199 @@
+{
+  "coverage_ledger": {
+    "23708d682c6d46937301": "not_selected",
+    "61a8bafa6f05c204d9b9": "not_selected",
+    "68dcd5b6b4766677c5fd": "not_selected",
+    "723258ed2cbaa4e2c4fa": "extracted",
+    "7391214264c6e828511c": "extracted",
+    "7df789d1238eb283fc2c": "not_selected",
+    "904374fd77ea212b9815": "not_selected",
+    "9546ca9c9ee346a18038": "extracted",
+    "c72ceb96b26187d05270": "not_selected",
+    "d943628211ec106f8108": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The paper does not report negative or failed perturbation predictions; all presented results are positive.",
+    "Causal evidence chain is limited to correlation/association; no direct perturbation-rescue experiments are described.",
+    "The model's performance is evaluated on specific datasets; generalizability to other perturbation types or species is not fully established.",
+    "The paper does not provide confidence intervals or p-values for the reported R² values.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_5.pdf",
+    "source_sha256": "b7760838427b9a60f1f1319bcfbeef42b71511b4858defb4d922508cc247c224"
+  },
+  "paper_id": "1_5",
+  "quality_assessment": {
+    "correct_item_count": 18,
+    "deterministic_rule_score": 0.8091,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 18,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a generative model accurately predict single-cell perturbation responses out-of-sample across cell types, studies, and species?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_51c4d7ee19737f24e07043b8",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7391214264c6e828511c",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We have demonstrated that scGen is able to learn cell type and species-specific response. To enable this, the model needs to capture features that distinguish weakly from strongly responding genes and cells."
+              },
+              "statement": "scGen learns cell-type and species-specific responses implying that it captures features that distinguish responding from non-responding genes and cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5315f6ea561f764e148ec151",
+              "inference_basis_ids": [
+                "res_7ae09fa179466a69c430689c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We show that scGen accurately models perturbation and infection response of cells across cell types, studies and species."
+              },
+              "statement": "scGen accurately models perturbation and infection response of cells across cell types, studies and species."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Control and stimulated PBMCs; 18,868 cells after preprocessing.",
+              "name": "Kang et al. PBMC dataset",
+              "version_or_split": "GSE96583"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Epithelial cell responses to Salmonella and H. poly infection; 1,770 infected, 2,711 H. poly, 3,240 control cells.",
+              "name": "Haber et al. intestinal epithelium dataset",
+              "version_or_split": "GSE92332"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "2,623 cells used for prediction.",
+              "name": "Zheng et al. PBMC dataset",
+              "version_or_split": "pbmc3k"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "14,693 cells; preprocessed.",
+              "name": "Pancreatic datasets",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "114,600 cells; preprocessed.",
+              "name": "Mouse cell atlas",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "LPS stimulation across mouse, rabbit, pig, and rat; 77,642 cells; 6,619 one-to-one orthologs.",
+              "name": "Hagai et al. LPS dataset",
+              "version_or_split": "E-MTAB-6754"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "scGen accurately predicts single-cell perturbation response out-of-sample.",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "scGen accurately predicts single-cell perturbation response out-of-sample."
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "scGen enables predictions of dose and infection response of cells for phenomena absent from training data across cell types, studies and species.",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "scGen enables predictions of dose and infection response of cells for phenomena absent from training data across cell types, studies and species."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "scGen is based on a VAE combined with vector arithmetics, with an architecture adapted for scRNA-seq data.",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we built scGen, which is based on a VAE combined with vector arithmetics, with an architecture adapted for scRNA-seq data."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Develop scGen, a model combining variational autoencoders and latent space vector arithmetics for high-dimensional single-cell gene expression data.",
+            "Evaluate scGen's ability to predict perturbation response out-of-sample across cell types, studies, and species."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "scGen",
+              "protocol_description": "scGen is based on a variational autoencoder (VAE) combined with vector arithmetics. The VAE models the conditional distribution P(x_i|z_i, p_i) where p_i is a discrete attribute (e.g., perturbation). The encoder produces latent representation z_i. A perturbation response vector δ is estimated as the difference between average latent representations of perturbed and control cells: δ = avg(z_condition=1) - avg(z_condition=0). Out-of-sample prediction is performed by adding δ to the latent representation of unperturbed cells of a new cell type or species and decoding. Training uses the ELBO loss with a hyperparameter α controlling KL divergence weight. The model is implemented in Tensorflow and uses Scanpy for preprocessing."
+            }
+          ],
+          "name": "scGen model development and out-of-sample prediction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R²)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7391214264c6e828511c",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "R² all genes= 0.91, R² top 100 DEGs= 0.74"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7ae09fa179466a69c430689c",
+              "unit": null,
+              "value_raw_text": "R² all genes = 0.91, R² top 100 DEGs = 0.74"
+            }
+          ],
+          "unit_id": "su_e03dc17548a544b40b9a5ed0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

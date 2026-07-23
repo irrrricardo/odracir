@@ -1,0 +1,420 @@
+{
+  "coverage_ledger": {
+    "04e7bf3e838aa07c4be0": "not_selected",
+    "22a2923bd682096e5712": "not_selected",
+    "24603745289b12bc2006": "not_selected",
+    "3ca30d2417588c6c7d47": "not_selected",
+    "8ec20de7a324b392ed58": "not_selected",
+    "9d9eae6c7560363dc7fb": "not_selected",
+    "a07bce0a46040901208f": "extracted",
+    "b4f75d698200b981cc09": "extracted",
+    "cce53d9fb98b6e8613cc": "extracted",
+    "e9f78bf5a25665d508ec": "extracted",
+    "fee9375f86e2490b81a0": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The optimization problem is nonconvex and can only be solved to stationarity.",
+    "The framework relies on a nonconvex optimization problem, and at best can be solved to stationarity.",
+    "NOTEARS-Sob performance degrades when the ground truth is not an additive model.",
+    "The kernel-based approach (GSGES) has O(n^3) time complexity, compared to linear dependency on n in NOTEARS-MLP and NOTEARS-Sob.",
+    "Hyperparameter tuning is not the main focus; a fixed reasonable λ is used for all settings.",
+    "The basis expansion approach using tensor product basis quickly becomes computationally infeasible for high-dimensional orthogonal series."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_14.pdf",
+    "source_sha256": "5afbd666d6cacde51b6f2e9f04f8ab8d668310b3ad086a078767867ae08e1530"
+  },
+  "paper_id": "5_14",
+  "quality_assessment": {
+    "correct_item_count": 35,
+    "deterministic_rule_score": 0.8931,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.2727,
+      "sample_size_log_score": 1.0,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 35,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "How can we learn sparse nonparametric DAGs from data using a continuous optimization framework?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_107a570d03e1e74dd6357f22",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cce53d9fb98b6e8613cc",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We extend the existing smooth characterization of acyclicity from Zheng et al. (2018) to general nonparametric models, show that the linear parametrization is a special case of the general framework, and apply this to several popular examples for modeling nonlinear dependencies (Section 3)."
+              },
+              "statement": "The framework extends the smooth characterization of acyclicity to general nonparametric models, with the linear parametrization as a special case."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1646dcc0eb63bc85780b04af",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cce53d9fb98b6e8613cc",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We develop a generic optimization problem that can be applied to nonlinear and nonparametric SEM and discuss various special cases including additive models and index models. In contrast to existing work, we show how this optimization problem can be solved to stationarity with generic solvers, eliminating the necessity for specialized algorithms and models."
+              },
+              "statement": "The proposed framework is a generic optimization problem that can be applied to nonlinear and nonparametric SEM and solved to stationarity with generic solvers."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_71591d16d58f8d4244c51d5d",
+              "inference_basis_ids": [
+                "res_25f2d74498fb98de9f339cc3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "To further investigate the efficacy of these additional steps, we applied both preliminary neighborhood selection and edge pruning to NOTEARS-MLP and NOTEARS-Sob on additive GP and GP settings, denoted as NOTEARS-MLP++ and NOTEARS-Sob++. Noticeably, the output from PNS simply translates to a set of constraints in the form of θj = 0 that can be easily incorporated into the L-BFGS-B algorithm for (13), demonstrating the flexibility of the proposed approach. The performance improves in both cases, matching or improving vs. CAM."
+              },
+              "statement": "The framework is flexible and can incorporate pre- and post-processing steps like preliminary neighborhood selection and edge pruning to improve performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8e97510a208087dc8120b7b6",
+              "inference_basis_ids": [
+                "res_d4dcdb4486b7f1d90a54f13d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the average runtime of GSGES on ER2 with d = 40, n = 1000 is over 90 minutes, whereas NOTEARS-MLP takes less than five minutes on average"
+              },
+              "statement": "NOTEARS-MLP is more efficient than GSGES, with runtime under five minutes versus over 90 minutes on a specific setting."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_dc3e261c4edbd9f02ca3f40e",
+              "inference_basis_ids": [
+                "res_dcd541ec79c5dff04e299478"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Overall, the proposed NOTEARS-MLP method attains the best SHD (lower the better) across a wide range of settings, particularly when the data generating mechanism is an MLP or an index model."
+              },
+              "statement": "NOTEARS-MLP achieves the best SHD across a wide range of settings, especially for MLP and index model data."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Synthetic data generated from various SEMs including MLP, GP, additive GP, and index models with different graph types (ER2, SF2, ER4, SF4) and sample sizes (n=200, 1000).",
+              "name": "Synthetic data",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Real dataset with n=7466 continuous measurements of expression levels of proteins and phospholipids in human immune system cells for d=11 cell types, with a consensus network.",
+              "name": "Sachs protein signaling dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Unlike existing approaches that require specific modeling choices, loss functions, or algorithms, we present a completely general framework that can be applied to general nonlinear models (e.g. without additive noise), general differentiable loss functions, and generic black-box optimization routines.",
+              "provenance": {
+                "chunk_id": "a07bce0a46040901208f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Unlike existing approaches that require specific modeling choices, loss functions, or algorithms, we present a completely general framework that can be applied to general nonlinear models (e.g. without additive noise), general differentiable loss functions, and generic black-box optimization routines."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "We develop a framework for learning sparse nonparametric directed acyclic graphs (DAGs) from data. Our approach is based on a recent algebraic characterization of DAGs that led to a fully continuous program for score-based learning of DAG models parametrized by a linear structural equation model (SEM). We extend this algebraic characterization to nonparametric SEM by leveraging nonparametric sparsity based on partial derivatives, resulting in a continuous optimization problem that can be applied to a variety of nonparametric and semiparametric models including GLMs, additive noise models, and index models as special cases.",
+              "provenance": {
+                "chunk_id": "a07bce0a46040901208f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We develop a framework for learning sparse nonparametric directed acyclic graphs (DAGs) from data. Our approach is based on a recent algebraic characterization of DAGs that led to a fully continuous program for score-based learning of DAG models parametrized by a linear structural equation model (SEM). We extend this algebraic characterization to nonparametric SEM by leveraging nonparametric sparsity based on partial derivatives, resulting in a continuous optimization problem that can be applied to a variety of nonparametric and semiparametric models including GLMs, additive noise models, and index models as special cases."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Apply the framework to various nonparametric and semiparametric models including GLMs, additive noise models, and index models.",
+            "Develop a generic optimization problem for learning sparse nonparametric DAGs based on an algebraic characterization of acyclicity extended via partial derivatives.",
+            "Evaluate the framework on synthetic data with different graph types and data generating mechanisms, and on a real protein signaling dataset."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "NOTEARS-MLP",
+              "protocol_description": "Nonparametric DAG learning using a multilayer perceptron (MLP) with one hidden layer of 10 hidden units and sigmoid activation, trained via augmented Lagrangian and L-BFGS-B to minimize a loss with l1 penalty and acyclicity constraint."
+            },
+            {
+              "method_id": "M2",
+              "name": "NOTEARS-Sob",
+              "protocol_description": "Nonparametric DAG learning using Sobolev basis expansions with basis functions 'r(u)=sr sin(u/sr), sr=2/((2r-1)π) for r=1,...,10, trained via augmented Lagrangian and L-BFGS-B with l1 penalty and acyclicity constraint."
+            },
+            {
+              "method_id": "M3",
+              "name": "NOTEARS (Linear)",
+              "protocol_description": "Linear SEM DAG learning method from Zheng et al. (2018) used as a baseline."
+            },
+            {
+              "method_id": "M4",
+              "name": "CAM",
+              "protocol_description": "Causal additive models method from Bühlmann et al. (2014) used as a baseline."
+            },
+            {
+              "method_id": "M5",
+              "name": "GSGES",
+              "protocol_description": "Greedy equivalence search with generalized scores from Huang et al. (2018) used as a baseline."
+            },
+            {
+              "method_id": "M6",
+              "name": "DAG-GNN (GNN)",
+              "protocol_description": "Graph neural network-based DAG learning method from Yu et al. (2019) used as a baseline."
+            },
+            {
+              "method_id": "M7",
+              "name": "FGS",
+              "protocol_description": "Fast greedy equivalence search from Ramsey et al. (2017) used as a baseline."
+            }
+          ],
+          "name": "Nonparametric DAG learning framework",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 7466,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GNN predicts 18 edges that attains SHD of 19."
+              },
+              "quantitative_value": 19.0,
+              "result_id": "res_0381229e82959523aa0f4a23",
+              "unit": null,
+              "value_raw_text": "GNN predicts 18 edges with SHD of 19 on Sachs dataset"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "on the other hand, CAM achieves better accuracy on additive GP and the full GP setting."
+              },
+              "quantitative_value": null,
+              "result_id": "res_07c9190354e82d205bd1e23d",
+              "unit": null,
+              "value_raw_text": "CAM achieves better accuracy on additive GP and the full GP setting"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Not surprisingly, NOTEARS-Sob performs well when the underlying SEM is additive GP."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0ce449097756c8c23a926983",
+              "unit": null,
+              "value_raw_text": "NOTEARS-Sob performs well when the underlying SEM is additive GP"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The performance improves in both cases, matching or improving vs. CAM."
+              },
+              "quantitative_value": null,
+              "result_id": "res_25f2d74498fb98de9f339cc3",
+              "unit": null,
+              "value_raw_text": "NOTEARS-MLP++ and NOTEARS-Sob++ improve performance on additive GP and GP, matching or improving vs. CAM"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 7466,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "In comparison, NOTEARS predicts 16 edges with SHD of 22"
+              },
+              "quantitative_value": 22.0,
+              "result_id": "res_3697f5ac9477e8907ec50d50",
+              "unit": null,
+              "value_raw_text": "NOTEARS predicts 16 edges with SHD of 22 on Sachs dataset"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 7466,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We report an SHD of 16 with 13 edges estimated by NOTEARS-MLP."
+              },
+              "quantitative_value": 16.0,
+              "result_id": "res_37f06f019385996f39153284",
+              "unit": null,
+              "value_raw_text": "NOTEARS-MLP on Sachs dataset achieves SHD of 16 with 13 edges"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Finally, we observe that GSGES outperforms NOTEARS-MLP and NOTEARS-Sob on GP, which is a nonparametric setting in which a kernel-based dependency measure can excel"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6e4dfa33d2e339fbaebb709d",
+              "unit": null,
+              "value_raw_text": "GSGES outperforms NOTEARS-MLP and NOTEARS-Sob on GP"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edge agreement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Among the 13 edges predicted by NOTEARS-MLP, 7 edges agree with the consensus network: raf ! mek, mek ! erk, PLCg ! PIP2, PIP3 ! PLCg, PIP3 ! PIP2, PKC ! mek, PKC ! jnk; and 3 edges are predicted but in a reversed direction: raf PKC, akt  erk, p38 PKC. Among the true positives, 3 edges are not found by other methods: mek ! erk, PIP3 ! PLCg, PKC ! mek."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b8fc2421b4db1d56c3344fc2",
+              "unit": null,
+              "value_raw_text": "7 edges agree with consensus network, 3 edges reversed, 3 true positives not found by other methods"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We first observe that NOTEARS-MLP outperforms CAM in multiple index models and MLP models"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cb217fa8697b296363472100",
+              "unit": null,
+              "value_raw_text": "NOTEARS-MLP outperforms CAM in multiple index models and MLP models"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the average runtime of GSGES on ER2 with d = 40, n = 1000 is over 90 minutes, whereas NOTEARS-MLP takes less than five minutes on average"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d4dcdb4486b7f1d90a54f13d",
+              "unit": null,
+              "value_raw_text": "GSGES on ER2 with d=40, n=1000 takes over 90 minutes, NOTEARS-MLP takes less than five minutes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4f75d698200b981cc09",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Overall, the proposed NOTEARS-MLP method attains the best SHD (lower the better) across a wide range of settings, particularly when the data generating mechanism is an MLP or an index model."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dcd541ec79c5dff04e299478",
+              "unit": null,
+              "value_raw_text": "NOTEARS-MLP attains the best SHD across a wide range of settings"
+            }
+          ],
+          "unit_id": "su_8f63263161e7217855ed7d28"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4039 on attempt 1"
+    }
+  ]
+}

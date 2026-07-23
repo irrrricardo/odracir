@@ -1,0 +1,372 @@
+{
+  "coverage_ledger": {
+    "067ca56dafad69846cee": "not_selected",
+    "1c3eba58bfc60652cd86": "not_selected",
+    "1f64a45447b357afbef2": "not_selected",
+    "21825fdd8a16b2c9b5dc": "extracted",
+    "21e595d3d53747293dd7": "not_selected",
+    "244d2c34d262d587b250": "not_selected",
+    "31c35793a51967bc774b": "not_selected",
+    "324e060214f2f3ac7a1b": "extracted",
+    "38369b6455f3dc7a3518": "not_selected",
+    "3f0c03bc02c2ad6cd741": "not_selected",
+    "45caa3608faea7e8a00d": "not_selected",
+    "4fd484bc158f852cc02e": "not_selected",
+    "52460f8cd3a8cf007830": "not_selected",
+    "5e8ced6e2decae0e0254": "not_selected",
+    "66fac72557637afcc0f6": "not_selected",
+    "6ffe7f96ef21b2022b7c": "not_selected",
+    "7bec4c279e6de1e7e702": "not_selected",
+    "7c294250a5ff74f89f08": "extracted",
+    "a924a23014b1f25a724e": "not_selected",
+    "ae8ade088a73540ec054": "not_selected",
+    "d6d24c202a34c78e5348": "extracted",
+    "e180ae6fc6173c9de16f": "not_selected",
+    "eed33d99474f46083af0": "not_selected",
+    "f34a6a761d3711ba7547": "not_selected",
+    "fc46e0db035567694991": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "CD-UCT is outperformed on average by the order-based CAM method on the SynTReN graphs.",
+    "NOTEARS may not return DAGs for some instances due to local optima.",
+    "GES and PC generally output large fractions of undirected edges.",
+    "The simulation policy treats each edge as equally likely during rollouts, which may result in noisy estimates of future rewards.",
+    "The method does not currently impose a limit on parent set sizes, which could improve scalability.",
+    "The method has not been evaluated on mixed discrete-continuous variables or non-decomposable score functions.",
+    "The method has not been adapted to search in ordering space or compared with ordering-based techniques.",
+    "The method has not been extended with neural networks for biasing search."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_5.pdf",
+    "source_sha256": "5c3b35b36b2fdcd2b3327070c4be8fcd205cc3cddf92bcafb376050a8eeb8455"
+  },
+  "paper_id": "5_5",
+  "quality_assessment": {
+    "correct_item_count": 31,
+    "deterministic_rule_score": 0.8738,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 31,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a model-based reinforcement learning method based on tree search improve causal discovery over model-free RL and greedy search?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1428b13da0cb04af7aa59fb0",
+              "inference_basis_ids": [
+                "res_12331da8c4195bc10013a7b1",
+                "res_318d1bf7cfcde7a44ce2e711",
+                "res_88fa1580b72e00e07c25cfdb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "324e060214f2f3ac7a1b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT substantially outperforms the state-of-the-art model-free RL technique that operates in DAG space and greedy search, constituting a promising advancement for combinatorial methods."
+              },
+              "statement": "CD-UCT substantially outperforms RL-BIC and greedy search in causal discovery."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1b6a60c7cfc02f16f0204339",
+              "inference_basis_ids": [
+                "res_0466c0a79eaaf88517b10081",
+                "res_ff516e2ff002fb4d90d2f007"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7c294250a5ff74f89f08",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT can match RL-BIC performance with two orders of magnitude fewer score function evaluations, which translates to a DAG of the same quality being found in minutes instead of hours."
+              },
+              "statement": "CD-UCT is more sample-efficient than RL-BIC, achieving similar performance with two orders of magnitude fewer score function evaluations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_50b7f39ec9c4ad2f3a034a6d",
+              "inference_basis_ids": [
+                "res_7feb9b36bbcfc6c19cd0762a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "After pruning, CD-UCT maintains the best results out of all combinatorial methods. It performs the best overall on Sachs yielding an SHD of 10.6"
+              },
+              "statement": "CD-UCT achieves the best overall SHD on the Sachs dataset after pruning."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Continuous variable dataset used for causal discovery evaluation.",
+              "name": "Sachs",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Continuous variable dataset used for causal discovery evaluation.",
+              "name": "SynTReN",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "After pruning, CD-UCT maintains the best results out of all combinatorial methods. It performs the best overall on Sachs yielding an SHD of 10.6",
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "After pruning, CD-UCT maintains the best results out of all combinatorial methods. It performs the best overall on Sachs yielding an SHD of 10.6"
+              },
+              "span_id": "ES5"
+            },
+            {
+              "content": "CD-UCT and Random Search both outperform RL-BIC, even when given 100 times fewer score function evaluations.",
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT and Random Search both outperform RL-BIC, even when given 100 times fewer score function evaluations."
+              },
+              "span_id": "ES6"
+            },
+            {
+              "content": "CD-UCT can match RL-BIC performance with two orders of magnitude fewer score function evaluations, which translates to a DAG of the same quality being found in minutes instead of hours.",
+              "provenance": {
+                "chunk_id": "7c294250a5ff74f89f08",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT can match RL-BIC performance with two orders of magnitude fewer score function evaluations, which translates to a DAG of the same quality being found in minutes instead of hours."
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "CD-UCT substantially outperforms the state-of-the-art model-free RL technique that operates in DAG space and greedy search, constituting a promising advancement for combinatorial methods.",
+              "provenance": {
+                "chunk_id": "324e060214f2f3ac7a1b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT substantially outperforms the state-of-the-art model-free RL technique that operates in DAG space and greedy search, constituting a promising advancement for combinatorial methods."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "CD-UCT yields substantially better performance when given the same number of score function evaluations (as shown in table 1).",
+              "provenance": {
+                "chunk_id": "7c294250a5ff74f89f08",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT yields substantially better performance when given the same number of score function evaluations (as shown in table 1)."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "In the construction phase, CD-UCT performs best out of the considered combinatorial methods in terms of the rewards received and the metrics.",
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "In the construction phase, CD-UCT performs best out of the considered combinatorial methods in terms of the rewards received and the metrics."
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluate CD-UCT, RL-BIC, Greedy Search, Random Search, Uniform Sampling, GES, PC, CAM, and NOTEARS on Sachs and SynTReN datasets using ℱHV score function for continuous variables.",
+            "Vary simulation budget multiplier for CD-UCT and Random Search on Sachs dataset to compare performance under different numbers of score function evaluations."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "CD-UCT",
+              "protocol_description": "Model-based reinforcement learning method that builds DAGs incrementally using tree search (UCT) with a simulation budget. Uses an efficient cycle-exclusion algorithm for deeper discrete search."
+            },
+            {
+              "method_id": "M2",
+              "name": "RL-BIC",
+              "protocol_description": "Model-free reinforcement learning method operating in DAG space for causal discovery."
+            },
+            {
+              "method_id": "M3",
+              "name": "Greedy Search",
+              "protocol_description": "Greedy search in the space of directed edge additions."
+            },
+            {
+              "method_id": "M4",
+              "name": "Random Search",
+              "protocol_description": "Random search over DAGs with a similar number of score function evaluations."
+            },
+            {
+              "method_id": "M5",
+              "name": "Uniform Sampling",
+              "protocol_description": "Uniform sampling of DAGs."
+            },
+            {
+              "method_id": "M6",
+              "name": "GES",
+              "protocol_description": "Greedy Equivalence Search algorithm that searches in the space of Markov equivalence classes."
+            },
+            {
+              "method_id": "M7",
+              "name": "PC",
+              "protocol_description": "Peter-Clark constraint-based method using conditional independence tests and d-separation."
+            },
+            {
+              "method_id": "M8",
+              "name": "CAM",
+              "protocol_description": "Order-based causal additive model method."
+            },
+            {
+              "method_id": "M9",
+              "name": "NOTEARS",
+              "protocol_description": "Continuous optimization method for causal discovery."
+            }
+          ],
+          "name": "CD-UCT evaluation on continuous variable datasets",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Budget efficiency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT and Random Search both outperform RL-BIC, even when given 100 times fewer score function evaluations."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0466c0a79eaaf88517b10081",
+              "unit": null,
+              "value_raw_text": "CD-UCT and Random Search both outperform RL-BIC, even when given 100 times fewer score function evaluations."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Construction reward",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "In the construction phase, CD-UCT performs best out of the considered combinatorial methods in terms of the rewards received and the metrics."
+              },
+              "quantitative_value": null,
+              "result_id": "res_12331da8c4195bc10013a7b1",
+              "unit": null,
+              "value_raw_text": "CD-UCT performs best out of the considered combinatorial methods in terms of the rewards received"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CD-UCT vs RL-BIC performance with equal score evaluations",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7c294250a5ff74f89f08",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT yields substantially better performance when given the same number of score function evaluations (as shown in table 1)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_318d1bf7cfcde7a44ce2e711",
+              "unit": null,
+              "value_raw_text": "CD-UCT yields substantially better performance when given the same number of score function evaluations (as shown in table 1)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD after pruning",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "After pruning, CD-UCT maintains the best results out of all combinatorial methods. It performs the best overall on Sachs yielding an SHD of 10.6"
+              },
+              "quantitative_value": 10.6,
+              "result_id": "res_7feb9b36bbcfc6c19cd0762a",
+              "unit": "SHD",
+              "value_raw_text": "CD-UCT maintains the best results out of all combinatorial methods. It performs the best overall on Sachs yielding an SHD of 10.6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Performance improvement over RL-BIC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d6d24c202a34c78e5348",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "The performance improvements with respect to RL-BIC are substantial. Indeed, RL-BIC achieves worse results than a Random Search that is afforded a similar number of score function evaluations."
+              },
+              "quantitative_value": null,
+              "result_id": "res_88fa1580b72e00e07c25cfdb",
+              "unit": null,
+              "value_raw_text": "The performance improvements with respect to RL-BIC are substantial. Indeed, RL-BIC achieves worse results than a Random Search that is afforded a similar number of score function evaluations."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CD-UCT matches RL-BIC with fewer evaluations",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7c294250a5ff74f89f08",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "CD-UCT can match RL-BIC performance with two orders of magnitude fewer score function evaluations, which translates to a DAG of the same quality being found in minutes instead of hours."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ff516e2ff002fb4d90d2f007",
+              "unit": null,
+              "value_raw_text": "CD-UCT can match RL-BIC performance with two orders of magnitude fewer score function evaluations, which translates to a DAG of the same quality being found in minutes instead of hours."
+            }
+          ],
+          "unit_id": "su_0c6a719dcbaa50ab7d4a1043"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

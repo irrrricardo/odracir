@@ -1,0 +1,753 @@
+{
+  "coverage_ledger": {
+    "00954f2dd9d8f3846f95": "not_selected",
+    "0b63856acbe7826c01b3": "not_selected",
+    "33194158c6655f859076": "not_selected",
+    "3ac029a2e9aa09118163": "not_selected",
+    "556a24531ee230922b25": "extracted",
+    "5e81f67bda4e4b3e032f": "extracted",
+    "6b279b577dfbd0a8b17c": "not_selected",
+    "6c63fca594b33f2dd685": "not_selected",
+    "739379c41d2b9ed90a93": "not_selected",
+    "77410140b8413cf73e27": "not_selected",
+    "7ec50313d8203f54f2c2": "not_selected",
+    "820d8a1ca4f9b118f3e8": "not_selected",
+    "8530ca260fda7afbe926": "not_selected",
+    "8fb0d5396f20602ba362": "extracted",
+    "91079464d3f7ac1b0b7e": "not_selected",
+    "9e3240f5254bfd2e2816": "not_selected",
+    "a11a6d087d7dadf014cc": "not_selected",
+    "a20cd75d65196c6654cd": "not_selected",
+    "a5017006904f4a9e0c2e": "not_selected",
+    "a6464bb1c855e8f944c8": "not_selected",
+    "a911c72cca8d1d87dba2": "not_selected",
+    "ad7959690f7c32ab3b3c": "not_selected",
+    "adb3ab7f2ce8f6c80fd1": "not_selected",
+    "ae5ce8989ae1e2ff3f8b": "not_selected",
+    "c67b117845d443b98d6b": "not_selected",
+    "c7c063b0c8025239b05d": "not_selected",
+    "c85397c882168400a37f": "not_selected",
+    "cdbfa0c1ba628bd72f64": "not_selected",
+    "daff7850f242984d6085": "extracted",
+    "dc88d074b5967e3ae4ec": "not_selected",
+    "e67ee1c5a36e16579e8c": "not_selected",
+    "ff433fffd2783b826168": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Eldan's criterion algorithm does not scale well to large graphs without focusing on a small random subset of candidate edges.",
+    "The ideal baseline (GreedyFull) is computationally too expensive for large graphs because each edge scoring requires O(|E|) computations."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_27.pdf",
+    "source_sha256": "33cdb47a1d8b3eb175f61136ba0ab4fe3a3f235797526b7d028e02926618782c"
+  },
+  "paper_id": "6_27",
+  "quality_assessment": {
+    "correct_item_count": 55,
+    "deterministic_rule_score": 0.7893,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 56,
+    "f1": 0.9244,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The claim states 'ProxyAdd and ProxyDelete outperform FoSR and SDRF' on heterophilous datasets, but the source excerpt says 'our proposed methods both with edge deletions and additions outperform FoSR and SDRF, while outperforming all other baselines on all datasets.' The claim omits that the methods also outperform all other baselines, but this is an omission, not a contradiction. However, the claim is supported by the excerpt. No incorrectness.",
+        "item_id": "claim:su_c3dd998e5ce206d52aa2241b:clm_f1ef08efe0ac0ea286bb970b",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "The paper proposes a computationally effective spectral gap optimization framework to add or delete edges.",
+        "item_id": null,
+        "source_chunk_id": "8fb0d5396f20602ba362",
+        "source_excerpt": "To this end, we propose a computationally effective spectral gap optimization framework to add or delete edges and demonstrate its effectiveness on the long range graph benchmark and on larger heterophilous datasets.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper connects literature on over-smoothing, over-squashing, and graph lottery tickets.",
+        "item_id": null,
+        "source_chunk_id": "daff7850f242984d6085",
+        "source_excerpt": "Our results connect literature on three seemingly disconnected topics: over-smoothing, over-squashing, and graph lottery tickets, which explain observed improvements in generalization performance by graph pruning.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper demonstrates that graph sparsification based on proxy spectral gap update can perform better than or on par with a contemporary baseline (Chen et al., 2021) that takes additional node features and labels into account.",
+        "item_id": null,
+        "source_chunk_id": "daff7850f242984d6085",
+        "source_excerpt": "Utilizing this insight, we demonstrate that graph sparsification based on our proxy spectral gap update can perform better than or on par with a contemporary baseline (Chen et al., 2021) that takes additional node features and labels into account.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper highlights the feasibility of finding winning subgraphs at initialization.",
+        "item_id": null,
+        "source_chunk_id": "daff7850f242984d6085",
+        "source_excerpt": "This highlights the feasibility of finding winning subgraphs at initialization.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper includes a stopping criterion for pruning based on the Eldan criterion.",
+        "item_id": null,
+        "source_chunk_id": "6c63fca594b33f2dd685",
+        "source_excerpt": "Unlike UGS, our proposed framework also has the advantage that we can couple the overall pruning scheme with a stopping criterion that follows naturally from our setup. We stop pruning the input graph when no available edges satisfy our criterion anymore.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports results on node classification on large heterophilic datasets: Roman-Empire, Amazon-Ratings, Minesweeper.",
+        "item_id": null,
+        "source_chunk_id": "3ac029a2e9aa09118163",
+        "source_excerpt": "Node classification on large heterophilic datasets. Platonov et al. (2023) point out that most progress on heterophilic datasets is unreliable since many of the used datasets have drawbacks, including duplicate nodes in Chameleon and Squirrel datasets, which lead to train-test data leakage. The sizes of the small graph sizes also lead to high variance in the obtained accuracies. Consequently, we also test our proposed algorithms on 3/5 of their newly introduced larger datasets and use GCN (Kipf & Welling, 2017) and GAT (Veliˇckovi´c et al., 2018) as our backbone architectures.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper includes a limitation that the Eldan's criterion algorithm does not scale well to large graphs without focusing on a small random subset of candidate edges.",
+        "item_id": null,
+        "source_chunk_id": "5e81f67bda4e4b3e032f",
+        "source_excerpt": "Even though this algorithm does not scale well to large graphs without focusing on a small random subset of candidate edges, we still consider it as baseline, as it defines a more conservative criterion to assess when we should stop deleting edges.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper includes a limitation that the ideal baseline (GreedyFull) is computationally too expensive for large graphs because each edge scoring requires O(|E|) computations.",
+        "item_id": null,
+        "source_chunk_id": "5e81f67bda4e4b3e032f",
+        "source_excerpt": "Our ideal baseline that scores each candidate with the correct spectral gap change would usually be computationally too expensive, because each edge scoring requires O(|E|) computations.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9821,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.873
+  },
+  "quality_score": 0.9244,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can edge deletions address over-squashing and over-smoothing simultaneously?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1bae5acfe19482f23288e2e6",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "daff7850f242984d6085",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Inspired by the Braess phenomenon, we prove that, contrary to common assumptions, over-smoothing and over-squashing are not necessarily diametrically opposed. By deriving a minimal example, we show that both can be mitigated by spectral based edge deletions."
+              },
+              "statement": "Over-smoothing and over-squashing are not necessarily diametrically opposed; both can be mitigated by spectral-based edge deletions."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Derive a minimal example showing that spectral-based edge deletions can mitigate both over-squashing and over-smoothing."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Braess-inspired spectral analysis",
+              "protocol_description": "Leverage the Braess paradox to prove that edge deletions can maximize the spectral gap, thereby addressing over-squashing and over-smoothing simultaneously."
+            }
+          ],
+          "name": "Theoretical analysis of Braess phenomenon for GNNs",
+          "results": [],
+          "unit_id": "su_88e123da52b426893bd55e34"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_79d080f929301a53b2cda18d",
+              "inference_basis_ids": [
+                "res_26e63c78cf5c0ff30fe6ebcf",
+                "res_4ee74a5da434edfcc9f3372d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "For both edge additions (Figure 3(a)) and deletions (Figure 3(b)), we observe that the Proxy method outlined in Algorithm 1 usually leads to a better spectral expansion approximation."
+              },
+              "statement": "The Proxy method provides a better approximation of spectral gap expansion than FoSR and Eldan-based methods."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Erdös-Rényi graph used to test spectral gap expansion algorithms.",
+              "name": "Synthetic ER graph",
+              "version_or_split": "30 nodes, 58 edges"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate edge addition and deletion algorithms on an Erdös-Rényi graph with 30 nodes and 58 edges to assess spectral gap expansion."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Proxy spectral gap update (ProxyAdd/ProxyDelete)",
+              "protocol_description": "Use matrix perturbation theory to approximate spectral gap change for candidate edges, enabling efficient greedy edge addition or deletion."
+            },
+            {
+              "method_id": "M3",
+              "name": "Eldan's criterion (EldanAdd/EldanDelete)",
+              "protocol_description": "Edge modification based on Eldan's criterion providing guarantees for edge deletions and a stopping criterion."
+            },
+            {
+              "method_id": "M4",
+              "name": "FoSR",
+              "protocol_description": "First-order spectral rewiring algorithm that sequentially adds edges to maximize the first-order approximation of the spectral gap."
+            },
+            {
+              "method_id": "M5",
+              "name": "GreedyFull (Add/Delete)",
+              "protocol_description": "Exact spectral gap computation for each candidate edge, used as ideal baseline."
+            }
+          ],
+          "name": "Synthetic ER graph spectral gap expansion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Spectral gap expansion (edge deletions)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "For both edge additions (Figure 3(a)) and deletions (Figure 3(b)), we observe that the Proxy method outlined in Algorithm 1 usually leads to a better spectral expansion approximation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_26e63c78cf5c0ff30fe6ebcf",
+              "unit": null,
+              "value_raw_text": "Proxy method leads to better spectral expansion approximation than EldanDelete."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Spectral gap expansion (edge additions)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "For both edge additions (Figure 3(a)) and deletions (Figure 3(b)), we observe that the Proxy method outlined in Algorithm 1 usually leads to a better spectral expansion approximation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4ee74a5da434edfcc9f3372d",
+              "unit": null,
+              "value_raw_text": "Proxy method leads to better spectral expansion approximation than FoSR and EldanAdd."
+            }
+          ],
+          "unit_id": "su_e62eb321361d7d3f14284911"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How effective is the proposed spectral gap optimization framework on long-range and heterophilous graph benchmarks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c97040443510d0d8cbc4e8c6",
+              "inference_basis_ids": [
+                "res_170128e070335dc839a55684",
+                "res_2453288ecb957db2653c9855",
+                "res_2d86c7319cfcc33b2e21d51f",
+                "res_6a96aee17be310fe1ab11622",
+                "res_7caa10c2e258634e21656cfe",
+                "res_cc813b5465a2e6f0f2482877"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "We show on real-world graphs that spectral pruning can not only mitigate over-squashing by improving the spectral gap but also slows down the rate of smoothing, thus effectively preventing over-smoothing as well."
+              },
+              "statement": "Spectral pruning can mitigate over-squashing and slow down over-smoothing on real-world graphs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f1ef08efe0ac0ea286bb970b",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "On the remaining six datasets, our proposed methods both with edge deletions and additions outperform FoSR and SDRF, while outperforming all other baselines on all datasets."
+              },
+              "statement": "On heterophilous datasets, ProxyAdd and ProxyDelete outperform FoSR and SDRF."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D10",
+              "description": "Co-occurrence network dataset.",
+              "name": "Actor",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D5",
+              "description": "WebKB dataset.",
+              "name": "Cornell",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D6",
+              "description": "WebKB dataset.",
+              "name": "Wisconsin",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D7",
+              "description": "WebKB dataset.",
+              "name": "Texas",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D8",
+              "description": "Wikipedia network dataset.",
+              "name": "Chameleon",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D9",
+              "description": "Wikipedia network dataset.",
+              "name": "Squirrel",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate edge deletion and addition methods on heterophilous datasets: Cornell, Wisconsin, Texas, Chameleon, Squirrel, Actor."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "GCN+ProxyDelete",
+              "protocol_description": "GCN with edges deleted using proxy spectral gap maximization."
+            },
+            {
+              "method_id": "M12",
+              "name": "GCN+ProxyAdd",
+              "protocol_description": "GCN with edges added using proxy spectral gap maximization."
+            },
+            {
+              "method_id": "M13",
+              "name": "GCN+FoSR",
+              "protocol_description": "GCN with FoSR rewiring."
+            },
+            {
+              "method_id": "M14",
+              "name": "GCN+SDRF",
+              "protocol_description": "GCN with SDRF rewiring."
+            },
+            {
+              "method_id": "M15",
+              "name": "GCN+DIGL",
+              "protocol_description": "GCN with DIGL diffusion-based rewiring."
+            },
+            {
+              "method_id": "M16",
+              "name": "GCN+RandomDelete",
+              "protocol_description": "GCN with random edge deletion."
+            },
+            {
+              "method_id": "M17",
+              "name": "GCN+EldanDelete",
+              "protocol_description": "GCN with edge deletion based on Eldan's criterion."
+            },
+            {
+              "method_id": "M18",
+              "name": "GCN+EldanAdd",
+              "protocol_description": "GCN with edge addition based on Eldan's criterion."
+            },
+            {
+              "method_id": "M19",
+              "name": "GCN+BORF",
+              "protocol_description": "GCN with BORF rewiring (results from paper)."
+            }
+          ],
+          "name": "Heterophilous graph node classification",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine distance between nodes of different labels after training (pruned graph)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Chameleon ... After Training (PrunedGraph) 0.96"
+              },
+              "quantitative_value": 0.96,
+              "result_id": "res_170128e070335dc839a55684",
+              "unit": "cosine distance",
+              "value_raw_text": "0.96"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine distance between nodes of different labels after training (pruned graph)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Cornell ... After Training (PrunedGraph) 0.83"
+              },
+              "quantitative_value": 0.83,
+              "result_id": "res_2453288ecb957db2653c9855",
+              "unit": "cosine distance",
+              "value_raw_text": "0.83"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine distance between nodes of different labels after training (pruned graph)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Actor ... After Training (PrunedGraph) 0.99"
+              },
+              "quantitative_value": 0.99,
+              "result_id": "res_2d86c7319cfcc33b2e21d51f",
+              "unit": "cosine distance",
+              "value_raw_text": "0.99"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine distance between nodes of different labels after training (pruned graph)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Texas ... After Training (PrunedGraph) 0.80"
+              },
+              "quantitative_value": 0.8,
+              "result_id": "res_6a96aee17be310fe1ab11622",
+              "unit": "cosine distance",
+              "value_raw_text": "0.80"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine distance between nodes of different labels after training (pruned graph)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Wisconsin ... After Training (PrunedGraph) 0.86"
+              },
+              "quantitative_value": 0.86,
+              "result_id": "res_7caa10c2e258634e21656cfe",
+              "unit": "cosine distance",
+              "value_raw_text": "0.86"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cosine distance between nodes of different labels after training (pruned graph)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "556a24531ee230922b25",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": true,
+                "text_excerpt": "Squirrel ... After Training (PrunedGraph) 0.89"
+              },
+              "quantitative_value": 0.89,
+              "result_id": "res_cc813b5465a2e6f0f2482877",
+              "unit": "cosine distance",
+              "value_raw_text": "0.89"
+            }
+          ],
+          "unit_id": "su_c3dd998e5ce206d52aa2241b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2fc6bec0fbcf777ebf4aa45b",
+              "inference_basis_ids": [
+                "res_04ca3b96e813611769c2e6c1",
+                "res_18116ba84cb4a3f5b0675fe8",
+                "res_8084ba727506c304970a50ea",
+                "res_bfa84dfc1be764000ae16bb7",
+                "res_d190586e53e03b2e6ec3513f",
+                "res_fe0a6b1b602852a1508892e2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "We compare our proposed PROXYADD and PROXYDELETE methods with DRew ... using a GCN as our backbone architecture in Table 1."
+              },
+              "statement": "ProxyAdd+GCN and ProxyDelete+GCN outperform or match DRew and FoSR on LRGB datasets."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Semantic image segmentation as node classification on superpixel graphs.",
+              "name": "PascalVOC-SP",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Peptides modeled as molecular graphs for function prediction.",
+              "name": "Peptides-Func",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Peptides modeled as molecular graphs for structure prediction.",
+              "name": "Peptides-Struct",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate ProxyAdd and ProxyDelete with GCN backbone on PascalVOC-SP, Peptides-Func, and Peptides-Struct datasets."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "FoSR+GCN",
+              "protocol_description": "GCN with FoSR rewiring method."
+            },
+            {
+              "method_id": "M6",
+              "name": "ProxyAdd+GCN",
+              "protocol_description": "GCN with edges added using proxy spectral gap maximization."
+            },
+            {
+              "method_id": "M7",
+              "name": "ProxyDelete+GCN",
+              "protocol_description": "GCN with edges deleted using proxy spectral gap maximization."
+            },
+            {
+              "method_id": "M8",
+              "name": "Baseline-GCN",
+              "protocol_description": "Standard GCN without graph modifications."
+            },
+            {
+              "method_id": "M9",
+              "name": "DRew+GCN",
+              "protocol_description": "GCN with DRew rewiring method."
+            }
+          ],
+          "name": "Long Range Graph Benchmark evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test AP",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ProxyDelete+GCN 0.6908±0.0007"
+              },
+              "quantitative_value": 0.6908,
+              "result_id": "res_04ca3b96e813611769c2e6c1",
+              "unit": "AP",
+              "value_raw_text": "0.6908±0.0007"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test MAE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ProxyAdd+GCN 0.2465±0.0004"
+              },
+              "quantitative_value": 0.2465,
+              "result_id": "res_18116ba84cb4a3f5b0675fe8",
+              "unit": "MAE",
+              "value_raw_text": "0.2465±0.0004"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ProxyAdd+GCN 0.2213±0.0011"
+              },
+              "quantitative_value": 0.2213,
+              "result_id": "res_8084ba727506c304970a50ea",
+              "unit": "F1",
+              "value_raw_text": "0.2213±0.0011"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ProxyDelete+GCN 0.2170±0.0015"
+              },
+              "quantitative_value": 0.217,
+              "result_id": "res_bfa84dfc1be764000ae16bb7",
+              "unit": "F1",
+              "value_raw_text": "0.2170±0.0015"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test MAE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ProxyDelete+GCN 0.2470±0.0080"
+              },
+              "quantitative_value": 0.247,
+              "result_id": "res_d190586e53e03b2e6ec3513f",
+              "unit": "MAE",
+              "value_raw_text": "0.2470±0.0080"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test AP",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e81f67bda4e4b3e032f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ProxyAdd+GCN 0.6789±0.0002"
+              },
+              "quantitative_value": 0.6789,
+              "result_id": "res_fe0a6b1b602852a1508892e2",
+              "unit": "AP",
+              "value_raw_text": "0.6789±0.0002"
+            }
+          ],
+          "unit_id": "su_cf0cc3d6ee98a1e45a184489"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8276 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8077 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8966 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7021 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7442 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7021 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7174 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7442 on attempt 1"
+    }
+  ]
+}

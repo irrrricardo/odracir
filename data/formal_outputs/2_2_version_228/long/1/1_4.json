@@ -1,0 +1,500 @@
+{
+  "coverage_ledger": {
+    "0811a5d2816bb82364b1": "not_selected",
+    "28e99a28b37591a841f6": "not_selected",
+    "502866fc11583d8aa35c": "not_selected",
+    "686797616be38ad2c45b": "not_selected",
+    "727f086abc3ee71acc59": "not_selected",
+    "755e65e2dab7dbbba355": "extracted",
+    "9a27cec2699e65317fa6": "not_selected",
+    "9b00527df7113d00e589": "extracted",
+    "a7af132d732a56a324bc": "extracted",
+    "b6316bc164121a1d392e": "not_selected",
+    "bd61c2881cc1d0e72a67": "not_selected",
+    "bfa00c58b63e87c0912a": "not_selected",
+    "d0ac6803c0220b988301": "extracted",
+    "ec1a581fca4642833f76": "not_selected",
+    "ed2a6f54409cab45165c": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study is limited to three cancer cell lines (A549, MCF7, K562) and 188 compounds.",
+    "The 72-hour time course was performed only in A549 cells with 48 compounds.",
+    "TC50-IC50 correlation excluded two relatively insoluble compounds.",
+    "Heterogeneity analysis focused on HDAC inhibitors; generalizability to other compound classes is not fully explored.",
+    "The study uses in vitro cell line models; in vivo relevance is not addressed."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_4.pdf",
+    "source_sha256": "902df4c7f7ead1917eca08e8062d0cf8873620880dc00347ef711b5c4cec1bcd"
+  },
+  "paper_id": "1_4",
+  "quality_assessment": {
+    "correct_item_count": 36,
+    "deterministic_rule_score": 0.8035,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 36,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can nuclear hashing with unmodified ssDNA oligos enable cost-effective, high-throughput single-cell transcriptomic chemical screens?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_66bb0c31ac20e2d1bda70094",
+              "inference_basis_ids": [
+                "res_9fb4eeae309dcd17a867cc0c",
+                "res_bc91b1d41d702db091ebdba7",
+                "res_d7a9bf4388848f8729b8386c",
+                "res_e36726af74fe8721a79fef1e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "755e65e2dab7dbbba355",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "These results demonstrate that hash oligos stably label nuclei in a manner that is compatible with sci-RNA-seq."
+              },
+              "statement": "Nuclear hashing with polyadenylated ssDNA oligos stably labels nuclei and is compatible with sci-RNA-seq."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "We separately seeded human (HEK293T) and mouse (NIH3T3) cells to 48 wells of a 96-well culture plate. We then performed nuclear lysis in the presence of 96 well-specific polyadenylated ssDNA oligos (“hash oligos”) and fixed the resulting nuclear suspensions with paraformaldehyde.",
+              "provenance": {
+                "chunk_id": "755e65e2dab7dbbba355",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We separately seeded human (HEK293T) and mouse (NIH3T3) cells to 48 wells of a 96-well culture plate. We then performed nuclear lysis in the presence of 96 well-specific polyadenylated ssDNA oligos (“hash oligos”) and fixed the resulting nuclear suspensions with paraformaldehyde."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Human (HEK293T) and mouse (NIH3T3) cells were separately seeded to 48 wells of a 96-well culture plate. Nuclear lysis was performed in the presence of 96 well-specific polyadenylated ssDNA hash oligos, followed by paraformaldehyde fixation. Nuclei were pooled and subjected to two-level sci-RNA-seq."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Nuclear hashing",
+              "protocol_description": "Permeabilized nuclei were labeled with polyadenylated ssDNA hash oligos during nuclear lysis, then fixed with paraformaldehyde. Hash oligos were combinatorially indexed alongside endogenous mRNAs in sci-RNA-seq."
+            },
+            {
+              "method_id": "M2",
+              "name": "sci-RNA-seq",
+              "protocol_description": "Two-level single-cell combinatorial indexing RNA-seq was performed on pooled hashed nuclei."
+            }
+          ],
+          "name": "Nuclear hashing barnyard experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Interspecies doublet detection rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "755e65e2dab7dbbba355",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Hash oligos facilitated the identification of the vast majority of interspecies doublets (95.5%)"
+              },
+              "quantitative_value": 95.5,
+              "result_id": "res_9fb4eeae309dcd17a867cc0c",
+              "unit": "%",
+              "value_raw_text": "95.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median UMIs per cell (endogenous mRNAs)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "755e65e2dab7dbbba355",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "median 4740 unique molecular identifiers (UMIs) per cell"
+              },
+              "quantitative_value": 4740.0,
+              "result_id": "res_bc91b1d41d702db091ebdba7",
+              "unit": "UMIs",
+              "value_raw_text": "4740"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Concordance between hash oligo and transcriptome species assignments",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "755e65e2dab7dbbba355",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We observed 99.1% concordance between species assignments on the basis of hash oligos versus endogenous cellular transcriptomes"
+              },
+              "quantitative_value": 99.1,
+              "result_id": "res_d7a9bf4388848f8729b8386c",
+              "unit": "%",
+              "value_raw_text": "99.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median UMIs per cell (hash oligos)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "755e65e2dab7dbbba355",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "hash oligos (median 270 UMIs per cell)"
+              },
+              "quantitative_value": 270.0,
+              "result_id": "res_e36726af74fe8721a79fef1e",
+              "unit": "UMIs",
+              "value_raw_text": "270"
+            }
+          ],
+          "unit_id": "su_a1c6c5a4527cf5e0d4f601ef"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Can sci-Plex be used to screen cancer cell lines with multiple compounds and reveal transcriptional heterogeneity and mechanisms of action?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_143bf4793935c02de36f1f5b",
+              "inference_basis_ids": [
+                "res_284ce4ea317ab264ab7ce821"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "With the exception of two relatively insoluble compounds, our calculated TC50 values increased as a function of compound IC50 values"
+              },
+              "statement": "Transcriptional potency (TC50) correlates with biochemical potency (IC50) for HDAC inhibitors, except for two relatively insoluble compounds."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2dde193f0850a1abb6f607c6",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d0ac6803c0220b988301",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "we find that gene-regulatory changes consequent to treatment with histone deacetylase (HDAC) inhibitors are consistent with the model that they interfere with proliferation by restricting a cell’s ability to draw acetate from chromatin"
+              },
+              "statement": "Gene-regulatory changes consequent to treatment with HDAC inhibitors are consistent with the model that they interfere with proliferation by restricting a cell's ability to draw acetate from chromatin."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4a5de6d8f072118d0c92845d",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "This suggests that the dose of many HDAC inhibitors governs the magnitude of a cell’s response rather than its rate of progression and that any observed heterogeneity cannot be attributed solely to asynchrony"
+              },
+              "statement": "The dose of many HDAC inhibitors governs the magnitude of a cell's response rather than its rate of progression, and observed heterogeneity cannot be attributed solely to asynchrony."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6d66a81b3d4fadb999d08f19",
+              "inference_basis_ids": [],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We observed that some HDAC inhibitors induced homogeneous responses, with nearly all cells localized to a relatively narrow range of the HDAC inhibitor trajectory at each dose (e.g., pracinostat in A549), whereas other drugs induced much greater cellular heterogeneity"
+              },
+              "statement": "Some HDAC inhibitors induce homogeneous responses, while others induce greater cellular heterogeneity."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "To assess the similarity of the dose–response trajectories between cell lines, we aligned HDAC-treated cells and vehicle-treated cells from all three cell lines using a mutual-nearest neighbor (MNN) matching approach (32) to produce a consensus HDAC inhibitor trajectory, which we call “pseudodose” [analogous to “pseudotime” (33)]",
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "To assess the similarity of the dose–response trajectories between cell lines, we aligned HDAC-treated cells and vehicle-treated cells from all three cell lines using a mutual-nearest neighbor (MNN) matching approach (32) to produce a consensus HDAC inhibitor trajectory, which we call “pseudodose” [analogous to “pseudotime” (33)]"
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "We used dose-response models to estimate each compound’s transcriptional median effective concentration (TC50), i.e., the concentration needed to drive a cell halfway across the HDAC inhibitor pseudodose trajectory",
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We used dose-response models to estimate each compound’s transcriptional median effective concentration (TC50), i.e., the concentration needed to drive a cell halfway across the HDAC inhibitor pseudodose trajectory"
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "HDAC inhibitor-treated cells from three cell lines were aligned using MNN to produce a consensus HDAC inhibitor trajectory (pseudodose). Heterogeneity of response was assessed. A 72-hour time course with 48 compounds in A549 was performed to test asynchrony. TC50 values were calculated and compared to published IC50 values. Differential expression analysis was performed along the pseudodose trajectory."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Mutual nearest neighbor (MNN) alignment",
+              "protocol_description": "HDAC-treated cells and vehicle-treated cells from all three cell lines were aligned using a mutual-nearest neighbor matching approach to produce a consensus HDAC inhibitor trajectory."
+            },
+            {
+              "method_id": "M6",
+              "name": "Dose-response modeling for TC50",
+              "protocol_description": "Dose-response models were used to estimate each compound's transcriptional median effective concentration (TC50), the concentration needed to drive a cell halfway across the HDAC inhibitor pseudodose trajectory."
+            },
+            {
+              "method_id": "M7",
+              "name": "Differential expression analysis",
+              "protocol_description": "Differential expression analysis was performed using pseudodose as a continuous covariate."
+            }
+          ],
+          "name": "HDAC inhibitor heterogeneity and dose-response analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "TC50 vs IC50 correlation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "our calculated TC50 values increased as a function of compound IC50 values"
+              },
+              "quantitative_value": null,
+              "result_id": "res_284ce4ea317ab264ab7ce821",
+              "unit": null,
+              "value_raw_text": "TC50 values increased as a function of compound IC50 values"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of genes exhibiting the same pattern in all three cell lines",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "942 (22%) exhibited the same pattern in all three cell lines"
+              },
+              "quantitative_value": 942.0,
+              "result_id": "res_540edb7a0f625e7a0a8b8596",
+              "unit": "genes",
+              "value_raw_text": "942 (22%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of genes responding in a cell-type-dependent manner",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "2081 (48%) responded in a cell-type–dependent manner"
+              },
+              "quantitative_value": 2081.0,
+              "result_id": "res_b1d14ca2f0f5621abe75d306",
+              "unit": "genes",
+              "value_raw_text": "2081 (48%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of genes significantly differentially expressed over consensus HDAC trajectory",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a7af132d732a56a324bc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Of the 4308 genes that were significantly differentially expressed over this consensus trajectory"
+              },
+              "quantitative_value": 4308.0,
+              "result_id": "res_d7630c28a13c9f03a1b2bccc",
+              "unit": "genes",
+              "value_raw_text": "4308"
+            }
+          ],
+          "unit_id": "su_2297083aec01cb3eefa4f517"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "We exposed A549, a human lung adenocarcinoma cell line, to one of four compounds: dexamethasone (a corticosteroid agonist), nutlin-3a (a p53-Mdm2 antagonist), BMS-345541 (an inhibitor of nuclear factor κB–dependent transcription), or vorinostat [suberoylanilide hydroxamic acid (SAHA), an HDAC inhibitor], for 24 hours across seven doses in triplicate for a total of 84 drug–dose–replicate combinations and additional vehicle controls.",
+              "provenance": {
+                "chunk_id": "755e65e2dab7dbbba355",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We exposed A549, a human lung adenocarcinoma cell line, to one of four compounds: dexamethasone (a corticosteroid agonist), nutlin-3a (a p53-Mdm2 antagonist), BMS-345541 (an inhibitor of nuclear factor κB–dependent transcription), or vorinostat [suberoylanilide hydroxamic acid (SAHA), an HDAC inhibitor], for 24 hours across seven doses in triplicate for a total of 84 drug–dose–replicate combinations and additional vehicle controls."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "A549 cells were exposed to dexamethasone, nutlin-3a, BMS-345541, or vorinostat (SAHA) for 24 hours across seven doses in triplicate (84 drug–dose–replicate combinations plus vehicle controls). Nuclei were hashed and subjected to sci-RNA-seq2."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "sci-Plex",
+              "protocol_description": "Cells were treated with compounds, then nuclei were hashed with polyadenylated ssDNA oligos and processed by sci-RNA-seq2."
+            }
+          ],
+          "name": "sci-Plex pilot screen with four compounds in A549",
+          "results": [],
+          "unit_id": "su_3f373415654b777ed3f1d3c0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_07137401022987353b09cfcf",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d0ac6803c0220b988301",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "commonalities in response to families of compounds"
+              },
+              "statement": "sci-Plex reveals commonalities in response to families of compounds."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_731ae131617cb8993fb6b766",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d0ac6803c0220b988301",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "results reveal substantial intercellular heterogeneity in response to specific compounds"
+              },
+              "statement": "sci-Plex reveals substantial intercellular heterogeneity in response to specific compounds."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7e7248198989fb540ae1cb41",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d0ac6803c0220b988301",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "insight into differential properties within families"
+              },
+              "statement": "sci-Plex provides insight into differential properties within compound families."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Three cancer cell lines (A549, MCF7, K562) were exposed to 188 compounds. Single-cell transcriptomes were profiled by sci-Plex."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "sci-Plex large-scale screen",
+              "protocol_description": "Cells were treated with compounds, hashed, and processed by sci-RNA-seq."
+            }
+          ],
+          "name": "Large-scale sci-Plex screen of 188 compounds in three cancer cell lines",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of independent samples",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9b00527df7113d00e589",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we profiled ~650,000 single-cell transcriptomes across ~5000 independent samples in one experiment"
+              },
+              "quantitative_value": 5000.0,
+              "result_id": "res_1dc08bd7b5e17309bbfa4d17",
+              "unit": "samples",
+              "value_raw_text": "~5000"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of single-cell transcriptomes profiled",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9b00527df7113d00e589",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we profiled ~650,000 single-cell transcriptomes across ~5000 independent samples in one experiment"
+              },
+              "quantitative_value": 650000.0,
+              "result_id": "res_98a06de334c66fbe8facb87f",
+              "unit": "cells",
+              "value_raw_text": "~650,000"
+            }
+          ],
+          "unit_id": "su_dd3227207f9d496bcee609b1"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

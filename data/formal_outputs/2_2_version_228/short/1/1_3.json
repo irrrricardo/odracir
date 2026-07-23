@@ -1,0 +1,721 @@
+{
+  "coverage_ledger": {
+    "0010c690e22877c214a8": "not_selected",
+    "0fcba109aef0573962c5": "not_selected",
+    "16fd972ea7d2dfb41514": "not_selected",
+    "188ada61e4a54301887f": "not_selected",
+    "2006020f9ea44b5ec341": "not_selected",
+    "21c0a02deab9ea94ef5a": "not_selected",
+    "28ad04498cb993eead5c": "not_selected",
+    "326dff4cb8e34b06f7a4": "not_selected",
+    "33dd0cea902d148de58a": "extracted",
+    "39887b8661a21ea8baa0": "not_selected",
+    "3ff6a092d0cf2d1d6d49": "not_selected",
+    "41dfa918297602b4134b": "not_selected",
+    "49b4e77a90fbc7f0346e": "extracted",
+    "5161c6e82db581bc91df": "not_selected",
+    "64aa5dfeadd32afe365b": "not_selected",
+    "765abc51fe8977b80cf1": "not_selected",
+    "773e79a1263f2ad018b5": "extracted",
+    "85d5b3d69c24c8f84481": "not_selected",
+    "88ded9fb6d1c91b467e2": "not_selected",
+    "8d97aace01ec2f5c891a": "not_selected",
+    "92bc5b1ccf4f75afac82": "not_selected",
+    "98ae35b97ab23da4fc67": "not_selected",
+    "9dc9d23985eb43bd9958": "not_selected",
+    "a642f14843e914d7081e": "not_selected",
+    "c8f7fb89d220c370a3e0": "not_selected",
+    "c935c533017c38d85564": "not_selected",
+    "ca7e433ab2e2380a17d8": "not_selected",
+    "d0d3eba76764bb9c0bcf": "not_selected",
+    "e43cb9e8d2bca910e215": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The mechanism of nicotine accumulation in the intestine is not addressed.",
+    "The study does not demonstrate causality between B. xylanisolvens abundance and NAFLD in humans; only correlations are shown.",
+    "The clinical cohort is relatively small (83 patients) and limited to biopsy-proven NAFLD.",
+    "The long-term safety and efficacy of B. xylanisolvens as a therapeutic intervention are not evaluated.",
+    "The study focuses on nicotine-associated NASH; generalizability to other NAFLD etiologies is unknown.",
+    "The role of other gut bacteria in nicotine degradation is not explored.",
+    "The in vivo experiments are limited to mouse models; human intervention trials are lacking.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_3.pdf",
+    "source_sha256": "33645093a090965157f70e38d5fe8720896ef9bdbb85fccb1d2db6124feb5360"
+  },
+  "paper_id": "1_3",
+  "quality_assessment": {
+    "correct_item_count": 55,
+    "deterministic_rule_score": 0.8804,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.4286,
+      "sample_size_log_score": 0.6336,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 56,
+    "f1": 0.8661,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted metric_name is 'Intestinal nicotine concentration after B. xylanisolvens colonization', but the value_raw_text and source excerpt describe a reduction in ileal ceramides, not nicotine concentration. The provenance chunk (773e79a1263f2ad018b5) states: 'B. xylanisolvens-colonized SPF mice showed a reduction in ileal ceramides in the presence of NicX'. This is a mismatch between the metric and the actual result.",
+        "item_id": "result:su_26608c27012f44faf1bb7ae4:res_22e3218e02a039faa0c42be4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 16,
+    "missed_core_items": [
+      {
+        "description": "Nicotine concentrations in GF mice were higher than in SPF mice, suggesting endogenous gut bacteria contribute to nicotine degradation.",
+        "item_id": null,
+        "source_chunk_id": "49b4e77a90fbc7f0346e",
+        "source_excerpt": "the nicotine concentrations in both the ileal content and ileal tissue in germ-free (GF) mice were higher than those in SPF mice, suggesting that endogenous gut bacteria contribute to nicotine degradation",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Nicotine treatment induced phosphorylation of AMPKα at Thr172 in ileal organoids in a dose-dependent manner.",
+        "item_id": null,
+        "source_chunk_id": "3ff6a092d0cf2d1d6d49",
+        "source_excerpt": "nicotine treatment induced the phosphorylation of AMPKα at Thr172 in ileal organoids in a dose-dependent manner",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "B. xylanisolvens colonization inhibited nicotine-induced AMPKα phosphorylation in the ileum.",
+        "item_id": null,
+        "source_chunk_id": "0fcba109aef0573962c5",
+        "source_excerpt": "B. xylanisolvens colonization inhibited nicotine-induced AMPKα phosphorylation in the ileum",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Nicotine degradation was observed only in the group colonized with WT B. xylanisolvens, not with nicX-knockout B. xylanisolvens.",
+        "item_id": null,
+        "source_chunk_id": "8d97aace01ec2f5c891a",
+        "source_excerpt": "nicotine degradation was observed only in the group colonized with WT B. xylanisolvens",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Nicotine supplementation accelerated NAFLD progression under HFHCD feeding, with more severe hepatic steatosis, inflammation and fibrosis.",
+        "item_id": null,
+        "source_chunk_id": "8d97aace01ec2f5c891a",
+        "source_excerpt": "nicotine supplementation in the water accelerated NAFLD progression under HFHCD feeding conditions, and this acceleration was accompanied by more severe hepatic steatosis, inflammation and fibrosis",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Colonization with WT B. xylanisolvens ameliorated NASH indicators, but nicX-deficient B. xylanisolvens did not.",
+        "item_id": null,
+        "source_chunk_id": "8d97aace01ec2f5c891a",
+        "source_excerpt": "these NASH indicators were ameliorated by colonization with WT B. xylanisolvens but not with nicX-deficient B. xylanisolvens",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Nicotine-induced increase in SMPD3 protein levels was mitigated by AMPK inhibitor or kinase-domain mutant, indicating post-translational regulation.",
+        "item_id": null,
+        "source_chunk_id": "3ff6a092d0cf2d1d6d49",
+        "source_excerpt": "either treatment with an AMPK kinase activity inhibitor or expression of a kinase-domain mutant could mitigate the nicotine-induced increase of SMPD3 protein levels",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "SMPD3 bound to AMPKα1 under nicotine treatment.",
+        "item_id": null,
+        "source_chunk_id": "3ff6a092d0cf2d1d6d49",
+        "source_excerpt": "under nicotine treatment, SMPD3 bound to AMPKα1",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Ser209 phosphorylation protected SMPD3 protein from degradation.",
+        "item_id": null,
+        "source_chunk_id": "3ff6a092d0cf2d1d6d49",
+        "source_excerpt": "Ser209 phosphorylation protected SMPD3 protein from degradation",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Nicotine-induced increases in total SMPD3 protein resulted from elevated SMPD3 phosphorylation and subsequently reduced ubiquitination.",
+        "item_id": null,
+        "source_chunk_id": "3ff6a092d0cf2d1d6d49",
+        "source_excerpt": "nicotine-induced increases in total SMPD3 protein resulted from elevated SMPD3 phosphorylation and subsequently reduced ubiquitination",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "In smokers, B. xylanisolvens abundance was negatively correlated with fecal nicotine and positively correlated with HPB.",
+        "item_id": null,
+        "source_chunk_id": "773e79a1263f2ad018b5",
+        "source_excerpt": "B. xylanisolvens abundance was negatively correlated with faecal nicotine content, but positively correlated with HPB levels",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Fecal nicotine levels were step-wise increased with NAFLD progression, and HPB was decreased.",
+        "item_id": null,
+        "source_chunk_id": "773e79a1263f2ad018b5",
+        "source_excerpt": "the faecal nicotine levels were step-wise increased with the progression of NAFLD, and the nicotine-degradation product HPB in faeces was accordingly decreased along with NAFLD progression",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Serum ceramide (d18:1/16:0) was negatively correlated with B. xylanisolvens abundance.",
+        "item_id": null,
+        "source_chunk_id": "773e79a1263f2ad018b5",
+        "source_excerpt": "it was negatively correlated with the abundance of B. xylanisolvens",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "B. xylanisolvens levels were negatively correlated with NAFLD severity in smokers.",
+        "item_id": null,
+        "source_chunk_id": "773e79a1263f2ad018b5",
+        "source_excerpt": "B. xylanisolvens levels were negatively correlated with NAFLD severity",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "No correlation between B. xylanisolvens abundance and NAFLD severity was observed in non-smokers.",
+        "item_id": null,
+        "source_chunk_id": "773e79a1263f2ad018b5",
+        "source_excerpt": "we did not observe a correlation between B. xylanisolvens abundance and NAFLD severity in non-smokers",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study only used male mice and male human participants, limiting generalizability.",
+        "item_id": null,
+        "source_chunk_id": "98ae35b97ab23da4fc67",
+        "source_excerpt": "The current study mainly focused on the effect of tobacco use on NALFD/NASH. Considering the high proportion of male smokers (PMID: 31737583, the ratio of male and female smokers is 95:3), we included 143 male (by sex) participants for the analysis.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9821,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.7746
+  },
+  "quality_score": 0.8661,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does nicotine accumulate in the intestine during tobacco smoking, and does it contribute to NAFLD progression?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_53872c2c3b5b63e301559b46",
+              "inference_basis_ids": [
+                "res_93baed1dbb6920c3e5d8da23",
+                "res_fb257a19014aef023b3567d4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "High levels of nicotine were detected in the ileal mucosa tissue of smokers, suggesting that nicotine accumulates in the intestine during tobacco smoking"
+              },
+              "statement": "Nicotine accumulates in the intestine during tobacco smoking."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "30 non-smokers and 30 smokers with colon polyps; terminal ileum mucosa biopsies, serum, stool.",
+              "name": "Human cohort 1",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "SPF C57BL/6J mice; nicotine administration via smoke exposure (60 mg/m3 TPM, 2h/day, 2 weeks), oral (10 μg/ml in sweet water), subcutaneous (0.5 mg/kg daily, 2 weeks).",
+              "name": "Mouse nicotine exposure models",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "GF and SPF C57BL/6J mice given nicotine (10 μg/ml) in drinking water.",
+              "name": "GF vs SPF mouse nicotine drinking model",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "High levels of nicotine were detected in the ileal mucosa tissue of smokers, suggesting that nicotine accumulates in the intestine during tobacco smoking",
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "High levels of nicotine were detected in the ileal mucosa tissue of smokers, suggesting that nicotine accumulates in the intestine during tobacco smoking"
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Compared nicotine concentrations in ileal content and tissue between GF and SPF mice given nicotine in drinking water.",
+            "Measured nicotine levels in ileal contents, ileal tissue, and other tissues in SPF mice exposed to nicotine via smoke, oral, and subcutaneous routes.",
+            "Measured nicotine levels in terminal ileum mucosa biopsies, serum, and stool from 30 non-smokers and 30 smokers."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "LC-MS/MS nicotine quantification",
+              "protocol_description": "Tissue homogenized in 10% methanol; NaOH, ethyl acetate, internal standard (nicotine-d4) added; centrifuged; supernatant dried, dissolved in 70% acetonitrile; analyzed by QTRAP 5500 with Waters XBridge amide column; isocratic elution with 25% acetonitrile/0.1% formic acid/2 mM ammonium formate; MRM transitions: nicotine m/z 163.1→130.1, HPB m/z 166.1→106.0, nicotine-d4 m/z 167.1→134.1."
+            }
+          ],
+          "name": "Intestinal nicotine accumulation in humans and mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Nicotine concentration in GF vs SPF mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the nicotine concentrations in both the ileal content and ileal tissue in germ-free (GF) mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_34924f9cea840e1ce173cf5e",
+              "unit": null,
+              "value_raw_text": "the nicotine concentrations in both the ileal content and ileal tissue in germ-free (GF) mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nicotine accumulation in mouse ileum across administration routes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Ileal nicotine accumulation was consistently observed in the above mouse models"
+              },
+              "quantitative_value": null,
+              "result_id": "res_93baed1dbb6920c3e5d8da23",
+              "unit": null,
+              "value_raw_text": "Ileal nicotine accumulation was consistently observed in the above mouse models"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nicotine concentration in ileal mucosa",
+              "n_sample_size": 60,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "High levels of nicotine were detected in the ileal mucosa tissue of smokers, suggesting that nicotine accumulates in the intestine during tobacco smoking"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fb257a19014aef023b3567d4",
+              "unit": null,
+              "value_raw_text": "High levels of nicotine were detected in the ileal mucosa tissue of smokers"
+            }
+          ],
+          "unit_id": "su_7daeaebae63d5100c1ad514b"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Can the gut bacterium Bacteroides xylanisolvens degrade nicotine and alleviate nicotine-exacerbated NAFLD?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e0c52f9d0363f381690c923f",
+              "inference_basis_ids": [
+                "res_0bf1ded26a6e1ab0307bf386",
+                "res_22e3218e02a039faa0c42be4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Colonization of B. xylanisolvens reduces intestinal nicotine concentrations in nicotine-exposed mice, and it improves nicotine-exacerbated NAFLD progression."
+              },
+              "statement": "B. xylanisolvens colonization reduces intestinal nicotine concentrations and improves nicotine-exacerbated NAFLD progression."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "SPF C57BL/6J mice on HFHCD with nicotine exposure; colonized with WT or nicX-knockout B. xylanisolvens.",
+              "name": "Nicotine-accelerated NASH mouse model with B. xylanisolvens colonization",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Colonization of B. xylanisolvens reduces intestinal nicotine concentrations in nicotine-exposed mice, and it improves nicotine-exacerbated NAFLD progression.",
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Colonization of B. xylanisolvens reduces intestinal nicotine concentrations in nicotine-exposed mice, and it improves nicotine-exacerbated NAFLD progression."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Assessed the role of NicX enzyme by comparing WT and nicX-knockout B. xylanisolvens.",
+            "Colonized nicotine-exposed SPF mice with B. xylanisolvens or nicX-knockout B. xylanisolvens by gavage every 3 days (2×10^8 CFU).",
+            "Measured intestinal nicotine concentrations and NAFLD progression (steatosis, inflammation, fibrosis) in colonized mice."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Bacterial colonization",
+              "protocol_description": "SPF mice treated with 2×10^8 CFU of B. xylanisolvens or nicX-knockout B. xylanisolvens in 200 μl sterile anaerobic PBS by gavage every 3 days. Bacteria grown anaerobically in BHI medium, washed, concentrated to 1×10^9 CFU/ml in anaerobic PBS."
+            }
+          ],
+          "name": "B. xylanisolvens colonization reduces intestinal nicotine and improves NASH in mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "NAFLD severity after B. xylanisolvens colonization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "49b4e77a90fbc7f0346e",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Colonization of B. xylanisolvens reduces intestinal nicotine concentrations in nicotine-exposed mice, and it improves nicotine-exacerbated NAFLD progression."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0bf1ded26a6e1ab0307bf386",
+              "unit": null,
+              "value_raw_text": "it improves nicotine-exacerbated NAFLD progression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Intestinal nicotine concentration after B. xylanisolvens colonization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "B. xylanisolvens-colonized SPF mice showed a reduction in ileal ceramides in the presence of NicX"
+              },
+              "quantitative_value": null,
+              "result_id": "res_22e3218e02a039faa0c42be4",
+              "unit": null,
+              "value_raw_text": "B. xylanisolvens-colonized SPF mice showed a reduction in ileal ceramides in the presence of NicX"
+            }
+          ],
+          "unit_id": "su_26608c27012f44faf1bb7ae4"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "What is the mechanism by which intestinal nicotine promotes NAFLD progression?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3e7973a49dee95dbe07c2849",
+              "inference_basis_ids": [
+                "res_257950b550c105f7d3116e95",
+                "res_485d61d23946b2fadb20c5df",
+                "res_5772c771268602e0416bcf9c",
+                "res_c581b3642c205d4797529f54"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "nicotine-induced activation of the intestinal AMPKα–SMPD3 axis potentiates NAFLD progression by increasing intestinal ceramide production"
+              },
+              "statement": "Nicotine-induced activation of the intestinal AMPKα–SMPD3 axis potentiates NAFLD progression by increasing intestinal ceramide production."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Organoids from WT, Prkaa1fl/fl, Prkaa1ΔIE mice; treated with nicotine, compound C, GW4869, lentiviral SMPD3.",
+              "name": "Ileal organoid experiments",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "Prkaa1fl/fl and Prkaa1ΔIE mice on HFHCD with nicotine; ceramide (d18:1/16:0) i.p. injection.",
+              "name": "In vivo ceramide rescue experiment",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "nicotine-induced activation of the intestinal AMPKα–SMPD3 axis potentiates NAFLD progression by increasing intestinal ceramide production",
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "nicotine-induced activation of the intestinal AMPKα–SMPD3 axis potentiates NAFLD progression by increasing intestinal ceramide production"
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Administered ceramide (d18:1/16:0) (10 mg/kg i.p.) to Prkaa1ΔIE mice to test reversal of protective effects.",
+            "Performed in vitro kinase assay with purified SMPD3 and active AMPK heterotrimer.",
+            "Restored SMPD3 expression via lentivirus in Prkaa1-knockout organoids and measured ceramide levels.",
+            "Treated ileal organoids with nicotine (1 μg/ml) and AMPK inhibitor compound C (20 μM) for 12 h.",
+            "Used GW4869 (SMPD3 inhibitor) in organoids and in vivo (10 mg/kg daily gavage) to assess ceramide production."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Organoid culture and treatment",
+              "protocol_description": "Ileal crypts isolated, embedded in Matrigel/IntestiCult medium; treated with nicotine (1 μg/ml), compound C (20 μM), GW4869 (10 μM). Lentiviral transduction: LV-control or LV-Smpd3 (1×10^6 PFU/100 crypts) for 1 h, then cultured 7 days with nicotine last 3 days."
+            },
+            {
+              "method_id": "M4",
+              "name": "In vitro kinase assay",
+              "protocol_description": "SMPD3–His (2 μg) incubated with active AMPK heterotrimer (0.5 μg) in kinase buffer with [γ-32P]ATP at 30°C for 2 h; resolved by SDS-PAGE, autoradiography."
+            }
+          ],
+          "name": "Nicotine activates intestinal AMPKα–SMPD3–ceramide axis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Ceramide levels after SMPD3 overexpression in AMPKα1-deficient organoids",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "SMPD3 overexpression reversed the reduction in ceramide levels resulting from AMPKα1 deficiency in ileal organoids"
+              },
+              "quantitative_value": null,
+              "result_id": "res_257950b550c105f7d3116e95",
+              "unit": null,
+              "value_raw_text": "SMPD3 overexpression reversed the reduction in ceramide levels resulting from AMPKα1 deficiency in ileal organoids"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic steatosis, inflammation, fibrosis after ceramide rescue",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The protective effects on hepatic steatosis, inflammation and fibrosis resulting from the genetic disruption of intestinal epithelium AMPKα1 were reversed by ceramide (d18:1/16:0) administration"
+              },
+              "quantitative_value": null,
+              "result_id": "res_485d61d23946b2fadb20c5df",
+              "unit": null,
+              "value_raw_text": "The protective effects on hepatic steatosis, inflammation and fibrosis resulting from the genetic disruption of intestinal epithelium AMPKα1 were reversed by ceramide (d18:1/16:0) administration"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ceramide levels in organoids after nicotine and GW4869",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The ceramide levels in organoids and their supernatants under nicotine treatment were decreased by GW4869"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5772c771268602e0416bcf9c",
+              "unit": null,
+              "value_raw_text": "The ceramide levels in organoids and their supernatants under nicotine treatment were decreased by GW4869"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NAFLD severity after oral GW4869",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "oral GW4869 delivery decreased the ileal levels of ceramides, and the decrease was accompanied by lower NAFLD severity in the nicotine-drinking model"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c581b3642c205d4797529f54",
+              "unit": null,
+              "value_raw_text": "oral GW4869 delivery decreased the ileal levels of ceramides, and the decrease was accompanied by lower NAFLD severity in the nicotine-drinking model"
+            }
+          ],
+          "unit_id": "su_c5d6464de7bd98e1208d02dd"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ4",
+      "statement": "Is B. xylanisolvens abundance and nicotine degradation associated with NAFLD severity in human smokers?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_71e93e56be400c6ae1e0bf91",
+              "inference_basis_ids": [
+                "res_2ae3d5ed8fe986bbf4215f35",
+                "res_750756652c28bbca9b1ce56f",
+                "res_8316c8022e655ea4429cace8",
+                "res_c5b548344f6e0bde1f3ed07a",
+                "res_eeb0e21865baee7e3f653bd5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "these data establish intestinal nicotine accumulation as a risk factor for clinical NAFLD progression in smokers, while also suggesting that B. xylanisolvens, with its nicotine-degrading activities, could exhibit protective effects by decreasing the progression of NAFLD"
+              },
+              "statement": "In smokers, B. xylanisolvens-mediated nicotine degradation is associated with reduced NAFLD severity and improved liver function."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "Cohort 2: 41 smokers with biopsy-confirmed NAFLD; Cohort 3: 42 non-smokers with biopsy-confirmed NAFLD. Serum and stool samples.",
+              "name": "Human NAFLD cohorts 2 and 3",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "these data establish intestinal nicotine accumulation as a risk factor for clinical NAFLD progression in smokers, while also suggesting that B. xylanisolvens, with its nicotine-degrading activities, could exhibit protective effects by decreasing the progression of NAFLD",
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "these data establish intestinal nicotine accumulation as a risk factor for clinical NAFLD progression in smokers, while also suggesting that B. xylanisolvens, with its nicotine-degrading activities, could exhibit protective effects by decreasing the progression of NAFLD"
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Collected fecal and serum samples from 83 biopsy-proven NAFLD patients (41 smokers, 42 non-smokers).",
+            "Correlated these markers with NAFLD severity (NAS score).",
+            "Measured B. xylanisolvens abundance, fecal nicotine, HPB, serum ceramides, ALT, AST."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Metagenomic sequencing and LC-MS/MS",
+              "protocol_description": "Metagenomic sequencing for B. xylanisolvens abundance; LC-MS/MS for fecal nicotine, HPB, serum ceramides."
+            }
+          ],
+          "name": "Clinical correlation of B. xylanisolvens, nicotine, HPB, and ceramide with NAFLD severity",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Fecal nicotine and HPB levels by NAFLD severity",
+              "n_sample_size": 83,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the faecal nicotine levels were step-wise increased with the progression of NAFLD, and the nicotine-degradation product HPB in faeces was accordingly decreased along with NAFLD progression"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2ae3d5ed8fe986bbf4215f35",
+              "unit": null,
+              "value_raw_text": "the faecal nicotine levels were step-wise increased with the progression of NAFLD, and the nicotine-degradation product HPB in faeces was accordingly decreased along with NAFLD progression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between B. xylanisolvens and serum ceramide",
+              "n_sample_size": 83,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "it was negatively correlated with the abundance of B. xylanisolvens"
+              },
+              "quantitative_value": null,
+              "result_id": "res_750756652c28bbca9b1ce56f",
+              "unit": null,
+              "value_raw_text": "it was negatively correlated with the abundance of B. xylanisolvens"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Serum ceramide (d18:1/16:0) in NASH vs NAFL",
+              "n_sample_size": 83,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The serum ceramide levels, especially ceramide (d18:1/16:0), which is mainly derived from the intestine, were significantly higher in individuals with NASH compared with those with NAFL"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8316c8022e655ea4429cace8",
+              "unit": null,
+              "value_raw_text": "The serum ceramide levels, especially ceramide (d18:1/16:0), which is mainly derived from the intestine, were significantly higher in individuals with NASH compared with those with NAFL"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of B. xylanisolvens with fecal nicotine and HPB",
+              "n_sample_size": 83,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "B. xylanisolvens abundance was negatively correlated with faecal nicotine content, but positively correlated with HPB levels"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c5b548344f6e0bde1f3ed07a",
+              "unit": null,
+              "value_raw_text": "B. xylanisolvens abundance was negatively correlated with faecal nicotine content, but positively correlated with HPB levels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between B. xylanisolvens and NAFLD severity",
+              "n_sample_size": 83,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "773e79a1263f2ad018b5",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "B. xylanisolvens levels were negatively correlated with NAFLD severity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_eeb0e21865baee7e3f653bd5",
+              "unit": null,
+              "value_raw_text": "B. xylanisolvens levels were negatively correlated with NAFLD severity"
+            }
+          ],
+          "unit_id": "su_66a7bf35e04e9f20a97e53e1"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

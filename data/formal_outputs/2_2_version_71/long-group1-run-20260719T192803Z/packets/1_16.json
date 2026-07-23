@@ -1,0 +1,696 @@
+{
+  "coverage_ledger": {
+    "0e15046fe8be1c56c0a6": "extracted",
+    "16e03eabaecd322707d5": "extracted",
+    "1787efdde612d0bd43fc": "not_selected",
+    "1940cbea1941e2014755": "not_selected",
+    "4392208c68ece2421f6c": "extracted",
+    "5ffe5ec9e72a1b10de06": "not_selected",
+    "6124a016e5a50b689d87": "extracted",
+    "65226933d9de1ae382fb": "extracted",
+    "77db95f5498086c16844": "not_selected",
+    "7d00f3f5bc81fe806e8c": "not_selected",
+    "a0ace218d45b10fd3152": "extracted",
+    "bc52198a044bf5fd3faa": "extracted",
+    "be9647135a28ecac4c5d": "extracted",
+    "d2e8811727fa8505995f": "not_selected",
+    "ef8d0c5e3060665c3d1c": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Pretraining data may not fully reflect the complexity of human organ development and health states.",
+    "Pretraining demands substantial computational resources.",
+    "Current model focused on transcriptomic data only, not including genomic or epigenomic data.",
+    "Unsupervised pretraining overlooked rich information in metadata.",
+    "Batch effects or modality differences are left to cooperative methods on downstream tasks.",
+    "Model pretraining loss was not optimized to zero, so predicted gene expression values may have high dropout rate."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_16.pdf",
+    "source_sha256": "82153f8a6ae4c42f7641c9ddd015b6b357ef1c1966566f61788f85197390261e"
+  },
+  "paper_id": "1_16",
+  "quality_assessment": {
+    "correct_item_count": 54,
+    "deterministic_rule_score": 0.9324,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 54,
+    "f1": 0.9153,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 10,
+    "missed_core_items": [
+      {
+        "description": "The paper reports that scFoundation outperforms other methods in cell clustering on the Zheng68K dataset, with a higher SIL score compared to scVI and raw data.",
+        "item_id": null,
+        "source_chunk_id": "77db95f5498086c16844",
+        "source_excerpt": "We compared our results with scVI trained on the same dataset. Both methods outperformed the raw data in clustering. While their NMI and ARI metrics were similar, scFoundation had a higher SIL score, showing its generalization ability in non-fine-tuning mode (Fig. 2f).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that scFoundation-based drug response prediction achieves a PCC of 0.93 and Spearman of 0.87 for all cancer types, and for drug WZ-1-84 on low-grade gliomas, PCC of 0.94 and Spearman of 0.95.",
+        "item_id": null,
+        "source_chunk_id": "0e15046fe8be1c56c0a6",
+        "source_excerpt": "Pearson: 0.93\nSpearman: 0.87",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that scFoundation-based GEARS achieves lower MSE than baseline GEARS on perturbation prediction, and on two-gene perturbations, it achieves the lowest averaged MSE in the 0/2 unseen case and outperforms GEARS and CPA across all cases.",
+        "item_id": null,
+        "source_chunk_id": "a0ace218d45b10fd3152",
+        "source_excerpt": "MSE between predicted and ground truth post-gene expressions. Results given by the scFoundation-based GEARS model and baseline GEARS model are shown in red and blue, respectively.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that scFoundation achieves the highest macro F1 score on both cell type annotation datasets (Zheng68K and Segerstolpe), with improvements in rare cell types.",
+        "item_id": null,
+        "source_chunk_id": "a0ace218d45b10fd3152",
+        "source_excerpt": "scFoundation achieved the highest macro F1 score on both datasets",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that scFoundation-based SCAD achieves higher AUC values for all four drugs (sorafenib, NVP-TAE684, PLX4720, etoposide) compared to baseline, with improvements exceeding 0.2 for NVP-TAE684 and sorafenib.",
+        "item_id": null,
+        "source_chunk_id": "7d00f3f5bc81fe806e8c",
+        "source_excerpt": "The scFoundation-based model achieved higher AUC values for all drugs, with notable improvements for NVP-TAE684 and sorafenib, exceeding a 0.2 increase in AUC.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that scFoundation-based DeepCDR achieves higher PCC for most drugs and all cancer types compared to baseline, and in a drug-blind test, scFoundation-based models consistently outperform the original model.",
+        "item_id": null,
+        "source_chunk_id": "7d00f3f5bc81fe806e8c",
+        "source_excerpt": "Most drugs and all cancer types achieved a higher PCC by using scFoundation embeddings.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that scFoundation demonstrates a power-law decline in validation loss with increased model size and computation, and the 100M parameter model surpasses all other models.",
+        "item_id": null,
+        "source_chunk_id": "6124a016e5a50b689d87",
+        "source_excerpt": "we found a power-law decline in validation loss correlating with increased model size and computation, which is called 'scaling law'",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that scFoundation reduces MAE and MRE by half from downsampled data even when downsampling rate is below 10%.",
+        "item_id": null,
+        "source_chunk_id": "6124a016e5a50b689d87",
+        "source_excerpt": "scFoundation demonstrated a notable reduction of half the MAE and MRE from the downsampled data even when the downsampling rate was below 10%",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that scFoundation outperforms baseline and scImpute in all clustering metrics (NMI, ARI, SIL) when T=S, and as T/S fold increases, its performance surpasses all other methods.",
+        "item_id": null,
+        "source_chunk_id": "65226933d9de1ae382fb",
+        "source_excerpt": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that scFoundation-based model achieves higher PCC of magnitude score for two-gene perturbations compared to baseline, and identifies more true synergy and suppressor genetic interactions.",
+        "item_id": null,
+        "source_chunk_id": "a0ace218d45b10fd3152",
+        "source_excerpt": "the scFoundation-based model achieved a higher PCC compared with the baseline",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8438
+  },
+  "quality_score": 0.9153,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "Can we develop foundation models of cells based on massive cell 'sentences'?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_11d9eccc0b87f08e610d7135",
+              "inference_basis_ids": [
+                "res_f751335eae30811d8a00f6a9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a0ace218d45b10fd3152",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation achieved the highest macro F1 score on both datasets."
+              },
+              "statement": "scFoundation achieves the highest macro F1 score in cell type annotation compared to CellTypist, scBERT, scANVI, ACTINN, Scanpy, and SingleCellNet."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_23854a557e2ee09b45ff7105",
+              "inference_basis_ids": [
+                "res_c23c3476cabb5856cedc545c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a0ace218d45b10fd3152",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MSE between predicted and ground truth post-gene expressions. Results given by the scFoundation-based GEARS model and baseline GEARS model are shown in red and blue, respectively."
+              },
+              "statement": "scFoundation-based GEARS improves perturbation prediction over baseline GEARS."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3bb46052a82ca8088c23e7dc",
+              "inference_basis_ids": [
+                "res_3b29c4af5b7ec36c36a31a9c",
+                "res_54afee3f5d7c3e977ac1ed0c",
+                "res_88922381e5c36fb9654af89b",
+                "res_abb51440900281a42c05c596",
+                "res_be330131c7b3193209b3fe29",
+                "res_c23c3476cabb5856cedc545c",
+                "res_cdc2fb70dae43ae4fb7664e6",
+                "res_de82b379c316e98a968b7190",
+                "res_f751335eae30811d8a00f6a9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "be9647135a28ecac4c5d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Experiments showed its merit as a foundation model that achieved state-of-the-art performances in a diverse array of single-cell analysis tasks such as gene expression enhancement, tissue drug response prediction, single-cell drug response classification, single-cell perturbation prediction, cell type annotation and gene module inference."
+              },
+              "statement": "scFoundation achieves state-of-the-art performances in diverse single-cell analysis tasks including gene expression enhancement, tissue drug response prediction, single-cell drug response classification, single-cell perturbation prediction, cell type annotation and gene module inference."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_43d046aa491285a1d958477b",
+              "inference_basis_ids": [
+                "res_54afee3f5d7c3e977ac1ed0c",
+                "res_88922381e5c36fb9654af89b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0e15046fe8be1c56c0a6",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Pearson: 0.93\nSpearman: 0.87"
+              },
+              "statement": "scFoundation-based drug response prediction achieves high Pearson and Spearman correlations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7caac2775f748f1ee8106557",
+              "inference_basis_ids": [
+                "res_abb51440900281a42c05c596",
+                "res_cdc2fb70dae43ae4fb7664e6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The RDA modeling enables scFoundation to enhance the read depth of the input cell by setting T as a higher number than S."
+              },
+              "statement": "The RDA modeling enables scFoundation to enhance read depth without fine-tuning."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_86ed2fc70ae9e04fd86f8065",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "be9647135a28ecac4c5d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Here we developed a large pretrained model scFoundation, also named ‘xTrimoscFoundationα’, with 100 million parameters covering about 20,000 genes, pretrained on over 50 million human single-cell transcriptomic profiles."
+              },
+              "statement": "scFoundation is a large-scale foundation model with 100 million parameters covering about 20,000 genes, pretrained on over 50 million human single-cell transcriptomic profiles."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9451010d481c669f8b1264e5",
+              "inference_basis_ids": [
+                "res_3b29c4af5b7ec36c36a31a9c",
+                "res_be330131c7b3193209b3fe29",
+                "res_de82b379c316e98a968b7190"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "As the T/S fold increased, we observed a quick jump in scFoundation’s performance that surpassed all other methods."
+              },
+              "statement": "scFoundation outperforms baseline and other imputation methods in cell clustering when T/S fold is increased."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "d1",
+              "description": "Over 50 million human scRNA-seq profiles from GEO, Single Cell Portal, HCA, hECA, DISCO, EMBL-EBI, etc., covering over 100 tissue types.",
+              "name": "Comprehensive single-cell dataset",
+              "version_or_split": "pretraining"
+            },
+            {
+              "dataset_id": "d2",
+              "description": "Processed by SAVER, containing downsampled gene expression profiles and reference data.",
+              "name": "Human pancreatic islet dataset",
+              "version_or_split": "test"
+            },
+            {
+              "dataset_id": "d3",
+              "description": "About 60,000 human peripheral blood mononuclear cells.",
+              "name": "Zheng68K dataset",
+              "version_or_split": "test"
+            },
+            {
+              "dataset_id": "d4",
+              "description": "697 gene expression profiles, 223 drugs, 561 cell lines from 31 cancer types.",
+              "name": "DeepCDR cell line data",
+              "version_or_split": "train/test"
+            },
+            {
+              "dataset_id": "d5",
+              "description": "Bulk and single-cell data for drug response classification.",
+              "name": "SCAD dataset",
+              "version_or_split": "cross-validation"
+            },
+            {
+              "dataset_id": "d6",
+              "description": "Three perturbation datasets following GEARS study.",
+              "name": "Perturbation datasets",
+              "version_or_split": "train/test"
+            },
+            {
+              "dataset_id": "d7",
+              "description": "Two datasets for benchmarking cell type annotation.",
+              "name": "Cell type annotation datasets",
+              "version_or_split": "test"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "As the T/S fold increased, scFoundation's performance surpassed all other methods.",
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "As the T/S fold increased, we observed a quick jump in scFoundation’s performance that surpassed all other methods."
+              },
+              "span_id": "es6"
+            },
+            {
+              "content": "The RDA modeling enables scFoundation to enhance read depth without fine-tuning.",
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The RDA modeling enables scFoundation to enhance the read depth of the input cell by setting T as a higher number than S."
+              },
+              "span_id": "es3"
+            },
+            {
+              "content": "scFoundation achieved Pearson correlation of 0.93 and Spearman correlation of 0.87 for all cancer types in drug response prediction.",
+              "provenance": {
+                "chunk_id": "0e15046fe8be1c56c0a6",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Pearson: 0.93\nSpearman: 0.87"
+              },
+              "span_id": "es7"
+            },
+            {
+              "content": "scFoundation achieved Pearson correlation of 0.94 and Spearman correlation of 0.95 for drug WZ-1-84 on low-grade gliomas.",
+              "provenance": {
+                "chunk_id": "0e15046fe8be1c56c0a6",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Pearson: 0.94\nSpearman: 0.95"
+              },
+              "span_id": "es8"
+            },
+            {
+              "content": "scFoundation achieved state-of-the-art performances in diverse single-cell analysis tasks.",
+              "provenance": {
+                "chunk_id": "be9647135a28ecac4c5d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Experiments showed its merit as a foundation model that achieved state-of-the-art performances in a diverse array of single-cell analysis tasks such as gene expression enhancement, tissue drug response prediction, single-cell drug response classification, single-cell perturbation prediction, cell type annotation and gene module inference."
+              },
+              "span_id": "es2"
+            },
+            {
+              "content": "scFoundation achieved the highest macro F1 score on both cell type annotation datasets.",
+              "provenance": {
+                "chunk_id": "a0ace218d45b10fd3152",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation achieved the highest macro F1 score on both datasets."
+              },
+              "span_id": "es10"
+            },
+            {
+              "content": "scFoundation demonstrated a notable reduction of half the MAE and MRE from downsampled data even when the downsampling rate was below 10%.",
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation demonstrated a notable reduction of half the MAE and MRE from the downsampled data even when the downsampling rate was below 10%"
+              },
+              "span_id": "es4"
+            },
+            {
+              "content": "scFoundation is a large pretrained model with 100 million parameters covering about 20,000 genes, pretrained on over 50 million human single-cell transcriptomic profiles.",
+              "provenance": {
+                "chunk_id": "be9647135a28ecac4c5d",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Here we developed a large pretrained model scFoundation, also named ‘xTrimoscFoundationα’, with 100 million parameters covering about 20,000 genes, pretrained on over 50 million human single-cell transcriptomic profiles."
+              },
+              "span_id": "es1"
+            },
+            {
+              "content": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S.",
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S"
+              },
+              "span_id": "es5"
+            },
+            {
+              "content": "scFoundation-based GEARS model achieved lower MSE than baseline GEARS in perturbation prediction.",
+              "provenance": {
+                "chunk_id": "a0ace218d45b10fd3152",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MSE between predicted and ground truth post-gene expressions. Results given by the scFoundation-based GEARS model and baseline GEARS model are shown in red and blue, respectively."
+              },
+              "span_id": "es9"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluating cell clustering on human pancreatic islet dataset and Zheng68K dataset.",
+            "Evaluating cell type annotation on two datasets.",
+            "Evaluating drug response prediction using DeepCDR and SCAD.",
+            "Evaluating perturbation prediction using GEARS.",
+            "Evaluating read-depth enhancement on downsampled data.",
+            "Inferring gene modules and gene regulation networks.",
+            "Pretraining scFoundation with RDA modeling on over 50 million scRNA-seq profiles."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "scFoundation",
+              "protocol_description": "Large pretrained model with 100 million parameters, asymmetric encoder-decoder architecture (xTrimoGene), pretrained with RDA modeling on over 50 million scRNA-seq profiles. Embedding module converts continuous gene expression scalars into learnable high-dimensional vectors. Encoder processes nonzero and nonmasked embeddings; decoder combines with mask and zero embeddings. Output projected via shared MLP layer."
+            },
+            {
+              "method_id": "m10",
+              "name": "Scanpy",
+              "protocol_description": "Baseline cell type annotation method."
+            },
+            {
+              "method_id": "m11",
+              "name": "SingleCellNet",
+              "protocol_description": "Baseline cell type annotation method."
+            },
+            {
+              "method_id": "m12",
+              "name": "MAGIC",
+              "protocol_description": "Baseline imputation method."
+            },
+            {
+              "method_id": "m13",
+              "name": "SAVER",
+              "protocol_description": "Baseline imputation method."
+            },
+            {
+              "method_id": "m14",
+              "name": "scImpute",
+              "protocol_description": "Baseline imputation method."
+            },
+            {
+              "method_id": "m15",
+              "name": "scVI",
+              "protocol_description": "Baseline imputation and clustering method."
+            },
+            {
+              "method_id": "m2",
+              "name": "RDA modeling",
+              "protocol_description": "Pretraining task: mask 30% of genes (both zero and nonzero) in input sample; model predicts expression values at masked positions. Input sample generated via hierarchical Bayesian downsampling or unchanged. Two total count indicators T (target) and S (source) are provided. Loss is regression loss on masked genes."
+            },
+            {
+              "method_id": "m3",
+              "name": "DeepCDR",
+              "protocol_description": "Baseline drug response prediction model using graph convolutional network. For scFoundation-based version, gene expression replaced with cell-line embeddings from scFoundation."
+            },
+            {
+              "method_id": "m4",
+              "name": "SCAD",
+              "protocol_description": "Single-cell drug response classification model. For scFoundation-based version, cell embeddings from scFoundation used."
+            },
+            {
+              "method_id": "m5",
+              "name": "GEARS",
+              "protocol_description": "Perturbation prediction model using Gene Ontology knowledge graph and gene co-expression graph. For scFoundation-based version, gene context embeddings from scFoundation decoder used as node features."
+            },
+            {
+              "method_id": "m6",
+              "name": "CellTypist",
+              "protocol_description": "Baseline cell type annotation method."
+            },
+            {
+              "method_id": "m7",
+              "name": "scBERT",
+              "protocol_description": "Baseline cell type annotation method."
+            },
+            {
+              "method_id": "m8",
+              "name": "scANVI",
+              "protocol_description": "Baseline cell type annotation method."
+            },
+            {
+              "method_id": "m9",
+              "name": "ACTINN",
+              "protocol_description": "Baseline cell type annotation method."
+            }
+          ],
+          "name": "scFoundation pretraining and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Validation loss",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "we found a power-law decline in validation loss correlating with increased model size and computation, which is called 'scaling law'"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ad95d594339bb530f2b1dbe",
+              "unit": null,
+              "value_raw_text": "Power-law decline with increased model size and computation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SIL",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3b29c4af5b7ec36c36a31a9c",
+              "unit": null,
+              "value_raw_text": "scFoundation outperformed baseline and scImpute in all metrics when T=S"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PCC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We measured the mean absolute error (MAE), mean relative error (MRE) and Pearson correlation coefficient (PCC) between predicted and actual nonzero gene expressions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_486852639f06d53afed54c30",
+              "unit": null,
+              "value_raw_text": "High Pearson correlation between predicted and actual nonzero gene expressions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PCC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e15046fe8be1c56c0a6",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Pearson: 0.93\nSpearman: 0.87"
+              },
+              "quantitative_value": null,
+              "result_id": "res_54afee3f5d7c3e977ac1ed0c",
+              "unit": null,
+              "value_raw_text": "Pearson: 0.93, Spearman: 0.87 for all cancer types in drug response prediction"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PCC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e15046fe8be1c56c0a6",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Pearson: 0.94\nSpearman: 0.95"
+              },
+              "quantitative_value": null,
+              "result_id": "res_88922381e5c36fb9654af89b",
+              "unit": null,
+              "value_raw_text": "Pearson: 0.94, Spearman: 0.95 for drug WZ-1-84 on low-grade gliomas"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MRE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation demonstrated a notable reduction of half the MAE and MRE from the downsampled data even when the downsampling rate was below 10%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_abb51440900281a42c05c596",
+              "unit": null,
+              "value_raw_text": "Half the MRE from downsampled data when downsampling rate below 10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NMI",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S"
+              },
+              "quantitative_value": null,
+              "result_id": "res_be330131c7b3193209b3fe29",
+              "unit": null,
+              "value_raw_text": "scFoundation outperformed baseline and scImpute in all metrics when T=S"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a0ace218d45b10fd3152",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MSE between predicted and ground truth post-gene expressions. Results given by the scFoundation-based GEARS model and baseline GEARS model are shown in red and blue, respectively."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c23c3476cabb5856cedc545c",
+              "unit": null,
+              "value_raw_text": "scFoundation-based GEARS achieved lower MSE than baseline GEARS on perturbation prediction"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MAE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6124a016e5a50b689d87",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation demonstrated a notable reduction of half the MAE and MRE from the downsampled data even when the downsampling rate was below 10%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cdc2fb70dae43ae4fb7664e6",
+              "unit": null,
+              "value_raw_text": "Half the MAE from downsampled data when downsampling rate below 10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ARI",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65226933d9de1ae382fb",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation outperformed both the baseline and scImpute in all metrics when T was set equal to S"
+              },
+              "quantitative_value": null,
+              "result_id": "res_de82b379c316e98a968b7190",
+              "unit": null,
+              "value_raw_text": "scFoundation outperformed baseline and scImpute in all metrics when T=S"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Macro F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a0ace218d45b10fd3152",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "scFoundation achieved the highest macro F1 score on both datasets"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f751335eae30811d8a00f6a9",
+              "unit": null,
+              "value_raw_text": "scFoundation achieved the highest macro F1 score on both cell type annotation datasets"
+            }
+          ],
+          "unit_id": "su_592530ea835249333b82d784"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

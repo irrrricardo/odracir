@@ -1,0 +1,284 @@
+{
+  "coverage_ledger": {
+    "0576d4ab1ce02b93b34c": "not_selected",
+    "315a3e34bc0fe9ec7353": "extracted",
+    "3665d22aed323ce63a64": "not_selected",
+    "3a8207dbdaeaabcf3a0b": "extracted",
+    "405b3d32ce93aeec0859": "not_selected",
+    "5228b65058a040a0fcb5": "not_selected",
+    "5ff4a05dde1c3541fd73": "not_selected",
+    "61cf970b04c05c4dd935": "not_selected",
+    "6e8df270abfd7ad92e45": "extracted",
+    "780c45f8c86c72954167": "extracted",
+    "82e6526f9d901aea5161": "not_selected",
+    "90ad5cb8744c6029e02c": "extracted",
+    "91f8c6c2f7fe62f8cde3": "extracted",
+    "a890a7f9b522e528b663": "extracted",
+    "a8f58d4be9bd87404823": "not_selected",
+    "ac5d46971c9b50de5d03": "not_selected",
+    "dd099e12c6060797ba0a": "not_selected",
+    "e1157b406b24c44a5c96": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Only four datasets used, all from cancer cell lines.",
+    "Original quality control not improved; e.g., perturbations that did not affect target gene expression were not excluded.",
+    "Theodoris et al. excluded cancer cell lines from training data due to high mutational burden; this study did not.",
+    "Benchmark focused on limited number of models and datasets; results may not generalize."
+  ],
+  "merge_decisions": [],
+  "metadata": {
+    "domain": "computational_biology",
+    "input_global_context_digest": "sha256:4c6db911b8148be775b0a1bc1747ee1418edda4db275cb88c78e2e2eabd8531d",
+    "input_global_context_through_batch": "2",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_12.pdf",
+    "source_sha256": "93b9a09b1d7d2c9e09efdac22ec45da4602c21fea61535a9dc894545678f051e"
+  },
+  "paper_id": "1_12",
+  "quality_score": 0.8859,
+  "research_questions": [
+    {
+      "question_id": "q_1",
+      "statement": "Do deep learning models, including single-cell foundation models, outperform simple linear baselines in predicting gene expression changes after genetic perturbations?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_21f437dd662a2e91d32d0a60",
+              "inference_basis_ids": [
+                "res_792d506bc8a6dc8d8ef89686"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "e1157b406b24c44a5c96",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "None of the deep learning models was able to consistently outperform the mean prediction or the linear model (Fig. 2a and Extended Data Fig. 8)."
+              },
+              "statement": "No deep learning model consistently outperformed the simple mean baseline or the linear model for predicting unseen single perturbations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e3515aa4692ee12c2c42f692",
+              "inference_basis_ids": [
+                "res_7d0baced734e365a1fd05536"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e1157b406b24c44a5c96",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The approach that did consistently outperform all other models was a linear model with P pretrained on the Replogle data (using the K562 cell line data as pretraining for the Adamson and RPE1 data and the RPE1 cell line for the K562 data)."
+              },
+              "statement": "A linear model with perturbation embeddings pretrained on Replogle data consistently outperformed all other models."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds_2",
+              "description": "CRISPR interference dataset in K562 cells.",
+              "name": "Replogle et al. 2022 K562",
+              "version_or_split": "As provided by GEARS"
+            },
+            {
+              "dataset_id": "ds_3",
+              "description": "CRISPR interference dataset in RPE1 cells.",
+              "name": "Replogle et al. 2022 RPE1",
+              "version_or_split": "As provided by GEARS"
+            },
+            {
+              "dataset_id": "ds_4",
+              "description": "CRISPR interference dataset in K562 cells.",
+              "name": "Adamson et al. 2016",
+              "version_or_split": "As provided by GEARS"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Benchmark prediction of effects of unseen single perturbations using two CRISPRi datasets by Replogle et al. (K562 and RPE1 cells) and one by Adamson et al. (K562 cells)."
+          ],
+          "methods": [
+            {
+              "method_id": "m_4",
+              "name": "Baseline linear model",
+              "protocol_description": "Simple linear model: represents each read-out gene with K-dimensional vector G and each perturbation with L-dimensional vector P. G and P obtained from PCA of training data or external sources. W solved via normal equations with ridge penalty λ=0.1. Also included a 'mean' baseline predicting average training expression."
+            },
+            {
+              "method_id": "m_5",
+              "name": "Deep learning models for single perturbations",
+              "protocol_description": "GEARS, scGPT, scFoundation, UCE, scBERT, Geneformer used as in double perturbation benchmark. CPA excluded as not designed for unseen perturbations. scFoundation excluded due to gene matching issues."
+            },
+            {
+              "method_id": "m_6",
+              "name": "Benchmark setup",
+              "protocol_description": "Test–training splitting from GEARS 'simulation' procedure, repeated twice. Prediction error measured as L2 distance for 1,000 most highly expressed genes. Analysis restricted to perturbations where all models had predictions (73 for Adamson, 398 for Replogle K562, 629 for Replogle RPE1)."
+            }
+          ],
+          "name": "Single perturbation prediction benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e1157b406b24c44a5c96",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "None of the deep learning models was able to consistently outperform the mean prediction or the linear model (Fig. 2a and Extended Data Fig. 8)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_792d506bc8a6dc8d8ef89686",
+              "unit": null,
+              "value_raw_text": "None of the deep learning models consistently outperformed the mean prediction or the linear model"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error to mean baseline",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e1157b406b24c44a5c96",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The approach that did consistently outperform all other models was a linear model with P pretrained on the Replogle data (using the K562 cell line data as pretraining for the Adamson and RPE1 data and the RPE1 cell line for the K562 data)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d0baced734e365a1fd05536",
+              "unit": null,
+              "value_raw_text": "Linear model with P pretrained on Replogle data consistently outperformed all other models, including those using pretrained gene embeddings from scFoundation and scGPT"
+            }
+          ],
+          "unit_id": "su_deb6171dca295093a19070b5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f1a3eb16a6d3509433b46631",
+              "inference_basis_ids": [
+                "res_2d1e6a437bf919a4a68f3999"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "90ad5cb8744c6029e02c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "All models had a prediction error substantially higher than the additive baseline (Fig. 1a,b)."
+              },
+              "statement": "All deep learning models had a prediction error substantially higher than the simple additive baseline for double perturbation prediction."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fed657e7a30a53d7b134cf46",
+              "inference_basis_ids": [
+                "res_eeb91b10ed9899e465166b66"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "90ad5cb8744c6029e02c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "None of the models was better than the 'no change' baseline."
+              },
+              "statement": "No model outperformed the 'no change' baseline for predicting genetic interactions from double perturbations."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds_1",
+              "description": "CRISPR activation data in K562 cells, 100 single and 124 double perturbations, logarithm-transformed RNA-seq expression values for 19,264 genes.",
+              "name": "Norman et al. 2019",
+              "version_or_split": "As reprocessed by scFoundation"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assess prediction of expression changes after double perturbations using data from Norman et al., with 100 individual genes and 124 gene pairs upregulated in K562 cells."
+          ],
+          "methods": [
+            {
+              "method_id": "m_1",
+              "name": "Deep learning models benchmarked",
+              "protocol_description": "Five foundation models (scGPT, scFoundation, UCE, scBERT, Geneformer) and two other deep learning models (GEARS, CPA) were fine-tuned or used as per original publications. For Geneformer, UCE, and scBERT, a linear decoder (ridge regression) was added to map cell embeddings to gene expression. Fine-tuning limits: GEARS and scFoundation limited to 3 days; scFoundation trained for 5 epochs. UCE used zero-shot with data leakage accepted. scGPT parameters from tutorial."
+            },
+            {
+              "method_id": "m_2",
+              "name": "Baseline models",
+              "protocol_description": "Two simple baselines: (1) 'no change' model predicting control expression; (2) 'additive' model predicting sum of individual log-fold changes. Neither uses double perturbation data."
+            },
+            {
+              "method_id": "m_3",
+              "name": "Benchmark setup",
+              "protocol_description": "Models fine-tuned on all 100 single perturbations and 62 randomly chosen double perturbations; tested on remaining 62 double perturbations. Analysis repeated 5 times with different random partitions. Prediction error measured as L2 distance for 1,000 most highly expressed genes. Also evaluated using Pearson delta and L2 for other gene subsets."
+            }
+          ],
+          "name": "Double perturbation prediction benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "True positive rate vs false discovery proportion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3a8207dbdaeaabcf3a0b",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "mostly predicted buffering interactions. The 'no change' baseline cannot, by definition, find synergistic interactions, but also the deep learning models rarely predicted synergistic interactions, and it was even rarer that those predictions were correct (Fig. 1f)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0f5954a30284cd2a5ad7b71e",
+              "unit": null,
+              "value_raw_text": "All models mostly predicted buffering interactions, rarely predicted synergistic interactions, and even rarer were those predictions correct"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90ad5cb8744c6029e02c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "All models had a prediction error substantially higher than the additive baseline (Fig. 1a,b)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2d1e6a437bf919a4a68f3999",
+              "unit": null,
+              "value_raw_text": "All models had a prediction error substantially higher than the additive baseline"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "90ad5cb8744c6029e02c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "None of the models was better than the 'no change' baseline."
+              },
+              "quantitative_value": null,
+              "result_id": "res_eeb91b10ed9899e465166b66",
+              "unit": null,
+              "value_raw_text": "None of the models was better than the 'no change' baseline for genetic interaction prediction"
+            }
+          ],
+          "unit_id": "su_fdf2c90f253694d0d205a64f"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.0"
+}

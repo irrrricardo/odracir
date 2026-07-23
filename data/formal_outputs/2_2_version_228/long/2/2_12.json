@@ -1,0 +1,802 @@
+{
+  "coverage_ledger": {
+    "169a7679fb211eca6e0e": "not_selected",
+    "1ef386978041b947c275": "not_selected",
+    "2866ac4c762ee868f264": "extracted",
+    "359d9380b19e6f3ac65a": "extracted",
+    "3688c33d36515e36a8c3": "extracted",
+    "5749423a86dabfe92f62": "extracted",
+    "5926db1ff78f8c434f5e": "extracted",
+    "6c0f00efac3a0c02fd90": "not_selected",
+    "6db47edb1b1bdb3fbd29": "not_selected",
+    "745a5e6aacf02cb0b8c8": "not_selected",
+    "7f9b05dc5ef88f7e6fe8": "not_selected",
+    "84c1f6c3ed4d26bc9fd3": "not_selected",
+    "9922e1041be2f5164c52": "extracted",
+    "b21141b72e2d008c9c8c": "not_selected",
+    "b59a6f95e53e8f8c8cdf": "not_selected",
+    "bf2418023141344a64c1": "not_selected",
+    "c1a439828b837cb834fe": "not_selected",
+    "c2a9223c2e8a3e359964": "not_selected",
+    "c55025f90558ac390cdc": "extracted",
+    "d790a1bd217f63e67f20": "not_selected",
+    "fce6bd8c1ad9d69510e8": "not_selected",
+    "fe2d9a49dc1ce88a9488": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses chemogenetic models in mice; human relevance remains to be established.",
+    "The role of immunoglobulins in normal circuit dynamics or development is not addressed.",
+    "The specific antigens recognized by IgM in the CNS are unknown.",
+    "The contribution of other immunoglobulin isotypes cannot be ruled out, though sIgM KO data suggest they are insufficient.",
+    "The J20 AD model may not fully recapitulate human AD immune interactions.",
+    "The 5-day chemogenetic paradigm may not capture longer-term synaptic changes.",
+    "The KA model did not produce measurable synapse loss, limiting conclusions from that paradigm.",
+    "Potential confounding effects of surgical damage or viral transduction were controlled but not completely eliminated.",
+    "The study does not examine whether similar innate-adaptive interactions occur in other brain circuits."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_12.pdf",
+    "source_sha256": "d03b284a18dee5193641e280cd602690430a13b55e821bf9ce93e8bdc064ceff"
+  },
+  "paper_id": "2_12",
+  "quality_assessment": {
+    "correct_item_count": 67,
+    "deterministic_rule_score": 0.9293,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 67,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Is neuronal hyperactivity sufficient to trigger complement-dependent synaptic elimination in the adult brain?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1c1cd04a6c52047cbcd04b72",
+              "inference_basis_ids": [
+                "res_01b7ae88b0a90295768b5bc1",
+                "res_14953e18114b0766aa74369a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "the selective elimination of VGLUT2 presynaptic terminals, while leaving activated VGLUT1 projections intact"
+              },
+              "statement": "Activity-dependent synapse loss selectively affects VGLUT2 presynaptic terminals while sparing VGLUT1 terminals."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6c699736f7146aed463ff534",
+              "inference_basis_ids": [
+                "res_01b7ae88b0a90295768b5bc1",
+                "res_187a321c22bbc15f9a0930f8",
+                "res_5b1ec8af3785941278a8e15a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Using in vivo chemogenetics, we demonstrate that neuronal hyperactivity induces region-specific, C1q-dependent synapse loss in the adult hippocampus."
+              },
+              "statement": "Neuronal hyperactivity induces region-specific, C1q-dependent synapse loss in the adult hippocampus."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Control groups: hM3Dq+saline, EGFP+CNO, EGFP+saline.",
+            "Daily intraperitoneal CNO (1 mg/kg) or saline for 5 consecutive days, brains harvested 90 min after final injection.",
+            "Unilateral stereotaxic injection of AAV8-CaMKIIa-HA-hM3Dq-IRES-mCitrine into medial entorhinal cortex (MEC) of 3-month-old WT mice."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Immunohistochemistry for c-Fos and C1q",
+              "protocol_description": "c-Fos and C1q immunostaining on brain sections; quantification of c-Fos+ cells in MEC and C1q puncta density in DGML."
+            },
+            {
+              "method_id": "M2",
+              "name": "Airyscan super-resolution microscopy",
+              "protocol_description": "Imaging of VGLUT2 and VGLUT1 presynaptic puncta in DGML; quantification of puncta density."
+            }
+          ],
+          "name": "Chemogenetic activation of perforant pathway in adult WT mice",
+          "results": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "fe2d9a49dc1ce88a9488",
+                  "page_end": 2,
+                  "page_start": 2,
+                  "paraphrased": true,
+                  "text_excerpt": "VGLUT2 puncta density was reduced in the ipsilateral DGML compared to the contralateral side in hM3Dq+CNO mice"
+                }
+              ],
+              "metric_name": "VGLUT2 presynaptic terminal density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We next sought to determine whether activity modulation alters synaptic density at the projection site using Airyscan super-resolution"
+              },
+              "quantitative_value": null,
+              "result_id": "res_01b7ae88b0a90295768b5bc1",
+              "unit": null,
+              "value_raw_text": "reduced VGLUT2 puncta density in ipsilateral DGML compared to contralateral in hM3Dq+CNO mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "VGLUT1 presynaptic terminal density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "VGLUT1 puncta density was unchanged between hemispheres"
+              },
+              "quantitative_value": null,
+              "result_id": "res_14953e18114b0766aa74369a",
+              "unit": null,
+              "value_raw_text": "no change in VGLUT1 puncta density between hemispheres in hM3Dq+CNO mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "c-Fos expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "CNO treatment led to increased c-Fos expression in the ipsilateral MEC compared with the contralateral side in hM3Dq-expressing mice (hM3Dq+CNO), suggesting elevated neuronal activity."
+              },
+              "quantitative_value": null,
+              "result_id": "res_187a321c22bbc15f9a0930f8",
+              "unit": null,
+              "value_raw_text": "increased c-Fos expression in ipsilateral MEC compared to contralateral in hM3Dq+CNO mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "At the synaptic projection site of hM3Dq+CNO mice, the ipsilateral hippocampal DGML exhibited increased C1q deposition compared with the contralateral DGML, whereas we did not find interhemispheric differences in control groups."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5b1ec8af3785941278a8e15a",
+              "unit": null,
+              "value_raw_text": "increased C1q deposition in ipsilateral DGML compared to contralateral in hM3Dq+CNO mice"
+            }
+          ],
+          "unit_id": "su_5f0cf53f56df3d4fadb20322"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bd68dcad9a2b8a01cbb356e4",
+              "inference_basis_ids": [
+                "res_be7b6ac16ed4887d155ded42",
+                "res_e6e0134f073f441d82962687"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Suppressing perforant pathway hyperactivity in a mouse model of Alzheimer’s disease reduced local amyloid-β amounts and C1q deposition and partially rescued synapse loss."
+              },
+              "statement": "Reducing neuronal hyperactivity in an AD mouse model decreases C1q deposition and partially restores synaptic density."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Daily CNO (1 mg/kg) or saline for 5 consecutive days, brains harvested 90 min after final injection.",
+            "Stereotaxic injection of AAV8-CaMKIIa-HA-hM4Di-IRES-mCitrine into MEC of 2-month-old J20 mice."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Immunohistochemistry for Aβ, C1q, and Homer1",
+              "protocol_description": "Staining for Aβ (4G8, 6E10), C1q, and Homer1 in hippocampal sections; quantification of C1q and Homer1 puncta density."
+            }
+          ],
+          "name": "Chemogenetic inhibition of perforant pathway in J20 AD mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Homer1 postsynaptic density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "partially rescued synapse loss"
+              },
+              "quantitative_value": null,
+              "result_id": "res_be7b6ac16ed4887d155ded42",
+              "unit": null,
+              "value_raw_text": "partially restored Homer1 puncta density in ipsilateral DGML of hM4Di+CNO J20 mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fe2d9a49dc1ce88a9488",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Suppressing perforant pathway hyperactivity in a mouse model of Alzheimer’s disease reduced local amyloid-β amounts and C1q deposition and partially rescued synapse loss."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e6e0134f073f441d82962687",
+              "unit": null,
+              "value_raw_text": "reduced C1q deposition in ipsilateral DGML of hM4Di+CNO J20 mice compared to contralateral"
+            }
+          ],
+          "unit_id": "su_fd22475762c4b27b1ee40c5c"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Do adaptive immune components, particularly B lymphocyte lineage cells and immunoglobulins, contribute to activity-dependent C1q deposition and synapse loss?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1c8f812eb836ef43db3e1b1a",
+              "inference_basis_ids": [
+                "res_3178623d918fb490a7161762"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Using Airyscan imaging, we detected a higher proportion of C1q+VGLUT2+ terminals colocalizing with IgM-immunoreactive puncta at the ipsilateral DGML compared with the contralateral side."
+              },
+              "statement": "IgM associates with C1q-localized VGLUT2 presynaptic terminals in an activity-dependent manner."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_235c86213d4f7e684e8f40e3",
+              "inference_basis_ids": [
+                "res_995536c0f91e57ef4d88713b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Spatial transcriptomic analyses in the chemogenetically activated wild-type brains identified activity-dependent accumulation of B lymphocyte lineage cells, including antibody-secreting cells, in leptomeningeal niches adjacent to regions of elevated activity."
+              },
+              "statement": "Neuronal hyperactivity leads to accumulation of B lymphocyte lineage cells, including antibody-secreting cells, in the hippocampus."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Flow cytometry of hippocampal single-cell suspensions.",
+            "Kaede photoconversion and BCR sequencing to trace B-cell origin.",
+            "Visium spatial transcriptomics on coronal brain sections from hM3Dq+CNO WT mice.",
+            "Xenium single-cell spatial transcriptomics."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Spatial transcriptomics (Visium, Xenium)",
+              "protocol_description": "Visium spatial gene expression and Xenium single-cell spatial profiling on brain sections; analysis of B-cell lineage markers (Igkc, Igha, etc.)."
+            },
+            {
+              "method_id": "M5",
+              "name": "Flow cytometry",
+              "protocol_description": "Single-cell suspensions from hippocampus stained for CD45, B220, CD19, etc.; absolute cell counts using counting beads."
+            }
+          ],
+          "name": "Spatial transcriptomic and cellular analysis of B-lineage cells in activated WT hippocampus",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "IgM colocalization with C1q+ VGLUT2+ terminals",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Using Airyscan imaging, we detected a higher proportion of C1q+VGLUT2+ terminals colocalizing with IgM-immunoreactive puncta at the ipsilateral DGML compared with the contralateral side."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3178623d918fb490a7161762",
+              "unit": null,
+              "value_raw_text": "higher proportion of C1q+VGLUT2+ terminals colocalizing with IgM puncta at ipsilateral DGML"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "B-lineage cell accumulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Spatial transcriptomic analyses in the chemogenetically activated wild-type brains identified activity-dependent accumulation of B lymphocyte lineage cells, including antibody-secreting cells, in leptomeningeal niches adjacent to regions of elevated activity."
+              },
+              "quantitative_value": null,
+              "result_id": "res_995536c0f91e57ef4d88713b",
+              "unit": null,
+              "value_raw_text": "increased B220+ cells and Igkc+ cells in ipsilateral hippocampus of hM3Dq+CNO mice"
+            }
+          ],
+          "unit_id": "su_383cc77b5dea02085ef39156"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3b768f70cbb9a4ca25abf678",
+              "inference_basis_ids": [
+                "res_1fb4ac7a05495c6bf4d08f23",
+                "res_29aefed626c63c2d567b0fe0",
+                "res_5df51e2f04f1fdc663852e0d",
+                "res_c4d21d43297e9422e738ce62",
+                "res_d4a37f013eedea61a6c1a205"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "These data indicate that sustained neuronal hyperactivity elicits C1q deposition and structural synapse loss specifically in the presence of B lymphocyte lineage cells."
+              },
+              "statement": "Sustained neuronal hyperactivity elicits C1q deposition and structural synapse loss specifically in the presence of B lymphocyte lineage cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Kainic acid (KA, 14 mg/kg i.p.) daily for 3 days in WT and μMT mice.",
+            "Pentylenetetrazole (PTZ, 32-40 mg/kg i.p.) twice over 5 days in WT and μMT mice."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "Immunohistochemistry for C1q and synaptic markers",
+              "protocol_description": "C1q, Bassoon, Homer1 immunostaining; quantification in CA3SL (KA) or DG (PTZ)."
+            }
+          ],
+          "name": "Validation in independent hyperactivity models (KA and PTZ)",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q and synaptic density after PTZ in μMT",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "μMT mice showed no PTZ-induced changes in C1q or synaptic puncta"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1fb4ac7a05495c6bf4d08f23",
+              "unit": null,
+              "value_raw_text": "no PTZ-induced changes in C1q or synaptic puncta in μMT mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition after KA in μMT",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "KA failed to induce C1q deposition in μMT mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_29aefed626c63c2d567b0fe0",
+              "unit": null,
+              "value_raw_text": "no C1q deposition increase in μMT mice after KA"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition after KA in WT",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Repeated KA administration for 3 days induced robust C1q deposition in the hippocampal CA3 stratum lucidum"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5df51e2f04f1fdc663852e0d",
+              "unit": null,
+              "value_raw_text": "increased C1q deposition in CA3SL of WT mice after KA"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition after PTZ in WT",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "only WT mice exhibited increased C1q deposition"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c4d21d43297e9422e738ce62",
+              "unit": null,
+              "value_raw_text": "increased C1q deposition in DG of WT mice after PTZ"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Synaptic density after PTZ in WT",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3688c33d36515e36a8c3",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "only WT mice exhibited ... reduced Bassoon+Homer1+ colocalized excitatory synaptic puncta density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d4a37f013eedea61a6c1a205",
+              "unit": null,
+              "value_raw_text": "reduced Bassoon+Homer1+ colocalized puncta density in WT mice after PTZ"
+            }
+          ],
+          "unit_id": "su_598e394bea84f9dbb1a5e5a8"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_163b29e9643fd425783ff930",
+              "inference_basis_ids": [
+                "res_07bc221730c6dca77c6d0f34",
+                "res_6da3cc38ab5bf402ad3cf10f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "sIgM KO mice failed to show the ipsilateral increase in C1q density or reduction in VGLUT2 puncta observed in WT mice. This suggests that secreted IgM is required for neuronal activity–dependent C1q deposition and synapse loss."
+              },
+              "statement": "Secreted IgM is required for activity-dependent C1q deposition and synapse loss."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7fc323df6306589c011e52ab",
+              "inference_basis_ids": [
+                "res_07de297e053ad714fdea4084",
+                "res_838c20675463dfbb711c11d8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "MD4 mice ... showed no hemispheric differences in C1q or VGLUT2 density. These findings support a requirement for antigen-specific IgM in the activity-dependent C1q-mediated VGLUT2 loss."
+              },
+              "statement": "Antigen-specific IgM is required for activity-dependent C1q deposition and synapse loss."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c8491beaf073ba49d0ee0ed9",
+              "inference_basis_ids": [
+                "res_590a62e9f03f39e340b57f09",
+                "res_64a92dfa1c16a78450a1ee55"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "μMT mice displayed no activity-dependent differences in C1q deposition or VGLUT2 density between the ipsilateral and contralateral DGML, suggesting that B-lineage cells are required for activity-dependent C1q deposition and synapse loss."
+              },
+              "statement": "B lymphocyte lineage cells are required for activity-dependent C1q deposition and synapse loss."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "MD4 mice (monoclonal HEL-specific IgM) subjected to hM3Dq+CNO protocol.",
+            "sIgM KO mice (lack secreted IgM) subjected to hM3Dq+CNO protocol.",
+            "μMT mice (lack B cells, plasma cells, secreted Ig) subjected to hM3Dq+CNO protocol."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Immunohistochemistry and Airyscan imaging",
+              "protocol_description": "C1q and VGLUT2 immunostaining in DGML; quantification of puncta density."
+            }
+          ],
+          "name": "Genetic perturbation of B cell function in chemogenetic hyperactivity model",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "VGLUT2 density in sIgM KO mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "sIgM KO mice failed to show ... reduction in VGLUT2 puncta"
+              },
+              "quantitative_value": null,
+              "result_id": "res_07bc221730c6dca77c6d0f34",
+              "unit": null,
+              "value_raw_text": "no hemispheric difference in VGLUT2 density in hM3Dq+CNO sIgM KO mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "VGLUT2 density in MD4 mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "MD4 mice ... showed no hemispheric differences in ... VGLUT2 density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_07de297e053ad714fdea4084",
+              "unit": null,
+              "value_raw_text": "no hemispheric difference in VGLUT2 density in hM3Dq+CNO MD4 mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "VGLUT2 density in μMT mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "μMT mice displayed no activity-dependent differences in ... VGLUT2 density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_590a62e9f03f39e340b57f09",
+              "unit": null,
+              "value_raw_text": "no hemispheric difference in VGLUT2 density in hM3Dq+CNO μMT mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition in μMT mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "μMT mice displayed no activity-dependent differences in C1q deposition"
+              },
+              "quantitative_value": null,
+              "result_id": "res_64a92dfa1c16a78450a1ee55",
+              "unit": null,
+              "value_raw_text": "no hemispheric difference in C1q density in hM3Dq+CNO μMT mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition in sIgM KO mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "sIgM KO mice failed to show the ipsilateral increase in C1q density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6da3cc38ab5bf402ad3cf10f",
+              "unit": null,
+              "value_raw_text": "no hemispheric difference in C1q density in hM3Dq+CNO sIgM KO mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q deposition in MD4 mice",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "MD4 mice ... showed no hemispheric differences in C1q"
+              },
+              "quantitative_value": null,
+              "result_id": "res_838c20675463dfbb711c11d8",
+              "unit": null,
+              "value_raw_text": "no hemispheric difference in C1q density in hM3Dq+CNO MD4 mice"
+            }
+          ],
+          "unit_id": "su_783ef3121e9d0677fc40f9f7"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Do B cells and immunoglobulins contribute to C1q-mediated synapse loss in the J20 AD mouse model?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_66bee40c4994cb959e912a53",
+              "inference_basis_ids": [
+                "res_95c354584b498108070ecd8f",
+                "res_c1bef10321735d3fbfd40f24"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "these results suggest that, unlike acute activity-driven models, the J20 amyloidopathy model likely exhibits B cell–independent C1q accumulation and synaptic degeneration."
+              },
+              "statement": "In the J20 amyloidopathy model, C1q accumulation and synaptic degeneration are B cell-independent."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Flow cytometry confirmation of depletion in blood.",
+            "J20 mice aged 1-4 months treated with anti-CD20 antibody (monthly i.v.) and bortezomib (weekly i.v.) to deplete B cells and plasma cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "Immunohistochemistry for C1q and Homer1",
+              "protocol_description": "C1q and Homer1 immunostaining in hippocampus; quantification of puncta density."
+            }
+          ],
+          "name": "B cell and plasma cell depletion in J20 mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Excitatory synapse loss in J20 after B/plasma cell depletion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "B cell and plasma cell depletion did not alter ... excitatory synapse loss"
+              },
+              "quantitative_value": null,
+              "result_id": "res_95c354584b498108070ecd8f",
+              "unit": null,
+              "value_raw_text": "no change in excitatory synapse loss in J20 mice after depletion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "C1q accumulation in J20 after B/plasma cell depletion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "359d9380b19e6f3ac65a",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "B cell and plasma cell depletion did not alter C1q accumulation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c1bef10321735d3fbfd40f24",
+              "unit": null,
+              "value_raw_text": "no change in C1q accumulation in J20 mice after depletion"
+            }
+          ],
+          "unit_id": "su_2d1745ca6aab85e9e428ad6a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3861 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3861 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4219 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4009 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4194 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7656 on attempt 1"
+    }
+  ]
+}

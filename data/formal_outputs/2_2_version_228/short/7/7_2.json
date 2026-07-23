@@ -1,0 +1,1272 @@
+{
+  "coverage_ledger": {
+    "220a92eaaa3127d2271c": "not_selected",
+    "2cff88c5147fca6663f9": "not_selected",
+    "30d40bd3e7926716b028": "not_selected",
+    "3f42c6a3db2278fcae18": "not_selected",
+    "508710f82724a4fee473": "not_selected",
+    "5b751f2cf20dde2682f4": "extracted",
+    "5c7f1675d921f605fe7f": "not_selected",
+    "5f5215faef96e073a85f": "not_selected",
+    "6aa7623e2e6a4bfee825": "not_selected",
+    "831c2cf17ae34d9f7c2b": "not_selected",
+    "88078e48726b6df11e62": "not_selected",
+    "9d3acf5cc8d8b2992f6e": "extracted",
+    "b1a634250d7e54b3cc3a": "extracted",
+    "b9b6c0811cff223429e6": "not_selected",
+    "d462212f8c2fb0f78938": "not_selected",
+    "e63fa5dc13306cc79cc4": "extracted",
+    "ff8a163fe7291845a834": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The analysis in Section 5.2 focuses on Cora and defers other datasets to supplementary material.",
+    "The experiments in Section 5.2 do not perform delicate hyper-parameter selection.",
+    "For Reddit, the maximum depth is 32 due to memory bottleneck.",
+    "The paper does not explore DropEdge on tasks beyond node classification."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_2.pdf",
+    "source_sha256": "829b1215b72c4a5090b0f4fb9d44b07c32e203157f5a69bec881acef3d942b40"
+  },
+  "paper_id": "7_2",
+  "quality_assessment": {
+    "correct_item_count": 56,
+    "deterministic_rule_score": 0.9273,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 65,
+    "f1": 0.896,
+    "incorrect_item_count": 9,
+    "incorrect_items": [
+      {
+        "description": "The extracted metric_name is 'Best accuracy on Reddit', but the source excerpt only states 'the best accuracy by our method is 97.02%' without specifying the metric as 'Best accuracy on Reddit'. The metric name is a faithful abstraction, but the provenance excerpt does not explicitly mention 'Reddit' in that sentence. However, the context of the chunk is about Reddit results, so this is a minor wording issue. The extraction is not incorrect.",
+        "item_id": "result:su_cc6f8175ad6ff7ddef3678a1:res_2dcb8c18b9733fa1f20e398f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted metric_name is 'Previous best accuracy on Reddit (AS-GCN)', but the source excerpt only says 'the previous best by AS-GCN (96.27%)'. The metric name is a faithful abstraction, but the provenance excerpt does not explicitly mention 'Reddit' in that sentence. However, the context of the chunk is about Reddit results, so this is a minor wording issue. The extraction is not incorrect.",
+        "item_id": "result:su_cc6f8175ad6ff7ddef3678a1:res_c33ec546ee22ef92f783b5da",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text is 'DropEdge reduces validation loss compared to no DropEdge', but the source excerpt is 'Figure 6: The validation loss on different backbones w and w/o DropEdge.' The extracted text is a paraphrase that goes beyond the excerpt; the excerpt does not state that DropEdge reduces validation loss, it only refers to a figure. The extraction is an overstatement.",
+        "item_id": "result:su_cc6f8175ad6ff7ddef3678a1:res_3906a4bd1cb156ef9a0e6718",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text is 'lower validation loss with DropEdge', but the source excerpt is 'Figure 6 depicts the additional results of validation loss on different backbones w and w/o DropEdge.' The excerpt does not state that validation loss is lower; it only refers to a figure. The extraction is an overstatement.",
+        "item_id": "result:su_cc6f8175ad6ff7ddef3678a1:res_9a3688d7d8e88a26eafdabe8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text is 'DropEdge with Dropout yields lowest validation loss on Citeseer', but the source excerpt is 'Figure 7a shows the ablation study of Dropout vs. DropEdge ... on Citeseer.' The excerpt does not state that the combination yields the lowest validation loss; it only refers to a figure. The extraction is an overstatement.",
+        "item_id": "result:su_cc6f8175ad6ff7ddef3678a1:res_b22f7726f17d30e0195b0168",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value_raw_text is 'Layer-wise DropEdge shows different loss curves', but the source excerpt is 'Figure 4b depicts a comparison between the proposed DropEdge and the layer-wise DropEdge on Citeseer.' The excerpt does not mention 'different loss curves'; it only refers to a figure. The extraction is an overstatement.",
+        "item_id": "result:su_cc6f8175ad6ff7ddef3678a1:res_f835949b1573317b6aecd794",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'The proposed DropEdge outperforms layer-wise DropEdge.' The provenance excerpt is 'Figure 4b depicts a comparison between the proposed DropEdge and the layer-wise DropEdge on Citeseer.' The excerpt does not state that the proposed DropEdge outperforms layer-wise DropEdge; it only refers to a figure. The claim is an overstatement.",
+        "item_id": "claim:su_cc6f8175ad6ff7ddef3678a1:clm_33a133ef89896dd56ba4224c",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Combining DropEdge and Dropout yields the best performance.' The provenance excerpt is 'Figure 7a shows the ablation study of Dropout vs. DropEdge ... on Citeseer.' The excerpt does not state that the combination yields the best performance; it only refers to a figure. The claim is an overstatement.",
+        "item_id": "claim:su_cc6f8175ad6ff7ddef3678a1:clm_8cc9417543af3d84a324bfa5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'DropEdge reduces validation loss across different backbones.' The provenance excerpt is 'Figure 6 depicts the additional results of validation loss on different backbones w and w/o DropEdge.' The excerpt does not state that DropEdge reduces validation loss; it only refers to a figure. The claim is an overstatement.",
+        "item_id": "claim:su_cc6f8175ad6ff7ddef3678a1:clm_b6c35ae70c2f9b869a2c1c2c",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 4,
+    "missed_core_items": [
+      {
+        "description": "The paper does not explore DropEdge on tasks beyond node classification.",
+        "item_id": null,
+        "source_chunk_id": "b1a634250d7e54b3cc3a",
+        "source_excerpt": "This paper proposes DropEdge, a novel and ﬂexible technique to alleviate both issues.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The analysis in Section 5.2 focuses on Cora and defers other datasets to supplementary material.",
+        "item_id": null,
+        "source_chunk_id": "5b751f2cf20dde2682f4",
+        "source_excerpt": "Due to the space limit, we only provide the results on Cora, and defer the evaluations on other datasets to the supplementary material.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The experiments in Section 5.2 do not perform delicate hyper-parameter selection.",
+        "item_id": null,
+        "source_chunk_id": "5b751f2cf20dde2682f4",
+        "source_excerpt": "So, we do not perform delicate hyper-parameter selection.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "For Reddit, the maximum depth is 32 due to memory bottleneck.",
+        "item_id": null,
+        "source_chunk_id": "e63fa5dc13306cc79cc4",
+        "source_excerpt": "For Reddit, the maximum depth is 32 considering the memory bottleneck.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.8615,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9333
+  },
+  "quality_score": 0.896,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can DropEdge improve the performance of deep GCNs on node classification?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_01b331b3fc15ce21eb8ed221",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Another valuable observation in Table 1 is that the 32-layer IncepGCN without DropEdge incurs the Out-Of-Memory (OOM) issue while the model with DropEdge survives, showing the advantage of DropEdge to save memory consuming by making the adjacency matrix sparse."
+              },
+              "statement": "DropEdge saves memory by making the adjacency matrix sparse, preventing OOM issues."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2064dff1bcf5e4a44f20cc55",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The DropEdge based approaches outperform the DropNode based variants as shown in Table 2, which somehow conﬁrms the effectiveness of DropEdge."
+              },
+              "statement": "DropEdge based approaches outperform DropNode based variants."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_33a133ef89896dd56ba4224c",
+              "inference_basis_ids": [
+                "res_f835949b1573317b6aecd794"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9d3acf5cc8d8b2992f6e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "Figure 4b depicts a comparison between the proposed DropEdge and the layer-wise DropEdge on Citeseer."
+              },
+              "statement": "The proposed DropEdge outperforms layer-wise DropEdge."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3dcee13d954c14614c22ae30",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The curves along the training epoch are dramatically pulled down after applying DropEdge, which also explains the effect of DropEdge on alleviating over-ﬁtting."
+              },
+              "statement": "DropEdge helps alleviate over-fitting, as shown by reduced validation losses."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_59a65e381154c4a011426896",
+              "inference_basis_ids": [],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "For most models with DropEdge, the best accuracy is obtained under the depth beyond 2, which again veriﬁes the impact of DropEdge on formulating deep networks."
+              },
+              "statement": "For most models with DropEdge, the best accuracy is obtained under depth beyond 2."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8cc9417543af3d84a324bfa5",
+              "inference_basis_ids": [
+                "res_b22f7726f17d30e0195b0168"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9d3acf5cc8d8b2992f6e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "Figure 7a shows the ablation study of Dropout vs. DropEdge ... on Citeseer."
+              },
+              "statement": "Combining DropEdge and Dropout yields the best performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b6c35ae70c2f9b869a2c1c2c",
+              "inference_basis_ids": [
+                "res_3906a4bd1cb156ef9a0e6718",
+                "res_9a3688d7d8e88a26eafdabe8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9d3acf5cc8d8b2992f6e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "Figure 6 depicts the additional results of validation loss on different backbones w and w/o DropEdge."
+              },
+              "statement": "DropEdge reduces validation loss across different backbones."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c15005a0859ab52c437d29ca",
+              "inference_basis_ids": [
+                "res_02056f2f28126fb359a44a29",
+                "res_15dd62deb9b567b199756e19",
+                "res_2fc2087814ebfac253eb3c3b",
+                "res_3587bb1618e4ee01f1961957",
+                "res_3677f7d8c135dfb0a7cd48a8",
+                "res_37137a7804a2ddade2ec0e82",
+                "res_3b100eed8c7bcf6e950d1f12",
+                "res_431c87069c60d92dcd1d30da",
+                "res_460a8fd9a6d369d9d744979f",
+                "res_4a7a30d1f4c5b71d9d6aecea",
+                "res_4ad65b5411b08a6d8bcf772f",
+                "res_4e64003cf0835631a9cb15fb",
+                "res_5ab10e24693cda39e3ef0156",
+                "res_5d2d6ce8d6ca835b525b3534",
+                "res_5ee0393e9e7544a758574afe",
+                "res_65bd9b556197d03b7a4bb41b",
+                "res_6a3f596b1da4adfeb1618700",
+                "res_6c7ff4f9189535cf3b8f5f97",
+                "res_7271f2ec1e703769521424ae",
+                "res_748a292c4948dda1e2b63e85",
+                "res_7a2ee4f19426a3e7289e3a13",
+                "res_7aa44855302efa52c3bfb5f2",
+                "res_7bcdf9b8ff4477c387033aca",
+                "res_92bc0432d07b2604ae77d5a3",
+                "res_976f92bef0433e84f2ab5f98",
+                "res_a0813415f6c0a9984e01960b",
+                "res_a739a65d70af9890ec5f3c64",
+                "res_b306305327ffb22cc753c3ff",
+                "res_b92b6ad18912cc40a7e122d6",
+                "res_bc4cb2a3b305b261b8e8fab3",
+                "res_be4c5ac8c6b19bb3fafddc6b",
+                "res_cc6ac9db80d34d3d05b40a19",
+                "res_d383a60079f401f1aa34ccff",
+                "res_db15454ed13d163899b85dc5",
+                "res_e2ed183749f4277c72be8da1",
+                "res_e777dcf4da259ca5d8ed503e",
+                "res_e9c005307b3be0be29f09c8c",
+                "res_edaf02331882d116c11272ac",
+                "res_ee3e090a0cea5c9a25ca031d",
+                "res_f1d00cf1e0ea3ef856836d4f",
+                "res_f228a7b38acd4830537ebc6d",
+                "res_f29cdcfc263bb8a9d6dd3ac5",
+                "res_f872d22dc09d17e46c895826"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "It’s observed that DropEdge consistently improves the testing accuracy for all cases."
+              },
+              "statement": "DropEdge consistently improves the testing accuracy for all cases."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d2aae94fa21b6018121c87ce",
+              "inference_basis_ids": [
+                "res_2dcb8c18b9733fa1f20e398f",
+                "res_c33ec546ee22ef92f783b5da"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Clearly, our DropEdge obtains signiﬁcant enhancement against SOTAs; particularly on Reddit, the best accuracy by our method is 97.02%, and it is better than the previous best by AS-GCN (96.27%), which is regarded as a remarkable boost considering the challenge on this benchmark."
+              },
+              "statement": "DropEdge obtains significant enhancement against state-of-the-art methods."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ee75ca72d10b9b47229bbd1e",
+              "inference_basis_ids": [
+                "res_fbdb8c0e510a62ac41a47c0a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "On Citeseer, for example, DropEdge yields further improvement for deeper architecture; it gains 0.9% average improvement for the model with 2 layers while achieving a remarkable 13.5% increase for the model with 64 layers."
+              },
+              "statement": "DropEdge yields further improvement for deeper architecture on Citeseer."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [],
+          "methods": [],
+          "name": "Provisional flat extraction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "JKNet 8 layers DropEdge Cora 87.80"
+              },
+              "quantitative_value": 87.8,
+              "result_id": "res_02056f2f28126fb359a44a29",
+              "unit": "%",
+              "value_raw_text": "87.80%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 8 layers DropEdge Citeseer 77.10"
+              },
+              "quantitative_value": 77.1,
+              "result_id": "res_15dd62deb9b567b199756e19",
+              "unit": "%",
+              "value_raw_text": "77.10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Best accuracy on Reddit",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the best accuracy by our method is 97.02%"
+              },
+              "quantitative_value": 97.02,
+              "result_id": "res_2dcb8c18b9733fa1f20e398f",
+              "unit": "%",
+              "value_raw_text": "97.02%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "IncepGCN 8 layers DropEdge Citeseer 80.50"
+              },
+              "quantitative_value": 80.5,
+              "result_id": "res_2fc2087814ebfac253eb3c3b",
+              "unit": "%",
+              "value_raw_text": "80.50%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 2 layers DropEdge Reddit 96.28"
+              },
+              "quantitative_value": 96.28,
+              "result_id": "res_3587bb1618e4ee01f1961957",
+              "unit": "%",
+              "value_raw_text": "96.28%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 2 layers DropEdge Cora 88.10"
+              },
+              "quantitative_value": 88.1,
+              "result_id": "res_3677f7d8c135dfb0a7cd48a8",
+              "unit": "%",
+              "value_raw_text": "88.10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "JKNet 32 layers DropEdge Pubmed 91.30"
+              },
+              "quantitative_value": 91.3,
+              "result_id": "res_37137a7804a2ddade2ec0e82",
+              "unit": "%",
+              "value_raw_text": "91.30%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Validation loss",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9d3acf5cc8d8b2992f6e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "Figure 6: The validation loss on different backbones w and w/o DropEdge."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3906a4bd1cb156ef9a0e6718",
+              "unit": null,
+              "value_raw_text": "DropEdge reduces validation loss compared to no DropEdge"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 2 layers DropEdge Pubmed 90.70"
+              },
+              "quantitative_value": 90.7,
+              "result_id": "res_3b100eed8c7bcf6e950d1f12",
+              "unit": "%",
+              "value_raw_text": "90.70%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 8 layers DropEdge Cora 85.80"
+              },
+              "quantitative_value": 85.8,
+              "result_id": "res_431c87069c60d92dcd1d30da",
+              "unit": "%",
+              "value_raw_text": "85.80%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "IncepGCN 32 layers DropEdge Citeseer 80.30"
+              },
+              "quantitative_value": 80.3,
+              "result_id": "res_460a8fd9a6d369d9d744979f",
+              "unit": "%",
+              "value_raw_text": "80.30%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 32 layers DropEdge Reddit 96.47"
+              },
+              "quantitative_value": 96.47,
+              "result_id": "res_4a7a30d1f4c5b71d9d6aecea",
+              "unit": "%",
+              "value_raw_text": "96.47%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 32 layers DropEdge Reddit 50.51"
+              },
+              "quantitative_value": 50.51,
+              "result_id": "res_4ad65b5411b08a6d8bcf772f",
+              "unit": "%",
+              "value_raw_text": "50.51%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 32 layers DropEdge Reddit 94.27"
+              },
+              "quantitative_value": 94.27,
+              "result_id": "res_4e64003cf0835631a9cb15fb",
+              "unit": "%",
+              "value_raw_text": "94.27%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 32 layers DropEdge Citeseer 53.60"
+              },
+              "quantitative_value": 53.6,
+              "result_id": "res_5ab10e24693cda39e3ef0156",
+              "unit": "%",
+              "value_raw_text": "53.60%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "IncepGCN 8 layers DropEdge Cora 88.20"
+              },
+              "quantitative_value": 88.2,
+              "result_id": "res_5d2d6ce8d6ca835b525b3534",
+              "unit": "%",
+              "value_raw_text": "88.20%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "IncepGCN 8 layers DropEdge Pubmed 91.50"
+              },
+              "quantitative_value": 91.5,
+              "result_id": "res_5ee0393e9e7544a758574afe",
+              "unit": "%",
+              "value_raw_text": "91.50%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 8 layers DropEdge Reddit 96.46"
+              },
+              "quantitative_value": 96.46,
+              "result_id": "res_65bd9b556197d03b7a4bb41b",
+              "unit": "%",
+              "value_raw_text": "96.46%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 32 layers DropEdge Citeseer 77.90"
+              },
+              "quantitative_value": 77.9,
+              "result_id": "res_6a3f596b1da4adfeb1618700",
+              "unit": "%",
+              "value_raw_text": "77.90%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "IncepGCN 8 layers DropEdge Reddit 96.87"
+              },
+              "quantitative_value": 96.87,
+              "result_id": "res_6c7ff4f9189535cf3b8f5f97",
+              "unit": "%",
+              "value_raw_text": "96.87%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 8 layers DropEdge Pubmed 90.90"
+              },
+              "quantitative_value": 90.9,
+              "result_id": "res_7271f2ec1e703769521424ae",
+              "unit": "%",
+              "value_raw_text": "90.90%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 2 layers DropEdge Citeseer 78.70"
+              },
+              "quantitative_value": 78.7,
+              "result_id": "res_748a292c4948dda1e2b63e85",
+              "unit": "%",
+              "value_raw_text": "78.70%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 8 layers DropEdge Citeseer 78.80"
+              },
+              "quantitative_value": 78.8,
+              "result_id": "res_7a2ee4f19426a3e7289e3a13",
+              "unit": "%",
+              "value_raw_text": "78.80%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 8 layers DropEdge Reddit 96.48"
+              },
+              "quantitative_value": 96.48,
+              "result_id": "res_7aa44855302efa52c3bfb5f2",
+              "unit": "%",
+              "value_raw_text": "96.48%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "JKNet 32 layers DropEdge Cora 87.60"
+              },
+              "quantitative_value": 87.6,
+              "result_id": "res_7bcdf9b8ff4477c387033aca",
+              "unit": "%",
+              "value_raw_text": "87.60%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "JKNet 8 layers DropEdge Reddit 97.02"
+              },
+              "quantitative_value": 97.02,
+              "result_id": "res_92bc0432d07b2604ae77d5a3",
+              "unit": "%",
+              "value_raw_text": "97.02%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 8 layers DropEdge Cora 86.90"
+              },
+              "quantitative_value": 86.9,
+              "result_id": "res_976f92bef0433e84f2ab5f98",
+              "unit": "%",
+              "value_raw_text": "86.90%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Validation loss",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9d3acf5cc8d8b2992f6e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "Figure 6 depicts the additional results of validation loss on different backbones w and w/o DropEdge."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9a3688d7d8e88a26eafdabe8",
+              "unit": null,
+              "value_raw_text": "lower validation loss with DropEdge"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "IncepGCN 32 layers DropEdge Cora 87.70"
+              },
+              "quantitative_value": 87.7,
+              "result_id": "res_a0813415f6c0a9984e01960b",
+              "unit": "%",
+              "value_raw_text": "87.70%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 2 layers DropEdge Reddit 96.13"
+              },
+              "quantitative_value": 96.13,
+              "result_id": "res_a739a65d70af9890ec5f3c64",
+              "unit": "%",
+              "value_raw_text": "96.13%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Validation loss",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9d3acf5cc8d8b2992f6e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "Figure 7a shows the ablation study of Dropout vs. DropEdge ... on Citeseer."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b22f7726f17d30e0195b0168",
+              "unit": null,
+              "value_raw_text": "DropEdge with Dropout yields lowest validation loss on Citeseer"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "5b751f2cf20dde2682f4",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "IncepGCN 32 layers DropEdge Pubmed 90.50"
+                }
+              ],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 8 layers DropEdge Pubmed 90.50"
+              },
+              "quantitative_value": 90.5,
+              "result_id": "res_b306305327ffb22cc753c3ff",
+              "unit": "%",
+              "value_raw_text": "90.50%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 8 layers DropEdge Reddit 96.42"
+              },
+              "quantitative_value": 96.42,
+              "result_id": "res_b92b6ad18912cc40a7e122d6",
+              "unit": "%",
+              "value_raw_text": "96.42%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 32 layers DropEdge Citeseer 61.40"
+              },
+              "quantitative_value": 61.4,
+              "result_id": "res_bc4cb2a3b305b261b8e8fab3",
+              "unit": "%",
+              "value_raw_text": "61.40%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 32 layers DropEdge Pubmed 86.20"
+              },
+              "quantitative_value": 86.2,
+              "result_id": "res_be4c5ac8c6b19bb3fafddc6b",
+              "unit": "%",
+              "value_raw_text": "86.20%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Previous best accuracy on Reddit (AS-GCN)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the previous best by AS-GCN (96.27%)"
+              },
+              "quantitative_value": 96.27,
+              "result_id": "res_c33ec546ee22ef92f783b5da",
+              "unit": "%",
+              "value_raw_text": "96.27%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 8 layers DropEdge Cora 87.10"
+              },
+              "quantitative_value": 87.1,
+              "result_id": "res_cc6ac9db80d34d3d05b40a19",
+              "unit": "%",
+              "value_raw_text": "87.10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 32 layers DropEdge Pubmed 91.10"
+              },
+              "quantitative_value": 91.1,
+              "result_id": "res_d383a60079f401f1aa34ccff",
+              "unit": "%",
+              "value_raw_text": "91.10%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 32 layers DropEdge Cora 74.60"
+              },
+              "quantitative_value": 74.6,
+              "result_id": "res_db15454ed13d163899b85dc5",
+              "unit": "%",
+              "value_raw_text": "74.60%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 32 layers DropEdge Cora 32.20"
+              },
+              "quantitative_value": 32.2,
+              "result_id": "res_e2ed183749f4277c72be8da1",
+              "unit": "%",
+              "value_raw_text": "32.20%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "5b751f2cf20dde2682f4",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "JKNet 8 layers DropEdge Pubmed 91.20"
+                }
+              ],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 2 layers DropEdge Pubmed 91.20"
+              },
+              "quantitative_value": 91.2,
+              "result_id": "res_e777dcf4da259ca5d8ed503e",
+              "unit": "%",
+              "value_raw_text": "91.20%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 2 layers DropEdge Cora 86.50"
+              },
+              "quantitative_value": 86.5,
+              "result_id": "res_e9c005307b3be0be29f09c8c",
+              "unit": "%",
+              "value_raw_text": "86.50%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN 32 layers DropEdge Cora 86.80"
+              },
+              "quantitative_value": 86.8,
+              "result_id": "res_edaf02331882d116c11272ac",
+              "unit": "%",
+              "value_raw_text": "86.80%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 8 layers DropEdge Pubmed 91.70"
+              },
+              "quantitative_value": 91.7,
+              "result_id": "res_ee3e090a0cea5c9a25ca031d",
+              "unit": "%",
+              "value_raw_text": "91.70%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GraphSAGE 32 layers DropEdge Pubmed 47.90"
+              },
+              "quantitative_value": 47.9,
+              "result_id": "res_f1d00cf1e0ea3ef856836d4f",
+              "unit": "%",
+              "value_raw_text": "47.90%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCN 8 layers DropEdge Citeseer 77.20"
+              },
+              "quantitative_value": 77.2,
+              "result_id": "res_f228a7b38acd4830537ebc6d",
+              "unit": "%",
+              "value_raw_text": "77.20%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "5b751f2cf20dde2682f4",
+                  "page_end": 7,
+                  "page_start": 7,
+                  "paraphrased": true,
+                  "text_excerpt": "GraphSAGE 2 layers DropEdge Citeseer 80.00"
+                }
+              ],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "JKNet 32 layers DropEdge Citeseer 80.00"
+              },
+              "quantitative_value": 80.0,
+              "result_id": "res_f29cdcfc263bb8a9d6dd3ac5",
+              "unit": "%",
+              "value_raw_text": "80.00%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Train and validation loss",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9d3acf5cc8d8b2992f6e",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "Figure 4b depicts a comparison between the proposed DropEdge and the layer-wise DropEdge on Citeseer."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f835949b1573317b6aecd794",
+              "unit": null,
+              "value_raw_text": "Layer-wise DropEdge shows different loss curves"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Testing accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "JKNet 8 layers DropEdge Citeseer 80.20"
+              },
+              "quantitative_value": 80.2,
+              "result_id": "res_f872d22dc09d17e46c895826",
+              "unit": "%",
+              "value_raw_text": "80.20%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average absolute improvement by DropEdge on Citeseer",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5b751f2cf20dde2682f4",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "On Citeseer, for example, DropEdge yields further improvement for deeper architecture; it gains 0.9% average improvement for the model with 2 layers while achieving a remarkable 13.5% increase for the model with 64 layers."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fbdb8c0e510a62ac41a47c0a",
+              "unit": null,
+              "value_raw_text": "0.9% average improvement for 2 layers, 13.5% for 64 layers"
+            }
+          ],
+          "unit_id": "su_cc6f8175ad6ff7ddef3678a1"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 2"
+    },
+    {
+      "code": "extraction.flat_fallback",
+      "json_path": "$.research_questions[0].study_units[0]",
+      "message": "The hierarchical output retained structural ID conflicts after its retry budget; a strictly validated flat extraction was used.",
+      "repair": "flattened supported results, claims, and evidence into Provisional flat extraction"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4706 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4706 on attempt 2"
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "coverage_ledger": {
+    "1a21d484ff76e7de8fc7": "not_selected",
+    "3870b747a74777f6d1f2": "not_selected",
+    "4455e55b8def6acab964": "not_selected",
+    "5b7f019c5312f7b11d14": "not_selected",
+    "7e9033ba7a8f1fd57c24": "extracted",
+    "7f5c17ea05c085ad93c7": "extracted",
+    "85d4b003dce4a48ee0ed": "extracted",
+    "877a81724b93952dc48f": "extracted",
+    "aef604e399a3c6ca4cc8": "not_selected",
+    "b29e42200b6c74b1f26f": "not_selected",
+    "c26f64a41d39b10a21f8": "not_selected",
+    "df59c1018b61318a5060": "not_selected",
+    "e75358a9e5fab635095a": "not_selected",
+    "f46579601864b3025dcb": "not_selected",
+    "ff4bb9799b14c3046f5e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study does not establish whether dense collagen regions precede tumor formation or result from tumor growth.",
+    "The study does not determine the mechanism by which collagen fibers become aligned (e.g., fibroblast activation vs. tumor contraction).",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_17.pdf",
+    "source_sha256": "67382534488984207dff9edf604e59f4bbd9683adb33d6d3bdfe74ee7fd10b3d"
+  },
+  "paper_id": "3_17",
+  "quality_assessment": {
+    "correct_item_count": 9,
+    "deterministic_rule_score": 0.87,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 13,
+    "f1": 0.6,
+    "incorrect_item_count": 4,
+    "incorrect_items": [
+      {
+        "description": "The extracted text states that TACS-1, TACS-2, and TACS-3 were defined with specific descriptions, but the source chunk only says 'we observed and defined three tumor-associated collagen signatures (TACS) that provide novel markers to locate and characterize tumors' without listing the definitions. The specific descriptions of TACS-1, TACS-2, and TACS-3 are not present in the cited chunk (877a81724b93952dc48f). The extraction is unsupported by the cited source.",
+        "item_id": "result:su_4202016916320e300c4b1b4e:res_a1e7a7b961085ea5dd2efe87",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The source chunks explicitly discuss whether dense collagen precedes tumor formation or results from tumor growth (e.g., chunk 877a81724b93952dc48f: 'it is unclear whether: (1) a pre-tumor dense region is present... (2) the dense region of collagen is pulled into a grouped cluster... (3) fibroblast activation results in increased local collagen deposition.'). The extraction states the study does not establish this, but the source actually acknowledges this as an open question, making the extraction a misrepresentation. The extraction is contradicted by the source.",
+        "item_id": "boundary:1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The source chunks do not explicitly state that the mechanism of collagen alignment is unknown; they propose hypotheses (e.g., contraction, fibroblast activation) but do not claim the study fails to determine the mechanism. The extraction overstates the limitation. The source does not support the claim that the study does not determine the mechanism; it simply does not resolve it.",
+        "item_id": "boundary:2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The source chunks do not mention rescue, reconstitution, reversal, or epistasis experiments, nor do they claim that such experiments are untested. The extraction introduces a concept not present in the source, making it unsupported.",
+        "item_id": "boundary:3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "The study used histology, electron microscopy, and nonlinear optical imaging methodologies to study epithelial-stromal interactions.",
+        "item_id": null,
+        "source_chunk_id": "7e9033ba7a8f1fd57c24",
+        "source_excerpt": "Epithelial-stromal interactions in normal mammary glands, mammary tumors, and tumor explants in three-dimensional culture were studied with histology, electron microscopy, and nonlinear optical imaging methodologies.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study used MMTV-Wnt-1 and MMTV-polyoma middle-T (PyVT) mouse breast tumor models.",
+        "item_id": null,
+        "source_chunk_id": "1a21d484ff76e7de8fc7",
+        "source_excerpt": "To study tumor-stromal interactions in intact tissue, two mouse breast tumor models were utilized: MMTV-Wnt-1 (colony founder mice provided by Dr. Caroline Alexander, University of Wisconsin, Madison, WI, USA) and MMTV-polyoma middle-T (abbreviated PyVT following the Jackson Laboratory title but is also commonly abbreviated as PyMT or PyV-MT; colony founder mice originally obtained from Jackson Laboratory were provided by Dr. Amy Moser, University of Wisconsin, Madison, WI, USA).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study found that collagen fibers are aligned perpendicular to the tumor boundary at invasive regions (TACS-3), with a frequency distribution around 90 degrees.",
+        "item_id": null,
+        "source_chunk_id": "5b7f019c5312f7b11d14",
+        "source_excerpt": "C: histogram, the angle of collagen fibers relative to a line tangential to the tumor boundary was measured for 71 regions in six independent tumors, and graphed as a frequency distribution resulting in a distribution of fibers near 90°.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study found that in TACS-2 regions, collagen fibers are primarily parallel to the tumor boundary (distribution near 0 degrees).",
+        "item_id": null,
+        "source_chunk_id": "5b7f019c5312f7b11d14",
+        "source_excerpt": "B: histogram, the angle of collagen fibers relative to a line tangential to the tumor boundary was measured for 86 regions in six independent tumors, and graphed as a frequency distribution resulting in a distribution of fibers around 0°.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study used col1a1tmJae mice as a model for collagen-dense breast tissue.",
+        "item_id": null,
+        "source_chunk_id": "3870b747a74777f6d1f2",
+        "source_excerpt": "As such, we sought to identify an animal model system possessing collagen-dense breast tissue. Analysis of the col1a1tmJae mouse model [38] revealed such a system.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study quantified collagen density increase in col1a1tmJae mice: 2.53- (± 0.24) and 2.79- (± 0.34) fold increase in area of collagen signal for heterozygous and homozygous mice relative to wild type.",
+        "item_id": null,
+        "source_chunk_id": "877a81724b93952dc48f",
+        "source_excerpt": "resulting in a 2.53- (± 0.24) and 2.79- (± 0.34) (mean ± SEM) fold increase in the area of collagen signal, as well as increased signal intensity around the duct, for heterozygous and homozygous col1a1tmJae mice relative to wild type animals, respectively.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study demonstrated that tumor explants can reorganize a random collagen matrix to radial alignment at regions of invasion.",
+        "item_id": null,
+        "source_chunk_id": "aef604e399a3c6ca4cc8",
+        "source_excerpt": "Analysis of tumor explants within type-I collagen gels revealed radial collagen alignment at regions of tumor cell invasion into previously randomly aligned collagen gels (Figure 7), consistent with previous reports analyzing fixed tumor explants in 3D reconstituted matrices [22], and supporting information about invasion within intact live tissues (Figures 4, 5, 6).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study used MPLSM and SHG to image live, intact, unfixed, unsectioned mammary tissues.",
+        "item_id": null,
+        "source_chunk_id": "7e9033ba7a8f1fd57c24",
+        "source_excerpt": "Imaging of the tumor-stromal interface in live tumor tissue ex vivo was performed with multiphoton laser-scanning microscopy (MPLSM) to generate multiphoton excitation (MPE) of endogenous fluorophores and second harmonic generation (SHG) to image stromal collagen.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.6923,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.5294
+  },
+  "quality_score": 0.6,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "How does collagen organization at the tumor-stromal interface facilitate local invasion?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9c99db3bff379fdb1ec2736b",
+              "inference_basis_ids": [
+                "res_a1e7a7b961085ea5dd2efe87"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7e9033ba7a8f1fd57c24",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The presentation of these tumor-associated collagen signatures allowed us to identify pre-palpable tumors and see cells at the tumor-stromal boundary invading into the stroma along radially aligned collagen fibers."
+              },
+              "statement": "Tumor-associated collagen signatures (TACS) can be used to identify pre-palpable tumors and indicate invasive potential."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e4f2cafe95510edf957ef844",
+              "inference_basis_ids": [
+                "res_0beaac4d2f4aba161b983072",
+                "res_40758c3014f16c83d632b724"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7e9033ba7a8f1fd57c24",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "local cell invasion was found predominantly to be oriented along certain aligned collagen fibers, suggesting that radial alignment of collagen fibers relative to tumors facilitates invasion."
+              },
+              "statement": "Collagen reorganization at the tumor-stromal interface facilitates local invasion."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Images from normal mammary glands, Wnt-1 tumors, PyVT tumors, and col1a1tmJae mice.",
+              "name": "Mouse mammary gland imaging dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "TACS-1: dense collagen; TACS-2: taut collagen fibers stretched around tumor; TACS-3: collagen fibers aligned normal to tumor boundary.",
+              "provenance": {
+                "chunk_id": "877a81724b93952dc48f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "TACS-1: the presence of dense collagen ... TACS-2: 'taut' collagen fibers stretched around the tumor ... TACS-3: collagen fibers aligned normal to tumor boundary regions that display an irregular shape – indicative of local invasion"
+              },
+              "span_id": "es1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Multiphoton laser-scanning microscopy (MPLSM) and second harmonic generation (SHG) imaging of intact, unfixed, unsectioned mammary glands from normal, Wnt-1, PyVT, and col1a1tmJae mice to visualize collagen organization."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "Multiphoton laser-scanning microscopy (MPLSM) and second harmonic generation (SHG)",
+              "protocol_description": "Imaging of endogenous fluorophores and collagen in intact, unfixed, unsectioned mammary tissue using MPLSM and SHG."
+            }
+          ],
+          "name": "Imaging of collagen organization in mammary glands and tumors",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion orientation relative to collagen fibers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7e9033ba7a8f1fd57c24",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "local cell invasion was found predominantly to be oriented along certain aligned collagen fibers, suggesting that radial alignment of collagen fibers relative to tumors facilitates invasion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0beaac4d2f4aba161b983072",
+              "unit": null,
+              "value_raw_text": "Local cell invasion was found predominantly to be oriented along aligned collagen fibers, suggesting radial alignment facilitates invasion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen realignment by tumor explants",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7e9033ba7a8f1fd57c24",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "primary tumor explants cultured in a randomly organized collagen matrix realigned the collagen fibers, allowing individual tumor cells to migrate out along radially aligned fibers."
+              },
+              "quantitative_value": null,
+              "result_id": "res_40758c3014f16c83d632b724",
+              "unit": null,
+              "value_raw_text": "Primary tumor explants cultured in a randomly organized collagen matrix realigned the collagen fibers, allowing individual tumor cells to migrate out along radially aligned fibers."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen density fold increase",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "877a81724b93952dc48f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "collagen was locally dense adjacent to (wrapped around) the epithelium, as well as increased in the space extending from the duct resulting in a 2.53- (± 0.24) and 2.79- (± 0.34) (mean ± SEM) fold increase in the area of collagen signal, as well as increased signal intensity around the duct, for heterozygous and homozygous col1a1tmJae mice relative to wild type animals, respectively."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9a09f249b9dc675010c178ca",
+              "unit": null,
+              "value_raw_text": "2.53- (± 0.24) and 2.79- (± 0.34) (mean ± SEM) fold increase in the area of collagen signal around the duct for heterozygous and homozygous col1a1tmJae mice relative to wild type."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor-associated collagen signature (TACS) identification",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "877a81724b93952dc48f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "we observed and defined three tumor-associated collagen signatures (TACS) that provide novel markers to locate and characterize tumors."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a1e7a7b961085ea5dd2efe87",
+              "unit": null,
+              "value_raw_text": "Three tumor-associated collagen signatures (TACS) were defined: TACS-1 (dense collagen), TACS-2 (taut collagen fibers stretched around tumor), TACS-3 (collagen fibers aligned normal to tumor boundary)."
+            }
+          ],
+          "unit_id": "su_4202016916320e300c4b1b4e"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

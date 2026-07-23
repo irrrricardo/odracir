@@ -1,0 +1,554 @@
+{
+  "coverage_ledger": {
+    "2d677b0ba447800ab593": "not_selected",
+    "468bd7cea27a938ac301": "extracted",
+    "4c07898359ce95987bbe": "extracted",
+    "57424ed075f960465492": "extracted",
+    "6237af4f3541d030e9eb": "not_selected",
+    "806aa827e5e2cd22e660": "extracted",
+    "832ac8dcd4be27237769": "not_selected",
+    "89f831c03963b6f222e4": "not_selected",
+    "9890c9b21198e0256c1d": "not_selected",
+    "9a482732cc8195ed131c": "not_selected",
+    "9ba6dd52bd68695669da": "not_selected",
+    "a6bde4d36220f3234a8e": "not_selected",
+    "a7652c54cf6684b8acba": "not_selected",
+    "af12c5a1a80a414272d2": "not_selected",
+    "b8e14f49f8217b7eb286": "not_selected",
+    "be4d4f48eaee270c77ca": "not_selected",
+    "f326a327d6877a530c87": "not_selected",
+    "f8824e53108f34103230": "not_selected",
+    "f9effb6dcd7c5c0ab3d7": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study uses mouse models and in vitro systems; human relevance may require further validation.",
+    "The feed-forward loop model is based on correlative and perturbation data; direct causal evidence for some steps is inferred.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_1.pdf",
+    "source_sha256": "1ea250895f1c34cf87596deafd09412431b7e189399d3d861cdafa5aa6374bea"
+  },
+  "paper_id": "2_1",
+  "quality_assessment": {
+    "correct_item_count": 33,
+    "deterministic_rule_score": 0.9111,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 34,
+    "f1": 0.8919,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The result states 'Activation of the YAP transcription factor is a signature feature of CAFs.' but the source text says 'activation of the YAP transcription factor is a signature feature of CAFs.' The extraction is correct. However, the provenance chunk_id is '57424ed075f960465492' which matches the source. No error.",
+        "item_id": "result:su_71c2416bfb18bfce643c3f50:res_a387a8bd493e1e8932bfeab6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "The extraction omits the result that YAP depletion reduces focal adhesions in CAFs.",
+        "item_id": null,
+        "source_chunk_id": "f8824e53108f34103230",
+        "source_excerpt": "YAP-depleted cells also had fewer focal adhesions, essential structures for force transmission between the cytoskeleton and matrix (Fig. 4b).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the result that YAP depletion reduces the number of thick collagen fibres in matrices.",
+        "item_id": null,
+        "source_chunk_id": "a6bde4d36220f3234a8e",
+        "source_excerpt": "These defects were associated with fewer thick collagen fibres within matrices containing YAP-depleted cells together with a lower elastic modulus (Fig. 4c).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the result that overexpression of active YAP (S5A) in NFs increases invasion-promoting ability.",
+        "item_id": null,
+        "source_chunk_id": "a6bde4d36220f3234a8e",
+        "source_excerpt": "Conversely, activation of YAP signalling by either overexpression of an active mutant or depletion of MST1&2 increased invasion-promoting ability of NFs (Supplementary Fig. S4b,g).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the result that conditioned media from cancer cells promotes matrix remodelling by normal fibroblasts and increases their ability to support cancer cell invasion.",
+        "item_id": null,
+        "source_chunk_id": "806aa827e5e2cd22e660",
+        "source_excerpt": "Conditioned media from cancer cells promotes matrix remodelling by normal fibroblasts (Fig. 6a) and increases their ability to support cancer cell invasion (Supplementary Fig. S5a–c).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the result that ROCK inhibition reduces nuclear YAP in CAFs in vivo.",
+        "item_id": null,
+        "source_chunk_id": "4c07898359ce95987bbe",
+        "source_excerpt": "treatment of mice with Y27632 reduced the nuclear localization of YAP in CAFs, and prevented the CAFs from promoting angiogenesis (Fig. 7b,c).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the result that ROCK inhibition reduces Src activity.",
+        "item_id": null,
+        "source_chunk_id": "4c07898359ce95987bbe",
+        "source_excerpt": "Further, ROCK inhibition reduced Src activity (Supplementary Fig. S5e).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the result that YAP depletion reduces the ability of CAFs to form fibrous collagen networks and promote angiogenesis in vivo.",
+        "item_id": null,
+        "source_chunk_id": "a6bde4d36220f3234a8e",
+        "source_excerpt": "Depletion of YAP also reduced the ability of CAFs to form fibrous collagen networks and promote angiogenesis in vivo (Fig. 4f—Masson’s trichrome and endomucin staining, respectively).",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9706,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.825
+  },
+  "quality_score": 0.8919,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "What is the role of YAP in the generation and maintenance of cancer-associated fibroblasts (CAFs)?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e25638842be6d1d8f24d2063",
+              "inference_basis_ids": [
+                "res_399f2eaf158fb20229bfa3a2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57424ed075f960465492",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Further, transient ROCK inhibition is able to disrupt the feed-forward loop, leading to a long-lasting reversion of the CAF phenotype."
+              },
+              "statement": "Transient ROCK inhibition disrupts the feed-forward loop, leading to long-lasting reversion of the CAF phenotype."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Culture of CAFs with Y27632 for prolonged period, then assay matrix remodelling after drug removal."
+          ],
+          "methods": [
+            {
+              "method_id": "m5",
+              "name": "Transient ROCK inhibition",
+              "protocol_description": "CAFs were cultured in the presence of Y27632 for a prolonged period, then assayed for matrix remodelling after removal of the inhibitor."
+            }
+          ],
+          "name": "Transient ROCK inhibition disrupts feed-forward loop and reverts CAF phenotype",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix remodelling (percentage of gel contraction)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c07898359ce95987bbe",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Matrix remodelling by CAF#2 previously cultured with Y27632, or cultured with Y27632 during the assay."
+              },
+              "quantitative_value": null,
+              "result_id": "res_399f2eaf158fb20229bfa3a2",
+              "unit": null,
+              "value_raw_text": "CAFs previously cultured in Y27632 showed defective matrix remodelling 3-5 days after drug removal."
+            }
+          ],
+          "unit_id": "su_481793a49c2db4a329406739"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2c3dadce6536adc13fe4f9d3",
+              "inference_basis_ids": [
+                "res_a387a8bd493e1e8932bfeab6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57424ed075f960465492",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "These analyses reveal that activation of the YAP transcription factor is a signature feature of CAFs."
+              },
+              "statement": "YAP activation is a signature feature of CAFs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Fibroblasts isolated from normal, hyperplastic, adenoma, and carcinoma stages of MMTV-PyMT mouse mammary tumours.",
+              "name": "Fibroblast isolates from MMTV-PyMT mice",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Isolation of fibroblasts from normal mouse mammary glands, hyperplastic tissue, mammary adenoma, and mammary carcinoma from MMTV-PyMT mice; immortalization using HPV-E6."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "Fibroblast isolation and immortalization",
+              "protocol_description": "Fibroblasts were isolated from mouse mammary glands at different stages of tumour progression and immortalized using human papilloma virus (HPV)-E6."
+            }
+          ],
+          "name": "Characterization of fibroblasts from different stages of mammary tumour progression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP activation signature",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "57424ed075f960465492",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "These analyses reveal that activation of the YAP transcription factor is a signature feature of CAFs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a387a8bd493e1e8932bfeab6",
+              "unit": null,
+              "value_raw_text": "Activation of the YAP transcription factor is a signature feature of CAFs."
+            }
+          ],
+          "unit_id": "su_71c2416bfb18bfce643c3f50"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1724a67a462e8f17e6565f3d",
+              "inference_basis_ids": [
+                "res_83cd2b1c245f1c8b8187fa38",
+                "res_c990722ac288188e5e60268a",
+                "res_f9cdc99eb3158a0e706329d3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57424ed075f960465492",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Matrix stiffening further enhances YAP activation, thus establishing a feed-forward self-reinforcing loop that helps to maintain the CAF phenotype."
+              },
+              "statement": "Matrix stiffening enhances YAP activation, establishing a feed-forward self-reinforcing loop that maintains the CAF phenotype."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a59be10b6559bcc1f16f8a18",
+              "inference_basis_ids": [
+                "res_c990722ac288188e5e60268a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57424ed075f960465492",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Actomyosin contractility and Src function are required for YAP activation by stiff matrices."
+              },
+              "statement": "Actomyosin contractility and Src function are required for YAP activation by stiff matrices."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Measurement of elastic modulus of matrices remodelled by CAFs with ROCK inhibition; YAP localization on matrices of different stiffness; acute inhibition of ROCK, myosin, Src."
+          ],
+          "methods": [
+            {
+              "method_id": "m4",
+              "name": "Matrix stiffness measurement and YAP localization",
+              "protocol_description": "Elastic modulus measured by AFM; YAP localization assessed by immunofluorescence; acute treatments with Y27632, blebbistatin, PP2, dasatinib."
+            }
+          ],
+          "name": "Feed-forward loop: matrix stiffening enhances YAP activation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Elastic modulus (Young's modulus, Pa)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Figure 6d shows that ROCK inhibition reduces the elastic modulus of matrices containing CAFs from >500 Pa to ∼100 Pa."
+              },
+              "quantitative_value": null,
+              "result_id": "res_83cd2b1c245f1c8b8187fa38",
+              "unit": "Pa",
+              "value_raw_text": "ROCK inhibition reduced elastic modulus of CAF-remodelled matrices from >500 Pa to ~100 Pa."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP-TEAD association",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c07898359ce95987bbe",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Immune-precipitation of TEAD1, TEAD4 and 14-3-3 with YAP in control, blebbistatin-, Y27632- and dasatinib-treated CAF#1."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c990722ac288188e5e60268a",
+              "unit": null,
+              "value_raw_text": "Blebbistatin, Y27632, and dasatinib reduced YAP association with TEAD1 and TEAD4, and increased association with 14-3-3."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP nuclear localization (percentage of YAP+ nuclei)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c07898359ce95987bbe",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "YAP localization in CAF#1 with or without Y27362 and blebbistatin for 3 days... YAP localization in NFs cultured on 1.5 mg ml−1 collagen I gel (∼100 Pa), 8 mg ml−1 collagen (∼300 Pa) and collagen-coated glass (>10 kPa)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f9cdc99eb3158a0e706329d3",
+              "unit": null,
+              "value_raw_text": "ROCK inhibition reduced nuclear YAP in CAFs; stiff matrices increased nuclear YAP in NFs."
+            }
+          ],
+          "unit_id": "su_a56f13450058a6a26a4b80f3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2ffb6a1f40fa5479d43b04a6",
+              "inference_basis_ids": [
+                "res_404cdd0f7f32a1ceb66838b8",
+                "res_4de5b3d808747219fb5a2962",
+                "res_dfae98a3d4312ad58db9685f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57424ed075f960465492",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "YAP function is required for CAFs to promote matrix stiffening, cancer cell invasion and angiogenesis."
+              },
+              "statement": "YAP function is required for CAFs to promote matrix stiffening, cancer cell invasion, and angiogenesis."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "siRNA-mediated depletion of YAP in CAFs and assessment of matrix stiffening, cancer cell invasion, and angiogenesis."
+          ],
+          "methods": [
+            {
+              "method_id": "m2",
+              "name": "siRNA depletion and functional assays",
+              "protocol_description": "CAFs were transfected with YAP siRNA and assayed for matrix remodelling (gel contraction), cancer cell invasion (organotypic assay), and angiogenesis (endomucin staining)."
+            }
+          ],
+          "name": "YAP function in CAF-mediated matrix stiffening, invasion, and angiogenesis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix remodelling (gel contraction)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Histogram shows the effect of siRNA-mediated depletion of the indicated genes on the ability of CAF#1 to contract collagen-rich gels."
+              },
+              "quantitative_value": null,
+              "result_id": "res_404cdd0f7f32a1ceb66838b8",
+              "unit": null,
+              "value_raw_text": "YAP siRNA reduced gel contraction in CAF#1."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Angiogenesis (endomucin staining)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4c07898359ce95987bbe",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Quantiﬁcation of endomucin. Each point is an independent plug (3 control and 5 Y27632-treated mice in one cohort)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4de5b3d808747219fb5a2962",
+              "unit": null,
+              "value_raw_text": "Y27632 treatment reduced endomucin staining in CAF matrix plugs in mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer cell invasion (invasion index)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Plot shows the effect of siRNA-mediated depletion of the indicated genes on the ability of CAF#1 to promote cancer cell invasion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dfae98a3d4312ad58db9685f",
+              "unit": null,
+              "value_raw_text": "YAP siRNA reduced invasion index in CAF#1."
+            }
+          ],
+          "unit_id": "su_d0b2d945ee95a9c8028b34a3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_12ccc449badc193837668751",
+              "inference_basis_ids": [
+                "res_621ac63cd5d1a43ae4002004",
+                "res_dbac0371856d336990488e7e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Chart shows the effect of MYL9 and MYL9 TASA overexpression in NF#1 on gel contraction... and on ability to promote cancer cell invasion."
+              },
+              "statement": "MYL9 function is required for CAF-mediated matrix remodelling and cancer cell invasion."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7dcc9c74da59676a421c3a84",
+              "inference_basis_ids": [
+                "res_c3d12545bacbc4a1c936481c",
+                "res_c4c576487a9f8cf0274c1732"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "57424ed075f960465492",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "YAP regulates the expression of several cytoskeletal regulators, including ANLN and DIAPH3, and controls the protein levels of MYL9 (also known as MLC2)."
+              },
+              "statement": "YAP regulates expression of ANLN, DIAPH3, and MYL9, and controls MYL9 protein levels."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Gene expression analysis after YAP siRNA; Western blot for MYL9, pS19-MYL9, MYH10; overexpression of MYL9 and MYL9 TASA in NFs."
+          ],
+          "methods": [
+            {
+              "method_id": "m3",
+              "name": "Gene expression and protein analysis",
+              "protocol_description": "qRT-PCR for YAP target genes; Western blot for MYL9, pS19-MYL9, MYH10; overexpression of MYL9 wild-type and unphosphorylable mutant (TASA) in normal fibroblasts (NF#1)."
+            }
+          ],
+          "name": "YAP regulation of cytoskeletal regulators and actomyosin",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Gel contraction (fold contraction)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Chart shows the effect of MYL9 and MYL9 TASA (T18A, S19A—unphosphorylable mutant) overexpression in NF#1 on gel contraction."
+              },
+              "quantitative_value": null,
+              "result_id": "res_621ac63cd5d1a43ae4002004",
+              "unit": null,
+              "value_raw_text": "Overexpression of MYL9 WT in NF#1 increased gel contraction; MYL9 TASA did not."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene expression (relative expression)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Histogram shows the expression of the 14 genes of interest 72 h after YAP-siRNA transfection of CAF#1, CAF#2, CerCAF, HNCAF and VCAF."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c3d12545bacbc4a1c936481c",
+              "unit": null,
+              "value_raw_text": "YAP siRNA reduced expression of ANLN, DIAPH3, and MYL9 in CAFs."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protein levels (MYL9, pS19-MYL9, MYH10)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Western blots show levels of MYL9, pS19-MYL9, MYH10, YAP and TAZ in CAF#1 transfected with either control, YAP, TAZ or YAP+TAZ siRNA."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c4c576487a9f8cf0274c1732",
+              "unit": null,
+              "value_raw_text": "YAP siRNA reduced MYL9, pS19-MYL9, and MYH10 protein levels in CAF#1."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion index (AU)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "806aa827e5e2cd22e660",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Chart shows the effect of MYL9 and MYL9 TASA overexpression in NF#1 on ability to promote cancer cell invasion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dbac0371856d336990488e7e",
+              "unit": null,
+              "value_raw_text": "Overexpression of MYL9 WT in NF#1 increased invasion index; MYL9 TASA did not."
+            }
+          ],
+          "unit_id": "su_fa431baab71a7898b81147d0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

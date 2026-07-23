@@ -1,0 +1,826 @@
+{
+  "coverage_ledger": {
+    "1ca27a3fbfd55cc4e7ad": "not_selected",
+    "1d281321519c4b0b9f2a": "extracted",
+    "21875f93c7701f07d397": "extracted",
+    "2244d58f317db968f01a": "extracted",
+    "3800bd3531a98e37d1cd": "extracted",
+    "917fc0e008eed0a0f519": "extracted",
+    "92ebdc3cb62d22ee7029": "extracted",
+    "a4a256662665b12f8a5d": "extracted",
+    "bd8548be118cd665ea59": "extracted",
+    "f97b9cb3f9c93be0979a": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Experiments limited to point cloud semantic segmentation on S3DIS dataset.",
+    "DenseGCN memory cost prohibitive for large models; largest DenseGCN used only 32 filters and 8 neighbors.",
+    "ResGCN-151 trained only 80 epochs with 3 nearest neighbors due to computational constraints.",
+    "No data augmentation or post-processing used; hyper-parameters not tuned beyond baseline settings.",
+    "Common 1m x 1m column sampling for point clouds is sub-optimal for graph representation."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_20.pdf",
+    "source_sha256": "db2aab9aaed0d4d3b266498bcce57de603b5908837bb7791efcd51612e86dc4c"
+  },
+  "paper_id": "6_20",
+  "quality_assessment": {
+    "correct_item_count": 52,
+    "deterministic_rule_score": 0.97,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 55,
+    "f1": 0.8814,
+    "incorrect_item_count": 3,
+    "incorrect_items": [
+      {
+        "description": "The extracted mIoU value of 60.0 is correct, but the provenance text_excerpt is paraphrased. The source chunk shows 'ResGCN-28 (Ours) 60.0' without paraphrasing, but the extraction marks it as paraphrased: true. This is a minor factual inaccuracy in the provenance flag, not the value itself. However, the protocol requires strictness on facts; the paraphrased flag is incorrect because the excerpt is directly from the table. This makes the item incorrect due to unsupported provenance claim.",
+        "item_id": "result:su_c03cb70bb98ba17f3127a37c:res_130509146a190076a4d74ea3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement is supported, but the provenance text_excerpt is marked as paraphrased: true, while the source text is directly quoted. The excerpt is an exact copy from the source chunk, so the paraphrased flag is incorrect. This makes the item incorrect due to unsupported provenance claim.",
+        "item_id": "claim:su_b29016b99c6d1fc64986925a:clm_b41e0711fed8c8c5b5a40de9",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim statement is supported, but the provenance text_excerpt is marked as paraphrased: true, while the source text is directly quoted. The excerpt is an exact copy from the source chunk, so the paraphrased flag is incorrect. This makes the item incorrect due to unsupported provenance claim.",
+        "item_id": "claim:su_ee448bb58c7108e8dd0b1538:clm_67593ec19efe16be6385c8f5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 11,
+    "missed_core_items": [
+      {
+        "description": "ResGCN-28 outperforms state-of-the-art by 3.7% mIoU on S3DIS, not 4% as claimed in the abstract.",
+        "item_id": null,
+        "source_chunk_id": "21875f93c7701f07d397",
+        "source_excerpt": "we use these new concepts to build a very deep 56-layer GCN, and show how it significantly boosts performance (+3.7% mIoU over state-of-the-art) in the task of point cloud semantic segmentation.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The 56-layer GCN (ResGCN-56) achieves 53.64 mIoU on area 5, not the 60.0 mIoU reported for ResGCN-28 on all areas.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "ResGCN-56 53.64 1.15",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ResGCN-151 was trained for only 80 epochs with 3 nearest neighbors due to computational constraints, and achieved similar results to ResGCN-28 and ResGCN-56.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "We were also able to train ResGCN-151 for 80 epochs; the network converged very well and achieved similar results as ResGCN-28 and ResGCN-56 but with only 3 nearest neighbors.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with fixed k-NN and no dynamic edges, showing a drop of 9.06% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "43.43 -9.06",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with 32 filters and 32 nearest neighbors, showing a drop of 3.31% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "49.18 -3.31",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with 16 filters and 16 nearest neighbors, showing a drop of 6.87% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "45.62 -6.87",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with 16 filters and 32 nearest neighbors, showing a drop of 3.69% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "48.80 -3.69",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with 8 filters and 64 nearest neighbors, showing a drop of 13.70% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "38.79 -13.70",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with 16 filters and 64 nearest neighbors, showing a drop of 12.02% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "40.47 -12.02",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with 16 filters and 64 nearest neighbors, showing a drop of 4.57% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "47.92 -4.57",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The ablation study includes a variant with 16 filters and 64 nearest neighbors, showing a drop of 3.26% mIoU.",
+        "item_id": null,
+        "source_chunk_id": "917fc0e008eed0a0f519",
+        "source_excerpt": "49.23 -3.26",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9455,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8254
+  },
+  "quality_score": 0.8814,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can GCNs be made as deep as CNNs by adapting residual/dense connections and dilated convolutions?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_97dd32ebd946530452b99513",
+              "inference_basis_ids": [
+                "res_ff74138e006f4118bfc85cfc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "92ebdc3cb62d22ee7029",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "While we observe an improvement when updating the k nearest neighbors after every layer, we would also like to point out that it comes at a relatively high computational cost."
+              },
+              "statement": "Dynamic k-NN improves performance but at a high computational cost."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "Area 5"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on S3DIS area 5 comparing ResGCN-28 with dynamic k-NN vs fixed edges."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Dynamic k-NN",
+              "protocol_description": "Recompute k nearest neighbors in feature space after every GCN layer."
+            }
+          ],
+          "name": "Effect of dynamic k-NN",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "48.38 -4.11"
+              },
+              "quantitative_value": -4.11,
+              "result_id": "res_ff74138e006f4118bfc85cfc",
+              "unit": "%",
+              "value_raw_text": "-4.11"
+            }
+          ],
+          "unit_id": "su_6154eacc653d80f791659266"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_84e16ba7633ba205ad0f95b7",
+              "inference_basis_ids": [
+                "res_b857c0e6876741a7ffb73695",
+                "res_dfec89182cd08d540413274d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "92ebdc3cb62d22ee7029",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "increasing the number of filters leads to a similar increase in performance as increasing the number of layers."
+              },
+              "statement": "Increasing network width improves performance similarly to increasing depth."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "Area 5"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on S3DIS area 5 varying number of filters (16, 32, 64, 128) in ResGCN."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "ResGCN width variation",
+              "protocol_description": "Vary the number of filters in ResGCN layers."
+            }
+          ],
+          "name": "Effect of network width",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-28W 53.78 1.29"
+              },
+              "quantitative_value": 1.29,
+              "result_id": "res_b857c0e6876741a7ffb73695",
+              "unit": "%",
+              "value_raw_text": "1.29"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "49.18 -3.31"
+              },
+              "quantitative_value": -3.31,
+              "result_id": "res_dfec89182cd08d540413274d",
+              "unit": "%",
+              "value_raw_text": "-3.31"
+            }
+          ],
+          "unit_id": "su_6a2b387acb2a59e0a788d9c7"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a2cc42793a59246de3a1c030",
+              "inference_basis_ids": [
+                "res_47930a5b1a8d2c6d5edb9817",
+                "res_affbfd02ebd9735d25e90efd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "92ebdc3cb62d22ee7029",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "dilated graph convolutions account for a 2.85% improvement in mean IoU (row 3), motivated primarily by the expansion of the network’s receptive field."
+              },
+              "statement": "Dilated graph convolutions improve performance by expanding the receptive field, especially when combined with residual connections."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "Area 5"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on S3DIS area 5 comparing ResGCN-28 with and without dilation, and with stochastic dilation."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Dilated graph convolution",
+              "protocol_description": "Dilated k-NN with dilation rate d, skipping every d neighbors; stochastic dilation with epsilon=0.2 during training."
+            }
+          ],
+          "name": "Effect of dilated graph convolutions",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "49.64 -2.85"
+              },
+              "quantitative_value": -2.85,
+              "result_id": "res_47930a5b1a8d2c6d5edb9817",
+              "unit": "%",
+              "value_raw_text": "-2.85"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "51.98 -0.51"
+              },
+              "quantitative_value": -0.51,
+              "result_id": "res_affbfd02ebd9735d25e90efd",
+              "unit": "%",
+              "value_raw_text": "-0.51"
+            }
+          ],
+          "unit_id": "su_7f031deb76742554becd7640"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b41e0711fed8c8c5b5a40de9",
+              "inference_basis_ids": [
+                "res_2c771087aac18d429eecd90f",
+                "res_a830d4384e394067c2cf04ce"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "92ebdc3cb62d22ee7029",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "a larger number of neighbors helps in general. ... However, a large number of neighbors only results in a performance boost, if the network capacity is sufficiently large."
+              },
+              "statement": "A larger number of neighbors improves performance, but only if network capacity is sufficient."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "Area 5"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on S3DIS area 5 varying k in k-NN (4, 8, 16)."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "k-NN neighbor count variation",
+              "protocol_description": "Vary the number of nearest neighbors k in dynamic dilated k-NN."
+            }
+          ],
+          "name": "Effect of number of nearest neighbors",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "49.98 -2.51"
+              },
+              "quantitative_value": -2.51,
+              "result_id": "res_2c771087aac18d429eecd90f",
+              "unit": "%",
+              "value_raw_text": "-2.51"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "49.22 -3.27"
+              },
+              "quantitative_value": -3.27,
+              "result_id": "res_a830d4384e394067c2cf04ce",
+              "unit": "%",
+              "value_raw_text": "-3.27"
+            }
+          ],
+          "unit_id": "su_b29016b99c6d1fc64986925a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7dab6db67f12989eb93c0c5b",
+              "inference_basis_ids": [
+                "res_130509146a190076a4d74ea3",
+                "res_77f9764fa2044c0e95f24efb",
+                "res_898d9469f8f81f840a876748"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2244d58f317db968f01a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-28 outperforms state-of-the-art by almost 4%."
+              },
+              "statement": "ResGCN-28 significantly outperforms state-of-the-art methods on S3DIS semantic segmentation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS8",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "All 6 areas"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate ResGCN-28 on all 6 areas of S3DIS and compare with PointNet, PointNet++, DGCNN, etc."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "ResGCN",
+              "protocol_description": "Graph convolution network with residual connections (vertex-wise addition) between layers, dynamic dilated k-NN for edge construction, and stochastic dilation (epsilon=0.2)."
+            }
+          ],
+          "name": "State-of-the-art comparison on S3DIS",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2244d58f317db968f01a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ResGCN-28 (Ours) 60.0"
+              },
+              "quantitative_value": 60.0,
+              "result_id": "res_130509146a190076a4d74ea3",
+              "unit": "%",
+              "value_raw_text": "60.0"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "OA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2244d58f317db968f01a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-28 (Ours) 85.9"
+              },
+              "quantitative_value": 85.9,
+              "result_id": "res_77f9764fa2044c0e95f24efb",
+              "unit": "%",
+              "value_raw_text": "85.9"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU improvement over DGCNN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-28 outperforms DGCNN [42] by 3.9% (absolute) in mean IoU"
+              },
+              "quantitative_value": 3.9,
+              "result_id": "res_898d9469f8f81f840a876748",
+              "unit": "%",
+              "value_raw_text": "+3.9%"
+            }
+          ],
+          "unit_id": "su_c03cb70bb98ba17f3127a37c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7e869d375b3c334b60d73470",
+              "inference_basis_ids": [
+                "res_2b3798521aa5470e967b9c93",
+                "res_6eb9fd5c52ce1778d981c47e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "92ebdc3cb62d22ee7029",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "residual graph connections play an essential role in training deeper networks, as they tend to result in more stable gradients."
+              },
+              "statement": "Residual connections enable stable training of deep GCNs and prevent performance degradation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "Area 5 for ablation; all 6 areas for state-of-the-art comparison"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Train GCNs with 7, 14, 28, and 56 layers with and without residual connections on point cloud semantic segmentation (S3DIS dataset)."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "ResGCN",
+              "protocol_description": "Graph convolution network with residual connections (vertex-wise addition) between layers, dynamic dilated k-NN for edge construction, and stochastic dilation (epsilon=0.2)."
+            }
+          ],
+          "name": "Deep GCN training with residual connections",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-28 52.49"
+              },
+              "quantitative_value": 52.49,
+              "result_id": "res_2935e46d619bac4d225a01e2",
+              "unit": "%",
+              "value_raw_text": "52.49"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training loss stability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "21875f93c7701f07d397",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We note how adding more layers without residual connections translates to substantially higher loss. (right) In contrast, training GCNs with residual connections results in consistent stability across all depths."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2b3798521aa5470e967b9c93",
+              "unit": null,
+              "value_raw_text": "Adding more layers without residual connections translates to substantially higher loss; with residual connections results in consistent stability across all depths."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "PlainGCN-28 40.31 -12.18"
+              },
+              "quantitative_value": -12.18,
+              "result_id": "res_6eb9fd5c52ce1778d981c47e",
+              "unit": "%",
+              "value_raw_text": "-12.18"
+            }
+          ],
+          "unit_id": "su_e4663e1a17762d492fc9f221"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fac6e7c5d7b64710d8c435e6",
+              "inference_basis_ids": [
+                "res_4354aa4470d9ffa5fe30f1b3",
+                "res_ae87edac900b3a65292962f1",
+                "res_e1d07ba1b6281773c135e47f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "92ebdc3cb62d22ee7029",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "increasing the number of layers improves network performance, but only if residual graph connections and dilated graph convolutions are used"
+              },
+              "statement": "Increasing depth improves performance when residual connections and dilated convolutions are used."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "Area 5"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on S3DIS area 5 varying number of layers (7, 14, 28, 56) in ResGCN."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "ResGCN depth variation",
+              "protocol_description": "Vary the number of GCN layers in ResGCN with residual connections and dilated convolutions."
+            }
+          ],
+          "name": "Effect of network depth",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-7 48.95 -3.53"
+              },
+              "quantitative_value": -3.53,
+              "result_id": "res_4354aa4470d9ffa5fe30f1b3",
+              "unit": "%",
+              "value_raw_text": "-3.53"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-56 53.64 1.15"
+              },
+              "quantitative_value": 1.15,
+              "result_id": "res_ae87edac900b3a65292962f1",
+              "unit": "%",
+              "value_raw_text": "1.15"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN-14 49.90 -2.59"
+              },
+              "quantitative_value": -2.59,
+              "result_id": "res_e1d07ba1b6281773c135e47f",
+              "unit": "%",
+              "value_raw_text": "-2.59"
+            }
+          ],
+          "unit_id": "su_e9200d3fda45d084eff01b0a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_67593ec19efe16be6385c8f5",
+              "inference_basis_ids": [
+                "res_1b9c68bd86b9d1f334d729a8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "92ebdc3cb62d22ee7029",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "We observe similar performance gains with dense graph connections (DenseGCN-28) ... However, with a naive implementation, the memory cost is prohibitive."
+              },
+              "statement": "Dense connections provide similar performance gains to residual connections but with higher memory cost."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Stanford Large-Scale 3D Indoor Spaces dataset for point cloud semantic segmentation.",
+              "name": "S3DIS",
+              "version_or_split": "Area 5"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on S3DIS area 5 comparing DenseGCN-28 with ResGCN-28."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "DenseGCN",
+              "protocol_description": "Graph convolution network with dense connections (vertex-wise concatenation) between layers, dynamic dilated k-NN."
+            }
+          ],
+          "name": "Effect of dense graph connections",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "mIoU change vs ResGCN-28",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "917fc0e008eed0a0f519",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "DenseGCN-28 51.27 -1.22"
+              },
+              "quantitative_value": -1.22,
+              "result_id": "res_1b9c68bd86b9d1f334d729a8",
+              "unit": "%",
+              "value_raw_text": "-1.22"
+            }
+          ],
+          "unit_id": "su_ee448bb58c7108e8dd0b1538"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[7].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8431 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7836 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[7].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8571 on attempt 1"
+    }
+  ]
+}

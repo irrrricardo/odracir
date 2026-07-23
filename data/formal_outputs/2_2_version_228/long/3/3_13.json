@@ -1,0 +1,594 @@
+{
+  "coverage_ledger": {
+    "32ac363e65491fdd45cc": "extracted",
+    "37000487688cd11cfab7": "not_selected",
+    "465cb9b1ba893c68fb70": "not_selected",
+    "59b9da0017aecf810082": "not_selected",
+    "5e86b9d4cf3b074c535f": "extracted",
+    "79ca995f9260c5182449": "not_selected",
+    "80e4835a90d5bc779627": "not_selected",
+    "83d0144ae00b8a5c8cca": "not_selected",
+    "8c2f36ee2e293f5bf984": "extracted",
+    "9f1696704d61c44f9c93": "not_selected",
+    "a07c5883f245b01c172c": "not_selected",
+    "ab1397655b69cb121a07": "not_selected",
+    "af5c493ae2f0e9907197": "not_selected",
+    "f783914340354fb67784": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "All fibroblasts were cultured and serially passaged on rigid matrices before transfer to hydrogels; potential influence of mechanical memory cannot be assessed.",
+    "Global Taz haploinsufficiency in prior bleomycin model prevented ascribing attenuated fibrosis solely to fibroblast function.",
+    "In vitro stiffness range (0.4–25 kPa) may not fully capture in vivo heterogeneity.",
+    "Adoptive transfer model uses immortalized NIH3T3 fibroblasts, not primary IPF fibroblasts.",
+    "YAP/TAZ knockdown experiments used siRNA pools; off-target effects cannot be excluded.",
+    "PAI-1 is one of many YAP/TAZ targets; other pathways likely contribute."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_13.pdf",
+    "source_sha256": "9994ad96e974072ff200b9f9b44d0a98b4eadc98fc227b4d0e93542a6fe15967"
+  },
+  "paper_id": "3_13",
+  "quality_assessment": {
+    "correct_item_count": 55,
+    "deterministic_rule_score": 0.9313,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.1111
+    },
+    "extracted_item_count": 55,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do YAP and TAZ mediate matrix stiffness-driven fibroblast activation and fibrosis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_96cf17a310b88b3df6febea3",
+              "inference_basis_ids": [
+                "res_3d25967477c08177e65abbf5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "32ac363e65491fdd45cc",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "These findings suggest substantial contributions of YAP and TAZ to matrix stiffness-dependent transcript expression in human lung fibroblasts in vitro."
+              },
+              "statement": "YAP and TAZ contribute substantially to matrix stiffness-dependent transcript expression in human lung fibroblasts."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Microarray dataset of human lung fibroblast transcripts across substrate elastic moduli.",
+              "name": "GSE22011",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of matrix stiffness-induced transcripts in human lung fibroblasts with YAP overexpression-induced transcripts in NIH 3T3 cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Microarray analysis",
+              "protocol_description": "Transcripts whose expression increased across matrix stiffness in cells from three independent donors were compared to transcripts differentially regulated by YAP overexpression in NIH 3T3 fibroblasts."
+            }
+          ],
+          "name": "Microarray overlap analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Overlap count",
+              "n_sample_size": null,
+              "p_value": 7.528e-32,
+              "provenance": {
+                "chunk_id": "32ac363e65491fdd45cc",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "of the 86 stiffness-enhanced transcripts, 45 were previously found to be increased in 3T3 cells overexpressing YAP (Table 1), yielding a Fisher exact P value of 7.528E-32."
+              },
+              "quantitative_value": 45.0,
+              "result_id": "res_3d25967477c08177e65abbf5",
+              "unit": null,
+              "value_raw_text": "45 of 86 stiffness-enhanced transcripts were previously found to be increased in 3T3 cells overexpressing YAP"
+            }
+          ],
+          "unit_id": "su_0f71fc136a91e2e5c017cad2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_111a9138f84e51f9a3c6c5b0",
+              "inference_basis_ids": [
+                "res_ae38d6a462dd05b6160114a3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f783914340354fb67784",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "YAP and TAZ siRNA knockdown dramatically attenuates profibrotic matrix synthesis, contraction, and proliferation and does so preferentially on pathologically stiffened matrices"
+              },
+              "statement": "YAP and TAZ are required for profibrotic fibroblast functions specifically on stiff matrices."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Measurement of matrix synthesis, contraction, and proliferation.",
+            "siRNA-mediated knockdown of YAP and TAZ in fibroblasts cultured on soft (0.4 kPa) and stiff (25 kPa) matrices."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "siRNA knockdown",
+              "protocol_description": "Cells were transfected with 25 nM targeting siRNAs or nontargeting control and cultured for 3 days on hydrogels."
+            },
+            {
+              "method_id": "M7",
+              "name": "Soluble collagen assay",
+              "protocol_description": "Collagen concentration in media was measured by Sircol assay and normalized to cell number."
+            },
+            {
+              "method_id": "M8",
+              "name": "Traction force microscopy",
+              "protocol_description": "Contractile forces were assessed on 0.4 and 6.4 kPa polyacrylamide substrates with fluorescent beads."
+            },
+            {
+              "method_id": "M9",
+              "name": "Proliferation assay",
+              "protocol_description": "Cell number was determined using CyQUANT NF assay."
+            }
+          ],
+          "name": "YAP/TAZ knockdown effects on fibroblast functions",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix synthesis attenuation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e86b9d4cf3b074c535f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Knockdown of YAP and TAZ together in vitro attenuates key fibroblast functions, including matrix synthesis, contraction, and proliferation, and does so exclusively on pathologically stiff matrices."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ae38d6a462dd05b6160114a3",
+              "unit": null,
+              "value_raw_text": "YAP/TAZ knockdown attenuates matrix synthesis, contraction, and proliferation exclusively on pathologically stiff matrices."
+            }
+          ],
+          "unit_id": "su_1bae89d6cd862d359ad3e06f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_536e34c75be0e058452503d0",
+              "inference_basis_ids": [
+                "res_1ddbf4999f57084522b616c9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f783914340354fb67784",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "increasing matrix stiffness drives nuclear localization of YAP and TAZ in fibroblasts in culture"
+              },
+              "statement": "Pathological matrix stiffness drives nuclear localization of YAP and TAZ in lung fibroblasts."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Culture of fibroblasts on hydrogels of defined stiffness (0.4 kPa vs 25 kPa) and assessment of YAP/TAZ subcellular localization."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Immunofluorescence",
+              "protocol_description": "Cells were seeded on 0.4-kPa or 25-kPa gels, fixed, and stained for YAP and TAZ."
+            }
+          ],
+          "name": "Matrix stiffness-dependent YAP/TAZ nuclear localization in vitro",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ nuclear localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e86b9d4cf3b074c535f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "both YAP and TAZ accumulate in the nuclei of fibroblasts grown on pathologically stiff matrices but not physiologically compliant matrices."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ddbf4999f57084522b616c9",
+              "unit": null,
+              "value_raw_text": "YAP and TAZ accumulate in nuclei on 25-kPa (stiff) matrices but not on 0.4-kPa (soft) matrices."
+            }
+          ],
+          "unit_id": "su_233ca21c0f49f0eee96aa00f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e656de420157c25ae230067a",
+              "inference_basis_ids": [
+                "res_e7f24cdaf99d3e91f6970a05"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f783914340354fb67784",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "matrix stiffness effects on PAI-1 levels were independent of TGF-beta signaling, demonstrating one way in which matrix stiffness can sustain a profibrotic state independent of this key fibrogenic cytokine."
+              },
+              "statement": "YAP/TAZ promote fibrosis partly via PAI-1, which is stiffness-regulated independently of TGF-beta."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of TGF-beta independence of stiffness-induced PAI-1.",
+            "Measurement of PAI-1 levels and plasmin activity in fibroblasts on different stiffness matrices."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "PAI-1 ELISA",
+              "protocol_description": "PAI-1 concentration in cell culture media was measured by ELISA and normalized to cell number."
+            },
+            {
+              "method_id": "M11",
+              "name": "Plasmin activity assay",
+              "protocol_description": "Plasmin activity was determined using SPECTROZYME PL chromogenic substrate."
+            }
+          ],
+          "name": "PAI-1 regulation by matrix stiffness and YAP/TAZ",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "PAI-1 regulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e86b9d4cf3b074c535f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Profibrotic effects of YAP and TAZ operate, in part, through their transcriptional target plasminogen activator inhibitor-1, which is regulated by matrix stiffness independent of transforming growth factor-beta signaling."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e7f24cdaf99d3e91f6970a05",
+              "unit": null,
+              "value_raw_text": "PAI-1 is regulated by matrix stiffness independent of TGF-beta signaling and is a transcriptional target of YAP/TAZ."
+            }
+          ],
+          "unit_id": "su_6e7d8a5dc439d852258c56d9"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_660cac10e5dc350c0334d501",
+              "inference_basis_ids": [
+                "res_113e6014998bb4ec058fac50"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f783914340354fb67784",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "fibroblasts transduced with constitutively active YAP or TAZ mutant constructs overcome soft matrix limitations on growth and display augmented matrix synthesis"
+              },
+              "statement": "Constitutively active YAP or TAZ is sufficient to drive profibrotic fibroblast behavior on soft matrices."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of matrix synthesis and cell-derived matrix production.",
+            "Expression of active YAP (YAP5SA) or TAZ (TAZ4SA) in NIH3T3 fibroblasts on soft matrices."
+          ],
+          "methods": [
+            {
+              "method_id": "M12",
+              "name": "Doxycycline-inducible expression",
+              "protocol_description": "NIH3T3 cells were transduced with Tet-On system to express 3xFLAG-tagged TAZ4SA or YAP5SA upon doxycycline treatment."
+            },
+            {
+              "method_id": "M13",
+              "name": "Cell-derived matrix assay",
+              "protocol_description": "Cells were cultured for 7 days with doxycycline, decellularized, and matrix protein content was measured by BCA assay."
+            }
+          ],
+          "name": "Constitutively active YAP/TAZ in vitro",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Soft matrix growth and matrix synthesis",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f783914340354fb67784",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "fibroblasts transduced with constitutively active YAP or TAZ mutant constructs overcome soft matrix limitations on growth and display augmented matrix synthesis"
+              },
+              "quantitative_value": null,
+              "result_id": "res_113e6014998bb4ec058fac50",
+              "unit": null,
+              "value_raw_text": "Active YAP or TAZ overcomes soft matrix limitations on growth and augments matrix synthesis."
+            }
+          ],
+          "unit_id": "su_7f46ddb33622d3670df902c5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9f58cc39a56b8b7cdf4b988e",
+              "inference_basis_ids": [
+                "res_2f5a7a379cd1cda5bfbcccb9",
+                "res_b913828a7a20c28c60a5b5ec"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "32ac363e65491fdd45cc",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Analysis of tissue stiffness by AFM and TAZ immunostaining in adjacent serial sections demonstrated colocalization of TAZ-immunopositive cell nuclei and areas of elevated matrix stiffness"
+              },
+              "statement": "Nuclear TAZ localization colocalizes with areas of elevated matrix stiffness in IPF lung."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bca4bf54d3fe2f79ee35d523",
+              "inference_basis_ids": [
+                "res_2f5a7a379cd1cda5bfbcccb9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5e86b9d4cf3b074c535f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "YAP and TAZ are prominently expressed in fibrotic but not healthy lung tissue, with particularly pronounced nuclear expression of TAZ in spindle-shaped fibroblastic cells."
+              },
+              "statement": "YAP and TAZ are prominently expressed in fibrotic but not healthy lung tissue, with nuclear TAZ in fibroblastic cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "AFM measurement of tissue stiffness in normal and fibrotic lung regions.",
+            "Immunohistochemical staining of normal and IPF lung tissue for YAP and TAZ."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Immunohistochemistry",
+              "protocol_description": "Fixed tissue from normal (n=4) and IPF (n=4) lungs was stained with antibodies against YAP and TAZ."
+            },
+            {
+              "method_id": "M3",
+              "name": "Atomic force microscopy",
+              "protocol_description": "Tissue stiffness was measured by AFM; shear moduli were converted to Young's modulus assuming Poisson's ratio of 0.4."
+            }
+          ],
+          "name": "YAP/TAZ expression and localization in human lung tissue",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ expression pattern",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ac363e65491fdd45cc",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Normal lung tissue was largely devoid of cells positive for immunohistochemical staining with antibodies against YAP and TAZ... IPF lung tissue displayed prominent staining with antibodies against both YAP and TAZ, with pronounced expression in spindle-shaped cells... nuclear localization of TAZ"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2f5a7a379cd1cda5bfbcccb9",
+              "unit": null,
+              "value_raw_text": "Normal lung tissue largely devoid of YAP/TAZ-positive cells; IPF lung tissue displayed prominent staining with spindle-shaped cells showing nuclear TAZ localization."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue stiffness (shear modulus)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ac363e65491fdd45cc",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "median shear moduli in normal lungs of 0.59 kPa (range 0.07–1.32 kPa) and in fibrotic regions of IPF lungs of 5.16 kPa (range 1.27–19.33 kPa)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b913828a7a20c28c60a5b5ec",
+              "unit": "kPa",
+              "value_raw_text": "Median shear moduli: normal 0.59 kPa (range 0.07–1.32 kPa); fibrotic IPF 5.16 kPa (range 1.27–19.33 kPa)"
+            }
+          ],
+          "unit_id": "su_a8a4897a59c65c033f15768a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8d5abecd94cb46d7cc8d7a27",
+              "inference_basis_ids": [
+                "res_70be71ac49db2ee8e7e98653"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f783914340354fb67784",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "adoptive transfer of these fibroblasts in mice results in profound remodeling and fibrosis in the lungs, demonstrating that nuclear YAP/TAZ localization is sufficient to confer potent fibrogenic potential to fibroblasts."
+              },
+              "statement": "Fibroblast YAP/TAZ activation is sufficient to drive a profibrotic response in vivo."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of lung fibrosis after 14 days.",
+            "Tail vein injection of YAP5SA- or TAZ4SA-expressing NIH3T3 fibroblasts into NSG mice."
+          ],
+          "methods": [
+            {
+              "method_id": "M14",
+              "name": "Adoptive transfer",
+              "protocol_description": "1x10^6 YAP5SA- or TAZ4SA-expressing fibroblasts were injected via tail vein into NSG mice; doxycycline was given in drinking water from day 0."
+            },
+            {
+              "method_id": "M15",
+              "name": "Hydroxyproline assay",
+              "protocol_description": "Total collagen content of left lung was measured by hydroxyproline assay."
+            },
+            {
+              "method_id": "M16",
+              "name": "Histology",
+              "protocol_description": "Lung sections were stained with H&E and Masson's trichrome."
+            }
+          ],
+          "name": "Adoptive transfer of YAP/TAZ-active fibroblasts in mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Lung fibrosis induction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5e86b9d4cf3b074c535f",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Immortalized fibroblasts conditionally expressing active YAP or TAZ mutant proteins... promote fibrosis when adoptively transferred to the murine lung"
+              },
+              "quantitative_value": null,
+              "result_id": "res_70be71ac49db2ee8e7e98653",
+              "unit": null,
+              "value_raw_text": "Adoptive transfer of YAP/TAZ-active fibroblasts promoted fibrosis in murine lungs."
+            }
+          ],
+          "unit_id": "su_b7adaf5f910a5c32897bb263"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_849c49d95fe6246cfb11425f",
+              "inference_basis_ids": [
+                "res_f1ff4998ad147b280b4dd2da"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "32ac363e65491fdd45cc",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "This suggested that the increased staining for YAP and TAZ observed in IPF tissue is not due to intrinsic overexpression of these proteins in IPF fibroblasts but rather reflects the stiff matrix environment."
+              },
+              "statement": "Increased YAP/TAZ staining in IPF tissue is not due to intrinsic overexpression in IPF fibroblasts but likely reflects the stiff matrix environment."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of YAP and TAZ protein levels in cultured normal and IPF-derived fibroblasts."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Western blot",
+              "protocol_description": "Protein levels of YAP and TAZ were examined in isolated normal and IPF fibroblasts."
+            }
+          ],
+          "name": "YAP/TAZ protein levels in cultured normal vs IPF fibroblasts",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP/TAZ protein expression difference",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "32ac363e65491fdd45cc",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "we noted little difference in their expression between cultured normal and IPF-derived cells (Fig. 2A), with a modest trend toward lower YAP expression in IPF-derived cells."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f1ff4998ad147b280b4dd2da",
+              "unit": null,
+              "value_raw_text": "Little difference in YAP and TAZ protein levels between cultured normal and IPF-derived cells, with a modest trend toward lower YAP in IPF cells."
+            }
+          ],
+          "unit_id": "su_d6a3337365076f61bfd071b5"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4444 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[7].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6867 on attempt 1"
+    }
+  ]
+}

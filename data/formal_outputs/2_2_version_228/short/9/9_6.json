@@ -1,0 +1,1072 @@
+{
+  "coverage_ledger": {
+    "005a47f6a35c8c270004": "not_selected",
+    "0a15f7faac73c3b7ed0e": "extracted",
+    "1ac5c9c94e3bd4f5b1fe": "extracted",
+    "2dd91e087129d08ad0f4": "extracted",
+    "2fab6f7ac588173fcaf7": "extracted",
+    "3bcf356da1db3641e660": "not_selected",
+    "3fea9a5188fe505e5c45": "not_selected",
+    "40403258ffd630ec3524": "not_selected",
+    "496272978a1b60f23517": "not_selected",
+    "519cbd67da77920d8938": "not_selected",
+    "5908f33b6c10e6bc046c": "not_selected",
+    "5f8b1a5694682c7cb2cf": "not_selected",
+    "640966328663bf2915e3": "not_selected",
+    "64eb2c35653d5413666c": "not_selected",
+    "67de00502b9428a9abd4": "not_selected",
+    "6c15743161507127ea3f": "not_selected",
+    "75d0ec17034e6f449840": "not_selected",
+    "8cca8162e30fd7f95554": "not_selected",
+    "90880edebb3adb23fbca": "not_selected",
+    "9d5a837fe7393cdef665": "not_selected",
+    "9d86b7e676bf18d7334c": "extracted",
+    "b6dc869f2caa27857d8c": "not_selected",
+    "b8d3fa04dee1496f55aa": "not_selected",
+    "d60e6d08292a97d06927": "extracted",
+    "e4672ec8cbb6287e4cad": "not_selected",
+    "ea4f4c7a2ee07c0083ec": "extracted",
+    "ea6279b7d9443c605dcc": "not_selected",
+    "f0feeb723b053bf61539": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The framework is designed for Lean 4 only; applicability to other proof assistants is not evaluated.",
+    "The model has 7 billion parameters; scaling behavior is not studied.",
+    "Tree search requires significant computational resources (up to 16×6400 samples).",
+    "The approach relies on compiler feedback as a reward signal, which may not generalize to domains without such oracles.",
+    "The paper does not discuss potential biases in the training data or failure cases in detail."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "9_6.pdf",
+    "source_sha256": "18b9bf9ce4a553b7c54ed4aab49f1f5a008f9b7e9915f2f164c8ef4da59559cd"
+  },
+  "paper_id": "9_6",
+  "quality_assessment": {
+    "correct_item_count": 61,
+    "deterministic_rule_score": 0.9426,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 61,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can training and inference processes be optimized to improve language model performance in formal theorem proving in Lean 4?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_097a88c9c33c424cf4aa3598",
+              "inference_basis_ids": [
+                "res_9422867744306098e17b7ca0",
+                "res_c16da3289f99733f2f430d66"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "The results indicate that the performance gain from applying tree search becomes moderate in the absence of tactic state information, especially when tackling hard problems that require a large amount of samples."
+              },
+              "statement": "Tactic state information is crucial for the effectiveness of tree search."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_103307b82054deebaee8291f",
+              "inference_basis_ids": [
+                "res_18d9429ded128773826b41bf",
+                "res_8c37ea4a5634cf692f38f214"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9d86b7e676bf18d7334c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "achieving new state-of-the-art results on the test set of the high school level miniF2F benchmark (63.5%) and the undergraduate level ProofNet benchmark (25.3%)."
+              },
+              "statement": "DeepSeek-Prover-V1.5 achieves state-of-the-art results on miniF2F and ProofNet benchmarks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1134f79a1b13739cbf4c3bc2",
+              "inference_basis_ids": [
+                "res_57275abb887022510cc94d87",
+                "res_843e521ea0d9553358f45e00",
+                "res_9b681cffcdd1308b94645ac5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "This simple combination of two guiding prompts shows great promise in further bootstrapping the performance of our proof completion model, achieving a pass rate of 63.5% on miniF2F-test."
+              },
+              "statement": "Mixture of CoT and non-CoT prompting yields the best overall performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_15c54dabd016f208c051c9d2",
+              "inference_basis_ids": [
+                "res_2e675d1162cb28b44709083a",
+                "res_577504533319b742ac6eb153",
+                "res_aef14c4c569870ff8d460f97",
+                "res_d693bab7102b3c873cd043d5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2fab6f7ac588173fcaf7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The subsequent reinforcement learning stage further enhances the model’s performance, improving Pass@K accuracy across all values of K."
+              },
+              "statement": "Reinforcement learning further enhances performance beyond supervised fine-tuning."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7e61693a387903a27f834827",
+              "inference_basis_ids": [
+                "res_2767419c1c168ca738fc1409",
+                "res_3c5c70e0680035d457ef0166",
+                "res_4eb1394a74ee4c39684748ac",
+                "res_84dd3b0685baeb25fcc7522b",
+                "res_d8217b0df36e2e2f974e6f82",
+                "res_ec9f3b593febcf575c141522"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2fab6f7ac588173fcaf7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The supervised fine-tuning stage, resulting in DeepSeek-Prover-V1.5-SFT, significantly outperforms the base model, with Pass@128 accuracy increasing by approximately two-thirds on miniF2F and doubling on ProofNet."
+              },
+              "statement": "Supervised fine-tuning significantly improves performance over the base model."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_96431b0bcd6529e7687daf4b",
+              "inference_basis_ids": [
+                "res_18879ab8d263e498eb4b1820",
+                "res_2e47b0c282a67fc857c0b8bb",
+                "res_b08c6e14235e71e5af583113",
+                "res_b3db7cd992880ee105a887af",
+                "res_b6d3669804cea6a99cb64d97",
+                "res_d8d4f140af2f711163643cb1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "The experimental results in Figure 5 show that, in the absence of intrinsic rewards, the performance of UCT (without Rintrinsic) degenerates into a level comparable to that of non-search methods."
+              },
+              "statement": "RMaxTS with intrinsic rewards and discounted UCB significantly improves over standard UCT."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a5a784382c601586e0b05c65",
+              "inference_basis_ids": [
+                "res_2767419c1c168ca738fc1409",
+                "res_2e675d1162cb28b44709083a",
+                "res_3c5c70e0680035d457ef0166",
+                "res_4eb1394a74ee4c39684748ac",
+                "res_577504533319b742ac6eb153",
+                "res_aef14c4c569870ff8d460f97",
+                "res_d693bab7102b3c873cd043d5",
+                "res_ec9f3b593febcf575c141522"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2fab6f7ac588173fcaf7",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The results in Figure 3 demonstrate that the CoT mode consistently outperforms the non-CoT mode across most settings."
+              },
+              "statement": "Chain-of-thought prompting consistently outperforms non-CoT prompting."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "High school level formal problem-solving benchmark with 244 test problems, originally in Lean 3 and converted to Lean 4.9.0.",
+              "name": "miniF2F",
+              "version_or_split": "test"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Undergraduate level formal theorem-proving benchmark with 186 test problems, originally in Lean 3 and converted to Lean 4.9.0.",
+              "name": "ProofNet",
+              "version_or_split": "test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluation on miniF2F and ProofNet benchmarks using pass@K metric with single-pass whole-proof generation and tree search (RMaxTS).",
+            "Pre-training on formal mathematical languages (Lean, Isabelle, Metamath) to produce DeepSeek-Prover-V1.5-Base.",
+            "Reinforcement learning from proof assistant feedback (RLPAF) using GRPO with Lean prover verification as reward.",
+            "Supervised fine-tuning (SFT) on an augmented proof dataset with chain-of-thought comments and intermediate tactic state information."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DeepSeek-Prover-V1.5-Base",
+              "protocol_description": "Pre-trained on DeepSeekMath-Base with specialization in formal mathematical languages (Lean, Isabelle, Metamath)."
+            },
+            {
+              "method_id": "M2",
+              "name": "DeepSeek-Prover-V1.5-SFT",
+              "protocol_description": "Supervised fine-tuning on augmented proof dataset with chain-of-thought comments and intermediate tactic state information."
+            },
+            {
+              "method_id": "M3",
+              "name": "DeepSeek-Prover-V1.5-RL",
+              "protocol_description": "Reinforcement learning from proof assistant feedback (RLPAF) using GRPO with Lean prover verification as reward."
+            },
+            {
+              "method_id": "M4",
+              "name": "RMaxTS",
+              "protocol_description": "Monte-Carlo tree search variant with intrinsic-reward-driven exploration and discounted UCB, using truncate-and-resume mechanism for whole-proof generation."
+            }
+          ],
+          "name": "Training pipeline evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (UCT without intrinsic reward, 4×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UCT (without 𝑅intrinsic) 4 × 6400 58.2% ± 0.3%"
+              },
+              "quantitative_value": 58.2,
+              "result_id": "res_18879ab8d263e498eb4b1820",
+              "unit": "%",
+              "value_raw_text": "58.2% ± 0.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (tree search)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9d86b7e676bf18d7334c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "achieving new state-of-the-art results on the test set of the high school level miniF2F benchmark (63.5%)"
+              },
+              "quantitative_value": 63.5,
+              "result_id": "res_18d9429ded128773826b41bf",
+              "unit": "%",
+              "value_raw_text": "63.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SFT (CoT) 50.4% ± 0.4%"
+              },
+              "quantitative_value": 50.4,
+              "result_id": "res_2767419c1c168ca738fc1409",
+              "unit": "%",
+              "value_raw_text": "50.4% ± 0.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation, 16×6400, non-CoT & CoT mixture)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "non-CoT & CoT (16 + 16) × 6400 61.1%"
+              },
+              "quantitative_value": 61.1,
+              "result_id": "res_29209093d90c5028cb28b6a7",
+              "unit": "%",
+              "value_raw_text": "61.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS with UCB1, 16×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "RMaxTS (DUCB →UCB1) 16 × 6400 60.7%"
+              },
+              "quantitative_value": 60.7,
+              "result_id": "res_2e47b0c282a67fc857c0b8bb",
+              "unit": "%",
+              "value_raw_text": "60.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "RL (non-CoT) 50.5% ± 0.6%"
+              },
+              "quantitative_value": 50.5,
+              "result_id": "res_2e675d1162cb28b44709083a",
+              "unit": "%",
+              "value_raw_text": "50.5% ± 0.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (tree search)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ea4f4c7a2ee07c0083ec",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "achieving new state-of-the-art pass rates of 25.4% on the validation set and 25.3% on the test set"
+              },
+              "quantitative_value": 25.4,
+              "result_id": "res_32b3f6936e1394d1bcaae659",
+              "unit": "%",
+              "value_raw_text": "25.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS, 4×6400, non-CoT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "non-CoT 4 × 6400 58.4% ± 0.6%"
+              },
+              "quantitative_value": 58.4,
+              "result_id": "res_354a63316dd8fc96e045b646",
+              "unit": "%",
+              "value_raw_text": "58.4% ± 0.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "SFT (non-CoT) 49.8% ± 0.3%"
+              },
+              "quantitative_value": 49.8,
+              "result_id": "res_3c5c70e0680035d457ef0166",
+              "unit": "%",
+              "value_raw_text": "49.8% ± 0.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SFT (non-CoT) 15.9% ± 0.5%"
+              },
+              "quantitative_value": 15.9,
+              "result_id": "res_4eb1394a74ee4c39684748ac",
+              "unit": "%",
+              "value_raw_text": "15.9% ± 0.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS, 16×6400, non-CoT & CoT mixture)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "non-CoT & CoT (16 + 16) × 6400 63.5%"
+              },
+              "quantitative_value": 63.5,
+              "result_id": "res_57275abb887022510cc94d87",
+              "unit": "%",
+              "value_raw_text": "63.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "RL (CoT) 51.6% ± 0.5%"
+              },
+              "quantitative_value": 51.6,
+              "result_id": "res_577504533319b742ac6eb153",
+              "unit": "%",
+              "value_raw_text": "51.6% ± 0.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass generation, 16×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "Single-Pass Generation 16 × 6400 60.2%"
+              },
+              "quantitative_value": 60.2,
+              "result_id": "res_65cabb59585dcabcf09db603",
+              "unit": "%",
+              "value_raw_text": "60.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (tree search, 3200 samples)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0a15f7faac73c3b7ed0e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "DeepSeek-Prover-V1.5 also proved 21.7% of the theorems"
+              },
+              "quantitative_value": 21.7,
+              "result_id": "res_6f693998a487e01790c201ae",
+              "unit": "%",
+              "value_raw_text": "21.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation, 16×6400, non-CoT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "non-CoT 16 × 6400 57.4%"
+              },
+              "quantitative_value": 57.4,
+              "result_id": "res_725f93d3ddbfbbc449780bea",
+              "unit": "%",
+              "value_raw_text": "57.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation, 16×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "CoT 16 × 6400 60.2%"
+              },
+              "quantitative_value": 60.2,
+              "result_id": "res_74a957832cd44303624f94c8",
+              "unit": "%",
+              "value_raw_text": "60.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS, 16×6400, non-CoT & CoT mixture)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "non-CoT & CoT (8 + 8) × 6400 63.1%"
+              },
+              "quantitative_value": 63.1,
+              "result_id": "res_843e521ea0d9553358f45e00",
+              "unit": "%",
+              "value_raw_text": "63.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Base (3-shot) 9.7% ± 0.7%"
+              },
+              "quantitative_value": 9.7,
+              "result_id": "res_84dd3b0685baeb25fcc7522b",
+              "unit": "%",
+              "value_raw_text": "9.7% ± 0.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation, 4×6400, CoT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "CoT 4 × 6400 58.4% ± 0.5%"
+              },
+              "quantitative_value": 58.4,
+              "result_id": "res_8c0b1aeb4c9fdc3f0a7ef8fa",
+              "unit": "%",
+              "value_raw_text": "58.4% ± 0.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (tree search)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9d86b7e676bf18d7334c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "and the undergraduate level ProofNet benchmark (25.3%)"
+              },
+              "quantitative_value": 25.3,
+              "result_id": "res_8c37ea4a5634cf692f38f214",
+              "unit": "%",
+              "value_raw_text": "25.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0a15f7faac73c3b7ed0e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "DeepSeek-Prover-V1.5-RL achieved the highest pass rate at 60.2%"
+              },
+              "quantitative_value": 60.2,
+              "result_id": "res_9176fbeab03b84cbed2d7289",
+              "unit": "%",
+              "value_raw_text": "60.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS without tactic state, 4×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "RMaxTS (without tactic state) 4 × 6400 58.4% ± 0.3%"
+              },
+              "quantitative_value": 58.4,
+              "result_id": "res_9422867744306098e17b7ca0",
+              "unit": "%",
+              "value_raw_text": "58.4% ± 0.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0a15f7faac73c3b7ed0e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "DeepSeek-Prover-V1’s 50.0%"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_9428445962403a03f388a339",
+              "unit": "%",
+              "value_raw_text": "50.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS, 4×6400, non-CoT & CoT mixture)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "non-CoT & CoT (2 + 2) × 6400 60.0% ± 0.8%"
+              },
+              "quantitative_value": 60.0,
+              "result_id": "res_9b681cffcdd1308b94645ac5",
+              "unit": "%",
+              "value_raw_text": "60.0% ± 0.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ea4f4c7a2ee07c0083ec",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "pass rates of 21.6% on the validation set and 23.7% on the test set"
+              },
+              "quantitative_value": 23.7,
+              "result_id": "res_9efe9eca1087077e133f9916",
+              "unit": "%",
+              "value_raw_text": "23.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS, 16×6400, non-CoT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "non-CoT 16 × 6400 59.4%"
+              },
+              "quantitative_value": 59.4,
+              "result_id": "res_a640f8a9e4bc31d5c92f334b",
+              "unit": "%",
+              "value_raw_text": "59.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "RL (CoT) 18.2% ± 0.5%"
+              },
+              "quantitative_value": 18.2,
+              "result_id": "res_aef14c4c569870ff8d460f97",
+              "unit": "%",
+              "value_raw_text": "18.2% ± 0.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS with UCB1, 4×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "RMaxTS (DUCB →UCB1) 4 × 6400 58.6% ± 0.3%"
+              },
+              "quantitative_value": 58.6,
+              "result_id": "res_b08c6e14235e71e5af583113",
+              "unit": "%",
+              "value_raw_text": "58.6% ± 0.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (UCT without intrinsic reward, 16×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "UCT (without 𝑅intrinsic) 16 × 6400 61.1%"
+              },
+              "quantitative_value": 61.1,
+              "result_id": "res_b3db7cd992880ee105a887af",
+              "unit": "%",
+              "value_raw_text": "61.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass generation, 4×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "Single-Pass Generation 4 × 6400 58.4% ± 0.5%"
+              },
+              "quantitative_value": 58.4,
+              "result_id": "res_b54e886fe794d742697d62c6",
+              "unit": "%",
+              "value_raw_text": "58.4% ± 0.5%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "f0feeb723b053bf61539",
+                  "page_end": 17,
+                  "page_start": 17,
+                  "paraphrased": true,
+                  "text_excerpt": "CoT 16 × 6400 62.7%"
+                }
+              ],
+              "metric_name": "Pass rate (RMaxTS, 16×6400, CoT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "RMaxTS 16 × 6400 62.7%"
+              },
+              "quantitative_value": 62.7,
+              "result_id": "res_b6d3669804cea6a99cb64d97",
+              "unit": "%",
+              "value_raw_text": "62.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (RMaxTS without tactic state, 16×6400)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": true,
+                "text_excerpt": "RMaxTS (without tactic state) 16 × 6400 61.1%"
+              },
+              "quantitative_value": 61.1,
+              "result_id": "res_c16da3289f99733f2f430d66",
+              "unit": "%",
+              "value_raw_text": "61.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "RL (non-CoT) 17.5% ± 0.5%"
+              },
+              "quantitative_value": 17.5,
+              "result_id": "res_d693bab7102b3c873cd043d5",
+              "unit": "%",
+              "value_raw_text": "17.5% ± 0.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Base (3-shot) 29.7% ± 0.5%"
+              },
+              "quantitative_value": 29.7,
+              "result_id": "res_d8217b0df36e2e2f974e6f82",
+              "unit": "%",
+              "value_raw_text": "29.7% ± 0.5%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "f0feeb723b053bf61539",
+                  "page_end": 17,
+                  "page_start": 17,
+                  "paraphrased": true,
+                  "text_excerpt": "CoT 4 × 6400 59.6% ± 0.6%"
+                }
+              ],
+              "metric_name": "Pass rate (RMaxTS, 4×6400, CoT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d60e6d08292a97d06927",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "RMaxTS 4 × 6400 59.6% ± 0.6%"
+              },
+              "quantitative_value": 59.6,
+              "result_id": "res_d8d4f140af2f711163643cb1",
+              "unit": "%",
+              "value_raw_text": "59.6% ± 0.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation, 4×6400, non-CoT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0feeb723b053bf61539",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "non-CoT 4 × 6400 56.5% ± 0.5%"
+              },
+              "quantitative_value": 56.5,
+              "result_id": "res_e57523e44922d1c9f3d8347e",
+              "unit": "%",
+              "value_raw_text": "56.5% ± 0.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass@128 accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1ac5c9c94e3bd4f5b1fe",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "SFT (CoT) 15.9% ± 0.6%"
+              },
+              "quantitative_value": 15.9,
+              "result_id": "res_ec9f3b593febcf575c141522",
+              "unit": "%",
+              "value_raw_text": "15.9% ± 0.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Pass rate (single-pass whole-proof generation, 3200 samples)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0a15f7faac73c3b7ed0e",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "DeepSeek-Prover-V1.5-RL requires only 3200 whole-proof generation samplings to achieve a pass rate of 54.9%"
+              },
+              "quantitative_value": 54.9,
+              "result_id": "res_f6e48d24e982db3c18c5e531",
+              "unit": "%",
+              "value_raw_text": "54.9%"
+            }
+          ],
+          "unit_id": "su_8f07d9a1f6c882c1b8c63c2e"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8421 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7895 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9200 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9310 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8800 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8966 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8261 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9118 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8261 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8611 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[31].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7727 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[32].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7391 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[33].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9250 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[34].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6829 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[35].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8286 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[36].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[37].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[39].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8684 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9048 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8800 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8636 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9200 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,565 @@
+{
+  "coverage_ledger": {
+    "03d8aa02531e5572862c": "not_selected",
+    "0c7dd5dc50cc0e7bf3db": "not_selected",
+    "29b2f933595acdb7d7bf": "not_selected",
+    "365be41a7f315b8c4056": "extracted",
+    "5f272c25b122f5218630": "not_selected",
+    "67ceeb83d366e34c6fbe": "extracted",
+    "7ce0727e03b29efe339a": "not_selected",
+    "a33d12e15492d375c0da": "not_selected",
+    "a42ff8fd239c664b2ff8": "not_selected",
+    "b8b392810923487d0765": "not_selected",
+    "bf09e8dddcf6b4a09763": "not_selected",
+    "c2a954f39ccb7bfe92ea": "extracted",
+    "c5d2784e7ab28d6b87f5": "not_selected",
+    "d828827748f91f376369": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The relationship between TAZ and PD-L1 is not conserved in mouse cell lines, likely due to differences in promoter sequences.",
+    "Cell line identities were not recently authenticated or Mycoplasma tested.",
+    "Experiments were conducted using cells with passage number less than 40."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_5.pdf",
+    "source_sha256": "6e572a2093120fcda3c778b56e20ff48914d160a7a213ac4972e8fd2c140d16e"
+  },
+  "paper_id": "2_5",
+  "quality_assessment": {
+    "correct_item_count": 38,
+    "deterministic_rule_score": 0.9417,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0769,
+      "sample_size_log_score": 0.2007,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 38,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "What immune-related genes are transcriptionally regulated by TAZ and YAP in human cancer cells?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1d159da6252b267fb904a649",
+              "inference_basis_ids": [
+                "res_ad4adfb523a29ce9233586e6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c2a954f39ccb7bfe92ea",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We identified 71 genes that are transcriptionally regulated by TAZ or YAP overexpression that are relevant to immunology."
+              },
+              "statement": "TAZ and YAP regulate immune-related genes in human cancer cells."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Gene expression data from MCF10A cells overexpressing TAZ-S89A or YAP-S127A, profiled with nCounter Human Immunology v2 panel.",
+              "name": "Human NanoString expression data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "71 immune-related genes regulated by TAZ/YAP overexpression",
+              "provenance": {
+                "chunk_id": "c2a954f39ccb7bfe92ea",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We identified 71 genes that are transcriptionally regulated by TAZ or YAP overexpression that are relevant to immunology."
+              },
+              "span_id": "es1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "NanoString gene expression profiling using nCounter Human Immunology v2 Gene Expression Panel to identify genes regulated by TAZ or YAP overexpression in human cell lines."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "NanoString analysis",
+              "protocol_description": "RNA was collected from each condition in biological replicates using RNAzol RT reagent and cleared of residual gDNA using RNeasy Mini Kit. 300 ng RNA per reaction using nCounter Human Immunology v2 Gene Expression Panel. nSolver 3.0 software used for background subtraction, normalization, and data analysis."
+            }
+          ],
+          "name": "NanoString screen for immune-related targets of TAZ/YAP in human cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of immune-related genes regulated by TAZ/YAP",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c2a954f39ccb7bfe92ea",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We identified 71 genes that are transcriptionally regulated by TAZ or YAP overexpression that are relevant to immunology."
+              },
+              "quantitative_value": 71.0,
+              "result_id": "res_ad4adfb523a29ce9233586e6",
+              "unit": null,
+              "value_raw_text": "71 genes that are transcriptionally regulated by TAZ or YAP overexpression that are relevant to immunology"
+            }
+          ],
+          "unit_id": "su_0dffc923e4f69eccf7e75ce2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_32473068728dcf142a47e2d5",
+              "inference_basis_ids": [
+                "res_13e73fe0bc8a10335174e7af",
+                "res_497c6ca4e610f1a34435bf30",
+                "res_c5890bf67f4c71821a94a9e1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "67ceeb83d366e34c6fbe",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "We observed substantial differences in the gene targets regulated by TAZ in human and mouse cells."
+              },
+              "statement": "There is substantial divergence in TAZ-regulated immune genes between human and mouse cells."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds2",
+              "description": "Gene expression data from HC11-TAZ-S89A and NMuMG-TAZ-S89A cells profiled with nCounter Mouse Immunology v1 panel.",
+              "name": "Mouse NanoString expression data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "28 upregulated, 56 downregulated by TAZ in mouse cells; only 14/83 overlap with human targets",
+              "provenance": {
+                "chunk_id": "67ceeb83d366e34c6fbe",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Twenty-eight genes were upregulated by human TAZ-S89A in these cell lines while 56 genes were downregulated by TAZ-S89A... Only a minority (14/83) of the candidate TAZ targets identified by our screen in mouse cells were also candidates from our human screen"
+              },
+              "span_id": "es5"
+            }
+          ],
+          "experiments_or_tasks": [
+            "NanoString gene expression profiling using nCounter Mouse Immunology v1 panel to identify TAZ-regulated immune genes in mouse cell lines."
+          ],
+          "methods": [
+            {
+              "method_id": "m9",
+              "name": "NanoString analysis (mouse)",
+              "protocol_description": "RNA from HC11-TAZ-S89A and NMuMG-TAZ-S89A subjected to NanoString using nCounter Mouse Immunology v1 panel; nSolver 3.0 for analysis."
+            }
+          ],
+          "name": "NanoString screen for TAZ targets in mouse cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of genes upregulated by TAZ in mouse cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "67ceeb83d366e34c6fbe",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Twenty-eight genes were upregulated by human TAZ-S89A in these cell lines"
+              },
+              "quantitative_value": 28.0,
+              "result_id": "res_13e73fe0bc8a10335174e7af",
+              "unit": null,
+              "value_raw_text": "28 genes were upregulated by human TAZ-S89A in these cell lines"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of genes downregulated by TAZ in mouse cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "67ceeb83d366e34c6fbe",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "56 genes were downregulated by TAZ-S89A"
+              },
+              "quantitative_value": 56.0,
+              "result_id": "res_497c6ca4e610f1a34435bf30",
+              "unit": null,
+              "value_raw_text": "56 genes were downregulated by TAZ-S89A"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Overlap between human and mouse TAZ targets",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "67ceeb83d366e34c6fbe",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Only a minority (14/83) of the candidate TAZ targets identified by our screen in mouse cells were also candidates from our human screen (e.g., Pdgfb, Il12a, Cd14; Fig. 7E)."
+              },
+              "quantitative_value": 14.0,
+              "result_id": "res_c5890bf67f4c71821a94a9e1",
+              "unit": null,
+              "value_raw_text": "Only a minority (14/83) of the candidate TAZ targets identified by our screen in mouse cells were also candidates from our human screen"
+            }
+          ],
+          "unit_id": "su_3ddd20235040f5262d7eee49"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1e1920184d1646dd79a0d0f0",
+              "inference_basis_ids": [
+                "res_3a8e2567315378205b8c3c22",
+                "res_9419b33d969090a870fc61b4"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the relationship between TAZ and PD-L1 is not conserved in mouse cells and this is likely due to regulatory differences between the human and mouse PD-L1 promoters."
+              },
+              "statement": "The relationship between TAZ and PD-L1 is not conserved in mouse cells due to differences in promoter sequences."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "TAZ does not upregulate PD-L1 in mouse cell lines; mouse Pd-l1 promoter is not activated by TAZ/TEAD",
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "TAZ-S89A overexpression caused no change in Pd-l1 mRNA expression in any of the cell lines examined... the mouse Pd-l1 promoter had a dramatically diminished response to both human and mouse constructs."
+              },
+              "span_id": "es4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Examination of TAZ-induced PD-L1 expression in mouse cell lines and comparison with human cells."
+          ],
+          "methods": [
+            {
+              "method_id": "m7",
+              "name": "qRT-PCR and Western blot in mouse cell lines",
+              "protocol_description": "TAZ-S89A overexpression in mouse cell lines (HC11, NMuMG, E0771, E10, B16-OVA); PD-L1 mRNA and protein measured by qRT-PCR and Western blot."
+            },
+            {
+              "method_id": "m8",
+              "name": "Mouse Pd-l1 promoter luciferase assay",
+              "protocol_description": "Mouse Pd-l1 promoter reporter (nucleotides -1723 to +220) cotransfected with TAZ-S89A/TEAD4 into SK-BR-3 cells; dual luciferase assay."
+            }
+          ],
+          "name": "Species-specific regulation of PD-L1 by TAZ",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Mouse Pd-l1 promoter activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the mouse Pd-l1 promoter had a dramatically diminished response to both human and mouse constructs (Fig. 6G)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3a8e2567315378205b8c3c22",
+              "unit": null,
+              "value_raw_text": "The mouse Pd-l1 promoter had a dramatically diminished response to both human and mouse TAZ-S89A/TEAD4 compared to human PD-L1 promoter"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PD-L1 mRNA expression in mouse cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "TAZ-S89A overexpression caused no change in Pd-l1 mRNA expression in any of the cell lines examined (Fig. 6B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9419b33d969090a870fc61b4",
+              "unit": null,
+              "value_raw_text": "TAZ-S89A overexpression caused no change in Pd-l1 mRNA expression in any of the mouse cell lines examined"
+            }
+          ],
+          "unit_id": "su_4bd0939483b43cca6ffaf9d5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9fc8a3169be72a586dbe0583",
+              "inference_basis_ids": [
+                "res_5fa67b1fd76f1271e4b05101",
+                "res_883a59360871d4ef69c1094e",
+                "res_94defc834e0503da6569ec00",
+                "res_e246409934dadcc8827cbefb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "TAZ regulates PD-L1 expression by binding to the PD-L1 promoter through the TEAD family of transcription factors thereby enhancing promoter activity."
+              },
+              "statement": "PD-L1 is a transcriptional target of the Hippo pathway component TAZ in human cancer cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "TAZ knockout decreases PD-L1; addback rescues; TAZ/TEAD activate PD-L1 promoter; TAZ binds PD-L1 promoter",
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "TAZ knockout decreased PD-L1 protein in both cell lines... PD-L1 expression in TAZ-knockout MDA-MB-231 cell lines was rescued by addback... TAZ-S89A and TEAD1-4 coexpression dramatically increased PD-L1 promoter activity... TAZ binds at the PD-L1 promoter by ChIP."
+              },
+              "span_id": "es2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Validation of PD-L1 as a bona fide transcriptional target of the Hippo signaling pathway in human cells through overexpression, knockdown, and knockout experiments."
+          ],
+          "methods": [
+            {
+              "method_id": "m2",
+              "name": "Western blot and qRT-PCR",
+              "protocol_description": "Western blot analysis using antibodies against PD-L1, YAP/TAZ, etc. qRT-PCR using SYBR Green reagents."
+            },
+            {
+              "method_id": "m3",
+              "name": "CRISPR-Cas9 knockout",
+              "protocol_description": "TAZ knockout using lentiCRISPRv1 vector; clonal cell lines established by limiting dilution; addback of CRISPR-resistant TAZ constructs."
+            },
+            {
+              "method_id": "m4",
+              "name": "Dual luciferase assay",
+              "protocol_description": "100 ng promoter reporter cotransfected with TAZ/YAP and TEAD constructs into SK-BR-3 cells; Renilla luciferase as internal control; measured after 48 hours."
+            },
+            {
+              "method_id": "m5",
+              "name": "Chromatin immunoprecipitation (ChIP)",
+              "protocol_description": "SimpleChIP Enzymatic Chromatin IP Kit; MCF10A-TAZ-S89A cells induced with doxycycline for 72 hours; chromatin incubated with TAZ antibody or normal mouse IgG."
+            }
+          ],
+          "name": "Validation of PD-L1 as a transcriptional target of Hippo signaling",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "PD-L1 protein expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "TAZ knockout decreased PD-L1 protein in both cell lines (Fig. 3C and D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5fa67b1fd76f1271e4b05101",
+              "unit": null,
+              "value_raw_text": "TAZ knockout decreased PD-L1 protein in MDA-MB-231 and SK-BR-3 cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PD-L1 expression rescue",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "PD-L1 expression in TAZ-knockout MDA-MB-231 cell lines was rescued by addback of CRISPR-Cas9–resistant TAZ constructs (Fig. 3F and G)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_883a59360871d4ef69c1094e",
+              "unit": null,
+              "value_raw_text": "PD-L1 expression in TAZ-knockout MDA-MB-231 cell lines was rescued by addback of CRISPR-Cas9–resistant TAZ constructs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PD-L1 promoter activity",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "TAZ-S89A and TEAD1-4 coexpression dramatically increased PD-L1 promoter activity (Fig. 4E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_94defc834e0503da6569ec00",
+              "unit": null,
+              "value_raw_text": "TAZ-S89A and TEAD1-4 coexpression dramatically increased PD-L1 promoter activity in SK-BR-3 cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TAZ binding to PD-L1 promoter",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We confirmed that TAZ binds at the PD-L1 promoter by ChIP. Specifically, we found that fragments from the proximal PD-L1 promoter (i.e., positions -221 to +21 and -183 to +58), the CTGF promoter and the CYR61 promoter precipitated with TAZ whereas a more distal fragment from the PD-L1 promoter (positions -1039 to -808) did not (Fig. 4K)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e246409934dadcc8827cbefb",
+              "unit": null,
+              "value_raw_text": "TAZ binds at the PD-L1 promoter as shown by ChIP; fragments from proximal PD-L1 promoter precipitated with TAZ"
+            }
+          ],
+          "unit_id": "su_7ab4814a5be7f00cae9ac4b0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cb9a07725a6e045624342f1d",
+              "inference_basis_ids": [
+                "res_97a507cf2d8f3e2fa9b33e56",
+                "res_c32b00f54b7370c0c7648849",
+                "res_dd1c8af306d9713c57d1a7c3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "cancer cell TAZ expression regulates T-cell viability through PD-L1."
+              },
+              "statement": "TAZ-induced PD-L1 upregulation in human cancer cells inhibits T-cell function."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "TAZ overexpression increases T-cell apoptosis and decreases IL2 production; PD-L1 blockade reverses these effects",
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "TAZ-S89A overexpression in MCF10A was sufficient to increase apoptosis in Jurkat T cells... inhibition of PD-L1/PD-1 binding completely suppressed TAZ-S89A–induced T-cell apoptosis... TAZ-S89A overexpression in A549 was sufficient to suppress IL2 production by T cells and this was reversed when cells were cocultured in the presence of a PD-L1 blocking antibody."
+              },
+              "span_id": "es3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Coculture of TAZ-overexpressing cancer cell lines with Jurkat T cells to assess T-cell apoptosis and IL2 production."
+          ],
+          "methods": [
+            {
+              "method_id": "m6",
+              "name": "Coculture assay",
+              "protocol_description": "Jurkat T cells activated with PMA and PHA, then cocultured with TAZ-overexpressing cancer cells. T-cell apoptosis measured by flow cytometry; IL2 production measured by ELISA."
+            }
+          ],
+          "name": "Functional impact of TAZ-induced PD-L1 on T-cell function",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "T-cell apoptosis",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "TAZ-S89A overexpression in MCF10A was sufficient to increase apoptosis in Jurkat T cells cocultured with these cells (Fig. 5B and C). A similar increase in apoptosis was observed in T cells cocultured with TAZ-S89A–overexpressing A549 or H1299 lung cancer cells (Fig. 5D–G)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_97a507cf2d8f3e2fa9b33e56",
+              "unit": null,
+              "value_raw_text": "TAZ-S89A overexpression in MCF10A, A549, and H1299 increased apoptosis in Jurkat T cells cocultured with these cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "T-cell apoptosis with PD-L1 blockade",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "inhibition of PD-L1/PD-1 binding completely suppressed TAZ-S89A–induced T-cell apoptosis (Fig. 5H)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c32b00f54b7370c0c7648849",
+              "unit": null,
+              "value_raw_text": "Inhibition of PD-L1/PD-1 binding completely suppressed TAZ-S89A–induced T-cell apoptosis"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "IL2 production",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d828827748f91f376369",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "TAZ-S89A overexpression in A549 was sufficient to suppress IL2 production by T cells and this was reversed when cells were cocultured in the presence of a PD-L1 blocking antibody (Fig. 5I)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd1c8af306d9713c57d1a7c3",
+              "unit": null,
+              "value_raw_text": "TAZ-S89A overexpression in A549 suppressed IL2 production by T cells and this was reversed by PD-L1 blocking antibody"
+            }
+          ],
+          "unit_id": "su_db5b21b84ac81eb680ff5011"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

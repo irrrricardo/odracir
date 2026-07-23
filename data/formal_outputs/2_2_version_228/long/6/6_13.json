@@ -1,0 +1,401 @@
+{
+  "coverage_ledger": {
+    "0374b864f016b2cdbaae": "not_selected",
+    "201f83c97ca64b909d71": "not_selected",
+    "29e076da6bf0b7868190": "not_selected",
+    "2ff0b346b1eb0273feb6": "extracted",
+    "5318b72e197eb45b8393": "extracted",
+    "5462e11c8e5e2dbe1642": "not_selected",
+    "70f9e99e3d178232b89c": "extracted",
+    "ab38fbb3720df39eab10": "not_selected",
+    "bba7b1d4345efd880ace": "not_selected",
+    "cbe40ff5bea5b1a829bf": "not_selected",
+    "d79ad99aaff6c8ef67d8": "not_selected",
+    "d93692d12e7123ffb740": "not_selected",
+    "f5c6eb69ddc757e4470c": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The analysis of activation functions beyond ReLU and Leaky-ReLU is limited; for non-regular graphs, the proof does not guarantee E(σ(X)) ≤ E(X) for Sigmoid or Tanh.",
+    "The experimental study only considers increasing edge weights to a very high value (10000) and does not explore moderate weight increases.",
+    "The theoretical bounds rely on the condition s λ̄ < 1 for exponential decay, which may not hold for all weight matrix choices.",
+    "The analysis assumes the GCN architecture with augmented normalized Laplacian and does not cover other GNN variants like GAT or GraphSAGE."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_13.pdf",
+    "source_sha256": "a9cdd2834ad1194f7a6d1806b22332fe21d83adde7e54dc652c8cc768f707ccf"
+  },
+  "paper_id": "6_13",
+  "quality_assessment": {
+    "correct_item_count": 27,
+    "deterministic_rule_score": 0.9364,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 27,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does the over-smoothing effect in general graph neural network architectures depend on the weight matrix and the spectrum of the augmented normalized Laplacian?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_41c5e7bb25f711b9b0913d70",
+              "inference_basis_ids": [
+                "res_1bc210ef5487b041fb5a158b",
+                "res_38f5d3ada43e65ee1280c7d3",
+                "res_5237f60247d3c5026317ae09"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The proof is easy to follow and requires only elementary linear algebra."
+              },
+              "statement": "The proof requires only elementary linear algebra."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8924c841f618d6c1f9d64fd4",
+              "inference_basis_ids": [
+                "res_1bc210ef5487b041fb5a158b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "our analysis can be easily applied to Leaky ReLU. In the special case of regular graphs, our proof can be extended to the most common nonlinearities."
+              },
+              "statement": "The analysis can be easily applied to Leaky ReLU, and for regular graphs extended to common nonlinearities like Tanh and Sigmoid."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b6b5239371c6859c94707d26",
+              "inference_basis_ids": [
+                "res_1bc210ef5487b041fb5a158b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "70f9e99e3d178232b89c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the proof of Lemma 3.3 becomes trivial once we write out the Dirichlet energy as the sum of multiple terms for each of which the effect of nonlinearity can be easily analyzed."
+              },
+              "statement": "The proof for activation functions becomes trivial by writing Dirichlet energy as a sum of terms."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_eacaf118589d8b3e5d9b3c1d",
+              "inference_basis_ids": [
+                "res_5237f60247d3c5026317ae09"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f5c6eb69ddc757e4470c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Note that our proof can handle weight matrix not only of dimension d × d but also of dimension d × d′ while the paper (Oono & Suzuki, 2019) assumes the embedding dimension to be fixed across layers."
+              },
+              "statement": "The analysis handles weight matrices of varying dimensions, unlike Oono & Suzuki (2019) which assumes fixed embedding dimension."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f0bda3b2ff1ff424bf7fb266",
+              "inference_basis_ids": [
+                "res_1bc210ef5487b041fb5a158b",
+                "res_38f5d3ada43e65ee1280c7d3",
+                "res_5237f60247d3c5026317ae09",
+                "res_cffbede42ce597a57dc1f26e",
+                "res_fa063cd52bb61ed284ea828a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Using Dirichlet energy to measure “expressiveness” of embedding is conceptually clean; it leads to simpler proofs than (Oono & Suzuki, 2019) and can handle more non-linearities."
+              },
+              "statement": "Dirichlet energy provides a conceptually clean measure of embedding expressiveness and leads to simpler proofs than Oono & Suzuki (2019)."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Note that our proof can handle weight matrix not only of dimension d × d but also of dimension d × d′ while the paper (Oono & Suzuki, 2019) assumes the embedding dimension to be fixed across layers.",
+              "provenance": {
+                "chunk_id": "f5c6eb69ddc757e4470c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Note that our proof can handle weight matrix not only of dimension d × d but also of dimension d × d′ while the paper (Oono & Suzuki, 2019) assumes the embedding dimension to be fixed across layers."
+              },
+              "span_id": "ES4"
+            },
+            {
+              "content": "The proof is easy to follow and requires only elementary linear algebra.",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The proof is easy to follow and requires only elementary linear algebra."
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "Using Dirichlet energy to measure “expressiveness” of embedding is conceptually clean; it leads to simpler proofs than (Oono & Suzuki, 2019) and can handle more non-linearities.",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Using Dirichlet energy to measure “expressiveness” of embedding is conceptually clean; it leads to simpler proofs than (Oono & Suzuki, 2019) and can handle more non-linearities."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "our analysis can be easily applied to Leaky ReLU. In the special case of regular graphs, our proof can be extended to the most common nonlinearities.",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "our analysis can be easily applied to Leaky ReLU. In the special case of regular graphs, our proof can be extended to the most common nonlinearities."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "the proof of Lemma 3.3 becomes trivial once we write out the Dirichlet energy as the sum of multiple terms for each of which the effect of nonlinearity can be easily analyzed.",
+              "provenance": {
+                "chunk_id": "70f9e99e3d178232b89c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the proof of Lemma 3.3 becomes trivial once we write out the Dirichlet energy as the sum of multiple terms for each of which the effect of nonlinearity can be easily analyzed."
+              },
+              "span_id": "ES5"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Analyze the asymptotic behavior of node embeddings as the number of GCN layers goes to infinity.",
+            "Track the Dirichlet energy of embeddings across layers under assumptions on weight matrices and activation functions."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Dirichlet energy tracking",
+              "protocol_description": "Define Dirichlet energy E(X) = tr(X^T Δ̃ X) for node embeddings X. Prove that each GCN layer component (graph convolution P, weight matrix W, activation σ) reduces Dirichlet energy under certain conditions. Combine lemmas to show exponential decay when s λ̄ < 1, where s is the supremum of the product of squared maximum singular values of weight matrices and λ̄ = (1-λ)^2 with λ the smallest non-zero eigenvalue of Δ̃."
+            }
+          ],
+          "name": "Theoretical analysis of Dirichlet energy decay",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy bound after ReLU or Leaky-ReLU activation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "70f9e99e3d178232b89c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "E(σ(X)) ≤ E(X) when σ is ReLU or Leaky-ReLU."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1bc210ef5487b041fb5a158b",
+              "unit": null,
+              "value_raw_text": "E(σ(X)) ≤ E(X) when σ is ReLU or Leaky-ReLU"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy bound after graph convolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f5c6eb69ddc757e4470c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "E(PX) ≤ (1 −λ)2E(X) where λ is the smallest non-zero eigenvalue of ˜∆."
+              },
+              "quantitative_value": null,
+              "result_id": "res_38f5d3ada43e65ee1280c7d3",
+              "unit": null,
+              "value_raw_text": "E(PX) ≤ (1-λ)^2 E(X)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy bound after weight multiplication",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f5c6eb69ddc757e4470c",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "E(XW) ≤ ||W T ||2\n2E(X)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5237f60247d3c5026317ae09",
+              "unit": null,
+              "value_raw_text": "E(XW) ≤ ||W^T||_2^2 E(X)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Exponential decay condition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "70f9e99e3d178232b89c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "E(X(l)) ≤ O((s¯λ)l). In particular, E(X(l)) exponentially converges to 0 when s¯λ < 1."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cffbede42ce597a57dc1f26e",
+              "unit": null,
+              "value_raw_text": "E(X^(l)) ≤ O((s λ̄)^l), converges to 0 when s λ̄ < 1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dirichlet energy bound per layer",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "70f9e99e3d178232b89c",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "For any l ∈N+, we have E(fl(X)) ≤ sl¯λE(X)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fa063cd52bb61ed284ea828a",
+              "unit": null,
+              "value_raw_text": "E(f_l(X)) ≤ s_l λ̄ E(X)"
+            }
+          ],
+          "unit_id": "su_93b83ba8d24cfcae6e17b7fd"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How do basic edge operations (dropping edges, increasing edge weights) affect Dirichlet energy and over-smoothing?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4f367ac601e9ca1594bb6e40",
+              "inference_basis_ids": [
+                "res_b31038ba9cd9cd7e1a641098"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We find in many cases dropping edges and increasing the weights of edges (to a high value) can increase the Dirichlet energy."
+              },
+              "statement": "Dropping edges and increasing edge weights can increase Dirichlet energy in many cases."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Citation graph with 2708 nodes and 5278 edges.",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Citation graph with 3327 nodes and 4552 edges.",
+              "name": "CiteSeer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Includes random graph G(200,0.05), random geometric graph (200 nodes, edge threshold 0.2), SBM with 2 blocks (100 nodes each, intra-prob 0.1, inter-prob 0.01), SBM with 4 blocks (50 nodes each, intra-probs 0.1,0.2,0.3,0.4, inter-prob 0.08), Barabasi-Albert graph (n=200, m=4).",
+              "name": "Synthetic graphs",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "We find in many cases dropping edges and increasing the weights of edges (to a high value) can increase the Dirichlet energy.",
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We find in many cases dropping edges and increasing the weights of edges (to a high value) can increase the Dirichlet energy."
+              },
+              "span_id": "ES6"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Compute eigenvalues before and after randomly dropping/increasing weights of a certain percent (10%-90%) of edges.",
+            "Generate signals x, Px, P^2x as a mix of lower eigenvectors and compute Dirichlet energy."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Edge perturbation and Dirichlet energy measurement",
+              "protocol_description": "For each graph, randomly drop or increase weights (to 10000) of a percentage of edges (10%-90%). Compute eigenvalues of normalized Laplacian before and after. Generate signals x as a mix of the first T eigenvectors (T=20 for synthetic, 400 for Cora, 600 for Citeseer) with uniform random coefficients. Compute Dirichlet energy of x, Px, P^2x."
+            }
+          ],
+          "name": "Experimental study of edge operations on Dirichlet energy",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of edge operations on Dirichlet energy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2ff0b346b1eb0273feb6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We find in many cases dropping edges and increasing the weights of edges (to a high value) can increase the Dirichlet energy."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b31038ba9cd9cd7e1a641098",
+              "unit": null,
+              "value_raw_text": "In many cases dropping edges and increasing the weights of edges (to a high value) can increase the Dirichlet energy."
+            }
+          ],
+          "unit_id": "su_9a934bf6f00778fe9bf2fd73"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

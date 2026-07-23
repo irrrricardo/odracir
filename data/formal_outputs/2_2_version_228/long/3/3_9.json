@@ -1,0 +1,1116 @@
+{
+  "coverage_ledger": {
+    "119a20047abb3772a6f4": "not_selected",
+    "12ca0a315d78e0a7333a": "not_selected",
+    "34d982673bda7fedea73": "not_selected",
+    "57fb72a4d07704edbfbb": "not_selected",
+    "8b33bfe9d0b4ad789a10": "extracted",
+    "8ebb849aa19d6a266d77": "extracted",
+    "95c6b7f0307017ca6ea0": "not_selected",
+    "a10b5b45f43247adeb81": "extracted",
+    "a70aa0b91c8024934966": "not_selected",
+    "ac2879d223aeb7a88373": "not_selected",
+    "b0d6fcfda7baddb8b5d5": "not_selected",
+    "be79c5221143e3a47211": "not_selected",
+    "c846d838334935778718": "not_selected",
+    "c860d444fa7050499f1a": "extracted",
+    "d7927fec6a3baae84783": "not_selected",
+    "de19ea779b0526fd6839": "not_selected",
+    "f287524ebeabca45724c": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses in vitro assays and xenograft models; clinical relevance in human tumors is not directly tested.",
+    "The role of other JAK family members or STATs beyond JAK1 and STAT3 is not exhaustively examined.",
+    "The feedback loop between contractility and STAT3 is demonstrated but the detailed molecular mechanism is not fully elucidated.",
+    "The effects of cytokine signaling on other modes of migration (e.g., mesenchymal) are not addressed.",
+    "The study focuses on squamous cell carcinoma and melanoma; generalizability to other cancer types is unknown.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_9.pdf",
+    "source_sha256": "33fe4a4c3282f9c5a4b8c24d3afb0ab1a62104788d5f268097c888f4d20fad6f"
+  },
+  "paper_id": "3_9",
+  "quality_assessment": {
+    "correct_item_count": 90,
+    "deterministic_rule_score": 0.9566,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0526,
+      "sample_size_log_score": 0.2007,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 90,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does cytokine signaling through JAK kinases generate actomyosin contractility in CAFs and melanoma cells?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8c13d387150357c70c575862",
+              "inference_basis_ids": [
+                "res_6e5cc338840e0f4f267d951c",
+                "res_6f805b5b5cc84a265596a8ef",
+                "res_b7a72ed923fa06fe7e8c8e0e",
+                "res_ca2aafbe7246e90c828180d3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Thus, in both CAFs and melanoma cells, JAK1 signaling regulates actomyosin contractility by controlling the levels of phosphorylated-MLC2."
+              },
+              "statement": "JAK1 signaling regulates actomyosin contractility in CAFs by controlling MLC2 phosphorylation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Collagen lattice contraction assay with CAFs treated with JAK isoform-specific inhibitors.",
+            "Immunoblotting for P-MLC2 and total MLC2 in CAFs after JAK1 inhibition or siRNA.",
+            "Organotypic invasion assay with SCC12 cells and CAFs treated with P6 or JAK1 siRNA."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Collagen lattice contraction assay",
+              "protocol_description": "CAFs embedded in collagen lattices; contraction measured after treatment with inhibitors or siRNA."
+            },
+            {
+              "method_id": "M2",
+              "name": "Organotypic invasion assay",
+              "protocol_description": "SCC12 cells seeded on top of CAF-remodeled matrix; invasion depth quantified."
+            },
+            {
+              "method_id": "M3",
+              "name": "Immunoblotting",
+              "protocol_description": "Western blot for phosphorylated MLC2 (P-MLC) and total MLC2."
+            }
+          ],
+          "name": "JAK1 regulates actomyosin contractility in CAFs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SCC12 invasion after CAF pretreatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "If CAFs were treated with P6 during matrix remodelling, SCC12 invasion was blocked (Figure 1Bii). However if untreated CAFs were allowed to remodel the matrix, killed, and then SCC12 cells added in the presence of P6, invasion was unaffected (Figure 1Biii)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ce70d2d790b4c40e2dffd16",
+              "unit": null,
+              "value_raw_text": "If CAFs were treated with P6 during matrix remodelling, SCC12 invasion was blocked; if untreated CAFs were allowed to remodel the matrix, killed, and then SCC12 cells added in the presence of P6, invasion was unaffected"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "P-MLC2 levels after JAK1 siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Similarly, abrogating JAK1 expression with four different siRNAs reduced MLC2 phosphorylation (Figure 1G)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6e5cc338840e0f4f267d951c",
+              "unit": null,
+              "value_raw_text": "abrogating JAK1 expression with four different siRNAs reduced MLC2 phosphorylation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix contraction after JAK1 siRNA",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Figures 1C–1E and Figure S1B show that the RNAi-mediated knockdown of JAK1 dramatically reduced the capacity of CAFs to contract collagen lattices and induce SCC invasion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6f805b5b5cc84a265596a8ef",
+              "unit": null,
+              "value_raw_text": "RNAi-mediated knockdown of JAK1 dramatically reduced the capacity of CAFs to contract collagen lattices"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Total MLC2 levels after JAK1 siRNA or prolonged P6",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Depletion of JAK1 by siRNA reduced total MLC2 levels; this appears to be a consequence of long-term abrogation of JAK1 signaling in CAFs because prolonged treatment with P6 also reduced total MLC2 levels (Figure 1H)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9238cb79b62c41a30e51a7c9",
+              "unit": null,
+              "value_raw_text": "Depletion of JAK1 by siRNA reduced total MLC2 levels; prolonged treatment with P6 also reduced total MLC2 levels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "P-MLC2 levels after P6 treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Figure 1F shows that P6 reduces MLC2 phosphorylation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b7a72ed923fa06fe7e8c8e0e",
+              "unit": null,
+              "value_raw_text": "P6 reduces MLC2 phosphorylation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix contraction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "neither JAK2 nor JAK3-speciﬁc inhibitors recapitulated the effect of the pan-JAK inhibitor (P6) on matrix remodelling (Figure 1A), suggesting that JAKI is the family member involved."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ca2aafbe7246e90c828180d3",
+              "unit": null,
+              "value_raw_text": "P6 blocked matrix remodelling; JAK2 or JAK3 inhibitors did not recapitulate the effect"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SCC12 invasion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Figure 1B (panel i) shows that P6 dramatically blocked SCC invasion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e189344df720159686b3cd14",
+              "unit": null,
+              "value_raw_text": "P6 dramatically blocked SCC invasion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SCC12 invasion after JAK1 siRNA",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a10b5b45f43247adeb81",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Figures 1C–1E and Figure S1B show that the RNAi-mediated knockdown of JAK1 dramatically reduced the capacity of CAFs to contract collagen lattices and induce SCC invasion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f53a88726871ddf40dc3326d",
+              "unit": null,
+              "value_raw_text": "RNAi-mediated knockdown of JAK1 dramatically reduced SCC invasion"
+            }
+          ],
+          "unit_id": "su_15acfcb1e8ce47114ea00f12"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4c2f4fa299b8a0ce9b04117d",
+              "inference_basis_ids": [
+                "res_0d215e4d6f2079af9975ab03",
+                "res_18882f8361567d515abde073",
+                "res_1b59184bce608a8dbae75c6d",
+                "res_214eee46ab576637bdaca600",
+                "res_224dd362c8dea864c0d3ef93",
+                "res_9f38e44a3e488f0845dd9311",
+                "res_a05b3afc26aed922971bdaf8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "These data strongly support the argument that signaling through GP130-IL6ST and the JAK pathway drives rounded, ‘‘amoeboid’’ movement in culture and in vivo."
+              },
+              "statement": "Signaling through GP130-IL6ST and the JAK pathway drives rounded, amoeboid movement in culture and in vivo."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "A375M2 cells with GP130-IL6ST siRNA; MLC2 phosphorylation, invasion morphology, and in vivo motility assessed.",
+            "Intravital imaging of A375M2 xenografts with GP130-IL6ST shRNA.",
+            "SKMEL28 cells overexpressing GP130-IL6ST; morphology and MLC2 phosphorylation measured."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "3D collagen invasion assay",
+              "protocol_description": "Cells invade into collagen I matrix; morphology scored."
+            },
+            {
+              "method_id": "M11",
+              "name": "Intravital multiphoton microscopy",
+              "protocol_description": "A375M2 subcutaneous tumors imaged; motility and morphology analyzed."
+            },
+            {
+              "method_id": "M9",
+              "name": "Immunoblotting",
+              "protocol_description": "Western blot for P-MLC2."
+            }
+          ],
+          "name": "GP130-IL6ST regulates actomyosin contractility in melanoma cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Rounded amoeboid movement in vivo after GP130-IL6ST shRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "the reduction in motility of GP130-IL6ST depleted cells correlated with reduced levels of rounded, ‘‘amoeboid’’ movement (Figure 3I; Figure S3I)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0d215e4d6f2079af9975ab03",
+              "unit": null,
+              "value_raw_text": "the reduction in motility of GP130-IL6ST depleted cells correlated with reduced levels of rounded, amoeboid movement"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion morphology after GP130-IL6ST siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "GP130-IL6ST depleted A375M2 cells invaded into a 3D collagen I matrix as elongated rather than round cells (Figures 3F and 3G)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_18882f8361567d515abde073",
+              "unit": null,
+              "value_raw_text": "GP130-IL6ST depleted A375M2 cells invaded into a 3D collagen I matrix as elongated rather than round cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC2 phosphorylation after GP130-IL6ST overexpression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Overexpression of GP130-IL6ST led to increased MLC2 phosphorylation (Figures S3E and S3G)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1b59184bce608a8dbae75c6d",
+              "unit": null,
+              "value_raw_text": "Overexpression of GP130-IL6ST led to increased MLC2 phosphorylation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "P-MLC2 levels after GP130-IL6ST siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Depletion of GP130-IL6ST resulted in reduced MLC2 phosphorylation (Figures 3D and 3E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_214eee46ab576637bdaca600",
+              "unit": null,
+              "value_raw_text": "Depletion of GP130-IL6ST resulted in reduced MLC2 phosphorylation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasive capacity after GP130-IL6ST siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "GP130-IL6ST depleted A375M2 cells ... had reduced invasive capacity (Figure S3B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_224dd362c8dea864c0d3ef93",
+              "unit": null,
+              "value_raw_text": "GP130-IL6ST depleted A375M2 cells had reduced invasive capacity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "In vivo tumor cell motility after GP130-IL6ST shRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Imaging of two stable cell lines where GP130-IL6ST was depleted by expression of different shRNAs showed that tumor cell motility was signiﬁcantly reduced compared to cells containing a control shRNA vector"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9f38e44a3e488f0845dd9311",
+              "unit": null,
+              "value_raw_text": "tumor cell motility was significantly reduced compared to cells containing a control shRNA vector"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Round morphology after GP130-IL6ST overexpression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Overexpression of GP130-IL6ST resulted in an increased proportion of cells with a round, contractile morphology (Figures S3E and S3F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a05b3afc26aed922971bdaf8",
+              "unit": null,
+              "value_raw_text": "Overexpression of GP130-IL6ST resulted in an increased proportion of cells with a round, contractile morphology"
+            }
+          ],
+          "unit_id": "su_63c8c36dfd0351bbbfe75b86"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a3f1938a33cdfa1cc53a7374",
+              "inference_basis_ids": [
+                "res_23bbd43064e40caf88d573fb",
+                "res_42c862be7fee81064f2fd7bf",
+                "res_662056d5c39d480905513790",
+                "res_aee2a553f222b877d18db7fb",
+                "res_e38be93b0c840582e7723327"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Thus, in both CAFs and melanoma cells, JAK1 signaling regulates actomyosin contractility by controlling the levels of phosphorylated-MLC2."
+              },
+              "statement": "JAK1 signaling regulates actomyosin contractility in melanoma cells, controlling rounded amoeboid morphology."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "A375M2 melanoma cells treated with P6 or JAK1 siRNA; morphology and MLC2 phosphorylation assessed.",
+            "Cell morphology quantification on collagen I matrix.",
+            "Migration assay on rigid substrate."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Immunoblotting",
+              "protocol_description": "Western blot for P-MLC2 in A375M2 cells."
+            },
+            {
+              "method_id": "M5",
+              "name": "Cell morphology assay",
+              "protocol_description": "A375M2 cells plated on collagen I; round vs elongated morphology scored."
+            }
+          ],
+          "name": "JAK1 regulates actomyosin contractility in melanoma cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Proportion of round cells after JAK1 siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "the proportion of cells with a round, contractile morphology was reduced, and elongated cells increased ... by siRNA-mediated knockdown of JAK1 (Figures 2D and 2E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_23bbd43064e40caf88d573fb",
+              "unit": null,
+              "value_raw_text": "the proportion of cells with a round, contractile morphology was reduced, and elongated cells increased by siRNA-mediated knockdown of JAK1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "P-MLC2 levels after P6 treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "MLC2 phosphorylation in A375M2 cells was decreased following treatment with P6 (Figure 2A; Figure S2A)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_42c862be7fee81064f2fd7bf",
+              "unit": null,
+              "value_raw_text": "MLC2 phosphorylation in A375M2 cells was decreased following treatment with P6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proportion of round cells after P6",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "the proportion of cells with a round, contractile morphology was reduced, and elongated cells increased following treatment with P6 (Figure 2C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_662056d5c39d480905513790",
+              "unit": null,
+              "value_raw_text": "the proportion of cells with a round, contractile morphology was reduced, and elongated cells increased following treatment with P6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "P-MLC2 levels after JAK1 siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "MLC2 phosphorylation in A375M2 cells was decreased following ... depletion of JAK1 by siRNA (Figure 2B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_aee2a553f222b877d18db7fb",
+              "unit": null,
+              "value_raw_text": "MLC2 phosphorylation in A375M2 cells was decreased following depletion of JAK1 by siRNA"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell morphology after P6 or JAK1 siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The reduction in actomyosin contractility following P6 treatment or siRNA-mediated knockdown of JAK1 led to an elongated morphology (Figures 2C and 2D)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e38be93b0c840582e7723327",
+              "unit": null,
+              "value_raw_text": "The reduction in actomyosin contractility following P6 treatment or siRNA-mediated knockdown of JAK1 led to an elongated morphology"
+            }
+          ],
+          "unit_id": "su_676023afb13d06df607fc0f2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9fad307510eb41c0ba35da5f",
+              "inference_basis_ids": [
+                "res_c2189039021d10e89199d94e",
+                "res_e61147e48d086dbd16d27883"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "IL-6 treatment led to an increase in the proportion of round cells and a 2-fold increase in invasion"
+              },
+              "statement": "IL-6 treatment increases rounded amoeboid invasion in melanoma cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ae9e2d5bb865bc0346bbd855",
+              "inference_basis_ids": [
+                "res_166c092881cf3b71a5656f0d",
+                "res_8912b0cd6c2f4aa7029e37d1",
+                "res_f369f633df4d297252fc0d9e",
+                "res_fb14c1583fefd876fa2b3370"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Thus, OSM signaling through GP130-IL6ST, JAK1, and ROCK drives actomyosin contractility and matrix remodelling by CAFs for collective invasion of squamous cell carcinoma cells."
+              },
+              "statement": "OSM signaling through GP130-IL6ST, JAK1, and ROCK drives actomyosin contractility and matrix remodelling by CAFs for collective invasion of SCC cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "CAFs stimulated with OSM; matrix contraction, SCC12 invasion, and MLC2 phosphorylation measured with and without JAK1 inhibition.",
+            "Other melanoma lines treated with IL-6 or LIF; invasion measured.",
+            "WM1361 melanoma cells treated with IL-6; invasion morphology and invasion index quantified."
+          ],
+          "methods": [
+            {
+              "method_id": "M12",
+              "name": "Collagen lattice contraction assay",
+              "protocol_description": "CAFs with OSM stimulation; contraction measured."
+            },
+            {
+              "method_id": "M13",
+              "name": "Organotypic invasion assay",
+              "protocol_description": "SCC12 invasion after CAF OSM treatment."
+            },
+            {
+              "method_id": "M14",
+              "name": "Immunoblotting",
+              "protocol_description": "Western blot for P-MLC2."
+            },
+            {
+              "method_id": "M15",
+              "name": "3D collagen invasion assay",
+              "protocol_description": "Melanoma cells invade into collagen I; morphology and invasion index scored."
+            }
+          ],
+          "name": "IL-6 family cytokines regulate actomyosin contractility",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix contraction after OSM stimulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Figures 4A and 4B show that stimulation of CAFs by OSM increased contraction of collagen lattices"
+              },
+              "quantitative_value": null,
+              "result_id": "res_166c092881cf3b71a5656f0d",
+              "unit": null,
+              "value_raw_text": "stimulation of CAFs by OSM increased contraction of collagen lattices"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC2 phosphorylation after OSM and JAK1/ROCK inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Both basal and OSM stimulation of MLC2 phosphorylation are dependent on JAK1 signaling (Figures 4D and 4E) and ROCK (Figure 4D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8912b0cd6c2f4aa7029e37d1",
+              "unit": null,
+              "value_raw_text": "Both basal and OSM stimulation of MLC2 phosphorylation are dependent on JAK1 signaling and ROCK"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion after IL-6 or LIF in other melanoma lines",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Treatment of three other melanoma cell lines, A375M2, WM1366, and SKMEL28, with IL-6 or leukemia inhibitory factor (LIF), which also signals through GP130-IL6ST (Gearing et al., 1992), resulted in increased invasion (Figures S4A and S4B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c2189039021d10e89199d94e",
+              "unit": null,
+              "value_raw_text": "Treatment of three other melanoma cell lines, A375M2, WM1366, and SKMEL28, with IL-6 or leukemia inhibitory factor (LIF) resulted in increased invasion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion morphology after IL-6 treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "IL-6 treatment led to an increase in the proportion of round cells and a 2-fold increase in invasion (Figures 4F and 4G)."
+              },
+              "quantitative_value": 2.0,
+              "result_id": "res_e61147e48d086dbd16d27883",
+              "unit": "fold increase",
+              "value_raw_text": "IL-6 treatment led to an increase in the proportion of round cells and a 2-fold increase in invasion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SCC12 invasion after OSM stimulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Figure 4C shows that OSM increased SCC12 cell invasion in the organotypic assay."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f369f633df4d297252fc0d9e",
+              "unit": null,
+              "value_raw_text": "OSM increased SCC12 cell invasion in the organotypic assay"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "OSM effects blocked by JAK1 inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "These effects of OSM are mediated by JAK1 because they are eliminated by treatment with P6 or JAK1 siRNA, but not by JAK2 inhibitor SD1029 (Figures 4A–4C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fb14c1583fefd876fa2b3370",
+              "unit": null,
+              "value_raw_text": "These effects of OSM are mediated by JAK1 because they are eliminated by treatment with P6 or JAK1 siRNA, but not by JAK2 inhibitor SD1029"
+            }
+          ],
+          "unit_id": "su_92f92943c8ea3a0e4aea2fce"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_adbbbb3164faf6e3bfbd6939",
+              "inference_basis_ids": [
+                "res_7228114fddde638d9222cc50",
+                "res_740a5e1621beb5a5b6500886",
+                "res_77db394b47b21df8cd009f42",
+                "res_c500b7d75d16bf35ad0af18f",
+                "res_c94539da210870238689a330",
+                "res_de75e54d166e93d666df9aa4",
+                "res_f64641acebf8a177740b6f1e",
+                "res_f8a36f97232c3939f9846d61",
+                "res_f9ce169b4a2ecfdcff60cf20"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Strikingly, actomyosin contractility itself positively modulates activity of the transcription factor STAT3 downstream of JAK1, demonstrating positive feedback within the signaling network."
+              },
+              "statement": "Actomyosin contractility positively modulates STAT3 activity downstream of JAK1, demonstrating positive feedback."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "A375M2 cells with STAT3 siRNA; round morphology and MLC2 phosphorylation.",
+            "A375P cells with inducible ROCKER; STAT3 phosphorylation after tamoxifen.",
+            "CAFs and A375M2 cells treated with ROCK inhibitors; STAT3 phosphorylation measured.",
+            "CAFs with STAT3 siRNA; matrix contraction, SCC12 invasion, and MLC2/GP130 levels.",
+            "Gene expression analysis of A375M2 and A375P under varying contractility conditions."
+          ],
+          "methods": [
+            {
+              "method_id": "M16",
+              "name": "Immunoblotting",
+              "protocol_description": "Western blot for P-STAT3, P-MLC2, total MLC2, GP130-IL6ST."
+            },
+            {
+              "method_id": "M17",
+              "name": "Collagen lattice contraction assay",
+              "protocol_description": "CAFs with STAT3 siRNA; contraction measured."
+            },
+            {
+              "method_id": "M18",
+              "name": "Organotypic invasion assay",
+              "protocol_description": "SCC12 invasion after CAF STAT3 depletion."
+            },
+            {
+              "method_id": "M19",
+              "name": "Cell morphology assay",
+              "protocol_description": "A375M2 cells on collagen I; round vs elongated scored."
+            },
+            {
+              "method_id": "M20",
+              "name": "Gene expression microarray",
+              "protocol_description": "A375M2 and A375P cells under high/low contractility; differential expression analyzed."
+            }
+          ],
+          "name": "Interplay between actomyosin contractility and JAK1-STAT3 transcription",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC2 phosphorylation after STAT3 siRNA in melanoma",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Depletion of STAT3 resulted in diminished levels of MLC2 phosphorylation (Figures 5I and 5J)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7228114fddde638d9222cc50",
+              "unit": null,
+              "value_raw_text": "Depletion of STAT3 resulted in diminished levels of MLC2 phosphorylation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "STAT3 phosphorylation after ROCKER induction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Induction of ROCK activity resulted in STAT3 phosphorylation soon after tamoxifen treatment (Figure S5B)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_740a5e1621beb5a5b6500886",
+              "unit": null,
+              "value_raw_text": "Induction of ROCK activity resulted in STAT3 phosphorylation soon after tamoxifen treatment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROCK-induced STAT3 phosphorylation requires JAK",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "STAT3 phosphorylation was inhibited by JAK inhibitor P6, showing that ROCK-induced STAT3 phosphorylation required JAK kinase activity (Figure S5C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_77db394b47b21df8cd009f42",
+              "unit": null,
+              "value_raw_text": "STAT3 phosphorylation was inhibited by JAK inhibitor P6, showing that ROCK-induced STAT3 phosphorylation required JAK kinase activity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SCC12 invasion after STAT3 siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "STAT3 expression silencing using speciﬁc siRNA resulted in decreased ... SCC12 cell invasion (Figures 5D and 5E)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c500b7d75d16bf35ad0af18f",
+              "unit": null,
+              "value_raw_text": "STAT3 expression silencing using specific siRNA resulted in decreased SCC12 cell invasion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC2 and GP130 levels after STAT3 siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Figure 5F shows that, similar to JAK1 knockdown, STAT3 silencing in CAFs reduces the levels of phosphorylated and total MLC2 protein. The level of GP130-IL6ST protein expression was also decreased (Figure 5F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c94539da210870238689a330",
+              "unit": null,
+              "value_raw_text": "STAT3 silencing in CAFs reduces the levels of phosphorylated and total MLC2 protein. The level of GP130-IL6ST protein expression was also decreased"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Round morphology after STAT3 siRNA in melanoma",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "knockdown of STAT3 expression decreased the proportion of cells with round, contractile morphology (Figures 5G and 5H; Figure S5D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_de75e54d166e93d666df9aa4",
+              "unit": null,
+              "value_raw_text": "knockdown of STAT3 expression decreased the proportion of cells with round, contractile morphology"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix contraction after STAT3 siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "In CAFs, STAT3 expression silencing using speciﬁc siRNA resulted in decreased matrix contraction (Figure 5C)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f64641acebf8a177740b6f1e",
+              "unit": null,
+              "value_raw_text": "STAT3 expression silencing using specific siRNA resulted in decreased matrix contraction"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene expression changes with contractility",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Genes upregulated in conditions of high contractility and downregulated in all treatments that decreased contractility are shown in Figure 6A. GeneGo Network Enrichment analysis (http://www.genego.com/metacore.php) showed that one of the main transcriptional networks in this data set is centered on the STAT family of transcription factors (Figure 6B) and includes genes such as GP130-IL6ST, the IL-6 receptor a subunit (IL6R), the cytokine LIF, and the LIF receptor a (LIFR)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f8a36f97232c3939f9846d61",
+              "unit": null,
+              "value_raw_text": "Genes upregulated in conditions of high contractility and downregulated in all treatments that decreased contractility are shown in Figure 6A. GeneGo Network Enrichment analysis showed that one of the main transcriptional networks in this data set is centered on the STAT family of transcription factors and includes genes such as GP130-IL6ST, the IL-6 receptor a subunit (IL6R), the cytokine LIF, and the LIF receptor a (LIFR)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "STAT3 phosphorylation after ROCK inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ebb849aa19d6a266d77",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "treatment with ROCK inhibitors reduced phosphorylation of STAT3 both in CAFs (Figure 5A) and A375M2 cells (Figure 5B; Figure S5A)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f9ce169b4a2ecfdcff60cf20",
+              "unit": null,
+              "value_raw_text": "treatment with ROCK inhibitors reduced phosphorylation of STAT3 both in CAFs and A375M2 cells"
+            }
+          ],
+          "unit_id": "su_c9c4bdc76d6dd0fd60c50c41"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_47e42db4aef10dee83a1e692",
+              "inference_basis_ids": [
+                "res_578ff67e1a2e1c067034bb1f",
+                "res_83456ed08bc031e5aaba2143",
+                "res_d63de754b551ddb4d6987eb6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Thus, GP130-IL6ST signaling to JAK1 drives actomyosin contractility in CAFs and mediates matrix remodelling."
+              },
+              "statement": "GP130-IL6ST signaling to JAK1 drives actomyosin contractility in CAFs and mediates matrix remodelling."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "CAFs transfected with GP130-IL6ST siRNA; matrix contraction, MLC2 phosphorylation, and SCC12 invasion measured."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Collagen lattice contraction assay",
+              "protocol_description": "CAFs with GP130-IL6ST siRNA in collagen lattices; contraction measured."
+            },
+            {
+              "method_id": "M7",
+              "name": "Organotypic invasion assay",
+              "protocol_description": "SCC12 invasion after CAF GP130-IL6ST depletion."
+            },
+            {
+              "method_id": "M8",
+              "name": "Immunoblotting",
+              "protocol_description": "Western blot for P-MLC2."
+            }
+          ],
+          "name": "GP130-IL6ST regulates actomyosin contractility in CAFs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MLC2 phosphorylation after GP130-IL6ST siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Depletion of GP130-IL6ST in CAFs using siRNAs resulted in reduction of ... MLC2 phosphorylation (Figure S3A)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_578ff67e1a2e1c067034bb1f",
+              "unit": null,
+              "value_raw_text": "Depletion of GP130-IL6ST in CAFs using siRNAs resulted in reduction of MLC2 phosphorylation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SCC12 invasion after GP130-IL6ST siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Depletion of GP130-IL6ST in CAFs using siRNAs resulted in reduction of ... SCC12 invasion (Figures 3B and 3C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_83456ed08bc031e5aaba2143",
+              "unit": null,
+              "value_raw_text": "Depletion of GP130-IL6ST in CAFs using siRNAs resulted in reduction of SCC12 invasion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix contraction after GP130-IL6ST siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c860d444fa7050499f1a",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Depletion of GP130-IL6ST in CAFs using siRNAs resulted in reduction of matrix contraction (Figure 3A)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d63de754b551ddb4d6987eb6",
+              "unit": null,
+              "value_raw_text": "Depletion of GP130-IL6ST in CAFs using siRNAs resulted in reduction of matrix contraction"
+            }
+          ],
+          "unit_id": "su_da300b90058dd29a9b32f1a0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5435 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4717 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3750 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7212 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7439 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8426 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8091 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6420 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4233 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8070 on attempt 1"
+    }
+  ]
+}

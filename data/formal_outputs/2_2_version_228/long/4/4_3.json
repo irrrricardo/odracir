@@ -1,0 +1,485 @@
+{
+  "coverage_ledger": {
+    "1387c2535af4680788b3": "not_selected",
+    "39012666dcf410e86a00": "not_selected",
+    "7bde973fbc52af55bc1e": "extracted",
+    "af4c22c33869675c78b8": "not_selected",
+    "ba48648a1847fedba335": "not_selected",
+    "c911ce6f90543ccabb98": "extracted",
+    "d9cc41038f4d1c804fe0": "not_selected",
+    "ff725da374f832b31bf4": "extracted",
+    "ffadddd16fa1b300cef8": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study uses an ex vivo micropatterned culture system; in vivo validation is not provided.",
+    "The computational model assumes constant flux and passive isotropic diffusion, which may oversimplify in vivo conditions.",
+    "The role of latent TGFβ activation and additional signals (chemical or mechanical) in sculpting the inhibitor gradient remains speculative.",
+    "Experiments were performed with mouse mammary epithelial cell lines and primary organoids; generalizability to human tissue is not addressed.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_3.pdf",
+    "source_sha256": "0f6bf1991a615150953ba2825bed36a0c3e5fb365db41d0650743fc029c65f7a"
+  },
+  "paper_id": "4_3",
+  "quality_assessment": {
+    "correct_item_count": 47,
+    "deterministic_rule_score": 0.952,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 47,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Does the geometry of mammary epithelial tubules determine the sites of branching morphogenesis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_44c74cdb823ceba3fc086e22",
+              "inference_basis_ids": [
+                "res_76db531be1f55ac70efc045b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "mammary epithelial cells branched from distant tubule ends, but not from ends near neighboring tubules"
+              },
+              "statement": "Increasing local inhibitor concentration by reducing inter-tubule distance blocks branching from tubule ends."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Quantified branching from ends at different inter-tubule distances.",
+            "Varied distance between tubules to alter local inhibitor concentration."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Tubule spacing manipulation",
+              "protocol_description": "Distance between tubules was decreased to increase local inhibitor concentration; branching was assessed at varying spacings."
+            }
+          ],
+          "name": "Tubule spacing experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Branching inhibition distance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "branching was inhibited at distances up to ~75 μm"
+              },
+              "quantitative_value": 75.0,
+              "result_id": "res_76db531be1f55ac70efc045b",
+              "unit": "μm",
+              "value_raw_text": "branching was inhibited at distances up to ~75 μm"
+            }
+          ],
+          "unit_id": "su_09bffb956485f191ddd88e6b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b067e35e7d5f10ec2a9b825d",
+              "inference_basis_ids": [
+                "res_71b8ac5de09d8d01ee0e6dbc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the concentration of inhibitors was lowest in positions where branching was induced, in agreement with our hypothesis."
+              },
+              "statement": "A computational model predicts that autocrine inhibitory morphogens accumulate at lowest concentration at branch sites."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Computed steady-state concentration profiles for each tubule geometry.",
+            "Constructed a 3D diffusion model assuming constant flux of inhibitors from tubule surface and passive isotropic diffusion through collagen."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Computational diffusion model",
+              "protocol_description": "A 3D model of diffusion was constructed assuming constant flux of inhibitors from the tubule surface and passive isotropic diffusion through the collagenous ECM."
+            }
+          ],
+          "name": "Computational model of autocrine inhibitor diffusion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Inhibitor concentration profile",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the concentration of inhibitors was lowest in positions where branching was induced"
+              },
+              "quantitative_value": null,
+              "result_id": "res_71b8ac5de09d8d01ee0e6dbc",
+              "unit": null,
+              "value_raw_text": "the concentration of inhibitors was lowest in positions where branching was induced"
+            }
+          ],
+          "unit_id": "su_41a4fe9152fa71e156324078"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2db57b92bf8a403e8136d06d",
+              "inference_basis_ids": [
+                "res_c7e708762c07d228bf0fa876"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the invasive phenotype is spatially restricted before extension of branches"
+              },
+              "statement": "The invasive mesenchymal phenotype is spatially restricted to future branch sites before branch extension."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_eaa27e176eb44910859635b8",
+              "inference_basis_ids": [
+                "res_ec3e2af6e3e98a794fdd2d71"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "These branches initiated only from the ends and not from the sides of the tubules"
+              },
+              "statement": "Branch initiation is restricted to the ends of mammary epithelial tubules in micropatterned cultures."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Fluorescent images of nuclei in EpH4 tubules, stacked to generate frequency maps of branching.",
+              "name": "EpH4 tubule branching images",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "These branches initiated only from the ends and not from the sides of the tubules (Fig. 1, F and G), a pattern reminiscent of the dichotomous branching of mammary end buds in vivo.",
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "These branches initiated only from the ends and not from the sides of the tubules (Fig. 1, F and G), a pattern reminiscent of the dichotomous branching of mammary end buds in vivo."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Assayed mesenchymal phenotype activation using GFP under the human vimentin gene promoter.",
+            "Engineered epithelial tubules of defined geometry by embedding EpH4 cells in collagen cavities molded around a patterned elastomeric stamp.",
+            "Induced branching morphogenesis by addition of EGF or HGF.",
+            "Quantified branching position and magnitude by stacking fluorescent images of nuclei to create frequency maps."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Micropatterning",
+              "protocol_description": "Unpolymerized collagen I was molded around a patterned elastomeric stamp to create cavities; EpH4 cells were embedded and formed hollow tubules conforming to cavity shape."
+            },
+            {
+              "method_id": "M2",
+              "name": "Branching quantification",
+              "protocol_description": "Nuclei were stained and multiple fluorescent images were stacked in registration; stacked images were depicted as frequency maps."
+            },
+            {
+              "method_id": "M3",
+              "name": "Vimentin-GFP reporter assay",
+              "protocol_description": "GFP expression under the human vimentin gene promoter was monitored in real time to assay mesenchymal phenotype."
+            }
+          ],
+          "name": "Micropatterned tubule branching assay",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Branching prediction certainty",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "we could predict the position of branching with high certainty (~96 to 99%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_36f5dc52071dddfa06e16f8c",
+              "unit": null,
+              "value_raw_text": "~96 to 99%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Vimentin promoter activation location",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "was found to be activated specifically in cells at positions that later branched"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c7e708762c07d228bf0fa876",
+              "unit": null,
+              "value_raw_text": "activated specifically in cells at positions that later branched"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Branch initiation location",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "These branches initiated only from the ends and not from the sides of the tubules"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ec3e2af6e3e98a794fdd2d71",
+              "unit": null,
+              "value_raw_text": "branches initiated only from the ends and not from the sides of the tubules"
+            }
+          ],
+          "unit_id": "su_4f8c346a941f7da45bc31e02"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5d62a8a992e5d3ad724eb107",
+              "inference_basis_ids": [
+                "res_23f2427764c55c55d9fea450",
+                "res_ed266bbddae4637ebd3f795d",
+                "res_ee67f3e75307dde2429bff7c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "These data demonstrate that tissue form and context...can control the position of branching...positional context is determined at least in part by the local concentration of autocrine TGFβ"
+              },
+              "statement": "TGFβ acts as an endogenous autocrine inhibitor that restricts branching to sites of low local concentration."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessed branching pattern after each perturbation.",
+            "Disrupted TGFβ signaling using function-blocking antibody, pharmacological inhibitor of type I receptor kinase, and dominant negative type II receptor.",
+            "Measured TGFβ and receptor expression in engineered tubules.",
+            "Overexpressed active TGFβ1.",
+            "Performed immunofluorescence staining for TGFβ1 gradient."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "TGFβ signaling disruption",
+              "protocol_description": "Three approaches: function-blocking antibody against TGFβ1, pharmacological inhibitor of TGFβ type I receptor kinase activity, and overexpression of dominant negative TGFβ type II receptor."
+            }
+          ],
+          "name": "TGFβ inhibition and disruption experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of active TGFβ1 overexpression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Overexpression of active TGFβ1 completely inhibited branching"
+              },
+              "quantitative_value": null,
+              "result_id": "res_23f2427764c55c55d9fea450",
+              "unit": null,
+              "value_raw_text": "completely inhibited branching"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TGFβ1 gradient",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "immunofluorescence staining revealed a gradient in the concentration of TGFβ1 that correlated with our numerical predictions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ed266bbddae4637ebd3f795d",
+              "unit": null,
+              "value_raw_text": "immunofluorescence staining revealed a gradient in the concentration of TGFβ1 that correlated with our numerical predictions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of TGFβ signaling disruption",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c911ce6f90543ccabb98",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "All treatments resulted in uniform branching from tubules of EpH4 or primary mammary epithelial cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ee67f3e75307dde2429bff7c",
+              "unit": null,
+              "value_raw_text": "resulted in uniform branching from tubules"
+            }
+          ],
+          "unit_id": "su_5a606b4454f6f99d49486496"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e48b8f8602e0ff5bdb868ab8",
+              "inference_basis_ids": [
+                "res_76909734a544854f9e1a381b",
+                "res_f3874c4e63d1831fb06de140"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The position of branching thus depended on the initial geometry of the tubule."
+              },
+              "statement": "The position of branching depends on the initial geometry of the tubule."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assayed proliferation and growth factor receptor signaling to rule out localized effects.",
+            "Quantified branching magnitude and position for each geometry.",
+            "Varied tubule length, curvature, and bifurcation geometry."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Geometry variation",
+              "protocol_description": "Tubules were engineered with increased length, curved shapes, or bifurcated structures using the micropatterning approach."
+            }
+          ],
+          "name": "Geometry-dependent branching analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Branching position in bifurcated tubules",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Asymmetric branching was also observed in bifurcated tubules and trees (Fig. 2, B and C), which preferentially branched from distal positions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_76909734a544854f9e1a381b",
+              "unit": null,
+              "value_raw_text": "preferentially branched from distal positions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Branching pattern dependence on proliferation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "the pattern of branching was not due to localized proliferation or locally enhanced signaling by growth factor receptors"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d33b0c78d7ee57cdc3e5f0c3",
+              "unit": null,
+              "value_raw_text": "the pattern of branching was not due to localized proliferation or locally enhanced signaling by growth factor receptors"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Branching position in curved tubules",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ff725da374f832b31bf4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Curved tubules branched preferentially from the convex side of the curve"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f3874c4e63d1831fb06de140",
+              "unit": null,
+              "value_raw_text": "branched preferentially from the convex side of the curve"
+            }
+          ],
+          "unit_id": "su_8fd225a22c5ad4f04d5ef795"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

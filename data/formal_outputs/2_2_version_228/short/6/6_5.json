@@ -1,0 +1,451 @@
+{
+  "coverage_ledger": {
+    "08f1d3147a734a53deb4": "not_selected",
+    "0ff51de57014d2a7dd52": "not_selected",
+    "25dd3c52395f8bcb8530": "extracted",
+    "2610a0d8d145236a0ff0": "extracted",
+    "5df5372c11b73552040b": "not_selected",
+    "6efe12b9e6e7f0f61bb2": "extracted",
+    "9e5730083e9f995ff16b": "not_selected",
+    "cab10207858fe069b182": "not_selected",
+    "dae13036e496b3eb59ca": "extracted",
+    "f4f45b33d4c35b3c1215": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The BIC score gap on discrete benchmark datasets may be caused by the relatively simple autoencoder architecture, which is less successful in approximating multinomial distributions.",
+    "The method is demonstrated on synthetic data, benchmark discrete datasets, and a few application datasets; generalizability to other domains is not fully evaluated.",
+    "The polynomial acyclicity constraint is proposed as a practical alternative to matrix exponential, but its theoretical properties are not deeply analyzed.",
+    "The method assumes faithfulness between the DAG and the joint distribution."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_5.pdf",
+    "source_sha256": "9d19c372ad1342be7e30b6cfd5f1a1ea7a3ae273c2d1dc77b70877ef11b88d45"
+  },
+  "paper_id": "6_5",
+  "quality_assessment": {
+    "correct_item_count": 35,
+    "deterministic_rule_score": 0.9333,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.5556,
+      "sample_size_log_score": 1.0,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 36,
+    "f1": 0.9459,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted value_raw_text states 'DAG-GNN 18, FGS 17, NOTEARS 16', but the source excerpt shows 'DAG-GNN 19 18' for SHD and # Predicted edges, and 'FGS 22 17', 'NOTEARS 22 16'. The number of predicted edges for DAG-GNN is 18, but the SHD is 19, not 18. The extracted item incorrectly assigns the SHD value to the number of predicted edges.",
+        "item_id": "result:su_99411e2d4b26908b5083758b:res_52e641c09019cbaa42ef92a6",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 3,
+    "missed_core_items": [
+      {
+        "description": "The synthetic data experiments include linear case results showing DAG-GNN substantially more accurate than DAG-NOTEARS for large graphs.",
+        "item_id": null,
+        "source_chunk_id": "0ff51de57014d2a7dd52",
+        "source_excerpt": "One sees that the graphs learned by the proposed method are substantially more accurate than those by DAG-NOTEARS when the graphs are large.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "For the nonlinear case with h(x)=cos(x+1), DAG-GNN slightly improves SHD and substantially improves FDR by a factor of three.",
+        "item_id": null,
+        "source_chunk_id": "0ff51de57014d2a7dd52",
+        "source_excerpt": "one observes that DAG-GNN slightly improves over DAG-NOTEARS in terms of SHD. Further, FDR is substantially improved, by approximately a factor of three",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The protein signaling network application result: DAG-GNN successfully learns 8 out of 20 ground-truth edges, predicts 5 indirectly connected edges, and 3 reverse edges.",
+        "item_id": null,
+        "source_chunk_id": "6efe12b9e6e7f0f61bb2",
+        "source_excerpt": "Our method successfully learns 8 out of 20 ground-truth edges (as marked by red arrows), and predicts 5 indirectly connected edges (blue dashed arrows) as well as 3 reverse edges (yellow arrows).",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.9722,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9211
+  },
+  "quality_score": 0.9459,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a deep generative model with a novel graph neural network architecture learn DAG structure from data more accurately than linear SEM-based methods, especially for nonlinear and discrete variables?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_68ff4054f8ddaeba384d613b",
+              "inference_basis_ids": [
+                "res_de7464fe958f8bbd0c2258d7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6efe12b9e6e7f0f61bb2",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The proposed method achieves the lowest SHD."
+              },
+              "statement": "DAG-GNN achieves the lowest SHD on the protein signaling network compared to DAG-NOTEARS and FGS."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Bioinformatics dataset with continuous measurements of expression levels of multiple phosphorylated proteins and phospholipid components in human immune system cells. 7466 samples, 11 cell types, 20 ground-truth edges.",
+              "name": "Sachs protein signaling network",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply DAG-GNN to Sachs et al. (2005) protein signaling dataset to discover network structure, comparing with DAG-NOTEARS and FGS using SHD."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup3",
+              "name": "DAG-GNN",
+              "protocol_description": "Deep generative model using variational autoencoder parameterized by novel graph neural networks, with a polynomial acyclicity constraint."
+            },
+            {
+              "method_id": "M2__dup2",
+              "name": "DAG-NOTEARS",
+              "protocol_description": "Continuous optimization method for DAG learning based on linear SEM with least-squares loss and matrix exponential acyclicity constraint."
+            },
+            {
+              "method_id": "M4",
+              "name": "FGS",
+              "protocol_description": "Fast greedy search method for DAG learning."
+            }
+          ],
+          "name": "Protein signaling network application",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of predicted edges",
+              "n_sample_size": 7466,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6efe12b9e6e7f0f61bb2",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Method SHD # Predicted edges FGS 22 17 NOTEARS 22 16 DAG-GNN 19 18"
+              },
+              "quantitative_value": 18.0,
+              "result_id": "res_52e641c09019cbaa42ef92a6",
+              "unit": null,
+              "value_raw_text": "DAG-GNN 18, FGS 17, NOTEARS 16"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 7466,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6efe12b9e6e7f0f61bb2",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Method SHD # Predicted edges FGS 22 17 NOTEARS 22 16 DAG-GNN 19 18"
+              },
+              "quantitative_value": 19.0,
+              "result_id": "res_de7464fe958f8bbd0c2258d7",
+              "unit": null,
+              "value_raw_text": "DAG-GNN SHD 19, FGS SHD 22, NOTEARS SHD 22"
+            }
+          ],
+          "unit_id": "su_99411e2d4b26908b5083758b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_15c3f0c673ae89907eabb81c",
+              "inference_basis_ids": [
+                "res_25365f88e710b99d2d723474",
+                "res_255cd77a32eb2e434863bd62"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dae13036e496b3eb59ca",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The figure clearly shows the significantly better performance of the proposed method."
+              },
+              "statement": "DAG-GNN significantly outperforms DAG-NOTEARS on vector-valued synthetic data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5178075c5c5cf9767196d77c",
+              "inference_basis_ids": [
+                "res_4b0e7d08ae71be9bf8100cec",
+                "res_a5a13dc27383cca02b5f9b44"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dae13036e496b3eb59ca",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "One sees that with higher nonlinearity, the proposed method results in significantly better SHD and FDR than does DAG-NOTEARS."
+              },
+              "statement": "DAG-GNN outperforms DAG-NOTEARS on synthetic data generated from nonlinear SEMs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Synthetic data generated from linear SEM and nonlinear SEMs with specified equations.",
+              "name": "Synthetic linear and nonlinear SEM data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate DAG-GNN on synthetic data generated from linear and nonlinear SEMs, comparing with DAG-NOTEARS using SHD and FDR metrics.",
+            "Test on more complex nonlinear model x = 2 sin(AT (x + 0.5 · 1)) + AT (x + 0.5 · 1) + z.",
+            "Test on nonlinear generation model x = AT cos(x + 1) + z.",
+            "Test on vector-valued variables with d=5 and latent dimension dZ=1."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DAG-GNN",
+              "protocol_description": "Deep generative model using variational autoencoder parameterized by novel graph neural networks, with a polynomial acyclicity constraint. Trained on synthetic data."
+            },
+            {
+              "method_id": "M2",
+              "name": "DAG-NOTEARS",
+              "protocol_description": "Continuous optimization method for DAG learning based on linear SEM with least-squares loss and matrix exponential acyclicity constraint."
+            }
+          ],
+          "name": "Synthetic data experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FDR",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dae13036e496b3eb59ca",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The figure clearly shows the significantly better performance of the proposed method."
+              },
+              "quantitative_value": null,
+              "result_id": "res_25365f88e710b99d2d723474",
+              "unit": null,
+              "value_raw_text": "On vector-valued synthetic data, DAG-GNN shows significantly better FDR than DAG-NOTEARS."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dae13036e496b3eb59ca",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The figure clearly shows the significantly better performance of the proposed method."
+              },
+              "quantitative_value": null,
+              "result_id": "res_255cd77a32eb2e434863bd62",
+              "unit": null,
+              "value_raw_text": "On vector-valued synthetic data, DAG-GNN shows significantly better SHD than DAG-NOTEARS."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dae13036e496b3eb59ca",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "One sees that with higher nonlinearity, the proposed method results in significantly better SHD and FDR than does DAG-NOTEARS."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4b0e7d08ae71be9bf8100cec",
+              "unit": null,
+              "value_raw_text": "DAG-GNN outperforms DAG-NOTEARS on synthetic data generated from nonlinear SEMs, with significantly better SHD."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FDR",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dae13036e496b3eb59ca",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "One sees that with higher nonlinearity, the proposed method results in significantly better SHD and FDR than does DAG-NOTEARS."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a5a13dc27383cca02b5f9b44",
+              "unit": null,
+              "value_raw_text": "DAG-GNN achieves significantly better FDR than DAG-NOTEARS on nonlinear synthetic data."
+            }
+          ],
+          "unit_id": "su_bcc2d51fe5189ae75e3a30c6"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_19ffae1e1c1129c8208144c7",
+              "inference_basis_ids": [
+                "res_b9e050e3670de253bd4cba01",
+                "res_c028bf4ff6c922c1a4cafa4e",
+                "res_f6f8141a0fb82b0afb0bad5c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6efe12b9e6e7f0f61bb2",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "One sees from Table 1 that our results are reasonably close to the ground truth, whereas not surprisingly the results of GOPNILP are nearly optimal."
+              },
+              "statement": "DAG-GNN results are reasonably close to the ground truth on discrete benchmark datasets, though GOPNILP is nearly optimal."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Discrete benchmark dataset with 20 variables.",
+              "name": "Child",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Discrete benchmark dataset with 37 variables.",
+              "name": "Alarm",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Discrete benchmark dataset with 441 variables.",
+              "name": "Pigs",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate DAG-GNN on discrete benchmark datasets (Child, Alarm, Pigs) using BIC score, comparing with GOPNILP."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup2",
+              "name": "DAG-GNN",
+              "protocol_description": "Deep generative model using variational autoencoder parameterized by novel graph neural networks, with a polynomial acyclicity constraint. Trained on 1000 samples."
+            },
+            {
+              "method_id": "M3",
+              "name": "GOPNILP",
+              "protocol_description": "Exact DAG solver based on constrained integer programming."
+            }
+          ],
+          "name": "Benchmark discrete data experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "BIC score",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6efe12b9e6e7f0f61bb2",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Alarm 37 -1.07e+4 -1.12e+4 -1.28e+4"
+              },
+              "quantitative_value": -12800.0,
+              "result_id": "res_b9e050e3670de253bd4cba01",
+              "unit": null,
+              "value_raw_text": "Alarm: Groundtruth -1.07e+4, GOPNILP -1.12e+4, DAG-GNN -1.28e+4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "BIC score",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6efe12b9e6e7f0f61bb2",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Child 20 -1.27e+4 -1.27e+4 -1.38e+4"
+              },
+              "quantitative_value": -13800.0,
+              "result_id": "res_c028bf4ff6c922c1a4cafa4e",
+              "unit": null,
+              "value_raw_text": "Child: Groundtruth -1.27e+4, GOPNILP -1.27e+4, DAG-GNN -1.38e+4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "BIC score",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6efe12b9e6e7f0f61bb2",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Pigs 441 -3.48e+5 -3.50e+5 -3.69e+5"
+              },
+              "quantitative_value": -369000.0,
+              "result_id": "res_f6f8141a0fb82b0afb0bad5c",
+              "unit": null,
+              "value_raw_text": "Pigs: Groundtruth -3.48e+5, GOPNILP -3.50e+5, DAG-GNN -3.69e+5"
+            }
+          ],
+          "unit_id": "su_ef648dcb8f67ff6b943e7329"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4054 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "coverage_ledger": {
+    "0325aa7263b309305d46": "not_selected",
+    "0e27e55a70d5273c750a": "not_selected",
+    "1da7c81a66fac126890c": "extracted",
+    "4ae78b574c0a812c393b": "not_selected",
+    "60f744f91c9a4ad1eb5a": "extracted",
+    "71890b63246152a27225": "not_selected",
+    "985f2360467e24dbc2cd": "not_selected",
+    "af07ce8fa0e3c801b607": "not_selected",
+    "bb1e1e2d619c1bd10df1": "extracted",
+    "cb1473e95efb8d09d2d7": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study uses only BMP4 as the differentiation cue; other pathways (Activin-Nodal, WNT) are not directly tested as initiators.",
+    "Micropatterned colonies are 2D approximations of the 3D embryo; 3D culture systems were not explored.",
+    "siRNA knockdowns are transient and may not achieve complete loss of function.",
+    "The PDMS microwell experiments used wells of 250 µm diameter and depth, which may not capture all diffusion dynamics.",
+    "The study focuses on early germ layer patterning and does not address later differentiation stages or organogenesis.",
+    "The results are based on a limited number of hESC lines (RUES2, RUES1, H1) and may not generalize to all pluripotent stem cell lines.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_5.pdf",
+    "source_sha256": "ad7ceef14ada7382a81879a047aa30f992c5e1be08dee25607c0220212d0fef1"
+  },
+  "paper_id": "4_5",
+  "quality_assessment": {
+    "correct_item_count": 28,
+    "deterministic_rule_score": 0.9176,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 28,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can geometric confinement trigger self-organized spatial patterning of germ layers in hESCs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4f4739f210f3f21575a9ca73",
+              "inference_basis_ids": [
+                "res_c78c2850372935653a8b8bef"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "60f744f91c9a4ad1eb5a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We show that geometric confinement is sufficient to trigger self-organized patterning in hESCs."
+              },
+              "statement": "Geometric confinement is sufficient to trigger self-organized patterning in hESCs."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "hESCs were confined to circular micropatterns and differentiated with BMP4 to observe spatial ordering of germ layers."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Micropatterned cell culture",
+              "protocol_description": "hESCs were seeded onto micropatterned glass coverslips coated with poly(d-lysine) and Matrigel. Cells were pretreated with Rock-inhibitor Y27632 (10 µM) for 1 h, dissociated with trypsin, and 5 × 10^5 cells were resuspended in 2.5 ml growth medium containing Rock-I and placed over the coverslip. After 2 h, medium was replaced with MEF-CM without Rock-I and incubated overnight. Differentiation was induced with BMP4."
+            },
+            {
+              "method_id": "M2",
+              "name": "Immunofluorescence",
+              "protocol_description": "Cells were fixed with 4% paraformaldehyde, blocked and permeabilized with 3% donkey serum and 0.1% Triton X-100, incubated with primary antibodies overnight at 4°C, washed, incubated with Alexa-conjugated secondary antibodies (1:500) and DAPI, and mounted with Fluoromount-G."
+            }
+          ],
+          "name": "Micropatterned BMP4 differentiation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Spatial pattern of germ layer markers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "60f744f91c9a4ad1eb5a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In response to BMP4, colonies reproducibly differentiated to an outer trophectoderm-like ring, an inner ectodermal circle and a ring of mesendoderm expressing primitive-streak markers in between."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c78c2850372935653a8b8bef",
+              "unit": null,
+              "value_raw_text": "Colonies reproducibly differentiated to an outer trophectoderm-like ring, an inner ectodermal circle and a ring of mesendoderm expressing primitive-streak markers in between."
+            }
+          ],
+          "unit_id": "su_06130ac36a45adeaae3aedb5"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "What is the role of inhibitory signals in establishing the differential response to BMP4 and patterning mesendodermal fates?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3b289130bd9c9f72f438d143",
+              "inference_basis_ids": [
+                "res_b48e5914a7c902ceb240b0ec",
+                "res_ed0eed2705fa522ee76ee6fa"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cb1473e95efb8d09d2d7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "those of the Activin-Nodal branch are necessary to restrict the primitive streak–like region from both sides"
+              },
+              "statement": "Inhibitors of the Activin-Nodal branch are necessary to restrict the primitive streak–like region from both sides."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8436cc24188b987b45c93223",
+              "inference_basis_ids": [
+                "res_188fac0fa2122213ff50521c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cb1473e95efb8d09d2d7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "These results demonstrate that inhibitors to the BMP pathway are necessary to preserve the ectodermal character of the colony center"
+              },
+              "statement": "Inhibitors to the BMP pathway are necessary to preserve the ectodermal character of the colony center."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "siRNA knockdown of CHRD and NOG (BMP inhibitors) or LEFTY1 and CER1 (Activin-Nodal inhibitors) in micropatterned hESC colonies differentiated with BMP4."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "siRNA transfection",
+              "protocol_description": "Cells were passaged as single cells in Rock-I into 35-mm dishes at 200,000 cells per dish. The next day, cells were transfected with siRNA (Ambion Silencer Select) using RNAiMax (Invitrogen) at a final siRNA concentration of 20 nM and 2.5 µl RNAiMax per dish. The following day, cells were seeded onto micropatterned coverslips and differentiation experiments were performed."
+            },
+            {
+              "method_id": "M4",
+              "name": "Immunofluorescence and quantification",
+              "protocol_description": "Immunofluorescence staining for CDX2 and BRA was performed. Quantification of mean intensity across colonies (n = 25) was done for BRA and CDX2. The experiment was performed twice."
+            }
+          ],
+          "name": "siRNA knockdown of BMP and Activin-Nodal inhibitors",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "BRA expression expansion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cb1473e95efb8d09d2d7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "knockdown caused expansion of mesodermal markers into the ectodermal territory in the center"
+              },
+              "quantitative_value": null,
+              "result_id": "res_188fac0fa2122213ff50521c",
+              "unit": null,
+              "value_raw_text": "Knockdown of CHRD and NOG caused expansion of mesodermal markers into the ectodermal territory in the center."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CDX2 expression change",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cb1473e95efb8d09d2d7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In contrast to the knockdown of the BMP inhibitors, the region of BRA expression also expanded into the region of CDX2+BRA– cells that typically forms at the colony border, and CDX2 expression at the colony border was diminished"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b48e5914a7c902ceb240b0ec",
+              "unit": null,
+              "value_raw_text": "In contrast to the knockdown of the BMP inhibitors, the region of BRA expression also expanded into the region of CDX2+BRA– cells that typically forms at the colony border, and CDX2 expression at the colony border was diminished."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "BRA expression expansion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cb1473e95efb8d09d2d7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "knockdown of LEFTY1 and CER1 with siRNA also caused an expansion of the BRA-expressing cells into the ectodermal territory"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ed0eed2705fa522ee76ee6fa",
+              "unit": null,
+              "value_raw_text": "Knockdown of LEFTY1 and CER1 caused an expansion of the BRA-expressing cells into the ectodermal territory."
+            }
+          ],
+          "unit_id": "su_31bcfef63af6db42688eb34a"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Does blocking diffusion out of the colony affect boundary fate formation?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_95aec1f974cd489692fdbe02",
+              "inference_basis_ids": [
+                "res_6fe18cd10ef17caf6e9dae22"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cb1473e95efb8d09d2d7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "blocking diffusion out of the colony by growing cells at the bottom of a PDMS microwell prevented the formation of boundary fates"
+              },
+              "statement": "Blocking diffusion out of the colony prevents the formation of boundary fates."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "hESCs were grown at the bottom of PDMS microwells to block diffusion out of the colony, and differentiation with BMP4 was assessed."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "PDMS microwell culture",
+              "protocol_description": "PDMS wells of controlled diameter and depth were created using 3D-printed molds. Wells were coated with cell adhesion–promoting proteins (Laminin-521 or PDL/Matrigel). Cells were seeded into wells and differentiated with BMP4."
+            },
+            {
+              "method_id": "M6",
+              "name": "Immunofluorescence",
+              "protocol_description": "Immunofluorescence staining for CDX2, BRA, EOMES, SOX17, and SOX2 was performed."
+            }
+          ],
+          "name": "PDMS microwell diffusion block",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Marker expression in microwells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cb1473e95efb8d09d2d7",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "We observed an absence of staining for trophectodermal or mesendodermal markers CDX2, BRA, EOMES and SOX17 in colonies grown within microwells; instead nearly all cells stained positively for SOX2"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6fe18cd10ef17caf6e9dae22",
+              "unit": null,
+              "value_raw_text": "We observed an absence of staining for trophectodermal or mesendodermal markers CDX2, BRA, EOMES and SOX17 in colonies grown within microwells; instead nearly all cells stained positively for SOX2."
+            }
+          ],
+          "unit_id": "su_ee930083c527f9a3af6a3dfe"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

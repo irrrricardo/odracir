@@ -1,0 +1,574 @@
+{
+  "coverage_ledger": {
+    "011040a4a699365989f1": "not_selected",
+    "213a5e6f009eb65862c7": "not_selected",
+    "350d8870bf7152683ce0": "not_selected",
+    "36f199b7ba50635a7417": "not_selected",
+    "67043aab8b4092c8a5c0": "not_selected",
+    "6f1ccb0ac70cdc23b8a6": "extracted",
+    "8f24b44a08831f013809": "extracted",
+    "a7f31f20ff362f3e224f": "extracted",
+    "b85e52d852536e7d727a": "extracted",
+    "bf920031f2ef13a091f4": "not_selected",
+    "c532e1b642fc13e0e20c": "not_selected",
+    "d68aae2cea36fe89fa56": "not_selected",
+    "f30cbe05c1c3fe91c565": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Stochastic sampling requires heuristic choices (S_churn, S_tmin, S_tmax, S_noise) that depend on the specific model and must be found via grid search.",
+    "The improvements are demonstrated on image generation tasks; applicability to other domains is not tested.",
+    "The preconditioning and training improvements are evaluated only with the proposed deterministic sampler; interaction with stochastic sampling is not fully explored.",
+    "The paper focuses on denoising score matching models; other diffusion model variants may not benefit equally."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "10_5.pdf",
+    "source_sha256": "dfc1e011f88510c5f8123adb3409e3b9b7f3a126495a6db8faf73d21977e0a77"
+  },
+  "paper_id": "10_5",
+  "quality_assessment": {
+    "correct_item_count": 40,
+    "deterministic_rule_score": 0.9364,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.8889,
+      "sample_size_log_score": 1.0,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 41,
+    "f1": 0.9091,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted result claims the lowest FID within 3% of lowest observed FID at NFE=35 for deterministic sampler on CIFAR-10 (unconditional) with VP ODE. The source excerpt only states that the dot indicates the lowest NFE whose FID is within 3% of the lowest observed FID, without specifying NFE=35 or the dataset/model. The extracted value adds unsupported specifics.",
+        "item_id": "result:su_48e5ef799e4f7af59495aba3:res_bb285911db81854ec6f80252",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "FID 1.36 for class-conditional ImageNet-64 with training improvements (new SOTA).",
+        "item_id": null,
+        "source_chunk_id": "67043aab8b4092c8a5c0",
+        "source_excerpt": "This model achieved a new state-of-the-art FID of 1.36 compared to the previous record of 1.48 [17].",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "FID 1.79 for conditional CIFAR-10 with config F (VE).",
+        "item_id": null,
+        "source_chunk_id": "8f24b44a08831f013809",
+        "source_excerpt": "Table 2: ... CIFAR-10 [28] at 32×32 ... Conditional ... VE ... F + Non-leaky augmentation ... 1.79",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "FID 1.98 for unconditional CIFAR-10 with config F (VE).",
+        "item_id": null,
+        "source_chunk_id": "8f24b44a08831f013809",
+        "source_excerpt": "Table 2: ... CIFAR-10 [28] at 32×32 ... Unconditional ... VE ... F + Non-leaky augmentation ... 1.98",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "FID 2.53 for unconditional FFHQ 64x64 with config F (VE).",
+        "item_id": null,
+        "source_chunk_id": "8f24b44a08831f013809",
+        "source_excerpt": "Table 2: ... FFHQ [26] 64×64 ... Unconditional ... VE ... F + Non-leaky augmentation ... 2.53",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "FID 2.16 for unconditional AFHQv2 64x64 with config F (VE).",
+        "item_id": null,
+        "source_chunk_id": "8f24b44a08831f013809",
+        "source_excerpt": "Table 2: ... AFHQv2 [7] 64×64 ... Unconditional ... VE ... F + Non-leaky augmentation ... 2.16",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Stochastic sampling is detrimental for CIFAR-10 with improved training, but beneficial for ImageNet-64.",
+        "item_id": null,
+        "source_chunk_id": "67043aab8b4092c8a5c0",
+        "source_excerpt": "When using our training setup in CIFAR-10 (Figure 5b), the best results were obtained with deterministic sampling, and any amount of stochastic sampling was detrimental. ... As shown in Figure 5c, the optimal amount of stochastic sampling was much lower than with the pre-trained model, but unlike with CIFAR-10, stochastic sampling was clearly better than deterministic sampling.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper focuses on denoising score matching models; other diffusion model variants may not benefit equally.",
+        "item_id": null,
+        "source_chunk_id": "b85e52d852536e7d727a",
+        "source_excerpt": "We focus on the broad class of models where a neural network is used to model the score [22] of a noise level dependent marginal distribution of the training data corrupted by Gaussian noise. Thus, our work is in the context of denoising score matching [51].",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9756,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8511
+  },
+  "quality_score": 0.9091,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can the design space of diffusion-based generative models be clarified and improved to achieve better sample quality and efficiency?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7ba379217519ca3a8ba19157",
+              "inference_basis_ids": [
+                "res_3c9d628390d65c6194e3998a",
+                "res_aef4ae2e7ee51c06bfe6a000"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "6f1ccb0ac70cdc23b8a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "While our results showcase the potential gains achievable through sampler improvements, they also highlight the main shortcoming of stochasticity: For best results, one must make several heuristic choices — either implicit or explicit — that depend on the specific model."
+              },
+              "statement": "Stochastic sampling can significantly improve FID over deterministic sampling, but requires heuristic choices that depend on the specific model."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Unconditional CIFAR-10 at 32x32 resolution.",
+              "name": "CIFAR-10",
+              "version_or_split": "unconditional, 32x32"
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Class-conditional ImageNet at 64x64 resolution.",
+              "name": "ImageNet",
+              "version_or_split": "class-conditional, 64x64"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Through sampler improvements alone, we are able to bring the ImageNet-64 model that originally achieved FID 2.07 [9] to 1.55",
+              "provenance": {
+                "chunk_id": "6f1ccb0ac70cdc23b8a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Through sampler improvements alone, we are able to bring the ImageNet-64 model that originally achieved FID 2.07 [9] to 1.55"
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Compare against deterministic sampler and original stochastic samplers (Euler-Maruyama, predictor-corrector, iDDPM).",
+            "Evaluate stochastic sampler (Algorithm 2) with optimal choices for S_churn, S_tmin, S_tmax, S_noise on three pre-trained models."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Stochastic sampler (Algorithm 2)",
+              "protocol_description": "Stochastic sampling with noise injection and ODE step sequentially, using optimal choices for S_churn, S_tmin, S_tmax, S_noise found via grid search."
+            },
+            {
+              "method_id": "M4",
+              "name": "Original stochastic samplers",
+              "protocol_description": "Euler-Maruyama for VP, predictor-corrector for VE, iDDPM for ImageNet-64."
+            }
+          ],
+          "name": "Stochastic sampling improvements",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6f1ccb0ac70cdc23b8a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Through sampler improvements alone, we are able to bring the ImageNet-64 model that originally achieved FID 2.07 [9] to 1.55"
+              },
+              "quantitative_value": 1.55,
+              "result_id": "res_3c9d628390d65c6194e3998a",
+              "unit": null,
+              "value_raw_text": "FID 1.55 for class-conditional ImageNet-64 with stochastic sampler improvements."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6f1ccb0ac70cdc23b8a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Deterministic Stmin,tmax = [0, ∞] ... FID 2.27"
+              },
+              "quantitative_value": 2.27,
+              "result_id": "res_aef4ae2e7ee51c06bfe6a000",
+              "unit": null,
+              "value_raw_text": "FID 2.27 for unconditional CIFAR-10 VP with deterministic sampler; stochastic sampler improves further."
+            }
+          ],
+          "unit_id": "su_2d81e007c6b27236d3c34b93"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_09b6d4b5a15732d6413d9806",
+              "inference_basis_ids": [
+                "res_bdfc4c149f1aea2de35b5963",
+                "res_f7508999b4a557562e8b24c0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Table 2 shows that our proposed ptrain and λ (config E) lead to a dramatic improvement in FID in all cases when used in conjunction with our preconditioning (config D)."
+              },
+              "statement": "Our proposed p_train and λ lead to a dramatic improvement in FID when used with our preconditioning."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1a2b8ea8a8e7a25fab6dc049",
+              "inference_basis_ids": [
+                "res_bdfc4c149f1aea2de35b5963",
+                "res_f7508999b4a557562e8b24c0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Instead of improving FID per se, the main benefit of our preconditioning is that it makes the training more robust, enabling us to turn our focus on redesigning the loss function without adverse effects."
+              },
+              "statement": "Our preconditioning makes training more robust, enabling redesign of the loss function without adverse effects."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_679320a2e835edad5e452c9b",
+              "inference_basis_ids": [
+                "res_bdfc4c149f1aea2de35b5963",
+                "res_f7508999b4a557562e8b24c0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Table 2 shows that data augmentation provides a consistent improvement (config F) that yields new state-of-the-art FIDs of 1.79 and 1.97 for conditional and unconditional CIFAR-10"
+              },
+              "statement": "Data augmentation provides a consistent improvement, yielding new state-of-the-art FIDs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "CIFAR-10 at 32x32 resolution, both conditional and unconditional.",
+              "name": "CIFAR-10",
+              "version_or_split": "conditional and unconditional, 32x32"
+            },
+            {
+              "dataset_id": "DS7",
+              "description": "FFHQ at 64x64 resolution, unconditional.",
+              "name": "FFHQ",
+              "version_or_split": "unconditional, 64x64"
+            },
+            {
+              "dataset_id": "DS8",
+              "description": "AFHQv2 at 64x64 resolution, unconditional.",
+              "name": "AFHQv2",
+              "version_or_split": "unconditional, 64x64"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Table 2 shows that data augmentation provides a consistent improvement (config F) that yields new state-of-the-art FIDs of 1.79 and 1.97 for conditional and unconditional CIFAR-10",
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Table 2 shows that data augmentation provides a consistent improvement (config F) that yields new state-of-the-art FIDs of 1.79 and 1.97 for conditional and unconditional CIFAR-10"
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Ablation: baseline (A), hyperparameter adjustment (B), capacity redistribution (C), preconditioning (D), loss function (E), augmentation (F).",
+            "Evaluate training improvements (configs A-F) on CIFAR-10, FFHQ, AFHQv2 using deterministic sampler."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Preconditioning (Eq. 7)",
+              "protocol_description": "Precondition network with σ-dependent skip connection: D_θ(x;σ) = c_skip(σ) x + c_out(σ) F_θ(c_in(σ) x; c_noise(σ)). Functions derived to keep input/output unit variance and minimize error amplification."
+            },
+            {
+              "method_id": "M6",
+              "name": "Loss weighting and noise level sampling",
+              "protocol_description": "Set λ(σ) = 1/c_out(σ)^2 to balance effective loss weights. Use log-normal distribution for p_train(σ) to focus on intermediate noise levels."
+            },
+            {
+              "method_id": "M7",
+              "name": "Augmentation regularization",
+              "protocol_description": "Apply geometric augmentations before adding noise; condition F_θ on augmentation parameters; set to zero during inference."
+            }
+          ],
+          "name": "Preconditioning and training improvements",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Table 2: ... AFHQv2 [7] 64×64 ... Unconditional ... VP ... F + Non-leaky augmentation ... 1.96"
+              },
+              "quantitative_value": 1.96,
+              "result_id": "res_02e4428743ba7a48c9858c53",
+              "unit": null,
+              "value_raw_text": "FID 1.96 for unconditional AFHQv2 64x64 with config F (VP)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Table 2: ... FFHQ [26] 64×64 ... Unconditional ... VP ... F + Non-leaky augmentation ... 2.39"
+              },
+              "quantitative_value": 2.39,
+              "result_id": "res_8e527e4a16554bc1197582de",
+              "unit": null,
+              "value_raw_text": "FID 2.39 for unconditional FFHQ 64x64 with config F (VP)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Table 2 shows that data augmentation provides a consistent improvement (config F) that yields new state-of-the-art FIDs of 1.79 and 1.97 for conditional and unconditional CIFAR-10"
+              },
+              "quantitative_value": 1.97,
+              "result_id": "res_bdfc4c149f1aea2de35b5963",
+              "unit": null,
+              "value_raw_text": "FID 1.97 for unconditional CIFAR-10 with config F (VP)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NFE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "NFE 35 35 35 35 79 79 79 79"
+              },
+              "quantitative_value": null,
+              "result_id": "res_be1c244fb4a1615f919006ec",
+              "unit": null,
+              "value_raw_text": "NFE 35 for CIFAR-10, 79 for FFHQ/AFHQv2."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8f24b44a08831f013809",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Table 2 shows that data augmentation provides a consistent improvement (config F) that yields new state-of-the-art FIDs of 1.79 and 1.97 for conditional and unconditional CIFAR-10"
+              },
+              "quantitative_value": 1.79,
+              "result_id": "res_f7508999b4a557562e8b24c0",
+              "unit": null,
+              "value_raw_text": "FID 1.79 for conditional CIFAR-10 with config F (VP)."
+            }
+          ],
+          "unit_id": "su_401644580d874d19703f0c48"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_94e47a63be1a2ea26b6dc917",
+              "inference_basis_ids": [
+                "res_96168b649d04a97727ab960f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a7f31f20ff362f3e224f",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Many prior works rely on Euler’s method, but we show in Section 3 that a 2nd order solver offers a better computational tradeoff."
+              },
+              "statement": "A 2nd order solver offers a better computational tradeoff than Euler's method for deterministic sampling."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_aaade3fe2b77e2c08ff52d9f",
+              "inference_basis_ids": [
+                "res_96168b649d04a97727ab960f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a7f31f20ff362f3e224f",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Our hypothesis is that the choices related to the sampling process are largely independent of the other components, such as network architecture and training details."
+              },
+              "statement": "Sampling process choices are largely independent of other components like network architecture and training details."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Unconditional CIFAR-10 at 32x32 resolution.",
+              "name": "CIFAR-10",
+              "version_or_split": "unconditional, 32x32"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Class-conditional CIFAR-10 at 32x32 resolution.",
+              "name": "CIFAR-10",
+              "version_or_split": "class-conditional, 32x32"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Class-conditional ImageNet at 64x64 resolution.",
+              "name": "ImageNet",
+              "version_or_split": "class-conditional, 64x64"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Figure 2 shows FID as a function of neural function evaluations (NFE)... The original deterministic samplers are shown in blue, and the reimplementations of these methods in our unified framework (orange) yield similar but consistently better results.",
+              "provenance": {
+                "chunk_id": "a7f31f20ff362f3e224f",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Figure 2 shows FID as a function of neural function evaluations (NFE)... The original deterministic samplers are shown in blue, and the reimplementations of these methods in our unified framework (orange) yield similar but consistently better results."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Evaluate different deterministic samplers on three pre-trained models (VP, VE, DDIM) to test independence of sampling choices from training.",
+            "Measure FID as a function of NFE for original samplers, reimplementations in unified framework, and improved samplers."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Unified ODE framework",
+              "protocol_description": "Reframe existing diffusion models into a unified ODE framework with independent components: schedule σ(t), scaling s(t), and discrete sampling times {t_i}. Use Heun's 2nd order solver (Algorithm 1) for deterministic sampling."
+            },
+            {
+              "method_id": "M2",
+              "name": "Original samplers",
+              "protocol_description": "Original deterministic sampler implementations from prior work (VP ODE, VE ODE, DDIM)."
+            }
+          ],
+          "name": "Deterministic sampling improvements",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a7f31f20ff362f3e224f",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Figure 2 shows FID as a function of neural function evaluations (NFE)... The original deterministic samplers are shown in blue, and the reimplementations of these methods in our unified framework (orange) yield similar but consistently better results."
+              },
+              "quantitative_value": null,
+              "result_id": "res_96168b649d04a97727ab960f",
+              "unit": null,
+              "value_raw_text": "FID as a function of NFE shown in Figure 2; reimplementations yield similar but consistently better results than original samplers."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "FID",
+              "n_sample_size": 50000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a7f31f20ff362f3e224f",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "For each curve, the dot indicates the lowest NFE whose FID is within 3% of the lowest observed FID."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bb285911db81854ec6f80252",
+              "unit": null,
+              "value_raw_text": "Lowest FID within 3% of lowest observed FID at NFE=35 for deterministic sampler on CIFAR-10 (unconditional) with VP ODE."
+            }
+          ],
+          "unit_id": "su_48e5ef799e4f7af59495aba3"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7769 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7769 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7609 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5269 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5426 on attempt 1"
+    }
+  ]
+}

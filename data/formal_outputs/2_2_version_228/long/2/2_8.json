@@ -1,0 +1,945 @@
+{
+  "coverage_ledger": {
+    "02bd86cd48a7d895ccfa": "not_selected",
+    "109c7d460476fa1647f2": "not_selected",
+    "188928d1a2d8f92ce699": "extracted",
+    "1c358066425124fd0aef": "extracted",
+    "31bd7699468c64b0ea6e": "not_selected",
+    "329de885ec5ba76d51ca": "not_selected",
+    "46eb09454bc4d7fb124a": "not_selected",
+    "47da2b9a44fd7c57ef46": "not_selected",
+    "4979ca7e73c6effe3607": "not_selected",
+    "4e7d2ea801e116e5247d": "extracted",
+    "5abd063decf17f9f04bd": "not_selected",
+    "5fa70cce07fe438f7dd3": "not_selected",
+    "6b41809d36068ffd74c1": "extracted",
+    "6e2bad909ecf6371a3d5": "extracted",
+    "8d6e5035cc38a9154a5b": "not_selected",
+    "95cf8b6097426b09bd7a": "not_selected",
+    "a4d03124f3f642a1f905": "not_selected",
+    "a56d25175dc90cc75d2b": "extracted",
+    "a6d41824f19fad349535": "not_selected",
+    "a9989c5cceadb33e434c": "not_selected",
+    "ac538c6164dd8485971a": "not_selected",
+    "aeb66cde28c2d249ac67": "not_selected",
+    "c4b4545e49aabb8e520b": "not_selected",
+    "c5b0964719c6047e973f": "not_selected",
+    "d2628572401c7148e67d": "not_selected",
+    "d469e0dc1b4f55856ef1": "not_selected",
+    "d4fe97f00b55b800a445": "extracted",
+    "dda0c832472ce9b073e9": "not_selected",
+    "e0f5b44a99cbedaa3175": "extracted",
+    "e9b59e055b0fc4e470a4": "not_selected",
+    "f24d3eb6da4f84c72f29": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study does not establish a direct causal link between microglia barrier disruption and cognitive decline; only axonal dystrophy and tau hyperphosphorylation are measured as proxies for neurotoxicity.",
+    "The relative functional contribution of dystrophic neurites compared to other pathologies such as synaptic loss, cell death, and neurofibrillary tangles is unclear.",
+    "The mechanisms by which the defective microglia barrier causes pathological defects at a functional level remain uncertain.",
+    "The study is limited to a small number of human R47H TREM2 cases (n=10) and sporadic AD controls (n=9), which may limit generalizability.",
+    "STORM imaging resolution (~30 nm) and antibody labeling may not reflect precise physical dimensions of single Aβ fibrils.",
+    "Mouse models may not fully recapitulate human AD pathology; plaque growth is much faster in mice (months) than in humans (decades).",
+    "The study does not directly test whether boosting microglia barrier function reduces neurotoxicity or cognitive deficits.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "2_8.pdf",
+    "source_sha256": "aeb01d3d9ddd70a85b123f786e34289701f91e6a4b7b7bd7bb34ccd2b2027ece"
+  },
+  "paper_id": "2_8",
+  "quality_assessment": {
+    "correct_item_count": 40,
+    "deterministic_rule_score": 0.9099,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.1538,
+      "sample_size_log_score": 0.8084,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 45,
+    "f1": 0.8602,
+    "incorrect_item_count": 5,
+    "incorrect_items": [
+      {
+        "description": "The extracted n_sample_size of 2887 is incorrect. The source chunk (6b41809d36068ffd74c1) states 'Trem2 or DAP12+/− and DAP12−/− mice had a much greater degree of axonal dystrophy than wild-type mice' but does not provide a sample size. The n=2887 appears to be taken from a different chunk (e0f5b44a99cbedaa3175) which refers to plaque counts, not dystrophy volume sample size.",
+        "item_id": "result:su_ba4107658ba79369e5d74464:res_4c5ca62ed92325f8573d9fa1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted n_sample_size of 747 is incorrectly assigned to the metric 'Thioflavin S intensity'. The source chunk (e0f5b44a99cbedaa3175) states n=747 plaques for 5XFAD:Trem2, but this is the number of plaques analyzed, not the sample size of mice. The extraction incorrectly uses plaque count as n_sample_size.",
+        "item_id": "result:su_ba4107658ba79369e5d74464:res_638fb1ff84ef144d02dbf549",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted n_sample_size of 747 is incorrectly assigned to the metric 'Plaque circularity'. The source chunk (e0f5b44a99cbedaa3175) states n=747 plaques for 5XFAD:Trem2, but this is the number of plaques analyzed, not the sample size of mice. The extraction incorrectly uses plaque count as n_sample_size.",
+        "item_id": "result:su_ba4107658ba79369e5d74464:res_7aa133cda05ed7fbc33d2ed2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted n_sample_size of 8 is incorrectly assigned to the metric 'Proportion of diffuse plaque regions'. The source chunk (e0f5b44a99cbedaa3175) states n=8 plaques from each genotype, but this is the number of plaques analyzed, not the sample size of mice. The extraction incorrectly uses plaque count as n_sample_size.",
+        "item_id": "result:su_ba4107658ba79369e5d74464:res_7e4b45d5d33128c1ff6e253e",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted text 'up to 6 mm in diameter' is a typographical error in the source chunk (6b41809d36068ffd74c1). The correct unit should be µm, not mm. The extraction faithfully reproduces the source excerpt, but the source itself contains an error. However, the extraction protocol requires strict factual accuracy; the value '6 mm' is materially overstated and unsupported by the context (plaques are microscopic). The extraction should have noted this discrepancy or corrected it, but as it stands, the extracted value is incorrect.",
+        "item_id": "result:su_ba4107658ba79369e5d74464:res_f630b3efe5cb8a137b3dc155",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "The study does not report a direct causal link between microglia barrier disruption and cognitive decline; only axonal dystrophy and tau hyperphosphorylation are measured as proxies for neurotoxicity.",
+        "item_id": null,
+        "source_chunk_id": "4e7d2ea801e116e5247d",
+        "source_excerpt": "While our study provides novel cellular phenomenology potentially relevant for understanding microglia function in both mice and humans, there remain uncertainties as to how the observed defective microglia barrier acts, at a more functional level, to cause pathological defects.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The relative functional contribution of dystrophic neurites compared to other pathologies such as synaptic loss, cell death, and neurofibrillary tangles is unclear.",
+        "item_id": null,
+        "source_chunk_id": "4e7d2ea801e116e5247d",
+        "source_excerpt": "Furthermore, while our findings demonstrate marked neuritic changes around plaques in TREM2 deficiency, the relative functional contribution of dystrophic neurites compared to other pathologies such as synaptic loss, cell death and neurofibrillary tangles is unclear.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The mechanisms by which the defective microglia barrier causes pathological defects at a functional level remain uncertain.",
+        "item_id": null,
+        "source_chunk_id": "4e7d2ea801e116e5247d",
+        "source_excerpt": "While our study provides novel cellular phenomenology potentially relevant for understanding microglia function in both mice and humans, there remain uncertainties as to how the observed defective microglia barrier acts, at a more functional level, to cause pathological defects.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study is limited to a small number of human R47H TREM2 cases (n=10) and sporadic AD controls (n=9), which may limit generalizability.",
+        "item_id": null,
+        "source_chunk_id": "188928d1a2d8f92ce699",
+        "source_excerpt": "Formalin-fixed human postmortem brain tissue blocks were acquired from various brain banks. Detailed demographic and clinical information can be found in Table S2, including ten AD cases with the R47H mutation (Birdsill et al., 2011; Korvatska et al., 2015) and nine cases with comparable AD pathology but not carrying the mutation.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "STORM imaging resolution (~30 nm) and antibody labeling may not reflect precise physical dimensions of single Aβ fibrils.",
+        "item_id": null,
+        "source_chunk_id": "1c358066425124fd0aef",
+        "source_excerpt": "The absolute widths measured by STORM imaging likely do not reflect the precise physical dimensions of single Ab fibrils, given resolution limits (~30 nm) and the fact that antibody labeling itself changes the size of the imaged object.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Mouse models may not fully recapitulate human AD pathology; plaque growth is much faster in mice (months) than in humans (decades).",
+        "item_id": null,
+        "source_chunk_id": "4e7d2ea801e116e5247d",
+        "source_excerpt": "While filamentous plaques represent a modest proportion of all plaques in AD-like mice (Figure 4J), we found them to be more prevalent in human sporadic AD brains (Figure 6C), which is likely due to the fact that plaque growth is protracted over decades compared to months in mice (Burgold et al., 2014; Condello et al., 2011).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study does not directly test whether boosting microglia barrier function reduces neurotoxicity or cognitive deficits.",
+        "item_id": null,
+        "source_chunk_id": "4e7d2ea801e116e5247d",
+        "source_excerpt": "Nevertheless, our results suggest that boosting the microglia barrier function or increasing plaque compactness by other means could constitute a novel strategy for AD therapeutics.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope.",
+        "item_id": null,
+        "source_chunk_id": "4e7d2ea801e116e5247d",
+        "source_excerpt": "Our current understanding of the cellular, molecular, and biophysical mechanisms by which microglia exert this potentially neuroprotective barrier function is limited. However, future studies elucidating such mechanisms may uncover targetable pathways that could specifically enhance the barrier function in microglia and reduce risk for AD.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.8889,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8333
+  },
+  "quality_score": 0.8602,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does TREM2/DAP12 signaling regulate microglia process envelopment of amyloid plaques and plaque compaction?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_12c1ebef2df6db83f1a9722f",
+              "inference_basis_ids": [
+                "res_5cda2b3359ff1eb6907ee2d4",
+                "res_963e6a42a07bd9ed3d4981b8",
+                "res_dab999126a47b60ee0dc60d1"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "The dramatic change of plaque coverage in Trem2 and DAP12 deficiency cannot be explained alone by the modest ~20% reduction in the number of plaque-associated microglia. Instead, it appears that microglia in Trem2 or DAP12 deficiency have an impairment in the ability to polarize their processes toward the plaque surface and thus are unable to create an effective barrier around them"
+              },
+              "statement": "Trem2/DAP12 deficiency impairs microglia barrier formation by reducing plaque surface coverage and causing dysmorphic processes, independent of a major reduction in microglia numbers."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_40a4f002ded62ee40947a125",
+              "inference_basis_ids": [
+                "res_b83ad3af698bd1392860c4d9",
+                "res_df74636456c28fcc9d30d6a9"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "This function is disrupted in R47H mutants as demonstrated by a signiﬁcantly reduced degree and robustness of microglia plaque coverage associated with increased neuritic abnormalities"
+              },
+              "statement": "Disruption of the microglia barrier in human R47H TREM2 mutants leads to increased axonal dystrophy and tau hyperphosphorylation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_70172dc215f826b0c3fce117",
+              "inference_basis_ids": [
+                "res_f4e68fe693e9fe8430632248"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Importantly, while the total number of amyloid plaques was not signiﬁcantly different between Trem2-deﬁcient and wild-type mice, we observed a signiﬁcant increase in the proportion of ﬁlamentous plaques in both Trem2+/− and Trem2−/− mice."
+              },
+              "statement": "Loss of microglia barrier shifts plaque distribution toward filamentous morphology without altering total plaque number."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_723c8b706ada5daa8e11fe4e",
+              "inference_basis_ids": [
+                "res_bb87ecfdbf8070b36681e836"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "1c358066425124fd0aef",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "Surprisingly, despite in vitro studies suggesting otherwise, we found that Aβ phagocytosis by microglia in Trem2 haplodeficiency appears to remain normal in vivo. This result suggests that rather than defective phagocytosis, disruption of the microglia barrier could be a driving mechanism underlying increased risk for AD with single allele TREM2 mutations in humans."
+              },
+              "statement": "Trem2 haplodeficiency does not impair Aβ phagocytosis in vivo, suggesting barrier disruption rather than defective phagocytosis drives AD risk."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_80f09806cbefc10241fa3c3d",
+              "inference_basis_ids": [
+                "res_0ea9f093eae32a648c0bd320",
+                "res_23c1bf85075bbb1692eafc82",
+                "res_be1eef1140c30d48bcedd71d",
+                "res_e7a344841ee3bfdfb1f1d6ef"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "TREM2 in humans likely regulates the microglia barrier function and disruption of this function in R47H mutants is associated with inability of microglia for enveloping ﬁbrils or amyloid deposits."
+              },
+              "statement": "Human R47H TREM2 mutation disrupts microglia barrier function, reducing plaque engagement and coverage, similar to mouse Trem2 deficiency."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8cdef246f338c2294693f16f",
+              "inference_basis_ids": [
+                "res_17e2e02c8c06b57fd211e19a",
+                "res_638fb1ff84ef144d02dbf549",
+                "res_7aa133cda05ed7fbc33d2ed2",
+                "res_7e4b45d5d33128c1ff6e253e",
+                "res_9547e311d65e7b410d58703a"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "This phenomenon would be predicted to dramatically increase the contact area between amyloid ﬁbrils and the adjacent exposed cellular structures."
+              },
+              "statement": "Trem2/DAP12 deficiency reduces amyloid plaque compaction, leading to more diffuse, less compact fibril organization with increased surface area."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8da4aca7a195b56280d4379b",
+              "inference_basis_ids": [
+                "res_294b5fc8312885659efa9fc3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "suggesting that microglia normally exert a protective insulating effect. This function is disrupted in R47H mutants"
+              },
+              "statement": "Microglia normally exert a protective insulating effect that limits neuritic tau pathology, which is lost in R47H mutants."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9bad968f8811b23a42b5263c",
+              "inference_basis_ids": [
+                "res_4d53f198f9e4d3d3d842c4ac"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Trem2 likely plays a critical role in signaling microglia process specialization underlying the formation of the microglia barrier around plaques"
+              },
+              "statement": "Trem2 signaling is critical for microglia process specialization and barrier formation, likely through tyrosine kinase activation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cd9dfc73472abf1540b82df0",
+              "inference_basis_ids": [
+                "res_4c5ca62ed92325f8573d9fa1",
+                "res_f630b3efe5cb8a137b3dc155"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Decreased Amyloid Plaque Compaction in Trem2 or DAP12 Deﬁciency Leads to Severe Axonal Dystrophy"
+              },
+              "statement": "Decreased plaque compaction in Trem2/DAP12 deficiency leads to severe axonal dystrophy, particularly around early filamentous and small compact plaques."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ef3e8c1c397ea011a7d550da",
+              "inference_basis_ids": [
+                "res_03786b61823f08ed10a564b2",
+                "res_329d14b9cf82fdfa4f43f46a",
+                "res_3a91b5af7013089edf5fbcba",
+                "res_8f65cc41c983d263ec621b6b",
+                "res_eb320bbc0cb11a60e034e9ce"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The robust enrichment of Trem2, DAP12, and a marker of downstream tyrosine phosphorylation suggests that these signaling proteins could play a key role in the envelopment of the plaque surface by microglia processes and the establishment of the microglia barrier"
+              },
+              "statement": "Trem2, DAP12, and downstream tyrosine phosphorylation are enriched at microglia processes contacting amyloid plaques, suggesting a role in plaque envelopment."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [],
+          "methods": [],
+          "name": "Provisional flat extraction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Aβ phagocytosis in Trem2−/−",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c358066425124fd0aef",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "when complete protein loss occurred in Trem2−/− mice, we did observe a significant reduction in phagocytosis"
+              },
+              "quantitative_value": null,
+              "result_id": "res_01afac338a1af4ef3c8277df",
+              "unit": null,
+              "value_raw_text": "when complete protein loss occurred in Trem2−/− mice, we did observe a significant reduction in phagocytosis"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Trem2 enrichment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Trem2 is enriched within plaque-associated microglia, but not in microglia away from plaques or other neural cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_03786b61823f08ed10a564b2",
+              "unit": null,
+              "value_raw_text": "Trem2 is enriched within plaque-associated microglia, but not in microglia away from plaques or other neural cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglia coverage of amyloid aggregates",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "markedly diminished microglia coverage of amyloid aggregates"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0ea9f093eae32a648c0bd320",
+              "unit": null,
+              "value_raw_text": "markedly diminished microglia coverage of amyloid aggregates"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibril branching and surface area",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "implies that the surface-to-volume ratio of amyloid ﬁbers in Trem2-deﬁcient mice is signiﬁcantly greater than in wild-type mice (we estimate an ~300%–400% increase)"
+              },
+              "quantitative_value": 350.0,
+              "result_id": "res_17e2e02c8c06b57fd211e19a",
+              "unit": "% increase",
+              "value_raw_text": "surface-to-volume ratio of amyloid fibers in Trem2-deficient mice is significantly greater than in wild-type mice (we estimate an ~300%–400% increase)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglia number around plaques",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "we observed a marked reduction in the number of surrounding microglia in both ﬁlamentous and compact plaques"
+              },
+              "quantitative_value": null,
+              "result_id": "res_23c1bf85075bbb1692eafc82",
+              "unit": null,
+              "value_raw_text": "marked reduction in the number of surrounding microglia in both filamentous and compact plaques"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglia-phospho-tau anti-colocalization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "we observed a strong anti-colocalization between microglia processes and hyperphosphorylated tau-positive dystrophic neurites"
+              },
+              "quantitative_value": null,
+              "result_id": "res_294b5fc8312885659efa9fc3",
+              "unit": null,
+              "value_raw_text": "strong anti-colocalization between microglia processes and hyperphosphorylated tau-positive dystrophic neurites"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "DAP12 polarization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "polarized expression of its signaling adaptor protein DAP12"
+              },
+              "quantitative_value": null,
+              "result_id": "res_329d14b9cf82fdfa4f43f46a",
+              "unit": null,
+              "value_raw_text": "polarized expression of its signaling adaptor protein DAP12"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Human DAP12 polarization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "enhanced DAP12 expression specifically polarized to microglia processes contacting amyloid plaques"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3a91b5af7013089edf5fbcba",
+              "unit": null,
+              "value_raw_text": "enhanced DAP12 expression specifically polarized to microglia processes contacting amyloid plaques"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Axonal dystrophy volume",
+              "n_sample_size": 2887,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Trem2 or DAP12+/− and DAP12−/− mice had a much greater degree of axonal dystrophy than wild-type mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4c5ca62ed92325f8573d9fa1",
+              "unit": null,
+              "value_raw_text": "Trem2 or DAP12+/− and DAP12−/− mice had a much greater degree of axonal dystrophy than wild-type mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phosphorylated tyrosine in Trem2 deficiency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "in Trem2 deficiency, microglia processes contacting plaques did not show enrichment of phosphorylated tyrosine"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4d53f198f9e4d3d3d842c4ac",
+              "unit": null,
+              "value_raw_text": "in Trem2 deficiency, microglia processes contacting plaques did not show enrichment of phosphorylated tyrosine"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Plaque surface coverage by microglia",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Trem2 or DAP12 deletion markedly reduced the degree of plaque surface coverage by microglia processes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5cda2b3359ff1eb6907ee2d4",
+              "unit": null,
+              "value_raw_text": "Trem2 or DAP12 deletion markedly reduced the degree of plaque surface coverage by microglia processes."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Thioflavin S intensity",
+              "n_sample_size": 747,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Quantiﬁcation of mean thioﬂavin S ﬂuorescence intensity (B) and circularity (C, roundness) in plaques from 5XFAD mice with different Trem2 genotypes and APPPS1-21 mice with different DAP12 genotypes. n = 3 mice for each group, 747 plaques for 5XFAD:Trem2 and 198 plaques for APPPS1-21:DAP12."
+              },
+              "quantitative_value": null,
+              "result_id": "res_638fb1ff84ef144d02dbf549",
+              "unit": "arbitrary units",
+              "value_raw_text": "mean thioflavin S fluorescence intensity reduced in Trem2−/− and DAP12−/−"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Plaque circularity",
+              "n_sample_size": 747,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Quantiﬁcation of mean thioﬂavin S ﬂuorescence intensity (B) and circularity (C, roundness) in plaques from 5XFAD mice with different Trem2 genotypes and APPPS1-21 mice with different DAP12 genotypes. n = 3 mice for each group, 747 plaques for 5XFAD:Trem2 and 198 plaques for APPPS1-21:DAP12."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7aa133cda05ed7fbc33d2ed2",
+              "unit": "roundness index",
+              "value_raw_text": "circularity reduced in Trem2−/− and DAP12−/−"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proportion of diffuse plaque regions",
+              "n_sample_size": 8,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Quantiﬁcation of the proportion of diffuse, mesh-like, and compact regions in amyloid plaques from 5XFAD mice with different Trem2 copy numbers. n = 8 plaques from each genotype."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7e4b45d5d33128c1ff6e253e",
+              "unit": null,
+              "value_raw_text": "proportion of diffuse, mesh-like, and compact regions in amyloid plaques from 5XFAD mice with different Trem2 copy numbers"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phosphorylated tyrosine enrichment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "a marker of phosphorylated tyrosine consistent with downstream kinase-mediated signal transduction"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8f65cc41c983d263ec621b6b",
+              "unit": null,
+              "value_raw_text": "a marker of phosphorylated tyrosine consistent with downstream kinase-mediated signal transduction"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Diffuse fibril length",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Quantiﬁcation of lengths of the diffuse ﬁbrils in plaques of 5XFAD mice with different Trem2 copy numbers."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9547e311d65e7b410d58703a",
+              "unit": null,
+              "value_raw_text": "lengths of the diffuse fibrils in plaques of 5XFAD mice with different Trem2 copy numbers"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglia process morphology",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "processes contacting plaques in either Trem2- or DAP12-deficient mice displayed characteristic dysmorphic features with fine processes and terminal loops that failed to closely track the boundaries of the plaque"
+              },
+              "quantitative_value": null,
+              "result_id": "res_963e6a42a07bd9ed3d4981b8",
+              "unit": null,
+              "value_raw_text": "processes contacting plaques in either Trem2- or DAP12-deficient mice displayed characteristic dysmorphic features with fine processes and terminal loops that failed to closely track the boundaries of the plaque"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Axonal dystrophy in R47H mutants",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "we found a dramatic increase in axonal dystrophy around both ﬁlamentous and small compact plaques in R47H mutants compared to sporadic non mutant AD cases"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b83ad3af698bd1392860c4d9",
+              "unit": null,
+              "value_raw_text": "dramatic increase in axonal dystrophy around both filamentous and small compact plaques in R47H mutants compared to sporadic non mutant AD cases"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Aβ phagocytosis in Trem2 haplodeficiency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1c358066425124fd0aef",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "Aβ phagocytosis by microglia in Trem2 haplodeficiency appears to remain normal in vivo"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bb87ecfdbf8070b36681e836",
+              "unit": null,
+              "value_raw_text": "Aβ phagocytosis by microglia in Trem2 haplodeficiency appears to remain normal in vivo"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proportion of filamentous plaques",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "we did observe a robust increase in the proportion of plaques with ﬁlamentous morphology"
+              },
+              "quantitative_value": null,
+              "result_id": "res_be1eef1140c30d48bcedd71d",
+              "unit": null,
+              "value_raw_text": "robust increase in the proportion of plaques with filamentous morphology"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Plaque-associated microglia number",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "modest ~20% reduction in the number of plaque-associated microglia"
+              },
+              "quantitative_value": 20.0,
+              "result_id": "res_dab999126a47b60ee0dc60d1",
+              "unit": "% reduction",
+              "value_raw_text": "modest ~20% reduction in the number of plaque-associated microglia"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phospho-tau labeling",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "phosphotau labeling was markedly increased in R47H AD brains compared to sporadic AD cases"
+              },
+              "quantitative_value": null,
+              "result_id": "res_df74636456c28fcc9d30d6a9",
+              "unit": null,
+              "value_raw_text": "phosphotau labeling was markedly increased in R47H AD brains compared to sporadic AD cases"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Microglia barrier robustness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "microglia in R47H mutants were able to send processes toward amyloid deposits, these appeared to be less robust and did not tightly engage with individual ﬁbrils or the plaque surface"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e7a344841ee3bfdfb1f1d6ef",
+              "unit": null,
+              "value_raw_text": "microglia in R47H mutants were able to send processes toward amyloid deposits, these appeared to be less robust and did not tightly engage with individual fibrils or the plaque surface"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Trem2 polarization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d4fe97f00b55b800a445",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Trem2 expression was exceptionally high at the leading edges of microglia processes directly contacting amyloid plaques"
+              },
+              "quantitative_value": null,
+              "result_id": "res_eb320bbc0cb11a60e034e9ce",
+              "unit": null,
+              "value_raw_text": "Trem2 expression was exceptionally high at the leading edges of microglia processes directly contacting amyloid plaques."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proportion of filamentous plaques",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e0f5b44a99cbedaa3175",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "we observed a signiﬁcant increase in the proportion of ﬁlamentous plaques in both Trem2+/− and Trem2−/− mice"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f4e68fe693e9fe8430632248",
+              "unit": null,
+              "value_raw_text": "significant increase in the proportion of filamentous plaques in both Trem2+/− and Trem2−/− mice"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dystrophy by plaque type",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6b41809d36068ffd74c1",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "the main difference in dystrophy occurred in non-compact ﬁlamentous and small compact plaques (up to 6 mm in diameter)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f630b3efe5cb8a137b3dc155",
+              "unit": null,
+              "value_raw_text": "the main difference in dystrophy occurred in non-compact filamentous and small compact plaques (up to 6 µm in diameter)"
+            }
+          ],
+          "unit_id": "su_ba4107658ba79369e5d74464"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[3].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[3].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup4 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup4 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup5 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup5 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup6 on attempt 1"
+    },
+    {
+      "code": "extraction.flat_fallback",
+      "json_path": "$.research_questions[0].study_units[0]",
+      "message": "The hierarchical output retained structural ID conflicts after its retry budget; a strictly validated flat extraction was used.",
+      "repair": "flattened supported results, claims, and evidence into Provisional flat extraction"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8776 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9349 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9076 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8843 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6495 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4653 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6218 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8122 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5169 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5688 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4022 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8320 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+  "coverage_ledger": {
+    "25c81a4f10148ec9b1b0": "not_selected",
+    "490f40139a669c798193": "not_selected",
+    "603850a2e3477935cb09": "extracted",
+    "63da52c217ad1ca0b856": "extracted",
+    "89bfa0595772b4ea0607": "not_selected",
+    "8c85602bbdb444faa8b1": "not_selected",
+    "93c22a3ac4bf665ab9b5": "not_selected",
+    "a4e3478b0e5923b3c8e8": "not_selected",
+    "c4b1638e16dd2e759e93": "not_selected",
+    "d3a2704ca4e8b6f6baac": "not_selected",
+    "dac2e8e79988f75be60b": "extracted",
+    "f17d3176f50a63ec128a": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The equality constrained program is nonconvex; solvers can only find stationary points, not guaranteed global optima.",
+    "The method relies on smooth score functions; non-smooth or discrete scores (e.g., BDe) are not directly supported.",
+    "Computational complexity is cubic in the number of nodes due to matrix exponential evaluation.",
+    "No worst-case iteration complexity results have been established.",
+    "The threshold ω was chosen as a fixed, suboptimal value; a data-driven choice is needed for adaptation to different noise-to-signal ratios and graph types.",
+    "The method may converge slowly in exceptional cases, as suggested by Section 5.3 results."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_13.pdf",
+    "source_sha256": "6d7d419ff8f2685726b6fddf7f4c31a6608a92d047da0166460ce18e30cf12b4"
+  },
+  "paper_id": "5_13",
+  "quality_assessment": {
+    "correct_item_count": 34,
+    "deterministic_rule_score": 0.6364,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 34,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can score-based DAG structure learning be formulated as a purely continuous optimization problem that avoids combinatorial acyclicity constraints?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_122f8e9e28f29aeb0dcaf7c0",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "by performing global updates (e.g. all parameters at once) instead of local updates (e.g. one edge at a time) in each iteration, our method is able to avoid relying on assumptions about the local structure of the graph."
+              },
+              "statement": "NOTEARS performs global updates (all parameters at once) instead of local updates (one edge at a time), avoiding reliance on assumptions about local graph structure."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_315cf5be018f79b8fbaa1526",
+              "inference_basis_ids": [],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "our approach is very simple and can be implemented in about 50 lines of Python code."
+              },
+              "statement": "The method can be implemented in about 50 lines of Python code."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_44f0319e73a7a3c1871ba6b0",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the equality constrained program (8) is a nonconvex program. Thus, although we overcome the difficulties of combinatorial optimization, our formulation still inherits the difficulties associated with nonconvex optimization. In particular, black-box solvers can at best find stationary points of (8)."
+              },
+              "statement": "The equality constrained program (8) is nonconvex, so black-box solvers can at best find stationary points."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_49f20eb65a726f4a48346ba0",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "since the evaluation of the matrix exponential is O(d^3), the computational complexity of our method is cubic in the number of nodes, although the constant is small for sparse matrices."
+              },
+              "statement": "The computational complexity of NOTEARS is cubic in the number of nodes due to matrix exponential evaluation, though constant is small for sparse matrices."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4a2465e56a000238ec362c0a",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the current work relies on the smoothness of the score function, in order to make use of gradient-based numerical solvers to guide the graph search. However it is also interesting to consider non-smooth, even discrete scores such as BDe [20]."
+              },
+              "statement": "The current method relies on smooth score functions; non-smooth or discrete scores (e.g., BDe) are not directly applicable."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4b56608c70c0d115f4ce0c75",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the continuous program on the right eliminates the need for specialized algorithms that are tailored to search over the combinatorial space of DAGs. Instead, we are able to leverage standard numerical algorithms for constrained problems, which makes implementation particularly easy, not requiring any knowledge about graphical models."
+              },
+              "statement": "The continuous formulation eliminates the need for specialized combinatorial search algorithms, making implementation easy."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_72e24aab41a77abae26d00de",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we chose a fixed, suboptimal value of ω > 0 for thresholding (Section 4.3). Clearly, it would be preferable to find a data-driven choice of ω that adapts to different noise-to-signal ratios and graph types."
+              },
+              "statement": "The threshold ω was chosen as a fixed, suboptimal value; a data-driven choice would be preferable."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b8d1423e1ce48fcf6ffa2e80",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "We compare our ouput to the exact global minimizer [12], and show that our method attains scores that are comparable to the globally optimal score in practice, although our methods are only guaranteed to find stationary points."
+              },
+              "statement": "NOTEARS attains scores comparable to the exact global minimizer in practice, despite only guaranteeing stationary points."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bc2b77ac57870be0569caf53",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The proposed method outperforms existing ones, without imposing any structural assumptions on the graph such as bounded treewidth or in-degree."
+              },
+              "statement": "The proposed NOTEARS method outperforms existing DAG learning methods without imposing structural assumptions such as bounded treewidth or in-degree."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f8584b216141ecc07df574a8",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we have not established any worst-case iteration complexity results."
+              },
+              "statement": "No worst-case iteration complexity results have been established for NOTEARS."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply post-processing hard thresholding to reduce false discoveries and enforce exact acyclicity.",
+            "Develop an equality-constrained program for simultaneously estimating structure and parameters of a sparse DAG from possibly high-dimensional data.",
+            "Formulate DAG learning as a continuous optimization problem with a smooth equality constraint h(W)=0 that exactly characterizes acyclicity.",
+            "Solve the resulting program using standard numerical solvers (augmented Lagrangian with L-BFGS for smooth case, proximal quasi-Newton for L1-regularized case)."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "NOTEARS",
+              "protocol_description": "The proposed method reformulates score-based DAG learning as a continuous optimization problem: min_W F(W) subject to h(W)=0, where h(W)=tr(e^{W∘W})-d is a smooth function that is zero iff W corresponds to a DAG. The problem is solved via the augmented Lagrangian method, converting it into a sequence of unconstrained subproblems. For λ=0 (no L1 penalty), L-BFGS is used; for λ>0, proximal quasi-Newton (PQN) is used. After obtaining a stationary point, hard thresholding with a fixed threshold ω is applied to remove small edges and ensure acyclicity."
+            }
+          ],
+          "name": "NOTEARS method development",
+          "results": [],
+          "unit_id": "su_f954ed431f7cc0111b6ae7d5"
+        }
+      ]
+    },
+    {
+      "question_id": "Q2",
+      "statement": "How does NOTEARS compare empirically against existing DAG learning methods?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_290520bae66e0a36769a4e04",
+              "inference_basis_ids": [
+                "res_0f3fa0840af47c4851fe3202",
+                "res_f20878b184d4cf629e5815e0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dac2e8e79988f75be60b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "We compared our method against greedy equivalent search (GES) [9, 31], the PC algorithm [42], and LiNGAM [38]. ... Since the accuracy of PC and LiNGAM was significantly lower than either FGS or NOTEARS, we only report the results against FGS here."
+              },
+              "statement": "NOTEARS outperforms FGS, PC, and LiNGAM in empirical evaluations."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Synthetic data generated from linear SEM with varying numbers of nodes, edges, and sample sizes (n=20, 1000).",
+              "name": "Synthetic DAG data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assess performance using metrics such as structural Hamming distance (SHD) and false discovery rate (FDR).",
+            "Compare NOTEARS against greedy equivalent search (GES/FGS), PC algorithm, and LiNGAM.",
+            "Evaluate on synthetic data with varying sample sizes and graph types.",
+            "Examine the effect of L1 regularization and thresholding on small sample sizes."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "FGS (GES)",
+              "protocol_description": "Fast greedy search implementation of greedy equivalent search, a state-of-the-art score-based DAG learning algorithm that searches over equivalence classes."
+            },
+            {
+              "method_id": "M3",
+              "name": "PC algorithm",
+              "protocol_description": "Constraint-based method for learning DAGs using conditional independence tests."
+            },
+            {
+              "method_id": "M4",
+              "name": "LiNGAM",
+              "protocol_description": "Linear non-Gaussian acyclic model for causal discovery assuming non-Gaussian noise."
+            }
+          ],
+          "name": "Empirical evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy comparison",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dac2e8e79988f75be60b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Since the accuracy of PC and LiNGAM was significantly lower than either FGS or NOTEARS, we only report the results against FGS here."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0f3fa0840af47c4851fe3202",
+              "unit": null,
+              "value_raw_text": "PC and LiNGAM accuracy was significantly lower than FGS or NOTEARS."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Visual comparison of learned adjacency matrices",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "603850a2e3477935cb09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The proposed algorithms perform well on large samples, and remains accurate on small n with `1 regularization."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f20878b184d4cf629e5815e0",
+              "unit": null,
+              "value_raw_text": "NOTEARS with L1 regularization (λ=0.1) remains accurate on small n=20, while FGS produces many false edges."
+            }
+          ],
+          "unit_id": "su_d41c62d8031cf8727026b3c0"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3744 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4167 on attempt 1"
+    }
+  ]
+}

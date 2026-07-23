@@ -1,0 +1,337 @@
+{
+  "coverage_ledger": {
+    "00dc49b76b61352ff0e4": "extracted",
+    "0c060313faee511f355a": "extracted",
+    "113425b00c5a96021c16": "not_selected",
+    "211aba4c664d93a95cc3": "not_selected",
+    "246820b34602e576c48d": "not_selected",
+    "25b957114efd74f60e73": "not_selected",
+    "2832885692a6969336bb": "not_selected",
+    "2965c4effeaec7f8e01b": "not_selected",
+    "2974358a1baccb4e24a0": "not_selected",
+    "3049d7755635d26055f8": "extracted",
+    "3341b41168db86ff0cb9": "not_selected",
+    "33a3409cb37e43a87bc7": "not_selected",
+    "3b4e8964ce067ca18b90": "not_selected",
+    "3d57e3458ff04d23bd13": "not_selected",
+    "3dd1d7bd8cf15f7148a7": "not_selected",
+    "40f8e554ba3f7926bf2e": "not_selected",
+    "424bfe31e1d4e17e86e3": "not_selected",
+    "51acde1665a1e1c71ae6": "not_selected",
+    "53f858d19de1cc81d737": "not_selected",
+    "55b052c3e7ae784ddb6b": "not_selected",
+    "64dd9ee5fac48c5e2861": "not_selected",
+    "6d094d1a1257089c897e": "not_selected",
+    "7a812bb8647d6f51cc23": "extracted",
+    "849249ecd54b7bca680f": "not_selected",
+    "88d838f78e1628fa920d": "not_selected",
+    "8ff581faf064c396c325": "not_selected",
+    "9aadda5cbd7ff4f4f2d4": "not_selected",
+    "a463823e4204d41f8af7": "not_selected",
+    "a8523077577a3c48aea5": "not_selected",
+    "a97b187f139f93dc6bd7": "not_selected",
+    "abadd23bb756acc8d2f2": "not_selected",
+    "aed92d60c251fcd1b3d3": "extracted",
+    "b25075d11e756e00d868": "not_selected",
+    "b641c95d8cdce6ab516a": "not_selected",
+    "c6211c4477bc42f3e737": "not_selected",
+    "c71519441e40780a2eb3": "extracted",
+    "c805952ba34792b32e03": "not_selected",
+    "de7534640523e57514f7": "not_selected",
+    "e73e90e5c826c27bf10d": "not_selected",
+    "f949581f032c2ce22c03": "not_selected",
+    "fa1099fb03389e76adcd": "extracted",
+    "fc6452b9d57954aa7a6a": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "FNO is extremely sensitive to noise, failing even with 0.1% Gaussian noise.",
+    "FNO originally cannot handle complex geometries or different input-output dimensions without extensions.",
+    "DeepONet and FNO may yield sub-optimal results for multiscale and non-smooth solutions without extensions.",
+    "Training neural operators can be expensive, though both can break curse of dimensionality.",
+    "Exponential convergence of DeepONet error with training data size switches to algebraic for large data due to finite network size."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "8_6.pdf",
+    "source_sha256": "3290759d728561aa59ef1b27431eec1aed3f6605f9a87eb9dd0ab189c7b9cc1b"
+  },
+  "paper_id": "8_6",
+  "quality_assessment": {
+    "correct_item_count": 22,
+    "deterministic_rule_score": 0.7804,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 22,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do DeepONet and FNO compare in accuracy, robustness, and applicability across diverse benchmarks, and what extensions improve their performance?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3d8a4c8974be29330200f302",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "00dc49b76b61352ff0e4",
+                "page_end": 33,
+                "page_start": 33,
+                "paraphrased": false,
+                "text_excerpt": "DeepONet can employ any type of neural network architectures in the branch net whereas FNO has a fixed architecture, and hence DeepONet is more flexible than FNO in terms of problem settings and datasets"
+              },
+              "statement": "DeepONet is more flexible than FNO because it can use any neural network architecture in the branch net."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_69ee24c6f281f67a8cea015a",
+              "inference_basis_ids": [
+                "res_3230dde8b181428965f4f173",
+                "res_6a0fa70fcb84209b554e66fa"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "3049d7755635d26055f8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The performance of DeepONet and FNO is comparable for relatively simple settings, but for complex geometries and especially noisy data, the performance of FNO deteriorates greatly."
+              },
+              "statement": "DeepONet and FNO have comparable performance for simple settings, but FNO deteriorates greatly for complex geometries and noisy data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e7666ef2a3dcf069377be3e6",
+              "inference_basis_ids": [
+                "res_2710ea83bc049cdb74fff2d1",
+                "res_9536f2a7ed5a65f069da04c2",
+                "res_cf0e6430ff96de990831bf00"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "00dc49b76b61352ff0e4",
+                "page_end": 33,
+                "page_start": 33,
+                "paraphrased": false,
+                "text_excerpt": "the extra feature can significantly reduce the predicted accuracy as compared to the results without feature expansion for all operator networks."
+              },
+              "statement": "Extensions like POD-DeepONet and feature expansion improve accuracy for both DeepONet and FNO."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fd2d9467e68c33f8fff5bb0e",
+              "inference_basis_ids": [
+                "res_6a0fa70fcb84209b554e66fa"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "3049d7755635d26055f8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for the instability wave analysis with only 0.1% noise added to the input data, the error of FNO increases 10,000 times making it inappropriate for such important applications, while there is hardly any effect of such noise on the DeepONet."
+              },
+              "statement": "FNO is extremely sensitive to noise, with error increasing 10,000 times for 0.1% noise, while DeepONet is robust."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "16 PDE-based benchmarks with features like complex geometry, unsteadiness, noisy data, non-smooth solutions. Includes Burgers, Darcy, Navier-Stokes, advection, instability waves, flapping airfoil, cavity flows, etc.",
+              "name": "16 benchmarks dataset",
+              "version_or_split": "various splits per benchmark"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "The performance of DeepONet and FNO is comparable for relatively simple settings, but for complex geometries and especially noisy data, the performance of FNO deteriorates greatly.",
+              "provenance": {
+                "chunk_id": "3049d7755635d26055f8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The performance of DeepONet and FNO is comparable for relatively simple settings, but for complex geometries and especially noisy data, the performance of FNO deteriorates greatly."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "for the instability wave analysis with only 0.1% noise added to the input data, the error of FNO increases 10,000 times making it inappropriate for such important applications, while there is hardly any effect of such noise on the DeepONet.",
+              "provenance": {
+                "chunk_id": "3049d7755635d26055f8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for the instability wave analysis with only 0.1% noise added to the input data, the error of FNO increases 10,000 times making it inappropriate for such important applications, while there is hardly any effect of such noise on the DeepONet."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Comparison of DeepONet and FNO on 16 benchmarks including instability wave analysis, flapping airfoil, porous media, advection, Burgers, Darcy, Navier-Stokes, etc.",
+            "Evaluation of robustness to noise, complex geometries, and different input-output dimensions.",
+            "Theoretical error estimation comparison for Burgers' equation."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DeepONet",
+              "protocol_description": "DeepONet consists of branch and trunk networks. Extensions include POD-DeepONet (using POD modes as trunk), feature expansion (extra inputs to trunk), hard constraints for boundary conditions, and fast implementation."
+            },
+            {
+              "method_id": "M2",
+              "name": "FNO",
+              "protocol_description": "Fourier Neural Operator parameterizes integral kernel in Fourier space. Extensions: dFNO+ (different input-output domains), gFNO+ (complex geometry), feature expansion."
+            }
+          ],
+          "name": "Overall comparative study of DeepONet and FNO",
+          "results": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "aed92d60c251fcd1b3d3",
+                  "page_end": 29,
+                  "page_start": 29,
+                  "paraphrased": false,
+                  "text_excerpt": "The vanilla DeepONet predicts the output with satisfactory result (3.65%). In addition, when we apply the modified DeepONet with 5 historical states of the investigated quantity as the features, the error becomes even smaller (2.87%)."
+                }
+              ],
+              "metric_name": "L2 relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "aed92d60c251fcd1b3d3",
+                "page_end": 29,
+                "page_start": 29,
+                "paraphrased": false,
+                "text_excerpt": "when the input is augmented to involve both time and space coordinates (Section 3.2.2 Case I Method 1), the relative error of dFNO+ reduces to 3.56%."
+              },
+              "quantitative_value": null,
+              "result_id": "res_15ddc852cc141294a23f5ab0",
+              "unit": "%",
+              "value_raw_text": "For flapping airfoil, vanilla DeepONet error 3.65%, dFNO+ error 3.56%, modified DeepONet with 5 historical states error 2.87%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "00dc49b76b61352ff0e4",
+                "page_end": 33,
+                "page_start": 33,
+                "paraphrased": true,
+                "text_excerpt": "Cavity (Unsteady I) DeepONet 14.4±0.53% POD-DeepONet 14.2±0.51% dFNO+ 15.0±0.17% DeepONet (feature expansion) 2.24±0.21% POD-DeepONet (feature expansion) 1.51±0.27% dFNO+ (feature expansion) 1.78±0.22%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2710ea83bc049cdb74fff2d1",
+              "unit": "%",
+              "value_raw_text": "For cavity flows (Unsteady I): DeepONet 14.4±0.53%, POD-DeepONet 14.2±0.51%, dFNO+ 15.0±0.17%. With feature expansion: DeepONet 2.24±0.21%, POD-DeepONet 1.51±0.27%, dFNO+ 1.78±0.22%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3049d7755635d26055f8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The performance of DeepONet and FNO is comparable for relatively simple settings, but for complex geometries and especially noisy data, the performance of FNO deteriorates greatly."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3230dde8b181428965f4f173",
+              "unit": null,
+              "value_raw_text": "DeepONet and FNO performance comparable for relatively simple settings, but for complex geometries and noisy data, FNO deteriorates greatly."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 relative error increase due to noise",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3049d7755635d26055f8",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "for the instability wave analysis with only 0.1% noise added to the input data, the error of FNO increases 10,000 times making it inappropriate for such important applications, while there is hardly any effect of such noise on the DeepONet."
+              },
+              "quantitative_value": 10000.0,
+              "result_id": "res_6a0fa70fcb84209b554e66fa",
+              "unit": "times increase",
+              "value_raw_text": "For instability wave analysis with 0.1% noise, FNO error increases 10,000 times, while DeepONet is hardly affected."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "00dc49b76b61352ff0e4",
+                "page_end": 33,
+                "page_start": 33,
+                "paraphrased": true,
+                "text_excerpt": "Cavity (Steady) DeepONet 1.20±0.23% POD-DeepONet 0.33±0.08% dFNO+ 0.63±0.04% DeepONet (feature expansion) 0.51±0.12% POD-DeepONet (feature expansion) 0.18±0.02% dFNO+ (feature expansion) 0.56±0.03%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9536f2a7ed5a65f069da04c2",
+              "unit": "%",
+              "value_raw_text": "For cavity flows (Steady): DeepONet 1.20±0.23%, POD-DeepONet 0.33±0.08%, dFNO+ 0.63±0.04%. With feature expansion: DeepONet 0.51±0.12%, POD-DeepONet 0.18±0.02%, dFNO+ 0.56±0.03%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "L2 relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "00dc49b76b61352ff0e4",
+                "page_end": 33,
+                "page_start": 33,
+                "paraphrased": false,
+                "text_excerpt": "we can still get quite accurate predictions (around 2% relative errors for all methods) for the velocity field as we reduce the number of training dataset from 90 to 10 with the feature expansion in Unsteady II."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cf0e6430ff96de990831bf00",
+              "unit": "%",
+              "value_raw_text": "For cavity flows (Unsteady II) with feature expansion and only 10 training data, DeepONet ~2%, POD-DeepONet ~2%, dFNO+ ~2%."
+            }
+          ],
+          "unit_id": "su_c1e4e7e685da64e1a0471f2b"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7766 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7861 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "coverage_ledger": {
+    "0ec04caaab33fd76faa5": "extracted",
+    "1042b14e75d7d1437e66": "not_selected",
+    "3e0a6ec5894da7f67505": "extracted",
+    "51cbb1cd0e79fcd4ff92": "not_selected",
+    "535be81727315aad285e": "not_selected",
+    "7dea9fc8dcff37dbf27a": "not_selected",
+    "8b0d88e2827c07a38b55": "not_selected",
+    "8bded305e2a60c2ff79b": "not_selected",
+    "a059f3668bb4caa22495": "not_selected",
+    "c1a188cecf89f5115b0d": "not_selected",
+    "cbc8b053da61abe077f5": "not_selected",
+    "d58d6d1c45e395dfb228": "extracted",
+    "d5fb430a4ea35d6cc8e7": "not_selected",
+    "f00f60c68dcd6c4973a2": "not_selected",
+    "f8d54b5e8c52d5553918": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses HeLa-Kyoto cells; generalizability to other cell types is partially addressed but not exhaustive.",
+    "The AFM-based confinement assay uses a flat cantilever, which may not fully replicate the complex 3D geometries in vivo.",
+    "The nuclear ruler model is based on a specific threshold height (~5 µm) and may vary with cell type and nuclear size.",
+    "The role of other endomembranes (e.g., ER) in cytoplasts at extreme confinement is not fully characterized.",
+    "Long-term effects of nuclear deformation on gene expression and cell fate are not explored."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_3.pdf",
+    "source_sha256": "d1c276f787e47ae28dea9e0bece30f4b7fa2e8a1a6536558d84b3845fdd19c5f"
+  },
+  "paper_id": "4_3",
+  "quality_assessment": {
+    "correct_item_count": 58,
+    "deterministic_rule_score": 0.9409,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.3889,
+      "sample_size_log_score": 0.3771,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 58,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do cells possess a mechanism to measure absolute dimensions, such as spatial confinement, and adapt their behavior accordingly?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_76dd69a930defd5578cab59b",
+              "inference_basis_ids": [
+                "res_9110451246e4e039bda83b20"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0ec04caaab33fd76faa5",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Cells detect their height and trigger contractile responses below a threshold height"
+              },
+              "statement": "Cells detect their height and trigger a contractile response below a threshold height."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b5db15a5e2f3045435dc8ae4",
+              "inference_basis_ids": [
+                "res_aa4cfaab6a923772f45e753f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0ec04caaab33fd76faa5",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "cell confinement to 5 mm, but not 10 mm, stimulates rapid (2.05 ± 0.33 min, n = 10 cells) recruitment of myosin II (hereafter referred to as myosin) from the cytosol to the cortex"
+              },
+              "statement": "Confinement to 5 µm, but not 10 µm, stimulates rapid myosin II recruitment to the cortex."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Changed confinement height stepwise from 20 µm to lower heights while monitoring actomyosin dynamics and contractile force via confocal video-microscopy and AFM-based force spectroscopy.",
+            "Confined single nonadherent, initially rounded, interphase HeLa-Kyoto cells expressing MYH9-GFP using an ion beam–sculpted flat silicon microcantilever mounted on an AFM setup."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "AFM-based confinement and force spectroscopy",
+              "protocol_description": "Single nonadherent interphase HeLa-Kyoto cells were confined using an ion beam–sculpted flat silicon microcantilever on an AFM setup. Confinement height was changed stepwise from 20 µm. Actomyosin dynamics were monitored by confocal video-microscopy, and contractile force was measured by AFM-based force spectroscopy."
+            }
+          ],
+          "name": "AFM-based stepwise confinement of HeLa cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Myosin relocalization time upon release",
+              "n_sample_size": 7,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0ec04caaab33fd76faa5",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "switching cells back to the initial unconfined state in our AFM experiments induced a rapid (3.78 ± 0.94 min, n = 7 cells) relocalization of myosin to the cytosol"
+              },
+              "quantitative_value": 3.78,
+              "result_id": "res_0059e5cd9d0b38b5314b1cd0",
+              "unit": "min",
+              "value_raw_text": "3.78 ± 0.94 min"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Trigger height for contractile response",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0ec04caaab33fd76faa5",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Each cell had its own trigger height at which it generated the force response (Fig. 1A, right graph). Most cells remained insensitive to 10-mm confinement (which corresponds to half of the initial cell height; Fig. 1B), whereas almost 100% of analyzed cells displayed the response upon reaching 5-mm confinement (Fig. 1A, right graph)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9110451246e4e039bda83b20",
+              "unit": null,
+              "value_raw_text": "Each cell had its own trigger height at which it generated the force response; most cells remained insensitive to 10-µm confinement, whereas almost 100% of analyzed cells displayed the response upon reaching 5-µm confinement."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Myosin II cortical recruitment time",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0ec04caaab33fd76faa5",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "cell confinement to 5 mm, but not 10 mm, stimulates rapid (2.05 ± 0.33 min, n = 10 cells) recruitment of myosin II (hereafter referred to as myosin) from the cytosol to the cortex"
+              },
+              "quantitative_value": 2.05,
+              "result_id": "res_aa4cfaab6a923772f45e753f",
+              "unit": "min",
+              "value_raw_text": "2.05 ± 0.33 min"
+            }
+          ],
+          "unit_id": "su_208285b6a64b34abb5cbb229"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1e20c51bd501259b9852cfe1",
+              "inference_basis_ids": [
+                "res_8521c1ac1564706b20949d96"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0ec04caaab33fd76faa5",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "To test whether cells would also adapt their cortical actomyosin contractility to the degree of environmental confinement in a context that more closely recapitulates in vivo settings, we examined human fibrosarcoma cells HT1080 infiltrating three-dimensional (3D) cell-derived matrices (CDMs) (Fig. 1F). Cortical recruitment of myosin in these cells linearly scaled with the self-imposed smallest dimension of the cell (Fig. 1F), thus validating our AFM-based observations."
+              },
+              "statement": "Cortical actomyosin contractility adapts to the degree of environmental confinement in a 3D matrix context."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Examined human fibrosarcoma cells HT1080 infiltrating three-dimensional cell-derived matrices (CDMs).",
+            "Measured cortical myosin recruitment and correlated it with the smallest cell dimension."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "3D CDM migration assay",
+              "protocol_description": "HT1080 cells were allowed to infiltrate 3D cell-derived matrices. Cortical myosin recruitment was quantified and correlated with the self-imposed smallest dimension of the cell."
+            }
+          ],
+          "name": "3D CDM migration of HT1080 cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between cortical myosin and smallest cell dimension",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0ec04caaab33fd76faa5",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Cortical recruitment of myosin in these cells linearly scaled with the self-imposed smallest dimension of the cell (Fig. 1F)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8521c1ac1564706b20949d96",
+              "unit": null,
+              "value_raw_text": "Cortical recruitment of myosin in these cells linearly scaled with the self-imposed smallest dimension of the cell"
+            }
+          ],
+          "unit_id": "su_9dfdc7e3e456fc0ace922db3"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Is the nucleus involved in sensing spatial confinement and triggering the contractile response?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ffd01be84eb6fcdd5d55b726",
+              "inference_basis_ids": [
+                "res_105d28537f60ad93f9823ab2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "These data showed that both imposed and spontaneous nuclear deformations observed in migrating cells correlate with the contractile response, suggesting that the nuclear ruler could be relevant in physiological contexts such as cells circulating in blood capillaries or migrating through dense tissues."
+              },
+              "statement": "Nuclear deformation correlates with the contractile response, suggesting the nuclear ruler is relevant in physiological contexts."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Correlated nuclear deformation with contractile response.",
+            "Measured nuclear surface folding and smallest nuclear dimension in cells under confinement and during migration."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Nuclear deformation analysis",
+              "protocol_description": "Nuclear surface folding was quantified using EOPNE (excess of outer nuclear envelope) measurements. The smallest nuclear dimension was measured in confined and migrating cells."
+            }
+          ],
+          "name": "Nuclear deformation and contractile response correlation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between nuclear deformation and contractile response",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "both imposed and spontaneous nuclear deformations observed in migrating cells correlate with the contractile response"
+              },
+              "quantitative_value": null,
+              "result_id": "res_105d28537f60ad93f9823ab2",
+              "unit": null,
+              "value_raw_text": "both imposed and spontaneous nuclear deformations observed in migrating cells correlate with the contractile response"
+            }
+          ],
+          "unit_id": "su_a6c789015a7e5ee8207c4a2a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_85793a357828783f5753bbb6",
+              "inference_basis_ids": [
+                "res_1908f4b19c695cb69ffb9b00",
+                "res_1ad71d78969d3df4a0ce1d56"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "This suggested that the pathway triggered at 1 mm in cytoplasts could be different from that activated in nucleated cells at 5 mm. Such pathway might involve direct compression of other endomembranes [e.g., the ER that remained present in enucleated cytoplasts (fig. S7C)]."
+              },
+              "statement": "Cytoplasts can still mount a reduced contractile response at extreme confinement (1 µm), but via a different pathway."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8da1ab8fd1f7e479d8347c83",
+              "inference_basis_ids": [
+                "res_d4fee74edfe09616b320f1b5"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Whereas nucleated cells showed the expected contractile response at 5 mm, this was not the case for enucleated cytoplasts"
+              },
+              "statement": "Removing the nucleus abolishes the contractile response to 5 µm confinement."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Confined nucleated cells and enucleated cytoplasts of similar initial heights to 10 and 5 µm.",
+            "Measured contractile force response and myosin recruitment.",
+            "Produced cytoplasts by enucleation using centrifugation."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Cell enucleation and confinement",
+              "protocol_description": "Cells were enucleated by centrifugation to produce cytoplasts. Nucleated cells and cytoplasts of similar initial heights were confined to 10 and 5 µm using the AFM setup, and contractile force and myosin recruitment were measured."
+            }
+          ],
+          "name": "Enucleation experiment: cytoplasts vs. nucleated cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Contractile response at 1 µm confinement in cytoplasts",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Cytoplasts were not deficient in the contractile response pathway, because confining them further to 1 mm triggered both a force response and myosin recruitment at the cortex (fig. S7B), although to a significantly lesser extent than nucleated cells at 5 mm."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1908f4b19c695cb69ffb9b00",
+              "unit": null,
+              "value_raw_text": "confining them further to 1 mm triggered both a force response and myosin recruitment at the cortex, although to a significantly lesser extent than nucleated cells at 5 mm"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of inhibitors on cytoplast response at 1 µm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "although the response of cytoplasts was reduced upon treatment with 2APB inhibiting calcium release from internal stores, it was not affected by treatment with the cPLA2 inhibitor AACOCF3 (fig. S7B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1ad71d78969d3df4a0ce1d56",
+              "unit": null,
+              "value_raw_text": "response of cytoplasts was reduced upon treatment with 2APB inhibiting calcium release from internal stores, it was not affected by treatment with the cPLA2 inhibitor AACOCF3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Contractile response at 5 µm confinement",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Whereas nucleated cells showed the expected contractile response at 5 mm, this was not the case for enucleated cytoplasts (Fig. 5B and movie S4)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d4fee74edfe09616b320f1b5",
+              "unit": null,
+              "value_raw_text": "nucleated cells showed the expected contractile response at 5 mm, this was not the case for enucleated cytoplasts"
+            }
+          ],
+          "unit_id": "su_db44e22e1f816db452916e57"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c638abe95e27ae34773fac25",
+              "inference_basis_ids": [
+                "res_3db4c2ffdcf62c86d5f889a9",
+                "res_b29673da8eb55c605e67826b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "This showed that the contractile response is not due to the cell deformation per se, but rather to a signal that could get released locally and propagate away from the nucleus"
+              },
+              "statement": "The contractile response is not due to cell deformation per se, but requires nuclear deformation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d8a8c908f8481d56af8ddc63",
+              "inference_basis_ids": [
+                "res_f638ac7dc7b55e22ca13b3b5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the increase in contractility in the nonconfined part manifested with a slight delay compared with that in the nuclear region; movie S6"
+              },
+              "statement": "Nuclear deformation releases a signal that propagates and increases contractility in non-confined regions."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Measured myosin cortical recruitment and contractile response.",
+            "Used spread nucleated cells and applied local deformation with a wedged cantilever tip on the lamellar region or the nuclear region."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Local cell deformation assay",
+              "protocol_description": "A wedged cantilever tip was used to apply local deformation on spread nucleated cells, either on the lamellar region or the nuclear region. Myosin recruitment and contractile response were monitored."
+            }
+          ],
+          "name": "Local deformation of spread cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Response to nuclear region compression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "confining the part of the cell that contains the nucleus results in a sustained contractile response (Fig. 5D and movie S6)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3db4c2ffdcf62c86d5f889a9",
+              "unit": null,
+              "value_raw_text": "confining the part of the cell that contains the nucleus results in a sustained contractile response"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Response to local lamellar compression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "locally compressing the cell cortex in the lamellar region, even down to <1 mm (fig. S8 and movie S5), produces only a very transient response"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b29673da8eb55c605e67826b",
+              "unit": null,
+              "value_raw_text": "locally compressing the cell cortex in the lamellar region, even down to <1 mm, produces only a very transient response"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Myosin recruitment in non-confined region upon nuclear deformation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Upon nuclear deformation, myosin cortical recruitment occurred even in the region that was not directly confined (Fig. 5D)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f638ac7dc7b55e22ca13b3b5",
+              "unit": null,
+              "value_raw_text": "Upon nuclear deformation, myosin cortical recruitment occurred even in the region that was not directly confined"
+            }
+          ],
+          "unit_id": "su_e1c60f9b982bcb480598efdb"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Does altering nuclear envelope properties affect the nuclear ruler mechanism?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_07f7b10047d940ed35a419ad",
+              "inference_basis_ids": [
+                "res_0138ca5c7234aaf782126503",
+                "res_cca1eac27f39d5fb936ad6ed",
+                "res_cd18cad7630c99715d70ab2a",
+                "res_dfa5c8d4335401a204bd0d32"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "This finding is consistent with the nuclear ruler model and further suggests that the level of lamin A/C, which varies considerably in different cell types and environmental conditions, can modulate the response of cells to spatial confinement by affecting the mechanical properties of the NE."
+              },
+              "statement": "Lamin A/C depletion impairs the nuclear ruler by preventing NE stiffening upon confinement, leading to defective calcium and ARA signaling and attenuated contractility."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Depleted lamin A/C in HeLa-Kyoto cells using siRNA.",
+            "Measured NE fluctuations, nuclear rupture, calcium release, ARA production, and contractile force under confinement."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Lamin A/C siRNA knockdown",
+              "protocol_description": "HeLa-Kyoto cells were treated with LMNA siRNA to deplete lamin A/C. NE fluctuations were measured under confinement. Nuclear rupture, calcium release, ARA production, and force response were assessed."
+            }
+          ],
+          "name": "Lamin A/C depletion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear rupture at 5 µm in lamin A/C-depleted cells",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "depleted cells also show a high rate of NE ruptures (Fig. 6A, bottom left graph)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0138ca5c7234aaf782126503",
+              "unit": null,
+              "value_raw_text": "depleted cells also show a high rate of NE ruptures (Fig. 6A, bottom left graph)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NE fluctuations in lamin A/C-depleted cells under confinement",
+              "n_sample_size": 20,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "we found that NE fluctuations in the depleted cells did not decrease in response to 20-, 10-, and 5-mm confinement (Fig. 6A, top right graph), in contrast to control cells (Fig. 2F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cca1eac27f39d5fb936ad6ed",
+              "unit": null,
+              "value_raw_text": "NE fluctuations in the depleted cells did not decrease in response to 20-, 10-, and 5-mm confinement"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Calcium release and ARA production in lamin A/C-depleted cells at 5 µm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Confinement of depleted cells to 5 mm did not trigger intracellular calcium release, nor did it increase levels of ARA production (fig. S9E, “5 mm confinement” subpanel)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cd18cad7630c99715d70ab2a",
+              "unit": null,
+              "value_raw_text": "Confinement of depleted cells to 5 mm did not trigger intracellular calcium release, nor did it increase levels of ARA production"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Force response at 5 µm in lamin A/C-depleted cells",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the depleted cells displayed an attenuated contractile response at 5-mm confinement (Fig. 6A, bottom right graph, and fig. S9F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dfa5c8d4335401a204bd0d32",
+              "unit": null,
+              "value_raw_text": "the depleted cells displayed an attenuated contractile response at 5-mm confinement"
+            }
+          ],
+          "unit_id": "su_4efea3321ddae49dc83ebbd2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4a322c4a5a270190529728ac",
+              "inference_basis_ids": [
+                "res_0ced26b3410a966b65299c36",
+                "res_3182921cf305954a283fdd82",
+                "res_cdb0f48d274a86ae99260565"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "LBR overexpression abrogated both cytoplasmic calcium increase and levels of ARA production at 5 mm ... LBR-GFP OE cells significantly impaired contractile responses"
+              },
+              "statement": "LBR overexpression prevents NE unfolding and abrogates the nuclear ruler signaling, impairing contractile response."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Measured nuclear surface folding, calcium release, ARA production, and contractile force under confinement.",
+            "Overexpressed LBR-GFP in HeLa-Kyoto cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "LBR overexpression",
+              "protocol_description": "HeLa-Kyoto cells were transfected to overexpress LBR-GFP. Nuclear surface folding (EOPNE) was quantified. Calcium release, ARA production, and force response were measured under confinement."
+            }
+          ],
+          "name": "LBR overexpression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Force response at 5 µm in LBR OE cells",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "LBR-GFP OE cells significantly impaired contractile responses"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0ced26b3410a966b65299c36",
+              "unit": null,
+              "value_raw_text": "LBR-GFP OE cells significantly impaired contractile responses"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear surface folding in LBR OE cells",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "LBR-GFP overexpressing (OE) cells have a highly folded nucleus and fail to unfold it in response to 5-mm confinement, in contrast to LAP2/LAP2b-expressing (control) cells (Fig. 6B, images and top graph, and fig. S9G)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3182921cf305954a283fdd82",
+              "unit": null,
+              "value_raw_text": "LBR-GFP overexpressing (OE) cells have a highly folded nucleus and fail to unfold it in response to 5-mm confinement"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Calcium increase and ARA production in LBR OE cells at 5 µm",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d58d6d1c45e395dfb228",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "LBR overexpression abrogated both cytoplasmic calcium increase and levels of ARA production at 5 mm (fig. S9H, “5 mm confinement” subpanel)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_cdb0f48d274a86ae99260565",
+              "unit": null,
+              "value_raw_text": "LBR overexpression abrogated both cytoplasmic calcium increase and levels of ARA production at 5 mm"
+            }
+          ],
+          "unit_id": "su_a3506d619009e70b73ae745e"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

@@ -1,0 +1,388 @@
+{
+  "coverage_ledger": {
+    "02fb4d64d0ec4a0a2b4e": "not_selected",
+    "065ef60f9f57ba7de3ad": "not_selected",
+    "1c037e67ad956f4e4a7e": "not_selected",
+    "23ac1b5a54648dd70e66": "not_selected",
+    "28496ac6c245321dc82f": "extracted",
+    "4cfd0f0528aa48d3a694": "extracted",
+    "6b1c3ceb77fc8fe25536": "not_selected",
+    "7b505c53ae5eb9dde08c": "not_selected",
+    "82a7e785d615a21bf39f": "not_selected",
+    "889d654ddb1fd17b840e": "not_selected",
+    "8cdfc5eb6aaaa6ecd77f": "not_selected",
+    "8d9ac1bcddbeacd4bf31": "not_selected",
+    "8dc7d37d11bca6097fff": "not_selected",
+    "9d9af80ff4c5d9e544b1": "not_selected",
+    "9e13338b315643e52ce0": "not_selected",
+    "a65cc75362b141e56034": "not_selected",
+    "a9b8635dbca2ba1e1e3e": "not_selected",
+    "b11f7ce2079bb783b051": "extracted",
+    "d04b93363deb0c0ebc68": "extracted",
+    "d15d592beb2903c666ad": "not_selected",
+    "d4dea649e20f4ddcd279": "not_selected",
+    "d54d3675227178ed2bc5": "not_selected",
+    "e05341ed3cf7ef905ffd": "not_selected",
+    "e13d1d1843515e3afdb8": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The estimated model on sociology data was not fully correct, implying some model assumptions might be violated.",
+    "Future work includes assessment of practical performance of statistical tests to detect violations of model assumptions, implementation issues to improve computational efficiency, and extensions to cases with latent confounders."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_8.pdf",
+    "source_sha256": "9828c6240f77be929500787baa47f632bb4f6258e2f15db665a4456b02438006"
+  },
+  "paper_id": "5_8",
+  "quality_assessment": {
+    "correct_item_count": 19,
+    "deterministic_rule_score": 0.6814,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 22,
+    "f1": 0.6909,
+    "incorrect_item_count": 3,
+    "incorrect_items": [
+      {
+        "description": "The extracted result states 'x5->x3 (0.55)' but the source shows the edge is from x5 to x3 with coefficient 0.55, which is correct. However, the extracted text says 'All edges were reasonable except x5->x3.' The source says 'All the directed edges estimated by DirectLiNGAM were reasonable to the domain knowledge other than the directed edge from x5: son’s education to x3: father’s education.' This is a faithful abstraction. No error.",
+        "item_id": "result:su_0f1a7d380017bebc49183b7f:res_3d2aee5fcc4c78b489e65933",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result says 'ICA-LiNGAM estimated edges: x3->x1 (0.93), x4->x2 (200.84), x5->x3 (0.24), x5->x4 (-0.14), x6->x5 (-0.08). It made an additional mistake: x5->x6.' The source says 'ICA-LiNGAM gave a similar estimated network but did one more mistake that x6: number of siblings is determined by x5: son’s education.' The extracted edge x5->x6 is not present in the pruned adjacency matrix shown in the source; the source shows x6->x5 (-0.08) in the full matrix, but the mistake mentioned is that x6 is determined by x5, which corresponds to an edge x5->x6. In the pruned matrix, ICA-LiNGAM has x6->x5? Actually, the pruned matrix shows x6->x5? Let's check: In the pruned ICA-LiNGAM matrix, we have x6 row: x5 column -0.08, meaning x6 <- x5? The matrix is B where bij is effect from xj to xi. So if x6 row, x5 column is -0.08, that means x6 = ... + (-0.08)*x5 + ..., so x5 affects x6. That is x5->x6. So the extracted edge x5->x6 is correct. The extracted list of edges includes x5->x6? It says 'x6->x5 (-0.08)' which is the opposite direction. The source pruned matrix shows x6 row, x5 column -0.08, which is x5->x6. So the extracted edge direction is wrong. The extracted text says 'x6->x5 (-0.08)' but should be x5->x6. This is an error.",
+        "item_id": "result:su_0f1a7d380017bebc49183b7f:res_d721e0e37b6331ec991f0e78",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result says 'PC and GES did not find directions of many edges. They found a reasonable direction for x1->x3 but wrong direction for x1->x4.' The source says 'Both of the conventional methods did not find the directions of many edges. The two conventional methods found a reasonable direction of the edge between x1: father’s occupation and x3: father’s education, but they gave a wrong direction of the edge between x1: father’s occupation and x4: son’s occupation.' The extracted text says 'x1->x3' but the source says 'edge between x1 and x3' and does not specify the direction as x1->x3; it says they found a reasonable direction, which could be either. The source does not explicitly state the direction. The extracted text asserts the direction is x1->x3, which is not explicitly supported. This is an overstatement.",
+        "item_id": "result:su_0f1a7d380017bebc49183b7f:res_d3c3796583317465d4ebf170",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 14,
+    "missed_core_items": [
+      {
+        "description": "The sample size for the sociology data set is 1380.",
+        "item_id": null,
+        "source_chunk_id": "1c037e67ad956f4e4a7e",
+        "source_excerpt": "The sample size was 1380.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The sociology data set variables are x1: father's occupation level, x2: son's income, x3: father's education, x4: son's occupation level, x5: son's education, x6: number of siblings.",
+        "item_id": null,
+        "source_chunk_id": "1c037e67ad956f4e4a7e",
+        "source_excerpt": "The data consisted of six observed variables, x1: father’s occupation level, x2: son’s income, x3: father’s education, x4: son’s occupation level, x5: son’s education, x6: number of siblings.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The physics data set consisted of four variables: θ1, θ2, ω1, ω2, with 2035 time points.",
+        "item_id": null,
+        "source_chunk_id": "d15d592beb2903c666ad",
+        "source_excerpt": "The four variables were θ1: the angle between the top limb and the vertical, θ2: the angle between the bottom limb and the vertical, ω1: the angular speed of θ1 or ˙θ1 and ω2: the angular speed of θ2 or ˙θ2. The number of time points was 2035.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "DirectLiNGAM found significant total causal effects from θ1 on θ2, θ1 on ω1, θ1 on ω2, θ2 on ω1, and θ2 on ω2.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "DirectLiNGAM found significant total causal effects from θ1 on θ2, from θ1 on ω1, from θ1 on ω2, from θ2 on ω1, and from θ2 on ω2.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "ICA-LiNGAM only found a significant total causal effect from θ2 on ω2.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "ICA-LiNGAM only found a significant total causal effect from θ2 on ω2.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The estimated ordering by DirectLiNGAM and ICA-LiNGAM on physics data were identical.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "The estimated orderings by DirectLiNGAM and ICA-LiNGAM were identical",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "DirectLiNGAM found that angle speeds ω1 and ω2 were determined by angles θ1 or θ2, consistent with domain knowledge.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "DirectLiNGAM found that the angle speeds ω1 and ω2 were determined by the angles θ1 or θ2, which was consistent with the domain knowledge.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "ICA-LiNGAM could not find any significant directed edges on physics data.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "ICA-LiNGAM could not find any significant directed edges since it gave very different estimates for different bootstrap samples.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PC algorithm found the directed edge from θ1 to ω1 but not from θ2 to ω2.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "PC algorithm found the same directed edge from θ1 on ω1 as DirectLiNGAM did, but did not found the directed edge from θ2 on ω2.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "GES found the directed edge from θ1 to θ2 but did not find that angle speeds were determined by angles.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "GES found the same directed edge from θ1 on θ2 as DirectLiNGAM did, but did not find that the angle speeds ω1 and ω2 were determined by the angles θ1 or θ2.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The coefficient of determination of θ2 was 0.01, of ω1 was 0.46, and of ω2 was 0.49.",
+        "item_id": null,
+        "source_chunk_id": "23ac1b5a54648dd70e66",
+        "source_excerpt": "the coefficient of determination (Bollen, 1989) of θ2, that is, 1−var(ˆe2)/var(ˆθ2), was very small and was 0.01. (The coefficient of determination of ω1 and that of ω2 were 0.46 and 0.49, respectively.)",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The sample selection criteria for sociology data: non-farm background, ages 35-44, white, male, in labor force, not missing data, years 1972-2006.",
+        "item_id": null,
+        "source_chunk_id": "1c037e67ad956f4e4a7e",
+        "source_excerpt": "The sample selection was conducted based on the following criteria: i) non-farm background; ii) ages 35 to 44; iii) white; iv) male; v) in the labor force at the time of the survey; vi) not missing data for any of the covariates; vii) years 1972-2006.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Domain knowledge suggests possible latent confounders between x1 and x3, x1 and x6, or x3 and x6.",
+        "item_id": null,
+        "source_chunk_id": "1c037e67ad956f4e4a7e",
+        "source_excerpt": "there could be some latent confounders between x1 and x3, x1 and x6, or x3 and x6.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The objective of the sociology example was to see how the method behaves when the no latent confounder assumption might be violated.",
+        "item_id": null,
+        "source_chunk_id": "1c037e67ad956f4e4a7e",
+        "source_excerpt": "An objective of this example was to see how our method behaves when such a model assumption of LiNGAM could be violated that there is no latent confounder.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.8636,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.5758
+  },
+  "quality_score": 0.6909,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can a linear non-Gaussian acyclic model (LiNGAM) be estimated directly without iterative search, and how does this direct method compare to existing ICA-based methods?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2894fc86ca839170cbcb97d2",
+              "inference_basis_ids": [
+                "res_3d2aee5fcc4c78b489e65933",
+                "res_d721e0e37b6331ec991f0e78"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "28496ac6c245321dc82f",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": true,
+                "text_excerpt": "All the directed edges estimated by DirectLiNGAM were reasonable to the domain knowledge other than the directed edge from x5: son’s education to x3: father’s education. ... ICA-LiNGAM gave a similar estimated network but did one more mistake that x6: number of siblings is determined by x5: son’s education."
+              },
+              "statement": "DirectLiNGAM produced a more reasonable network than ICA-LiNGAM on the sociology data, with only one questionable edge (x5->x3) compared to ICA-LiNGAM's additional mistake (x5->x6)."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d8fb56940ad3d24dac9ffad3",
+              "inference_basis_ids": [
+                "res_d3c3796583317465d4ebf170"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "28496ac6c245321dc82f",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": true,
+                "text_excerpt": "Both of the conventional methods did not find the directions of many edges. ... they gave a wrong direction of the edge between x1: father’s occupation and x4: son’s occupation."
+              },
+              "statement": "Conventional methods (PC and GES) failed to orient many edges and made a wrong direction for the edge between father's occupation and son's occupation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Real-world data with six variables: x1: father's occupation, x2: father's education, x3: son's education, x4: son's occupation, x5: number of siblings, x6: son's income.",
+              "name": "Sociology data set",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply DirectLiNGAM and ICA-LiNGAM to a real-world sociology data set with six variables (father's occupation, father's education, son's education, son's occupation, number of siblings, son's income).",
+            "Compare estimated networks from DirectLiNGAM, ICA-LiNGAM, PC algorithm, and GES.",
+            "Prune redundant directed edges using Adaptive Lasso."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "DirectLiNGAM with Adaptive Lasso pruning",
+              "protocol_description": "DirectLiNGAM was applied to estimate a full DAG, then redundant directed edges were pruned by repeatedly applying Adaptive Lasso on each variable and its potential parents."
+            },
+            {
+              "method_id": "M3",
+              "name": "ICA-LiNGAM with Adaptive Lasso pruning",
+              "protocol_description": "ICA-LiNGAM was applied to estimate a full DAG, then redundant directed edges were pruned by repeatedly applying Adaptive Lasso on each variable and its potential parents."
+            },
+            {
+              "method_id": "M4",
+              "name": "PC algorithm",
+              "protocol_description": "PC algorithm with 5% significance level and Gaussianity assumption."
+            },
+            {
+              "method_id": "M5",
+              "name": "GES",
+              "protocol_description": "GES with Gaussianity assumption."
+            }
+          ],
+          "name": "Real-world data experiment on sociology data",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Estimated adjacency matrix (DirectLiNGAM)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "28496ac6c245321dc82f",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": true,
+                "text_excerpt": "DirectLiNGAM : ... All the directed edges estimated by DirectLiNGAM were reasonable to the domain knowledge other than the directed edge from x5: son’s education to x3: father’s education."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3d2aee5fcc4c78b489e65933",
+              "unit": null,
+              "value_raw_text": "DirectLiNGAM estimated edges: x3->x1 (3.19), x4->x2 (422.87), x5->x3 (0.55), x5->x4 (4.61), x6->x5 (-0.12). All edges were reasonable except x5->x3."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Edge direction correctness (PC and GES)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "28496ac6c245321dc82f",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "Both of the conventional methods did not find the directions of many edges. The two conventional methods found a reasonable direction of the edge between x1: father’s occupation and x3: father’s education, but they gave a wrong direction of the edge between x1: father’s occupation and x4: son’s occupation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d3c3796583317465d4ebf170",
+              "unit": null,
+              "value_raw_text": "PC and GES did not find directions of many edges. They found a reasonable direction for x1->x3 but wrong direction for x1->x4."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Estimated adjacency matrix (ICA-LiNGAM)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "28496ac6c245321dc82f",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "ICA-LiNGAM gave a similar estimated network but did one more mistake that x6: number of siblings is determined by x5: son’s education."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d721e0e37b6331ec991f0e78",
+              "unit": null,
+              "value_raw_text": "ICA-LiNGAM estimated edges: x3->x1 (0.93), x4->x2 (200.84), x5->x3 (0.24), x5->x4 (-0.14), x6->x5 (-0.08). It made an additional mistake: x5->x6."
+            }
+          ],
+          "unit_id": "su_0f1a7d380017bebc49183b7f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_05b72755e1851e62dd48e926",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b11f7ce2079bb783b051",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "It is guaranteed to converge to the right solution within a small fixed number of steps if the data strictly follows the model, that is, if all the model assumptions are met and the sample size is infinite."
+              },
+              "statement": "DirectLiNGAM is guaranteed to converge to the right solution within a small fixed number of steps if the data strictly follows the model, that is, if all the model assumptions are met and the sample size is infinite."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d2b8f92b8d734580ede554e2",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b11f7ce2079bb783b051",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "It is not based on iterative search in the parameter space and needs no initial guess or similar algorithmic parameters."
+              },
+              "statement": "DirectLiNGAM requires no algorithmic parameters and is not based on iterative search."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Once causal order is identified, connection strengths are estimated using conventional covariance-based methods such as least squares and maximum likelihood.",
+            "Propose a direct method (DirectLiNGAM) to estimate a causal ordering of variables in LiNGAM without iterative search, requiring no initial guess or algorithmic parameters.",
+            "The method successively subtracts the effect of each independent component from given data, completing in steps equal to the number of variables."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DirectLiNGAM",
+              "protocol_description": "A direct method for learning a linear non-Gaussian structural equation model. It estimates a causal order of variables by successively subtracting the effect of each independent component from given data in the model, completing in steps equal to the number of variables. It is not based on iterative search in the parameter space and needs no initial guess or similar algorithmic parameters. It is guaranteed to converge to the right solution within a small fixed number of steps if the data strictly follows the model, that is, if all the model assumptions are met and the sample size is infinite."
+            }
+          ],
+          "name": "DirectLiNGAM method proposal and theoretical guarantees",
+          "results": [],
+          "unit_id": "su_4aab388b402510855ed32ce5"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7240 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7966 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9362 on attempt 1"
+    }
+  ]
+}

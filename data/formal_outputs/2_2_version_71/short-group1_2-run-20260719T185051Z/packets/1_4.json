@@ -1,0 +1,807 @@
+{
+  "coverage_ledger": {
+    "12facf95a9c2ef81a012": "extracted",
+    "15217431f729d52df00f": "extracted",
+    "15ff9f2fb7e2dbeb29d4": "not_selected",
+    "2083f09f25c5f940cada": "not_selected",
+    "8f653806862b00a01347": "not_selected",
+    "98bb130a114c53ff0356": "extracted",
+    "9ab85257ec4ba044166f": "extracted",
+    "af35ec3bcb31815f2325": "not_selected",
+    "c09a1bff2934edd22a27": "not_selected",
+    "c1a9a52255321394867a": "not_selected",
+    "cbc9f9e8df421c5a9053": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study does not include a direct rescue experiment to confirm causality.",
+    "The study does not measure insulin sensitivity directly in the IR model.",
+    "The study does not assess the contribution of other gut bacterial phyla to SL production.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_4.pdf",
+    "source_sha256": "31162c68078cbc9c60877248aaa0fd3f50f266f87c2e9199629e105a9f84bc2c"
+  },
+  "paper_id": "1_4",
+  "quality_assessment": {
+    "correct_item_count": 54,
+    "deterministic_rule_score": 0.952,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.1034,
+      "sample_size_log_score": 0.231,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 54,
+    "f1": 0.9643,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 4,
+    "missed_core_items": [
+      {
+        "description": "The study does not include a direct rescue experiment to confirm causality.",
+        "item_id": null,
+        "source_chunk_id": "98bb130a114c53ff0356",
+        "source_excerpt": "These results indicate that when mice are fed a SL-poor diet, gut bacteria can act as an endogenous source of lipids, or somehow signal in such a way that decreases the rate at which SLs are newly synthesized.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study does not measure insulin sensitivity directly in the IR model.",
+        "item_id": null,
+        "source_chunk_id": "c1a9a52255321394867a",
+        "source_excerpt": "These results are consistent with findings that oral administration of the SL-producers Prevotella copri31 and Bacteroides fragilis32 increases IR in mice.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study does not assess the contribution of other gut bacterial phyla to SL production.",
+        "item_id": null,
+        "source_chunk_id": "12facf95a9c2ef81a012",
+        "source_excerpt": "Genomes of Bacteroides spp. and their relatives encode serine palmitoyltransfease (SPT), allowing them to produce SLs.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope.",
+        "item_id": null,
+        "source_chunk_id": "98bb130a114c53ff0356",
+        "source_excerpt": "These results indicate that SL production by gut Bacteroides can affect levels of liver ceramides.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.931
+  },
+  "quality_score": 0.9643,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do Bacteroides-derived sphingolipids produced in the gut enter host metabolic pathways and impact host ceramide levels?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5495d65670e78bf5d57dd33d",
+              "inference_basis_ids": [
+                "res_31895dfbbfd592d481008afa",
+                "res_4a609b9b7ae77868c7778485",
+                "res_53b378ce3ab36c10c47cba32",
+                "res_61175736e781a5f0ebeece84",
+                "res_69efb919529223faf177f77c",
+                "res_a034488fa0212001d19674b2",
+                "res_bc8e915c8e14a4c461a292a7",
+                "res_e447c33d74bba357dcfe4e86",
+                "res_e66d7a8e44b7ebfac8d3aafa",
+                "res_fc196cfe0034db76b1103810"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Together, these results indicate that (i) Sa (d17:0) can be taken up by human gut epithelial cells, then (ii) metabolized by mammalian SL-processing pathways, while (iii) inhibiting the production of mammalian C18-base SLs."
+              },
+              "statement": "Bacterial-like Sa (d17:0) is taken up by human gut epithelial cells and processed by mammalian SL metabolic pathways, inhibiting production of mammalian C18-base SLs."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Caco-2 cells were incubated with [U–13C,15N]-labeled serine to monitor newly synthesized SLs in the presence or absence of Sa (d17:0).",
+            "Caco-2 cells were supplemented with Sa (d18:0) to stimulate de novo SL synthesis, then dosed with different amounts of Sa (d17:0)."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Caco-2 cell culture and lipid competition",
+              "protocol_description": "Human epithelial colorectal adenocarcinoma cells (Caco-2, ATCC) were cultured in DMEM with 10% FBS. Plates were seeded at 5×10^5 cells per 10 cm plate, incubated at 37°C with 5% CO2, and experiments took place 48 h after seeding. For lipid competition, Sa (d18:0) was added at 5 µM, and Sa (d17:0) at 0, 5, 10, and 50 µM. Cell pellets were collected after 1 h incubation."
+            },
+            {
+              "method_id": "M2",
+              "name": "Metabolic labeling with [U–13C,15N]-serine",
+              "protocol_description": "Caco-2 cells were grown in 10% FBS in DMEM supplemented with 2.2 mM [U–13C,15N]-serine. Medium was added at the same time as 5 µM Sa (d17:0). Newly synthesized SLs were quantified at 60 and 120 minutes by measuring [M+3] labeled SLs."
+            }
+          ],
+          "name": "Human epithelial cell uptake and processing of bacterial SLs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Ceramide (d18:1/16:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "In addition, we observed decreased levels of dihydroceramide (d18:0/16:0) (Fig. 1i) and ceramide (d18:1/16:0) (Fig. 1j), suggesting an overall inhibition of de novo C18 long chain base ceramide production (also observed at lower concentrations; Supplementary Fig. 1A, B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_31895dfbbfd592d481008afa",
+              "unit": null,
+              "value_raw_text": "Decreased levels of ceramide (d18:1/16:0) were observed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Newly synthesized ceramide (d18:1/24:1) proportion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "At the end of the two-hour incubation in medium supplemented with isotopically-labeled serine, SL pools were composed of ~24% newly synthesized ceramide (d18:1/24:1) (Fig. 2l) and ~9% newly synthesized ceramide (d18:1/16:0) (Fig. 2m). However, when the medium was supplemented with Sa (d17:0), SL pools were only composed of ~6% newly synthesized ceramide (d18:1/24:1) (Fig. 2l) and ~3% of newly synthesized ceramide (d18:1/16:0) (Fig. 2m)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4a609b9b7ae77868c7778485",
+              "unit": null,
+              "value_raw_text": "After two-hour incubation with isotopically-labeled serine, SL pools were composed of ~24% newly synthesized ceramide (d18:1/24:1); with Sa (d17:0) supplementation, only ~6%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sa (d18:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Sa (d18:0) levels increased (Fig. 1d), indicating that addition of Sa (d17:0) led to decreased flux of Sa (d18:0) through the synthesis pathway."
+              },
+              "quantitative_value": null,
+              "result_id": "res_53b378ce3ab36c10c47cba32",
+              "unit": null,
+              "value_raw_text": "Sa (d18:0) levels increased, indicating decreased flux of Sa (d18:0) through the synthesis pathway."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Newly synthesized ceramide (d18:1/16:0) proportion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "At the end of the two-hour incubation in medium supplemented with isotopically-labeled serine, SL pools were composed of ~24% newly synthesized ceramide (d18:1/24:1) (Fig. 2l) and ~9% newly synthesized ceramide (d18:1/16:0) (Fig. 2m). However, when the medium was supplemented with Sa (d17:0), SL pools were only composed of ~6% newly synthesized ceramide (d18:1/24:1) (Fig. 2l) and ~3% of newly synthesized ceramide (d18:1/16:0) (Fig. 2m)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_61175736e781a5f0ebeece84",
+              "unit": null,
+              "value_raw_text": "After two-hour incubation with isotopically-labeled serine, SL pools were composed of ~9% newly synthesized ceramide (d18:1/16:0); with Sa (d17:0) supplementation, only ~3%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "So (d18:1) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "So (d18:1) levels rose with the addition of Sa up to a point and then the synthesis of So (d18:1) declined (Fig. 1h)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_69efb919529223faf177f77c",
+              "unit": null,
+              "value_raw_text": "So (d18:1) levels rose with addition of Sa up to a point and then declined."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dihydroceramide (d18:0/16:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "In addition, we observed decreased levels of dihydroceramide (d18:0/16:0) (Fig. 1i) and ceramide (d18:1/16:0) (Fig. 1j), suggesting an overall inhibition of de novo C18 long chain base ceramide production (also observed at lower concentrations; Supplementary Fig. 1A, B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a034488fa0212001d19674b2",
+              "unit": null,
+              "value_raw_text": "Decreased levels of dihydroceramide (d18:0/16:0) were observed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Conversion of Sa (d17:0) to So (d17:1)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Sa (d17:0) was incorporated into complex SLs through the de novo synthesis pathway as Sa (d17:0) was converted to So (d17:1) (Fig. 1g)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bc8e915c8e14a4c461a292a7",
+              "unit": null,
+              "value_raw_text": "Sa (d17:0) was converted to So (d17:1)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uptake of Sa (d17:0)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We observed that Caco-2 cells took up Sa (d17:0) within 1 h of addition to the medium (Fig. 1c)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e447c33d74bba357dcfe4e86",
+              "unit": null,
+              "value_raw_text": "Caco-2 cells took up Sa (d17:0) within 1 h of addition to the medium."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sphinganine-1-phosphate (d18:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We also observed increases in sphinganine-1-phosphate (d18:0), which could be a mechanism for the cell to handle the build-up of Sa (d18:0) (Fig. 1f)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e66d7a8e44b7ebfac8d3aafa",
+              "unit": null,
+              "value_raw_text": "Increases in sphinganine-1-phosphate (d18:0) were observed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sphinganine-1-phosphate (d17:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Increases in sphinganine-1-phosphate (d17:0) levels (Fig. 1e) were commensurate with levels of added Sa (d17:0), showing that sphinganine kinase acted on the bacterial-like Sa."
+              },
+              "quantitative_value": null,
+              "result_id": "res_fc196cfe0034db76b1103810",
+              "unit": null,
+              "value_raw_text": "Increases in sphinganine-1-phosphate (d17:0) levels were commensurate with levels of added Sa (d17:0)."
+            }
+          ],
+          "unit_id": "su_3e058dabc282eb061b9a0550"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Alkyne-labeled lipids transferred to Caco-2 cells within 4 h for both strains.",
+            "B. thetaiotaomicron WT (BTWT) and SPT-deficient mutant (SLMUT) were grown with palmitic acid alkyne (PAA) and placed in a transwell system with Caco-2 cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Transwell incubation with B. thetaiotaomicron",
+              "protocol_description": "Bacterial cells were placed on a 0.4 µM filter above Caco-2 monolayer. 50 mL cultures (OD600 0.25) grown in minimal medium with 25 µM PAA were washed and resuspended in 6 mL 10% FBS DMEM. One mL bacterial suspension was added to upper-well inserts. Contents collected after 4 h. Alkyne-containing metabolites were labeled with Alexa Fluor 647 azide using Click iT cell reaction buffer kit."
+            }
+          ],
+          "name": "Lipid transfer between B. theta and Caco-2 cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Lipid transfer",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "For both strains, alkyne-labeled lipids transferred to Caco-2 cells within 4 h (Fig. 2f–g)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_206793603f266f4a35dd032c",
+              "unit": null,
+              "value_raw_text": "Alkyne-labeled lipids transferred to Caco-2 cells within 4 h for both BTWT and SLMUT strains."
+            }
+          ],
+          "unit_id": "su_401af15ee3a796cc71ae6ff4"
+        },
+        {
+          "claims": [],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "RNA-seq of Caco-2 cells exposed to BTWT or SLMUT in transwell system over 8 hours.",
+            "Targeted analysis of 107 SL-related genes showed differential regulation."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "RNA-seq of Caco-2 cells",
+              "protocol_description": "RNA isolated using Trizol. Libraries prepared with NEB Next Ultra RNA library kit, sequenced 50 bp single end on Illumina HiSeq 2500. 18 libraries, average 26,379,143 reads per sample. Reads mapped to human genome with STAR aligner."
+            }
+          ],
+          "name": "Caco-2 transcriptomic response to BTWT vs SLMUT",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Differential expression of SL-related genes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "15217431f729d52df00f",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Genes involved in SL metabolism were differentially regulated over an 8-hour period depending on the treatment (targeted analysis of 107 SL-related genes, Supplementary Data 1, Fig. 2h, Supplementary Data 2). For instance, the sphingosine-1-phosphate receptor gene S1PR4 was upregulated early in Caco-2 cells co-incubated with BTWT"
+              },
+              "quantitative_value": null,
+              "result_id": "res_21dd43d28e33f7900e7fc55d",
+              "unit": null,
+              "value_raw_text": "Genes involved in SL metabolism were differentially regulated over 8 hours depending on treatment; e.g., S1PR4 was upregulated early in Caco-2 cells co-incubated with BTWT."
+            }
+          ],
+          "unit_id": "su_57392ea0cfc27c9162b85f21"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3ed072404a4641a5e369aeb0",
+              "inference_basis_ids": [
+                "res_4b1b00b33cbf88af6caacc1a",
+                "res_95d4e1992f751ff8281f3cac"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "These results indicate that when mice are fed a SL-poor diet, gut bacteria can act as an endogenous source of lipids, or somehow signal in such a way that decreases the rate at which SLs are newly synthesized."
+              },
+              "statement": "When mice are fed a SL-poor diet, gut bacteria can act as an endogenous source of lipids, decreasing the rate of de novo SL synthesis."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Mice on a fatty-acid free (FAF) diet were orally administered BTWT, SLMUT, or vehicle for 2 days; hepatic SL levels measured."
+          ],
+          "methods": [],
+          "name": "B. theta reduces hepatic de novo SL synthesis rate",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic ceramide levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "BTWT treatment was associated with the highest hepatic ceramide levels (Fig. 4a)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4b1b00b33cbf88af6caacc1a",
+              "unit": null,
+              "value_raw_text": "BTWT treatment was associated with the highest hepatic ceramide levels."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Dihydroceramide to ceramide ratio",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The ratios of dihydroceramide to ceramide indicated reduced synthesis of the most abundant ceramide (d18:1/24:1) in the BTWT compared with the SLMUT and vehicle controls (Fig. 4b)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_95d4e1992f751ff8281f3cac",
+              "unit": null,
+              "value_raw_text": "Ratios of dihydroceramide to ceramide indicated reduced synthesis of ceramide (d18:1/24:1) in BTWT compared with SLMUT and vehicle controls."
+            }
+          ],
+          "unit_id": "su_e7e7ab4021aa27132d81e2c2"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7af7aa7d63efbe222740f845",
+              "inference_basis_ids": [
+                "res_22c34cc5af3f6a83703d66bd",
+                "res_23d670e145d07387272d6743",
+                "res_25e723affb1a647d007363ef",
+                "res_7aa2976903ce92b3132267a3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with our previous observations, the BTWT-mice had higher hepatic levels of ceramide (d18:1/16:0) and ceramide (d18:1/18:0) (Fig. 5a), sphinganine (d18:0), sphingosine (d18:1) (Fig. 5b)"
+              },
+              "statement": "BTWT supplementation leads to higher hepatic ceramide levels compared with SPT-mutant in a mouse model of diet-induced insulin resistance."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Conventionally raised C57BL/6J mice on high-fat diet were orally gavaged with BTWT or SLMUT for 7 days, then switched to high-fat diet with daily gavage for 7 days, then chow diet for 9 days."
+          ],
+          "methods": [],
+          "name": "B. theta and SPT-mutant affect liver ceramides in IR model",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic ceramide (d18:1/16:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with our previous observations, the BTWT-mice had higher hepatic levels of ceramide (d18:1/16:0) and ceramide (d18:1/18:0) (Fig. 5a), sphinganine (d18:0), sphingosine (d18:1) (Fig. 5b)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_22c34cc5af3f6a83703d66bd",
+              "unit": null,
+              "value_raw_text": "BTWT-mice had higher hepatic levels of ceramide (d18:1/16:0) compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic ceramide (d18:1/18:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with our previous observations, the BTWT-mice had higher hepatic levels of ceramide (d18:1/16:0) and ceramide (d18:1/18:0) (Fig. 5a), sphinganine (d18:0), sphingosine (d18:1) (Fig. 5b)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_23d670e145d07387272d6743",
+              "unit": null,
+              "value_raw_text": "BTWT-mice had higher hepatic levels of ceramide (d18:1/18:0) compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic sphingosine (d18:1) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with our previous observations, the BTWT-mice had higher hepatic levels of ceramide (d18:1/16:0) and ceramide (d18:1/18:0) (Fig. 5a), sphinganine (d18:0), sphingosine (d18:1) (Fig. 5b)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_25e723affb1a647d007363ef",
+              "unit": null,
+              "value_raw_text": "BTWT-mice had higher hepatic levels of sphingosine (d18:1) compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic sphinganine (d18:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with our previous observations, the BTWT-mice had higher hepatic levels of ceramide (d18:1/16:0) and ceramide (d18:1/18:0) (Fig. 5a), sphinganine (d18:0), sphingosine (d18:1) (Fig. 5b)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7aa2976903ce92b3132267a3",
+              "unit": null,
+              "value_raw_text": "BTWT-mice had higher hepatic levels of sphinganine (d18:0) compared with SLMUT-mice."
+            }
+          ],
+          "unit_id": "su_f1e11b231cb5c40f88a8f42d"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7174b358520f7d14b4d75220",
+              "inference_basis_ids": [
+                "res_093acb408f4f190bd63b6917",
+                "res_6c4d869d4a30e91f323478a4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "These results establish that Bacteroides-SLs can transit from bacterial cells to the gut epithelium and hepatic portal vein."
+              },
+              "statement": "Bacteroides-derived SLs can transit from bacterial cells to the gut epithelium and hepatic portal vein."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Confocal microscopy of small intestine tissue after oral gavage with BTWT-PAA.",
+            "Germfree mice were gavaged daily with BTWT for one week; SLs measured in hepatic portal vein blood on days 1 and 7."
+          ],
+          "methods": [],
+          "name": "Bacterial SLs transit to host tissues in mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Visualization of bacterial lipids in gut tissue",
+              "n_sample_size": 4,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Confocal microscopy of a small intestine (SI) tissue of germfree mice, b SI tissue of germfree mice inoculated with BTWT grown in PAA (BTWT-PAA) 3 h after oral gavage, and c SI tissue of germfree mice after 5 days of daily gavage with BTWT-PAA. PAA metabolites were detected with Alexa Fluor 647 azide (red) using click chemistry, and nuclei of the intestinal epithelial cells were stained using DAPI (blue). Scale bar is 20 µm. Representative images of four mice."
+              },
+              "quantitative_value": null,
+              "result_id": "res_093acb408f4f190bd63b6917",
+              "unit": null,
+              "value_raw_text": "PAA metabolites detected in small intestine tissue of germfree mice after oral gavage with BTWT-PAA."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sa (d17:0) in hepatic portal vein blood",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "On days 1 and 7, we measured higher Sa (d17:0) in hepatic portal vein blood in BTWT-treated compared with untreated mice (Fig. 3d)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6c4d869d4a30e91f323478a4",
+              "unit": null,
+              "value_raw_text": "On days 1 and 7, higher Sa (d17:0) in hepatic portal vein blood in BTWT-treated compared with untreated mice."
+            }
+          ],
+          "unit_id": "su_f45ce5094807288fef141654"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_902bb2986b76f1b747ea9199",
+              "inference_basis_ids": [
+                "res_177bf501e4cd4817533d24b8",
+                "res_27ae3d7c129979f007ecc5fc",
+                "res_5341ee07d2015f69cb4f9c0b",
+                "res_573fc61d3fa00f53d64a054b",
+                "res_6e1fa092d2f8c823c8253d91",
+                "res_8589fecc53398a426a5caee8",
+                "res_bc15d5691606ca5f8fd8aeed",
+                "res_bdf207483796641328faeaa3",
+                "res_f4063b2b91daa8c157853363"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "These results indicate that SL production by gut Bacteroides can affect levels of liver ceramides."
+              },
+              "statement": "SL production by gut Bacteroides can affect levels of liver ceramides."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Germfree mice were monocolonized with BTWT or SLMUT for 6 weeks; SL levels measured in cecum, ileum, and liver."
+          ],
+          "methods": [],
+          "name": "Effect of B. theta SL production on liver SLs in monocolonized mice",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic ceramide (d18:1/24:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "For instance, the hepatic levels of dihydroceramide (d18:0/24:1) (Fig. 3H), ceramide (d18:1/16:0), ceramide (d18:1/24:0), ceramide (d18:1/24:1) (Fig. 3i), sphingomyelin (d18:1/16:0), and sphingomyelin (d18:1/24:1) (Fig. 3j) were individually higher in BTWT compared with SLMUT and GF conditions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_177bf501e4cd4817533d24b8",
+              "unit": null,
+              "value_raw_text": "Hepatic ceramide (d18:1/24:0) was significantly higher in BTWT- compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic dihydroceramide (d18:0/24:1) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "For instance, the hepatic levels of dihydroceramide (d18:0/24:1) (Fig. 3H), ceramide (d18:1/16:0), ceramide (d18:1/24:0), ceramide (d18:1/24:1) (Fig. 3i), sphingomyelin (d18:1/16:0), and sphingomyelin (d18:1/24:1) (Fig. 3j) were individually higher in BTWT compared with SLMUT and GF conditions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_27ae3d7c129979f007ecc5fc",
+              "unit": null,
+              "value_raw_text": "Hepatic dihydroceramide (d18:0/24:1) was significantly higher in BTWT- compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic sphingomyelin (d18:1/24:1) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "For instance, the hepatic levels of dihydroceramide (d18:0/24:1) (Fig. 3H), ceramide (d18:1/16:0), ceramide (d18:1/24:0), ceramide (d18:1/24:1) (Fig. 3i), sphingomyelin (d18:1/16:0), and sphingomyelin (d18:1/24:1) (Fig. 3j) were individually higher in BTWT compared with SLMUT and GF conditions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5341ee07d2015f69cb4f9c0b",
+              "unit": null,
+              "value_raw_text": "Hepatic sphingomyelin (d18:1/24:1) was significantly higher in BTWT- compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic ceramide (d18:1/16:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "For instance, the hepatic levels of dihydroceramide (d18:0/24:1) (Fig. 3H), ceramide (d18:1/16:0), ceramide (d18:1/24:0), ceramide (d18:1/24:1) (Fig. 3i), sphingomyelin (d18:1/16:0), and sphingomyelin (d18:1/24:1) (Fig. 3j) were individually higher in BTWT compared with SLMUT and GF conditions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_573fc61d3fa00f53d64a054b",
+              "unit": null,
+              "value_raw_text": "Hepatic ceramide (d18:1/16:0) was significantly higher in BTWT- compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ileal So (d18:1) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Consistent with uptake and desaturation of SL bases (d18:0) from the lumen, levels of the unsaturated long chain base So (d18:1) were highest in the ileum of BTWT-mice (Fig. 3f)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6e1fa092d2f8c823c8253d91",
+              "unit": null,
+              "value_raw_text": "Levels of So (d18:1) were highest in the ileum of BTWT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cecal long chain base SLs",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "After 6 weeks, levels of three long chain base SLs synthesized by BTWT, Sa (d17:0), 15-methylhexadeca Sa (m17:0), and Sa (d18:0), were significantly higher in the ceca of BTWT-colonized mice compared with SLMUT- and GF-mice (Fig. 3e)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8589fecc53398a426a5caee8",
+              "unit": null,
+              "value_raw_text": "Levels of Sa (d17:0), 15-methylhexadeca Sa (m17:0), and Sa (d18:0) were significantly higher in ceca of BTWT-colonized mice compared with SLMUT- and GF-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ileal ceramide levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Additionally, ileal ceramide levels (d18:1/18:0, d18:1/20:0, d18:1/22:0, d18:1/24:0, d18:1/24:1) trended higher in the BTWT-mice compared with SLMUT and GF mice (Fig. 3g), while ceramide and sphingomyelin (d18:1/16:0) were higher in ilea of the GF- and BTWT-mice (Supplementary Fig. 6F)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bc15d5691606ca5f8fd8aeed",
+              "unit": null,
+              "value_raw_text": "Ileal ceramide levels (d18:1/18:0, d18:1/20:0, d18:1/22:0, d18:1/24:0, d18:1/24:1) trended higher in BTWT-mice compared with SLMUT and GF mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic sphingomyelin (d18:1/16:0) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "For instance, the hepatic levels of dihydroceramide (d18:0/24:1) (Fig. 3H), ceramide (d18:1/16:0), ceramide (d18:1/24:0), ceramide (d18:1/24:1) (Fig. 3i), sphingomyelin (d18:1/16:0), and sphingomyelin (d18:1/24:1) (Fig. 3j) were individually higher in BTWT compared with SLMUT and GF conditions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bdf207483796641328faeaa3",
+              "unit": null,
+              "value_raw_text": "Hepatic sphingomyelin (d18:1/16:0) was significantly higher in BTWT- compared with SLMUT-mice."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Hepatic ceramide (d18:1/24:1) levels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "98bb130a114c53ff0356",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "For instance, the hepatic levels of dihydroceramide (d18:0/24:1) (Fig. 3H), ceramide (d18:1/16:0), ceramide (d18:1/24:0), ceramide (d18:1/24:1) (Fig. 3i), sphingomyelin (d18:1/16:0), and sphingomyelin (d18:1/24:1) (Fig. 3j) were individually higher in BTWT compared with SLMUT and GF conditions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f4063b2b91daa8c157853363",
+              "unit": null,
+              "value_raw_text": "Hepatic ceramide (d18:1/24:1) was significantly higher in BTWT- compared with SLMUT-mice."
+            }
+          ],
+          "unit_id": "su_f798b02bed30e9d5e2cf3b98"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

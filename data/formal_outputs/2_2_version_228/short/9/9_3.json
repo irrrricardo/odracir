@@ -1,0 +1,514 @@
+{
+  "coverage_ledger": {
+    "07dbf190a9ee445d585f": "not_selected",
+    "10ee7515c0ab0873954b": "not_selected",
+    "197ec23d5f33bb4aa375": "not_selected",
+    "1b0a4f0f032c44a78be9": "not_selected",
+    "26a7e56e4848deb9f472": "not_selected",
+    "34da66501b8dbb88d6aa": "not_selected",
+    "399b454fd395a1a74fcf": "not_selected",
+    "3f912d82a8b214e0026e": "extracted",
+    "47c3bb43c6e25a61b03a": "not_selected",
+    "48e6d4cdc958a2a08456": "not_selected",
+    "4abf16f114b5a24fea6d": "not_selected",
+    "5233e31ddccb55053433": "not_selected",
+    "587aedef89e7b0424911": "not_selected",
+    "6523666972fb5458553d": "not_selected",
+    "653b464fb28817560ad4": "not_selected",
+    "6a35d0f2e22a68f1cffb": "not_selected",
+    "6be1bc268eb1f124af49": "not_selected",
+    "6d65ef993b566d68f740": "not_selected",
+    "7a123d79b6a4d62abfcb": "not_selected",
+    "8ab879c26cea716df69b": "not_selected",
+    "930d2499c188113c2293": "not_selected",
+    "9aaa9c1fa3d6909fcc9d": "not_selected",
+    "9c0ad685280ed30a6414": "not_selected",
+    "a00957e8c6b26253977f": "not_selected",
+    "a3b8de122883632efb94": "not_selected",
+    "bc7c45b8b334da91bddf": "not_selected",
+    "c384b76d57b93a0af23b": "not_selected",
+    "c6440d5cb9c62d5267dc": "not_selected",
+    "c7c79e132a3c3e3f41c0": "not_selected",
+    "c9eb42f618e738b4727b": "not_selected",
+    "cde9d975270ff1b205d6": "not_selected",
+    "d01d409e3bd6b99689dc": "not_selected",
+    "dc9c7761ea0807cb02f8": "not_selected",
+    "e1de2225bcccbba56582": "extracted",
+    "e861cffbb520f44f8839": "extracted",
+    "edb62e93def4c480e52e": "not_selected",
+    "f275fd71b296064a982d": "not_selected",
+    "fbf1dd9a632c71838caf": "not_selected",
+    "fc999b86804ee163603a": "extracted",
+    "fd3bed5e42d1ae34a68f": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "LeanDojo Benchmark's challenging split requires generalization to novel premises, but performance degrades on this split compared to random split.",
+    "ReProver does not use domain-specific pretraining or reinforcement learning, which could further improve performance.",
+    "LeanDojo still has a 1.4% proof-checking error rate, with documented failure cases.",
+    "Training and evaluation were conducted on specific hardware (single A100, eight V100s) and within time limits (10 minutes per proof)."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "9_3.pdf",
+    "source_sha256": "8eb0b3e351150d330202e30af528c9eb548a79905f52bdb0db04686a75b02649"
+  },
+  "paper_id": "9_3",
+  "quality_assessment": {
+    "correct_item_count": 32,
+    "deterministic_rule_score": 0.8622,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 32,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can we build an open-source, reproducible framework for LLM-based theorem proving in Lean that addresses premise selection?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_12199c5318759aec42a47569",
+              "inference_basis_ids": [
+                "res_0109ade346a42bfb5ddfd14e",
+                "res_160d5a87b8145cf648823adb",
+                "res_fbbebc366d697c65eeb4652d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "ReProver can prove 51.2% theorems, outperforming a baseline that generates tactics directly without retrieval (47.6%) and another baseline using GPT-4 to generate tactics in a zero-shot manner (29.0%)."
+              },
+              "statement": "ReProver outperforms non-retrieval baselines and GPT-4 on theorem proving in LeanDojo Benchmark."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_261286f35acd462dfda11b71",
+              "inference_basis_ids": [
+                "res_c250d1315b72609c7eba44b4",
+                "res_dbdf8625c025f2919e73ec6d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "It can prove 26.5% theorems in MiniF2F and 13.8% in ProofNet, which is competitive with state-of-the-art methods without reinforcement learning [19], even though trained using far fewer resources."
+              },
+              "statement": "ReProver is competitive with state-of-the-art methods on MiniF2F and ProofNet without reinforcement learning, despite using far fewer resources."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3b932d89a209864f60fefb5a",
+              "inference_basis_ids": [
+                "res_728086670b9fcd22c98a0b1e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "LeanDojo is the first tool capable of interacting with Lean reliably, reducing proof-checking errors in existing tools [19] (correct proofs misjudged as incorrect) from 21.1% to 1.4%."
+              },
+              "statement": "LeanDojo is the first tool capable of interacting with Lean reliably, reducing proof-checking errors."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_58143f6782151c5c0bfd4c5c",
+              "inference_basis_ids": [
+                "res_23d3652b52af1ee611ef057c",
+                "res_d23cc9656f45c348030aa13c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Training ReProver takes substantially less compute than prior methods (120 GPU hours vs. more than 1000 hours [16, 17])."
+              },
+              "statement": "Training ReProver requires substantially less compute than prior methods (120 GPU hours vs. >1000 GPU hours)."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cf4e9c4210b17d8f57bea0e6",
+              "inference_basis_ids": [
+                "res_626b7caae8ddf5e2df8e8c99",
+                "res_86d129e5d94eb1b673e45152"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "we compare with two ablations: one retrieving from all premises (instead of accessible premises only) and the other without in-file negatives. They perform worse than our method, demonstrating the effectiveness of our two improvements upon DPR."
+              },
+              "statement": "Restricting retrieval to accessible premises and using in-file negatives improves premise selection performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f19aecf7a274647416ba9c14",
+              "inference_basis_ids": [
+                "res_728086670b9fcd22c98a0b1e",
+                "res_cc8675e64a8e06e34308c5b1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e1de2225bcccbba56582",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "lean-gym failed on 21.1% of them. In contrast, LeanDojo only failed on 1.4%"
+              },
+              "statement": "LeanDojo reduces proof-checking errors compared to lean-gym, from 21.1% to 1.4%."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "98,734 theorems and proofs extracted from mathlib. Features a challenging data split requiring the prover to generalize to theorems relying on novel premises never used in training.",
+              "name": "LeanDojo Benchmark",
+              "version_or_split": "novel_premises split"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "LeanDojo is the first tool capable of interacting with Lean reliably, reducing proof-checking errors in existing tools [19] (correct proofs misjudged as incorrect) from 21.1% to 1.4%.",
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "LeanDojo is the first tool capable of interacting with Lean reliably, reducing proof-checking errors in existing tools [19] (correct proofs misjudged as incorrect) from 21.1% to 1.4%."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "ReProver can prove 51.2% theorems, outperforming a baseline that generates tactics directly without retrieval (47.6%) and another baseline using GPT-4 to generate tactics in a zero-shot manner (29.0%).",
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "ReProver can prove 51.2% theorems, outperforming a baseline that generates tactics directly without retrieval (47.6%) and another baseline using GPT-4 to generate tactics in a zero-shot manner (29.0%)."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "Training ReProver takes substantially less compute than prior methods (120 GPU hours vs. more than 1000 hours [16, 17]).",
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Training ReProver takes substantially less compute than prior methods (120 GPU hours vs. more than 1000 hours [16, 17])."
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Construct LeanDojo Benchmark: a dataset of 98,734 theorems/proofs extracted from mathlib with a challenging data split requiring generalization to novel premises.",
+            "Develop LeanDojo: an open-source toolkit for extracting data from Lean and interacting with the proof environment programmatically.",
+            "Develop ReProver: a retrieval-augmented LLM-based prover that uses a retriever to select premises from the math library."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "ReProver",
+              "protocol_description": "Retrieval-Augmented Prover: Given the current proof state, it retrieves a small number of premises from the math library using a DPR-based retriever, then generates a tactic using a ByT5 encoder-decoder model. The retriever is restricted to accessible premises and trained with in-file negative examples. Training takes 120 GPU hours on a single A100."
+            },
+            {
+              "method_id": "M2",
+              "name": "LeanDojo toolkit",
+              "protocol_description": "Open-source tool for extracting data from Lean and interacting with the proof environment. Extracts fine-grained premise annotations, computes accessible premises via program analysis, and reduces proof-checking errors from 21.1% to 1.4% compared to lean-gym."
+            }
+          ],
+          "name": "LeanDojo toolkit and ReProver development",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Theorem proving Pass@1 (non-retrieval baseline)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "ReProver can prove 51.2% theorems, outperforming a baseline that generates tactics directly without retrieval (47.6%) and another baseline using GPT-4 to generate tactics in a zero-shot manner (29.0%)."
+              },
+              "quantitative_value": 47.6,
+              "result_id": "res_0109ade346a42bfb5ddfd14e",
+              "unit": "%",
+              "value_raw_text": "47.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Theorem proving Pass@1 (GPT-4 zero-shot)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "ReProver can prove 51.2% theorems, outperforming a baseline that generates tactics directly without retrieval (47.6%) and another baseline using GPT-4 to generate tactics in a zero-shot manner (29.0%)."
+              },
+              "quantitative_value": 29.0,
+              "result_id": "res_160d5a87b8145cf648823adb",
+              "unit": "%",
+              "value_raw_text": "29.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training compute (prior methods)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Training ReProver takes substantially less compute than prior methods (120 GPU hours vs. more than 1000 hours [16, 17])."
+              },
+              "quantitative_value": null,
+              "result_id": "res_23d3652b52af1ee611ef057c",
+              "unit": "GPU hours",
+              "value_raw_text": "more than 1000 GPU hours"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Total premises in LeanDojo Benchmark",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "LeanDojo Benchmark contains 130,262 premises in total, but the average number of accessible premises is only 33,160."
+              },
+              "quantitative_value": 130262.0,
+              "result_id": "res_6154d98fa81f1f58dfe7cd5e",
+              "unit": null,
+              "value_raw_text": "130,262"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation: retrieving from all premises vs. accessible only",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "we compare with two ablations: one retrieving from all premises (instead of accessible premises only) and the other without in-file negatives. They perform worse than our method, demonstrating the effectiveness of our two improvements upon DPR."
+              },
+              "quantitative_value": null,
+              "result_id": "res_626b7caae8ddf5e2df8e8c99",
+              "unit": null,
+              "value_raw_text": "worse performance"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average number of accessible premises",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "LeanDojo Benchmark contains 130,262 premises in total, but the average number of accessible premises is only 33,160."
+              },
+              "quantitative_value": 33160.0,
+              "result_id": "res_6554e9d18d4ac36c882f638b",
+              "unit": null,
+              "value_raw_text": "33,160"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Premise selection R@k (BM25 baseline)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Results in Table 1 show that our method outperforms BM25 significantly across the board."
+              },
+              "quantitative_value": null,
+              "result_id": "res_67daf191453e542ad3047db0",
+              "unit": null,
+              "value_raw_text": "lower than ReProver"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proof-checking error rate (LeanDojo)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e1de2225bcccbba56582",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "LeanDojo only failed on 1.4%, and its failures are a subset of lean-gym’s."
+              },
+              "quantitative_value": 1.4,
+              "result_id": "res_728086670b9fcd22c98a0b1e",
+              "unit": "%",
+              "value_raw_text": "1.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ablation: without in-file negatives",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "we compare with two ablations: one retrieving from all premises (instead of accessible premises only) and the other without in-file negatives. They perform worse than our method, demonstrating the effectiveness of our two improvements upon DPR."
+              },
+              "quantitative_value": null,
+              "result_id": "res_86d129e5d94eb1b673e45152",
+              "unit": null,
+              "value_raw_text": "worse performance"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Premise selection R@1 (novel_premises split)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Results in Table 1 show that our method outperforms BM25 significantly across the board. However, it exhibits a large performance degradation on the challenging data split (comparing novel_premises to random)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8c3f6b6a0eb11c8f6935b6f9",
+              "unit": null,
+              "value_raw_text": "not explicitly given"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ProofNet Pass@1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "It can prove 26.5% theorems in MiniF2F and 13.8% in ProofNet, which is competitive with state-of-the-art methods without reinforcement learning [19], even though trained using far fewer resources."
+              },
+              "quantitative_value": 13.8,
+              "result_id": "res_c250d1315b72609c7eba44b4",
+              "unit": "%",
+              "value_raw_text": "13.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Proof-checking error rate (lean-gym)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e1de2225bcccbba56582",
+                "page_end": 19,
+                "page_start": 19,
+                "paraphrased": false,
+                "text_excerpt": "lean-gym failed on 21.1% of them. In contrast, LeanDojo only failed on 1.4%"
+              },
+              "quantitative_value": 21.1,
+              "result_id": "res_cc8675e64a8e06e34308c5b1",
+              "unit": "%",
+              "value_raw_text": "21.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Training compute (ReProver)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc999b86804ee163603a",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Training ReProver takes substantially less compute than prior methods (120 GPU hours vs. more than 1000 hours [16, 17])."
+              },
+              "quantitative_value": 120.0,
+              "result_id": "res_d23cc9656f45c348030aa13c",
+              "unit": "GPU hours",
+              "value_raw_text": "120 GPU hours"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MiniF2F Pass@1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "It can prove 26.5% theorems in MiniF2F and 13.8% in ProofNet, which is competitive with state-of-the-art methods without reinforcement learning [19], even though trained using far fewer resources."
+              },
+              "quantitative_value": 26.5,
+              "result_id": "res_dbdf8625c025f2919e73ec6d",
+              "unit": "%",
+              "value_raw_text": "26.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Theorem proving Pass@1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e861cffbb520f44f8839",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "ReProver can prove 51.2% theorems, outperforming a baseline that generates tactics directly without retrieval (47.6%) and another baseline using GPT-4 to generate tactics in a zero-shot manner (29.0%)."
+              },
+              "quantitative_value": 51.2,
+              "result_id": "res_fbbebc366d697c65eeb4652d",
+              "unit": "%",
+              "value_raw_text": "51.2%"
+            }
+          ],
+          "unit_id": "su_619eab468b1f95ad80fabca5"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

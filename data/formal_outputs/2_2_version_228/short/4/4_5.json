@@ -1,0 +1,1218 @@
+{
+  "coverage_ledger": {
+    "423964306b1c41edcc57": "not_selected",
+    "49605dc0b51dc88338a0": "not_selected",
+    "8d75e5a47cf52957c821": "not_selected",
+    "a179c86529f014cf4ddf": "extracted",
+    "a4aabbda10e8a8c2092f": "extracted",
+    "ad419a6bfd1eec3fee18": "not_selected",
+    "b1a58f2eb173a6eb8506": "extracted",
+    "b1eee39bf7a8c04a371a": "extracted",
+    "b8b986895c4d0b295cab": "not_selected",
+    "cd868b866b29918ad298": "extracted",
+    "e56d3eb3da77fe8c651c": "extracted",
+    "f0b122bc11eae310a76f": "extracted",
+    "fbba25245e07819ee840": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study uses alginate hydrogels as a model confining microenvironment, which may not fully recapitulate in vivo ECM complexity.",
+    "MSC migration was examined only in the context of viscoelastic and plastic matrices; the role of the nuclear piston in purely elastic or degradable matrices was not explored.",
+    "The theoretical model simplifies the complex cellular and molecular processes and may not capture all regulatory mechanisms.",
+    "The study focuses on protease-independent migration; synergistic effects with protease-dependent mechanisms were not investigated.",
+    "Experiments were performed with a single MSC line (D1 MSCs); generalizability to primary MSCs or other cell types is not established.",
+    "Long-term effects of ion channel inhibition or knockdown on cell viability and function were not assessed.",
+    "The role of other mechanosensitive channels or ion transporters beyond NHE-1 and TRPV4 was not examined.",
+    "The study does not address how the nuclear piston mechanism is regulated in different stages of migration or in response to varying matrix stiffness.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_5.pdf",
+    "source_sha256": "6d10c32115fbf2d3d847081c6ec439f9d71c0be6084da2ece3f0f08ddc9e541d"
+  },
+  "paper_id": "4_5",
+  "quality_assessment": {
+    "correct_item_count": 81,
+    "deterministic_rule_score": 0.9775,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.7241,
+      "sample_size_log_score": 0.5442,
+      "statistical_support_coverage": 0.2414
+    },
+    "extracted_item_count": 81,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do MSCs generate migration paths in confining viscoelastic and plastic microenvironments?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a88a19598b8479bd5b4d59e5",
+              "inference_basis_ids": [
+                "res_126cfd678f89a8cc82c34dd2",
+                "res_5e3cf7d3c6ffb4ac9ccff2dd",
+                "res_c650a3ba3f719f51089ac61f",
+                "res_ea074903210a5ef6fee4c504"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f0b122bc11eae310a76f",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "MSCs physically open up a migration path through expansion of protrusions."
+              },
+              "statement": "MSCs physically open up a migration path through expansion of protrusions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Time-lapse images of MSCs in fast-relaxing hydrogels, with measurements of protrusion width, cell volume, bead displacement, and alginate densification.",
+              "name": "Protrusion dynamics in fast-relaxing hydrogels",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "MSCs physically open up a migration path through expansion of protrusions.",
+              "provenance": {
+                "chunk_id": "f0b122bc11eae310a76f",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "MSCs physically open up a migration path through expansion of protrusions."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Time-lapse imaging of MSCs in fast-relaxing/plastic hydrogels to observe protrusion dynamics. Protrusion width was measured over time. 3D renderings of cells before and after protrusion were used to quantify volume changes. Bead displacement and alginate densification around protrusions were measured to assess matrix deformation."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Protrusion width measurement",
+              "protocol_description": "Protrusion width was measured at the middle of the protrusion using accumulated 2D images from 3D stacks."
+            },
+            {
+              "method_id": "M4",
+              "name": "Cell volume quantification",
+              "protocol_description": "Cell volumes were automatically calculated using Imaris software on 3D confocal stacks. Body and protrusion volumes were distinguished by fitting an ellipsoid to the cell body."
+            },
+            {
+              "method_id": "M5",
+              "name": "Bead displacement analysis",
+              "protocol_description": "Fluorescent microbeads embedded in hydrogels were tracked using particle image velocimetry (PIV) in ImageJ to map matrix displacement fields."
+            },
+            {
+              "method_id": "M6",
+              "name": "Alginate densification measurement",
+              "protocol_description": "Accumulation of fluorescein-conjugated alginate around protrusions was quantified as the ratio of intensity within 2 μm of the protrusion border to background intensity 30 μm away."
+            }
+          ],
+          "name": "Protrusion expansion and migration path generation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Alginate densification around protrusions",
+              "n_sample_size": 15,
+              "p_value": 0.001,
+              "provenance": {
+                "chunk_id": "f0b122bc11eae310a76f",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Densified matrices were quantified as intensity and compared with control (n = 15 images). ***P < 0.001"
+              },
+              "quantitative_value": null,
+              "result_id": "res_126cfd678f89a8cc82c34dd2",
+              "unit": null,
+              "value_raw_text": "Densified matrices were quantified as intensity and compared with control (n = 15 images). ***P < 0.001."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion volume increase",
+              "n_sample_size": 10,
+              "p_value": 0.0001,
+              "provenance": {
+                "chunk_id": "f0b122bc11eae310a76f",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Quantification of altered total volume, altered volume of body part, and altered volume of protrusion part before (t = 0) and after cell protrusion (n > 10 single cells)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5e3cf7d3c6ffb4ac9ccff2dd",
+              "unit": null,
+              "value_raw_text": "Protrusion volume significantly increased after protrusion (P < 0.0001), while body volume did not significantly change."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Bead displacement near protrusion",
+              "n_sample_size": 30,
+              "p_value": 0.0001,
+              "provenance": {
+                "chunk_id": "f0b122bc11eae310a76f",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Maximum bead displacements via cell protrusion around cells (n > 30 beads)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c650a3ba3f719f51089ac61f",
+              "unit": null,
+              "value_raw_text": "Maximum bead displacements via cell protrusion around cells were significantly higher near protrusions compared to control (P < 0.0001)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion width increase before migration",
+              "n_sample_size": 20,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f0b122bc11eae310a76f",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Tracings of protrusion widths for migrating cells (n > 20). Red dashed line indicates the average width of protrusion when cells start to migrate in the direction of the protrusion."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ea074903210a5ef6fee4c504",
+              "unit": null,
+              "value_raw_text": "Protrusion width increases over time before migration starts, reaching an average width at migration start (red dashed line)."
+            }
+          ],
+          "unit_id": "su_0cd412fad2b1196580dc0659"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_69e2f141a1a4048cd7e098bf",
+              "inference_basis_ids": [
+                "res_7cf3ae9054b259c132d38d26",
+                "res_b873d8452ada72f6967129d9",
+                "res_d3868986b8034a341b168a90"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Together, these results suggest that the nuclear piston movement increases intracellular pressure in the protrusion, which activates mechanosensitive ion channels to flow ions in the end of protrusion, driving the protrusion expansion."
+              },
+              "statement": "The nuclear piston movement increases intracellular pressure in the protrusion, which activates mechanosensitive ion channels to flow ions into the end of protrusion, driving protrusion expansion."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "Time-lapse images of nucleus and calcium in protrusions, and calcium distribution profiles in siRNA-treated cells.",
+              "name": "Nuclear piston and ion channel activation",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Together, these results suggest that the nuclear piston movement increases intracellular pressure in the protrusion, which activates mechanosensitive ion channels to flow ions in the end of protrusion, driving the protrusion expansion.",
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Together, these results suggest that the nuclear piston movement increases intracellular pressure in the protrusion, which activates mechanosensitive ion channels to flow ions in the end of protrusion, driving the protrusion expansion."
+              },
+              "span_id": "ES6"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Correlation of nuclear movement with protrusion expansion and calcium accumulation. Calcium ion distribution in vimentin and nesprin-3 knockdown cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M17",
+              "name": "Correlation analysis",
+              "protocol_description": "Nuclear movement, protrusion expansion, and calcium ion accumulation were monitored over time."
+            },
+            {
+              "method_id": "M18",
+              "name": "Calcium imaging in knockdown cells",
+              "protocol_description": "Intracellular calcium distribution was measured in vimentin and nesprin-3 siRNA-treated cells using Fluo-3/Fura-red ratio."
+            }
+          ],
+          "name": "Nuclear piston activates mechanosensitive ion channels",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of nuclear movement with protrusion expansion and calcium accumulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "it was consistently observed that movement of the nucleus into the protrusion was highly correlated with both protrusion expansion and calcium ion accumulation at the tip of the protrusion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7cf3ae9054b259c132d38d26",
+              "unit": null,
+              "value_raw_text": "Movement of the nucleus into the protrusion was highly correlated with both protrusion expansion and calcium ion accumulation at the tip of the protrusion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Calcium ion distribution in nesprin-3 knockdown cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "No change in calcium ion concentration were observed in nesprin-3 knockdown cells, which exhibited normal nuclear piston and protrusion expansion, relative to control cells was observed"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b873d8452ada72f6967129d9",
+              "unit": null,
+              "value_raw_text": "No change in calcium ion concentration were observed in nesprin-3 knockdown cells, which exhibited normal nuclear piston and protrusion expansion, relative to control cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Calcium ion distribution in vimentin knockdown cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "In vimentin knockdown cells, which exhibited loss of nuclear piston and diminished protrusion expansion, the distribution profile of calcium ions was reversed compared to control cells, with the calcium ion concentration at the leading edge of protrusion in cells decreasing"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d3868986b8034a341b168a90",
+              "unit": null,
+              "value_raw_text": "In vimentin knockdown cells, the distribution profile of calcium ions was reversed compared to control cells, with the calcium ion concentration at the leading edge of protrusion decreasing."
+            }
+          ],
+          "unit_id": "su_3301e73d4b81fbeb96ee61c4"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_50729575ea8eac8f92f5174d",
+              "inference_basis_ids": [
+                "res_6dc4f96661ab77d611f20c8b",
+                "res_945a42ca20b43ea523fc0471",
+                "res_cef0d5ae05a21a58baf12c11",
+                "res_e36d237034982cc16c21e9d1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cd868b866b29918ad298",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the model and the experimental results elucidate how the nuclear movement, the influx/efflux of ions, and intracellular fluid work in concert to control the protrusion volume through balancing the hydrostatic and osmotic differences across the membrane."
+              },
+              "statement": "Increased osmotic pressure outcompetes hydrostatic pressure to drive protrusion expansion."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "Protrusion width measurements over time with inhibitors (EIPA, GSK205, Bapta-AM) and real-time inhibition of TRPV4 and MLCK.",
+              "name": "Model validation experiments",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "the model and the experimental results elucidate how the nuclear movement, the influx/efflux of ions, and intracellular fluid work in concert to control the protrusion volume through balancing the hydrostatic and osmotic differences across the membrane.",
+              "provenance": {
+                "chunk_id": "cd868b866b29918ad298",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the model and the experimental results elucidate how the nuclear movement, the influx/efflux of ions, and intracellular fluid work in concert to control the protrusion volume through balancing the hydrostatic and osmotic differences across the membrane."
+              },
+              "span_id": "ES7"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Development of a theoretical model incorporating nuclear piston, hydrostatic pressure, osmotic pressure, and ion flux. Model predictions compared with experiments: protrusion expansion with ion channel inhibition, real-time inhibition of TRPV4 and MLCK."
+          ],
+          "methods": [
+            {
+              "method_id": "M19",
+              "name": "Theoretical modeling",
+              "protocol_description": "A model was developed incorporating fluid transport due to nuclear piston, hydrostatic pressure difference, and osmotic pressure difference across the membrane. Ion flux rate and protrusion expansion rate are mutually dependent."
+            },
+            {
+              "method_id": "M20",
+              "name": "Protrusion width measurement with inhibitors",
+              "protocol_description": "Protrusion width was measured over time from time-lapse images in the presence of inhibitors or vehicle control."
+            },
+            {
+              "method_id": "M21",
+              "name": "Real-time inhibition and measurement",
+              "protocol_description": "After initial protrusion expansion, TRPV4 inhibitor or MLCK inhibitor was added, and nuclear movement and protrusion width were monitored."
+            }
+          ],
+          "name": "Theoretical model and validation of osmotic vs hydrostatic pressure",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Model prediction of protrusion expansion with ion channels",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cd868b866b29918ad298",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "The model predicts that the activation of mechanosensitive ion channels, upon pressurizing the protrusion by the nuclear piston, allows an influx of ions into the protrusion that, in turn, increases osmotic pressure in the protrusion to oppose the efflux of fluid"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6dc4f96661ab77d611f20c8b",
+              "unit": null,
+              "value_raw_text": "The model predicts that the activation of mechanosensitive ion channels allows an influx of ions that increases osmotic pressure, leading to protrusion expansion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion width after real-time MLCK inhibition",
+              "n_sample_size": 25,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cd868b866b29918ad298",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the model predicted that real-time inhibition of the contractility led to a significant drop in the posterior hydrostatic pressure, thus the nucleus moved backward and the protrusion width decreased. These predictions were both in agreement with the experimental observations"
+              },
+              "quantitative_value": null,
+              "result_id": "res_945a42ca20b43ea523fc0471",
+              "unit": null,
+              "value_raw_text": "Real-time inhibition of contractility led to a significant drop in posterior hydrostatic pressure, the nucleus moved backward, and the protrusion width decreased."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion width after real-time TRPV4 inhibition",
+              "n_sample_size": 25,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cd868b866b29918ad298",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the experimental observations exhibited that TRPV4 inhibition in real time did not affect nuclear movements but did prevent the influx of ions. As a result, the radius of the protrusion decreased over time"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cef0d5ae05a21a58baf12c11",
+              "unit": null,
+              "value_raw_text": "TRPV4 inhibition in real time did not affect nuclear movements but did prevent the influx of ions. As a result, the radius of the protrusion decreased over time."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion expansion with ion channel inhibition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cd868b866b29918ad298",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "This prediction is consistent with experimental observations where inhibition of the ion channels or chelating of intracellular calcium ions prevents the expansion of protrusion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e36d237034982cc16c21e9d1",
+              "unit": null,
+              "value_raw_text": "Inhibition of ion channels or chelating intracellular calcium prevents the expansion of protrusion."
+            }
+          ],
+          "unit_id": "su_388d8c3b8ee243098b463e43"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_091477696cfd64ba81c3b6cc",
+              "inference_basis_ids": [
+                "res_8bb7fac92c59f22dcfc37413"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a179c86529f014cf4ddf",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "MSCs migrate robustly in nanoporous, confining hydrogels that are viscoelastic and plastic but not in hydrogels that are more elastic."
+              },
+              "statement": "MSC migration in confining microenvironments requires matrix viscoelasticity and plasticity."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "3D confocal image stacks of R18-labeled MSCs in fast-relaxing/plastic and slow-relaxing/elastic alginate hydrogels, recorded every 15-30 min for 20 h.",
+              "name": "MSC migration tracks in alginate hydrogels",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "MSCs migrate robustly in nanoporous, confining hydrogels that are viscoelastic and plastic but not in hydrogels that are more elastic.",
+              "provenance": {
+                "chunk_id": "a179c86529f014cf4ddf",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "MSCs migrate robustly in nanoporous, confining hydrogels that are viscoelastic and plastic but not in hydrogels that are more elastic."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "MSCs were encapsulated in alginate hydrogels with tunable viscoelasticity and plasticity. Fast-relaxing/plastic hydrogels (low-MW alginate) and slow-relaxing/elastic hydrogels (high-MW alginate) were compared. Cell migration was tracked via live-cell confocal microscopy over 20 hours."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Live-cell confocal microscopy",
+              "protocol_description": "MSCs were labeled with octadecyl rhodamine B chloride (R18), encapsulated in alginate hydrogels, and imaged in an incubated chamber (37°C, 5% CO2) at 15- or 30-min intervals with a confocal microscope (Leica CM1950 20/0.40-NA objective) overnight."
+            },
+            {
+              "method_id": "M2",
+              "name": "Cell tracking analysis",
+              "protocol_description": "Cell centroids in 3D stack images were tracked using Imaris software. Track length and speed were automatically calculated."
+            }
+          ],
+          "name": "MSC migration in viscoelastic/plastic vs elastic hydrogels",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration capability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a179c86529f014cf4ddf",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "MSCs migrate robustly in nanoporous, confining hydrogels that are viscoelastic and plastic but not in hydrogels that are more elastic."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8bb7fac92c59f22dcfc37413",
+              "unit": null,
+              "value_raw_text": "MSCs migrate robustly in nanoporous, confining hydrogels that are viscoelastic and plastic but not in hydrogels that are more elastic."
+            }
+          ],
+          "unit_id": "su_3fa3a024defe170c702e4826"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6bf8de2a109af385b7240eb3",
+              "inference_basis_ids": [
+                "res_2b50e0af4afc0e4604f9384c",
+                "res_366fdfd69993a6e1123674b4",
+                "res_497a2977ea598866cb0a292e",
+                "res_96600d69b2e48dc90366c2ea",
+                "res_c45c769e9a9ba7d65ec2c5e0",
+                "res_d96b1f1aaa820e5426467438",
+                "res_e3c1159ffb05d23d53e6e251"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Together, these results indicate that calcium and sodium ions flow in through NHE-1 and TRPV4 ion channels to drive protrusion expansion for migration in 3D confining environments."
+              },
+              "statement": "Calcium and sodium ions flow in through NHE-1 and TRPV4 ion channels to drive protrusion expansion for migration."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Fluorescence images of sodium (NaGreen) and calcium (Fluo-3/Fura-red) in protrusions, and immunohistochemistry for NHE-1, TRPV4, and β1 integrin.",
+              "name": "Ion imaging and channel distribution",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Together, these results indicate that calcium and sodium ions flow in through NHE-1 and TRPV4 ion channels to drive protrusion expansion for migration in 3D confining environments.",
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Together, these results indicate that calcium and sodium ions flow in through NHE-1 and TRPV4 ion channels to drive protrusion expansion for migration in 3D confining environments."
+              },
+              "span_id": "ES5"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Intracellular sodium and calcium imaging in protrusions. Distribution of NHE-1 and TRPV4 channels assessed by immunohistochemistry. Inhibition of NHE-1 with EIPA and TRPV4 with GSK205. siRNA knockdown of NHE-1 and TRPV4 and migration analysis."
+          ],
+          "methods": [
+            {
+              "method_id": "M13",
+              "name": "Intracellular ion imaging",
+              "protocol_description": "MSCs were incubated with NaGreen-2 AM (25 μM) for sodium or Fluo-3 AM (20 μM) and Fura Red AM (33 μM) for calcium. Live-cell imaging at 15-30 min intervals with confocal microscopy."
+            },
+            {
+              "method_id": "M14",
+              "name": "Immunohistochemistry",
+              "protocol_description": "Fixed hydrogel sections were stained with antibodies against NHE-1, TRPV4, β1 integrin, and imaged by confocal microscopy."
+            },
+            {
+              "method_id": "M15",
+              "name": "Ion channel inhibition",
+              "protocol_description": "EIPA (20 μM) to inhibit NHE-1, GSK205 (10 μM) to inhibit TRPV4. Bapta-AM (10 μM) to chelate intracellular calcium."
+            },
+            {
+              "method_id": "M16",
+              "name": "siRNA knockdown and Western blot",
+              "protocol_description": "MSCs transfected with 50 nM siRNA SMARTpools for NHE-1 or TRPV4 for 3 days. Knockdown confirmed by Western blot."
+            }
+          ],
+          "name": "Ion influx via NHE-1 and TRPV4 channels",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration track length with NHE-1 and TRPV4 knockdown",
+              "n_sample_size": 200,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Cell tracking analysis indicates that both cells in fast-relaxing and plastic hydrogels migrate with slower speed and less persistence when NHE-1 or TRPV4 are knocked down, relative to control cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2b50e0af4afc0e4604f9384c",
+              "unit": null,
+              "value_raw_text": "Cells in fast-relaxing and plastic hydrogels migrate with slower speed and less persistence when NHE-1 or TRPV4 are knocked down, relative to control cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Calcium ion distribution after TRPV4 inhibition",
+              "n_sample_size": 45,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "TRPV4 inhibitors also inverted the concentration profile of calcium ions, decreasing the calcium ion concentration at the leading edge of protrusion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_366fdfd69993a6e1123674b4",
+              "unit": null,
+              "value_raw_text": "TRPV4 inhibitors also inverted the concentration profile of calcium ions, decreasing the calcium ion concentration at the leading edge of protrusion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NHE-1 distribution along protrusion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "The NHE-1 ion channels are more densely distributed at the tip of protrusion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_497a2977ea598866cb0a292e",
+              "unit": null,
+              "value_raw_text": "NHE-1 ion channels are more densely distributed at the tip of protrusion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "TRPV4 distribution along protrusion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "TRPV4 calcium ion channels were evenly distributed along the protrusions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_96600d69b2e48dc90366c2ea",
+              "unit": null,
+              "value_raw_text": "TRPV4 calcium ion channels were evenly distributed along the protrusions."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Calcium ion distribution along protrusion",
+              "n_sample_size": 45,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Sodium and calcium imaging revealed that both sodium and calcium ion concentrations increased along the length of the protrusion, with the highest concentrations found at the tip of protrusion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c45c769e9a9ba7d65ec2c5e0",
+              "unit": null,
+              "value_raw_text": "Calcium ion concentrations increased along the length of the protrusion, with the highest concentrations found at the tip."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sodium ion distribution after NHE-1 inhibition",
+              "n_sample_size": 45,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "When the function of NHE-1 ion channels was inhibited, the polarized distribution of NHE-1 ion channels along the protrusion disappeared and the distribution profile of sodium ions was reversed"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d96b1f1aaa820e5426467438",
+              "unit": null,
+              "value_raw_text": "When NHE-1 function was inhibited, the polarized distribution of NHE-1 ion channels along the protrusion disappeared and the distribution profile of sodium ions was reversed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sodium ion distribution along protrusion",
+              "n_sample_size": 45,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fbba25245e07819ee840",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Sodium and calcium imaging revealed that both sodium and calcium ion concentrations increased along the length of the protrusion, with the highest concentrations found at the tip of protrusion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e3c1159ffb05d23d53e6e251",
+              "unit": null,
+              "value_raw_text": "Sodium ion concentrations increased along the length of the protrusion, with the highest concentrations found at the tip."
+            }
+          ],
+          "unit_id": "su_6dc8b3638b38c5c8ba8f4efd"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_61543fe1b1ce89b78e00c7b2",
+              "inference_basis_ids": [
+                "res_59841c904e1105333763f004",
+                "res_870a0a7bc63c6fedf3d60995",
+                "res_a06c63ce436c7b6c29bd1152",
+                "res_bd34c6ef4a9953a2423e24a4",
+                "res_c31e32bd9b0c1d7d559121f8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b1a58f2eb173a6eb8506",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Together, these results establish that a nuclear piston, mediated by actomyosin contractility, microtubules, vimentin, and lamin A/C, drives increased pressure in protrusions and subsequent protrusion expansion for migration in confining and plastic microenvironments."
+              },
+              "statement": "A nuclear piston, mediated by vimentin and lamin A/C, drives increased pressure in protrusions and subsequent protrusion expansion for migration."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Images and measurements of nuclear position, protrusion width, and migration tracks for MSCs transfected with control, vimentin, nesprin-3, or lamin A/C siRNA.",
+              "name": "siRNA knockdown effects on nuclear piston",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Together, these results establish that a nuclear piston, mediated by actomyosin contractility, microtubules, vimentin, and lamin A/C, drives increased pressure in protrusions and subsequent protrusion expansion for migration in confining and plastic microenvironments.",
+              "provenance": {
+                "chunk_id": "b1a58f2eb173a6eb8506",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Together, these results establish that a nuclear piston, mediated by actomyosin contractility, microtubules, vimentin, and lamin A/C, drives increased pressure in protrusions and subsequent protrusion expansion for migration in confining and plastic microenvironments."
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "siRNA knockdown of vimentin, nesprin-3, and lamin A/C in MSCs. Nuclear polarization, protrusion expansion, and migration were assessed. Time-lapse imaging of nucleus and protrusion dynamics."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "3D migration tracking",
+              "protocol_description": "Cell centroids in 3D stacks were tracked using Imaris to calculate track length and mean speed."
+            },
+            {
+              "method_id": "M7",
+              "name": "siRNA transfection",
+              "protocol_description": "MSCs were transfected with 50 nM siRNA SMARTpools for vimentin, nesprin-3, or lamin A/C using DharmaFECT for 3 days. Knockdown efficiency was analyzed by Western blot."
+            },
+            {
+              "method_id": "M8",
+              "name": "Nuclear polarization measurement",
+              "protocol_description": "Nuclear location in the cell body was measured using ImageJ with DAPI and phalloidin signals. Polarization was calculated as the angle between the vector from cell body center to nucleus center and the vector to the protrusion entrance."
+            },
+            {
+              "method_id": "M9",
+              "name": "Protrusion width tracing",
+              "protocol_description": "Protrusion width was measured over time from time-lapse images."
+            }
+          ],
+          "name": "Nuclear piston mechanism: vimentin and lamin A/C",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion expansion with vimentin knockdown",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b1a58f2eb173a6eb8506",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "the loss of nuclear movements toward the protrusion with reduction of vimentin was accompanied by diminished protrusion expansion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_59841c904e1105333763f004",
+              "unit": null,
+              "value_raw_text": "Loss of nuclear movements toward the protrusion with reduction of vimentin was accompanied by diminished protrusion expansion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion expansion with lamin A/C knockdown",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b1a58f2eb173a6eb8506",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Decreased lamin A/C expression in cells diminished protrusion expansion and migratory behaviors of cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_870a0a7bc63c6fedf3d60995",
+              "unit": null,
+              "value_raw_text": "Decreased lamin A/C expression in cells diminished protrusion expansion."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration mean speed with vimentin and lamin A/C knockdown",
+              "n_sample_size": 200,
+              "p_value": 0.0001,
+              "provenance": {
+                "chunk_id": "b1a58f2eb173a6eb8506",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Mean speed of cell migration (μm/hour) **** siCNTR siVim siLMNA"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a06c63ce436c7b6c29bd1152",
+              "unit": "μm/hour",
+              "value_raw_text": "Mean speed of cell migration was significantly reduced in siVim and siLMNA compared to siCNTR (P < 0.0001)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration track length with vimentin and lamin A/C knockdown",
+              "n_sample_size": 200,
+              "p_value": 0.0001,
+              "provenance": {
+                "chunk_id": "b1a58f2eb173a6eb8506",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Track length of cell migration (μm) **** siCNTR siVim siLMNA"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bd34c6ef4a9953a2423e24a4",
+              "unit": "μm",
+              "value_raw_text": "Track length of cell migration was significantly reduced in siVim and siLMNA compared to siCNTR (P < 0.0001)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear polarization",
+              "n_sample_size": 50,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b1a58f2eb173a6eb8506",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Nuclear location in the cell body was polarized toward the entrance of the protrusion in control cells and cells with reduced expression of nesprin-3 but not in cells with reduced expression of vimentin (Fig. 3, B and C, and fig. S3, B and C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c31e32bd9b0c1d7d559121f8",
+              "unit": null,
+              "value_raw_text": "Nuclear location in the cell body was polarized toward the entrance of the protrusion in control cells and cells with reduced expression of nesprin-3 but not in cells with reduced expression of vimentin."
+            }
+          ],
+          "unit_id": "su_92c6ddf9f6bd480f16816415"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_62803825e7e15408742fef50",
+              "inference_basis_ids": [
+                "res_0a77013b63398037f9801c20",
+                "res_55d480a4b72a9b3deb3dfa80",
+                "res_a9ff019c30f1bd082fbecf2b",
+                "res_b76cfc0c95c305596bd41d68",
+                "res_e2d21c2a60c4eca6bf525643"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a4aabbda10e8a8c2092f",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Nuclear piston movements are mediated by microtubules and myosin contractions."
+              },
+              "statement": "Nuclear piston movements are mediated by microtubules and myosin contractions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Images and measurements of nuclear position, protrusion width, and migration tracks for MSCs treated with nocodazole, ML-7, or vehicle control.",
+              "name": "Inhibitor effects on nuclear piston",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Nuclear piston movements are mediated by microtubules and myosin contractions.",
+              "provenance": {
+                "chunk_id": "a4aabbda10e8a8c2092f",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Nuclear piston movements are mediated by microtubules and myosin contractions."
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Inhibition of microtubule polymerization with nocodazole and actomyosin contractility with ML-7. Nuclear polarization, protrusion width, and migration were measured. Real-time inhibition was performed on protruding cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "Small-molecule inhibition",
+              "protocol_description": "Nocodazole (10 μM) to inhibit microtubule polymerization, ML-7 (25 μM) to inhibit myosin activity. Inhibitors were added to induction media."
+            },
+            {
+              "method_id": "M12",
+              "name": "Real-time inhibition assay",
+              "protocol_description": "After finding a protruding cell with the nucleus at the base of the protrusion, inhibitors were delivered and nuclear movement and protrusion width were monitored over 1 hour."
+            }
+          ],
+          "name": "Nuclear piston mediated by microtubules and actomyosin contractility",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear movement after real-time inhibition",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a4aabbda10e8a8c2092f",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Real-time inhibition of microtubule formation or actomyosin contractility in protruding cells resulted in an immediate relaxation of nucleus position from the entrance of the protrusion toward the center of the cell"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0a77013b63398037f9801c20",
+              "unit": null,
+              "value_raw_text": "Real-time inhibition of microtubule formation or actomyosin contractility resulted in an immediate relaxation of nucleus position from the entrance of the protrusion toward the center of the cell."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration track length with inhibitors",
+              "n_sample_size": 200,
+              "p_value": 0.0001,
+              "provenance": {
+                "chunk_id": "a4aabbda10e8a8c2092f",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Track length of cell migration (μm) **** CNTR – MT – MLCK"
+              },
+              "quantitative_value": null,
+              "result_id": "res_55d480a4b72a9b3deb3dfa80",
+              "unit": "μm",
+              "value_raw_text": "Track length of cell migration was significantly reduced by nocodazole and ML-7 compared to control (P < 0.0001)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration mean speed with inhibitors",
+              "n_sample_size": 200,
+              "p_value": 0.0001,
+              "provenance": {
+                "chunk_id": "a4aabbda10e8a8c2092f",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Mean speed of cell migration (μm/hour) **** CNTR – MT – MLCK"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a9ff019c30f1bd082fbecf2b",
+              "unit": "μm/hour",
+              "value_raw_text": "Mean speed of cell migration was significantly reduced by nocodazole and ML-7 compared to control (P < 0.0001)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear polarization with inhibitors",
+              "n_sample_size": 50,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a4aabbda10e8a8c2092f",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "Inhibition of microtubule polymerization, with nocodazole, and actomyosin contractility, with myosin inhibitor ML-7, induced the loss of nuclear polarization (Fig. 4, A to C)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b76cfc0c95c305596bd41d68",
+              "unit": null,
+              "value_raw_text": "Inhibition of microtubule polymerization with nocodazole and actomyosin contractility with ML-7 induced the loss of nuclear polarization."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Protrusion width after real-time inhibition",
+              "n_sample_size": 15,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a4aabbda10e8a8c2092f",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "simultaneously decreased the width of protrusion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e2d21c2a60c4eca6bf525643",
+              "unit": null,
+              "value_raw_text": "Simultaneously decreased the width of protrusion."
+            }
+          ],
+          "unit_id": "su_cc4465e1a01335300ff7bddc"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4142 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4142 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4486 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5039 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5192 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4514 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4558 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6250 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4688 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4688 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5263 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5278 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5181 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5405 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3737 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4468 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4468 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4521 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4745 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4162 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[6].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4387 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[6].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4387 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[6].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4791 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[6].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4915 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[6].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4634 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[6].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4255 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,828 @@
+{
+  "coverage_ledger": {
+    "19d9c75545f9b993dab6": "extracted",
+    "22d00abd8b90ab28a989": "not_selected",
+    "2b456cc73e2b13d63f84": "not_selected",
+    "33fab3ef6f183e05e56c": "not_selected",
+    "4766f3c550811fafcc26": "not_selected",
+    "4f9093c47778a66a5a81": "extracted",
+    "6a00cbe0e160dc22e75d": "not_selected",
+    "6bd392f0777cedbfe574": "extracted",
+    "6ec92318034a5473bbff": "extracted",
+    "774940a4370c803804e9": "not_selected",
+    "c07283a359f96f1c2e39": "not_selected",
+    "dddbf0811be1093b5e84": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Less than 20% of drug-dose combinations deviate from controls' phenotypes by more than 35% in r2 scores.",
+    "Only drugs from a few pathways (tyrosine kinase signaling, DNA damage and repair, cell cycle regulation, epigenetic regulation) show a clear effect."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_9.pdf",
+    "source_sha256": "73f9d2e2a7abfe9c7107318d0cb17d12c91d26b04162688202cad0ac7101a824"
+  },
+  "paper_id": "1_9",
+  "quality_assessment": {
+    "correct_item_count": 39,
+    "deterministic_rule_score": 0.9283,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 40,
+    "f1": 0.9286,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted value 0.24 for Median r2 DEGs is attributed to chemCPA, but the source chunk '4f9093c47778a66a5a81' shows 'chemCPA 0.24' in Table 2 for 10 µM, while Table 1 shows chemCPA pretrained has 0.79 for Median r2 DEGs at 10 µM. The item's provenance says 'chemCPA 0.24' but the text excerpt is 'chemCPA 0.24' which is correct for chemCPA (non-pretrained) at 10 µM. However, the item's paraphrased flag is true, but the excerpt is exact. The issue is that the item_id is used for a result that is actually correct. Wait, re-evaluating: The source chunk '4f9093c47778a66a5a81' contains Table 2 which lists 'chemCPA 0.24' for Median r2 DEGs at 10 µM. So the extraction is correct. No incorrect item here. Let me check other items.",
+        "item_id": "result:su_ea9ee512d315dd4e329a6b4e:res_06575157d4d209db53a318ca",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "The main research question of the paper is missing: 'Predicting Cellular Responses to Novel Drug Perturbations at a Single-Cell Resolution'.",
+        "item_id": null,
+        "source_chunk_id": "6ec92318034a5473bbff",
+        "source_excerpt": "Predicting Cellular Responses to Novel Drug\nPerturbations at a Single-Cell Resolution",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The key result that chemCPA outperforms scGen and CPA is missing as a claim.",
+        "item_id": null,
+        "source_chunk_id": "4f9093c47778a66a5a81",
+        "source_excerpt": "ChemCPA outperforms both scGen and CPA, demonstrating that the perturbation network together with pretraining leads to SOTA performance.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The uncertainty score formula is missing.",
+        "item_id": null,
+        "source_chunk_id": "19d9c75545f9b993dab6",
+        "source_excerpt": "ui = X j2Ni 1 log h d(i, j) i ⇥H(X)",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The limitation that less than 20% of drug-dose combinations deviate from controls by more than 35% in r2 scores is missing.",
+        "item_id": null,
+        "source_chunk_id": "19d9c75545f9b993dab6",
+        "source_excerpt": "less than 20% of the drug-dose combinations deviate from the controls’ phenotypes by more than 35% in its r2 scores.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The limitation that only drugs from a few pathways show a clear effect is missing.",
+        "item_id": null,
+        "source_chunk_id": "19d9c75545f9b993dab6",
+        "source_excerpt": "only drugs from a few pathways—tyrosine kinase signaling, DNA damage and repair, cell cycle regulation, and epigenetic regulation—show a clear effect.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.975,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8864
+  },
+  "quality_score": 0.9286,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "How can we predict cellular responses to novel drug perturbations at single-cell resolution using computational methods?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_709299e508c0ba9206fa6181",
+              "inference_basis_ids": [
+                "res_06575157d4d209db53a318ca",
+                "res_10896cdb13f2f11979f5d77f",
+                "res_2b1cbbbafe6d6bba5b307a78",
+                "res_4d2a6e8010146ce7c917cdb6",
+                "res_4d666b4bf11fe45233ab6171",
+                "res_62746f794594b72fc8e019e7",
+                "res_73fabe83b630ac4103a8e81d",
+                "res_a33f30cf0e27b3ecf9f3cd18",
+                "res_a413d723ac0761fdfa07b6a4",
+                "res_bc2b52bd5557b52c4f15bc39",
+                "res_c07c94b179e9173061406459",
+                "res_f18a116ba74f0eca6b598aff"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ChemCPA outperforms both scGen and CPA, demonstrating that the perturbation network together with pretraining leads to SOTA performance."
+              },
+              "statement": "Pretrained chemCPA outperforms both scGen and CPA, demonstrating that the perturbation network together with pretraining leads to state-of-the-art performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d298a96eeb6a788baf37f7b6",
+              "inference_basis_ids": [
+                "res_394ebafd45893b3e379c57eb",
+                "res_425a8ef9a2d625c672d6ad7f",
+                "res_459495d9809cd81a084d34e6",
+                "res_53500c481398ffc79bcdb044",
+                "res_5fed127cde5b61310deb29e0",
+                "res_6414857e0234b5ff53bbe65b",
+                "res_8d8c24c06fb55ab4d7585b74",
+                "res_91ee787599afb1dc672b2697",
+                "res_95113b0db275c66eabca9310",
+                "res_ae0314489ff39a5dab059be1",
+                "res_b89106611c78f93a6ee437f6",
+                "res_c35f611720e7aa6fee3d0f91",
+                "res_ccccf4b6a829421fb4845f49",
+                "res_e49b1957a6117254ddde7c19",
+                "res_ebf989521f4ad7a2005cd356",
+                "res_ec9e935d1370b87848575edb",
+                "res_f7e9d1bdf0edd834f38698e6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The results show that the uncertainty score u for unseen drugs correlates well with the accurate prediction"
+              },
+              "statement": "The uncertainty score u for unseen drugs correlates well with the accurate prediction of chemCPA."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "d1",
+              "description": "Single-cell drug perturbation dataset with nine drugs across three cell lines (A549, K562, MCF7).",
+              "name": "sci-Plex3",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "d2",
+              "description": "Bulk RNA high-throughput screen dataset used for pretraining chemCPA.",
+              "name": "bulk RNA HTS dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "ChemCPA outperforms both scGen and CPA, demonstrating that the perturbation network together with pretraining leads to SOTA performance.",
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ChemCPA outperforms both scGen and CPA, demonstrating that the perturbation network together with pretraining leads to SOTA performance."
+              },
+              "span_id": "e1"
+            },
+            {
+              "content": "The results show that the uncertainty score u for unseen drugs correlates well with the accurate prediction",
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The results show that the uncertainty score u for unseen drugs correlates well with the accurate prediction"
+              },
+              "span_id": "e2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Measuring uncertainty on drug embedding using KNN-graph and distance-based metric.",
+            "Predicting single-cell responses for unseen drugs using chemCPA on sci-Plex3 data with shared and extended gene sets."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "chemCPA",
+              "protocol_description": "Encoder-decoder architecture with perturbation network P' and pretraining on bulk RNA HTS data, fine-tuned on sci-Plex3. Hyperparameters optimized with random search (10 samples)."
+            },
+            {
+              "method_id": "m2",
+              "name": "Baseline",
+              "protocol_description": "Baseline model for comparison, likely a simple predictor (e.g., mean expression)."
+            }
+          ],
+          "name": "chemCPA model development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Median r2 DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "chemCPA 0.24"
+              },
+              "quantitative_value": 0.24,
+              "result_id": "res_06575157d4d209db53a318ca",
+              "unit": null,
+              "value_raw_text": "0.24"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median r2 all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "chemCPA pretrained 0.75"
+              },
+              "quantitative_value": 0.75,
+              "result_id": "res_10896cdb13f2f11979f5d77f",
+              "unit": null,
+              "value_raw_text": "0.75"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median r2 DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "chemCPA pretrained 0.64"
+              },
+              "quantitative_value": 0.64,
+              "result_id": "res_2b1cbbbafe6d6bba5b307a78",
+              "unit": null,
+              "value_raw_text": "0.64"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Dacinostat 0.570"
+              },
+              "quantitative_value": 0.57,
+              "result_id": "res_394ebafd45893b3e379c57eb",
+              "unit": null,
+              "value_raw_text": "0.570"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Alvespimycin 0.058"
+              },
+              "quantitative_value": 0.058,
+              "result_id": "res_425a8ef9a2d625c672d6ad7f",
+              "unit": null,
+              "value_raw_text": "0.058"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Alvespimycin 0.74"
+              },
+              "quantitative_value": 0.74,
+              "result_id": "res_459495d9809cd81a084d34e6",
+              "unit": null,
+              "value_raw_text": "0.74"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median r2 DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Baseline 0.12"
+              },
+              "quantitative_value": 0.12,
+              "result_id": "res_4d2a6e8010146ce7c917cdb6",
+              "unit": null,
+              "value_raw_text": "0.12"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E[r2] all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "chemCPA 0.51"
+              },
+              "quantitative_value": 0.51,
+              "result_id": "res_4d666b4bf11fe45233ab6171",
+              "unit": null,
+              "value_raw_text": "0.51"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Belinostat 0.12"
+              },
+              "quantitative_value": 0.12,
+              "result_id": "res_53500c481398ffc79bcdb044",
+              "unit": null,
+              "value_raw_text": "0.12"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "TAK-901 0.88"
+              },
+              "quantitative_value": 0.88,
+              "result_id": "res_5fed127cde5b61310deb29e0",
+              "unit": null,
+              "value_raw_text": "0.88"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median r2 all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Baseline 0.49"
+              },
+              "quantitative_value": 0.49,
+              "result_id": "res_62746f794594b72fc8e019e7",
+              "unit": null,
+              "value_raw_text": "0.49"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Quisinostat 0.65"
+              },
+              "quantitative_value": 0.65,
+              "result_id": "res_6414857e0234b5ff53bbe65b",
+              "unit": null,
+              "value_raw_text": "0.65"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E[r2] DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "chemCPA pretrained 0.54"
+              },
+              "quantitative_value": 0.54,
+              "result_id": "res_73fabe83b630ac4103a8e81d",
+              "unit": null,
+              "value_raw_text": "0.54"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Hesperadin 0.197"
+              },
+              "quantitative_value": 0.197,
+              "result_id": "res_8d8c24c06fb55ab4d7585b74",
+              "unit": null,
+              "value_raw_text": "0.197"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Flavopiridol 0.99"
+              },
+              "quantitative_value": 0.99,
+              "result_id": "res_91ee787599afb1dc672b2697",
+              "unit": null,
+              "value_raw_text": "0.99"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Quisinostat 0.052"
+              },
+              "quantitative_value": 0.052,
+              "result_id": "res_95113b0db275c66eabca9310",
+              "unit": null,
+              "value_raw_text": "0.052"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E[r2] DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Baseline 0.29"
+              },
+              "quantitative_value": 0.29,
+              "result_id": "res_a33f30cf0e27b3ecf9f3cd18",
+              "unit": null,
+              "value_raw_text": "0.29"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E[r2] all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "chemCPA pretrained 0.68"
+              },
+              "quantitative_value": 0.68,
+              "result_id": "res_a413d723ac0761fdfa07b6a4",
+              "unit": null,
+              "value_raw_text": "0.68"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "TAK-901 0.049"
+              },
+              "quantitative_value": 0.049,
+              "result_id": "res_ae0314489ff39a5dab059be1",
+              "unit": null,
+              "value_raw_text": "0.049"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Hesperadin 0.40"
+              },
+              "quantitative_value": 0.4,
+              "result_id": "res_b89106611c78f93a6ee437f6",
+              "unit": null,
+              "value_raw_text": "0.40"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E[r2] all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Baseline 0.50"
+              },
+              "quantitative_value": 0.5,
+              "result_id": "res_bc2b52bd5557b52c4f15bc39",
+              "unit": null,
+              "value_raw_text": "0.50"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E[r2] DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "chemCPA 0.32"
+              },
+              "quantitative_value": 0.32,
+              "result_id": "res_c07c94b179e9173061406459",
+              "unit": null,
+              "value_raw_text": "0.32"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "19d9c75545f9b993dab6",
+                  "page_end": 9,
+                  "page_start": 9,
+                  "paraphrased": true,
+                  "text_excerpt": "Givinostat 0.00"
+                }
+              ],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Dacinostat 0.00"
+              },
+              "quantitative_value": 0.0,
+              "result_id": "res_c35f611720e7aa6fee3d0f91",
+              "unit": null,
+              "value_raw_text": "0.00"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Flavopiridol 0.011"
+              },
+              "quantitative_value": 0.011,
+              "result_id": "res_ccccf4b6a829421fb4845f49",
+              "unit": null,
+              "value_raw_text": "0.011"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "∆r2 on DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "Tanespimycin 0.75"
+              },
+              "quantitative_value": 0.75,
+              "result_id": "res_e49b1957a6117254ddde7c19",
+              "unit": null,
+              "value_raw_text": "0.75"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Givinostat 0.660"
+              },
+              "quantitative_value": 0.66,
+              "result_id": "res_ebf989521f4ad7a2005cd356",
+              "unit": null,
+              "value_raw_text": "0.660"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Belinostat 0.623"
+              },
+              "quantitative_value": 0.623,
+              "result_id": "res_ec9e935d1370b87848575edb",
+              "unit": null,
+              "value_raw_text": "0.623"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median r2 all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f9093c47778a66a5a81",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "chemCPA 0.47"
+              },
+              "quantitative_value": 0.47,
+              "result_id": "res_f18a116ba74f0eca6b598aff",
+              "unit": null,
+              "value_raw_text": "0.47"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Uncertainty score u",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19d9c75545f9b993dab6",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Tanespimycin 0.092"
+              },
+              "quantitative_value": 0.092,
+              "result_id": "res_f7e9d1bdf0edd834f38698e6",
+              "unit": null,
+              "value_raw_text": "0.092"
+            }
+          ],
+          "unit_id": "su_ea9ee512d315dd4e329a6b4e"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9375 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8824 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8824 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8824 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9130 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9130 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    }
+  ]
+}

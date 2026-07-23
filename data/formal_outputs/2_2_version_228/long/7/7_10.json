@@ -1,0 +1,1172 @@
+{
+  "coverage_ledger": {
+    "0f84ee86d8b72ae000cd": "not_selected",
+    "12af4c7eba40cebcaacc": "not_selected",
+    "17ace168282ef2fd9ca6": "extracted",
+    "1fc315abea4aaca6457f": "not_selected",
+    "2c8cc5a363ffe8864f20": "not_selected",
+    "335086abcbffac98651b": "not_selected",
+    "40fc42288c0eba006748": "extracted",
+    "4bfac30ce2b9df9a936d": "not_selected",
+    "57f4bd1ed14a0692acb3": "not_selected",
+    "763bb0030d86716ae1b9": "not_selected",
+    "77e8e902a64a80fdb959": "not_selected",
+    "a330562de45452487054": "extracted",
+    "b9caed662317dd0f6cfc": "not_selected",
+    "c9151fd8388a51ce7c83": "not_selected",
+    "cf0a4ffd1f9c66edc659": "not_selected",
+    "d1e7bda7e270680e7b2a": "not_selected",
+    "f26bd74d938830537a5b": "extracted",
+    "f39be4ce362ff6ad196a": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The model's adaptivity supports learning resolution-independent dynamics and can scale to more complex state spaces at test time, but the extent of scaling is not quantified.",
+    "The comparison to ground truth for remeshing requires interpolation to the ground truth mesh, incurring a small interpolation penalty.",
+    "The model is not very sensitive to many hyperparameter choices, but the two key parameters (message passing steps and history size) were identified as influential.",
+    "The method is demonstrated on a set of specific physical systems; generalization to other domains is not tested.",
+    "The model's efficiency advantage is measured on a single GPU; performance on other hardware is not detailed in the main text."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_10.pdf",
+    "source_sha256": "21421f286b3e24e6e6c085ac369898260f4e8d9069000436553a44d0dde880aa"
+  },
+  "paper_id": "7_10",
+  "quality_assessment": {
+    "correct_item_count": 75,
+    "deterministic_rule_score": 0.9498,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 75,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a graph neural network framework learn mesh-based simulations that accurately predict dynamics across diverse physical systems while being computationally efficient?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4d63b7497aa09b3c7192dc5a",
+              "inference_basis_ids": [
+                "res_f5f29b43272df182a337b149"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a330562de45452487054",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "This indicates that predictions over meshes presents advantages even in ﬂat 2D domains."
+              },
+              "statement": "Predictions over meshes present advantages even in flat 2D domains."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5524de6021612b88047fc332",
+              "inference_basis_ids": [
+                "res_0e890246fc77e0b323ed1fdc",
+                "res_16314262f43204fc61d4137c",
+                "res_2006f46ba67827db50e98cd8",
+                "res_307aaf90fce39d985190e8dd",
+                "res_35bed854b9620573d1d94383",
+                "res_37e1444f9e5ab712d834c547",
+                "res_3c1b5e8cd6ecfc878ace6c80",
+                "res_43e6ebfbc49ce4bddd8f5f8b",
+                "res_443261246289a2dca756bc65",
+                "res_5512587a061e55d4a4dffeb9",
+                "res_57f865f8116ff3a969a2c202",
+                "res_68d4f35030e3b05dc4808a88",
+                "res_75673dff7e7138af4d0029f0",
+                "res_81868a6e9fec8671723ed90f",
+                "res_a065f00880fe3091693af2dd",
+                "res_d0940a3e83d87bfed73d1a68",
+                "res_d25e8f4284358b41646669a2",
+                "res_d69521954c49c414ac539132",
+                "res_fecba5b0fcdb7a4ffdf5450e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "17ace168282ef2fd9ca6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our results show it can accurately predict the dynamics of a wide range of physical systems, including aerodynamics, structural mechanics, and cloth."
+              },
+              "statement": "MeshGraphNets can accurately predict the dynamics of a wide range of physical systems, including aerodynamics, structural mechanics, and cloth."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5b4d3ae354bccf9c41369552",
+              "inference_basis_ids": [
+                "res_3fea751d72db5960a327d0e0",
+                "res_c17dcf9728d54a6fe84859cf",
+                "res_ef0d2fcb427993f9bfb1c009"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Taking sufﬁcient message passing steps is crucial for good performance, and limiting history size increases accuracy by preventing overﬁtting."
+              },
+              "statement": "Taking sufficient message passing steps is crucial for good performance, and limiting history size increases accuracy by preventing overfitting."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7c9fec57d7287cba63e2942b",
+              "inference_basis_ids": [
+                "res_23fcde91b444062aedd4432e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Remeshing with learned or estimated sizing ﬁelds produces accurate rollouts."
+              },
+              "statement": "Remeshing with learned or estimated sizing fields produces accurate rollouts."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8a0422d92ac804cab09b4c89",
+              "inference_basis_ids": [
+                "res_42333546c31e1e4bb3de5698"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GNS diverges on cloth datasets; providing mesh-space positions (GNS+mesh-pos) helps, but still fails on dynamic meshes."
+              },
+              "statement": "GNS diverges on cloth datasets; providing mesh-space positions helps but still fails on dynamic meshes."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c44122783ffa0a070f6118b2",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Our MESHGRAPHNETS model generalizes well outside of the training distribution, with respect to underlying system parameters, mesh shapes, and mesh size."
+              },
+              "statement": "MeshGraphNets generalizes well outside of the training distribution with respect to underlying system parameters, mesh shapes, and mesh size."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e4d4764aa5dc3fa1d6aef086",
+              "inference_basis_ids": [
+                "res_15a2f141bbf453390e612e8a",
+                "res_1cf59ac9762c34f35eb0ba1a",
+                "res_24fdc5e8b9eade230013c69a",
+                "res_420379974bf02e2ac1b20e51",
+                "res_43b6ca902126d7a3e8f1295d",
+                "res_4ef4c75c5248a3741e20c735",
+                "res_569252d13d6c872bf60823e1",
+                "res_660e502eb097bf3baca528bb",
+                "res_815c16cfc97d21893525d7b1",
+                "res_95853baa19a0fc9d6672be9e",
+                "res_99680588f866b71b6f201c76",
+                "res_c11206c4f973750a4681d0bf",
+                "res_c738fce5912f3a57cd7fcf97",
+                "res_dbafb621f9c5a7c661d8d81d",
+                "res_dc9c3841bc6cf20dbf645be4",
+                "res_df83a8c62c7f540081a8e925",
+                "res_e92304d53b1533b886565068",
+                "res_ebd1fc16c62cdc08a06dbb59",
+                "res_edc0879db6c92f3db8841332"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "17ace168282ef2fd9ca6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our method is also highly efﬁcient, running 1-2 orders of magnitude faster than the simulation on which it is trained."
+              },
+              "statement": "MeshGraphNets is highly efficient, running 1-2 orders of magnitude faster than the simulation on which it is trained."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f603f5a2b88d4584768aaaae",
+              "inference_basis_ids": [
+                "res_43e6ebfbc49ce4bddd8f5f8b",
+                "res_f5f29b43272df182a337b149"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Our model outperforms GCN and CNN-based baselines."
+              },
+              "statement": "MeshGraphNets outperforms GCN and CNN-based baselines."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Cloth simulation with static mesh, 1579 nodes avg.",
+              "name": "FlagSimple",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Cloth simulation with dynamic mesh, 2767 nodes avg.",
+              "name": "FlagDynamic",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Deforming sphere simulation, 1373 nodes avg.",
+              "name": "SphereDynamic",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Structural mechanics simulation, 1271 nodes avg.",
+              "name": "DeformingPlate",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "2D fluid flow around a cylinder, 1885 nodes avg.",
+              "name": "CylinderFlow",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "2D aerodynamics simulation around an airfoil, 5233 nodes avg.",
+              "name": "Airfoil",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assess computational efficiency by measuring inference time per step versus ground truth solvers.",
+            "Compare against GCN, CNN (UNet), and GNS baselines.",
+            "Evaluate adaptive remeshing using learned sizing fields.",
+            "Evaluate prediction accuracy via rollout RMSE on multiple datasets.",
+            "Test generalization to varying mesh shapes, sizes, and system parameters.",
+            "Train MeshGraphNets on mesh-based simulations of aerodynamics, structural mechanics, and cloth."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "MeshGraphNets",
+              "protocol_description": "Encodes simulation state into a graph; performs message passing in mesh-space to approximate differential operators and in world-space for external dynamics. Uses relative encoding on graphs. Trained to predict dynamics from current state. Adaptive remeshing via learned sizing field and local remesher. Key hyperparameters: 15 message passing steps, history size h=1 for cloth (to estimate velocity), h=0 otherwise."
+            },
+            {
+              "method_id": "M2",
+              "name": "GCN baseline",
+              "protocol_description": "Graph convolutional network applied to mesh graphs."
+            },
+            {
+              "method_id": "M3",
+              "name": "GCN (MLP) baseline",
+              "protocol_description": "Graph convolutional network with MLP layers."
+            },
+            {
+              "method_id": "M4",
+              "name": "UNet-128 baseline",
+              "protocol_description": "CNN-based UNet architecture from Thürey et al., applied on 128x128 grid interpolated from Eulerian domains."
+            },
+            {
+              "method_id": "M5",
+              "name": "GNS baseline",
+              "protocol_description": "Graph Network Simulator with history sizes 1 and 5, and variant with mesh-space positions (GNS+mesh-pos)."
+            }
+          ],
+          "name": "MeshGraphNets framework evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE 1-step",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "1.08 ± 0.02"
+              },
+              "quantitative_value": 0.00108,
+              "result_id": "res_0e890246fc77e0b323ed1fdc",
+              "unit": null,
+              "value_raw_text": "1.08 ± 0.02 ×10⁻³ for FlagSimple"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_model)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tmodel 43"
+              },
+              "quantitative_value": 43.0,
+              "result_id": "res_15a2f141bbf453390e612e8a",
+              "unit": "ms/step",
+              "value_raw_text": "43 ms/step for FlagDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "40.88 ± 7.2"
+              },
+              "quantitative_value": 0.04088,
+              "result_id": "res_16314262f43204fc61d4137c",
+              "unit": null,
+              "value_raw_text": "40.88 ± 7.2 ×10⁻³ for CylinderFlow"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_full)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tfull 33"
+              },
+              "quantitative_value": 33.0,
+              "result_id": "res_1cf59ac9762c34f35eb0ba1a",
+              "unit": "ms/step",
+              "value_raw_text": "33 ms/step for DeformingPlate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "1.8 ± 0.5"
+              },
+              "quantitative_value": 0.0018,
+              "result_id": "res_2006f46ba67827db50e98cd8",
+              "unit": null,
+              "value_raw_text": "1.8 ± 0.5 ×10⁻³ for DeformingPlate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rollout RMSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Remeshing with learned or estimated sizing fields produces accurate rollouts."
+              },
+              "quantitative_value": null,
+              "result_id": "res_23fcde91b444062aedd4432e",
+              "unit": null,
+              "value_raw_text": "Remeshing with learned or estimated sizing fields produces accurate rollouts."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_full)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tfull 19"
+              },
+              "quantitative_value": 19.0,
+              "result_id": "res_24fdc5e8b9eade230013c69a",
+              "unit": "ms/step",
+              "value_raw_text": "19 ms/step for FlagSimple"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE 1-step",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "0.292 ± 0.005"
+              },
+              "quantitative_value": 0.000292,
+              "result_id": "res_307aaf90fce39d985190e8dd",
+              "unit": null,
+              "value_raw_text": "0.292 ± 0.005 ×10⁻³ for SphereDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE 1-step",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "0.25 ± 0.05"
+              },
+              "quantitative_value": 0.00025,
+              "result_id": "res_35bed854b9620573d1d94383",
+              "unit": null,
+              "value_raw_text": "0.25 ± 0.05 ×10⁻³ for DeformingPlate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "6.3 ± 0.7"
+              },
+              "quantitative_value": 0.0063,
+              "result_id": "res_37e1444f9e5ab712d834c547",
+              "unit": null,
+              "value_raw_text": "6.3 ± 0.7 ×10⁻³ for CylinderFlow"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "72.4 ± 4.3"
+              },
+              "quantitative_value": 0.0724,
+              "result_id": "res_3c1b5e8cd6ecfc878ace6c80",
+              "unit": null,
+              "value_raw_text": "72.4 ± 4.3 ×10⁻³ for FlagDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Key hyperparameter: history size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a330562de45452487054",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the model performs best given the shortest possible history (h=1 to estimate ˙x in cloth experiments, h=0 otherwise), with any extra history leading to overﬁtting."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3fea751d72db5960a327d0e0",
+              "unit": null,
+              "value_raw_text": "The model performs best given the shortest possible history (h=1 to estimate velocity in cloth experiments, h=0 otherwise), with any extra history leading to overfitting."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ground truth simulation time per step (t_GT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tGT 11015"
+              },
+              "quantitative_value": 11015.0,
+              "result_id": "res_420379974bf02e2ac1b20e51",
+              "unit": "ms/step",
+              "value_raw_text": "11015 ms/step for Airfoil"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rollout RMSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GNS diverges on cloth datasets; providing mesh-space positions (GNS+mesh-pos) helps, but still fails on dynamic meshes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_42333546c31e1e4bb3de5698",
+              "unit": null,
+              "value_raw_text": "GNS diverges on cloth datasets; providing mesh-space positions (GNS+mesh-pos) helps, but still fails on dynamic meshes."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_model)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tmodel 21"
+              },
+              "quantitative_value": 21.0,
+              "result_id": "res_43b6ca902126d7a3e8f1295d",
+              "unit": "ms/step",
+              "value_raw_text": "21 ms/step for CylinderFlow"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rollout RMSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Our model outperforms GCN and CNN-based baselines."
+              },
+              "quantitative_value": null,
+              "result_id": "res_43e6ebfbc49ce4bddd8f5f8b",
+              "unit": null,
+              "value_raw_text": "Our model outperforms GCN and CNN-based baselines."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "15.1 ± 4.0"
+              },
+              "quantitative_value": 0.0151,
+              "result_id": "res_443261246289a2dca756bc65",
+              "unit": null,
+              "value_raw_text": "15.1 ± 4.0 ×10⁻³ for DeformingPlate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ground truth simulation time per step (t_GT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tGT 1610"
+              },
+              "quantitative_value": 1610.0,
+              "result_id": "res_4ef4c75c5248a3741e20c735",
+              "unit": "ms/step",
+              "value_raw_text": "1610 ms/step for SphereDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE 1-step",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "314 ± 36"
+              },
+              "quantitative_value": 0.314,
+              "result_id": "res_5512587a061e55d4a4dffeb9",
+              "unit": null,
+              "value_raw_text": "314 ± 36 ×10⁻³ for Airfoil"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ground truth simulation time per step (t_GT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tGT 820"
+              },
+              "quantitative_value": 820.0,
+              "result_id": "res_569252d13d6c872bf60823e1",
+              "unit": "ms/step",
+              "value_raw_text": "820 ms/step for CylinderFlow"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "28.3 ± 2.6"
+              },
+              "quantitative_value": 0.0283,
+              "result_id": "res_57f865f8116ff3a969a2c202",
+              "unit": null,
+              "value_raw_text": "28.3 ± 2.6 ×10⁻³ for SphereDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_full)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tfull 837"
+              },
+              "quantitative_value": 837.0,
+              "result_id": "res_660e502eb097bf3baca528bb",
+              "unit": "ms/step",
+              "value_raw_text": "837 ms/step for FlagDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "11.5 ± 0.9"
+              },
+              "quantitative_value": 0.0115,
+              "result_id": "res_68d4f35030e3b05dc4808a88",
+              "unit": null,
+              "value_raw_text": "11.5 ± 0.9 ×10⁻³ for SphereDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "139.0 ± 2.7"
+              },
+              "quantitative_value": 0.139,
+              "result_id": "res_75673dff7e7138af4d0029f0",
+              "unit": null,
+              "value_raw_text": "139.0 ± 2.7 ×10⁻³ for FlagSimple"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Speedup factor",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Our approach is consistently faster than ground truth solvers by one to two orders of magnitude on all domains."
+              },
+              "quantitative_value": null,
+              "result_id": "res_815c16cfc97d21893525d7b1",
+              "unit": null,
+              "value_raw_text": "Our approach is consistently faster than ground truth solvers by one to two orders of magnitude on all domains."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "582 ± 37"
+              },
+              "quantitative_value": 0.582,
+              "result_id": "res_81868a6e9fec8671723ed90f",
+              "unit": null,
+              "value_raw_text": "582 ± 37 ×10⁻³ for Airfoil"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ground truth simulation time per step (t_GT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tGT 2893"
+              },
+              "quantitative_value": 2893.0,
+              "result_id": "res_95853baa19a0fc9d6672be9e",
+              "unit": "ms/step",
+              "value_raw_text": "2893 ms/step for DeformingPlate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_model)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tmodel 37"
+              },
+              "quantitative_value": 37.0,
+              "result_id": "res_99680588f866b71b6f201c76",
+              "unit": "ms/step",
+              "value_raw_text": "37 ms/step for Airfoil"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "92.6 ± 5.0"
+              },
+              "quantitative_value": 0.0926,
+              "result_id": "res_a065f00880fe3091693af2dd",
+              "unit": null,
+              "value_raw_text": "92.6 ± 5.0 ×10⁻³ for FlagSimple"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_full)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tfull 23"
+              },
+              "quantitative_value": 23.0,
+              "result_id": "res_c11206c4f973750a4681d0bf",
+              "unit": "ms/step",
+              "value_raw_text": "23 ms/step for CylinderFlow"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Key hyperparameter: message passing steps",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a330562de45452487054",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Increasing the number of graph net blocks (message passing steps) generally improves performance, but it incurs a higher computational cost. We found that a value of 15 provides a good efﬁciency/accuracy trade-off for all the systems considered."
+              },
+              "quantitative_value": 15.0,
+              "result_id": "res_c17dcf9728d54a6fe84859cf",
+              "unit": "steps",
+              "value_raw_text": "Increasing the number of graph net blocks (message passing steps) generally improves performance, but it incurs a higher computational cost. A value of 15 provides a good efficiency/accuracy trade-off."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_model)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tmodel 32"
+              },
+              "quantitative_value": 32.0,
+              "result_id": "res_c738fce5912f3a57cd7fcf97",
+              "unit": "ms/step",
+              "value_raw_text": "32 ms/step for SphereDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "151.1 ± 5.3"
+              },
+              "quantitative_value": 0.1511,
+              "result_id": "res_d0940a3e83d87bfed73d1a68",
+              "unit": null,
+              "value_raw_text": "151.1 ± 5.3 ×10⁻³ for FlagDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE rollout-all",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "11529 ± 1203"
+              },
+              "quantitative_value": 11.529,
+              "result_id": "res_d25e8f4284358b41646669a2",
+              "unit": null,
+              "value_raw_text": "11529 ± 1203 ×10⁻³ for Airfoil"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE 1-step",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "2.34 ± 0.12"
+              },
+              "quantitative_value": 0.00234,
+              "result_id": "res_d69521954c49c414ac539132",
+              "unit": null,
+              "value_raw_text": "2.34 ± 0.12 ×10⁻³ for CylinderFlow"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ground truth simulation time per step (t_GT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tGT 26199"
+              },
+              "quantitative_value": 26199.0,
+              "result_id": "res_dbafb621f9c5a7c661d8d81d",
+              "unit": "ms/step",
+              "value_raw_text": "26199 ms/step for FlagDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ground truth simulation time per step (t_GT)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tGT 4166"
+              },
+              "quantitative_value": 4166.0,
+              "result_id": "res_dc9c3841bc6cf20dbf645be4",
+              "unit": "ms/step",
+              "value_raw_text": "4166 ms/step for FlagSimple"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_model)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tmodel 19"
+              },
+              "quantitative_value": 19.0,
+              "result_id": "res_df83a8c62c7f540081a8e925",
+              "unit": "ms/step",
+              "value_raw_text": "19 ms/step for FlagSimple"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_model)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tmodel 24"
+              },
+              "quantitative_value": 24.0,
+              "result_id": "res_e92304d53b1533b886565068",
+              "unit": "ms/step",
+              "value_raw_text": "24 ms/step for DeformingPlate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_full)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tfull 38"
+              },
+              "quantitative_value": 38.0,
+              "result_id": "res_ebd1fc16c62cdc08a06dbb59",
+              "unit": "ms/step",
+              "value_raw_text": "38 ms/step for Airfoil"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Inference time per step (t_full)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "tfull 140"
+              },
+              "quantitative_value": 140.0,
+              "result_id": "res_edc0879db6c92f3db8841332",
+              "unit": "ms/step",
+              "value_raw_text": "140 ms/step for SphereDynamic"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rollout RMSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Taking sufficient message passing steps is crucial for good performance, and limiting history size increases accuracy by preventing overfitting."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ef0d2fcb427993f9bfb1c009",
+              "unit": null,
+              "value_raw_text": "Taking sufficient message passing steps is crucial for good performance, and limiting history size increases accuracy by preventing overfitting."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Rollout RMSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a330562de45452487054",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "MESHGRAPHNETS outperforms the UNet in terms of RMSE"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f5f29b43272df182a337b149",
+              "unit": null,
+              "value_raw_text": "MESHGRAPHNETS outperforms the UNet in terms of RMSE on CylinderFlow and Airfoil."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RMSE 1-step",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f26bd74d938830537a5b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "1.57 ± 0.02"
+              },
+              "quantitative_value": 0.00157,
+              "result_id": "res_fecba5b0fcdb7a4ffdf5450e",
+              "unit": null,
+              "value_raw_text": "1.57 ± 0.02 ×10⁻³ for FlagDynamic"
+            }
+          ],
+          "unit_id": "su_5991a4240080d3298a012547"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6250 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6250 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[30].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[34].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[35].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[36].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7778 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6250 on attempt 1"
+    }
+  ]
+}

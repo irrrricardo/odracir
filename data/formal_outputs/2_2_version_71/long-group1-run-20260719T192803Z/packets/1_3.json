@@ -1,0 +1,664 @@
+{
+  "coverage_ledger": {
+    "0c558c8d4116f63f09e5": "not_selected",
+    "0ca8f98ff47b22fa7d2c": "not_selected",
+    "161554de8a552083efd1": "not_selected",
+    "1674fa800af4438feea2": "not_selected",
+    "1cb5819737feb8f304a8": "not_selected",
+    "299e10c1f93bea69018f": "not_selected",
+    "2fa2f1328ce968f1f8dc": "not_selected",
+    "394a4a6edf383459cce6": "not_selected",
+    "4b40d3931ee6db11a94a": "not_selected",
+    "5dfae21409f71c3b735b": "not_selected",
+    "613f5823c4e9187ca40e": "not_selected",
+    "6cd49d42cc8f8a3adb85": "extracted",
+    "7f399715440f0a50ac71": "extracted",
+    "819e63102edfb570ea0a": "not_selected",
+    "9106f4423cfaab8858a7": "extracted",
+    "a8d024ef56bab4cc0545": "not_selected",
+    "dbf00543b8893e5100e5": "extracted",
+    "e5c9b8c94d14e9b1534a": "not_selected",
+    "ed505ad2c3d165c2bdb9": "not_selected",
+    "fcf8dfd6d714131f7185": "not_selected",
+    "fef9afb6d3103e29942e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Mosaic-seq relies on antibiotic selection, limiting application to proliferating cells.",
+    "Mosaic-seq cannot distinguish primary enhancer targets from downstream secondary effects.",
+    "Due to detection limits of scRNA-seq, applying Mosaic-seq to enhancers regulating low-expression genes may require more sequencing depth or more cells.",
+    "Mosaic-seq is about 83 times more expensive than high-throughput reporter assays, limiting genome-wide application.",
+    "It is unknown whether KRAB is a universal repressor of all enhancers, potentially leading to false negatives."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_3.pdf",
+    "source_sha256": "d0ac01d1a16caec555b28339e6530b7efd4d5cea869f9ea6558b5125113662c3"
+  },
+  "paper_id": "1_3",
+  "quality_assessment": {
+    "correct_item_count": 39,
+    "deterministic_rule_score": 0.93,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0417,
+      "sample_size_log_score": 0.4538,
+      "statistical_support_coverage": 0.4583
+    },
+    "extracted_item_count": 39,
+    "f1": 0.9176,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "The number of constituent enhancers (71) and super-enhancers (15) analyzed, and the total number of single-cell transcriptomes (12,444) with detectable sgRNA barcodes.",
+        "item_id": null,
+        "source_chunk_id": "6cd49d42cc8f8a3adb85",
+        "source_excerpt": "Applying Mosaic-seq to 71 constituent enhancers from 15 super-enhancers, our analysis of 51,448 sgRNA-induced transcriptomes finds that only a small number of constituents are major effectors of target gene expression.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The finding that only a small number of constituent enhancers are major effectors of target gene expression, with most constituents showing no detectable changes when repressed individually.",
+        "item_id": null,
+        "source_chunk_id": "5dfae21409f71c3b735b",
+        "source_excerpt": "Overall, we find that these constituents have a widely variable effect on gene expression when averaged across cells, ranging from 18.0% to 88.9%, with a median of 42.3%. In contrast, most constituents tested elicit no detectable changes in expression, suggesting that they only contribute weakly to gene expression, at least when studied in isolation with KRAB.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The validation that non-hit enhancers were specifically modified by H3K9me3 recruitment, confirming effective targeting.",
+        "item_id": null,
+        "source_chunk_id": "5dfae21409f71c3b735b",
+        "source_excerpt": "Fourth, even for enhancers not significantly linked to gene expression changes, chromatin analysis indicates that they were specifically modified by sgRNA-mediated recruitment of H3K9me3 (Figures 5D and S4C).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The cost and time savings of Mosaic-seq compared to traditional methods (4X cost, 3.5X time).",
+        "item_id": null,
+        "source_chunk_id": "9106f4423cfaab8858a7",
+        "source_excerpt": "We estimate that, to examine 100 enhancers, the current prototype of Mosaic-seq represents a significant savings in cost (~4X) and time (~3.5X) compared to traditional methods (Table S8).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The limitation that Mosaic-seq cannot distinguish primary enhancer targets from downstream secondary effects.",
+        "item_id": null,
+        "source_chunk_id": "7f399715440f0a50ac71",
+        "source_excerpt": "Also, as with the low-throughput application of CRISPRi to repress enhancers, Mosaic-seq cannot distinguish primary enhancer targets from downstream secondary effects.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The limitation that Mosaic-seq is about 83 times more expensive than high-throughput reporter assays, limiting genome-wide application.",
+        "item_id": null,
+        "source_chunk_id": "7f399715440f0a50ac71",
+        "source_excerpt": "In addition, Mosaic-seq is about 83 more expensive than high-throughput reporter assays, which will limit its genome-wide application to test all predicted enhancers until sequencing costs decrease.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The limitation that it is unknown whether KRAB is a universal repressor of all enhancers, potentially leading to false negatives.",
+        "item_id": null,
+        "source_chunk_id": "7f399715440f0a50ac71",
+        "source_excerpt": "In its current application, Mosaic-seq relies on the KRAB repressor. As it is unknown whether KRAB is a universal repressor of all enhancers, it is possible that there are false negatives.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8478
+  },
+  "quality_score": 0.9176,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "What is the functional activity of constituent enhancers within super-enhancers, and how do they combinatorially regulate gene expression?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b0bc95ffda8bb75d47058282",
+              "inference_basis_ids": [
+                "res_28bea9e507c033c23b37c2e1",
+                "res_3f77db49e50f73bd0dcfca7f",
+                "res_3fe1b5e0b615ef8b5aa80de9",
+                "res_5c4f2e8516f327a2a189d2aa",
+                "res_6719ba28baf279bf73bc65db",
+                "res_a4e9ca9c57161587aeffb42e",
+                "res_f41c91dc794fa772af93d675"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Together, these observations suggest that simultaneous repression of multiple weak constituents can robustly alter super-enhancer activity and that it does so in a manner that is significantly greater than the repression of individual constituents. These observations are consistent with a compensatory relationship between weaker enhancers."
+              },
+              "statement": "Simultaneous repression of multiple weak constituent enhancers can robustly alter super-enhancer activity, consistent with a compensatory relationship."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d2eb2ba0ceb02b68ef399019",
+              "inference_basis_ids": [
+                "res_182fee8da2bf8f9cf4adeeb4",
+                "res_29ef4a3c1f49ecb85811b2d7",
+                "res_3fe95f3649cf6b799db11ab7",
+                "res_6830dbd51debce52d29ce98b",
+                "res_7ffae700c850ea6952942121",
+                "res_a580caa3e22e975fe07dfb6a",
+                "res_d1d56658b954ca554cf5fb59",
+                "res_e3f1c236fbcd219bec8471e8"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "These results emphasize that features of the transcriptional machinery may be better indicators of enhancer activity than histone modifications."
+              },
+              "statement": "Features of the transcriptional machinery, such as p300 and RNAPII binding, are better indicators of enhancer activity than histone modifications like H3K4me1 and H3K27ac."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e4e33425964bebe14aeb415d",
+              "inference_basis_ids": [
+                "res_091fe2f339039bebad6788a4",
+                "res_1a5bb90e9d4cb1b8e61c1e60",
+                "res_35688de8f5fc1e65a4c81d61",
+                "res_85afda1f26c13f60d2e123e7",
+                "res_f777ee1073de90b643e964b3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Our analysis indicates that the single-cell penetrance and contribution of enhancers is heterogeneous, and suggests that an enhancer's contribution to target gene expression in penetrant cells may not be directly proportional to its penetrance across a cell population."
+              },
+              "statement": "Single-cell penetrance and contribution of enhancers are heterogeneous and can be decoupled."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Single-cell RNA-seq data from K562 cells with sgRNA barcodes targeting enhancers.",
+              "name": "Mosaic-seq dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Mosaic-seq enables high-throughput endogenous interrogation of enhancers at single-cell resolution and in combination.",
+              "provenance": {
+                "chunk_id": "6cd49d42cc8f8a3adb85",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Mosaic-seq enables high-throughput endogenous interrogation of enhancers at single-cell resolution and in combination."
+              },
+              "span_id": "es1"
+            },
+            {
+              "content": "Mosaic-seq relies on dCas9-KRAB repression and cannot distinguish primary enhancer targets from downstream secondary effects.",
+              "provenance": {
+                "chunk_id": "7f399715440f0a50ac71",
+                "page_end": 14,
+                "page_start": 14,
+                "paraphrased": false,
+                "text_excerpt": "Mosaic-seq cannot distinguish primary enhancer targets from downstream secondary effects."
+              },
+              "span_id": "es2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "For each of the 36 pairwise combinations of two sgRNAs (excluding HS2), a median of 154 cells were sequenced.",
+            "Mosaic-seq was performed at high viral titer using sgRNAs targeting ten constituents on TAD2 SE2, detecting an average of 2.8 sgRNAs per cell.",
+            "Single-cell penetrance analysis was performed to model enhancer activity."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "Mosaic-seq",
+              "protocol_description": "Combines single-cell RNA sequencing with CRISPRi (dCas9-KRAB) to repress enhancers and measure gene expression changes. sgRNA barcodes are used to identify perturbations in single cells."
+            },
+            {
+              "method_id": "m2",
+              "name": "Single-cell penetrance analysis",
+              "protocol_description": "Statistical modeling over two parameters: single-cell penetrance (percentage of sgRNA-expressing cells with altered expression) and gene expression contribution (level of repression in those cells). Models are compared via likelihood to infer most consistent parameters."
+            }
+          ],
+          "name": "Mosaic-seq analysis of 71 constituent enhancers",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Penetrance of SE2 HS2 in TAD2",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "SE2 HS2 is consistent with PHCH enhancers (penetrance = 65%, contribution = 90%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_091fe2f339039bebad6788a4",
+              "unit": null,
+              "value_raw_text": "65% penetrance, 90% contribution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of serine-5-phosphorylated RNAPII relative to serine-2-phosphorylated form",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "the serine-5-phosphorylated form of RNAPII, which is indicative of transcriptional initiation, is enriched (3.5-fold) relative to the elongation-associated, serine-2-phosphorylated form (2.0-fold)"
+              },
+              "quantitative_value": 3.5,
+              "result_id": "res_182fee8da2bf8f9cf4adeeb4",
+              "unit": "fold",
+              "value_raw_text": "3.5-fold vs 2.0-fold"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Penetrance of HS1 in b-globin LCR",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "HS1 has low penetrance but contributes highly to HBG2 expression (PLCH); its repression is most consistent with models where 90% of HBG2 expression is lost in only 35% of cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1a5bb90e9d4cb1b8e61c1e60",
+              "unit": null,
+              "value_raw_text": "35% penetrance, 90% contribution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average single-cell penetrance for pairwise repression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "average single-cell penetrance of 45.6%"
+              },
+              "quantitative_value": 45.6,
+              "result_id": "res_28bea9e507c033c23b37c2e1",
+              "unit": "%",
+              "value_raw_text": "average single-cell penetrance of 45.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of H3K4me1 at KRAB-responsive enhancers",
+              "n_sample_size": null,
+              "p_value": 0.51,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "H3K4me1 (1.0-fold; p = 0.51, Wilcoxon)"
+              },
+              "quantitative_value": 1.0,
+              "result_id": "res_29ef4a3c1f49ecb85811b2d7",
+              "unit": "fold",
+              "value_raw_text": "1.0-fold enrichment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Penetrance of SE3 HS4 in TAD5",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "repression of SE3 HS4 causes 70% of cells to lose only 25% of FTH1 expression"
+              },
+              "quantitative_value": null,
+              "result_id": "res_35688de8f5fc1e65a4c81d61",
+              "unit": null,
+              "value_raw_text": "70% penetrance, 25% contribution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Repression for dual repression of HS3 and HS9",
+              "n_sample_size": null,
+              "p_value": 1.1e-07,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "dual repression of HS3 and HS9 caused a 55.7% loss of PIM1 expression (p = 1.1E-7, hypergeometric)"
+              },
+              "quantitative_value": 55.7,
+              "result_id": "res_3f77db49e50f73bd0dcfca7f",
+              "unit": "%",
+              "value_raw_text": "55.7% loss of PIM1 expression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SMYD3 expression loss in cells with dual repression in TAD4 SE2",
+              "n_sample_size": null,
+              "p_value": 0.0069,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "repression of multiple constituents in TAD4 SE2 causes loss of SMYD3 gene expression (p = 6.9E-3, hypergeometric)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3fe1b5e0b615ef8b5aa80de9",
+              "unit": null,
+              "value_raw_text": "loss of SMYD3 gene expression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of GATA2 at KRAB-responsive enhancers",
+              "n_sample_size": null,
+              "p_value": 0.0033,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "GATA2 (3.1-fold; p = 0.0033, Wilcoxon)"
+              },
+              "quantitative_value": 3.1,
+              "result_id": "res_3fe95f3649cf6b799db11ab7",
+              "unit": "fold",
+              "value_raw_text": "3.1-fold enrichment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of pairwise combinations with significant PIM1 repression",
+              "n_sample_size": null,
+              "p_value": 0.001,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "50% of the pairwise sgRNA combinations exhibited significant (p < 0.001, hypergeometric) loss of PIM1 expression"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_5c4f2e8516f327a2a189d2aa",
+              "unit": "%",
+              "value_raw_text": "50% of the pairwise sgRNA combinations exhibited significant loss of PIM1 expression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average repression for pairwise repression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "average repression of 85.8%"
+              },
+              "quantitative_value": 85.8,
+              "result_id": "res_6719ba28baf279bf73bc65db",
+              "unit": "%",
+              "value_raw_text": "average repression of 85.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of p300 at KRAB-responsive enhancers",
+              "n_sample_size": null,
+              "p_value": 0.0002,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "striking enrichment of the transcriptional co-activator p300 (3.3-fold enrichment; p = 2.0E-4, Wilcoxon)"
+              },
+              "quantitative_value": 3.3,
+              "result_id": "res_6830dbd51debce52d29ce98b",
+              "unit": "fold",
+              "value_raw_text": "3.3-fold enrichment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fold difference in PIM1 repression between SE2 HS2 and SE1 HS7",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "repression of SE2 HS2 causes a 3.34-fold greater loss in PIM1 expression than SE1 HS7"
+              },
+              "quantitative_value": 3.34,
+              "result_id": "res_6e2241c777798d900f01d8b3",
+              "unit": "fold",
+              "value_raw_text": "3.34-fold greater loss"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of RNAPII ChIP-seq experiments enriched at KRAB-responsive enhancers",
+              "n_sample_size": 22,
+              "p_value": 5.5e-08,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Of the 22 RNAPII ChIP-seq experiments analyzed, 15 (68.2%) were enriched at KRAB-responsive enhancers (p = 5.5E-8, hypergeometric)"
+              },
+              "quantitative_value": 68.2,
+              "result_id": "res_7ffae700c850ea6952942121",
+              "unit": "%",
+              "value_raw_text": "15 of 22 (68.2%) were enriched"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Penetrance of HS2 in b-globin LCR",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "HS2 is most consistent with models in which loss of the enhancer causes almost complete loss (90%) of HBG2 expression in almost all cells (80%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_85afda1f26c13f60d2e123e7",
+              "unit": null,
+              "value_raw_text": "80% penetrance, 90% contribution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Median cells per pairwise combination",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "For each of the 36 pairwise combinations of two sgRNAs (excluding HS2), we sequenced a median of 154 cells"
+              },
+              "quantitative_value": 154.0,
+              "result_id": "res_8cd07e17173208ddae1329e9",
+              "unit": "cells",
+              "value_raw_text": "median of 154 cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fold difference in penetrance between SE2 HS2 and SE1 HS7",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "SE2 HS2 is 3.25-fold more penetrant than SE1 HS7"
+              },
+              "quantitative_value": 3.25,
+              "result_id": "res_9086a1879f6474145a0ff3ba",
+              "unit": "fold",
+              "value_raw_text": "3.25-fold more penetrant"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "PIM1 repression in cells with dual repression in TAD2 SE2",
+              "n_sample_size": null,
+              "p_value": 0.0033,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "cells with the dual repression of constituents in TAD2 SE2 exhibited significant repression of PIM1 (p = 3.3E-3, hypergeometric)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a4e9ca9c57161587aeffb42e",
+              "unit": null,
+              "value_raw_text": "significant repression of PIM1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of H3K27ac at KRAB-responsive enhancers",
+              "n_sample_size": null,
+              "p_value": 0.051,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "H3K27ac (2.2-fold; p = 0.051, Wilcoxon)"
+              },
+              "quantitative_value": 2.2,
+              "result_id": "res_a580caa3e22e975fe07dfb6a",
+              "unit": "fold",
+              "value_raw_text": "2.2-fold enrichment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of sgRNAs per cell",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "On average, we detected 2.8 sgRNAs per cell"
+              },
+              "quantitative_value": 2.8,
+              "result_id": "res_ae7ef0286f3f82d3e4954e49",
+              "unit": "sgRNAs per cell",
+              "value_raw_text": "2.8 sgRNAs per cell"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of TAL1 at KRAB-responsive enhancers",
+              "n_sample_size": null,
+              "p_value": 0.0019,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "TAL1 (4.8-fold; p = 0.0019, Wilcoxon)"
+              },
+              "quantitative_value": 4.8,
+              "result_id": "res_d1d56658b954ca554cf5fb59",
+              "unit": "fold",
+              "value_raw_text": "4.8-fold enrichment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Enrichment of RNAPII at KRAB-responsive enhancers",
+              "n_sample_size": null,
+              "p_value": 0.0047,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "RNA polymerase II (RNAPII) (3.4-fold; p = 0.0047, Wilcoxon)"
+              },
+              "quantitative_value": 3.4,
+              "result_id": "res_e3f1c236fbcd219bec8471e8",
+              "unit": "fold",
+              "value_raw_text": "3.4-fold enrichment"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average repression for significant pairwise combinations",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9106f4423cfaab8858a7",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "with an average of 45.4% repression"
+              },
+              "quantitative_value": 45.4,
+              "result_id": "res_f41c91dc794fa772af93d675",
+              "unit": "%",
+              "value_raw_text": "average of 45.4% repression"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Penetrance of SE1 HS7 in TAD2",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbf00543b8893e5100e5",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "SE1 HS7 matches models of PLCH enhancer activity (penetrance = 20%, contribution = 90%)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f777ee1073de90b643e964b3",
+              "unit": null,
+              "value_raw_text": "20% penetrance, 90% contribution"
+            }
+          ],
+          "unit_id": "su_12588bf3ec6fc585ceecdf76"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4461 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].evidence_spans[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7458 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+python_bin="/data/rchu/SciEngram/Odracir/.venv/bin/python"
+
+if [[ ! -x "$python_bin" ]]; then
+  python_bin="$(command -v python)"
+fi
+
+if [[ -n "${PYTHONPATH:-}" ]]; then
+  export PYTHONPATH="$repo_root/src:$PYTHONPATH"
+else
+  export PYTHONPATH="$repo_root/src"
+fi
+
+exec "$python_bin" -m odracir.cli "$@"

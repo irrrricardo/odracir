@@ -1,0 +1,1107 @@
+{
+  "coverage_ledger": {
+    "050704bf7d4d0840b026": "not_selected",
+    "075bcc98a8683a68f6f2": "not_selected",
+    "18e7339c74a3b7b32354": "not_selected",
+    "207d4a9d294935929f95": "not_selected",
+    "2f7a5e4e6406527c2a18": "not_selected",
+    "39be52018607ea93df3c": "extracted",
+    "4c4d633acf01b6a282ea": "not_selected",
+    "5799f311f7e81eccd8e5": "not_selected",
+    "5d0648dece7cd42ba2df": "not_selected",
+    "5d21ce345e035c4017b3": "not_selected",
+    "5e0b669563e8686a325e": "not_selected",
+    "5eea1e14354b2e482208": "not_selected",
+    "5f24eb898d63bd8a80c2": "not_selected",
+    "6802da499835f34f6af4": "not_selected",
+    "753226154b457665d7f7": "not_selected",
+    "78f18880825d416eedee": "not_selected",
+    "7a77435a59c35029d18c": "not_selected",
+    "8451b8fa5955d26a21c5": "not_selected",
+    "9081f4e1241a3eb91cfa": "not_selected",
+    "90df06e68520982138d3": "not_selected",
+    "93a38e612c30a39bb329": "not_selected",
+    "94c8b25c9dbb5fff80b5": "extracted",
+    "979906608ccd080b939f": "not_selected",
+    "b6f6c6b5d7d51b69088f": "extracted",
+    "bc576734570a33a2238e": "not_selected",
+    "e6aa024116fa0502315c": "extracted",
+    "e80cb753ab5f1cca791d": "not_selected",
+    "e9d939e0e00a19229603": "not_selected",
+    "fdda694a7e5c2620f04f": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses A431 vulval SCC cell line and CAFs; generalizability to other cancer types requires further validation.",
+    "In vivo evidence is limited to xenograft models and static patient samples; dynamic heterotypic junction behavior in native tumor microenvironment not assessed.",
+    "The role of other cadherins (e.g., P-cadherin) in heterotypic adhesion is not fully explored beyond knockout experiments.",
+    "Mechanotransduction downstream signaling pathways beyond α-catenin/vinculin are not investigated.",
+    "The contribution of ECM remodeling by CAFs versus direct force transmission is not quantitatively dissected.",
+    "The study does not address how heterotypic junctions are regulated in different stromal contexts or during metastasis."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_19.pdf",
+    "source_sha256": "3e84a7241eb512a7ebb019e0764906a97d82dfab87cb43ba2e06a241e362b7b3"
+  },
+  "paper_id": "3_19",
+  "quality_assessment": {
+    "correct_item_count": 89,
+    "deterministic_rule_score": 0.9332,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 89,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do CAFs drive collective cancer cell invasion?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e5af0c01b8199c21a1da1113",
+              "inference_basis_ids": [
+                "res_4469901b3d1c6617b8b92db1",
+                "res_4ae299be273379b78445a22a",
+                "res_7a732dd22cac4b18a52b8982",
+                "res_d3070be9be742bb3c7288177",
+                "res_f068cb3f454bf2d14e74f4ec"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "The E-cadherin/N-cadherin junction is required for A431 invasion"
+              },
+              "statement": "The E-cadherin/N-cadherin heterophilic junction is required for CAF-led collective cancer cell invasion in 3D."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "Spheroids with genetic modifications embedded in collagen/Matrigel; invasion strands quantified",
+              "name": "3D invasion perturbation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "E-cadherin knockout in A431 cells greatly reduced cancer cell invasion",
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "E-cadherin knockout in A431 cells greatly reduced cancer cell invasion"
+              },
+              "span_id": "ES5"
+            }
+          ],
+          "experiments_or_tasks": [
+            "3D spheroid invasion assays with A431-EcadKO, CAF-siNcad, A431-αcat1VBS",
+            "Double E/P-cadherin knockout to assess cohesion and invasion mode",
+            "Mixed spheroid assays with control and EcadKO cells to test cell-autonomous invasion defect",
+            "P-cadherin knockout control"
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "3D spheroid invasion assay with genetic perturbations",
+              "protocol_description": "Spheroids of mixed A431 cells and CAFs with various knockouts or knockdowns embedded in collagen/Matrigel; invasion strands counted after 60 h"
+            }
+          ],
+          "name": "Requirement of E-cadherin/N-cadherin junction for 3D cancer cell invasion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion reduction with α-catenin vinculin-binding mutant",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "The number of invasion strands led by CAFs in 3D invasion assays of A431-αcat1VBS spheroids decreased sharply"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4469901b3d1c6617b8b92db1",
+              "unit": null,
+              "value_raw_text": "The number of invasion strands led by CAFs in 3D invasion assays of A431-αcat1VBS spheroids decreased sharply"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion reduction with E-cadherin KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "E-cadherin knockout in A431 cells greatly reduced cancer cell invasion; CAFs invaded the ECM but A431 cells were unable to follow them"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4ae299be273379b78445a22a",
+              "unit": null,
+              "value_raw_text": "E-cadherin knockout in A431 cells greatly reduced cancer cell invasion; CAFs invaded the ECM but A431 cells were unable to follow them"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "P-cadherin KO does not affect invasion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "P-cadherin knockout in A431 cells did not affect invasion"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7a732dd22cac4b18a52b8982",
+              "unit": null,
+              "value_raw_text": "P-cadherin knockout in A431 cells did not affect invasion"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion reduction with N-cadherin knockdown",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "Knockdown of N-cadherin in CAFs reduced the number of CAF-led invading A431 strands to a similar degree as knockout of E-cadherin in A431 cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d3070be9be742bb3c7288177",
+              "unit": null,
+              "value_raw_text": "Knockdown of N-cadherin in CAFs reduced the number of CAF-led invading A431 strands to a similar degree as knockout of E-cadherin in A431 cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "A431-EcadKO cells follow wild-type A431 cells but not CAFs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "in 96% of invading strands the cell immediately following the CAFs was a control cell rather than an A431-EcadKO cell"
+              },
+              "quantitative_value": 96.0,
+              "result_id": "res_f068cb3f454bf2d14e74f4ec",
+              "unit": "%",
+              "value_raw_text": "in 96% of invading strands the cell immediately following the CAFs was a control cell rather than an A431-EcadKO cell"
+            }
+          ],
+          "unit_id": "su_035e80032e64f152ad4c5df0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f8ffac6a17b6a7478e4b56d2",
+              "inference_basis_ids": [
+                "res_1a87fc4949eb54ee63b47018",
+                "res_4ff04f738cb4891a41240df1",
+                "res_af45dc3370f698de1b515121"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "39be52018607ea93df3c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "CAFs lead cancer cell invasion in 3D and 2D migration assays"
+              },
+              "statement": "CAFs lead the collective invasion of cancer cells in 3D and 2D migration assays."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Spheroids of A431 human vulval SCC cells and CAFs in collagen/Matrigel, imaged over 60 h",
+              "name": "A431 and CAF spheroid invasion dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Over 60 h cells invaded the surrounding 3D ECM forming strands in which the leading cell was generally one CAF followed by several A431 cells",
+              "provenance": {
+                "chunk_id": "39be52018607ea93df3c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Over 60 h cells invaded the surrounding 3D ECM forming strands in which the leading cell was generally one CAF followed by several A431 cells"
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "2D spheroid migration assay to observe leader/follower patterns",
+            "Spheroids containing A431 cancer cells and CAFs embedded in collagen/Matrigel for 3D invasion assay"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "3D spheroid invasion assay",
+              "protocol_description": "Spheroids containing A431 cells and CAFs embedded in a mixture of collagen and Matrigel; invasion monitored over 60 h"
+            },
+            {
+              "method_id": "M2",
+              "name": "2D spheroid migration assay",
+              "protocol_description": "Spheroids plated on 2D surface to observe leader/follower migration patterns"
+            }
+          ],
+          "name": "3D and 2D migration assays showing CAFs lead cancer cell invasion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Fraction of leader CAFs vs normal fibroblasts",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "The fraction of leaders in CAFs was ∼3-fold higher than that in normal dermal fibroblasts"
+              },
+              "quantitative_value": 3.0,
+              "result_id": "res_1a87fc4949eb54ee63b47018",
+              "unit": "fold",
+              "value_raw_text": "The fraction of leaders in CAFs was ∼3-fold higher than that in normal dermal fibroblasts"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leading cell identity in invasion strands",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "39be52018607ea93df3c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Over 60 h cells invaded the surrounding 3D ECM forming strands in which the leading cell was generally one CAF followed by several A431 cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4ff04f738cb4891a41240df1",
+              "unit": null,
+              "value_raw_text": "the leading cell was generally one CAF followed by several A431 cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fraction of leader primary lung CAFs vs normal fibroblasts",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "the fraction of leaders in a population of primary lung CAFs was ∼4-fold higher than in fibroblasts obtained from tumour-free parenchyma in the same patients"
+              },
+              "quantitative_value": 4.0,
+              "result_id": "res_af45dc3370f698de1b515121",
+              "unit": "fold",
+              "value_raw_text": "the fraction of leaders in a population of primary lung CAFs was ∼4-fold higher than in fibroblasts obtained from tumour-free parenchyma in the same patients"
+            }
+          ],
+          "unit_id": "su_09adade999cf9545f296770a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_deabaf97f832449c9b0f8589",
+              "inference_basis_ids": [
+                "res_81b1f3a4627848174fa28f3f",
+                "res_d0f37281fb13f9b133be10ff"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "E-cadherin is required for force transmission between A431 cells and CAFs"
+              },
+              "statement": "E-cadherin is required for force transmission between CAFs and A431 cells."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Force measurements between CAFs and A431 cells on elastic substrates",
+              "name": "Traction force microscopy dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "control CAFs exerted a force of ∼100 nN on A431 cells",
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "control CAFs exerted a force of ∼100 nN on A431 cells"
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Comparison of force transmission in control vs E-cadherin knockout A431 cells",
+            "Traction force microscopy to measure forces between CAFs and A431 cells during contact"
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "Traction force microscopy",
+              "protocol_description": "Cells plated on polyacrylamide gels with fluorescent beads; traction forces computed from bead displacements; intercellular forces inferred from force balance"
+            }
+          ],
+          "name": "Force transmission measurement between CAFs and A431 cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Force transmission reduction in E-cadherin KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "When E-cadherin was knocked out in A431 cells, force transmission levels fell dramatically compared with the control case"
+              },
+              "quantitative_value": null,
+              "result_id": "res_81b1f3a4627848174fa28f3f",
+              "unit": null,
+              "value_raw_text": "When E-cadherin was knocked out in A431 cells, force transmission levels fell dramatically compared with the control case"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Force exerted by CAFs on A431 cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "control CAFs exerted a force of ∼100 nN on A431 cells"
+              },
+              "quantitative_value": 100.0,
+              "result_id": "res_d0f37281fb13f9b133be10ff",
+              "unit": "nN",
+              "value_raw_text": "control CAFs exerted a force of ∼100 nN on A431 cells"
+            }
+          ],
+          "unit_id": "su_0bd6987f9e67d43879beb64a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1f818f1e8672aa0bb289c179",
+              "inference_basis_ids": [
+                "res_5e579e29b3d618c84e367ce4",
+                "res_64cb8e8c119385221376d45c",
+                "res_81ad79e9e2b00fc5c755cd55",
+                "res_bfd2c6ff603f60050037e46a",
+                "res_d1109e1bf25c7e370fbdc90d",
+                "res_e3bf2d4cd6ff049ccc8b7458"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "39be52018607ea93df3c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "This adhesion is mechanically active; when subjected to force it triggers β-catenin recruitment and adhesion reinforcement dependent on α-catenin/vinculin interaction."
+              },
+              "statement": "The E-cadherin/N-cadherin heterophilic junction is mechanically active and triggers β-catenin recruitment and adhesion reinforcement dependent on α-catenin/vinculin interaction."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b804a62c874a62a8a2137de8",
+              "inference_basis_ids": [
+                "res_21c22a7a1c64bac867170802",
+                "res_6a69ac84b355618d1f789e68",
+                "res_7c7805609595ad2e8481534f",
+                "res_a1de4b843e82fe10b4523ec1",
+                "res_fd2f4c8ae900e629c3125ffe"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "39be52018607ea93df3c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Force transmission is mediated by a heterophilic adhesion involving N-cadherin at the CAF membrane and E-cadherin at the cancer cell membrane."
+              },
+              "statement": "A heterophilic adhesion involving N-cadherin on CAFs and E-cadherin on cancer cells mediates force transmission between the two cell types."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Co-cultures of A431 cells and CAFs stained for E-cadherin, N-cadherin, β-catenin, vinculin",
+              "name": "A431 and CAF co-culture immunostaining dataset",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Beads coated with E-, N-, P-cadherin-Fc on A431 and CAF cells, with force application",
+              "name": "Magnetic bead adhesion assay dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Force transmission is mediated by a heterophilic adhesion involving N-cadherin at the CAF membrane and E-cadherin at the cancer cell membrane.",
+              "provenance": {
+                "chunk_id": "39be52018607ea93df3c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Force transmission is mediated by a heterophilic adhesion involving N-cadherin at the CAF membrane and E-cadherin at the cancer cell membrane."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "CRISPR/Cas9 knockout of α-catenin and expression of vinculin-binding site mutant to test mechanotransduction pathway",
+            "Force application and measurement of bead retention",
+            "Immunostaining of co-cultures to detect E-cadherin and N-cadherin localization at CAF-cancer cell contacts",
+            "Magnetic bead adhesion assays with recombinant cadherin-Fc coated beads on A431 cells and CAFs",
+            "Magnetic tweezers to measure adhesion reinforcement under pulsatile force"
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Immunofluorescence staining",
+              "protocol_description": "Cells fixed and stained with antibodies against E-cadherin, N-cadherin, β-catenin, vinculin, and imaged by confocal microscopy"
+            },
+            {
+              "method_id": "M4",
+              "name": "Magnetic bead adhesion assay",
+              "protocol_description": "Magnetic beads coated with recombinant E-, N-, or P-cadherin–Fc fusion proteins allowed to attach to cells; a pulling force of 0.5 nN applied for 1 min; beads remaining attached quantified"
+            },
+            {
+              "method_id": "M5",
+              "name": "Magnetic tweezers mechanosensing assay",
+              "protocol_description": "High pulsatile forces applied to cadherin-coated beads on cells; bead displacements recorded to measure adhesion reinforcement over time"
+            },
+            {
+              "method_id": "M6",
+              "name": "CRISPR/Cas9 gene knockout and rescue",
+              "protocol_description": "CRISPR/Cas9 used to knock out α-catenin in A431 cells; cells expressing α-catenin lacking vinculin-binding site (αcat1VBS) or wild-type α-catenin (αcatWT) generated"
+            }
+          ],
+          "name": "Identification of heterophilic E-cadherin/N-cadherin adhesion mediating force transmission",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "N-cadherin bead retention on A431 cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "∼70% of the beads coated with N-cadherin also resisted the force pulse"
+              },
+              "quantitative_value": 70.0,
+              "result_id": "res_21c22a7a1c64bac867170802",
+              "unit": "%",
+              "value_raw_text": "∼70% of the beads coated with N-cadherin also resisted the force pulse"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Force-induced β-catenin recruitment increase",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "we then applied a pulsatile force to the cell–bead contact and observed a significant increase in the recruitment of β-catenin and E-cadherin but not of P-cadherin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5e579e29b3d618c84e367ce4",
+              "unit": null,
+              "value_raw_text": "we then applied a pulsatile force to the cell–bead contact and observed a significant increase in the recruitment of β-catenin and E-cadherin but not of P-cadherin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "β-catenin recruitment to N-cadherin bead contact on A431 cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Immunostainings of the cell–bead contact revealed accumulation of β-catenin and E-cadherin but not P-cadherin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_64cb8e8c119385221376d45c",
+              "unit": null,
+              "value_raw_text": "Immunostainings of the cell–bead contact revealed accumulation of β-catenin and E-cadherin but not P-cadherin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E-cadherin bead retention on CAFs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "A large fraction (63%) of beads coated with E-cadherin remained attached to the CAF surface"
+              },
+              "quantitative_value": 63.0,
+              "result_id": "res_6a69ac84b355618d1f789e68",
+              "unit": "%",
+              "value_raw_text": "A large fraction (63%) of beads coated with E-cadherin remained attached to the CAF surface"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "N-cadherin bead retention on A431-EcadKO cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "knocking out E-cadherin resulted in a large drop in N-cadherin bead binding"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7c7805609595ad2e8481534f",
+              "unit": null,
+              "value_raw_text": "knocking out E-cadherin resulted in a large drop in N-cadherin bead binding"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Adhesion reinforcement on CAFs with E-cadherin beads",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Force applied through E-cadherin beads also triggered mechanical reinforcement in CAFs, although to a lesser extent than N-cadherin beads"
+              },
+              "quantitative_value": null,
+              "result_id": "res_81ad79e9e2b00fc5c755cd55",
+              "unit": null,
+              "value_raw_text": "Force applied through E-cadherin beads also triggered mechanical reinforcement in CAFs, although to a lesser extent than N-cadherin beads"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Bead retention after force pulse on A431 cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "After the force pulse, ∼70% of the beads coated with either E-cadherin or P-cadherin remained attached to the cells"
+              },
+              "quantitative_value": 70.0,
+              "result_id": "res_a1de4b843e82fe10b4523ec1",
+              "unit": "%",
+              "value_raw_text": "∼70% of the beads coated with either E-cadherin or P-cadherin remained attached to the cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Contact time reduction with vinculin-binding mutant",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "impeding vinculin binding to α-catenin shortens contact time significantly"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bfd2c6ff603f60050037e46a",
+              "unit": null,
+              "value_raw_text": "impeding vinculin binding to α-catenin shortens contact time significantly"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Reinforcement abrogation in α-catenin KO or vinculin-binding mutant",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "reinforcement responses were abrogated in cells lacking α-catenin or its vinculin-binding site"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d1109e1bf25c7e370fbdc90d",
+              "unit": null,
+              "value_raw_text": "reinforcement responses were abrogated in cells lacking α-catenin or its vinculin-binding site"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Adhesion reinforcement on A431 cells with N-cadherin beads",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "force applied to N-cadherin beads also triggered reinforcement of the adhesion with similar magnitude and time evolution as those of homophilic E- and P-cadherin adhesions"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e3bf2d4cd6ff049ccc8b7458",
+              "unit": null,
+              "value_raw_text": "force applied to N-cadherin beads also triggered reinforcement of the adhesion with similar magnitude and time evolution as those of homophilic E- and P-cadherin adhesions"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E-cadherin bead retention on CAF-siNcad",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "the number of E-cadherin and N-cadherin beads that remained attached decreased to residual levels"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fd2f4c8ae900e629c3125ffe",
+              "unit": null,
+              "value_raw_text": "the number of E-cadherin and N-cadherin beads that remained attached decreased to residual levels"
+            }
+          ],
+          "unit_id": "su_3de2fdf6e181ed8cfe31e593"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_acc819f255d78796230a1550",
+              "inference_basis_ids": [
+                "res_0abdc0a575d487724f5d158f",
+                "res_307172c35464fea44b9472ce",
+                "res_4614c0bea08d5bfa6573b126"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "the heterophilic E-cadherin/N-cadherin junction is responsible for the guidance of A431 cells by CAFs in 2D migration assays"
+              },
+              "statement": "The E-cadherin/N-cadherin heterophilic junction is required for CAFs to lead cancer cell migration and for CAF repolarization."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_be8e269cf8aa27298b2357c8",
+              "inference_basis_ids": [
+                "res_1b6606ce4567500c8cd01644",
+                "res_4595de279a567c65f127b524",
+                "res_867fc14338ae447572f001bf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "the nectin–afadin system is required for both leader/follower patterns of 2D migration and CAF repolarization"
+              },
+              "statement": "The nectin–afadin system is required for leader/follower patterns and CAF repolarization."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f86899d658ad9697be732c73",
+              "inference_basis_ids": [
+                "res_3e77e42fac59893ec4016e40"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "junctional mechanotransduction is critical for CAFs to lead A431 migration"
+              },
+              "statement": "Junctional mechanotransduction via α-catenin/vinculin is critical for CAF-led migration."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "Time-lapse imaging of spheroids with various genetic modifications to quantify leader/follower behavior",
+              "name": "2D migration perturbation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "When E-cadherin was knocked out, the percentage of leaders dropped dramatically",
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "When E-cadherin was knocked out, the percentage of leaders dropped dramatically"
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "2D spheroid migration assays with genetic perturbations: A431-EcadKO, CAF-siNcad, A431-αcat1VBS",
+            "Afadin depletion in CAFs and effect on leader fraction and repolarization",
+            "Analysis of leader fraction and CAF repolarization angles",
+            "Localization of nectins and afadin at heterotypic contacts"
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "siRNA knockdown",
+              "protocol_description": "siRNA used to knockdown N-cadherin in CAFs (CAF-siNcad) or afadin"
+            },
+            {
+              "method_id": "M9",
+              "name": "2D spheroid migration assay with tracking",
+              "protocol_description": "Spheroids plated on 2D; cell tracking to classify leaders and loners; repolarization angle measured"
+            }
+          ],
+          "name": "Functional requirement of E-cadherin/N-cadherin junction for leader/follower migration and CAF repolarization",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Leader fraction reduction with E-cadherin KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "When E-cadherin was knocked out, the percentage of leaders dropped dramatically"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0abdc0a575d487724f5d158f",
+              "unit": null,
+              "value_raw_text": "When E-cadherin was knocked out, the percentage of leaders dropped dramatically"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Afadin localization at heterotypic contacts",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "nectin-2, nectin-3 and afadin localized at heterotypic contacts"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1b6606ce4567500c8cd01644",
+              "unit": null,
+              "value_raw_text": "nectin-2, nectin-3 and afadin localized at heterotypic contacts"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leader fraction reduction with N-cadherin siRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "N-cadherin siRNA in CAFs also decreased the number of leaders significantly"
+              },
+              "quantitative_value": null,
+              "result_id": "res_307172c35464fea44b9472ce",
+              "unit": null,
+              "value_raw_text": "N-cadherin siRNA in CAFs also decreased the number of leaders significantly"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leader fraction reduction with α-catenin vinculin-binding mutant",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "experiments using A431-αcat1VBS cells and their rescue control A431-αcatWT demonstrated that junctional mechanotransduction is critical for CAFs to lead A431 migration"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3e77e42fac59893ec4016e40",
+              "unit": null,
+              "value_raw_text": "experiments using A431-αcat1VBS cells and their rescue control A431-αcatWT demonstrated that junctional mechanotransduction is critical for CAFs to lead A431 migration"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Leader fraction reduction with afadin depletion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "Depletion of afadin in CAFs led to a >2-fold decrease in the fraction of leaders"
+              },
+              "quantitative_value": 2.0,
+              "result_id": "res_4595de279a567c65f127b524",
+              "unit": "fold",
+              "value_raw_text": "Depletion of afadin in CAFs led to a >2-fold decrease in the fraction of leaders"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CAF repolarization defect with N-cadherin depletion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "94c8b25c9dbb5fff80b5",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "they did not reverse their polarity, but moved along the spheroid’s tangent rather than perpendicularly to it"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4614c0bea08d5bfa6573b126",
+              "unit": null,
+              "value_raw_text": "they did not reverse their polarity, but moved along the spheroid’s tangent rather than perpendicularly to it"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CAF repolarization defect with afadin depletion",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e6aa024116fa0502315c",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "perturbed CAF repolarization following contact with cancer cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_867fc14338ae447572f001bf",
+              "unit": null,
+              "value_raw_text": "perturbed CAF repolarization following contact with cancer cells"
+            }
+          ],
+          "unit_id": "su_77e882cb9485f3084fc153b0"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_95e1104b7a459350bfb3e3b8",
+              "inference_basis_ids": [
+                "res_351e44513ede4f03fec2cdf7",
+                "res_4bd5358459731c052667a559",
+                "res_932ee31493a38fa48a6fb66a",
+                "res_a762586b87ae00b881a33c1c",
+                "res_d3807180e2b3e86ca1b7e4e7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": true,
+                "text_excerpt": "Heterotypic junctions between CAFs and cancer cells are observed in patient-derived material."
+              },
+              "statement": "Heterotypic E-cadherin/N-cadherin junctions between CAFs and cancer cells are observed in patient-derived material and across different carcinoma types."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "Human lung and vulval SCC samples, xenograft tumors, stained for cadherins and junctional markers",
+              "name": "Patient sample and in vivo dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Heterotypic junctions between CAFs and cancer cells are observed in patient-derived material.",
+              "provenance": {
+                "chunk_id": "39be52018607ea93df3c",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Heterotypic junctions between CAFs and cancer cells are observed in patient-derived material."
+              },
+              "span_id": "ES6"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Co-culture of patient-matched vulval SCC cancer cells and CAFs",
+            "Immunostaining of co-cultures of primary human lung CAFs and H1437 lung adenocarcinoma cells",
+            "Immunostaining of human SCC patient samples for E-cadherin, N-cadherin, β-catenin, αSMA",
+            "Intravital imaging of A431/CAF xenografts"
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "Immunohistochemistry/immunofluorescence on patient samples",
+              "protocol_description": "Formalin-fixed paraffin-embedded human SCC sections stained with antibodies against E-cadherin, N-cadherin, β-catenin, αSMA; imaged by microscopy"
+            },
+            {
+              "method_id": "M12",
+              "name": "Intravital imaging",
+              "protocol_description": "A431 cells expressing E-cadherin-Ruby and CAFs expressing N-cadherin-GFP co-injected into mice; tumors imaged by intravital microscopy"
+            }
+          ],
+          "name": "Presence of E-cadherin/N-cadherin junctions in patient samples and other carcinoma types",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "E-cadherin/N-cadherin co-localization in xenograft tumors",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Co-injection of E-cadherin-Ruby A431 cells and N-cadherin-GFP CAFs revealed co-location of both cadherins at the interface between cancer cells and CAFs"
+              },
+              "quantitative_value": null,
+              "result_id": "res_351e44513ede4f03fec2cdf7",
+              "unit": null,
+              "value_raw_text": "Co-injection of E-cadherin-Ruby A431 cells and N-cadherin-GFP CAFs revealed co-location of both cadherins at the interface between cancer cells and CAFs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E-cadherin localization at cancer cell-CAF interface in human SCC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "staining of human squamous cell carcinoma revealed clear localization of E-cadherin at the interface between cancer cells and α-smooth muscle actin (αSMA)-positive CAFs"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4bd5358459731c052667a559",
+              "unit": null,
+              "value_raw_text": "staining of human squamous cell carcinoma revealed clear localization of E-cadherin at the interface between cancer cells and α-smooth muscle actin (αSMA)-positive CAFs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E-cadherin/N-cadherin junction in patient-matched vulval SCC co-cultures",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "These experiments also showed co-localization of N-cadherin, E-cadherin and F-actin at the CAF–cancer cell contact"
+              },
+              "quantitative_value": null,
+              "result_id": "res_932ee31493a38fa48a6fb66a",
+              "unit": null,
+              "value_raw_text": "These experiments also showed co-localization of N-cadherin, E-cadherin and F-actin at the CAF–cancer cell contact"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "E-cadherin/N-cadherin junction presence in lung CAF-cancer co-cultures",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "immunostainings revealed the extensive presence of E-cadherin/N-cadherin junctions and their systematic co-localization with β-catenin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a762586b87ae00b881a33c1c",
+              "unit": null,
+              "value_raw_text": "immunostainings revealed the extensive presence of E-cadherin/N-cadherin junctions and their systematic co-localization with β-catenin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "β-catenin localization at cancer cell-CAF interface in human SCC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b6f6c6b5d7d51b69088f",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "β-catenin was also localized at this interface"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d3807180e2b3e86ca1b7e4e7",
+              "unit": null,
+              "value_raw_text": "β-catenin was also localized at this interface"
+            }
+          ],
+          "unit_id": "su_c539a03a20f4400b40743457"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8655 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[5].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7097 on attempt 1"
+    }
+  ]
+}

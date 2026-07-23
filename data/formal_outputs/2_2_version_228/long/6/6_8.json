@@ -1,0 +1,1490 @@
+{
+  "coverage_ledger": {
+    "02ffef3e2e4745b353b2": "extracted",
+    "1b01ccb6aae1d98e39a2": "extracted",
+    "24e07d7a912ca1d5e8cc": "extracted",
+    "9cc90d7592cb8b5b5b3c": "extracted",
+    "b4bf836bb7089745cafa": "extracted",
+    "bdb041d613d24595eff7": "extracted",
+    "c34a0689625f819e36e5": "extracted",
+    "d2207619f84915e7397f": "not_selected",
+    "dbd39e028ecb48f54c8f": "extracted",
+    "f0afc7898dea44094f07": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The analysis of influence distributions relies on a randomization assumption of ReLU activations.",
+    "The Reddit dataset used was preprocessed to select middle-sized communities, making it more regular than the original data.",
+    "LSTM-attention may overfit on small graphs due to higher complexity.",
+    "Some JK-Net variants on PPI were limited to 2 layers due to GPU memory constraints.",
+    "The theoretical connection between GCN and random walks assumes averaging aggregation and equal path activation probability."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_8.pdf",
+    "source_sha256": "4aa02e943446fb980814ee1cf0446f099cb720f6b1b4a40b1b3c682d8620b771"
+  },
+  "paper_id": "6_8",
+  "quality_assessment": {
+    "correct_item_count": 82,
+    "deterministic_rule_score": 0.9857,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 99,
+    "f1": 0.8586,
+    "incorrect_item_count": 17,
+    "incorrect_items": [
+      {
+        "description": "The extracted value 0.965 is attributed to MaxPool node aggregator and Concat layer aggregator, but the source chunk shows 0.965 corresponds to MaxPool node aggregator and LSTM layer aggregator, not Concat.",
+        "item_id": "result:su_526feefbb60945f35e8ca4ad:res_6c8f1c2f72c5b44400a6ab32",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.877 is attributed to MaxPool node aggregator, but the source chunk shows 0.877 corresponds to MaxPool node aggregator and LSTM layer aggregator, not just MaxPool.",
+        "item_id": "result:su_526feefbb60945f35e8ca4ad:res_31b52363d4222a1698b8ced2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.924 is attributed to MaxPool node aggregator, but the source chunk shows 0.924 corresponds to MaxPool node aggregator and Concat layer aggregator, not just MaxPool.",
+        "item_id": "result:su_526feefbb60945f35e8ca4ad:res_389613ea293c46177b1709a0",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.953 is attributed to MaxPool node aggregator, but the source chunk shows 0.953 corresponds to Mean node aggregator and MaxPool layer aggregator, not MaxPool node aggregator.",
+        "item_id": "result:su_526feefbb60945f35e8ca4ad:res_0ebab588640bbdf4d1b881fa",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.955 is attributed to Concat layer aggregator, but the source chunk shows 0.955 corresponds to Mean node aggregator and Concat layer aggregator, not just Concat.",
+        "item_id": "result:su_526feefbb60945f35e8ca4ad:res_c0c07303c7c075aeff0fd678",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.950 is attributed to Mean node aggregator, but the source chunk shows 0.950 corresponds to Mean node aggregator and LSTM layer aggregator, not just Mean.",
+        "item_id": "result:su_526feefbb60945f35e8ca4ad:res_e8ca2dc906ebb82f019b91d9",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states that JK-Net with MaxPool node aggregator and Concat layer aggregator achieves best Micro-F1 of 0.965, but the source chunk shows the best Micro-F1 of 0.965 is achieved with MaxPool node aggregator and LSTM layer aggregator, not Concat.",
+        "item_id": "claim:su_526feefbb60945f35e8ca4ad:clm_6c23766733f27d9ea1c29a5c",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.818 is attributed to LSTM layer aggregator, but the source chunk shows 0.818 corresponds to Mean node aggregator and LSTM layer aggregator, not just LSTM.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_28a4002224722719c0d4a603",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.721 is attributed to LSTM layer aggregator, but the source chunk shows 0.721 corresponds to Mean node aggregator and LSTM layer aggregator, not just LSTM.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_9b18ebd1bb53681153e36bc3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.713 is attributed to MaxPool layer aggregator, but the source chunk shows 0.713 corresponds to Mean node aggregator and MaxPool layer aggregator, not just MaxPool.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_2cf76d4453acad431ea8d73d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.658 is attributed to MaxPool layer aggregator, but the source chunk shows 0.658 corresponds to Mean node aggregator and MaxPool layer aggregator, not just MaxPool.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_4525793c871cc30474a5b6d8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.667 is attributed to Concat layer aggregator, but the source chunk shows 0.667 corresponds to Mean node aggregator and Concat layer aggregator, not just Concat.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_1bd00503d5b7a94ddd5310bd",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.687 is attributed to Concat layer aggregator, but the source chunk shows 0.687 corresponds to MaxPool node aggregator and Concat layer aggregator, not just Concat.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_a5a53c9cd6ba114e0aa6223b",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.694 is attributed to Concat layer aggregator, but the source chunk shows 0.694 corresponds to Mean node aggregator and Concat layer aggregator, not just Concat.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_cb792de11bca482e2c3856a1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.671 is attributed to MaxPool layer aggregator, but the source chunk shows 0.671 corresponds to MaxPool node aggregator and MaxPool layer aggregator, not just MaxPool.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_e4fda16784fe81b5f7cf2bdf",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted value 0.621 is attributed to LSTM layer aggregator, but the source chunk shows 0.621 corresponds to MaxPool node aggregator and LSTM layer aggregator, not just LSTM.",
+        "item_id": "result:su_9959f26d9d85c5603d948fb3:res_8c26785c6861f142c4ab28b1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states JK-LSTM outperforms GraphSAGE by 0.128 micro-F1 after 30 epochs on PPI, but the source chunk shows the improvement is 0.128 for the Mean node aggregator with LSTM layer aggregator, not necessarily all JK-LSTM variants.",
+        "item_id": "claim:su_9959f26d9d85c5603d948fb3:clm_4561636689d3a86acab74f2e",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 10,
+    "missed_core_items": [
+      {
+        "description": "The Reddit dataset was preprocessed to select middle-sized communities, making it more regular than the original data.",
+        "item_id": null,
+        "source_chunk_id": "c34a0689625f819e36e5",
+        "source_excerpt": "The communities in the Reddit dataset were explicitly chosen from the well-behaved middle-sized communities to avoid the noisy cores and tree-like small communities (Hamilton et al., 2017). As a result, this graph is more regular than the original Reddit data, and hence not exhibit the problems of varying subgraph structures.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "On Cora, both GCN and GAT achieve their best accuracies with only 2 or 3 layers, suggesting that local information is a stronger signal for classification than global ones.",
+        "item_id": null,
+        "source_chunk_id": "dbd39e028ecb48f54c8f",
+        "source_excerpt": "Taking a closer look at results on Cora, both GCN and GAT achieve their best accuracies with only 2 or 3 layers, suggesting that local information is a stronger signal for classiﬁcation than global ones.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "JK-Nets with concatenation aggregation perform well on graphs with more regular structures such as images and well-structured communities.",
+        "item_id": null,
+        "source_chunk_id": "24e07d7a912ca1d5e8cc",
+        "source_excerpt": "Indeed, as we shall see, models with concatenation aggregation perform well on graphs with more regular structures such as images and well-structured communities.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The influence distribution of a k-layer GCN with averaging is equivalent, in expectation, to the k-step random walk distribution on the augmented graph, assuming all paths are activated with the same probability.",
+        "item_id": null,
+        "source_chunk_id": "1b01ccb6aae1d98e39a2",
+        "source_excerpt": "Given a k-layer GCN with averaging as in Equation (3), assume that all paths in the computation graph of the model are activated with the same probability of success ρ. Then the inﬂuence distribution Ix for any node x ∈V is equivalent, in expectation, to the k-step random walk distribution on eG starting at node x.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The influence score under a k-layer JK-Net with layer-wise max-pooling is equivalent in expectation to a mixture of 0 to k-step random walk distributions, with coefficients depending on layer features.",
+        "item_id": null,
+        "source_chunk_id": "24e07d7a912ca1d5e8cc",
+        "source_excerpt": "The inﬂuence score I(x, y) for any x, y ∈V under a k-layer JK-Net with layer-wise max-pooling is equivalent in expectation to a mixture of 0, .., k-step random walk distributions on eG at y starting at x, the coefﬁcients of which depend on the values of the layer features h(l)x.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "JK-Nets with LSTM-attention aggregators outperform non-adaptive models GraphSAGE, GAT and JK-Nets with concatenation aggregators on PPI.",
+        "item_id": null,
+        "source_chunk_id": "c34a0689625f819e36e5",
+        "source_excerpt": "JK-Nets with the LSTM-attention aggregators outperform the non-adaptive models GraphSAGE, GAT and JK-Nets with concatenation aggregators.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "On Reddit, the added flexibility of node-specific neighborhood choices may not be as relevant, and the stabilizing properties of concatenation instead come into play.",
+        "item_id": null,
+        "source_chunk_id": "c34a0689625f819e36e5",
+        "source_excerpt": "In such a case, the added ﬂexibility of the node-speciﬁc neighborhood choices may not be as relevant, and the stabilizing properties of concatenation instead come into play.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "LSTM-attention may overfit on small graphs due to higher complexity.",
+        "item_id": null,
+        "source_chunk_id": "dbd39e028ecb48f54c8f",
+        "source_excerpt": "LSTM-attention may not be suitable for such small graphs because of its relatively high complexity.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Some JK-Net variants on PPI were limited to 2 layers due to GPU memory constraints.",
+        "item_id": null,
+        "source_chunk_id": "c34a0689625f819e36e5",
+        "source_excerpt": "All models use 3 layers, except for those with “∗”, whose number of layers is set to 2 due to GPU memory constraints.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The theoretical connection between GCN and random walks assumes averaging aggregation and equal path activation probability.",
+        "item_id": null,
+        "source_chunk_id": "1b01ccb6aae1d98e39a2",
+        "source_excerpt": "Given a k-layer GCN with averaging as in Equation (3), assume that all paths in the computation graph of the model are activated with the same probability of success ρ.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.8283,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8913
+  },
+  "quality_score": 0.8586,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What are the properties and limitations of neighborhood aggregation schemes for graph representation learning?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_aa5ce97051c3a08b7682a931",
+              "inference_basis_ids": [
+                "res_6521be4577333da7b24f39ff"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1b01ccb6aae1d98e39a2",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "we observe that the influence distributions of networks with residual connections approximately correspond to lazy random walks: each step has a higher probability of staying at the current node. Local information is retained with similar probabilities for all nodes in each iteration; this cannot adapt to diverse needs of specific upper-layer nodes."
+              },
+              "statement": "Residual connections in GCNs lead to influence distributions similar to lazy random walks, retaining local information."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b23795f19899519c84b74b80",
+              "inference_basis_ids": [
+                "res_7ac2e17905a1d488254366b6",
+                "res_c868c2e5118f9743f05ff0e3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1b01ccb6aae1d98e39a2",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The following results show that the influence distributions of common aggregation schemes are closely connected to random walk distributions."
+              },
+              "statement": "The influence distribution of common neighborhood aggregation schemes is closely connected to random walk distributions."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Used for illustration of random walk expansion in different subgraph structures.",
+              "name": "GooglePlus social network",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze the effect of residual connections on influence distributions.",
+            "Analyze the effective range (influence distribution) of nodes in neighborhood aggregation schemes.",
+            "Connect influence distributions to random walk distributions on graphs.",
+            "Visualize influence distributions of trained GCNs and compare with random walk distributions."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Influence Distribution Computation",
+              "protocol_description": "Define influence distribution Ix(y) as the sum over paths from x to y of the product of normalized derivatives along the path. Under a randomization assumption on ReLU activations, show equivalence to random walk distributions."
+            }
+          ],
+          "name": "Influence Distribution Analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Visual similarity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1b01ccb6aae1d98e39a2",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "we observe that the influence distributions of networks with residual connections approximately correspond to lazy random walks: each step has a higher probability of staying at the current node."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6521be4577333da7b24f39ff",
+              "unit": null,
+              "value_raw_text": "Influence distributions of GCNs with residual connections approximately correspond to lazy random walks."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Visual similarity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1b01ccb6aae1d98e39a2",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "We visualize the heat maps of the influence distributions for a node (labeled square) for trained GCNs, and compare with the random walk distributions starting at the same node. Figure 2 shows example results."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7ac2e17905a1d488254366b6",
+              "unit": null,
+              "value_raw_text": "Heat maps of influence distributions for trained GCNs closely match random walk distributions."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equivalence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1b01ccb6aae1d98e39a2",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Given a k-layer GCN with averaging as in Equation (3), assume that all paths in the computation graph of the model are activated with the same probability of success ρ. Then the influence distribution Ix for any node x ∈V is equivalent, in expectation, to the k-step random walk distribution on eG starting at node x."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c868c2e5118f9743f05ff0e3",
+              "unit": null,
+              "value_raw_text": "The influence distribution of a k-layer GCN with averaging is equivalent, in expectation, to the k-step random walk distribution on the augmented graph."
+            }
+          ],
+          "unit_id": "su_0f0721a1669c743857d45e1c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4899cb14873354cd25d0762c",
+              "inference_basis_ids": [
+                "res_9f119bdad7e18df4f7e932e2"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "02ffef3e2e4745b353b2",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Models that impose a fixed random walk distribution inherit these discrepancies in the speed of expansion and influence neighborhoods, which may not lead to the best representations for all nodes."
+              },
+              "statement": "Fixed neighborhood aggregation schemes impose a structure-dependent influence radius that may not be optimal for all nodes."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Discuss the implications of fixed random walk distributions on graphs with varying subgraph structures.",
+            "Illustrate fast collapse on expanders and slow convergence on tree-like parts."
+          ],
+          "methods": [],
+          "name": "Limitations of Fixed Aggregation Schemes",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Convergence rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "02ffef3e2e4745b353b2",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Random walks starting inside an expander converge rapidly in O(log |V |) steps to an almost-uniform distribution (Hoory et al., 2006)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_9f119bdad7e18df4f7e932e2",
+              "unit": null,
+              "value_raw_text": "Random walks on expanders converge in O(log |V|) steps to almost-uniform distribution."
+            }
+          ],
+          "unit_id": "su_1a508bfec88a22aa9a7eefe5"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Can an adaptive architecture that learns to select neighborhood ranges per node improve graph representation learning?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_261363a700889f6c4328221e",
+              "inference_basis_ids": [
+                "res_6d5390bc5e21c9269392a52c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "24e07d7a912ca1d5e8cc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Figure 5 illustrates how a 6-layer JK-Net with max-pooling aggregation learns to adapt to different subgraph structures on a citation network."
+              },
+              "statement": "JK-Nets adaptively learn different neighborhood ranges for nodes in different subgraph structures."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Used for visualization of JK-Net adaptivity.",
+              "name": "Citation network (unspecified)",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Visualize how a 6-layer JK-Net with max-pooling adapts influence on a citation network."
+          ],
+          "methods": [],
+          "name": "JK-Net Adaptivity Visualization",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Adaptivity pattern",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "24e07d7a912ca1d5e8cc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Within a tree-like structure, the influence stays in the 'small community' the node belongs to. ... For a node affiliated to a 'hub', ... JK-Net learns to put most influence on the node itself and otherwise spreads out the influence. ... For hubs, JK-Net spreads out the influence across the neighboring nodes in a reasonable range."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6d5390bc5e21c9269392a52c",
+              "unit": null,
+              "value_raw_text": "JK-Net learns to focus influence on small community for tree-like nodes, on self for hub-affiliated nodes, and spreads influence for hubs."
+            }
+          ],
+          "unit_id": "su_0788fefd35188af65a2a8e5e"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_69e101ec97a22eeb335b0735",
+              "inference_basis_ids": [
+                "res_77e76a93ece2b695952037d1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "24e07d7a912ca1d5e8cc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Contrasting this result with the influence distributions of other aggregation mechanisms, we see that JK-networks indeed differ in their node-wise adaptivity of neighborhood ranges."
+              },
+              "statement": "JK-Nets enable node-wise adaptivity of neighborhood ranges, unlike fixed aggregation schemes."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze adaptivity of JK-Nets via influence distributions.",
+            "Propose JK-Nets with layer aggregation mechanisms: concatenation, max-pooling, LSTM-attention."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "JK-Net with Concatenation",
+              "protocol_description": "Concatenate representations from all layers and apply a linear transformation. Weights are shared across nodes, not node-adaptive."
+            },
+            {
+              "method_id": "M3",
+              "name": "JK-Net with Max-pooling",
+              "protocol_description": "Element-wise max over layer representations. Adaptive per node, no additional parameters."
+            },
+            {
+              "method_id": "M4",
+              "name": "JK-Net with LSTM-attention",
+              "protocol_description": "Input layer representations into a bi-directional LSTM, compute attention scores via linear mapping and softmax, and take weighted sum. Node-adaptive."
+            }
+          ],
+          "name": "Jumping Knowledge Networks (JK-Nets) Design",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Influence distribution property",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "24e07d7a912ca1d5e8cc",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The influence score I(x, y) for any x, y ∈V under a k-layer JK-Net with layer-wise max-pooling is equivalent in expectation to a mixture of 0, .., k-step random walk distributions on eG at y starting at x, the coefficients of which depend on the values of the layer features h(l)x."
+              },
+              "quantitative_value": null,
+              "result_id": "res_77e76a93ece2b695952037d1",
+              "unit": null,
+              "value_raw_text": "Under JK-Net with max-pooling, the influence score is equivalent in expectation to a mixture of 0 to k-step random walk distributions, with coefficients depending on layer features."
+            }
+          ],
+          "unit_id": "su_2a14fcb83d774cd1801bcb18"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "How do JK-Nets perform compared to state-of-the-art models on node classification benchmarks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6c23766733f27d9ea1c29a5c",
+              "inference_basis_ids": [
+                "res_6c8f1c2f72c5b44400a6ab32"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "With MaxPool as node aggregator and Concat as layer aggregator, JK-Net achieves the best Micro-F1 score among GarphSAGE and JK-Net variants. Note that the original GraphSAGE already performs fairly well with a Micro-F1 of 0.95. JK-Net reduces the error by 30%."
+              },
+              "statement": "JK-Net with MaxPool node aggregator and Concat layer aggregator achieves best Micro-F1 of 0.965 on Reddit, reducing error by 30% over GraphSAGE."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "232,965 nodes, avg degree 492, 50 classes, 300 features. Communities selected from middle-sized communities.",
+              "name": "Reddit",
+              "version_or_split": "As in GraphSAGE paper"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Combine with JK-Net layer aggregators: MaxPool, Concat, LSTM.",
+            "Fix 2 layers, 128 hidden units, Adam lr=0.01, no weight decay.",
+            "Transductive node classification on Reddit dataset.",
+            "Use GraphSAGE as base model with Mean and MaxPool node aggregators."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "GraphSAGE-based JK-Net",
+              "protocol_description": "Base model GraphSAGE with Mean or MaxPool node aggregator. JK-Net layer aggregators: MaxPool, Concat, LSTM. 2 hidden layers, 128 hidden units, Adam lr=0.01, no weight decay."
+            },
+            {
+              "method_id": "M9",
+              "name": "GraphSAGE baseline",
+              "protocol_description": "GraphSAGE (Hamilton et al. 2017)."
+            }
+          ],
+          "name": "Reddit Experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Maxpool 0.953"
+              },
+              "quantitative_value": 0.953,
+              "result_id": "res_0ebab588640bbdf4d1b881fa",
+              "unit": null,
+              "value_raw_text": "0.953"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "MaxPool 0.877"
+              },
+              "quantitative_value": 0.877,
+              "result_id": "res_31b52363d4222a1698b8ced2",
+              "unit": null,
+              "value_raw_text": "0.877"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "MaxPool 0.924"
+              },
+              "quantitative_value": 0.924,
+              "result_id": "res_389613ea293c46177b1709a0",
+              "unit": null,
+              "value_raw_text": "0.924"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "MaxPool 0.965"
+              },
+              "quantitative_value": 0.965,
+              "result_id": "res_6c8f1c2f72c5b44400a6ab32",
+              "unit": null,
+              "value_raw_text": "0.965"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MaxPool 0.948"
+              },
+              "quantitative_value": 0.948,
+              "result_id": "res_9045fb35eb4efca9c5a60648",
+              "unit": null,
+              "value_raw_text": "0.948"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Concat 0.955"
+              },
+              "quantitative_value": 0.955,
+              "result_id": "res_c0c07303c7c075aeff0fd678",
+              "unit": null,
+              "value_raw_text": "0.955"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "c34a0689625f819e36e5",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "LSTM 0.950"
+                }
+              ],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Mean 0.950"
+              },
+              "quantitative_value": 0.95,
+              "result_id": "res_e8ca2dc906ebb82f019b91d9",
+              "unit": null,
+              "value_raw_text": "0.950"
+            }
+          ],
+          "unit_id": "su_526feefbb60945f35e8ca4ad"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_36a96f09bb4395470b9c7a15",
+              "inference_basis_ids": [
+                "res_2506a8f70bc7241fcb1e48fd",
+                "res_28a4002224722719c0d4a603",
+                "res_806209aad150e8013668ce3a",
+                "res_9b18ebd1bb53681153e36bc3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "JK-Nets with the LSTM-attention aggregators outperform the non-adaptive models GraphSAGE, GAT and JK-Nets with concatenation aggregators."
+              },
+              "statement": "JK-Nets with LSTM-attention significantly outperform non-adaptive models on PPI."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4561636689d3a86acab74f2e",
+              "inference_basis_ids": [
+                "res_28a4002224722719c0d4a603"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "JK-LSTM outperforms GraphSAGE by 0.128 in terms of micro-F1 score after 30 epochs of training."
+              },
+              "statement": "JK-LSTM outperforms GraphSAGE by 0.128 micro-F1 after 30 epochs on PPI."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "Protein-protein interaction networks. 56,944 nodes, 818,716 edges, 121 classes, 50 features. 24 graphs, each a human tissue.",
+              "name": "PPI",
+              "version_or_split": "20 graphs train, 2 val, 2 test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "GAT-based: 2-3 layers, 4 attention heads (256 features each), final layer 6 heads (121 features each), skip connections. JK variants: Concat, LSTM, Dense-Concat, Dense-LSTM.",
+            "GraphSAGE-based: 3 layers, Mean/MaxPool node aggregators, JK layer aggregators MaxPool/Concat/LSTM. Train 10 and 30 epochs.",
+            "Inductive node classification on PPI dataset (multi-label protein function prediction).",
+            "Use GraphSAGE and GAT as base models."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "GraphSAGE-based JK-Net on PPI",
+              "protocol_description": "Base GraphSAGE with Mean or MaxPool node aggregator. JK layer aggregators: MaxPool, Concat, LSTM. 3 layers (2 if memory constrained). Adam, lr=0.01, no weight decay. Evaluate at 10 and 30 epochs."
+            },
+            {
+              "method_id": "M11",
+              "name": "GAT-based JK-Net on PPI",
+              "protocol_description": "Base GAT with 2 hidden layers, 4 attention heads (256 features each), final prediction layer 6 heads (121 features each), averaged, sigmoid. Skip connections. JK variants: Concat, LSTM, Dense-Concat, Dense-LSTM. Batch size 2, Adam lr=0.005."
+            },
+            {
+              "method_id": "M12",
+              "name": "GraphSAGE baseline",
+              "protocol_description": "GraphSAGE (Hamilton et al. 2017)."
+            },
+            {
+              "method_id": "M13",
+              "name": "GAT baseline",
+              "protocol_description": "Graph Attention Network (Veličković et al. 2018)."
+            },
+            {
+              "method_id": "M14",
+              "name": "MLP baseline",
+              "protocol_description": "Multilayer Perceptron."
+            }
+          ],
+          "name": "PPI Experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Concat 0.667"
+              },
+              "quantitative_value": 0.667,
+              "result_id": "res_1bd00503d5b7a94ddd5310bd",
+              "unit": null,
+              "value_raw_text": "0.667"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "JK-LSTM (3) 0.969 (0.006)"
+              },
+              "quantitative_value": 0.969,
+              "result_id": "res_2506a8f70bc7241fcb1e48fd",
+              "unit": null,
+              "value_raw_text": "0.969 (0.006)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "LSTM 0.818"
+              },
+              "quantitative_value": 0.818,
+              "result_id": "res_28a4002224722719c0d4a603",
+              "unit": null,
+              "value_raw_text": "0.818"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "MaxPool 0.713"
+              },
+              "quantitative_value": 0.713,
+              "result_id": "res_2cf76d4453acad431ea8d73d",
+              "unit": null,
+              "value_raw_text": "0.713"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MLP 0.422"
+              },
+              "quantitative_value": 0.422,
+              "result_id": "res_37ff22711592e0dbbc831065",
+              "unit": null,
+              "value_raw_text": "0.422"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "MaxPool 0.658"
+              },
+              "quantitative_value": 0.658,
+              "result_id": "res_4525793c871cc30474a5b6d8",
+              "unit": null,
+              "value_raw_text": "0.658"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Mean (30 epochs) 0.690"
+              },
+              "quantitative_value": 0.69,
+              "result_id": "res_73cb392fdf2d648a49b1dd7f",
+              "unit": null,
+              "value_raw_text": "0.690"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "MaxPool (10 epochs) 0.668"
+              },
+              "quantitative_value": 0.668,
+              "result_id": "res_7f537a21329839335af4cc16",
+              "unit": null,
+              "value_raw_text": "0.668"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "JK-Dense-LSTM (2)* 0.976 (0.007)"
+              },
+              "quantitative_value": 0.976,
+              "result_id": "res_806209aad150e8013668ce3a",
+              "unit": null,
+              "value_raw_text": "0.976 (0.007)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "LSTM 0.621*"
+              },
+              "quantitative_value": 0.621,
+              "result_id": "res_8c26785c6861f142c4ab28b1",
+              "unit": null,
+              "value_raw_text": "0.621"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "JK-Dense-Concat (2)* 0.956 (0.004)"
+              },
+              "quantitative_value": 0.956,
+              "result_id": "res_9a4659b95ab0c1657378eb51",
+              "unit": null,
+              "value_raw_text": "0.956 (0.004)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "LSTM 0.721"
+              },
+              "quantitative_value": 0.721,
+              "result_id": "res_9b18ebd1bb53681153e36bc3",
+              "unit": null,
+              "value_raw_text": "0.721"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Concat 0.687"
+              },
+              "quantitative_value": 0.687,
+              "result_id": "res_a5a53c9cd6ba114e0aa6223b",
+              "unit": null,
+              "value_raw_text": "0.687"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GAT 0.968 (0.002)"
+              },
+              "quantitative_value": 0.968,
+              "result_id": "res_ad0b3045de5d0fc4737a6d7f",
+              "unit": null,
+              "value_raw_text": "0.968 (0.002)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Mean (10 epochs) 0.644"
+              },
+              "quantitative_value": 0.644,
+              "result_id": "res_c6d04c4962099a8e5f2d6c2d",
+              "unit": null,
+              "value_raw_text": "0.644"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Concat 0.694"
+              },
+              "quantitative_value": 0.694,
+              "result_id": "res_cb792de11bca482e2c3856a1",
+              "unit": null,
+              "value_raw_text": "0.694"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "MaxPool 0.671"
+              },
+              "quantitative_value": 0.671,
+              "result_id": "res_e4fda16784fe81b5f7cf2bdf",
+              "unit": null,
+              "value_raw_text": "0.671"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c34a0689625f819e36e5",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "JK-Concat (2) 0.959 (0.003)"
+              },
+              "quantitative_value": 0.959,
+              "result_id": "res_f323e3592fff5c629da2260d",
+              "unit": null,
+              "value_raw_text": "0.959 (0.003)"
+            }
+          ],
+          "unit_id": "su_9959f26d9d85c5603d948fb3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0615f0b32766843e193439d6",
+              "inference_basis_ids": [
+                "res_0e726126c5cc8c2d6a8f82d9",
+                "res_1d62a380eb14dd9fdb6bd9f2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the fact that JK-Nets achieve the best performance with 6 layers indicates that global together with local information will help boost performance."
+              },
+              "statement": "On Cora, JK-Nets achieve best performance with 6 layers, leveraging both local and global information."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7d278fb8e08a1a4964f345a0",
+              "inference_basis_ids": [
+                "res_04e58bf1bdebcf1dc253e04f",
+                "res_0e726126c5cc8c2d6a8f82d9",
+                "res_1950c39ea8e297300ed9be14",
+                "res_1d62a380eb14dd9fdb6bd9f2",
+                "res_6cbed9c2b00d24777156de45",
+                "res_792ac1218aaa9721ea5a6acf",
+                "res_8bbdb377c18c6c5f40fbcd4e",
+                "res_9ea34438a7c83e04e68fb5fb",
+                "res_b0472bd1e1563ba4179ac8dd",
+                "res_c6cbf706e7c9cd343c228c69"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We observe in Table 2 that JK-Nets outperform both GCN and GAT baselines in terms of prediction accuracy."
+              },
+              "statement": "JK-Nets outperform GCN and GAT baselines on Citeseer and Cora."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Citation network with 3,327 nodes, 4,732 edges, 6 classes, 3,703 features.",
+              "name": "Citeseer",
+              "version_or_split": "60%/20%/20% train/val/test"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Citation network with 2,708 nodes, 5,429 edges, 7 classes, 1,433 features.",
+              "name": "Cora",
+              "version_or_split": "60%/20%/20% train/val/test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare GCN-based JK-Nets (MaxPool, Concat, LSTM) against GCN and GAT baselines.",
+            "Transductive node classification on Citeseer and Cora citation networks.",
+            "Vary number of layers from 1 to 6, select best on validation set."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "GCN-based JK-Net",
+              "protocol_description": "Base model GCN. JK-Net variants: MaxPool, Concat, LSTM-attention. Include first linear-transformed representation in final aggregation. Final prediction via fully connected layer. Adam optimizer lr=0.005, dropout 0.5, hidden dim {16,32}, L2 reg 0.0005. Select best layers 1-6 on validation."
+            },
+            {
+              "method_id": "M6",
+              "name": "GCN baseline",
+              "protocol_description": "Graph Convolutional Network (Kipf & Welling 2017)."
+            },
+            {
+              "method_id": "M7",
+              "name": "GAT baseline",
+              "protocol_description": "Graph Attention Network (Veličković et al. 2018)."
+            }
+          ],
+          "name": "Citeseer and Cora Experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GAT (3) 87.7 (0.3)"
+              },
+              "quantitative_value": 87.7,
+              "result_id": "res_04e58bf1bdebcf1dc253e04f",
+              "unit": "%",
+              "value_raw_text": "87.7 (0.3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "JK-Maxpool (6) 89.6 (0.5)"
+              },
+              "quantitative_value": 89.6,
+              "result_id": "res_0e726126c5cc8c2d6a8f82d9",
+              "unit": "%",
+              "value_raw_text": "89.6 (0.5)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "JK-LSTM (2) 74.7 (0.9)"
+              },
+              "quantitative_value": 74.7,
+              "result_id": "res_1950c39ea8e297300ed9be14",
+              "unit": "%",
+              "value_raw_text": "74.7 (0.9)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "JK-Concat (6) 89.1 (1.1)"
+              },
+              "quantitative_value": 89.1,
+              "result_id": "res_1d62a380eb14dd9fdb6bd9f2",
+              "unit": "%",
+              "value_raw_text": "89.1 (1.1)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCN (2) 77.3 (1.3)"
+              },
+              "quantitative_value": 77.3,
+              "result_id": "res_6cbed9c2b00d24777156de45",
+              "unit": "%",
+              "value_raw_text": "77.3 (1.3)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "JK-LSTM (1) 85.8 (1.0)"
+              },
+              "quantitative_value": 85.8,
+              "result_id": "res_792ac1218aaa9721ea5a6acf",
+              "unit": "%",
+              "value_raw_text": "85.8 (1.0)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "JK-MaxPool (1) 77.7 (0.5)"
+              },
+              "quantitative_value": 77.7,
+              "result_id": "res_8bbdb377c18c6c5f40fbcd4e",
+              "unit": "%",
+              "value_raw_text": "77.7 (0.5)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCN (2) 88.2 (0.7)"
+              },
+              "quantitative_value": 88.2,
+              "result_id": "res_9ea34438a7c83e04e68fb5fb",
+              "unit": "%",
+              "value_raw_text": "88.2 (0.7)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GAT (2) 76.2 (0.8)"
+              },
+              "quantitative_value": 76.2,
+              "result_id": "res_b0472bd1e1563ba4179ac8dd",
+              "unit": "%",
+              "value_raw_text": "76.2 (0.8)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dbd39e028ecb48f54c8f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "JK-Concat (1) 78.3 (0.8)"
+              },
+              "quantitative_value": 78.3,
+              "result_id": "res_c6cbf706e7c9cd343c228c69",
+              "unit": "%",
+              "value_raw_text": "78.3 (0.8)"
+            }
+          ],
+          "unit_id": "su_f49b2844cb224504ae0256a1"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5043 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9077 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5813 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7115 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9231 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7021 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6364 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8462 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[2].study_units[2].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    }
+  ]
+}

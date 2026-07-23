@@ -1,0 +1,637 @@
+{
+  "coverage_ledger": {
+    "04c080bea5e53f92cc4e": "not_selected",
+    "1bc401e0b3320d1c140f": "not_selected",
+    "21731d9ef672b39304f6": "extracted",
+    "2283ce95e3296fd9c43c": "not_selected",
+    "57dd634996defdc15d70": "not_selected",
+    "6e0ea0e0512238388c49": "not_selected",
+    "7516ae5292f540f957a3": "extracted",
+    "7a7ce8b12ca1fb6a817c": "not_selected",
+    "a3f557a63d8db6e6ac53": "not_selected",
+    "b49140fd645c383c69fb": "not_selected",
+    "b9ce5575024c4a4b4b47": "extracted",
+    "d6f35db995f03ff62428": "not_selected",
+    "d8dbd917a26671126fd5": "not_selected",
+    "e4f80e6b95c113c7b291": "extracted",
+    "f2e2a03fb5b4180ea819": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "biolord assumes partial supervision over a limited set of known attributes; full disentanglement of all biological factors is not guaranteed.",
+    "The method relies on the availability of labeled attributes for training; performance may degrade with very few labeled attributes.",
+    "Counterfactual predictions are limited to the attribute combinations seen during training; extrapolation to entirely new attribute ranges may be unreliable.",
+    "The evaluation is limited to the specific datasets and perturbation types studied; generalizability to other single-cell modalities or perturbation types requires further validation.",
+    "The biolord-classify extension depends on the quality of partial labels and may propagate errors if initial labels are noisy."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_10.pdf",
+    "source_sha256": "2f45808af35d249e1cfdcd1f404d9d2c09a018a24c8fb9c66cac71e960282397"
+  },
+  "paper_id": "1_10",
+  "quality_assessment": {
+    "correct_item_count": 41,
+    "deterministic_rule_score": 0.8929,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 44,
+    "f1": 0.8817,
+    "incorrect_item_count": 3,
+    "incorrect_items": [
+      {
+        "description": "The extracted result attributes the r2 score of 0.51 ± 0.0062 to chemCPA-pre, but the source excerpt shows this value is for chemCPA-pre, not biolord. The extracted item incorrectly assigns this value to biolord.",
+        "item_id": "result:su_0fc8f7b4c853bcdf49f69568:res_00618e73391750ca14eaee28",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result claims an r2 score of 0.40 ± 0.00 for biolord, but the source excerpt shows this value corresponds to a baseline (likely naive), not biolord.",
+        "item_id": "result:su_0fc8f7b4c853bcdf49f69568:res_5538b8921f12cea582fb2e3e",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result claims an r2 score of 0.40 ± 0.0067 for biolord, but the source excerpt shows this value corresponds to chemCPA, not biolord.",
+        "item_id": "result:su_0fc8f7b4c853bcdf49f69568:res_a200b8f06f95f37e853d49e1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "biolord's r2 score for drug response prediction on sci-Plex 3 (10 μM dosage) is 0.76 ± 0.0005.",
+        "item_id": null,
+        "source_chunk_id": "21731d9ef672b39304f6",
+        "source_excerpt": "biolord provides more accurate predictions (mean r2; chemCPA-pre: 0.51 ± 0.0062, biolord: 0.76 ± 0.0005).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "biolord's normalized mean squared error for predicting unseen one-gene perturbation (one of one gene unseen) is 0.37.",
+        "item_id": null,
+        "source_chunk_id": "e4f80e6b95c113c7b291",
+        "source_excerpt": "biolord outperforms GEARS in the prediction of unseen one-gene perturbation (normalized mean squared error, one of one gene unseen; GEARS: 0.47; biolord: 0.37)",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "biolord's normalized mean squared error for predicting two-gene perturbations (two of two genes unseen) is 0.50.",
+        "item_id": null,
+        "source_chunk_id": "e4f80e6b95c113c7b291",
+        "source_excerpt": "two-gene perturbations (normalized mean squared error, two of two genes unseen; GEARS: 0.53; biolord: 0.50",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "biolord's normalized mean squared error for predicting two-gene perturbations (one of one gene unseen) is 0.35.",
+        "item_id": null,
+        "source_chunk_id": "e4f80e6b95c113c7b291",
+        "source_excerpt": "one of one gene unseen; GEARS: 0.39; biolord: 0.35",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "biolord's normalized mean squared error for predicting two-gene perturbations (zero of two genes unseen) is 0.20.",
+        "item_id": null,
+        "source_chunk_id": "e4f80e6b95c113c7b291",
+        "source_excerpt": "zero of two genes unseen; GEARS: 0.28; biolord: 0.20",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "biolord's uncertainty measure for drug representation is 0.19 ± 0.005.",
+        "item_id": null,
+        "source_chunk_id": "e4f80e6b95c113c7b291",
+        "source_excerpt": "RDKit: 0.32 ± 0.008, biolord: 0.19 ± 0.005",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "biolord's adjusted Rand index for drug organization is 0.16.",
+        "item_id": null,
+        "source_chunk_id": "e4f80e6b95c113c7b291",
+        "source_excerpt": "adjusted Rand index RDKit: 0.03, biolord: 0.16",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "biolord's r2 score on 10% subsampled data is 0.63 ± 0.0003.",
+        "item_id": null,
+        "source_chunk_id": "e4f80e6b95c113c7b291",
+        "source_excerpt": "retaining high prediction accuracy (mean r2: 0.63 ± 0.0003) over 10% of the data",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9318,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8367
+  },
+  "quality_score": 0.8817,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a deep generative framework disentangle single-cell multi-omic data into known and unknown attributes to enable counterfactual predictions and biological insight?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2846f35f316c1cd80756d164",
+              "inference_basis_ids": [
+                "res_523743a80fc4522722da5b28",
+                "res_61e59069bd0b06a9f4e466fd",
+                "res_68acbc3b9f2152f40e991a51",
+                "res_8145e350d66b4fcb73ebf647",
+                "res_9b5f334afb6fc985ba300f94",
+                "res_a70f16cac392361194b84541",
+                "res_e73b9dcc304aff614a3e50dc",
+                "res_fd8438cb8249c3fbdc9a54d5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "We show that biolord outperforms GEARS in the prediction of unseen one-gene perturbation ... and two-gene perturbations"
+              },
+              "statement": "biolord outperforms GEARS in predicting unseen genetic perturbations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2e29ad51499210444bab5237",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "we show that biolord can obtain a disentangled representation that allows for uncovering infection-related attributes."
+              },
+              "statement": "biolord's counterfactual predictions over control cells reveal infection-associated gene programs in the Plasmodium liver stage atlas."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_38557d2b96b589092c317505",
+              "inference_basis_ids": [
+                "res_35690414e166fafdac659de0",
+                "res_5fcfb93b6cc90069d76206c4",
+                "res_8156239fb6326c14ddd5bce4",
+                "res_ced993f769a8e761f3583505"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "better captures underlying drug organization, relative to the chemically informed RDKit features used as input, both qualitatively and quantitatively (adjusted Rand index RDKit: 0.03, biolord: 0.16; Supplementary Fig. 4)."
+              },
+              "statement": "biolord's learned drug representation better captures underlying drug organization compared to RDKit features."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_48f914b188b4bc54fad06525",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "This motivated to use biolord-classify to classify abortive cells within the scRNA-seq data at earlier time points"
+              },
+              "statement": "biolord-classify can classify abortive hepatocytes at earlier time points in the Plasmodium infection atlas."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_90f788a290ade340e9ab1a28",
+              "inference_basis_ids": [
+                "res_104608b4c8c7e9da9fdb8556"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Biolord also outperforms PerturbNet8 (Supplementary Note 3) and is robust to data subsampling, retaining high prediction accuracy (mean r2: 0.63 ± 0.0003) over 10% of the data"
+              },
+              "statement": "biolord is robust to data subsampling, retaining high prediction accuracy with only 10% of the data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bac506cc8976d6aee0e71eb6",
+              "inference_basis_ids": [
+                "res_00618e73391750ca14eaee28",
+                "res_5538b8921f12cea582fb2e3e",
+                "res_a200b8f06f95f37e853d49e1",
+                "res_db64d43170db343bc5a926ad"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "21731d9ef672b39304f6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "biolord outperforms state-of-the-art methods in predictions of cellular response to unseen drugs and genetic perturbations."
+              },
+              "statement": "biolord outperforms state-of-the-art methods in predicting cellular response to unseen drugs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Single-cell RNA-seq dataset of three cancer cell lines treated with 188 compounds at four dosages, including control samples. Used for drug response prediction.",
+              "name": "sci-Plex 3",
+              "version_or_split": "~650,000 single-cell transcriptomes from three cancer cell lines exposed to 188 compounds at four dosages; nine unseen drugs held out for validation"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Single-cell Perturb-seq dataset with 81 one-gene perturbations. Preprocessed data from GEARS.",
+              "name": "Perturb-seq (one-gene)",
+              "version_or_split": "81 one-gene perturbations and control cells; 65,899 cells across 5,060 genes"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Single-cell Perturb-seq dataset with two-gene and one-gene perturbations. Preprocessed data from GEARS.",
+              "name": "Perturb-seq (two-gene)",
+              "version_or_split": "131 two-gene perturbations, 105 one-gene perturbations, and control cells; 89,357 cells across 5,045 genes"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Single-cell RNA-seq atlas of Plasmodium infection in mouse liver, including host and parasite transcriptomes, with annotations for infection status, spatial zone, time, and abortive classification.",
+              "name": "Plasmodium liver stage spatiotemporal atlas",
+              "version_or_split": "Hepatocytes from infected and control mice at 2, 12, 24, 30, 36 hpi; preprocessed annotated data from Zenodo"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply biolord to a spatiotemporal Plasmodium infection atlas to disentangle infection status from spatial and temporal attributes, and use counterfactual predictions to identify infection-associated gene programs.",
+            "Develop biolord, a deep generative model that learns disentangled representations of single-cell data by encoding known attributes (e.g., cell type, time, perturbation) and unknown attributes into a decomposed latent space, and training a generator to reconstruct observed measurements.",
+            "Evaluate biolord on drug response prediction using the sci-Plex 3 dataset, comparing counterfactual predictions for unseen drugs against baselines (naive, chemCPA, chemCPA-pre, PerturbNet).",
+            "Evaluate biolord on genetic perturbation prediction using two Perturb-seq datasets (one-gene and two-gene perturbations), comparing against GEARS.",
+            "Extend biolord to biolord-classify for semi-supervised attribute classification, and apply it to classify abortive hepatocytes at earlier time points in the Plasmodium infection atlas."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "biolord",
+              "protocol_description": "Deep generative framework that encodes single-cell measurements and known attribute labels into separate embeddings for each known attribute and one embedding for unknown attributes. A generator maps these embeddings back to the observed data. Training maximizes reconstruction accuracy while minimizing information in the unknown embedding via capacity constraints. For drug response, RDKit chemical features and dosage are used as ordered attributes; cell line is categorical. For genetic perturbations, GO term graph edge features are used as ordered attributes. Counterfactual predictions are generated by taking reference cells and modifying attribute labels to unseen values. biolord-classify extends the model with a classifier for each attribute to predict missing labels."
+            },
+            {
+              "method_id": "M2",
+              "name": "chemCPA",
+              "protocol_description": "Baseline model for drug response prediction that trains a drug encoding network directly on single-cell data using reported optimal hyperparameters."
+            },
+            {
+              "method_id": "M3",
+              "name": "chemCPA-pre",
+              "protocol_description": "Pretrained version of chemCPA where the drug encoding network was trained on bulk RNA high-throughput screen (L1000). Hyperparameter tuning for adversary parameters was performed."
+            },
+            {
+              "method_id": "M4",
+              "name": "PerturbNet",
+              "protocol_description": "Model consisting of a perturbation representation network (pretrained on ZINC dataset), a cellular representation network trained on the sci-Plex 3 data, and a mapping network trained on the latent representations from both."
+            },
+            {
+              "method_id": "M5",
+              "name": "GEARS",
+              "protocol_description": "Baseline for genetic perturbation prediction. Evaluation run using the setting from the GEARS reproducibility repository."
+            },
+            {
+              "method_id": "M6",
+              "name": "naive baseline",
+              "protocol_description": "For drug response, r2 score evaluated between control unperturbed cells and drug-treated cells."
+            }
+          ],
+          "name": "biolord framework development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "r2 score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "21731d9ef672b39304f6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "biolord provides more accurate predictions (mean r2; chemCPA-pre: 0.51 ± 0.0062, biolord: 0.76 ± 0.0005)."
+              },
+              "quantitative_value": 0.51,
+              "result_id": "res_00618e73391750ca14eaee28",
+              "unit": null,
+              "value_raw_text": "0.51 ± 0.0062"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "r2 score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "retaining high prediction accuracy (mean r2: 0.63 ± 0.0003) over 10% of the data"
+              },
+              "quantitative_value": 0.63,
+              "result_id": "res_104608b4c8c7e9da9fdb8556",
+              "unit": null,
+              "value_raw_text": "0.63 ± 0.0003"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "uncertainty measure",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "RDKit: 0.32 ± 0.008, biolord: 0.19 ± 0.005"
+              },
+              "quantitative_value": 0.19,
+              "result_id": "res_35690414e166fafdac659de0",
+              "unit": null,
+              "value_raw_text": "0.19 ± 0.005"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "biolord outperforms GEARS in the prediction of unseen one-gene perturbation (normalized mean squared error, one of one gene unseen; GEARS: 0.47; biolord: 0.37)"
+              },
+              "quantitative_value": 0.47,
+              "result_id": "res_523743a80fc4522722da5b28",
+              "unit": null,
+              "value_raw_text": "0.47"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "r2 score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "21731d9ef672b39304f6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "E (r2)\n0.40 ± 0.00\n0.40 ± 0.0067\n0.51 ± 0.0062\n0.76 ± 0.0005"
+              },
+              "quantitative_value": 0.4,
+              "result_id": "res_5538b8921f12cea582fb2e3e",
+              "unit": null,
+              "value_raw_text": "0.40 ± 0.00"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "uncertainty measure",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "RDKit: 0.32 ± 0.008, biolord: 0.19 ± 0.005"
+              },
+              "quantitative_value": 0.32,
+              "result_id": "res_5fcfb93b6cc90069d76206c4",
+              "unit": null,
+              "value_raw_text": "0.32 ± 0.008"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "zero of two genes unseen; GEARS: 0.28; biolord: 0.20"
+              },
+              "quantitative_value": 0.28,
+              "result_id": "res_61e59069bd0b06a9f4e466fd",
+              "unit": null,
+              "value_raw_text": "0.28"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "one of one gene unseen; GEARS: 0.39; biolord: 0.35"
+              },
+              "quantitative_value": 0.39,
+              "result_id": "res_68acbc3b9f2152f40e991a51",
+              "unit": null,
+              "value_raw_text": "0.39"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "one of one gene unseen; GEARS: 0.39; biolord: 0.35"
+              },
+              "quantitative_value": 0.35,
+              "result_id": "res_8145e350d66b4fcb73ebf647",
+              "unit": null,
+              "value_raw_text": "0.35"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "adjusted Rand index",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "adjusted Rand index RDKit: 0.03, biolord: 0.16"
+              },
+              "quantitative_value": 0.16,
+              "result_id": "res_8156239fb6326c14ddd5bce4",
+              "unit": null,
+              "value_raw_text": "0.16"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "two-gene perturbations (normalized mean squared error, two of two genes unseen; GEARS: 0.53; biolord: 0.50"
+              },
+              "quantitative_value": 0.5,
+              "result_id": "res_9b5f334afb6fc985ba300f94",
+              "unit": null,
+              "value_raw_text": "0.50"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "r2 score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "21731d9ef672b39304f6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "E (r2)\n0.40 ± 0.00\n0.40 ± 0.0067\n0.51 ± 0.0062\n0.76 ± 0.0005"
+              },
+              "quantitative_value": 0.4,
+              "result_id": "res_a200b8f06f95f37e853d49e1",
+              "unit": null,
+              "value_raw_text": "0.40 ± 0.0067"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "zero of two genes unseen; GEARS: 0.28; biolord: 0.20"
+              },
+              "quantitative_value": 0.2,
+              "result_id": "res_a70f16cac392361194b84541",
+              "unit": null,
+              "value_raw_text": "0.20"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "adjusted Rand index",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "adjusted Rand index RDKit: 0.03, biolord: 0.16"
+              },
+              "quantitative_value": 0.03,
+              "result_id": "res_ced993f769a8e761f3583505",
+              "unit": null,
+              "value_raw_text": "0.03"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "r2 score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "21731d9ef672b39304f6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "biolord provides more accurate predictions (mean r2; chemCPA-pre: 0.51 ± 0.0062, biolord: 0.76 ± 0.0005)."
+              },
+              "quantitative_value": 0.76,
+              "result_id": "res_db64d43170db343bc5a926ad",
+              "unit": null,
+              "value_raw_text": "0.76 ± 0.0005"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "two-gene perturbations (normalized mean squared error, two of two genes unseen; GEARS: 0.53; biolord: 0.50"
+              },
+              "quantitative_value": 0.53,
+              "result_id": "res_e73b9dcc304aff614a3e50dc",
+              "unit": null,
+              "value_raw_text": "0.53"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "normalized mean squared error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e4f80e6b95c113c7b291",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "biolord outperforms GEARS in the prediction of unseen one-gene perturbation (normalized mean squared error, one of one gene unseen; GEARS: 0.47; biolord: 0.37)"
+              },
+              "quantitative_value": 0.37,
+              "result_id": "res_fd8438cb8249c3fbdc9a54d5",
+              "unit": null,
+              "value_raw_text": "0.37"
+            }
+          ],
+          "unit_id": "su_0fc8f7b4c853bcdf49f69568"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6423 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5143 on attempt 1"
+    }
+  ]
+}

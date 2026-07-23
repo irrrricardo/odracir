@@ -1,0 +1,729 @@
+{
+  "coverage_ledger": {
+    "0f534ef30e4eb85b8a10": "not_selected",
+    "1e4354a236901384ff14": "extracted",
+    "2a55a272ecc521a07013": "extracted",
+    "3a1579bc5579fe046e16": "not_selected",
+    "3daf2477874c59c69e71": "not_selected",
+    "53c5a1c2380e1df38b3a": "not_selected",
+    "580b3bcbafeaa43ed1a1": "not_selected",
+    "5e7387d80f07c51c412a": "extracted",
+    "9bec5fa023c63ec99cd3": "not_selected",
+    "a07d74bfcec73d3fc2e0": "not_selected",
+    "b458cb49d934802446e1": "not_selected",
+    "bdd657fb4459a6abc97b": "extracted",
+    "cf9aac9a04dec6c70bf9": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The analysis focuses on 1D convection, reaction, and diffusion PDEs; generalization to higher dimensions or other PDE types is not evaluated.",
+    "The curriculum regularization approach requires selecting a schedule for increasing the PDE parameter, which may be problem-dependent.",
+    "The sequence-to-sequence approach is only described conceptually; no quantitative results are provided in the extracted chunks.",
+    "The loss landscape analysis is based on perturbation along the first two dominant Hessian eigenvectors, which may not capture all optimization difficulties.",
+    "The study does not compare against other recent PINN variants or alternative SciML methods beyond the standard PINN."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_4.pdf",
+    "source_sha256": "9a8d02824ee5ffbd5a1a4fbeaafeeea6356fd59f7de094ec9af4e43008ea6787"
+  },
+  "paper_id": "7_4",
+  "quality_assessment": {
+    "correct_item_count": 43,
+    "deterministic_rule_score": 0.9318,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 43,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What are the failure modes of physics-informed neural networks (PINNs) when applied to PDEs with convection, reaction, and diffusion operators?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_799c8591f49dcae4030742be",
+              "inference_basis_ids": [
+                "res_199f3c4ac634364fade41002",
+                "res_3cc8ae2149a0408730b8b172",
+                "res_513296242f8102eac9d67e57",
+                "res_5e2ac15adb9728ecba5009d8",
+                "res_9ce1bce48d3fce90730bf8f1",
+                "res_b8a974812b87121319665011",
+                "res_c31c01e438a1f02eb97cf7c1",
+                "res_dc55b864a73ac58422483b7a",
+                "res_e9ab92d909609fe46197c450",
+                "res_f7fc66df9ce81b29adf62ac4"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "2a55a272ecc521a07013",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "they can easily fail to learn relevant physical phenomena for even slightly more complex problems. In particular, we analyze several distinct situations of widespread physical interest, including learning differential equations with convection, reaction, and diffusion operators."
+              },
+              "statement": "Standard PINN training fails to learn relevant physical phenomena for PDEs with convection, reaction, and diffusion operators as the PDE parameters increase."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9f82f80b408498fbee7f6a9a",
+              "inference_basis_ids": [
+                "res_33e21f8222a0deb868d3b730",
+                "res_bc06485f302941ae23bc07eb",
+                "res_d67c29400c69e24491d8fb54"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "2a55a272ecc521a07013",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Importantly, we show that these possible failure modes are not due to the lack of expressivity in the NN architecture, but that the PINN’s setup makes the loss landscape very hard to optimize."
+              },
+              "statement": "The failure modes are not due to lack of expressivity in the NN architecture, but because the PINN setup makes the loss landscape very hard to optimize."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bcb43aecc8f14c031a41c927",
+              "inference_basis_ids": [
+                "res_33e21f8222a0deb868d3b730",
+                "res_bc06485f302941ae23bc07eb",
+                "res_d67c29400c69e24491d8fb54"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "2a55a272ecc521a07013",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the soft regularization in PINNs, which involves PDE-based differential operators, can introduce a number of subtle problems, including making the problem more ill-conditioned."
+              },
+              "statement": "The soft PDE regularization in PINNs introduces subtle problems, including making the optimization problem more ill-conditioned."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Figure 3 shows the loss landscape for the convection problem (discussed in §3.1), for different β values. Interestingly, the loss landscape at a relatively low β = 1 is rather smooth, but increasing β further results in a complex and non-symmetric loss landscape. It is also evident that the optimizer has gotten stuck in a local minima with a very high loss function for large β values.",
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Figure 3 shows the loss landscape for the convection problem (discussed in §3.1), for different β values. Interestingly, the loss landscape at a relatively low β = 1 is rather smooth, but increasing β further results in a complex and non-symmetric loss landscape. It is also evident that the optimizer has gotten stuck in a local minima with a very high loss function for large β values."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Train standard PINN models on 1D convection PDE with varying convection coefficient β (1, 10, 20, 30, 40).",
+            "Train standard PINN models on diffusion PDE.",
+            "Train standard PINN models on reaction PDE with varying reaction coefficient ρ."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Standard PINN training",
+              "protocol_description": "Physics-informed neural network (PINN) with soft PDE regularization in the loss function. The loss includes a data term and a PDE residual term weighted by λ. The model is trained to predict the entire space-time solution at once."
+            }
+          ],
+          "name": "PINN failure mode analysis on convection, reaction, and diffusion PDEs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 10 Absolute error 6.03 × 10−3"
+              },
+              "quantitative_value": 0.00603,
+              "result_id": "res_199f3c4ac634364fade41002",
+              "unit": null,
+              "value_raw_text": "6.03 × 10−3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Loss landscape smoothness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the loss landscape at a relatively low β = 1 is rather smooth"
+              },
+              "quantitative_value": null,
+              "result_id": "res_33e21f8222a0deb868d3b730",
+              "unit": null,
+              "value_raw_text": "smooth"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 20 Relative error 7.50 × 10−1"
+              },
+              "quantitative_value": 0.75,
+              "result_id": "res_3cc8ae2149a0408730b8b172",
+              "unit": null,
+              "value_raw_text": "7.50 × 10−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 30 Absolute error 5.42 × 10−1"
+              },
+              "quantitative_value": 0.542,
+              "result_id": "res_513296242f8102eac9d67e57",
+              "unit": null,
+              "value_raw_text": "5.42 × 10−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 40 Absolute error 5.82 × 10−1"
+              },
+              "quantitative_value": 0.582,
+              "result_id": "res_5e2ac15adb9728ecba5009d8",
+              "unit": null,
+              "value_raw_text": "5.82 × 10−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 10 Relative error 1.08 × 10−2"
+              },
+              "quantitative_value": 0.0108,
+              "result_id": "res_9ce1bce48d3fce90730bf8f1",
+              "unit": null,
+              "value_raw_text": "1.08 × 10−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 40 Relative error 9.61 × 10−1"
+              },
+              "quantitative_value": 0.961,
+              "result_id": "res_b8a974812b87121319665011",
+              "unit": null,
+              "value_raw_text": "9.61 × 10−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Optimizer status",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the optimizer has gotten stuck in a local minima with a very high loss function for large β values"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bc06485f302941ae23bc07eb",
+              "unit": null,
+              "value_raw_text": "stuck in a local minima with a very high loss function"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 30 Relative error 8.97 × 10−1"
+              },
+              "quantitative_value": 0.897,
+              "result_id": "res_c31c01e438a1f02eb97cf7c1",
+              "unit": null,
+              "value_raw_text": "8.97 × 10−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Loss landscape complexity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "increasing β further results in a complex and non-symmetric loss landscape"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d67c29400c69e24491d8fb54",
+              "unit": null,
+              "value_raw_text": "complex and non-symmetric"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 20 Absolute error 4.32 × 10−1"
+              },
+              "quantitative_value": 0.432,
+              "result_id": "res_dc55b864a73ac58422483b7a",
+              "unit": null,
+              "value_raw_text": "4.32 × 10−1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 1 Relative error 7.84 × 10−3"
+              },
+              "quantitative_value": 0.00784,
+              "result_id": "res_e9ab92d909609fe46197c450",
+              "unit": null,
+              "value_raw_text": "7.84 × 10−3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bdd657fb4459a6abc97b",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "β 1 Absolute error 3.17 × 10−3"
+              },
+              "quantitative_value": 0.00317,
+              "result_id": "res_f7fc66df9ce81b29adf62ac4",
+              "unit": null,
+              "value_raw_text": "3.17 × 10−3"
+            }
+          ],
+          "unit_id": "su_e0518d088c295e9af48b8fb9"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Can curriculum regularization and sequence-to-sequence learning mitigate the failure modes of PINNs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_666c713f212e3ec6cfb62130",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "we show that posing the problem as sequence-to-sequence learning may lead to better results than learning the entire state-space at once"
+              },
+              "statement": "Posing the problem as sequence-to-sequence learning may lead to better results than learning the entire state-space at once."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Train PINN using sequence-to-sequence learning, predicting the solution at the next time step instead of the entire space-time at once."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Sequence-to-sequence PINN learning",
+              "protocol_description": "Pose the problem as a sequence-to-sequence learning task, where the NN learns to predict the solution at the next time step, rather than learning the entire space-time at once."
+            }
+          ],
+          "name": "Sequence-to-sequence learning for PINN",
+          "results": [],
+          "unit_id": "su_27b5a2db8074f31f8f8a2bbd"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_99c23553acff8e9aa3532ef5",
+              "inference_basis_ids": [
+                "res_0bd3d1684b7942860ae4f7b9",
+                "res_1bce678098678eb8df075060",
+                "res_3873347c3186d2e7a5fb288e",
+                "res_3a558b7e66976a81eeac72bf",
+                "res_55e0b18321bbd472c5bc13c1",
+                "res_7f4799ca6dd12d455e8c5ed1",
+                "res_9de3e183079c55fd333b02d3",
+                "res_c7688be44b59403dbecc4b39"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2a55a272ecc521a07013",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Extensive testing shows that we can achieve up to 1-2 orders of magnitude lower error with these methods as compared to regular PINN training."
+              },
+              "statement": "Curriculum regularization significantly reduces error compared to regular PINN training, achieving up to 1-2 orders of magnitude lower error."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d5ee2a5b4a17ebb3e2bc4a98",
+              "inference_basis_ids": [
+                "res_3873347c3186d2e7a5fb288e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "PINN has difﬁculty in learning sharp features for high values of ρ. However, the curriculum regularization overcomes this, even for ρ = 10"
+              },
+              "statement": "Curriculum regularization overcomes the difficulty of learning sharp features for high reaction coefficients."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Figure 4 shows the training procedure for an example convection case ( §3.1) with β = 30. As Fig. 4(c) shows, the curriculum regularization approach results in a much more accurate solution than regular PINN training. With curriculum regularization, the relative error is almost two orders of magnitude lower.",
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Figure 4 shows the training procedure for an example convection case ( §3.1) with β = 30. As Fig. 4(c) shows, the curriculum regularization approach results in a much more accurate solution than regular PINN training. With curriculum regularization, the relative error is almost two orders of magnitude lower."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Train PINN with curriculum regularization on 1D convection PDE with β = 20, 30, 40.",
+            "Train PINN with curriculum regularization on reaction PDE with varying ρ."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Curriculum PINN regularization",
+              "protocol_description": "Start training the PINN on a low PDE parameter (β or ρ), then gradually increase the parameter, using the trained weights from the previous step to initialize the next training stage. This progressively makes the PDE harder to solve."
+            }
+          ],
+          "name": "Curriculum regularization for PINN training",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1D convection: β = 20 Curriculum training Relative error 9.84 × 10−3"
+              },
+              "quantitative_value": 0.00984,
+              "result_id": "res_0bd3d1684b7942860ae4f7b9",
+              "unit": null,
+              "value_raw_text": "9.84 × 10−3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1D convection: β = 40 Curriculum training Absolute error 2.69 × 10−2"
+              },
+              "quantitative_value": 0.0269,
+              "result_id": "res_1bce678098678eb8df075060",
+              "unit": null,
+              "value_raw_text": "2.69 × 10−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error reduction for reaction PDE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "greatly decreases error by 1-2 orders of magnitude for ρ = 5 −10"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3873347c3186d2e7a5fb288e",
+              "unit": null,
+              "value_raw_text": "1-2 orders of magnitude for ρ = 5 −10"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error reduction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the curriculum regularization approach results in a much more accurate solution than regular PINN training. With curriculum regularization, the relative error is almost two orders of magnitude lower."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3a558b7e66976a81eeac72bf",
+              "unit": null,
+              "value_raw_text": "almost two orders of magnitude lower"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1D convection: β = 30 Curriculum training Relative error 2.02 × 10−2"
+              },
+              "quantitative_value": 0.0202,
+              "result_id": "res_55e0b18321bbd472c5bc13c1",
+              "unit": null,
+              "value_raw_text": "2.02 × 10−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1D convection: β = 30 Curriculum training Absolute error 1.10 × 10−2"
+              },
+              "quantitative_value": 0.011,
+              "result_id": "res_7f4799ca6dd12d455e8c5ed1",
+              "unit": null,
+              "value_raw_text": "1.10 × 10−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1D convection: β = 40 Curriculum training Relative error 5.33 × 10−2"
+              },
+              "quantitative_value": 0.0533,
+              "result_id": "res_9de3e183079c55fd333b02d3",
+              "unit": null,
+              "value_raw_text": "5.33 × 10−2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Absolute error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1e4354a236901384ff14",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "1D convection: β = 20 Curriculum training Absolute error 5.42 × 10−3"
+              },
+              "quantitative_value": 0.00542,
+              "result_id": "res_c7688be44b59403dbecc4b39",
+              "unit": null,
+              "value_raw_text": "5.42 × 10−3"
+            }
+          ],
+          "unit_id": "su_2c6f594ba522ce3abcea7345"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8387 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8387 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8065 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8387 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8387 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8065 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8065 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8065 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6029 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6029 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7059 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5882 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5515 on attempt 1"
+    }
+  ]
+}

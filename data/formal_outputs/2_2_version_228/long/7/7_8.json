@@ -1,0 +1,1162 @@
+{
+  "coverage_ledger": {
+    "08753fea72d7dee44fd2": "extracted",
+    "0a365bb9ec0f41d1d7bb": "not_selected",
+    "1290579782931eadad4b": "not_selected",
+    "22d7e7d1604dea94489f": "extracted",
+    "498b4dabd0f84d21df86": "not_selected",
+    "4f7729ba574ee6753fd6": "extracted",
+    "5326429f86150e8cb207": "extracted",
+    "616af5d1fb3e908a04bc": "not_selected",
+    "7b4b20b60fce165fa92f": "not_selected",
+    "83f616e0f1bcabcf162e": "not_selected",
+    "95060111cf251ed8cc44": "not_selected",
+    "a3dc96558d3f5a3baa49": "not_selected",
+    "c0031e9de13a0faf8f35": "not_selected",
+    "c358d0b2a7567cd4848c": "not_selected",
+    "da988225ce627e3c464b": "not_selected",
+    "ddf481e28856b6e4fc4e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The paper only presents results for spatial resolution 64x64 for Navier-Stokes because all compared benchmarks are designed for this resolution; increasing it degrades their performance while FNO achieves the same errors.",
+    "For Navier-Stokes with insufficient data (ν=1e-4, N=1000 and ν=1e-5, N=1000), all methods have >15% error, indicating data efficiency limitations.",
+    "The 2D+RNN structure (FNO-2D) can propagate the solution to any arbitrary time T in increments of a fixed interval length Δt, while the Conv3D structure (FNO-3D) is fixed to the interval [0, T] but can transfer the solution to an arbitrary time-discretization."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_8.pdf",
+    "source_sha256": "08c00941ca39ada17430f571aca2db8ee39f5a68d0b6e70c7e9f219099cbce80"
+  },
+  "paper_id": "7_8",
+  "quality_assessment": {
+    "correct_item_count": 71,
+    "deterministic_rule_score": 0.8959,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.5882,
+      "sample_size_log_score": 1.0,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 71,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can a neural operator parameterized directly in Fourier space provide an expressive and efficient architecture for learning mappings between function spaces, and how does it compare to existing methods on parametric PDEs?",
+      "study_units": [
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "D2",
+              "description": "Synthetic data generated from the 2-d Darcy Flow equation with diffusion coefficient a and forcing function f.",
+              "name": "Darcy Flow dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the operator mapping diffusion coefficient to solution for the 2-d Darcy Flow equation on the unit box with Dirichlet boundary."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup3",
+              "name": "Fourier Neural Operator (FNO)",
+              "protocol_description": "A neural operator that learns mappings between function spaces by parameterizing the integral kernel in Fourier space. It uses the Fast Fourier Transform to efficiently compute convolutions, making it mesh-invariant and capable of zero-shot super-resolution."
+            },
+            {
+              "method_id": "M2__dup2",
+              "name": "FCN",
+              "protocol_description": "A fully convolutional network architecture for PDE learning (Zhu & Zabaras, 2018)."
+            },
+            {
+              "method_id": "M3__dup2",
+              "name": "PCANN",
+              "protocol_description": "An operator method using PCA as an autoencoder on input/output data and interpolating latent spaces with a neural network (Bhattacharya et al., 2020)."
+            },
+            {
+              "method_id": "M4__dup2",
+              "name": "GNO",
+              "protocol_description": "The original graph neural operator (Li et al., 2020b)."
+            },
+            {
+              "method_id": "M5__dup2",
+              "name": "MGNO",
+              "protocol_description": "The multipole graph neural operator (Li et al., 2020a)."
+            },
+            {
+              "method_id": "M6__dup2",
+              "name": "LNO",
+              "protocol_description": "A neural operator based on low-rank decomposition of the kernel, similar to unstacked DeepONet (Lu et al., 2019)."
+            }
+          ],
+          "name": "Darcy Flow benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The proposed Fourier neural operator obtains nearly one order of magnitude lower relative error compared to any benchmarks."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a39910d147d32d2b999c1a9e",
+              "unit": null,
+              "value_raw_text": "nearly one order of magnitude lower relative error compared to any benchmarks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error invariance with resolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We again observe the invariance of the error with respect to the resolution."
+              },
+              "quantitative_value": null,
+              "result_id": "res_caba4ebd85ac6f942e2c9076",
+              "unit": null,
+              "value_raw_text": "invariance of the error with respect to the resolution"
+            }
+          ],
+          "unit_id": "su_443ee1033a31ba9984d3a62a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_39965cfa1f4c3f5502913aea",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "08753fea72d7dee44fd2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The Fourier neural operator is the first ML-based method to successfully model turbulent flows with zero-shot super-resolution."
+              },
+              "statement": "The Fourier neural operator is the first ML-based method to successfully model turbulent flows with zero-shot super-resolution."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e39e1465ffc5f840053b7e64",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "08753fea72d7dee44fd2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "It is up to three orders of magnitude faster compared to traditional PDE solvers."
+              },
+              "statement": "The Fourier neural operator is up to three orders of magnitude faster compared to traditional PDE solvers."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f23a22f523171e0bf52751d7",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "08753fea72d7dee44fd2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Additionally, it achieves superior accuracy compared to previous learning-based solvers under fixed resolution."
+              },
+              "statement": "The Fourier neural operator achieves superior accuracy compared to previous learning-based solvers under fixed resolution."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose a neural operator that parameterizes the integral kernel directly in Fourier space, enabling resolution-invariant learning of PDE solution operators."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Fourier Neural Operator (FNO)",
+              "protocol_description": "A neural operator that learns mappings between function spaces by parameterizing the integral kernel in Fourier space. It uses the Fast Fourier Transform to efficiently compute convolutions, making it mesh-invariant and capable of zero-shot super-resolution."
+            }
+          ],
+          "name": "Fourier Neural Operator (FNO) method proposal",
+          "results": [],
+          "unit_id": "su_8ff5ba5b5dd8458ef24fd6b5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1662c9eef952199a66f477ef",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Note that we only present results for spatial resolution 64 × 64 since all benchmarks we compare against are designed for this resolution. Increasing it degrades their performance while FNO achieves the same errors."
+              },
+              "statement": "FNO achieves the same errors regardless of spatial resolution, while increasing resolution degrades the performance of other benchmarks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1df199ba67255b53c77d5151",
+              "inference_basis_ids": [
+                "res_2a1a9d99f92a8cbc8845d6e2",
+                "res_2eb8e9f5aecde4a098e128af",
+                "res_3baffa24a0ef891710a7236c",
+                "res_796fdf4fdf6b64603fe2a67a",
+                "res_7d05aee60d133d0f9e3681ad",
+                "res_88faa655f8ea0a7d1b38f7f5",
+                "res_a9342f431c033125b5852da0",
+                "res_adba432e552287ad4f1eb97c",
+                "res_ba80a74128901ee8fb750f20",
+                "res_c281c7874c744a9ca3f989fe"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "For the configurations where the amount of data is insufficient (ν = 1e−4, N = 1000 and ν = 1e−5, N = 1000), all methods have > 15% error with FNO-2D achieving the lowest."
+              },
+              "statement": "For configurations with insufficient data (ν = 1e−4, N = 1000 and ν = 1e−5, N = 1000), all methods have > 15% error with FNO-2D achieving the lowest."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_966a65ce83d858b9b0f0fb62",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We find the 3-d method to be more expressive and easier to train compared to its RNN-structured counterpart."
+              },
+              "statement": "The 3-d method (FNO-3D) is more expressive and easier to train compared to its RNN-structured counterpart (FNO-2D)."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d99b1a0de3d4518f736ef45f",
+              "inference_basis_ids": [
+                "res_40f1f3b6f35f33e0dab5b8ec",
+                "res_4da689cdb3a26cf83de035b6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "As shown in Table 1, the FNO-3D has the best performance when there is sufficient data (ν = 1e−3, N = 1000 and ν = 1e−4, N = 10000)."
+              },
+              "statement": "FNO-3D has the best performance when there is sufficient data (ν = 1e−3, N = 1000 and ν = 1e−4, N = 10000)."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D3",
+              "description": "Synthetic data generated from the 2-d Navier-Stokes equation in vorticity form with viscosity ν, forcing f, and initial vorticity w0. Resolution fixed at 64x64 for training and testing.",
+              "name": "Navier-Stokes dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the operator mapping vorticity up to time 10 to vorticity up to later time T for the 2-d Navier-Stokes equation on the unit torus, with varying viscosities and data sizes."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "TF-Net",
+              "protocol_description": "A network for learning turbulent flows based on spatial and temporal convolutions (Wang et al., 2020)."
+            },
+            {
+              "method_id": "M11",
+              "name": "ResNet",
+              "protocol_description": "18 layers of 2-d convolution with residual connections (He et al., 2016)."
+            },
+            {
+              "method_id": "M7",
+              "name": "FNO-3D",
+              "protocol_description": "3-d Fourier neural operator that directly convolves in space-time, mapping initial time steps to the full trajectory."
+            },
+            {
+              "method_id": "M8",
+              "name": "FNO-2D",
+              "protocol_description": "2-d Fourier neural operator with an RNN structure in time, mapping previous 10 time steps to the next time step."
+            },
+            {
+              "method_id": "M9",
+              "name": "U-Net",
+              "protocol_description": "A popular image-to-image regression network with 2-d convolutions and deconvolutions (Ronneberger et al., 2015)."
+            }
+          ],
+          "name": "Navier-Stokes equation benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 10000 ResNet 0.2311"
+              },
+              "quantitative_value": 0.2311,
+              "result_id": "res_069dcdfbf7cfdab17fd918ae",
+              "unit": null,
+              "value_raw_text": "0.2311"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 10000 TF-Net 0.1168"
+              },
+              "quantitative_value": 0.1168,
+              "result_id": "res_1322921a7c3363b149fc8ba7",
+              "unit": null,
+              "value_raw_text": "0.1168"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time per epoch",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "U-Net 48.67s"
+              },
+              "quantitative_value": 48.67,
+              "result_id": "res_1aae5678bc1ea544e1f20813",
+              "unit": "seconds",
+              "value_raw_text": "48.67s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D 6,558,537"
+              },
+              "quantitative_value": 6558537.0,
+              "result_id": "res_1e7161d4f113c49c86a8a0db",
+              "unit": null,
+              "value_raw_text": "6,558,537"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time per epoch",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "TF-Net 47.21s"
+              },
+              "quantitative_value": 47.21,
+              "result_id": "res_26bd13abf3b5b66a286c2023",
+              "unit": "seconds",
+              "value_raw_text": "47.21s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−5 T = 20 N = 1000 TF-Net 0.2268"
+              },
+              "quantitative_value": 0.2268,
+              "result_id": "res_2a1a9d99f92a8cbc8845d6e2",
+              "unit": null,
+              "value_raw_text": "0.2268"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ResNet 266,641"
+              },
+              "quantitative_value": 266641.0,
+              "result_id": "res_2da2cc924077ab316219afb6",
+              "unit": null,
+              "value_raw_text": "266,641"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 1000 TF-Net 0.2253"
+              },
+              "quantitative_value": 0.2253,
+              "result_id": "res_2eb8e9f5aecde4a098e128af",
+              "unit": null,
+              "value_raw_text": "0.2253"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 1000 FNO-3D 0.1918"
+              },
+              "quantitative_value": 0.1918,
+              "result_id": "res_3baffa24a0ef891710a7236c",
+              "unit": null,
+              "value_raw_text": "0.1918"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 10000 FNO-2D 0.0834"
+              },
+              "quantitative_value": 0.0834,
+              "result_id": "res_3cf27e2356eaf7088599e131",
+              "unit": null,
+              "value_raw_text": "0.0834"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 10000 FNO-3D 0.0820"
+              },
+              "quantitative_value": 0.082,
+              "result_id": "res_40f1f3b6f35f33e0dab5b8ec",
+              "unit": null,
+              "value_raw_text": "0.0820"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time per epoch",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ResNet 78.47s"
+              },
+              "quantitative_value": 78.47,
+              "result_id": "res_461b690abcdb54e1fb4bd563",
+              "unit": "seconds",
+              "value_raw_text": "78.47s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−3 T = 50 N = 1000 FNO-3D 0.0086"
+              },
+              "quantitative_value": 0.0086,
+              "result_id": "res_4da689cdb3a26cf83de035b6",
+              "unit": null,
+              "value_raw_text": "0.0086"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−3 T = 50 N = 1000 TF-Net 0.0225"
+              },
+              "quantitative_value": 0.0225,
+              "result_id": "res_623376e21fda6d00cd599542",
+              "unit": null,
+              "value_raw_text": "0.0225"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 10000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 10000 U-Net 0.1190"
+              },
+              "quantitative_value": 0.119,
+              "result_id": "res_644058c33e33488825b33210",
+              "unit": null,
+              "value_raw_text": "0.1190"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "U-Net 24,950,491"
+              },
+              "quantitative_value": 24950491.0,
+              "result_id": "res_704f65b5a402d77fac8b16bd",
+              "unit": null,
+              "value_raw_text": "24,950,491"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 1000 ResNet 0.2871"
+              },
+              "quantitative_value": 0.2871,
+              "result_id": "res_796fdf4fdf6b64603fe2a67a",
+              "unit": null,
+              "value_raw_text": "0.2871"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−5 T = 20 N = 1000 ResNet 0.2753"
+              },
+              "quantitative_value": 0.2753,
+              "result_id": "res_7d05aee60d133d0f9e3681ad",
+              "unit": null,
+              "value_raw_text": "0.2753"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−5 T = 20 N = 1000 U-Net 0.1982"
+              },
+              "quantitative_value": 0.1982,
+              "result_id": "res_88faa655f8ea0a7d1b38f7f5",
+              "unit": null,
+              "value_raw_text": "0.1982"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−3 T = 50 N = 1000 ResNet 0.0701"
+              },
+              "quantitative_value": 0.0701,
+              "result_id": "res_8a06fe82f95fb992b3c10366",
+              "unit": null,
+              "value_raw_text": "0.0701"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D 414,517"
+              },
+              "quantitative_value": 414517.0,
+              "result_id": "res_a26a815c53bf76c1da2ee2df",
+              "unit": null,
+              "value_raw_text": "414,517"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Parameters",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "TF-Net 7,451,724"
+              },
+              "quantitative_value": 7451724.0,
+              "result_id": "res_a791023bff6d46d413ea94f5",
+              "unit": null,
+              "value_raw_text": "7,451,724"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−3 T = 50 N = 1000 U-Net 0.0245"
+              },
+              "quantitative_value": 0.0245,
+              "result_id": "res_a87e474e8fb714996e3d7cb4",
+              "unit": null,
+              "value_raw_text": "0.0245"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−5 T = 20 N = 1000 FNO-3D 0.1893"
+              },
+              "quantitative_value": 0.1893,
+              "result_id": "res_a9342f431c033125b5852da0",
+              "unit": null,
+              "value_raw_text": "0.1893"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 1000 U-Net 0.2051"
+              },
+              "quantitative_value": 0.2051,
+              "result_id": "res_adba432e552287ad4f1eb97c",
+              "unit": null,
+              "value_raw_text": "0.2051"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time per epoch",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-3D 38.99s"
+              },
+              "quantitative_value": 38.99,
+              "result_id": "res_b91a28a38618c7d8b1966e06",
+              "unit": "seconds",
+              "value_raw_text": "38.99s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−4 T = 30 N = 1000 FNO-2D 0.1559"
+              },
+              "quantitative_value": 0.1559,
+              "result_id": "res_ba80a74128901ee8fb750f20",
+              "unit": null,
+              "value_raw_text": "0.1559"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−5 T = 20 N = 1000 FNO-2D 0.1556"
+              },
+              "quantitative_value": 0.1556,
+              "result_id": "res_c281c7874c744a9ca3f989fe",
+              "unit": null,
+              "value_raw_text": "0.1556"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": 1000,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ν = 1e−3 T = 50 N = 1000 FNO-2D 0.0128"
+              },
+              "quantitative_value": 0.0128,
+              "result_id": "res_c6202b73164c68dfff66831e",
+              "unit": null,
+              "value_raw_text": "0.0128"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time per epoch",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4f7729ba574ee6753fd6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "FNO-2D 127.80s"
+              },
+              "quantitative_value": 127.8,
+              "result_id": "res_ec32223b08a74dcf689ff7f6",
+              "unit": "seconds",
+              "value_raw_text": "127.80s"
+            }
+          ],
+          "unit_id": "su_a015c3ec04182cf742ed4ef3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_cb4e133f14a1bb8e1e4544aa",
+              "inference_basis_ids": [
+                "res_6aa8dccba83de6576990d247"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "22d7e7d1604dea94489f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Compared to other neural operator methods such as GNO and MGNO that use Nyström sampling in physical space, the Fourier neural operator is both more accurate and more computationally efficient."
+              },
+              "statement": "FNO is more accurate and computationally efficient than GNO and MGNO on Burgers' equation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Synthetic data generated from the 1-d Burgers' equation with viscosity ν, initial condition u0, and periodic boundary conditions.",
+              "name": "Burgers' equation dataset",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learn the operator mapping initial condition to solution at time one for the 1-d Burgers' equation with periodic boundary conditions."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup2",
+              "name": "Fourier Neural Operator (FNO)",
+              "protocol_description": "A neural operator that learns mappings between function spaces by parameterizing the integral kernel in Fourier space. It uses the Fast Fourier Transform to efficiently compute convolutions, making it mesh-invariant and capable of zero-shot super-resolution."
+            },
+            {
+              "method_id": "M2",
+              "name": "FCN",
+              "protocol_description": "A fully convolutional network architecture for PDE learning (Zhu & Zabaras, 2018)."
+            },
+            {
+              "method_id": "M3",
+              "name": "PCANN",
+              "protocol_description": "An operator method using PCA as an autoencoder on input/output data and interpolating latent spaces with a neural network (Bhattacharya et al., 2020)."
+            },
+            {
+              "method_id": "M4",
+              "name": "GNO",
+              "protocol_description": "The original graph neural operator (Li et al., 2020b)."
+            },
+            {
+              "method_id": "M5",
+              "name": "MGNO",
+              "protocol_description": "The multipole graph neural operator (Li et al., 2020a)."
+            },
+            {
+              "method_id": "M6",
+              "name": "LNO",
+              "protocol_description": "A neural operator based on low-rank decomposition of the kernel, similar to unstacked DeepONet (Lu et al., 2019)."
+            }
+          ],
+          "name": "Burgers' equation benchmark",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Error invariance with resolution",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "22d7e7d1604dea94489f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Further, the error is invariant with the resolution, while the error of convolution neural network based methods (FCN) grows with the resolution."
+              },
+              "quantitative_value": null,
+              "result_id": "res_63b13788c0c71233da07a943",
+              "unit": null,
+              "value_raw_text": "the error is invariant with the resolution"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "22d7e7d1604dea94489f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Our proposed method obtains the lowest relative error compared to any of the benchmarks."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6aa8dccba83de6576990d247",
+              "unit": null,
+              "value_raw_text": "lowest relative error compared to any of the benchmarks"
+            }
+          ],
+          "unit_id": "su_b4901c25044a215a1a715552"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[4].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M5 -> M5__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[2].methods[5].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M6 -> M6__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7105 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6410 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6154 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6316 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5897 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5897 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6842 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6842 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6216 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6053 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6053 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6579 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6154 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6923 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8750 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9286 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8750 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[28].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8750 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[29].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9286 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5946 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6053 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5789 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6842 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6842 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5946 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6053 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5789 on attempt 1"
+    }
+  ]
+}

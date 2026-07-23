@@ -1,0 +1,337 @@
+{
+  "coverage_ledger": {
+    "0a08c67030ed1b1847fc": "extracted",
+    "1952a1e6481a20fb25a2": "not_selected",
+    "1a30616be30cc653769e": "not_selected",
+    "4200647713f9c94c7cce": "extracted",
+    "73ae73e29709870dc142": "extracted",
+    "86dbc85c3bcce5d6c1af": "not_selected",
+    "8d0a2a138b3b58e861d8": "not_selected",
+    "946e42077e2d0707ee3c": "not_selected",
+    "9c3539755c88544f217c": "not_selected",
+    "b07c567e4c7f59f08343": "not_selected",
+    "baeae08746316fea143c": "extracted",
+    "cba2dbdd4f38aa910e07": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Sparse matrix implementation limited to rank-2 tensors, restricting batching capabilities for datasets with multiple graphs.",
+    "GPU may not offer major performance benefits over CPU in sparse scenarios depending on graph regularity.",
+    "Receptive field size is upper-bounded by network depth.",
+    "Parallelization across all edges may involve redundant computation due to overlapping neighborhoods."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_3.pdf",
+    "source_sha256": "38edb7988d7a193789be3f67a3f0ee517d2b10fc4c2126a9f7c05b904d2769af"
+  },
+  "paper_id": "6_3",
+  "quality_assessment": {
+    "correct_item_count": 34,
+    "deterministic_rule_score": 0.6471,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 34,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can graph attention networks (GATs) achieve state-of-the-art performance on transductive and inductive graph benchmarks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_aa4cfb46eae4e325e55ad8dc",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "73ae73e29709870dc142",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our GAT models have achieved or matched state-of-the-art results across four established transductive and inductive graph benchmarks: the Cora, Citeseer and Pubmed citation network datasets, as well as a protein-protein interaction dataset"
+              },
+              "statement": "GAT models achieve or match state-of-the-art results on Cora, Citeseer, and Pubmed citation networks."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Citation network with 2708 nodes, 5429 edges, 7 classes, 1433 features per node.",
+              "name": "Cora",
+              "version_or_split": "transductive split (140 train, 500 val, 1000 test)"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Citation network with 3327 nodes, 4732 edges, 6 classes, 3703 features per node.",
+              "name": "Citeseer",
+              "version_or_split": "transductive split (120 train, 500 val, 1000 test)"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Citation network with 19717 nodes, 44338 edges, 3 classes, 500 features per node.",
+              "name": "Pubmed",
+              "version_or_split": "transductive split (60 train, 500 val, 1000 test)"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Transductive node classification on Cora, Citeseer, and Pubmed citation networks. Training uses 20 nodes per class, validation on 500 nodes, testing on 1000 nodes. All node features are available during training."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Graph Attention Network (GAT)",
+              "protocol_description": "Multi-layer graph attention network with masked self-attention over node neighborhoods. Uses multi-head attention and ELU nonlinearity. Trained on transductive splits with 20 nodes per class."
+            },
+            {
+              "method_id": "M10",
+              "name": "Planetoid",
+              "protocol_description": "Semi-supervised graph embedding (Yang et al., 2016)."
+            },
+            {
+              "method_id": "M2",
+              "name": "Graph Convolutional Network (GCN)",
+              "protocol_description": "Spectral graph convolution with 1-step neighborhood filter, as described by Kipf & Welling (2017)."
+            },
+            {
+              "method_id": "M3",
+              "name": "Chebyshev filters",
+              "protocol_description": "Graph convolutional model using higher-order Chebyshev polynomial filters (Defferrard et al., 2016)."
+            },
+            {
+              "method_id": "M4",
+              "name": "MoNet",
+              "protocol_description": "Mixture model CNN for graphs (Monti et al., 2016)."
+            },
+            {
+              "method_id": "M5",
+              "name": "Label Propagation (LP)",
+              "protocol_description": "Semi-supervised label propagation (Zhu et al., 2003)."
+            },
+            {
+              "method_id": "M6",
+              "name": "SemiEmb",
+              "protocol_description": "Semi-supervised embedding (Weston et al., 2012)."
+            },
+            {
+              "method_id": "M7",
+              "name": "ManiReg",
+              "protocol_description": "Manifold regularization (Belkin et al., 2006)."
+            },
+            {
+              "method_id": "M8",
+              "name": "DeepWalk",
+              "protocol_description": "Skip-gram based graph embeddings (Perozzi et al., 2014)."
+            },
+            {
+              "method_id": "M9",
+              "name": "ICA",
+              "protocol_description": "Iterative classification algorithm (Lu & Getoor, 2003)."
+            }
+          ],
+          "name": "Transductive node classification on citation networks",
+          "results": [],
+          "unit_id": "su_4471b0d6a0a4de02d05b5f4a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_44f1271121ba1a7e6dfbeb06",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "73ae73e29709870dc142",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our GAT models have achieved or matched state-of-the-art results across four established transductive and inductive graph benchmarks: the Cora, Citeseer and Pubmed citation network datasets, as well as a protein-protein interaction dataset"
+              },
+              "statement": "GAT models achieve or match state-of-the-art results on the PPI dataset."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Protein-protein interaction dataset with 24 graphs, 56944 nodes, 818716 edges, 50 features per node, 121 multilabel classes.",
+              "name": "PPI",
+              "version_or_split": "inductive split (20 train graphs, 2 val graphs, 2 test graphs)"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Inductive node classification on protein-protein interaction (PPI) dataset. Training on 20 graphs, validation on 2 graphs, testing on 2 completely unseen graphs. Multilabel classification with 121 classes."
+          ],
+          "methods": [
+            {
+              "method_id": "M11",
+              "name": "GraphSAGE",
+              "protocol_description": "Inductive node representation learning by sampling fixed-size neighborhoods and applying aggregator functions (Hamilton et al., 2017)."
+            },
+            {
+              "method_id": "M1__dup2",
+              "name": "Graph Attention Network (GAT)",
+              "protocol_description": "Multi-layer graph attention network with masked self-attention. Applied inductively on PPI dataset with unseen test graphs."
+            }
+          ],
+          "name": "Inductive node classification on PPI dataset",
+          "results": [],
+          "unit_id": "su_a15fd89a83bff6fd36c6e2bc"
+        }
+      ]
+    },
+    {
+      "question_id": "Q2",
+      "statement": "What are the properties and advantages of the graph attention mechanism?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0304c83f58a301fa64ee6cc1",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "baeae08746316fea143c",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The recently published inductive method of Hamilton et al. (2017) samples a fixed-size neighborhood of each node, in order to keep its computational footprint consistent; this does not allow it access to the entirety of the neighborhood while performing inference. Moreover, this technique achieved some of its strongest results when an LSTM-based neighborhood aggregator is used. This assumes the existence of a consistent sequential node ordering across neighborhoods, and the authors have rectified it by consistently feeding randomly-ordered sequences to the LSTM. Our technique does not suffer from either of these issues—it works with the entirety of the neighborhood (at the expense of a variable computational footprint, which is still on-par with methods like the GCN), and does not assume any ordering within it."
+              },
+              "statement": "GAT works with the entirety of the neighborhood and does not assume node ordering, unlike GraphSAGE's LSTM aggregator."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0b3d2d76e02255a0d35caa57",
+              "inference_basis_ids": [
+                "res_514577616ec7b7fc8d1bb7e9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "baeae08746316fea143c",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Computationally, it is highly efficient: the operation of the self-attentional layer can be parallelized across all edges, and the computation of output features can be parallelized across all nodes. No eigendecompositions or similar computationally intensive matrix operations are required."
+              },
+              "statement": "GAT is computationally efficient, parallelizable, and does not require eigendecompositions."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b358ae61f1c23677650a3996",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "baeae08746316fea143c",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "The attention mechanism is applied in a shared manner to all edges in the graph, and therefore it does not depend on upfront access to the global graph structure or (features of) all of its nodes (a limitation of many prior techniques). This has several desirable implications: ... It makes our technique directly applicable to inductive learning"
+              },
+              "statement": "GAT does not depend on upfront access to global graph structure, making it applicable to inductive learning."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e30aae216e826e19c40cb33c",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "baeae08746316fea143c",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "As opposed to GCNs, our model allows for (implicitly) assigning different importances to nodes of a same neighborhood, enabling a leap in model capacity."
+              },
+              "statement": "GAT allows assigning different importances to nodes in the same neighborhood, increasing model capacity."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fe610e50d8bb2175716d24e5",
+              "inference_basis_ids": [],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "baeae08746316fea143c",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "GAT can be reformulated as a particular instance of MoNet (Monti et al., 2016)."
+              },
+              "statement": "GAT can be reformulated as a particular instance of MoNet."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of computational efficiency, model capacity, applicability to inductive learning, and comparison to prior methods."
+          ],
+          "methods": [
+            {
+              "method_id": "M1__dup3",
+              "name": "Graph Attention Network (GAT)",
+              "protocol_description": "Attention-based architecture that computes node hidden representations by attending over neighbors. Uses shared self-attention across edges, multi-head attention, and does not require global graph structure."
+            }
+          ],
+          "name": "GAT properties analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Time complexity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "baeae08746316fea143c",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "The time complexity of a single GAT attention head computing F' features may be expressed as O(|V|FF' + |E|F')"
+              },
+              "quantitative_value": null,
+              "result_id": "res_514577616ec7b7fc8d1bb7e9",
+              "unit": null,
+              "value_raw_text": "O(|V|FF' + |E|F')"
+            }
+          ],
+          "unit_id": "su_8603f635f553206ab4a3d75b"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[0].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[0].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M1 -> M1__dup3 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8671 on attempt 1"
+    }
+  ]
+}

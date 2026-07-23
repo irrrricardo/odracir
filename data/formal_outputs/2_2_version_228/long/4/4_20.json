@@ -1,0 +1,786 @@
+{
+  "coverage_ledger": {
+    "01258922b94d07492fd7": "not_selected",
+    "034788a627ee83d4b626": "not_selected",
+    "107882f07b7493eca1e2": "not_selected",
+    "11b8c3dd385e82e75517": "not_selected",
+    "3a819ef9500e5373d4a7": "not_selected",
+    "3d2be2aa185b0838a09f": "not_selected",
+    "4082dc6345922b34fa8d": "extracted",
+    "6858ab8b16dbb4fbbb84": "not_selected",
+    "80685406a79df2a7d96d": "extracted",
+    "832d273c8276d5baecee": "extracted",
+    "a86ace6522692b2530c4": "not_selected",
+    "a99ace3bccfd6db5f558": "not_selected",
+    "b82986a83ff2583b39cd": "not_selected",
+    "ba7e6ffdfff3748d9202": "not_selected",
+    "bfedfb3465ee1ecd88f7": "not_selected",
+    "c5eb2a61e9cd50209341": "not_selected",
+    "cb848f81b96f580db817": "not_selected",
+    "ee411bcb4bf38b5bac70": "extracted",
+    "eef41aa68e92dc9dd46a": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The model does not account for the original symmetry-breaking event in normal development; tissue mechanics functions as a canalizing feedback rather than the initial trigger.",
+    "The range of tension propagation is sufficient for inhibition in the anterior but marginal for asymmetric conditions.",
+    "Cutting experiments are invasive and may involve wound healing responses.",
+    "Gene expression response is slower than contractility and depends on integrated deformation history."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_20.pdf",
+    "source_sha256": "42b92ef45e5b566efd4385c9ae64392d619b0b9b3d4094461ee013f5b5362a1c"
+  },
+  "paper_id": "4_20",
+  "quality_assessment": {
+    "correct_item_count": 48,
+    "deterministic_rule_score": 0.9352,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 50,
+    "f1": 0.8496,
+    "incorrect_item_count": 2,
+    "incorrect_items": [
+      {
+        "description": "The extracted result states 'GDF1 expression abolished by H1152', but the source excerpt says 'GDF1 and BRA expression was abolished and expanded, respectively, at the margin', meaning GDF1 was abolished and BRA was expanded. The extraction incorrectly attributes both abolished and expanded to GDF1 alone.",
+        "item_id": "result:su_2d5fd8c0f7ace8e8b9785482:res_2e65e72a122a1af501273802",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result states 'GDF1 expression expanded by calyculin A', but the source excerpt says 'GDF1 and BRA expression was abolished and expanded, respectively, at the margin', meaning GDF1 was abolished and BRA was expanded. The extraction incorrectly attributes expansion to GDF1.",
+        "item_id": "result:su_2d5fd8c0f7ace8e8b9785482:res_45ed6f7e8e05e210ab9d49d0",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 15,
+    "missed_core_items": [
+      {
+        "description": "The model incorporates a nonlinear, saturating relationship between tension and contraction rate, which is required to account for the response to cutting.",
+        "item_id": null,
+        "source_chunk_id": "832d273c8276d5baecee",
+        "source_excerpt": "The model also allows for a nonlinear, saturating relationship between the tension borne by contracting actomyosin cables and the rate at which they contract (as in ref. 24), a refinement that we later show is required to account for the response to cutting (the model would otherwise predict a jump in the contraction rate of posterior halves after the release of margin tension).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "In the 2D model, the range of tension propagation is restricted by drag force from surrounding tissue, and force transmission along the margin must dominate over propagation to the surrounding tissue to support inhibition in the anterior margin.",
+        "item_id": null,
+        "source_chunk_id": "832d273c8276d5baecee",
+        "source_excerpt": "At odds with our minimal 1D model, in which tension propagates unopposed, in 2D, its range is restricted by the ‘drag force’ from the surrounding tissue, and force transmission along the margin must dominate over propagation to the surrounding tissue to support inhibition in the anterior margin.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Mechanical regulation must be fast enough to counteract advection towards the posterior and maintain a stable contractile domain.",
+        "item_id": null,
+        "source_chunk_id": "832d273c8276d5baecee",
+        "source_excerpt": "Mechanical regulation must also be fast enough to counteract advection towards the posterior and maintain a stable contractile domain.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "In Ski-1-treated embryos, tissue flows proceeded normally, with cells converging to shape the incipient primitive streak.",
+        "item_id": null,
+        "source_chunk_id": "832d273c8276d5baecee",
+        "source_excerpt": "In Ski-1-treated embryos, tissue flows proceeded normally, with cells converging to shape the incipient primitive streak.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Epiboly-induced tissue tension opposes the emergence of contractile domains at the embryo margin in anterior halves after bisection.",
+        "item_id": null,
+        "source_chunk_id": "034788a627ee83d4b626",
+        "source_excerpt": "This suggested that the tension imposed on the embryonic disk by epiboly (the process by which the epiblast spreads through the migration of its edges on the vitelline membrane) might oppose the emergence of contractile domains at the embryo margin.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "When epiboly was abrogated by uncoupling the migrating edge from the rest of the epiblast using laser dissection, contraction foci rapidly emerged (within 1–2 h) that expressed GDF1 (by 4.5 h) and eventually elongated into one or two SNAI2+ primitive streaks.",
+        "item_id": null,
+        "source_chunk_id": "034788a627ee83d4b626",
+        "source_excerpt": "Indeed, when epiboly was abrogated by uncoupling the migrating edge from the rest of the epiblast using laser dissection (Fig. 3l (dotted red lines) and Supplementary Video 3), we observed the rapid emergence of contraction foci (within 1–2 h) that expressed GDF1 (by 4.5 h) and eventually elongated into one or two SNAI2+ primitive streaks (Fig. 3m–q).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "H1152 treatment prevented margin contraction, GDF1 expression and subsequent primitive streak formation in epiboly-abrogated anterior halves.",
+        "item_id": null,
+        "source_chunk_id": "034788a627ee83d4b626",
+        "source_excerpt": "Whereas H1152 treatment prevented margin contraction, GDF1 expression and subsequent primitive streak formation in epiboly-abrogated anterior halves (Fig. 3r–w), as well as in biased anterior halves (Extended Data Fig. 4q–t), calyculin A treatment allowed margin contraction to overcome epiboly-induced stretching to form primitive streaks in anterior parts (Extended Data Fig. 4u–z″).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Calyculin A treatment allowed margin contraction to overcome epiboly-induced stretching to form primitive streaks in anterior parts.",
+        "item_id": null,
+        "source_chunk_id": "034788a627ee83d4b626",
+        "source_excerpt": "calyculin A treatment allowed margin contraction to overcome epiboly-induced stretching to form primitive streaks in anterior parts (Extended Data Fig. 4u–z″).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The model predicts that the domains of active contraction and stretching adjust their proportions to tend towards a preferred homeostatic tension along the margin, shrinking if the tension is too large or expanding when it is too low.",
+        "item_id": null,
+        "source_chunk_id": "6858ab8b16dbb4fbbb84",
+        "source_excerpt": "Indeed, the model predicts that the domains of active contraction and stretching adjust their proportions to tend towards a preferred homeostatic tension along the margin, shrinking if the tension is too large or expanding when it is too low.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "In epiblast halves with free edges, the margin did not contract faster, implying that contraction is not limited by tension along the margin in the intact epiblast.",
+        "item_id": null,
+        "source_chunk_id": "6858ab8b16dbb4fbbb84",
+        "source_excerpt": "Notably, the margin did not contract faster in epiblast halves with free edges (Fig. 4n), implying that contraction is not limited by tension along the margin in the intact epiblast.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "When embryos with free edges were allowed to develop for longer, the entire marginal tissue contributed to a fully elongated primitive streak, leaving a largely depleted embryonic territory to contribute to ectoderm, as opposed to posterior halves with attached borders, which maintain a balance between the pools of cells that contribute to different territories.",
+        "item_id": null,
+        "source_chunk_id": "4082dc6345922b34fa8d",
+        "source_excerpt": "Furthermore, when embryos with free edges were allowed to develop for longer, the entire marginal tissue contributed to a fully elongated primitive streak, leaving a largely depleted embryonic territory to contribute to ectoderm, as opposed to posterior halves with attached borders, which maintain a balance between the pools of cells that contribute to different territories (Extended Data Fig. 6 and Supplementary Video 6).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The rapid regulation observed is inconsistent with models based on transport of contractile material, as the timescale for advection is the timescale of the entire process by which the primitive streak is formed.",
+        "item_id": null,
+        "source_chunk_id": "80685406a79df2a7d96d",
+        "source_excerpt": "The rapid regulation that we observed in the early embryo is inconsistent with such models, as the timescale for advection is the timescale of the entire process by which the primitive streak is formed.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Contractility and GDF1 expression respond in a similar manner to the same mechanical stimulus (contraction versus stretching), yet the responses occur on distinct spatial scales and different timescales.",
+        "item_id": null,
+        "source_chunk_id": "80685406a79df2a7d96d",
+        "source_excerpt": "Supporting a coherent response to perturbations, contractility and GDF1 expression respond in a similar manner to the same mechanical stimulus (contraction versus stretching), yet our observations suggest that the responses occur on distinct spatial scales (if force generation is regulated through the turnover of supracellular cables, when gene regulation requires the intracellular relaying of mechanical signals) and different timescales.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "GDF1 levels depend on the integrated deformation of the tissue on the slower timescale of gene regulation.",
+        "item_id": null,
+        "source_chunk_id": "80685406a79df2a7d96d",
+        "source_excerpt": "Whereas the rapid turnover of the force-generating machinery can support a rapid modulation of force generation and tissue motion, our data indicate that, on the slower timescale of gene regulation, GDF1 levels depend on the integrated deformation of the tissue.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The model does not account for the original symmetry-breaking event in normal development; tissue mechanics functions as a canalizing feedback rather than the initial trigger.",
+        "item_id": null,
+        "source_chunk_id": "80685406a79df2a7d96d",
+        "source_excerpt": "Finally, we note that, although self-organized tissue mechanics can support spontaneous symmetry breaking, as manifested in ectopic embryo formation, it does not account for the original symmetry-breaking event in normal development. Indeed, GDF1, the expression of which is restricted to the posterior epiblast before gastrulation movements initiate, is itself required for primitive-streak morphogenesis and can redirect tissue motion when applied ectopically. Thus, tissue mechanics (at least, as we describe it here) functions as a canalizing feedback, operating in a time window of a few hours between the onset of gastrulation movements and the emergence of the fully formed streak, rather than as the initial trigger in normal axis formation.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.96,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.7619
+  },
+  "quality_score": 0.8496,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can passive tissue tension act as a long-range inhibitor of contractility and gene expression to control embryonic self-organization?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_65e800cbe1a20b3375365c0d",
+              "inference_basis_ids": [
+                "res_7e9f0737ccd3990904f90211",
+                "res_8926d194b326883c0645528f",
+                "res_fa4f05869b6a28143cac18a9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ee411bcb4bf38b5bac70",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "the mechanical forces that drive embryogenesis self-organize, with contractility locally self-activating and the ensuing tension acting as a long-range inhibitor. This mechanical feedback governs the persistent pattern of tissue flows that shape the embryo"
+              },
+              "statement": "Self-organized tissue mechanics, with contractility locally self-activating and tension acting as a long-range inhibitor, governs the pattern of tissue flows that shape the embryo."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Mathematical modeling of self-organized contractility and tension along the embryo margin",
+            "Quantitative image analysis of tissue flows in intact quail embryos"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Quantitative image analysis",
+              "protocol_description": "Analysis of tissue deformation maps and strain rates along the margin from time-lapse imaging of quail embryos."
+            },
+            {
+              "method_id": "M2",
+              "name": "Mathematical modeling",
+              "protocol_description": "1D and 2D fluid-mechanical models incorporating local self-activation of contractility and long-range inhibition by tension."
+            }
+          ],
+          "name": "Mechanical feedback model and tissue flow analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Model recapitulation of tissue velocity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "The resulting model recapitulates the profiles of tissue velocity along the margin (Fig. 1g (black curve))"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7e9f0737ccd3990904f90211",
+              "unit": null,
+              "value_raw_text": "The resulting model recapitulates the profiles of tissue velocity along the margin (Fig. 1g (black curve))"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Model recapitulation of contractile and stretched domains",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the maintenance of actively contracting and passively stretched domains with stable proportions (Fig. 1h)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8926d194b326883c0645528f",
+              "unit": null,
+              "value_raw_text": "the maintenance of actively contracting and passively stretched domains with stable proportions (Fig. 1h)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Model recapitulation of full tissue motion pattern",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "recapitulates the full pattern of tissue motion that leads up to the formation of the primitive streak"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fa4f05869b6a28143cac18a9",
+              "unit": null,
+              "value_raw_text": "recapitulates the full pattern of tissue motion that leads up to the formation of the primitive streak"
+            }
+          ],
+          "unit_id": "su_12298032a5af672e3a003698"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_803c10688cb09fb5ccdeab0c",
+              "inference_basis_ids": [
+                "res_284b3ac383185eacfcd98c08",
+                "res_2e65e72a122a1af501273802",
+                "res_45ed6f7e8e05e210ab9d49d0",
+                "res_6efc3621c76ed383f2c53fbd",
+                "res_8fe59de9bcff6f5550cb5259",
+                "res_ad35dad47691bbefb538704a",
+                "res_af58303ef4798837b11ba3ef",
+                "res_ccc75a64ad783d072f9be3f0",
+                "res_dcb19862f58937ff2048a329"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "these results show that tissue contractility (through the mechanical state of the tissue) regulates GDF1 and BRA expression at the margin, and suggest that this regulation involves the SRC-dependent mechanosensitive β-catenin pathway."
+              },
+              "statement": "Tissue contractility regulates GDF1 and BRA expression at the margin, and this regulation involves the SRC-dependent mechanosensitive β-catenin pathway."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of tissue deformation, myosin phosphorylation, apical cell area, and GDF1/BRA expression",
+            "Incubation of quail embryos with calyculin A (increases myosin activity) or H1152 (decreases myosin activity)",
+            "Incubation with Ski-1 (SRC kinase inhibitor) to block mechanosensitive β-catenin pathway"
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Drug treatment",
+              "protocol_description": "Embryos incubated with calyculin A, H1152, or Ski-1 for 4-5 hours."
+            },
+            {
+              "method_id": "M4",
+              "name": "Immunostaining and in situ hybridization",
+              "protocol_description": "Detection of phosphorylated myosin, GDF1, BRA, and SOX3 expression."
+            }
+          ],
+          "name": "Pharmacological manipulation of contractility and GDF1 expression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue flow impairment by calyculin A and H1152",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "although calyculin A and H1152 have opposite effects on cell contractility, they both impaired the overall tissue flows"
+              },
+              "quantitative_value": null,
+              "result_id": "res_284b3ac383185eacfcd98c08",
+              "unit": null,
+              "value_raw_text": "they both impaired the overall tissue flows"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GDF1 expression abolished by H1152",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "we found that GDF1 and BRA expression was abolished and expanded, respectively, at the margin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2e65e72a122a1af501273802",
+              "unit": null,
+              "value_raw_text": "GDF1 and BRA expression was abolished"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GDF1 expression expanded by calyculin A",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "we found that GDF1 and BRA expression was abolished and expanded, respectively, at the margin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_45ed6f7e8e05e210ab9d49d0",
+              "unit": null,
+              "value_raw_text": "GDF1 and BRA expression was expanded"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GDF1 downregulation by Ski-1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "GDF1 and its target BRA were overall downregulated, and exhibited an irregular expression, occasionally resembling twinned primitive streaks within the posterior contracting domain"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6efc3621c76ed383f2c53fbd",
+              "unit": null,
+              "value_raw_text": "GDF1 and its target BRA were overall downregulated, and exhibited an irregular expression, occasionally resembling twinned primitive streaks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Margin expansion with H1152",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "In H1152-treated embryos, the margin did not contract and, instead, expanded over time"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8fe59de9bcff6f5550cb5259",
+              "unit": null,
+              "value_raw_text": "the margin did not contract and, instead, expanded over time"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Apical cell area change with calyculin A",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "reduced and increased apical cell areas at the margin, respectively, compared with the control embryos"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ad35dad47691bbefb538704a",
+              "unit": null,
+              "value_raw_text": "reduced apical cell areas at the margin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Apical cell area change with H1152",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "reduced and increased apical cell areas at the margin, respectively, compared with the control embryos"
+              },
+              "quantitative_value": null,
+              "result_id": "res_af58303ef4798837b11ba3ef",
+              "unit": null,
+              "value_raw_text": "increased apical cell areas at the margin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Myosin activity change with calyculin A",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "In calyculin-A-treated and H1152-treated embryos, we observed increased and decreased levels of phosphorylated (that is, active) myosin, respectively"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ccc75a64ad783d072f9be3f0",
+              "unit": null,
+              "value_raw_text": "increased levels of phosphorylated (that is, active) myosin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Myosin activity change with H1152",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "832d273c8276d5baecee",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "In calyculin-A-treated and H1152-treated embryos, we observed increased and decreased levels of phosphorylated (that is, active) myosin, respectively"
+              },
+              "quantitative_value": null,
+              "result_id": "res_dcb19862f58937ff2048a329",
+              "unit": null,
+              "value_raw_text": "decreased levels of phosphorylated (that is, active) myosin"
+            }
+          ],
+          "unit_id": "su_2d5fd8c0f7ace8e8b9785482"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5b2250abd647edab010dfb4e",
+              "inference_basis_ids": [
+                "res_11178233041f50d986ce6ad5",
+                "res_28b66a414a4e22ab26089353",
+                "res_303be976e10c34c1a7c3e977",
+                "res_3cf1707b4aed9a9027b86d7b",
+                "res_5a3cac67bb088b3b1da67fc7",
+                "res_703b8432dde7737cab146fc8",
+                "res_9c25f978adea62bba84c347c",
+                "res_bb5f22eb94f8c0ab1cade1e2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "these experiments, in which only the mechanical boundary condition was changed, demonstrate that self-organized tissue contractility acts upstream of gene expression to enable the proper balancing and rapid rescaling of embryonic territories."
+              },
+              "statement": "Self-organized tissue contractility acts upstream of gene expression to enable proper balancing and rapid rescaling of embryonic territories."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of tissue contraction, primitive streak rescaling, and gene expression domains (SOX3, BRA, GDF1)",
+            "Cutting quail epiblasts into halves with either reattached or free edges"
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Epiblast cutting",
+              "protocol_description": "Epiblasts were cut into halves; in one condition, the cut edge was reattached to the vitelline membrane; in the other, it remained free."
+            },
+            {
+              "method_id": "M6",
+              "name": "Quantitative image analysis",
+              "protocol_description": "Measurement of tissue deformation, contraction domain size, and gene expression levels along the margin."
+            }
+          ],
+          "name": "Epiblast cutting and boundary condition experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene expression expansion in free-edge halves",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "in epiblast halves with a free edge, the fraction occupied by the BRA+GDF1+ mesendodermal territory grew at the expense of the SOX3+ ectodermal territory"
+              },
+              "quantitative_value": null,
+              "result_id": "res_11178233041f50d986ce6ad5",
+              "unit": null,
+              "value_raw_text": "the fraction occupied by the BRA+GDF1+ mesendodermal territory grew at the expense of the SOX3+ ectodermal territory"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "GDF1 expression narrower in attached vs detached",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Quantification of SOX3, BRA and GDF1 expression levels versus the relative position along the margin confirmed the significantly narrower expression of GDF1 in attached versus detached epiblast halves"
+              },
+              "quantitative_value": null,
+              "result_id": "res_28b66a414a4e22ab26089353",
+              "unit": null,
+              "value_raw_text": "significantly narrower expression of GDF1 in attached versus detached epiblast halves"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Contraction domain rescaling in smaller portions",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the contracting domain rescaled to reach the same proportion of the shorter remaining margin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_303be976e10c34c1a7c3e977",
+              "unit": null,
+              "value_raw_text": "the contracting domain rescaled to reach the same proportion of the shorter remaining margin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrated contraction predicts GDF1 expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "suggesting that integrated contraction is predictive of GDF1 expression and its redirection after perturbations"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3cf1707b4aed9a9027b86d7b",
+              "unit": null,
+              "value_raw_text": "integrated contraction is predictive of GDF1 expression and its redirection after perturbations"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Contracted domain size predicts GDF1 domain size",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "its relative size closely predicted the relative size of the GDF1 domain"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5a3cac67bb088b3b1da67fc7",
+              "unit": null,
+              "value_raw_text": "its relative size closely predicted the relative size of the GDF1 domain"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene expression narrowing in reattached halves",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "we observed a narrowing of the SOX3+ (neuroectodermal) and the BRA+GDF1+ (mesendodermal) territories in epiblast halves with a reattached edge"
+              },
+              "quantitative_value": null,
+              "result_id": "res_703b8432dde7737cab146fc8",
+              "unit": null,
+              "value_raw_text": "we observed a narrowing of the SOX3+ (neuroectodermal) and the BRA+GDF1+ (mesendodermal) territories"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Contraction spread in free-edge halves",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In epiblast halves that did not reattach, contraction spread to the entire margin and the primitive streak did not rescale"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9c25f978adea62bba84c347c",
+              "unit": null,
+              "value_raw_text": "contraction spread to the entire margin and the primitive streak did not rescale"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Primitive streak rescaling in reattached halves",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "4082dc6345922b34fa8d",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the emerging primitive streak (the posterior region undergoing convergent extension) rescaled according to the new epiblast size"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bb5f22eb94f8c0ab1cade1e2",
+              "unit": null,
+              "value_raw_text": "the emerging primitive streak (the posterior region undergoing convergent extension) rescaled according to the new epiblast size"
+            }
+          ],
+          "unit_id": "su_9b6bf7533c79be9a98a9377c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_43c5c86b3d44bc3387655ed5",
+              "inference_basis_ids": [
+                "res_70be8852180f551c5f5eb9e9",
+                "res_a63410d0f42483f087250346",
+                "res_bf512c8354ec225876083268",
+                "res_c6991a6aa2bb09c6bd8fc22a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "80685406a79df2a7d96d",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "these perturbations demonstrate that mechanical tension propagates at long range along the margin to inhibit ectopic embryo formation, and that noninvasively interrupting its path through friction is sufficient to rapidly and persistently redirect force generation and tissue motion, leading to the reallocation of embryonic territories through the modulation of critical gene expression."
+              },
+              "statement": "Mechanical tension propagates at long range along the margin to inhibit ectopic embryo formation, and noninvasively interrupting its path through friction is sufficient to rapidly and persistently redirect force generation and tissue motion, leading to reallocation of embryonic territories through modulation of critical gene expression."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of tissue motion, contraction foci, and gene expression (GDF1, BRA, SOX3)",
+            "Deposition of a hair or nylon wire across the epiblast to introduce localized friction"
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "Localized friction",
+              "protocol_description": "A hair or nylon wire was deposited across the epiblast to act as an obstacle to tissue flow."
+            },
+            {
+              "method_id": "M8",
+              "name": "Time-lapse imaging and in situ hybridization",
+              "protocol_description": "Imaging of memGFP embryos and detection of gene expression patterns."
+            }
+          ],
+          "name": "Localized friction perturbation experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Tension propagation range",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "80685406a79df2a7d96d",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "motion towards the posterior, and the accompanying stretching, propagated past the anterior and all the way to the obstacle, demonstrating the ability of tension to propagate at long range and inhibit embryo formation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_70be8852180f551c5f5eb9e9",
+              "unit": null,
+              "value_raw_text": "motion towards the posterior, and the accompanying stretching, propagated past the anterior and all the way to the obstacle, demonstrating the ability of tension to propagate at long range and inhibit embryo formation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ectopic contraction foci emergence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "80685406a79df2a7d96d",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "two contraction foci rapidly emerged and elongated into primitive streaks in the anterior epiblast, just anterior to the hair"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a63410d0f42483f087250346",
+              "unit": null,
+              "value_raw_text": "two contraction foci rapidly emerged and elongated into primitive streaks in the anterior epiblast, just anterior to the hair"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ectopic embryo formation blocked by Ski-1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "80685406a79df2a7d96d",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Ectopic embryo formation was impeded when embryos were cultured in the presence of Ski-1"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bf512c8354ec225876083268",
+              "unit": null,
+              "value_raw_text": "Ectopic embryo formation was impeded when embryos were cultured in the presence of Ski-1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ectopic GDF1 expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "80685406a79df2a7d96d",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The ectopic primitive streaks were preceded by the emergence of GDF1 expression"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c6991a6aa2bb09c6bd8fc22a",
+              "unit": null,
+              "value_raw_text": "The ectopic primitive streaks were preceded by the emergence of GDF1 expression"
+            }
+          ],
+          "unit_id": "su_a9e564773ff01e945a37cd6a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

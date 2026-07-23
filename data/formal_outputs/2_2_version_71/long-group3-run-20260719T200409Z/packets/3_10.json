@@ -1,0 +1,584 @@
+{
+  "coverage_ledger": {
+    "0c6d976e89684e59a2f2": "extracted",
+    "103818767a149722146a": "extracted",
+    "3eeb3e1aa02f677489e7": "not_selected",
+    "4ce71fa4817cc404a41a": "not_selected",
+    "65f51d0b6371f28b1e81": "extracted",
+    "6947734eac8e44775ebf": "not_selected",
+    "72e9e7cf1d63c982e896": "not_selected",
+    "876e2763f05d045341c8": "not_selected",
+    "bc405eaeff1bcc35ed7d": "extracted",
+    "bf7cc10a3828912a3ba0": "extracted",
+    "c714e30c299a3655028b": "extracted",
+    "d9bd6e573235f5f411d1": "not_selected",
+    "dce823328eaa1a21b4be": "extracted",
+    "e5dcec93d4d8e6997143": "not_selected",
+    "e95b27ef0b356d5bdb1f": "extracted",
+    "ecb8e963a8b9a55ce472": "not_selected",
+    "ee0fd3e9868390816fee": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study cannot exclude the contribution of matrix stiffness combining with other paracrine cytokines to invadopodia formation.",
+    "The detailed interplay between integrin β1-based and Piezo1-based mechanosensory in invadopodia formation merits further investigation.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_10.pdf",
+    "source_sha256": "d5bd25ebbf5be1ca57232f4b15d2a71d425df5bf7e1588fd7cb677981d193114"
+  },
+  "paper_id": "3_10",
+  "quality_assessment": {
+    "correct_item_count": 47,
+    "deterministic_rule_score": 0.9278,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.3077,
+      "sample_size_log_score": 0.6842,
+      "statistical_support_coverage": 0.0769
+    },
+    "extracted_item_count": 47,
+    "f1": 0.9691,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 3,
+    "missed_core_items": [
+      {
+        "description": "The study reports that increased matrix stiffness activates RhoA/ROCK1 and MLCK pathways to accelerate migration, but this finding is not extracted.",
+        "item_id": null,
+        "source_chunk_id": "65f51d0b6371f28b1e81",
+        "source_excerpt": "Increased matrix stiffness activates RhoA/ROCK1 and MLCK pathways to accelerate the migration of HCC cells",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study reports that integrin αV/β5 mediates stiffness signal into HSCs to upregulate EGF via PI3K/Akt pathway, but this finding is not extracted.",
+        "item_id": null,
+        "source_chunk_id": "65f51d0b6371f28b1e81",
+        "source_excerpt": "increased matrix stiffness upregulates EGF expression in HSCs by activating integrin αVβ5/PI3K/Akt pathway",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study reports that integrin β1/RhoA/ROCK1/MLC2 and Piezo1/Ca2+/MLCK/MLC2 pathways mediate matrix stiffness-reinforced cell migration, but this finding is not extracted.",
+        "item_id": null,
+        "source_chunk_id": "0c6d976e89684e59a2f2",
+        "source_excerpt": "activation of integrin β1/RhoA/ROCK1/MLC2 and Piezo1/Ca2+/MLCK/MLC2 pathways mediate matrix stiffness-reinforced cell migration",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.94
+  },
+  "quality_score": 0.9691,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "How does increased matrix stiffness regulate invadopodia formation in hepatocellular carcinoma (HCC) cells?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8148921cfd57acf7b4192407",
+              "inference_basis_ids": [
+                "res_076e15245b068a660d307d1b",
+                "res_b8c2be2365c8eb4079fe590c",
+                "res_d5e56fd6e4736aeb2bdc4b30"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0c6d976e89684e59a2f2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Based on the above evidence, we concluded that increased matrix stiffness significantly enhances migration and invasion abilities of HCC cells via integrin β1 and Piezo1"
+              },
+              "statement": "Increased matrix stiffness enhances migration and invasion abilities of HCC cells via integrin β1 and Piezo1."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "In vitro matrix-gel invasion assay",
+            "In vivo subcutaneous animal model with filter membrane",
+            "Phalloidin staining for F-actin polymerization",
+            "Real-time migration analysis of HCC cells on 6, 10, 16 kPa substrates"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "FN-coated polyacrylamide gels",
+              "protocol_description": "FN-coated polyacrylamide gels with stiffness of 6 kPa (low), 10 kPa (medium), and 16 kPa (high) were established for cell culture as previously described [28]."
+            },
+            {
+              "method_id": "M2",
+              "name": "Cell migration analysis using Cell IQ",
+              "protocol_description": "Migration trajectories of HCC cells were recorded and analyzed in real time using a Cell IQ living cell workstation for 48 h. 40 cells per group were randomly selected for statistical analysis."
+            },
+            {
+              "method_id": "M3",
+              "name": "F-actin polymerization analysis",
+              "protocol_description": "HCC cells were stained with Alexa Fluo 488 phalloidin and DAPI, and F-actin polymerization was observed by confocal microscopy."
+            },
+            {
+              "method_id": "M4",
+              "name": "In vitro matrix-gel invasion assay",
+              "protocol_description": "Matrigel, collagen I, and DMEM/MEM were mixed (25:11:14) to form a matrix-gel substrate. HCC cells were seeded on the surface and cultured for 4 days. Invasion depth was measured."
+            },
+            {
+              "method_id": "M5",
+              "name": "In vivo subcutaneous invasion model",
+              "protocol_description": "HCC cells embedded in Matrigel/collagen I were wrapped in a polycarbonate filter membrane (8 μm pores) and transplanted subcutaneously into nude mice. After 10 days, tumors and membranes were collected for analysis."
+            }
+          ],
+          "name": "Effect of matrix stiffness on migration and invasion",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Migration speed",
+              "n_sample_size": 40,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0c6d976e89684e59a2f2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "The results demonstrated that increased matrix stiffness significantly improved the migration range and speed of HCC cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_076e15245b068a660d307d1b",
+              "unit": null,
+              "value_raw_text": "Increased matrix stiffness significantly improved the migration range and speed of HCC cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of cells on filter membrane",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0c6d976e89684e59a2f2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "the number of the cells on filter membrane in shITGB1 and shPIEZO1 groups were all significantly decreased"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b8c2be2365c8eb4079fe590c",
+              "unit": null,
+              "value_raw_text": "The number of cells on filter membrane in shITGB1 and shPIEZO1 groups were all significantly decreased."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Invasion depth",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0c6d976e89684e59a2f2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "Compared with that of non-cell group, the surface of the matrix-gel substrate of HCC-WT group and HCC-shCtrl group all displayed obviously deep invaded-depth... however, the surface of the matrix-gel substrate of HCC-shITGB1 group and HCC-shPiezo1group exhibited relatively shallow invaded-depth, moreover Yoda1 intervention reversed the invasion phenotype"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d5e56fd6e4736aeb2bdc4b30",
+              "unit": null,
+              "value_raw_text": "HCC cells grown on matrix-gel substrate displayed obviously deep invaded-depth; shITGB1 and shPiezo1 groups exhibited relatively shallow invaded-depth, and Yoda1 intervention reversed this effect."
+            }
+          ],
+          "unit_id": "su_1ec4ba4474730e78854796c8"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_344c53f6161d9db8e598d402",
+              "inference_basis_ids": [
+                "res_65d7f8a5658b3a7ffa4b56c3",
+                "res_8aa6902292df82ed828967c4",
+                "res_aac718de122e7dfe5417049b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c714e30c299a3655028b",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "matrix stiffness is positively correlated with the expression levels of invadopodia-associated genes, and high matrix stiffness indicates unfavorable prognosis"
+              },
+              "statement": "Matrix stiffness is positively correlated with invadopodia-associated gene expression and indicates poor prognosis in HCC patients."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Clinical data and gene expression of 372 HCC patients from TCGA database.",
+              "name": "TCGA-LIHC",
+              "version_or_split": "v18.0"
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Clinical and pathological data of 68 HCC patients who underwent curative resection between July 2015 and August 2017.",
+              "name": "Zhongshan Hospital HCC cohort",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Retrospective analysis of HCC patient cohort",
+            "TCGA data analysis"
+          ],
+          "methods": [],
+          "name": "Clinical correlation between matrix stiffness and invadopodia-associated genes",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Overall survival",
+              "n_sample_size": 239,
+              "p_value": 0.05,
+              "provenance": {
+                "chunk_id": "c714e30c299a3655028b",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "the overall survival time of HCC patients in the high-stiffness group was significantly shorter than that in low-stiffness group (P < 0.05)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_65d7f8a5658b3a7ffa4b56c3",
+              "unit": null,
+              "value_raw_text": "Overall survival time of HCC patients in high-stiffness group was significantly shorter than in low-stiffness group (P < 0.05)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Expression levels of invadopodia-associated genes",
+              "n_sample_size": 239,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c714e30c299a3655028b",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "the expression levels of cortactin, MMP14 and EGF in the high-stiffness group were obviously higher than those in the low-stiffness group"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8aa6902292df82ed828967c4",
+              "unit": null,
+              "value_raw_text": "Expression levels of cortactin, MMP14, and EGF in high-stiffness group were higher than in low-stiffness group in TCGA data."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Progression-free survival association",
+              "n_sample_size": 68,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "dce823328eaa1a21b4be",
+                "page_end": 15,
+                "page_start": 15,
+                "paraphrased": true,
+                "text_excerpt": "shorter PFS was significantly associated with liver stiffness, microvascular invasion, tumor differentiation, Metavir’s S score, AFP and APTT"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aac718de122e7dfe5417049b",
+              "unit": null,
+              "value_raw_text": "Shorter PFS was significantly associated with liver stiffness, microvascular invasion, tumor differentiation, Metavir's S score, AFP, and APTT."
+            }
+          ],
+          "unit_id": "su_215955499e5a873225623241"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_011dbafb996c2f3bfc99f148",
+              "inference_basis_ids": [
+                "res_61dc83d3b646c8dd33ab544f",
+                "res_bfb00c8b448c29104c88b2c9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c714e30c299a3655028b",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "Src was the common hub molecule of two regulatory pathways of matrix stiffness and EGF"
+              },
+              "statement": "Src is the common hub molecule of the two regulatory pathways."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_861f1e4241102eabc3a059aa",
+              "inference_basis_ids": [
+                "res_61dc83d3b646c8dd33ab544f",
+                "res_62698e8963bbb00471964617",
+                "res_aa2cdee1a43c8b45cc499547",
+                "res_bfb00c8b448c29104c88b2c9"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c714e30c299a3655028b",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": false,
+                "text_excerpt": "Two regulatory pathways synergistically participated in matrix stiffness-driven invadopodia formation, including directly inducing invadopodia formation of HCC cells via activating integrin β1 or Piezo1/FAK/Src/Arg/cortactin pathway, and indirectly stimulating invadopodia formation through improving EGF production to activate EGFR/Src/Arg/cortactin pathway."
+              },
+              "statement": "Two synergistic pathways regulate matrix stiffness-driven invadopodia formation: direct integrin β1/Piezo1-FAK-Src-Arg-cortactin pathway and indirect EGF-EGFR-Src-Arg-cortactin pathway via HSC-derived EGF."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "EGF stimulation experiments",
+            "Knockdown of integrin β1 and Piezo1",
+            "Pharmacological inhibition (gefitinib, PP2, SB273005)",
+            "Western blot analysis of signaling pathways"
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Pharmacological interventions",
+              "protocol_description": "Gefitinib (EGFR inhibitor, 2 μmol/L), PP2 (Src inhibitor, 20 μmol/L), SB273005 (integrin αV/β5 inhibitor, 0.1 μmol/L), Yoda1 (Piezo1 agonist), GsMTx4 (Piezo1 antagonist) were applied as described."
+            },
+            {
+              "method_id": "M9",
+              "name": "Western blot",
+              "protocol_description": "Total proteins extracted using RIPA buffer, separated by SDS-PAGE, transferred to PVDF membranes, probed with primary antibodies and HRP-conjugated secondary antibodies, and detected by ECL."
+            }
+          ],
+          "name": "Mechanisms of matrix stiffness-driven invadopodia formation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of inhibitors on signaling",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c714e30c299a3655028b",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "the phosphorylation of EGFR, Src, cortactin (tyr421 and tyr466) and the expression of Arg, MMP14 were all significantly decreased except for the phosphorylation of FAK... the phosphorylation levels of Src, cortactin and the expression of Arg, MMP14 were all significantly decreased... but no significant changes in the phosphorylation levels of EGFR and FAK"
+              },
+              "quantitative_value": null,
+              "result_id": "res_61dc83d3b646c8dd33ab544f",
+              "unit": null,
+              "value_raw_text": "Gefitinib decreased phosphorylation of EGFR, Src, cortactin and expression of Arg, MMP14 but not FAK; PP2 decreased phosphorylation of Src, cortactin and expression of Arg, MMP14 but not EGFR or FAK."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "EGF expression in HSCs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65f51d0b6371f28b1e81",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the expression of EGF in HSCs grown on high-stiffness substrate was remarkably higher than that in HSCs grown on low-stiffness substrate"
+              },
+              "quantitative_value": null,
+              "result_id": "res_62698e8963bbb00471964617",
+              "unit": null,
+              "value_raw_text": "EGF expression in HSCs grown on high-stiffness substrate was remarkably higher than on low-stiffness substrate."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Integrin αV/β5 expression in HSCs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65f51d0b6371f28b1e81",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "integrin αV and integrin β5 expressions were all noticeably enhanced in HSCs with increase of matrix stiffness"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aa2cdee1a43c8b45cc499547",
+              "unit": null,
+              "value_raw_text": "Integrin αV and β5 expressions were noticeably enhanced in HSCs with increase of matrix stiffness."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Phosphorylation levels of signaling molecules",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c714e30c299a3655028b",
+                "page_end": 12,
+                "page_start": 12,
+                "paraphrased": true,
+                "text_excerpt": "the phosphorylation levels of FAK, Src, cortactin (tyr421 and tyr466) and the expressions of Arg, MMP14 in HCC cells grown on high-stiffness substrate were all significantly increased... Stimulation of exogenous EGF led to a more significant increase in the expression of these signaling molecules mentioned above except for phosphorylation of FAK"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bfb00c8b448c29104c88b2c9",
+              "unit": null,
+              "value_raw_text": "High stiffness increased phosphorylation of FAK, Src, cortactin (Tyr421, Tyr466) and expression of Arg, MMP14; EGF further increased these except FAK phosphorylation."
+            }
+          ],
+          "unit_id": "su_bfc3deb3df117c7fc033b043"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_eecef8201c42c8885bcdebb3",
+              "inference_basis_ids": [
+                "res_4e8cfe7b508604fa078f8865",
+                "res_91297694fa41a0bec2a90f69",
+                "res_aec306c8c6d5a9837ccab185"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0c6d976e89684e59a2f2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "increased matrix stiffness obviously promotes the formation of invadopodia"
+              },
+              "statement": "Increased matrix stiffness promotes invadopodia formation in HCC cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Colocalization analysis of cortactin and F-actin by double immunofluorescent staining",
+            "qRT-PCR and Western blot for invadopodia-associated genes",
+            "Subcutaneous tumor model with knockdown of integrin β1 or Piezo1"
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Double immunofluorescent staining",
+              "protocol_description": "HCC cells were fixed, permeabilized, blocked, and incubated with cortactin antibody, then with Alexa Fluo 488 phalloidin and Alexa Fluor 594 secondary antibody. Punctate structures (yellow) at colocalization of cortactin and F-actin represent invadopodia."
+            },
+            {
+              "method_id": "M7",
+              "name": "qRT-PCR",
+              "protocol_description": "Total RNA was extracted using Trizol, reverse transcribed, and amplified with specific primers. Relative expression normalized to GAPDH."
+            },
+            {
+              "method_id": "M8",
+              "name": "Subcutaneous tumor model",
+              "protocol_description": "HCC cells (WT, shCtrl, shITGB1, shPiezo1) suspended in Matrigel/collagen I were injected subcutaneously into nude mice. Tumors were collected and analyzed for gene expression."
+            }
+          ],
+          "name": "Matrix stiffness promotes invadopodia formation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of invadopodia per cell",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0c6d976e89684e59a2f2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "the number of invadopodia (yellow punctate structure) in HCC cell grown on high-stiffness substrate was significantly higher than that in HCC cells grown on low-stiffness substrate, and EGF intervention further increased the number of invadopodia"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4e8cfe7b508604fa078f8865",
+              "unit": null,
+              "value_raw_text": "The number of invadopodia in HCC cells grown on high-stiffness substrate was significantly higher than that on low-stiffness substrate; EGF intervention further increased the number."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Expression of invadopodia-associated proteins",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65f51d0b6371f28b1e81",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "increased matrix stiffness evidently upregulated the expressions of invadopodia-associated proteins/genes (cortactin and MMP14), as well as the phosphorylation level of cortactin (Tyr421 and Tyr466), but little effect on EGF expression"
+              },
+              "quantitative_value": null,
+              "result_id": "res_91297694fa41a0bec2a90f69",
+              "unit": null,
+              "value_raw_text": "Increased matrix stiffness upregulated cortactin and MMP14 expression and cortactin phosphorylation (Tyr421, Tyr466), but little effect on EGF expression at cell level."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor weight and volume",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "65f51d0b6371f28b1e81",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the weight and volume of subcutaneous tumors in HCC-shITGB1 and HCC-shPiezo1 groups were all decreased compared with that in HCC-WT and HCC-shCtrl groups"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aec306c8c6d5a9837ccab185",
+              "unit": null,
+              "value_raw_text": "Weight and volume of subcutaneous tumors in shITGB1 and shPiezo1 groups were decreased compared with WT and shCtrl groups."
+            }
+          ],
+          "unit_id": "su_edadc8a8e9847e8e06b4aeee"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6213 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7623 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.2949 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.3962 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8243 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4187 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5476 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6499 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4184 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+{
+  "coverage_ledger": {
+    "15cbe7df9849c2749640": "not_selected",
+    "1725c4040e35e1cef5b7": "not_selected",
+    "1bd427db242db4aeae2e": "not_selected",
+    "1d10c150521be8bb8fe4": "not_selected",
+    "210559a736c9de0dfce5": "not_selected",
+    "2b30c95ada6e43ea9e12": "not_selected",
+    "3e6f4913dacd34a08dd4": "not_selected",
+    "3f5799289b379d8fa1cc": "not_selected",
+    "439240cef70ffb9b418d": "not_selected",
+    "4dfdf3465f6597ae062b": "not_selected",
+    "51f38f4186c977542a70": "not_selected",
+    "5300b0dc19edb1275faf": "not_selected",
+    "53e72102a4ba567be32a": "not_selected",
+    "564c5e7542c09c9ff43d": "not_selected",
+    "5e45b9e4aa89cc631520": "not_selected",
+    "6c7cf078bf00e34a8554": "not_selected",
+    "7073960ac7a373931b37": "not_selected",
+    "77bb239cbe5040103bfd": "not_selected",
+    "7ab0229d4c72f79ad982": "not_selected",
+    "7d66c2b4e79adfe8b401": "not_selected",
+    "7e7401f096b82ca12ab7": "not_selected",
+    "816d2c05fbc7b8e64024": "not_selected",
+    "8264c8f25a3ffdae1ac4": "not_selected",
+    "82bda1ba3ee8756bdfee": "not_selected",
+    "85ffce4f66b6ade592a9": "not_selected",
+    "88a525a8fe0893a434c9": "not_selected",
+    "8a75a03a21648aa61376": "not_selected",
+    "9761521a9d3d753632cf": "not_selected",
+    "9b899a797dcb86ef0c95": "not_selected",
+    "ab11113785bb59f2abe4": "not_selected",
+    "ab7543ccb77cd3849293": "not_selected",
+    "b0c08f66cd3c38b0a537": "not_selected",
+    "b16c29ba7f2ad41c9a7e": "not_selected",
+    "b3f3bf63d97b576d3ec3": "not_selected",
+    "c24c7156df061b609765": "not_selected",
+    "c4e6453a8f055f580390": "extracted",
+    "c720758d0af0229fac57": "not_selected",
+    "ccb94ea032fd0213d0a1": "extracted",
+    "d1baa28480c89c8d9d7a": "not_selected",
+    "ed5faa3fd40050553c51": "extracted",
+    "ef4eb4b8a901c4dda7c3": "not_selected",
+    "f86b95d311f7020eebba": "extracted",
+    "f87fb83bdc6f8904ff32": "not_selected",
+    "f8f1dedbc73e09331e72": "not_selected",
+    "f992ccbb018a864acf73": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Making the methods applicable to larger graphs (p > 20) remains a major challenge.",
+    "Studying the statistical properties of the methods (for example, establishing consistency) is an important task for future research.",
+    "It remains unclear how to find the best scoring DAG when an exhaustive search is infeasible.",
+    "The proposed score may benefit from an extended version of HSIC that is able to estimate mutual independence instead of pairwise independence."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_10.pdf",
+    "source_sha256": "333f16ef62b40d5b848a55f1939be4381a33ebea29f912e545b8ba5bfa55c4b7"
+  },
+  "paper_id": "5_10",
+  "quality_assessment": {
+    "correct_item_count": 27,
+    "deterministic_rule_score": 0.7806,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.2,
+      "sample_size_log_score": 0.668,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 29,
+    "f1": 0.8308,
+    "incorrect_item_count": 2,
+    "incorrect_items": [
+      {
+        "description": "The description states 'Nonlinear setting (details not provided in this chunk).' The source chunks do not provide any description of the nonlinear SEM data generation process. The extracted item claims a dataset with a description that is not supported by the source chunks.",
+        "item_id": "dataset:su_3b58fdd17250cc06bb6c2e32:D2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The text 'Apply methods to real data sets (details not in chunks)' is not a faithful abstraction of any source chunk. The source chunks describe real data experiments (e.g., altitude, temperature, sunshine; cause-effect pairs) with specific details, not a generic task with no details.",
+        "item_id": "task:su_e16c41e5954ccc058c2b5edc:1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 9,
+    "missed_core_items": [
+      {
+        "description": "The paper proposes two score-based methods: brute-force (BF) and greedy DAG search (GDS), which optimize an independence score over DAG space.",
+        "item_id": null,
+        "source_chunk_id": "439240cef70ffb9b418d",
+        "source_excerpt": "As dependence measure we use minus the logarithm of the p-values of an independence test based on the Hilbert Schmidt Independence Criterion HSIC (Gretton et al., 2008). As regression methods we use linear regression, generalized additive models (gam) or Gaussian process regression. For the regularization parameter λ we propose to use log(0.05) − log(0.01).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper evaluates methods on synthetic data with linear and nonlinear SEMs, reporting SHD and SID for p=4,15 and n=100,500.",
+        "item_id": null,
+        "source_chunk_id": "ccb94ea032fd0213d0a1",
+        "source_excerpt": "For varying sample size n and number of variables p we compare the described methods. Given a value of p, we randomly choose an ordering of the variables with respect to the uniform distribution and include each of the p(p −1)/2 possible edges with a probability of 2/(p −1). This results in an expected number of p edges and can be considered as a (modestly) sparse setting. For a linear and a nonlinear setting we report the average structural Hamming distance (Acid and de Campos, 2003; Tsamardinos et al., 2006) to the true directed acyclic graph and to the true completed partially directed acyclic graph over 100 simulations.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that for p=4, n=100 in linear SEMs, brute-force method achieves the best SHD, and GDS performs almost equally well.",
+        "item_id": null,
+        "source_chunk_id": "ccb94ea032fd0213d0a1",
+        "source_excerpt": "The top box plot in Figure 3 compares the SHD of the estimated structure to the correct DAG for p = 4 and n = 100. All methods make use of the linear structure of the data, e.g., by performing linear regression. The brute-force method performs best, which indicates that the score function in equation (9) is a sensible choice for small graphs. Greedy DAG search performs almost equally well, it does not encounter many local optima in this setting.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that for p=15, n=500 in nonlinear SEMs, RESIT performs slightly better than all other methods.",
+        "item_id": null,
+        "source_chunk_id": "816d2c05fbc7b8e64024",
+        "source_excerpt": "Figure 4 shows box plots of SHD and SID for the special case p = 15 and n = 500. This time, RESIT perform slightly better than all other methods.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that on the cause-effect pairs dataset, the additive noise method achieves 72±6% accuracy when deciding on all pairs, and 100% accuracy on the 20% most confident decisions.",
+        "item_id": null,
+        "source_chunk_id": "ed5faa3fd40050553c51",
+        "source_excerpt": "if we take a decision for all pairs, 72 ± 6% of the decisions are correct, significantly more than random guessing. If we only take the 20% most confident decisions, all of them are correct, again significantly more than random guessing.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper identifies that making the methods applicable to larger graphs (p > 20) remains a major challenge.",
+        "item_id": null,
+        "source_chunk_id": "ed5faa3fd40050553c51",
+        "source_excerpt": "Making the methods applicable to larger graphs (p > 20) remains a major challenge.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper identifies that studying the statistical properties of the methods (e.g., establishing consistency) is an important task for future research.",
+        "item_id": null,
+        "source_chunk_id": "ed5faa3fd40050553c51",
+        "source_excerpt": "Also, studying the statistical properties of the methods (for example, establishing consistency) is an important task for future research.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper identifies that it remains unclear how to find the best scoring DAG when an exhaustive search is infeasible.",
+        "item_id": null,
+        "source_chunk_id": "ed5faa3fd40050553c51",
+        "source_excerpt": "Although the score seems to be suitable to detect the correct graph structure, it remains unclear how to find the best scoring DAG when an exhaustive search is infeasible.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper identifies that the proposed score may benefit from an extended version of HSIC that estimates mutual independence instead of pairwise independence.",
+        "item_id": null,
+        "source_chunk_id": "ed5faa3fd40050553c51",
+        "source_excerpt": "We further believe that the proposed score may benefit from an extended version of HSIC that is able to estimate mutual independence instead of pairwise independence.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.931,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.75
+  },
+  "quality_score": 0.8308,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can the causal directed acyclic graph be identified from the observational joint distribution under an additive noise model?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9a147792af9e07947ab8f2c0",
+              "inference_basis_ids": [
+                "res_e8fad0ac91e444a8e3c16c75"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ccb94ea032fd0213d0a1",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "The brute-force method performs best, which indicates that the score function in equation (9) is a sensible choice for small graphs."
+              },
+              "statement": "Brute-force method achieves the best SHD among compared methods for p=4, n=100 in linear SEMs."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Linear structural equation models with coefficients uniformly chosen from [-2, -0.1] ∪ [0.1, 2] and noise variables distributed as K·sign(M)·|M|^α with M ~ N(0,1), K ~ U([0.1,0.5]), α ~ U([2,4]).",
+              "name": "Synthetic linear SEM data",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Nonlinear setting (details not provided in this chunk).",
+              "name": "Synthetic nonlinear SEM data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare methods on synthetic data with varying sample size n and number of variables p.",
+            "Randomly choose an ordering of the variables and include each possible edge with probability 2/(p-1), resulting in an expected number of p edges (sparse setting).",
+            "Report average structural Hamming distance (SHD) and structural intervention distance (SID) over 100 simulations."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Greedy DAG Search (GDS)",
+              "protocol_description": "Greedy search optimizing an independence score over DAG space."
+            },
+            {
+              "method_id": "M3",
+              "name": "Brute-force (BF)",
+              "protocol_description": "Exhaustive search over all DAGs using the independence score."
+            },
+            {
+              "method_id": "M4",
+              "name": "RESIT (Regression with Subsequent Independence Test)",
+              "protocol_description": "Iteratively identifies sink nodes by regressing each variable on all others and testing independence of residuals."
+            },
+            {
+              "method_id": "M5",
+              "name": "LINGAM",
+              "protocol_description": "Linear non-Gaussian additive models."
+            },
+            {
+              "method_id": "M6",
+              "name": "PC algorithm",
+              "protocol_description": "Constraint-based method using partial correlation with significance level 0.01."
+            },
+            {
+              "method_id": "M7",
+              "name": "Greedy Equivalence Search (GES)",
+              "protocol_description": "Score-based method that searches over equivalence classes."
+            },
+            {
+              "method_id": "M8",
+              "name": "Conservative PC (CPC)",
+              "protocol_description": "A conservative version of PC suggested by Ramsey et al. (2006)."
+            },
+            {
+              "method_id": "M9",
+              "name": "Random guessing (RAND)",
+              "protocol_description": "Chooses a random DAG with edge inclusion probability uniformly chosen between zero and one."
+            }
+          ],
+          "name": "Empirical evaluation on synthetic data",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural Intervention Distance (SID)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ccb94ea032fd0213d0a1",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "We also report analogous results for the structural intervention distance (SID)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_247a61a250cc3125464f159d",
+              "unit": null,
+              "value_raw_text": "We also report analogous results for the structural intervention distance (SID)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural Hamming Distance (SHD)",
+              "n_sample_size": 100,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ccb94ea032fd0213d0a1",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "The top box plot in Figure 3 compares the SHD of the estimated structure to the correct DAG for p = 4 and n = 100."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5a8dafa754dd77cac7c61da0",
+              "unit": null,
+              "value_raw_text": "The top box plot in Figure 3 compares the SHD of the estimated structure to the correct DAG for p = 4 and n = 100."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD comparison",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ccb94ea032fd0213d0a1",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "The brute-force method performs best, which indicates that the score function in equation (9) is a sensible choice for small graphs."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e8fad0ac91e444a8e3c16c75",
+              "unit": null,
+              "value_raw_text": "The brute-force method performs best, which indicates that the score function in equation (9) is a sensible choice for small graphs."
+            }
+          ],
+          "unit_id": "su_3b58fdd17250cc06bb6c2e32"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d86715fea0f82914836f64de",
+              "inference_basis_ids": [
+                "res_04ee1a7eab980bd684222530"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f86b95d311f7020eebba",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We show that if the observational distribution follows a structural equation model with an additive noise structure, the directed acyclic graph becomes identifiable from the distribution under mild conditions."
+              },
+              "statement": "Under additive noise models, the causal DAG is identifiable from the joint distribution."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Prove identifiability of the DAG from the joint distribution for additive noise models under mild conditions."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Additive Noise Model (ANM)",
+              "protocol_description": "Assume the data generating process follows a structural equation model with additive noise: each variable is a function of its parents plus independent noise. Under mild conditions, the DAG is identifiable from the joint distribution."
+            }
+          ],
+          "name": "Theoretical identifiability analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Identifiability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f86b95d311f7020eebba",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We show that if the observational distribution follows a structural equation model with an additive noise structure, the directed acyclic graph becomes identifiable from the distribution under mild conditions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_04ee1a7eab980bd684222530",
+              "unit": null,
+              "value_raw_text": "the directed acyclic graph becomes identifiable from the distribution under mild conditions"
+            }
+          ],
+          "unit_id": "su_b85f2ceb6c41850989512910"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c874ad1106f11b2abe71e1c5",
+              "inference_basis_ids": [
+                "res_1442ed5dc026333bc0f32eec"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ed5faa3fd40050553c51",
+                "page_end": 30,
+                "page_start": 30,
+                "paraphrased": false,
+                "text_excerpt": "if we take a decision for all pairs, 72 ± 6% of the decisions are correct, significantly more than random guessing. If we only take the 20% most confident decisions, all of them are correct, again significantly more than random guessing."
+              },
+              "statement": "On real data, the method significantly outperforms random guessing, achieving 72% accuracy for all decisions and 100% for the most confident decisions."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply methods to real data sets (details not in chunks)."
+          ],
+          "methods": [],
+          "name": "Real data experiment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Decision accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ed5faa3fd40050553c51",
+                "page_end": 30,
+                "page_start": 30,
+                "paraphrased": false,
+                "text_excerpt": "if we take a decision for all pairs, 72 ± 6% of the decisions are correct, significantly more than random guessing. If we only take the 20% most confident decisions, all of them are correct, again significantly more than random guessing."
+              },
+              "quantitative_value": 72.0,
+              "result_id": "res_1442ed5dc026333bc0f32eec",
+              "unit": "%",
+              "value_raw_text": "if we take a decision for all pairs, 72 ± 6% of the decisions are correct, significantly more than random guessing. If we only take the 20% most confident decisions, all of them are correct, again significantly more than random guessing."
+            }
+          ],
+          "unit_id": "su_e16c41e5954ccc058c2b5edc"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

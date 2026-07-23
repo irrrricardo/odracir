@@ -1,0 +1,432 @@
+{
+  "coverage_ledger": {
+    "25c81a4f10148ec9b1b0": "not_selected",
+    "490f40139a669c798193": "not_selected",
+    "603850a2e3477935cb09": "extracted",
+    "63da52c217ad1ca0b856": "extracted",
+    "89bfa0595772b4ea0607": "not_selected",
+    "8c85602bbdb444faa8b1": "not_selected",
+    "93c22a3ac4bf665ab9b5": "not_selected",
+    "a4e3478b0e5923b3c8e8": "not_selected",
+    "c4b1638e16dd2e759e93": "not_selected",
+    "d3a2704ca4e8b6f6baac": "not_selected",
+    "dac2e8e79988f75be60b": "extracted",
+    "f17d3176f50a63ec128a": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The equality constrained program is nonconvex, so only stationary points are guaranteed.",
+    "Relies on smooth score functions; non-smooth or discrete scores require further work.",
+    "Computational complexity is cubic in the number of nodes due to matrix exponential.",
+    "Fixed thresholding parameter ω is suboptimal; data-driven choice is future work.",
+    "No worst-case iteration complexity results established."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_4.pdf",
+    "source_sha256": "6d7d419ff8f2685726b6fddf7f4c31a6608a92d047da0166460ce18e30cf12b4"
+  },
+  "paper_id": "6_4",
+  "quality_assessment": {
+    "correct_item_count": 23,
+    "deterministic_rule_score": 0.7648,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.25,
+      "sample_size_log_score": 0.4407,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 27,
+    "f1": 0.8364,
+    "incorrect_item_count": 4,
+    "incorrect_items": [
+      {
+        "description": "The extracted result claims NOTEARS outperforms FGS across all graph types and sample sizes, especially for dense graphs (k=4) and large in-degree. The source excerpt only states NOTEARS outperforms existing methods when the in-degree is large, not across all graph types and sample sizes. The claim is overstated.",
+        "item_id": "result:su_a691f0f3579b1ee7e0049315:res_11ecac7133aea5ceec15fd5f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result claims NOTEARS is implemented in ~50 lines of Python. The source excerpt does not mention the line count; it discusses computational complexity and motivation for second-order methods. The line count claim is unsupported by the provided chunk.",
+        "item_id": "result:su_a691f0f3579b1ee7e0049315:res_68bb11c295470010753770d4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result claims NOTEARS with ℓ1-regularization remains accurate on small sample sizes (n=20). The source excerpt states the proposed algorithms perform well on large samples, and remains accurate on small n with ℓ1 regularization. The excerpt does not specify n=20; it is a general statement. The specific sample size is not supported.",
+        "item_id": "result:su_a691f0f3579b1ee7e0049315:res_a6b82d6d9f3688411ca6610e",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states the augmented Lagrangian algorithm with L-BFGS effectively solves the constrained continuous program. The source excerpt only mentions L-BFGS for the special case λ=0, not for the general augmented Lagrangian algorithm. The claim is too broad.",
+        "item_id": "claim:su_a691f0f3579b1ee7e0049315:clm_aa2f72610edaa7352b10ccfc",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "NOTEARS uses second-order methods to reduce the number of matrix exponential computations.",
+        "item_id": null,
+        "source_chunk_id": "63da52c217ad1ca0b856",
+        "source_excerpt": "this is one of the key motivations for our use of second-order methods (as opposed to first-order), i.e. to reduce the number of matrix exponential computations.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "NOTEARS can be implemented in about 50 lines of Python code.",
+        "item_id": null,
+        "source_chunk_id": "603850a2e3477935cb09",
+        "source_excerpt": "our approach is very simple and can be implemented in about 50 lines of Python code.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "NOTEARS is compared to FGS, PC, and LiNGAM, but PC and LiNGAM accuracy was significantly lower, so only results against FGS are reported.",
+        "item_id": null,
+        "source_chunk_id": "8c85602bbdb444faa8b1",
+        "source_excerpt": "Since the accuracy of PC and LiNGAM was significantly lower than either FGS or NOTEARS, we only report the results against FGS here.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "NOTEARS with ℓ1-regularization remains accurate on small n.",
+        "item_id": null,
+        "source_chunk_id": "603850a2e3477935cb09",
+        "source_excerpt": "The proposed algorithms perform well on large samples, and remains accurate on small n with `1 regularization.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "NOTEARS outperforms existing methods when the in-degree is large.",
+        "item_id": null,
+        "source_chunk_id": "63da52c217ad1ca0b856",
+        "source_excerpt": "NOTEARS already outperforms existing methods when the in-degree is large, which is known difficult spot for existing methods.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.8519,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8214
+  },
+  "quality_score": 0.8364,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "Can score-based learning of DAGs be reformulated as a purely continuous optimization problem that avoids combinatorial acyclicity constraints?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_02116bc5c4066ef91fbb3f1e",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The resulting problem can be efﬁciently solved by standard numerical algorithms, which also makes implementation effortless."
+              },
+              "statement": "NOTEARS can be implemented easily using standard numerical solvers like L-BFGS."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_17c5e39b762cc12813c376ae",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "a novel characterization of acyclicity that is not only smooth but also exact."
+              },
+              "statement": "The smooth acyclicity function h(W)=tr(e^{W∘W})-d exactly characterizes DAGs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3421073e177643f8ee8afcd1",
+              "inference_basis_ids": [
+                "res_11ecac7133aea5ceec15fd5f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The proposed method outperforms existing ones, without imposing any structural assumptions on the graph such as bounded treewidth or in-degree."
+              },
+              "statement": "NOTEARS outperforms existing methods without structural assumptions like bounded treewidth or in-degree."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_958de132f6bbeb8f1a690b76",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we formulate the structure learning problem as a purely continuous optimization problem over real matrices that avoids this combinatorial constraint entirely."
+              },
+              "statement": "NOTEARS reformulates DAG learning as a continuous optimization problem, avoiding combinatorial search."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_aa2f72610edaa7352b10ccfc",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "dac2e8e79988f75be60b",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "The unconstrained subproblem (10) can be considered as a typical minimization problem over real vectors... In the special case of λ = 0, the nonsmooth term vanishes and the problem simply becomes an unconstrained smooth minimization, for which a number of efﬁcient numerical algorithms are available, for instance the L-BFGS [7]."
+              },
+              "statement": "The augmented Lagrangian algorithm with L-BFGS effectively solves the constrained continuous program."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b7b737c593f1f9637a186180",
+              "inference_basis_ids": [
+                "res_db7c569bdadaa26268753b0f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "603850a2e3477935cb09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We compare our ouput to the exact global minimizer [12], and show that our method attains scores that are comparable to the globally optimal score in practice, although our methods are only guaranteed to ﬁnd stationary points."
+              },
+              "statement": "NOTEARS finds stationary points that are comparable to the global minimizer in practice."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c1bff37037f2e15784676b61",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "First, it is worth emphasizing once more that the equality constrained program (8) is a nonconvex program... Second, the current work relies on the smoothness of the score function... Third, since the evaluation of the matrix exponential is O(d3), the computational complexity of our method is cubic in the number of nodes... Lastly, in our experiments, we chose a ﬁxed, suboptimal value of ! > 0 for thresholding."
+              },
+              "statement": "NOTEARS is limited by nonconvexity, reliance on smooth scores, cubic complexity, and fixed thresholding."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Synthetic data generated from linear SEM with Erdős-Rényi and scale-free graphs, varying nodes (d=10,20,50,100), sample sizes (n=20,100,1000), and expected edges (k=1,2,4).",
+              "name": "Synthetic DAG data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "NOTEARS already outperforms existing methods when the in-degree is large, which is known difﬁcult spot for existing methods.",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "NOTEARS already outperforms existing methods when the in-degree is large, which is known difﬁcult spot for existing methods."
+              },
+              "span_id": "ES7"
+            },
+            {
+              "content": "The proposed algorithms perform well on large samples, and remains accurate on small n with `1 regularization.",
+              "provenance": {
+                "chunk_id": "603850a2e3477935cb09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "The proposed algorithms perform well on large samples, and remains accurate on small n with `1 regularization."
+              },
+              "span_id": "ES6"
+            },
+            {
+              "content": "The proposed method outperforms existing ones, without imposing any structural assumptions on the graph such as bounded treewidth or in-degree.",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The proposed method outperforms existing ones, without imposing any structural assumptions on the graph such as bounded treewidth or in-degree."
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "The resulting problem can be efﬁciently solved by standard numerical algorithms, which also makes implementation effortless.",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The resulting problem can be efﬁciently solved by standard numerical algorithms, which also makes implementation effortless."
+              },
+              "span_id": "ES4"
+            },
+            {
+              "content": "We compare our ouput to the exact global minimizer [12], and show that our method attains scores that are comparable to the globally optimal score in practice, although our methods are only guaranteed to ﬁnd stationary points.",
+              "provenance": {
+                "chunk_id": "603850a2e3477935cb09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "We compare our ouput to the exact global minimizer [12], and show that our method attains scores that are comparable to the globally optimal score in practice, although our methods are only guaranteed to ﬁnd stationary points."
+              },
+              "span_id": "ES5"
+            },
+            {
+              "content": "a novel characterization of acyclicity that is not only smooth but also exact.",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "a novel characterization of acyclicity that is not only smooth but also exact."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "the evaluation of the matrix exponential is O(d3), the computational complexity of our method is cubic in the number of nodes, although the constant is small for sparse matrices.",
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the evaluation of the matrix exponential is O(d3), the computational complexity of our method is cubic in the number of nodes, although the constant is small for sparse matrices."
+              },
+              "span_id": "ES8"
+            },
+            {
+              "content": "we formulate the structure learning problem as a purely continuous optimization problem over real matrices that avoids this combinatorial constraint entirely.",
+              "provenance": {
+                "chunk_id": "f17d3176f50a63ec128a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we formulate the structure learning problem as a purely continuous optimization problem over real matrices that avoids this combinatorial constraint entirely."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Assess scalability and performance under high in-degree and dense graphs.",
+            "Compare NOTEARS solution quality to exact global minimizer on small graphs.",
+            "Develop an augmented Lagrangian algorithm to solve the constrained program.",
+            "Evaluate NOTEARS against GES (FGS), PC, and LiNGAM on synthetic data with varying graph types and sample sizes.",
+            "Formulate DAG learning as a continuous constrained optimization problem using a smooth acyclicity function h(W)=0."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "NOTEARS",
+              "protocol_description": "Minimize least-squares loss F(W) subject to h(W)=0, where h(W)=tr(e^{W∘W})-d. Solve via augmented Lagrangian with L-BFGS (λ=0) or proximal quasi-Newton (λ>0). Post-process with hard thresholding at ω=0.3."
+            },
+            {
+              "method_id": "M2",
+              "name": "FGS (GES)",
+              "protocol_description": "Fast Greedy Search implementation of Greedy Equivalent Search, a score-based combinatorial search method."
+            },
+            {
+              "method_id": "M3",
+              "name": "PC algorithm",
+              "protocol_description": "Constraint-based causal discovery algorithm."
+            },
+            {
+              "method_id": "M4",
+              "name": "LiNGAM",
+              "protocol_description": "Linear non-Gaussian acyclic model for causal discovery."
+            }
+          ],
+          "name": "NOTEARS method development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "NOTEARS already outperforms existing methods when the in-degree is large, which is known difﬁcult spot for existing methods."
+              },
+              "quantitative_value": null,
+              "result_id": "res_11ecac7133aea5ceec15fd5f",
+              "unit": null,
+              "value_raw_text": "NOTEARS outperforms FGS across all graph types and sample sizes, especially for dense graphs (k=4) and large in-degree."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Runtime",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "63da52c217ad1ca0b856",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "the evaluation of the matrix exponential is O(d3), the computational complexity of our method is cubic in the number of nodes, although the constant is small for sparse matrices. In fact, this is one of the key motivations for our use of second-order methods (as opposed to ﬁrst-order), i.e. to reduce the number of matrix exponential computations."
+              },
+              "quantitative_value": null,
+              "result_id": "res_68bb11c295470010753770d4",
+              "unit": null,
+              "value_raw_text": "NOTEARS is computationally efficient, implemented in ~50 lines of Python, and uses second-order methods to reduce matrix exponential evaluations."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": 20,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "603850a2e3477935cb09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "The proposed algorithms perform well on large samples, and remains accurate on small n with `1 regularization."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a6b82d6d9f3688411ca6610e",
+              "unit": null,
+              "value_raw_text": "NOTEARS with ℓ1-regularization remains accurate on small sample sizes (n=20)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "603850a2e3477935cb09",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "We compare our ouput to the exact global minimizer [12], and show that our method attains scores that are comparable to the globally optimal score in practice, although our methods are only guaranteed to ﬁnd stationary points."
+              },
+              "quantitative_value": null,
+              "result_id": "res_db7c569bdadaa26268753b0f",
+              "unit": null,
+              "value_raw_text": "NOTEARS achieves comparable scores to the exact global minimizer on small graphs."
+            }
+          ],
+          "unit_id": "su_a691f0f3579b1ee7e0049315"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

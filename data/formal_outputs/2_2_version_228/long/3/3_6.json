@@ -1,0 +1,575 @@
+{
+  "coverage_ledger": {
+    "11b4a9e310be2ffae824": "not_selected",
+    "2824b25c77a830080be8": "not_selected",
+    "39c0bd87c724652d4464": "extracted",
+    "3f1cb9bc180898dc483e": "not_selected",
+    "436f9fd853a13901cd4c": "not_selected",
+    "5003c3cad6ae2e687233": "extracted",
+    "5c41482d986030a8f391": "extracted",
+    "98a111670f0a152ed088": "not_selected",
+    "9c4676f8a600bedcd160": "not_selected",
+    "a690ed011aca030969bf": "not_selected",
+    "a716a05c183e9b4d1f41": "not_selected",
+    "bb5302a765282912780b": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses murine models; human relevance requires further validation.",
+    "The role of other LOX family members (LOXL-1,3,4) was not extensively explored.",
+    "The exact molecular mechanism linking matrix stiffness to SRC activation is not fully elucidated.",
+    "The study focuses on breast cancer metastasis; applicability to other cancer types is not addressed.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_6.pdf",
+    "source_sha256": "135b9b64c4ba20e84d39b0c1e90bd130c24baf39700631dda62207ec8b54e631"
+  },
+  "paper_id": "3_6",
+  "quality_assessment": {
+    "correct_item_count": 49,
+    "deterministic_rule_score": 0.9437,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 50,
+    "f1": 0.9423,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted result states 'SRC-P[Tyr418]–positive staining decreased in mice treated with a-LOX therapy', but the source excerpt only mentions 'SRC-P[Tyr418]–positive staining (Supplementary Fig. S3J) in mice treated with a-LOX therapy' without explicitly stating a decrease. The claim of decrease is an overstatement not directly supported by the provided excerpt.",
+        "item_id": "result:su_25fa935fe9e856825598e05b:res_5d070fb668b324d6be132b2f",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "LOX inhibition reduces hepatic fibrosis-enhanced metastasis in a liver fibrosis model.",
+        "item_id": null,
+        "source_chunk_id": "11b4a9e310be2ffae824",
+        "source_excerpt": "Reduction of fibrosis with the function-blocking LOX antibody before tumor cell implant significantly reduced hepatic metastatic burden in these mice compared with matched IgG control (Fig. 5F and G).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "LOX-mediated collagen crosslinking enhances tumor cell survival and persistence in fibrotic lungs, leading to early cluster formation.",
+        "item_id": null,
+        "source_chunk_id": "98a111670f0a152ed088",
+        "source_excerpt": "at 72 hours, we began to see the emergence of tumor cell clusters within fibrotic lungs (2–3 cells), whereas we only observed the presence of single cells in control lungs at the same time point (Fig. 6G).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Fibrosis-enhanced metastasis is not limited to lung; liver fibrosis also increases hepatic metastatic burden.",
+        "item_id": null,
+        "source_chunk_id": "11b4a9e310be2ffae824",
+        "source_excerpt": "Following induction of hepatic fibrosis, orthotopic implant of 4T1 carcinoma cells showed no significant difference in primary tumor growth (Fig. 5E) but did show a significant increase in hepatic metastatic burden in terms of frequency of metastases (Fig. 5F and G) though not significantly in terms of average lesion size in DMN-treated mice.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "LOX inhibition does not affect primary tumor growth in the orthotopic model.",
+        "item_id": null,
+        "source_chunk_id": "5003c3cad6ae2e687233",
+        "source_excerpt": "we saw no discernible effects of a-LOX antibody treatment on the growth of primary tumors subsequently implanted into the mammary fat pad (Fig. 4A).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Fibroblast activation and LOX secretion are downstream of TGF-β signaling; TGF-β receptor inhibition blocks LOX induction.",
+        "item_id": null,
+        "source_chunk_id": "3f1cb9bc180898dc483e",
+        "source_excerpt": "treatment with SD-208, a potent, selective ATP-competitive inhibitor of TGF-b receptor kinase I, which has been shown to block myofibroblast differentiation and profibrotic gene expression (44), leads to a loss in the ability of bleomycin to induce subsequent LOX expression",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 0.98,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9074
+  },
+  "quality_score": 0.9423,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What is the role of LOX-mediated collagen crosslinking in fibrosis-enhanced metastasis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6121baf3a84f935400e8d5a2",
+              "inference_basis_ids": [
+                "res_20863ba845999ee6979c0a55",
+                "res_299db6e196623523129088c7",
+                "res_3c148777e9e68dfa9f309ab4",
+                "res_5d070fb668b324d6be132b2f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Fibrosis enhances seeding tumor cell persistence and survival in vivo"
+              },
+              "statement": "Fibrosis enhances early metastatic colonization by increasing tumor cell persistence and survival, and LOX inhibition reduces proliferation and SRC activation in metastases."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of proliferation (Ki-67) and SRC activation in metastases with and without a-LOX.",
+            "Assessment of tumor cell lodging and persistence in lungs at multiple time points by flow cytometry and immunofluorescence.",
+            "Tail vein injection of 4T1-GFP cells into mice with pre-established pulmonary fibrosis."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "Immunofluorescence",
+              "protocol_description": "Detection of GFP cells in lung sections."
+            },
+            {
+              "method_id": "M8",
+              "name": "Experimental metastasis assay",
+              "protocol_description": "4T1-GFP cells injected intravenously; lungs analyzed at 2, 6, 12, 24, 48, 72 hours post-injection."
+            },
+            {
+              "method_id": "M9",
+              "name": "Flow cytometry",
+              "protocol_description": "Quantification of GFP-positive cells in disaggregated lung tissue."
+            }
+          ],
+          "name": "Fibrosis enhances tumor cell persistence and survival in vivo",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Ki-67 positive cells in metastases",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "39c0bd87c724652d4464",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "we observed a significant decrease in the presence of Ki-67–positive cells within lung metastases"
+              },
+              "quantitative_value": null,
+              "result_id": "res_20863ba845999ee6979c0a55",
+              "unit": null,
+              "value_raw_text": "significant decrease in the presence of Ki-67–positive cells within lung metastases in mice treated with a-LOX therapy"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor cell persistence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We observed clear differences in the persistence of the 4T1"
+              },
+              "quantitative_value": null,
+              "result_id": "res_299db6e196623523129088c7",
+              "unit": null,
+              "value_raw_text": "clear differences in the persistence of the 4T1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor cell lodging at 2 hours",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We observed no significant difference in tumor cell lodging within the lung at 2 hours after injection"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3c148777e9e68dfa9f309ab4",
+              "unit": null,
+              "value_raw_text": "no significant difference in tumor cell lodging within the lung at 2 hours after injection"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SRC activation in metastases",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "39c0bd87c724652d4464",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "SRC-P[Tyr418]–positive staining (Supplementary Fig. S3J) in mice treated with a-LOX therapy"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5d070fb668b324d6be132b2f",
+              "unit": null,
+              "value_raw_text": "SRC-P[Tyr418]–positive staining decreased in mice treated with a-LOX therapy"
+            }
+          ],
+          "unit_id": "su_25fa935fe9e856825598e05b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9b8cbad0c6490da88d9cb471",
+              "inference_basis_ids": [
+                "res_9318f6f76189a0ebe0b1dcca",
+                "res_c3f698a5ad86a348b6693370"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "Therapeutic targeting of LOX prevents fibrosis-enhanced pulmonary metastases."
+              },
+              "statement": "Fibrosis enhances pulmonary metastasis, and LOX inhibition reduces this enhancement without affecting primary tumor growth."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Induction of pulmonary fibrosis followed by orthotopic injection of 4T1 mammary carcinoma cells.",
+            "Quantification of metastatic burden in lungs.",
+            "Treatment with a-LOX antibody to assess effect on metastasis."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Metastasis assay",
+              "protocol_description": "4T1 wild-type mammary carcinoma cells injected into mammary fat pad of mice with pre-induced pulmonary fibrosis; lungs harvested for histological analysis of metastases."
+            }
+          ],
+          "name": "Fibrosis enhances metastasis via LOX",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Metastatic burden",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "relative quantitative analysis of total metastatic burden (% of total lung) shows decreases in metastases in a-LOX–treated fibrotic lung compared with control"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9318f6f76189a0ebe0b1dcca",
+              "unit": null,
+              "value_raw_text": "decreases in metastases in a-LOX–treated fibrotic lung compared with control"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Primary tumor volume",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "effects on 4T1 wt primary tumor volume by preinduced fibrosis shows no significant changes in primary tumor growth"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c3f698a5ad86a348b6693370",
+              "unit": null,
+              "value_raw_text": "no significant changes in primary tumor growth"
+            }
+          ],
+          "unit_id": "su_68c92991743ff2d172ecece9"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_761e093f0875ec35b0932179",
+              "inference_basis_ids": [
+                "res_2b4085f531dcdbed648723e5",
+                "res_bed3bbd3fd4f8732014c5961"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bb5302a765282912780b",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "LOX expression increased in fibrotic lungs induced by both irradiation and bleomycin exposure with LOX signal being associated with regions of fibrosis and in particular increased collagen I expression"
+              },
+              "statement": "LOX expression is upregulated in fibrotic lungs and correlates with fibrosis markers."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Correlation of LOX expression with collagen I, a-SMA, and fibronectin.",
+            "Immunohistochemical analysis of LOX expression in fibrotic lung tissue.",
+            "Induction of pulmonary fibrosis in mice by irradiation or bleomycin exposure."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Immunohistochemistry",
+              "protocol_description": "Detection of LOX, collagen I, a-SMA, and fibronectin in lung tissue sections."
+            }
+          ],
+          "name": "LOX expression in fibrotic lungs",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "LOX expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb5302a765282912780b",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "LOX expression increased in fibrotic lungs induced by both irradiation and bleomycin exposure with LOX signal being associated with regions of fibrosis and in particular increased collagen I expression"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2b4085f531dcdbed648723e5",
+              "unit": null,
+              "value_raw_text": "LOX expression increased in fibrotic lungs induced by both irradiation and bleomycin exposure"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of LOX with fibrosis markers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb5302a765282912780b",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "increased expression of LOX correlating with activation of fibroblasts (a-SMA) and secretion of ECM components (collagen I and fibronectin)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bed3bbd3fd4f8732014c5961",
+              "unit": null,
+              "value_raw_text": "increased expression of LOX correlating with activation of fibroblasts (a-SMA) and secretion of ECM components (collagen I and fibronectin)"
+            }
+          ],
+          "unit_id": "su_700c29c5440ca9b956926b22"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c74ff3df2b0c016349c3ed6e",
+              "inference_basis_ids": [
+                "res_04107035419f0144987ca6b7",
+                "res_1f9b951e427ecf1ce034599f",
+                "res_30f566452b46e7ffa9acff62"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bb5302a765282912780b",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Treatment with our LOX-specific antibody (a-LOX) led to a significant reduction in the degree of fibrosis observed."
+              },
+              "statement": "Inhibition of LOX reduces pulmonary fibrosis by decreasing collagen deposition and fibrillar collagen assembly."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Assessment of fibrosis by collagen deposition, Ashcroft score, and fibrillar collagen.",
+            "Treatment of mice with LOX function-blocking antibody during fibrosis induction."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "LOX inhibition",
+              "protocol_description": "Administration of LOX-specific function-blocking antibody (a-LOX) to mice with bleomycin- or irradiation-induced pulmonary fibrosis."
+            },
+            {
+              "method_id": "M3",
+              "name": "Fibrosis quantification",
+              "protocol_description": "SirCol assay for collagen deposition, Ashcroft scoring, and picrosirius red staining with orthogonal light for fibrillar collagen."
+            }
+          ],
+          "name": "LOX inhibition reduces fibrosis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Collagen deposition",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb5302a765282912780b",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "a-LOX treatment resulted in a significant reduction in fibrosis showing decreased levels of alveolar thickening and maintenance of alveolar structure as assessed by detection of collagen deposition"
+              },
+              "quantitative_value": null,
+              "result_id": "res_04107035419f0144987ca6b7",
+              "unit": null,
+              "value_raw_text": "a-LOX treatment resulted in a significant reduction in fibrosis showing decreased levels of alveolar thickening and maintenance of alveolar structure as assessed by detection of collagen deposition"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Ashcroft score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb5302a765282912780b",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "a-LOX treatment resulted in a significant reduction in fibrosis showing decreased levels of alveolar thickening and maintenance of alveolar structure as assessed by Ashcroft Score"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1f9b951e427ecf1ce034599f",
+              "unit": null,
+              "value_raw_text": "a-LOX treatment resulted in a significant reduction in fibrosis showing decreased levels of alveolar thickening and maintenance of alveolar structure as assessed by Ashcroft Score"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Fibrillar collagen",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb5302a765282912780b",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "treatment with the a-LOX antibody showed a decreased higher order assembly of collagens as determined by decreased fibrillar collagen presence evaluated by picrosirius red staining and orthogonal light interrogation"
+              },
+              "quantitative_value": null,
+              "result_id": "res_30f566452b46e7ffa9acff62",
+              "unit": null,
+              "value_raw_text": "treatment with the a-LOX antibody showed a decreased higher order assembly of collagens as determined by decreased fibrillar collagen presence evaluated by picrosirius red staining and orthogonal light interrogation"
+            }
+          ],
+          "unit_id": "su_cc480b1e60dea164a369cfc5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_451e926a6a8c097f0068656f",
+              "inference_basis_ids": [
+                "res_2a8ca24a41a7c5a148f76222",
+                "res_7970779a73cbfed95d37b31b",
+                "res_cf9dc5f418247857c0243f93"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "LOX-mediated changes in biomechanical properties (stiffness) of the cellular environment directly influence cellular behavior."
+              },
+              "statement": "LOX-mediated collagen crosslinking increases matrix stiffness, which directly enhances tumor cell proliferation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Fibroblast-mediated matrix remodeling with bleomycin and a-LOX, followed by tumor cell proliferation assay.",
+            "Measurement of matrix stiffness by shear rheology.",
+            "Modification of collagen I matrices with LOX or ribose to increase stiffness.",
+            "Plating of 4T1 cells on modified matrices and assessment of proliferation."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Matrix stiffening",
+              "protocol_description": "Collagen I matrices treated with purified recombinant LOX or ribose to induce crosslinking."
+            },
+            {
+              "method_id": "M6",
+              "name": "Shear rheology",
+              "protocol_description": "Measurement of complex modulus (G*) of collagen matrices."
+            },
+            {
+              "method_id": "M7",
+              "name": "Proliferation assay",
+              "protocol_description": "4T1 cells seeded on modified matrices and proliferation measured at 7 days."
+            }
+          ],
+          "name": "LOX-mediated matrix stiffness increases tumor cell proliferation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor cell proliferation on stiff matrices",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Increasing the stiffness of collagen I matrices subsequently led to a significant increase in the rate of cellular proliferation of seeded 4T1 cells at 7 days"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2a8ca24a41a7c5a148f76222",
+              "unit": null,
+              "value_raw_text": "Increasing the stiffness of collagen I matrices subsequently led to a significant increase in the rate of cellular proliferation of seeded 4T1 cells at 7 days"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tumor cell proliferation on fibroblast-remodeled matrices",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The plating of 4T1 mammary carcinoma cells onto these modified matrices led to a significant increase in the rate of proliferation on the collagen I matrices remodeled by activated fibroblasts, which was reduced by addition of the a-LOX antibody to the fibroblasts following treatment with bleomycin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7970779a73cbfed95d37b31b",
+              "unit": null,
+              "value_raw_text": "plating of 4T1 mammary carcinoma cells onto these modified matrices led to a significant increase in the rate of proliferation on the collagen I matrices remodeled by activated fibroblasts, which was reduced by addition of the a-LOX antibody"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Matrix stiffness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5003c3cad6ae2e687233",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Treatment of collagen I matrices with both LOX and ribose led to significant increases in the complex (G*) moduli (stiffness) of the matrices as measured by shear rheology"
+              },
+              "quantitative_value": null,
+              "result_id": "res_cf9dc5f418247857c0243f93",
+              "unit": null,
+              "value_raw_text": "Treatment of collagen I matrices with both LOX and ribose led to significant increases in the complex (G*) moduli (stiffness) of the matrices"
+            }
+          ],
+          "unit_id": "su_d4dc8f9d5353f2cdf1a2fefd"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9441 on attempt 1"
+    }
+  ]
+}

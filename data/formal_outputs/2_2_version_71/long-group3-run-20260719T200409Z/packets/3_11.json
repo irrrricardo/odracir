@@ -1,0 +1,587 @@
+{
+  "coverage_ledger": {
+    "2196aa44b8196c3cb6e5": "not_selected",
+    "3de8af589d2f37786fe9": "extracted",
+    "74814a733a7ae716615b": "not_selected",
+    "9d184473c80003bca82f": "not_selected",
+    "b6a357268b8cc39109b8": "not_selected",
+    "b91385d65f058c6e8af3": "extracted",
+    "bcc19548a4f9fc395a16": "extracted",
+    "cc7c056a3fbb3518f9c3": "not_selected",
+    "cec421e3f361b9e7e93f": "extracted",
+    "f55caf71ca427bb4fb75": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study uses in vitro polyacrylamide hydrogel substrates to simulate matrix stiffness, which may not fully recapitulate the in vivo tumor microenvironment.",
+    "Only breast cancer cell lines (MDA-MB-231, MDA-MB-468, BT-549) were used; results may not generalize to other cancer types.",
+    "The study does not include in vivo animal models to validate the findings.",
+    "The causal chain from matrix stiffness to drug resistance via ILK and YAP is supported by correlational and inhibitor studies, but direct genetic manipulation (e.g., knockout) was not performed.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_11.pdf",
+    "source_sha256": "eb80e9ffa39313f8aebb578e2132bfbe85fa86ce10ea437e6ca8a6220d8588b3"
+  },
+  "paper_id": "3_11",
+  "quality_assessment": {
+    "correct_item_count": 41,
+    "deterministic_rule_score": 0.9592,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 41,
+    "f1": 0.9647,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 3,
+    "missed_core_items": [
+      {
+        "description": "Quantitative cell death rates at each stiffness (48.5%, 29.6%, 55.2%) are reported in the source but not extracted as a separate result item.",
+        "item_id": null,
+        "source_chunk_id": "b91385d65f058c6e8af3",
+        "source_excerpt": "Cell death rates at 10 kPa, 38 kPa and 57 kPa were 48.5%, 29.6% and 55.2%, respectively.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The experiment showing that ILK inhibition eliminates stiffness-dependent drug resistance (no difference in IC50 after T315) is a core finding not captured as a separate result.",
+        "item_id": null,
+        "source_chunk_id": "bcc19548a4f9fc395a16",
+        "source_excerpt": "Further results showed no difference in IC50 values at different stiffness levels after treatment with T315 for MDA-MB-231 or MDA-MB-468. This suggests that the inhibition of ILK can eliminate stiffness-dependent drug resistance.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The result that YAP nuclear localization is stronger on intermediate stiffness (immunofluorescence and nuclear/cytoplasmic fractionation) is a core finding not extracted as a separate result.",
+        "item_id": null,
+        "source_chunk_id": "cec421e3f361b9e7e93f",
+        "source_excerpt": "The YAP fluorescence intensity observed in the nucleus of an intermediate stiffness substrate was found to be significantly stronger than that in the cytoplasm, and this phenomenon was not obvious for low and high stiffness substrates",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9318
+  },
+  "quality_score": 0.9647,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "How does matrix stiffness modulate drug resistance in breast cancer cells?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c69321a90186d683bade1101",
+              "inference_basis_ids": [
+                "res_50e42057a48a55f1d62de88f",
+                "res_67a043ab33d07c060374561a",
+                "res_d28c71dbec1185849eb45ff2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "cec421e3f361b9e7e93f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "ILK can act as an intermediate molecule during YAP matrix stiffness regulation... inhibition of ILK can prevent the activation of YAP"
+              },
+              "statement": "ILK mediates YAP activation and nuclear translocation in response to intermediate matrix stiffness."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "d4",
+              "description": "Correlation analysis between ILK and YAP mRNA expression in normal breast and breast carcinoma tissues.",
+              "name": "Oncomine public sample database",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Significantly positive correlation between ILK and YAP mRNA expression in both normal breast tissue and breast carcinoma tissue.",
+              "provenance": {
+                "chunk_id": "cec421e3f361b9e7e93f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "there was a significantly positive correlation between ILK and YAP mRNA expression in both normal breast tissue (left panel) and breast carcinoma tissue (right panel)."
+              },
+              "span_id": "es4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Correlation between ILK and YAP mRNA expression analyzed in Oncomine database. Cells on intermediate stiffness treated with ILK inhibitor T315; YAP nuclear translocation and phosphorylation of YAP, MST1, LATS1, Merlin measured by immunofluorescence and Western blot."
+          ],
+          "methods": [
+            {
+              "method_id": "m8",
+              "name": "Immunofluorescence for YAP localization",
+              "protocol_description": "Cells treated with T315, stained for YAP, and fluorescence intensity in nucleus and cytoplasm quantified by ImageJ."
+            },
+            {
+              "method_id": "m9",
+              "name": "Western blot for YAP pathway proteins",
+              "protocol_description": "Western blot for p-YAP, p-MST1, p-LATS1, p-Merlin after T315 treatment."
+            }
+          ],
+          "name": "ILK mediates YAP activation on intermediate stiffness",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Phosphorylation of YAP pathway proteins",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cec421e3f361b9e7e93f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "after inhibition of ILK, p-YAP, p-MST1 and p-LATS1 expression increased, while p-Merlin expression decreased."
+              },
+              "quantitative_value": null,
+              "result_id": "res_50e42057a48a55f1d62de88f",
+              "unit": null,
+              "value_raw_text": "After inhibition of ILK, p-YAP, p-MST1 and p-LATS1 expression increased, while p-Merlin expression decreased."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between ILK and YAP mRNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cec421e3f361b9e7e93f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "there was a significantly positive correlation between ILK and YAP mRNA expression in both normal breast tissue (left panel) and breast carcinoma tissue (right panel)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_67a043ab33d07c060374561a",
+              "unit": null,
+              "value_raw_text": "Significantly positive correlation between ILK and YAP mRNA expression in both normal breast tissue and breast carcinoma tissue."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP nuclear translocation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "cec421e3f361b9e7e93f",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "As the concentration of T315 increased, YAP nuclear translocation reduction was observed"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d28c71dbec1185849eb45ff2",
+              "unit": null,
+              "value_raw_text": "As the concentration of T315 increased, YAP nuclear translocation reduction was observed."
+            }
+          ],
+          "unit_id": "su_0709be3f8cb4482de06cd4c4"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_93dea9008b8b30e33fbf0156",
+              "inference_basis_ids": [
+                "res_07025b93bec21b4e8c46c3a7",
+                "res_20a36fbeca3e38fda06e52ec",
+                "res_2ff697824620aba28070b02b",
+                "res_f4f2185bc6d07e179df06772"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "ILK mRNA and protein levels were significantly lower in low and high stiffness substrates than on intermediate stiffness substrates... inhibition of ILK can eliminate stiffness-dependent drug resistance."
+              },
+              "statement": "ILK expression is highest on intermediate stiffness substrates and correlates with drug resistance in breast cancer cells."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "d1",
+              "description": "Microarray expression profile for ILK and YAP expression in breast cancer patients.",
+              "name": "Oncomine public sample database",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "d2",
+              "description": "Survival analysis data for breast cancer patients with different ILK and YAP expression.",
+              "name": "R2 microarray public database",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "ILK mRNA and protein levels were significantly lower in low and high stiffness substrates than on intermediate stiffness substrates for both MDA-MB-231 and MDA-MB-468 cells.",
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "ILK mRNA and protein levels were significantly lower in low and high stiffness substrates than on intermediate stiffness substrates for both MDA-MB-231 and MDA-MB-468 cells."
+              },
+              "span_id": "es2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "ILK mRNA and protein levels were measured in MDA-MB-231 and MDA-MB-468 cells on different stiffness substrates. ILK inhibitor T315 was used to assess drug resistance. Kaplan-Meier survival analysis of breast cancer patients with different ILK expression levels was performed."
+          ],
+          "methods": [
+            {
+              "method_id": "m3",
+              "name": "Western blot",
+              "protocol_description": "Protein isolation and Western blot analysis for ILK, p-Akt, Akt, and other proteins. Antibodies used according to manufacturer's instructions."
+            },
+            {
+              "method_id": "m4",
+              "name": "Kaplan-Meier survival analysis",
+              "protocol_description": "Microarray expression profile from Oncomine and R2 databases. Survival rates analyzed using log-rank test."
+            }
+          ],
+          "name": "ILK expression and its role in drug resistance",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "ILK mRNA expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "ILK mRNA and protein levels were significantly lower in low and high stiffness substrates than on intermediate stiffness substrates for both MDA-MB-231 and MDA-MB-468 cells."
+              },
+              "quantitative_value": null,
+              "result_id": "res_07025b93bec21b4e8c46c3a7",
+              "unit": null,
+              "value_raw_text": "ILK mRNA levels were significantly lower in low and high stiffness substrates than on intermediate stiffness substrates for both MDA-MB-231 and MDA-MB-468 cells."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "IC50",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "no difference in IC50 values at different stiffness levels after treatment with T315 for MDA-MB-231 or MDA-MB-468."
+              },
+              "quantitative_value": null,
+              "result_id": "res_20a36fbeca3e38fda06e52ec",
+              "unit": null,
+              "value_raw_text": "No difference in IC50 values at different stiffness levels after treatment with T315 for MDA-MB-231 or MDA-MB-468."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell death rate after T315 treatment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "As the concentration of T315 increased, the cell death rate increased to 86.7%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2ff697824620aba28070b02b",
+              "unit": null,
+              "value_raw_text": "As the concentration of T315 increased, the cell death rate increased to 86.7%."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Survival rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the survival rate of patients with high ILK expression was lower than that of patients with low ILK expression."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f4f2185bc6d07e179df06772",
+              "unit": null,
+              "value_raw_text": "The survival rate of patients with high ILK expression was lower than that of patients with low ILK expression."
+            }
+          ],
+          "unit_id": "su_3c21ecb6a24cf417534706b6"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8b766a0b4705e3e377f856c5",
+              "inference_basis_ids": [
+                "res_157be3f85fccd40faf97835c",
+                "res_42e8e2622f09f1ab05ca5a58",
+                "res_7fd739da6e725e98771cf21f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b91385d65f058c6e8af3",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "the cell survival rates at 10/38/57 kPa were all higher than 70%... the number of dead cells on low and high stiffness substrates was significantly greater than the number observed on the intermediate stiffness substrate"
+              },
+              "statement": "Intermediate matrix stiffness (38 kPa) promotes survival of breast cancer cells after doxorubicin treatment compared to low (10 kPa) and high (57 kPa) stiffness."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Cell death rates at 10 kPa, 38 kPa and 57 kPa were 48.5%, 29.6% and 55.2%, respectively.",
+              "provenance": {
+                "chunk_id": "b91385d65f058c6e8af3",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Cell death rates at 10 kPa, 38 kPa and 57 kPa were 48.5%, 29.6% and 55.2%, respectively."
+              },
+              "span_id": "es1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "MDA-MB-231 cells were cultured on polyacrylamide hydrogels of varying stiffness (10, 38, 57 kPa) and treated with 3 mg/L doxorubicin. Cell survival rates were measured by Calcein-AM/PI co-staining, Ki67 immunofluorescence, and Western blot for apoptosis-related proteins."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "Polyacrylamide hydrogel preparation",
+              "protocol_description": "Polyacrylamide hydrogels of varying stiffness (10, 38, 57 kPa) were configured to simulate tissue physical matrix stiffness across different stages of breast cancer."
+            },
+            {
+              "method_id": "m2",
+              "name": "Cell survival assay",
+              "protocol_description": "Cells were treated with 3 mg/L doxorubicin. Survival rates were assessed by Calcein-AM/PI co-staining, Ki67 immunofluorescence, and Western blot for cleaved Caspase-3 and PARP."
+            }
+          ],
+          "name": "Effect of matrix stiffness on cell survival after doxorubicin treatment",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Ki67 expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b91385d65f058c6e8af3",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the expression of Ki67 in cells on low and high stiffness substrates were significantly lower than intermediate stiffness substrate"
+              },
+              "quantitative_value": null,
+              "result_id": "res_157be3f85fccd40faf97835c",
+              "unit": null,
+              "value_raw_text": "The expression of Ki67 in cells on low and high stiffness substrates were significantly lower than intermediate stiffness substrate."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cleaved Caspase-3 and PARP expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b91385d65f058c6e8af3",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Fig. 1F and G illustrated the increased expression of cleaved Caspase-3 and PARP and the decreased expression of Bcl-2 on low and high stiffness substrates compared to intermediate stiffness."
+              },
+              "quantitative_value": null,
+              "result_id": "res_42e8e2622f09f1ab05ca5a58",
+              "unit": null,
+              "value_raw_text": "Increased expression of cleaved Caspase-3 and PARP and decreased expression of Bcl-2 on low and high stiffness substrates compared to intermediate stiffness."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cell death rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b91385d65f058c6e8af3",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Cell death rates at 10 kPa, 38 kPa and 57 kPa were 48.5%, 29.6% and 55.2%, respectively."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7fd739da6e725e98771cf21f",
+              "unit": null,
+              "value_raw_text": "Cell death rates at 10 kPa, 38 kPa and 57 kPa were 48.5%, 29.6% and 55.2%, respectively."
+            }
+          ],
+          "unit_id": "su_46cadcb55891e5a9e89b2b54"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4a4bd740a8265d9ccf02055e",
+              "inference_basis_ids": [
+                "res_07e22c74d108072b9fda3efa",
+                "res_0c92a945e25cf061c0b02bfd",
+                "res_92145fcecfe9e5976fd8f671",
+                "res_c9637c4b92ff836f4145c56a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "the activation of YAP (De-phosphorylation status of YAP) on an intermediate stiffness substrate was stronger than other substrates... inhibition of YAP and ILK can reduce the expression of the drug resistance gene P-gp"
+              },
+              "statement": "Intermediate matrix stiffness induces YAP activation and nuclear translocation, leading to increased P-gp expression and drug resistance."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "d3",
+              "description": "Survival analysis for YAP expression in breast cancer patients.",
+              "name": "R2 microarray public database",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "p-YAP expression on intermediate stiffness substrate was less pronounced than low and high stiffness substrates.",
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the expression of p-YAP is higher than intermediate stiffness substrate"
+              },
+              "span_id": "es3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "YAP nuclear translocation and transcriptional activity were assessed on different stiffness substrates. YAP inhibitor Verteporfin and ILK inhibitor T315 were used to measure P-gp mRNA levels. Kaplan-Meier survival analysis for YAP expression."
+          ],
+          "methods": [
+            {
+              "method_id": "m5",
+              "name": "Immunofluorescence",
+              "protocol_description": "Cells stained with YAP antibody and visualized by confocal microscopy. Fluorescence intensity analyzed by ImageJ."
+            },
+            {
+              "method_id": "m6",
+              "name": "Luciferase reporter assay",
+              "protocol_description": "36 kD-luciferase reporter plasmid and pRL-TK cotransfected into MDA-MB-231 cells. Luciferase activity measured 48 h post-transfection."
+            },
+            {
+              "method_id": "m7",
+              "name": "qPCR",
+              "protocol_description": "Total RNA extracted, reverse transcribed, and qPCR performed using SYBR Green. Relative mRNA levels analyzed by comparative Ct method."
+            }
+          ],
+          "name": "YAP activation and P-gp expression",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "P-gp mRNA expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "The expression of P-gp mRNA declined with increasing verteporfin concentration on intermediate stiffness substrate. T315 also significantly reduced P-gp expressions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_07e22c74d108072b9fda3efa",
+              "unit": null,
+              "value_raw_text": "P-gp mRNA declined with increasing verteporfin concentration on intermediate stiffness substrate. T315 also significantly reduced P-gp expressions."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "YAP transcriptional activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "luciferase reporter gene assay... YAP target genes... were found to be more active on the intermediate rigidity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0c92a945e25cf061c0b02bfd",
+              "unit": null,
+              "value_raw_text": "Luciferase reporter assay showed YAP target genes (ANKRD1, CTGF, CYR61) were more active on intermediate rigidity."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Survival rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "survival rates of patients with high levels of YAP expression were lower"
+              },
+              "quantitative_value": null,
+              "result_id": "res_92145fcecfe9e5976fd8f671",
+              "unit": null,
+              "value_raw_text": "Survival rates of patients with high levels of YAP expression were lower."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "p-YAP expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bcc19548a4f9fc395a16",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the expression of p-YAP is higher than intermediate stiffness substrate"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c9637c4b92ff836f4145c56a",
+              "unit": null,
+              "value_raw_text": "p-YAP expression on intermediate stiffness substrate was less pronounced than low and high stiffness substrates."
+            }
+          ],
+          "unit_id": "su_55f85c7c977d2db3565a45be"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5864 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6847 on attempt 1"
+    }
+  ]
+}

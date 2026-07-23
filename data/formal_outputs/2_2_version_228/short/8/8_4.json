@@ -1,0 +1,875 @@
+{
+  "coverage_ledger": {
+    "13540d315a7965cea737": "extracted",
+    "282731099c4127decec8": "not_selected",
+    "2ccb8aec85f7bd4de6bf": "not_selected",
+    "2db027c70f5471086f1b": "extracted",
+    "409778be198863631b4f": "not_selected",
+    "5c5e5a3e48d54cf28500": "not_selected",
+    "68c9d88326f032da2f06": "not_selected",
+    "847235630541e4eb0074": "extracted",
+    "995ca51be519a40b056e": "not_selected",
+    "aa3924752194fc1f66e9": "not_selected",
+    "bb6c350bdbc7eaf951f7": "not_selected",
+    "c681e379cbf51f4cf415": "not_selected",
+    "cdb20203d4df57811ab5": "not_selected",
+    "cec73e1cd629a4df47e0": "not_selected",
+    "e15656f51c5fe4b00e18": "not_selected",
+    "e473b6edb19fa625d40c": "not_selected",
+    "e9b44e34937f0a10326d": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "PINN and PINO from scratch cannot handle long temporal transient flow (error > 50%).",
+    "Test-time optimization may not be needed for simpler equations like Burgers and Darcy.",
+    "The paper does not address how to overcome the hard trade-off of accuracy and complexity.",
+    "Transfer across different geometries is an open question."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "8_4.pdf",
+    "source_sha256": "47acdfc72c86705fddf9be37909b64d9a4b7b906b5539671fb85208c7fd52772"
+  },
+  "paper_id": "8_4",
+  "quality_assessment": {
+    "correct_item_count": 54,
+    "deterministic_rule_score": 0.9281,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 54,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can combining operator learning and function optimization improve convergence and accuracy for solving PDEs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_19f9c02bf88b3d912c74c25a",
+              "inference_basis_ids": [
+                "res_55e6a81a73e3743765a75142",
+                "res_a00f80f5ef4ec508ef6d6b3c",
+                "res_a59b40fcc4b78c20630627ca"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Using a pre-trained model makes PINO converge faster."
+              },
+              "statement": "Using a pre-trained model makes PINO converge faster."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5219772fb6b88c85e90ff7c9",
+              "inference_basis_ids": [
+                "res_0bade9b3cfd31ea2be905e0b",
+                "res_1a561fe23ec916265dde65a3"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "On Burgers (11), PINN-DeepONet achieves 1.38% [37]; PINO achieves 0.37%."
+              },
+              "statement": "PINO achieves lower error than PINN-DeepONet on Burgers equation."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_743060aa5ceeb2be8f4f666d",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "on Darcy flow (12), PINO outperforms FNO by utilizing physics constraints, as shown in Table 3."
+              },
+              "statement": "PINO outperforms FNO on Darcy flow by utilizing physics constraints."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_78bbc61783518c48c4211ef1",
+              "inference_basis_ids": [
+                "res_04d91caa3f72089ed1e16c0b",
+                "res_201d9d925d0adaf3e4965d55",
+                "res_23a1653f7821d4b4670cf03f",
+                "res_3305059b7cb7578a1b162daf",
+                "res_4d8f3764b04d565964c4e36d",
+                "res_7329a0ec04610a50278660ef",
+                "res_74323c629733745f47f582d2",
+                "res_84d09be40fc3f56972c61df8",
+                "res_9ab7932e19ba43ca8e82696e",
+                "res_9c906ff0ecb2c794a5321c55",
+                "res_c6cc8ee46abd0892b0786d38",
+                "res_cae72539edd402b300137003",
+                "res_e5f7165f16dd251753b3d2d2",
+                "res_e6cbb62692392c8c73fda36d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The result shows that training neural operator with additional PDE instances consistently improves the generalization error on all three resolutions we are evaluating."
+              },
+              "statement": "Training neural operator with additional PDE instances consistently improves generalization error on Kolmogorov flow."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a311a8626682f96584c4a820",
+              "inference_basis_ids": [
+                "res_2c1c27e3bd62d3580979be7d",
+                "res_903321368dae9f0071ade3ea"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Providing N = 4800 training data, the PINO without test-time optimization achieves 2.87% error, lower than FNO 3.04%"
+              },
+              "statement": "PINO without test-time optimization achieves lower error than FNO on long temporal transient flow."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_afd4cad84de594bce2fb29f6",
+              "inference_basis_ids": [
+                "res_2e96b7c6f7beab349d159ad3",
+                "res_55e6a81a73e3743765a75142",
+                "res_90efabfdac7d6c29f9e98b58",
+                "res_b2f291f57f2d8c5a813b5399",
+                "res_cd588292e9111df30b774b0b",
+                "res_d667837451bbc50a045e449a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Overall, PINO outperforms PINN by 20x smaller error and 25x speedup."
+              },
+              "statement": "PINO outperforms PINN by 20x smaller error and 25x speedup on Kolmogorov flow."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c6b3e3cd109d19bfcbbf8260",
+              "inference_basis_ids": [
+                "res_c246e9341d8432b6587e76e0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Further doing test time optimization with the anchor loss and PDE loss, PINO reduces the error to 1.84%."
+              },
+              "statement": "Test-time optimization further reduces PINO error on long temporal transient flow."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f48c7c696594f2d215a19593",
+              "inference_basis_ids": [
+                "res_5620ca53124356f8c989d5bb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "it retains a 400x speedup compared to the GPU-based pseudo-spectral solver [13], matching FNO."
+              },
+              "statement": "PINO retains the extraordinary speed-up of FNO compared to solvers."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Parametric PDE family for Burgers equation; no training data used for operator learning.",
+              "name": "Burgers equation instances",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Parametric PDE family for Darcy flow; no training data used for operator learning.",
+              "name": "Darcy flow instances",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "PDE with long time interval T=[0,50]; 4800 training data samples used for pre-training.",
+              "name": "Long temporal transient flow",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Chaotic Kolmogorov flow at Reynolds number 500; training set of 4000 data points, additional PDE instances sampled from Gaussian random field.",
+              "name": "Kolmogorov flow Re=500",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison with PINN and FNO baselines",
+            "Operator learning on Burgers equation and Darcy flow without data",
+            "Operator learning on chaotic Kolmogorov flow with additional PDE instances",
+            "Operator learning on long temporal transient flow with pre-training data",
+            "Test-time optimization on Kolmogorov flow using pre-trained operator ansatz"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Physics-Informed Neural Operator (PINO)",
+              "protocol_description": "Combines operator learning and function optimization. Pre-training phase learns solution operator over multiple PDE instances using supervised data and physics constraints. Test-time optimization phase optimizes the pre-trained operator ansatz for a specific PDE instance using anchor loss and PDE loss."
+            },
+            {
+              "method_id": "M2",
+              "name": "Physics-Informed Neural Network (PINN)",
+              "protocol_description": "Uses a neural network as ansatz for the solution function, optimized with soft physics constraints via auto-differentiation."
+            },
+            {
+              "method_id": "M3",
+              "name": "Fourier Neural Operator (FNO)",
+              "protocol_description": "Learns solution operator via supervised learning on input-output pairs from an existing solver."
+            },
+            {
+              "method_id": "M4",
+              "name": "PINN-DeepONet",
+              "protocol_description": "Physics-informed DeepONet for learning solution operator of parametric PDEs."
+            }
+          ],
+          "name": "PINO method development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Equation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0.4k, # additional PDE instances 0, Equation error 1.8779"
+              },
+              "quantitative_value": 1.8779,
+              "result_id": "res_04d91caa3f72089ed1e16c0b",
+              "unit": null,
+              "value_raw_text": "1.8779"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "PINN-DeepONet achieves 1.38% [37]"
+              },
+              "quantitative_value": 1.38,
+              "result_id": "res_0bade9b3cfd31ea2be905e0b",
+              "unit": "%",
+              "value_raw_text": "1.38%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "On Burgers (11), PINN-DeepONet achieves 1.38% [37]; PINO achieves 0.37%."
+              },
+              "quantitative_value": 0.37,
+              "result_id": "res_1a561fe23ec916265dde65a3",
+              "unit": "%",
+              "value_raw_text": "0.37%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 4k, # additional PDE instances 400k, Equation error 1.4596"
+              },
+              "quantitative_value": 1.4596,
+              "result_id": "res_201d9d925d0adaf3e4965d55",
+              "unit": null,
+              "value_raw_text": "1.4596"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0.4k, # additional PDE instances 40k, Equation error 1.8179"
+              },
+              "quantitative_value": 1.8179,
+              "result_id": "res_23a1653f7821d4b4670cf03f",
+              "unit": null,
+              "value_raw_text": "1.8179"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "lower than FNO 3.04%"
+              },
+              "quantitative_value": 3.04,
+              "result_id": "res_2c1c27e3bd62d3580979be7d",
+              "unit": "%",
+              "value_raw_text": "3.04%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time cost",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "PINNs Time cost 4577s"
+              },
+              "quantitative_value": 4577.0,
+              "result_id": "res_2e96b7c6f7beab349d159ad3",
+              "unit": "s",
+              "value_raw_text": "4577s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0, # additional PDE instances 100k, Solution error 74.36%"
+              },
+              "quantitative_value": 74.36,
+              "result_id": "res_3305059b7cb7578a1b162daf",
+              "unit": "%",
+              "value_raw_text": "74.36%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 4k, # additional PDE instances 100k, Equation error 1.6112"
+              },
+              "quantitative_value": 1.6112,
+              "result_id": "res_4d8f3764b04d565964c4e36d",
+              "unit": null,
+              "value_raw_text": "1.6112"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time cost",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "PINO Time cost 608s"
+              },
+              "quantitative_value": 608.0,
+              "result_id": "res_55e6a81a73e3743765a75142",
+              "unit": "s",
+              "value_raw_text": "608s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Speedup",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "it retains a 400x speedup compared to the GPU-based pseudo-spectral solver [13], matching FNO."
+              },
+              "quantitative_value": 400.0,
+              "result_id": "res_5620ca53124356f8c989d5bb",
+              "unit": "x",
+              "value_raw_text": "400x speedup compared to the GPU-based pseudo-spectral solver"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0.4k, # additional PDE instances 40k, Solution error 31.74%"
+              },
+              "quantitative_value": 31.74,
+              "result_id": "res_7329a0ec04610a50278660ef",
+              "unit": "%",
+              "value_raw_text": "31.74%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 4k, # additional PDE instances 100k, Solution error 24.15%"
+              },
+              "quantitative_value": 24.15,
+              "result_id": "res_74323c629733745f47f582d2",
+              "unit": "%",
+              "value_raw_text": "24.15%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0.4k, # additional PDE instances 160k, Solution error 31.32%"
+              },
+              "quantitative_value": 31.32,
+              "result_id": "res_84d09be40fc3f56972c61df8",
+              "unit": "%",
+              "value_raw_text": "31.32%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Providing N = 4800 training data, the PINO without test-time optimization achieves 2.87% error"
+              },
+              "quantitative_value": 2.87,
+              "result_id": "res_903321368dae9f0071ade3ea",
+              "unit": "%",
+              "value_raw_text": "2.87%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Error reduction factor",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "PINO outperforms PINN by 20x smaller error"
+              },
+              "quantitative_value": 20.0,
+              "result_id": "res_90efabfdac7d6c29f9e98b58",
+              "unit": "x",
+              "value_raw_text": "20x smaller error"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0.4k, # additional PDE instances 160k, Equation error 1.7840"
+              },
+              "quantitative_value": 1.784,
+              "result_id": "res_9ab7932e19ba43ca8e82696e",
+              "unit": null,
+              "value_raw_text": "1.7840"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 4k, # additional PDE instances 400k, Solution error 24.22%"
+              },
+              "quantitative_value": 24.22,
+              "result_id": "res_9c906ff0ecb2c794a5321c55",
+              "unit": "%",
+              "value_raw_text": "24.22%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time cost",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "PINO Time cost 473s"
+              },
+              "quantitative_value": 473.0,
+              "result_id": "res_a00f80f5ef4ec508ef6d6b3c",
+              "unit": "s",
+              "value_raw_text": "473s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time cost",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "PINO Time cost 536s"
+              },
+              "quantitative_value": 536.0,
+              "result_id": "res_a59b40fcc4b78c20630627ca",
+              "unit": "s",
+              "value_raw_text": "536s"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error (w)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "PINO Solution error (w) 0.9%"
+              },
+              "quantitative_value": 0.9,
+              "result_id": "res_b2f291f57f2d8c5a813b5399",
+              "unit": "%",
+              "value_raw_text": "0.9%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative L2 test error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "Further doing test time optimization with the anchor loss and PDE loss, PINO reduces the error to 1.84%."
+              },
+              "quantitative_value": 1.84,
+              "result_id": "res_c246e9341d8432b6587e76e0",
+              "unit": "%",
+              "value_raw_text": "1.84%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0, # additional PDE instances 100k, Equation error 0.3741"
+              },
+              "quantitative_value": 0.3741,
+              "result_id": "res_c6cc8ee46abd0892b0786d38",
+              "unit": null,
+              "value_raw_text": "0.3741"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Equation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 4k, # additional PDE instances 0, Equation error 1.8223"
+              },
+              "quantitative_value": 1.8223,
+              "result_id": "res_cae72539edd402b300137003",
+              "unit": null,
+              "value_raw_text": "1.8223"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error (w)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "PINNs Solution error (w) 18.7%"
+              },
+              "quantitative_value": 18.7,
+              "result_id": "res_cd588292e9111df30b774b0b",
+              "unit": "%",
+              "value_raw_text": "18.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Speedup",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "25x speedup"
+              },
+              "quantitative_value": 25.0,
+              "result_id": "res_d667837451bbc50a045e449a",
+              "unit": "x",
+              "value_raw_text": "25x speedup"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 4k, # additional PDE instances 0, Solution error 25.15%"
+              },
+              "quantitative_value": 25.15,
+              "result_id": "res_e5f7165f16dd251753b3d2d2",
+              "unit": "%",
+              "value_raw_text": "25.15%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Solution error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "847235630541e4eb0074",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": true,
+                "text_excerpt": "# data samples 0.4k, # additional PDE instances 0, Solution error 33.32%"
+              },
+              "quantitative_value": 33.32,
+              "result_id": "res_e6cbb62692392c8c73fda36d",
+              "unit": "%",
+              "value_raw_text": "33.32%"
+            }
+          ],
+          "unit_id": "su_ffb67d4edec317201284e632"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7808 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7945 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7808 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7945 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6190 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[21].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6316 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6316 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6316 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7917 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8056 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7917 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8056 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7703 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7838 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7733 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7867 on attempt 1"
+    }
+  ]
+}

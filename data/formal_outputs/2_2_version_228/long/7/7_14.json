@@ -1,0 +1,593 @@
+{
+  "coverage_ledger": {
+    "006ba3f9406d1d1a5a72": "not_selected",
+    "18b7ecf3cc2359eafb87": "extracted",
+    "2082e71456624f427f16": "not_selected",
+    "21c50685dfa81af812e8": "not_selected",
+    "268e71f3e6f2256e99bb": "not_selected",
+    "2f13bc5c6014560c1f62": "not_selected",
+    "39d97e080e1a08a08020": "not_selected",
+    "40b6f06a7bb13b3c9424": "not_selected",
+    "4f152d29e3692ca8372c": "not_selected",
+    "5832a281e82146e4543c": "not_selected",
+    "8397dd7de7e06fdf1f79": "not_selected",
+    "892e2ed9eaf3f27a4aeb": "not_selected",
+    "a8d08aaf84579262af1c": "not_selected",
+    "ad7e2f9d961e21fd6d09": "not_selected",
+    "b102f34e5599911a483d": "extracted",
+    "bd85f45fc1c89ba7b201": "not_selected",
+    "bf941553117a83d57290": "not_selected",
+    "cc2a6713e331754ea56d": "extracted",
+    "e7468126764504110c62": "extracted",
+    "f5e5c46ed91c579e0a52": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Physics-informed models may not always decrease error with more training epochs due to small collocation point sampling for PDE residual, causing overfitting to small regions.",
+    "Comparison with data-driven models is constrained by equal training times; data-driven models might outperform with extended training.",
+    "Performance drops significantly with insufficient training data (e.g., error rises from ~17% to 40% when samples decrease from 150 to 50).",
+    "The study uses consistent mesh resolution across FEM results, focusing on geometry generalization rather than mesh generalization.",
+    "The proposed method's effectiveness is demonstrated on two PDE problems (Darcy flow and 2D plate stress); generalization to other problem types is not evaluated."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_14.pdf",
+    "source_sha256": "75fb643f7860d0b2e870e9c8045b304298a9a0e81598ecdb8d552cc84751b20b"
+  },
+  "paper_id": "7_14",
+  "quality_assessment": {
+    "correct_item_count": 29,
+    "deterministic_rule_score": 0.8615,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 31,
+    "f1": 0.6667,
+    "incorrect_item_count": 2,
+    "incorrect_items": [
+      {
+        "description": "The extracted result claims PI-GANO outperforms PI-DCON and PI-PointNet* in both Darcy flow and 2D plate problems, but the cited source chunk only mentions comparison with PI-DCON and PI-PointNet (not PI-PointNet*) and does not provide quantitative results; it merely states that numerical results in Section 4.3 will show differences. The actual performance comparison with PI-PointNet* is not supported by this chunk.",
+        "item_id": "result:su_3f98788b8fbb5f7acfe93fd5:res_dd4957b4d89a218603ba30b1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states PI-GANO outperforms PI-DCON and PI-PointNet* in accuracy, but the cited source chunk only mentions comparison with PI-DCON and PI-PointNet (not PI-PointNet*) and does not provide any accuracy results. The claim is unsupported by the provided provenance.",
+        "item_id": "claim:su_3f98788b8fbb5f7acfe93fd5:clm_bee8b14e4ce969f5b2616b09",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 27,
+    "missed_core_items": [
+      {
+        "description": "PI-GANO achieved 39.1% accuracy improvement over PI-PointNet on Darcy flow and 75.0% on 2D plate for geometry-only variation.",
+        "item_id": null,
+        "source_chunk_id": "f5e5c46ed91c579e0a52",
+        "source_excerpt": "our model achieved 39.1% accuracy improvement for the Darcy flow problem and 75.0% accuracy improvement for the 2D Plate problem.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO achieved 60% accuracy improvement over PI-DCON on Darcy flow and 50% on 2D plate for varying PDE parameters and geometries.",
+        "item_id": null,
+        "source_chunk_id": "39d97e080e1a08a08020",
+        "source_excerpt": "Compared to PI-DCON, our model achieved a 60% accuracy improvement for the Darcy flow problem and a 50% accuracy improvement for the 2D Plate problem",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO achieved approximately 70% accuracy improvement over PI-DCON on a high geometry variation dataset.",
+        "item_id": null,
+        "source_chunk_id": "4f152d29e3692ca8372c",
+        "source_excerpt": "our proposed model achieves approximately a 70% accuracy improvement on this challenging dataset",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO training times: 18 min for Darcy flow, 57 min for 2D plate; PI-PointNet: 32 min and 265 min respectively.",
+        "item_id": null,
+        "source_chunk_id": "f5e5c46ed91c579e0a52",
+        "source_excerpt": "Training time (min) ... PI-PointNet ... PI-GANO ... Darcy flow ... 32 ... 18 ... 2D Plate ... 265 ... 57",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO mean relative error: 8.40% (Darcy flow) and 7.12% (2D plate) for varying parameters and geometries.",
+        "item_id": null,
+        "source_chunk_id": "bf941553117a83d57290",
+        "source_excerpt": "PI-GANO ... Darcy flow ... 8.40% ... 2D Plate ... 7.12%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO mean relative error: 6.70% (Darcy flow) and 6.41% (2D plate) for geometry-only variation.",
+        "item_id": null,
+        "source_chunk_id": "f5e5c46ed91c579e0a52",
+        "source_excerpt": "PI-GANO ... Darcy flow ... 6.70% ... 2D Plate ... 6.41%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO mean relative error on high geometry variation dataset: 7.29%.",
+        "item_id": null,
+        "source_chunk_id": "4f152d29e3692ca8372c",
+        "source_excerpt": "PI-GANO ... 7.29%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Data-driven GANO mean relative error: 8.00% (Darcy flow) and 9.01% (2D plate).",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "Data-driven GANO ... Darcy flow ... 8.00% ... 2D plate ... 9.01%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Data-driven DCON mean relative error: 8.21% (Darcy flow) and 13.5% (2D plate).",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "Data-driven DCON ... Darcy flow ... 8.21% ... 2D plate ... 13.5%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-PointNet* mean relative error: 64.3% (Darcy flow) and 74.3% (2D plate).",
+        "item_id": null,
+        "source_chunk_id": "bf941553117a83d57290",
+        "source_excerpt": "PI-PointNet* ... Darcy flow ... 64.3% ... 2D Plate ... 74.3%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-DCON mean relative error: 13.50% (Darcy flow) and 14.06% (2D plate) for varying parameters and geometries.",
+        "item_id": null,
+        "source_chunk_id": "bf941553117a83d57290",
+        "source_excerpt": "PI-DCON ... Darcy flow ... 13.50% ... 2D Plate ... 14.06%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-PointNet mean relative error: 11.30% (Darcy flow) and 25.72% (2D plate) for geometry-only variation.",
+        "item_id": null,
+        "source_chunk_id": "f5e5c46ed91c579e0a52",
+        "source_excerpt": "PI-PointNet ... Darcy flow ... 11.30% ... 2D Plate ... 25.72%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-DCON mean relative error on high geometry variation dataset: 23.72%.",
+        "item_id": null,
+        "source_chunk_id": "4f152d29e3692ca8372c",
+        "source_excerpt": "PI-DCON ... 23.72%",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Inference time: neural operator 0.0021 s (Darcy) and 0.0038 s (plate) vs FEM ~1 s and 2.1 s.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "solving a Darcy problem using FEM takes approximately 1 s, while a 2D plate stress problem requires 2.1 s. In contrast, predicting the PDE solutions with the neural operator takes only 0.0021 s and 0.0038 s",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO outperforms data-driven GANO on 2D plate stress problem.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "our proposed PI-GANO outperforms the data-driven version of GANO",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO reaches convergence accuracy comparable to data-driven GANO and DCON on Darcy flow with less total time.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "PI-GANO reaches a convergence accuracy comparable to that of data-driven GANO and DCON, while requiring less time to achieve this accuracy level.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Model performance improves with increasing complexity of geometry encoder and larger training dataset; error rises from ~17% to 40% when training samples drop from 150 to 50.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "model performance improves with increasing complexity of the geometry encoder and a larger training dataset. ... when the number of training samples decreases from 150 to 50, the model’s average prediction error rises from approximately 17% to 40%.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Data-driven GANO achieves over 28% accuracy improvement compared to data-driven DCON on 2D plate problem.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "data-driven GANO achieves over a 28% accuracy improvement compared to data-driven DCON.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Physics-informed training can yield better accuracy than data-driven training when using the same model architecture.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "our proposed PI-GANO outperforms the data-driven version of GANO, highlighting the potential of physics-informed training to offer efficiency and also to enhance prediction accuracy when the same model architecture is used.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PI-GANO is more time-efficient than data-driven approaches for reaching comparable accuracy.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "PI-GANO reaches a convergence accuracy comparable to that of data-driven GANO and DCON, while requiring less time to achieve this accuracy level.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The geometry encoder in PI-GANO improves accuracy, especially when PDE parameters do not fully characterize the domain geometry.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "data-driven GANO achieves over a 28% accuracy improvement compared to data-driven DCON. This shows it is important to include a separate geometry encoder, because the variable parameters in this problem are only imposed on a subset of boundary segments, which do not fully characterize the entire domain.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "PI-GANO is the first neural operator that can simultaneously handle varying PDE parameters and domain geometries without training data.",
+        "item_id": null,
+        "source_chunk_id": "e7468126764504110c62",
+        "source_excerpt": "our proposed model is the first attempt to develop a neural operator that can simultaneously handle varying PDE parameters and domain geometries without need for any training data.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Physics-informed models may not always decrease error with more training epochs due to small collocation point sampling for PDE residual, causing overfitting to small regions.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "the best model prediction accuracy of the physics-informed models does not always decrease with more training epochs. ... This phenomenon can be attributed to the small size of the collocation point sampling used for PDE residual computation ... Using a small set of points for PDE residual computation can cause the model to overly focus on the accuracy of a small region in the domain, at the expense of overall approximation accuracy across the entire domain.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "Comparison with data-driven models is constrained by equal training times; data-driven models might outperform with extended training.",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "this comparison is constrained by equal training times, suggesting that the data-driven model might outperform the physics-informed model with extended training time.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Performance drops significantly with insufficient training data (e.g., error rises from ~17% to 40% when samples decrease from 150 to 50).",
+        "item_id": null,
+        "source_chunk_id": "18b7ecf3cc2359eafb87",
+        "source_excerpt": "when the number of training samples decreases from 150 to 50, the model’s average prediction error rises from approximately 17% to 40%.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The study uses consistent mesh resolution across FEM results, focusing on geometry generalization rather than mesh generalization.",
+        "item_id": null,
+        "source_chunk_id": "b102f34e5599911a483d",
+        "source_excerpt": "we used a consistent resolution across all FEM results in our study, as our primary focus in this study is on generalization across different domain geometries.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The proposed method's effectiveness is demonstrated on two PDE problems (Darcy flow and 2D plate stress); generalization to other problem types is not evaluated.",
+        "item_id": null,
+        "source_chunk_id": "21c50685dfa81af812e8",
+        "source_excerpt": "our evaluation focuses solely on the model’s capability to compute steady-state solutions. Further research is needed to adapt PI-GANO to handle dynamic responses, thereby enabling it to address time-dependent PDEs.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9355,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.5179
+  },
+  "quality_score": 0.6667,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a neural operator simultaneously generalize across varying PDE parameters and domain geometries without requiring training data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0de943c58a3a08e21458d715",
+              "inference_basis_ids": [
+                "res_4294a2df5c225c02396c418e"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "we also observe a significant drop in performance when the training dataset is insufficient. For instance, when the number of training samples decreases from 150 to 50, the model’s average prediction error rises from approximately 17% to 40%."
+              },
+              "statement": "Model performance is sensitive to training dataset size; insufficient data leads to significant error increase."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_41fb5eed59138942f7d719dd",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "e7468126764504110c62",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "our proposed model is the first attempt to develop a neural operator that can simultaneously handle varying PDE parameters and domain geometries without need for any training data."
+              },
+              "statement": "PI-GANO is the first neural operator that can simultaneously handle varying PDE parameters and domain geometries without training data."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9542d28551f30fa469636b1b",
+              "inference_basis_ids": [
+                "res_6f304e50fe34a30c0e471628",
+                "res_78956963fa52eefa4d9032ab",
+                "res_d8b890b5d9684d123bd2360a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "data-driven GANO achieves over a 28% accuracy improvement compared to data-driven DCON. This shows it is important to include a separate geometry encoder, because the variable parameters in this problem are only imposed on a subset of boundary segments, which do not fully characterize the entire domain."
+              },
+              "statement": "The geometry encoder in PI-GANO improves accuracy, especially when PDE parameters do not fully characterize the domain geometry."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a796a3e05d73cd46f7208f77",
+              "inference_basis_ids": [
+                "res_0e7318d10faa884166c25cc4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "our proposed PI-GANO outperforms the data-driven version of GANO, highlighting the potential of physics-informed training to offer efficiency and also to enhance prediction accuracy when the same model architecture is used."
+              },
+              "statement": "Physics-informed training can yield better accuracy than data-driven training when using the same model architecture."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bee8b14e4ce969f5b2616b09",
+              "inference_basis_ids": [
+                "res_dd4957b4d89a218603ba30b1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b102f34e5599911a483d",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "We compare our models with Physics-informed DCON (PI-DCON), Physics-informed PointNet (PI-PointNet). ... The numerical results presented in Section 4.3 will further show the differences in performance between these two back-propagation paths."
+              },
+              "statement": "PI-GANO outperforms PI-DCON and PI-PointNet* in accuracy."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c400f593563f860d873a7749",
+              "inference_basis_ids": [
+                "res_16436e2243ab93fc91d93304"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "PI-GANO reaches a convergence accuracy comparable to that of data-driven GANO and DCON, while requiring less time to achieve this accuracy level."
+              },
+              "statement": "PI-GANO is more time-efficient than data-driven approaches for reaching comparable accuracy."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Parametric PDE samples for Darcy flow with varying boundary conditions and domain geometries, generated via Monte Carlo simulation and FEM.",
+              "name": "Darcy flow problem dataset",
+              "version_or_split": "500 PDE samples, 70% train, 10% validation, 20% test"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Parametric PDE samples for 2D plate stress with varying boundary conditions and domain geometries, generated via Monte Carlo simulation and FEM.",
+              "name": "2D plate stress problem dataset",
+              "version_or_split": "500 PDE samples, 70% train, 10% validation, 20% test"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "PI-GANO is the first attempt to develop a neural operator that can simultaneously handle varying PDE parameters and domain geometries without need for any training data.",
+              "provenance": {
+                "chunk_id": "e7468126764504110c62",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "our proposed model is the first attempt to develop a neural operator that can simultaneously handle varying PDE parameters and domain geometries without need for any training data."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "PI-GANO outperforms data-driven GANO on 2D plate stress problem.",
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "our proposed PI-GANO outperforms the data-driven version of GANO"
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Conduct ablation studies on geometry encoder and data-driven vs. physics-informed training.",
+            "Develop Physics-Informed Geometry-Aware Neural Operator (PI-GANO) that generalizes across PDE parameters and domain geometries without training data.",
+            "Evaluate PI-GANO on Darcy flow and 2D plate stress problems, comparing with PI-DCON, PI-PointNet, and PI-PointNet*.",
+            "Perform hyperparameter studies on geometry encoder depth and training dataset size."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "PI-GANO",
+              "protocol_description": "Physics-Informed Geometry-Aware Neural Operator combining a geometry encoder with Deep Compositional Operator Network (DCON) architecture. Trained with physics-informed loss using PDE residual and boundary conditions, without FEM data. Uses Tanh activation, three operator layers of width 512, Adam optimizer (β1=0.9, β2=0.999), grid search over learning rates {0.001,0.0005,0.0002,0.0001} and coordinate sampling ratios {0.3,0.2,0.1,0.05}. Batch size 20, trained on NVIDIA P100 GPU."
+            },
+            {
+              "method_id": "M2",
+              "name": "PI-DCON",
+              "protocol_description": "Physics-informed Deep Compositional Operator Network, baseline method. Uses three operator layers of width 512, Tanh activation, Adam optimizer, same hyperparameter grid search as PI-GANO."
+            },
+            {
+              "method_id": "M3",
+              "name": "PI-PointNet",
+              "protocol_description": "Physics-informed PointNet, baseline method. Uses three hidden layers of width 512, Tanh activation, Adam optimizer, same hyperparameter grid search. Original version lacks PDE parameter generalization."
+            },
+            {
+              "method_id": "M4",
+              "name": "PI-PointNet*",
+              "protocol_description": "Modified PI-PointNet with PDE parameter encoding by concatenating parameter values (or zeros) to collocation point coordinates. Three hidden layers of width 512, Tanh activation, Adam optimizer, same hyperparameter grid search."
+            },
+            {
+              "method_id": "M5",
+              "name": "Data-driven DCON",
+              "protocol_description": "Data-driven Deep Compositional Operator Network trained on FEM-generated solutions. Used for comparison in ablation study."
+            },
+            {
+              "method_id": "M6",
+              "name": "Data-driven GANO",
+              "protocol_description": "Data-driven Geometry-Aware Neural Operator (GANO) with geometry encoder, trained on FEM-generated solutions. Used for comparison in ablation study."
+            }
+          ],
+          "name": "PI-GANO model development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "our proposed PI-GANO outperforms the data-driven version of GANO, highlighting the potential of physics-informed training to offer efficiency and also to enhance prediction accuracy when the same model architecture is used."
+              },
+              "quantitative_value": null,
+              "result_id": "res_0e7318d10faa884166c25cc4",
+              "unit": null,
+              "value_raw_text": "PI-GANO outperforms data-driven GANO on 2D plate stress problem"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "PI-GANO reaches a convergence accuracy comparable to that of data-driven GANO and DCON, while requiring less time to achieve this accuracy level."
+              },
+              "quantitative_value": null,
+              "result_id": "res_16436e2243ab93fc91d93304",
+              "unit": null,
+              "value_raw_text": "PI-GANO reaches convergence accuracy comparable to data-driven GANO and DCON on Darcy flow with less total time"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "model performance improves with increasing complexity of the geometry encoder and a larger training dataset. ... when the number of training samples decreases from 150 to 50, the model’s average prediction error rises from approximately 17% to 40%."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4294a2df5c225c02396c418e",
+              "unit": null,
+              "value_raw_text": "Model performance improves with increasing complexity of geometry encoder and larger training dataset; error rises from ~17% to 40% when training samples drop from 150 to 50"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": false,
+                "text_excerpt": "data-driven GANO achieves over a 28% accuracy improvement compared to data-driven DCON."
+              },
+              "quantitative_value": 28.0,
+              "result_id": "res_6f304e50fe34a30c0e471628",
+              "unit": "% improvement",
+              "value_raw_text": "Data-driven GANO achieves over 28% accuracy improvement compared to data-driven DCON on 2D plate problem"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "Data-driven DCON 8.21% ... Data-driven GANO 8.00%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_78956963fa52eefa4d9032ab",
+              "unit": null,
+              "value_raw_text": "Data-driven GANO and DCON show similar accuracy on Darcy flow (mean relative error 8.00% vs 8.21%)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "18b7ecf3cc2359eafb87",
+                "page_end": 17,
+                "page_start": 17,
+                "paraphrased": true,
+                "text_excerpt": "Data-driven DCON 13.5% ... Data-driven GANO 9.01%"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d8b890b5d9684d123bd2360a",
+              "unit": null,
+              "value_raw_text": "Data-driven GANO mean relative error 9.01% vs DCON 13.5% on 2D plate"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b102f34e5599911a483d",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "We compare our models with Physics-informed DCON (PI-DCON), Physics-informed PointNet (PI-PointNet). ... The numerical results presented in Section 4.3 will further show the differences in performance between these two back-propagation paths."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd4957b4d89a218603ba30b1",
+              "unit": null,
+              "value_raw_text": "PI-GANO outperforms PI-DCON and PI-PointNet* in both Darcy flow and 2D plate problems"
+            }
+          ],
+          "unit_id": "su_3f98788b8fbb5f7acfe93fd5"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7347 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7347 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7097 on attempt 1"
+    }
+  ]
+}

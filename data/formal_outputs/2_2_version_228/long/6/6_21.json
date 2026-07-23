@@ -1,0 +1,628 @@
+{
+  "coverage_ledger": {
+    "232b4f288267087183f5": "extracted",
+    "29c195e41641308af1d6": "extracted",
+    "3ed71b9d6fea9e03a6a6": "extracted",
+    "5396545c408f9947d0cf": "not_selected",
+    "5e8f2280a2facf6b1814": "not_selected",
+    "73ed76a4d7932e38f451": "not_selected",
+    "8917d136c5369de137c1": "not_selected",
+    "b4c59bfa3612deb80a31": "extracted",
+    "baace47fb811c2d883ba": "not_selected",
+    "bd6f495a42e08ea24373": "not_selected",
+    "bec8ab222b9ef4c48588": "not_selected",
+    "c513b09bba2f46a3671e": "not_selected",
+    "d4dff32ef494645cad4a": "not_selected",
+    "ff299d5f02ca43cb2cab": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study focuses on node classification tasks and may not generalize to other graph learning tasks.",
+    "Abnormal features are simulated as random Gaussian noise or adversarial perturbations; real-world abnormalities may differ.",
+    "The analysis is limited to the datasets Cora, CiteSeer, and PubMed.",
+    "The adaptive residual mechanism relies on the assumption that abnormal features lead to larger adaptive scores, which may not hold in all scenarios."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_21.pdf",
+    "source_sha256": "394cb32a33e4e84e554649fc6728d918d836e02ad5dd7f218627ef235c432311"
+  },
+  "paper_id": "6_21",
+  "quality_assessment": {
+    "correct_item_count": 42,
+    "deterministic_rule_score": 0.923,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 50,
+    "f1": 0.8936,
+    "incorrect_item_count": 8,
+    "incorrect_items": [
+      {
+        "description": "The extracted protocol_description 'Same as SU2' is unsupported. The source chunks do not define a 'SU2' or provide a protocol description for GCNII in the adversarial feature experiments. The method is only listed as a baseline without further details.",
+        "item_id": "method:su_2e493f43753f61e9eb9fbd02:M10",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted protocol_description 'Same as SU2' is unsupported. The source chunks do not define a 'SU2' or provide a protocol description for APPNP in the adversarial feature experiments. The method is only listed as a baseline without further details.",
+        "item_id": "method:su_2e493f43753f61e9eb9fbd02:M11",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted protocol_description 'Same as SU2' is unsupported. The source chunks do not define a 'SU2' or provide a protocol description for AirGNN in the adversarial feature experiments. The method is only listed as a baseline without further details.",
+        "item_id": "method:su_2e493f43753f61e9eb9fbd02:M7",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted protocol_description 'Same as SU2' is unsupported. The source chunks do not define a 'SU2' or provide a protocol description for GAT in the adversarial feature experiments. The method is only listed as a baseline without further details.",
+        "item_id": "method:su_2e493f43753f61e9eb9fbd02:M8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted protocol_description 'Same as SU2' is unsupported. The source chunks do not define a 'SU2' or provide a protocol description for GCN in the adversarial feature experiments. The method is only listed as a baseline without further details.",
+        "item_id": "method:su_2e493f43753f61e9eb9fbd02:M9",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted protocol_description 'Same as SU2' is unsupported. The source chunks do not define a 'SU2' or provide a protocol description for AirGNN in the adaptive residual analysis. The method is only listed as a baseline without further details.",
+        "item_id": "method:su_f2772b079e85a6ee3f6f67ff:M13",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'AMP can significantly improve the resilience to abnormal features' with provenance from chunk b4c59bfa3612deb80a31. The source excerpt is 'This suggests that AMP can significantly improve the resilience to abnormal features.' However, the claim is attributed to the adversarial feature experiment (su_2e493f43753f61e9eb9fbd02), but the source chunk discusses the adversarial feature results and the statement is a suggestion, not a definitive claim. The extracted claim presents it as a positive claim with inference basis from a result about advantages over baselines, but the source text only suggests it. This is a material overstatement.",
+        "item_id": "claim:su_2e493f43753f61e9eb9fbd02:clm_006a1d8082f5608f746741b9",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted limitation 'The adaptive residual mechanism relies on the assumption that abnormal features lead to larger adaptive scores, which may not hold in all scenarios' is not explicitly stated in the source chunks. The source discusses that large adaptive scores are related to abnormal features and verifies the intuition, but does not state this as a limitation or boundary. The extracted text is an inference not directly supported by the source.",
+        "item_id": "boundary:4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 2,
+    "missed_core_items": [
+      {
+        "description": "The study focuses on abnormal node features and has not evaluated performance when the dataset contains both abnormal node features and edges.",
+        "item_id": null,
+        "source_chunk_id": "5396545c408f9947d0cf",
+        "source_excerpt": "we point out two limitations of this work: (1) this paper focuses on abnormal node features and has not evaluated the performance of the proposed method when the dataset contains both abnormal node features and edges;",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "It is unclear how AirGNN performs on heterophilic graphs.",
+        "item_id": null,
+        "source_chunk_id": "5396545c408f9947d0cf",
+        "source_excerpt": "(2) it is unclear how it performs on heterophilic graphs.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.84,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9545
+  },
+  "quality_score": 0.8936,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do residual connections in GNN message passing affect resilience to abnormal node features?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_00a9704d54f36574df8405a3",
+              "inference_basis_ids": [
+                "res_097940f9913b4b33570d8bf3",
+                "res_28298c728a473f74cfce688d"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "29c195e41641308af1d6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Our analyses imply that there might exist an intrinsic tension between feature aggregation and residual connection, which results in a performance tradeoff between normal features and abnormal features."
+              },
+              "statement": "There is an intrinsic tension between feature aggregation and residual connection in GNNs, resulting in a performance tradeoff between normal and abnormal features."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Citation network dataset used in preliminary study.",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Citation network dataset used in preliminary study.",
+              "name": "CiteSeer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Citation network dataset used in preliminary study.",
+              "name": "PubMed",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Semi-supervised node classification on Cora, CiteSeer, and PubMed with simulated abnormal features (random Gaussian noise replacing features of randomly selected nodes). Performance on abnormal and normal features examined separately."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GNN with residual connections",
+              "protocol_description": "Message passing with residual connections as in standard GNNs."
+            }
+          ],
+          "name": "Preliminary study on residual connections and abnormal features",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Observation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "29c195e41641308af1d6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Feature aggregation can boost the resilience to abnormal features, but too many aggregations could hurt the performance on both normal and abnormal features"
+              },
+              "quantitative_value": null,
+              "result_id": "res_097940f9913b4b33570d8bf3",
+              "unit": null,
+              "value_raw_text": "Feature aggregation can boost the resilience to abnormal features, but too many aggregations could hurt the performance on both normal and abnormal features."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Observation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "29c195e41641308af1d6",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Residual connection helps GNNs benefit from more layers for normal features, while making GNNs more fragile to abnormal features."
+              },
+              "quantitative_value": null,
+              "result_id": "res_28298c728a473f74cfce688d",
+              "unit": null,
+              "value_raw_text": "Residual connection helps GNNs benefit from more layers for normal features, while making GNNs more fragile to abnormal features."
+            }
+          ],
+          "unit_id": "su_3ad8ff2b7fadf5b0b12e6580"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "Can a GNN with adaptive residual (AirGNN) improve resilience to abnormal node features while maintaining performance on normal features?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_006a1d8082f5608f746741b9",
+              "inference_basis_ids": [
+                "res_684c7b2aa03990d491e27823"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "This suggests that AMP can significantly improve the resilience to abnormal features."
+              },
+              "statement": "AMP can significantly improve the resilience to abnormal features."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_696519b2936a7daa11693157",
+              "inference_basis_ids": [
+                "res_f2b73fd490b4a0c22dcb90ed"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "AirGNN is significantly more robust against adversarially attacked features than all baselines."
+              },
+              "statement": "AirGNN is significantly more robust against adversarial features than all baselines."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS7",
+              "description": "Used in adversarial feature experiments.",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS8",
+              "description": "Used in adversarial feature experiments.",
+              "name": "CiteSeer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS9",
+              "description": "Used in adversarial feature experiments.",
+              "name": "PubMed",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Node classification on Cora, CiteSeer, PubMed with adversarial features generated by Nettack. 40 target test nodes, perturbation budgets: 0, 5, 10, 20, 50, 80 feature dimensions manipulated."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "GCNII",
+              "protocol_description": "Same as SU2."
+            },
+            {
+              "method_id": "M11",
+              "name": "APPNP",
+              "protocol_description": "Same as SU2."
+            },
+            {
+              "method_id": "M12",
+              "name": "MLP",
+              "protocol_description": "Multi-layer perceptron baseline."
+            },
+            {
+              "method_id": "M7",
+              "name": "AirGNN",
+              "protocol_description": "Same as SU2."
+            },
+            {
+              "method_id": "M8",
+              "name": "GAT",
+              "protocol_description": "Same as SU2."
+            },
+            {
+              "method_id": "M9",
+              "name": "GCN",
+              "protocol_description": "Same as SU2."
+            }
+          ],
+          "name": "AirGNN evaluation under adversarial features",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on adversarial nodes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The advantages of AirGNN over the baselines become much stronger with larger perturbation budgets."
+              },
+              "quantitative_value": null,
+              "result_id": "res_684c7b2aa03990d491e27823",
+              "unit": null,
+              "value_raw_text": "The advantages of AirGNN over the baselines become much stronger with larger perturbation budgets."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on adversarial nodes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "AirGNN is significantly more robust against adversarially attacked features than all baselines."
+              },
+              "quantitative_value": null,
+              "result_id": "res_f2b73fd490b4a0c22dcb90ed",
+              "unit": null,
+              "value_raw_text": "AirGNN is significantly more robust against adversarially attacked features than all baselines."
+            }
+          ],
+          "unit_id": "su_2e493f43753f61e9eb9fbd02"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_66d7a02b81fc75582147679c",
+              "inference_basis_ids": [
+                "res_1440828eedc15a6b9d18c7ae"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3ed71b9d6fea9e03a6a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "AirGNN significantly outperforms all baselines on all datasets in terms of the performance on noisy nodes. This verifies that AMP is able to improve the resilience to noisy features, aligning well with the design motivation."
+              },
+              "statement": "AirGNN significantly improves resilience to noisy features compared to baselines."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fd14e358a9ec3af983501ac8",
+              "inference_basis_ids": [
+                "res_ca4def5e710dc8b047b52917"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3ed71b9d6fea9e03a6a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "AirGNN promotes the performance on normal nodes when abnormal nodes exist. This is because AMP can remove some abnormal features which are detrimental to normal nodes."
+              },
+              "statement": "AirGNN improves performance on normal nodes in the presence of abnormal features."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS4",
+              "description": "Used in noisy feature experiments.",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Used in noisy feature experiments.",
+              "name": "CiteSeer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS6",
+              "description": "Used in noisy feature experiments.",
+              "name": "PubMed",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Node classification on Cora, CiteSeer, PubMed with noisy features (random Gaussian noise on a subset of test nodes). Varying noisy ratio: 1%, 2%, 3%, 4%, 5%, 8%, 10%, 15%, 20%, 25%, 30%. Average over 10 random selections of noise node sets."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "AirGNN",
+              "protocol_description": "AirGNN with adaptive message passing (AMP). Two-layer MLP as base model hθ(·). K=10, λ tuned in [0,1], γ=1/(2(1-λ)). Learning rate 0.01, dropout 0.8, weight decay 0.0005. Adam optimizer."
+            },
+            {
+              "method_id": "M3",
+              "name": "GAT",
+              "protocol_description": "Graph Attention Network baseline with best hyperparameters from original paper."
+            },
+            {
+              "method_id": "M4",
+              "name": "GCN",
+              "protocol_description": "Graph Convolutional Network baseline with best hyperparameters from original paper."
+            },
+            {
+              "method_id": "M5",
+              "name": "GCNII",
+              "protocol_description": "GCNII baseline with best hyperparameters from original paper, residual weight α tuned in [0,1]."
+            },
+            {
+              "method_id": "M6",
+              "name": "APPNP",
+              "protocol_description": "APPNP baseline with best hyperparameters from original paper, residual weight α tuned in [0,1]."
+            }
+          ],
+          "name": "AirGNN evaluation under noisy features",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on noisy nodes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3ed71b9d6fea9e03a6a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "AirGNN significantly outperforms all baselines on all datasets in terms of the performance on noisy nodes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_1440828eedc15a6b9d18c7ae",
+              "unit": null,
+              "value_raw_text": "AirGNN significantly outperforms all baselines on all datasets in terms of the performance on noisy nodes."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy on normal nodes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3ed71b9d6fea9e03a6a6",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "AirGNN promotes the performance on normal nodes when abnormal nodes exist."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ca4def5e710dc8b047b52917",
+              "unit": null,
+              "value_raw_text": "AirGNN promotes the performance on normal nodes when abnormal nodes exist."
+            }
+          ],
+          "unit_id": "su_b4cf185efdaf076668839be4"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_492c8d3bdd05f249bfd1734c",
+              "inference_basis_ids": [
+                "res_edbcf037704881b30d8704ba"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "it verifies our intuition that large adaptive scores are strongly related to abnormal features."
+              },
+              "statement": "Large adaptive scores are strongly related to abnormal features."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4fafde85bfc7e4a58f17f6dd",
+              "inference_basis_ids": [
+                "res_35e6c288ded0dd5514e18d55"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "This perfectly aligns with our motivation to remove abnormal features by reducing their residual connections."
+              },
+              "statement": "AirGNN reduces residual connections for abnormal nodes, aligning with the motivation to remove abnormal features."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS10",
+              "description": "Used in adaptive residual analysis.",
+              "name": "Cora",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS11",
+              "description": "Used in adaptive residual analysis.",
+              "name": "CiteSeer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS12",
+              "description": "Used in adaptive residual analysis.",
+              "name": "PubMed",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Investigate adaptive score βi for each node. Average adaptive scores for abnormal and normal nodes in the last layer of AMP. Noisy feature scenario: 10% noisy nodes. Adversarial feature scenario: 40 target nodes, perturbation number 80."
+          ],
+          "methods": [
+            {
+              "method_id": "M13",
+              "name": "AirGNN",
+              "protocol_description": "Same as SU2."
+            }
+          ],
+          "name": "Adaptive residual analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Residual weight",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "the residual weights (i.e., 1 - βi) for abnormal nodes are much lower than those of normal nodes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_35e6c288ded0dd5514e18d55",
+              "unit": null,
+              "value_raw_text": "The residual weights (1 - βi) for abnormal nodes are much lower than those of normal nodes."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average adaptive score",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b4c59bfa3612deb80a31",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "it can be clearly observed that in both scenarios, the average adaptive scores for abnormal nodes are significantly higher than those for normal nodes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_edbcf037704881b30d8704ba",
+              "unit": null,
+              "value_raw_text": "In both scenarios, the average adaptive scores for abnormal nodes are significantly higher than those for normal nodes."
+            }
+          ],
+          "unit_id": "su_f2772b079e85a6ee3f6f67ff"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[1].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M3 -> M3__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[2].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M4 -> M4__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[3].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M5 -> M5__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[1].methods[4].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M6 -> M6__dup2 on attempt 1"
+    },
+    {
+      "code": "extraction.duplicate_method_id_renamed",
+      "json_path": "$.research_questions[1].study_units[2].methods[0].method_id",
+      "message": "A duplicate method_id was deterministically renamed without changing the method content.",
+      "repair": "M2 -> M2__dup3 on attempt 1"
+    }
+  ]
+}

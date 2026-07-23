@@ -1,0 +1,1147 @@
+{
+  "coverage_ledger": {
+    "0f848ea9b6ca44b9f292": "extracted",
+    "11679e43a57c62f787f5": "not_selected",
+    "13489eaa59822ca61e6f": "extracted",
+    "4466d92dee1f448bf220": "not_selected",
+    "513c358a6a04252f7cfa": "extracted",
+    "6398e7c35adc48da40c1": "extracted",
+    "69de29fbdabbb211afd7": "extracted",
+    "8c06850d1c609d29e5fc": "not_selected",
+    "af90f77e4b361b583971": "extracted",
+    "b9282e30c202cf67093e": "extracted",
+    "c5ef4a3eda1b5dd1992e": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "GCNII requires tuning of hyperparameters αℓ and βℓ.",
+    "Theoretical analysis assumes connected self-looped graph.",
+    "Experiments limited to citation networks, web networks, and PPI; generalization to other graph types not tested.",
+    "GCNII* uses more parameters due to separate weight matrices.",
+    "Over-smoothing analysis focuses on GCN with residual connection, not all GNN variants.",
+    "Future work needed to combine with attention and analyze ReLU behavior."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_3.pdf",
+    "source_sha256": "22a159cf37e29084eae5eaab1d007c62c91aff4e4d25ffbeba2b3b2c75e6ce47"
+  },
+  "paper_id": "7_3",
+  "quality_assessment": {
+    "correct_item_count": 78,
+    "deterministic_rule_score": 0.9515,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 78,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can we design a deep graph convolutional network that prevents over-smoothing and achieves state-of-the-art performance?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_573e09018462ebcb231da892",
+              "inference_basis_ids": [
+                "res_185f9ec4e05976aa186fc727",
+                "res_3e41ba532a4bf41f24491d7a",
+                "res_4eefbc984abeed86b83cd115",
+                "res_f35bd916c983f404cabc2d12"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "Our results successfully demonstrate that GCNII and GCNII* achieves new state-of-the-art performance across all three datasets."
+              },
+              "statement": "GCNII achieves new state-of-the-art performance on semi-supervised node classification on Cora, Citeseer, and Pubmed."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_77b8d97d7e10718afd7b2d07",
+              "inference_basis_ids": [
+                "res_16b4d4ddf7e58c8fa0169ef1",
+                "res_8db6e86930ff23344e3d3c50",
+                "res_e268bf6e2924a4a05325ed82"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "69de29fbdabbb211afd7",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Overall, the results suggest that with initial residual and identity mapping, we can resolve the over-smoothing problem and extend the vanilla GCN into a truly deep model."
+              },
+              "statement": "Initial residual and identity mapping together resolve over-smoothing and enable deep GCN."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Citation network with 7 classes, 2708 nodes, 5429 edges, 1433 features.",
+              "name": "Cora",
+              "version_or_split": "standard fixed split (20/class train, 500 val, 1000 test)"
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Citation network with 6 classes, 3327 nodes, 4732 edges, 3703 features.",
+              "name": "Citeseer",
+              "version_or_split": "standard fixed split (20/class train, 500 val, 1000 test)"
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Citation network with 3 classes, 19717 nodes, 44338 edges, 500 features.",
+              "name": "Pubmed",
+              "version_or_split": "standard fixed split (20/class train, 500 val, 1000 test)"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on initial residual and identity mapping.",
+            "Compare against baselines: GCN, GAT, APPNP, JKNet, JKNet(Drop), Incep(Drop).",
+            "Evaluate GCNII and GCNII* on Cora, Citeseer, Pubmed with standard fixed split (20 nodes per class training, 500 validation, 1000 test)."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "GCNII (semi-supervised)",
+              "protocol_description": "Adam SGD, lr=0.01, early stopping patience 100. αℓ=0.1, L2 reg=0.0005 on dense layer. Hyperparameters tuned via grid search on validation set."
+            },
+            {
+              "method_id": "M4",
+              "name": "GCNII* (semi-supervised)",
+              "protocol_description": "Same as GCNII but with separate weight matrices for smoothed and initial residual."
+            }
+          ],
+          "name": "Semi-supervised node classification experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69de29fbdabbb211afd7",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on Cora and Citeseer, the performance of GCNII and GCNII* consistently improves as we increase the number of layers. On Pubmed, GCNII and GCNII* achieve the best results with 16 layers, and maintain similar performance as we increase the network depth to 64."
+              },
+              "quantitative_value": null,
+              "result_id": "res_16b4d4ddf7e58c8fa0169ef1",
+              "unit": null,
+              "value_raw_text": "GCNII accuracy improves with depth on Cora and Citeseer; best at 16 layers on Pubmed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 80.2 ± 0.4 (16)"
+              },
+              "quantitative_value": 80.2,
+              "result_id": "res_185f9ec4e05976aa186fc727",
+              "unit": "%",
+              "value_raw_text": "80.2 ± 0.4 (16 layers)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 73.2 ± 0.8 (32)"
+              },
+              "quantitative_value": 73.2,
+              "result_id": "res_1ff9ff72b295a92b28f748a8",
+              "unit": "%",
+              "value_raw_text": "73.2 ± 0.8 (32 layers)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "GCNII outperforms the previous state-of-the-art methods by at least 2%."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3e41ba532a4bf41f24491d7a",
+              "unit": null,
+              "value_raw_text": "GCNII outperforms previous SOTA by at least 2% on Cora, Citeseer, Pubmed."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "GCNII 85.5 ± 0.5 (64)"
+              },
+              "quantitative_value": 85.5,
+              "result_id": "res_4eefbc984abeed86b83cd115",
+              "unit": "%",
+              "value_raw_text": "85.5 ± 0.5 (64 layers)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "1) Directly applying identity mapping to the vanilla GCN retards the effect of over-smoothing marginally. 2) Directly applying initial residual connection to the vanilla GCN relieves over-smoothing significantly. However, the best performance is still achieved by the 2-layer model. 3) Applying identity mapping and initial residual connection simultaneously ensures that the accuracy increases with the network depths."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8db6e86930ff23344e3d3c50",
+              "unit": null,
+              "value_raw_text": "Ablation: identity mapping alone marginally retards over-smoothing; initial residual alone relieves but best at 2 layers; both together ensure accuracy increases with depth."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 80.3 ± 0.4 (16)"
+              },
+              "quantitative_value": 80.3,
+              "result_id": "res_ace1e53cba6e0770eacd2e88",
+              "unit": "%",
+              "value_raw_text": "80.3 ± 0.4 (16 layers)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69de29fbdabbb211afd7",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the performance of GCN with DropEdge and JKNet drops rapidly as the number of layers exceeds 32, which means they still suffer from over-smoothing."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e268bf6e2924a4a05325ed82",
+              "unit": null,
+              "value_raw_text": "GCN with DropEdge and JKNet performance drops rapidly beyond 32 layers."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "GCNII* 85.3 ± 0.2 (64)"
+              },
+              "quantitative_value": 85.3,
+              "result_id": "res_ed6f84367c166e1a8ce4166e",
+              "unit": "%",
+              "value_raw_text": "85.3 ± 0.2 (64 layers)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6398e7c35adc48da40c1",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 73.4 ± 0.6 (32)"
+              },
+              "quantitative_value": 73.4,
+              "result_id": "res_f35bd916c983f404cabc2d12",
+              "unit": "%",
+              "value_raw_text": "73.4 ± 0.6 (32 layers)"
+            }
+          ],
+          "unit_id": "su_3cce36240d2fa83f1b7f6d6f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d61df9a9b4f85c96c8f88dc4",
+              "inference_basis_ids": [
+                "res_dd148dda4c592a7dc657167e"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "This suggests that over-smoothing indeed has a greater impact on nodes with higher degrees."
+              },
+              "statement": "Over-smoothing has a greater impact on nodes with higher degrees."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D10",
+              "description": null,
+              "name": "Citeseer",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D11",
+              "description": null,
+              "name": "Pubmed",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "D9",
+              "description": null,
+              "name": "Cora",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze classification accuracy vs node degree for GCN with residual connection at various depths on Cora, Citeseer, Pubmed.",
+            "Group nodes by degree ranges [2^i, 2^{i+1})."
+          ],
+          "methods": [
+            {
+              "method_id": "M9",
+              "name": "GCN with residual connection",
+              "protocol_description": "Multi-layer GCN with residual connection H(ℓ+1) = σ((˜P H(ℓ) + H(ℓ)) W(ℓ))."
+            }
+          ],
+          "name": "Over-smoothing analysis by node degree",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "the accuracy of the 2-layer GCN model increases with the node degree. ... as we extend the network depth, the accuracy of high-degree nodes drops more rapidly than that of low-degree nodes. Notably, GCN with 64 layers is unable to classify nodes with degrees larger than 100."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd148dda4c592a7dc657167e",
+              "unit": null,
+              "value_raw_text": "2-layer GCN accuracy increases with node degree; deeper GCN accuracy drops more for high-degree nodes; 64-layer GCN cannot classify nodes with degree >100."
+            }
+          ],
+          "unit_id": "su_749f0411fdf8837e1212bb5c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d657da826bb4b698fd8bc51b",
+              "inference_basis_ids": [
+                "res_4d5a62cd9f75ce0a9a27b7b2",
+                "res_6fe61f3fc14f4c2918841c84",
+                "res_7707c3d8b7e8b7d454b2bd90"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "69de29fbdabbb211afd7",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "the results show that GCNII and GCNII* achieve new state-of-the-art performance on PPI."
+              },
+              "statement": "GCNII achieves new state-of-the-art performance on inductive learning on PPI."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D8",
+              "description": "Protein-Protein Interaction networks with 121 classes, 56944 nodes, 818716 edges, 50 features.",
+              "name": "PPI",
+              "version_or_split": "20 train, 2 val, 2 test graphs"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare against GraphSAGE, VR-GCN, GaAN, GAT, JKNet, GeniePath, Cluster-GCN.",
+            "Evaluate 9-layer GCNII and GCNII* on PPI dataset (20 graphs train, 2 val, 2 test)."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "GCNII (inductive)",
+              "protocol_description": "9 layers, 2048 hidden units, αℓ=0.5, λ=1.0, lr=0.001, dropout 0.2, weight decay 0. Skip connection from ℓ-th to (ℓ+1)-th layer."
+            },
+            {
+              "method_id": "M8",
+              "name": "GCNII* (inductive)",
+              "protocol_description": "Same as GCNII inductive."
+            }
+          ],
+          "name": "Inductive learning on PPI",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-averaged F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69de29fbdabbb211afd7",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": true,
+                "text_excerpt": "GCNII achieves this performance with a 9-layer model, while the number of layers with all baseline models are less or equal to 5."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4d5a62cd9f75ce0a9a27b7b2",
+              "unit": null,
+              "value_raw_text": "GCNII achieves new SOTA on PPI with 9-layer model, while baselines use ≤5 layers."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-averaged F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69de29fbdabbb211afd7",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCNII 99.53 ± 0.01"
+              },
+              "quantitative_value": 99.53,
+              "result_id": "res_6fe61f3fc14f4c2918841c84",
+              "unit": "%",
+              "value_raw_text": "99.53 ± 0.01"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micro-averaged F1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "69de29fbdabbb211afd7",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "GCNII* 99.56 ± 0.02"
+              },
+              "quantitative_value": 99.56,
+              "result_id": "res_7707c3d8b7e8b7d454b2bd90",
+              "unit": "%",
+              "value_raw_text": "99.56 ± 0.02"
+            }
+          ],
+          "unit_id": "su_88c24ed47e2a955b3f71393b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_110c94b4f07e024f2784af66",
+              "inference_basis_ids": [
+                "res_7184c9f3d303a3eb49c58642"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "This result suggests that by introducing non-linearity into each layer, the predictive power of GCNII is stronger than that of the linear model APPNP."
+              },
+              "statement": "Deep GCNII with non-linearity has stronger predictive power than linear APPNP."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e8a742bd9a717bff9f4afd76",
+              "inference_basis_ids": [
+                "res_e51255016394c317f09060f0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII and GCNII* achieves new state-of-the-art results on 6 out of 7 datasets"
+              },
+              "statement": "GCNII achieves new state-of-the-art results on full-supervised node classification on most datasets."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D4",
+              "description": "Web network with 4 classes, 2277 nodes, 36101 edges, 2325 features.",
+              "name": "Chameleon",
+              "version_or_split": "random 60/20/20 split"
+            },
+            {
+              "dataset_id": "D5",
+              "description": "Web network with 5 classes, 183 nodes, 295 edges, 1703 features.",
+              "name": "Cornell",
+              "version_or_split": "random 60/20/20 split"
+            },
+            {
+              "dataset_id": "D6",
+              "description": "Web network with 5 classes, 183 nodes, 309 edges, 1703 features.",
+              "name": "Texas",
+              "version_or_split": "random 60/20/20 split"
+            },
+            {
+              "dataset_id": "D7",
+              "description": "Web network with 5 classes, 251 nodes, 499 edges, 1703 features.",
+              "name": "Wisconsin",
+              "version_or_split": "random 60/20/20 split"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare against GCN, GAT, Geom-GCN variants, APPNP, JKNet, JKNet(Drop), Incep(Drop).",
+            "Evaluate GCNII and GCNII* on 7 datasets: Cora, Citeseer, Pubmed, Chameleon, Cornell, Texas, Wisconsin.",
+            "Random split 60%/20%/20% train/val/test, 10 random splits."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "GCNII (full-supervised)",
+              "protocol_description": "Learning rate 0.01, dropout 0.5, hidden units 64. Hyperparameters tuned on validation set."
+            },
+            {
+              "method_id": "M6",
+              "name": "GCNII* (full-supervised)",
+              "protocol_description": "Same as GCNII full-supervised."
+            }
+          ],
+          "name": "Full-supervised node classification experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GCNII* 88.01 (64)"
+              },
+              "quantitative_value": 88.01,
+              "result_id": "res_15a36be815c2f17bb363e0f3",
+              "unit": "%",
+              "value_raw_text": "88.01 (64 layers) on Cora"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 77.84 (32)"
+              },
+              "quantitative_value": 77.84,
+              "result_id": "res_1e5083c0260b82f34e2232f4",
+              "unit": "%",
+              "value_raw_text": "77.84 (32 layers) on Texas"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 60.61 (8)"
+              },
+              "quantitative_value": 60.61,
+              "result_id": "res_2f871414be525b4fbcdb721b",
+              "unit": "%",
+              "value_raw_text": "60.61 (8 layers) on Chameleon"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 90.30 (64)"
+              },
+              "quantitative_value": 90.3,
+              "result_id": "res_3d8eb308f50ac954e19e5390",
+              "unit": "%",
+              "value_raw_text": "90.30 (64 layers) on Pubmed"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 89.57 (64)"
+              },
+              "quantitative_value": 89.57,
+              "result_id": "res_5859a77e26a0eb00af02d20e",
+              "unit": "%",
+              "value_raw_text": "89.57 (64 layers) on Pubmed"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* outperforms APPNP by over 12% on the Wisconsin dataset."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7184c9f3d303a3eb49c58642",
+              "unit": null,
+              "value_raw_text": "GCNII* outperforms APPNP by over 12% on Wisconsin."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 62.48 (8)"
+              },
+              "quantitative_value": 62.48,
+              "result_id": "res_7716604f3c6e91043209af6b",
+              "unit": "%",
+              "value_raw_text": "62.48 (8 layers) on Chameleon"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GCNII 88.49 (64)"
+              },
+              "quantitative_value": 88.49,
+              "result_id": "res_9540daf511eb7c8655dc82a3",
+              "unit": "%",
+              "value_raw_text": "88.49 (64 layers) on Cora"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 74.12 (16)"
+              },
+              "quantitative_value": 74.12,
+              "result_id": "res_964a50b11d3c61efea21be6b",
+              "unit": "%",
+              "value_raw_text": "74.12 (16 layers) on Wisconsin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 69.46 (32)"
+              },
+              "quantitative_value": 69.46,
+              "result_id": "res_9d5ce51efb5d13917e53e11f",
+              "unit": "%",
+              "value_raw_text": "69.46 (32 layers) on Texas"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 81.57 (16)"
+              },
+              "quantitative_value": 81.57,
+              "result_id": "res_b5f22419f0013ef660cc844d",
+              "unit": "%",
+              "value_raw_text": "81.57 (16 layers) on Wisconsin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 76.49 (16)"
+              },
+              "quantitative_value": 76.49,
+              "result_id": "res_b80187b6afc15133d7a2942b",
+              "unit": "%",
+              "value_raw_text": "76.49 (16 layers) on Cornell"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 77.08 (64)"
+              },
+              "quantitative_value": 77.08,
+              "result_id": "res_d25592e70dd8224682ecd24d",
+              "unit": "%",
+              "value_raw_text": "77.08 (64 layers) on Citeseer"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII* 77.13 (64)"
+              },
+              "quantitative_value": 77.13,
+              "result_id": "res_d981cd37532c6fa6136a867d",
+              "unit": "%",
+              "value_raw_text": "77.13 (64 layers) on Citeseer"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII and GCNII* achieves new state-of-the-art results on 6 out of 7 datasets"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e51255016394c317f09060f0",
+              "unit": null,
+              "value_raw_text": "GCNII and GCNII* achieve new SOTA on 6 out of 7 datasets."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b9282e30c202cf67093e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "GCNII 74.86 (16)"
+              },
+              "quantitative_value": 74.86,
+              "result_id": "res_f9f69a5ed4f5b3bc1613fe0d",
+              "unit": "%",
+              "value_raw_text": "74.86 (16 layers) on Cornell"
+            }
+          ],
+          "unit_id": "su_de466e2e58daf8ac6ae23eb7"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_001bab9b634620d644176287",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "af90f77e4b361b583971",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "To extend GCN to a truly deep model, we need to enable GCN to express a K order polynomial filter with arbitrary coefficients. We show this can be achieved by two simple techniques: Initial residual connection and Identity mapping."
+              },
+              "statement": "GCNII can express a K-order polynomial filter with arbitrary coefficients, overcoming the fixed-coefficient limitation of vanilla GCN."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8f81cbe48523e9bfc1eaa9b8",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "13489eaa59822ca61e6f",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": true,
+                "text_excerpt": "Our analysis suggests that the converge rate of an individual node depends on its degree, and we conduct experiments to back up this theoretical finding."
+              },
+              "statement": "In multi-layer GCN with residual connection, nodes with higher degrees are more likely to suffer from over-smoothing."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose GCNII model with initial residual connection and identity mapping.",
+            "Theoretical analysis of over-smoothing in multi-layer GCN with residual connection, deriving stationary vector and convergence rate.",
+            "Theoretical analysis showing GCNII can express a K-order polynomial filter with arbitrary coefficients."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "GCNII",
+              "protocol_description": "GCNII extends vanilla GCN with two techniques: initial residual connection (skip connection from input layer H(0)) and identity mapping (adding identity matrix In to weight matrix W(ℓ)). Layer update: H(ℓ+1) = σ(((1-αℓ)˜P H(ℓ) + αℓ H(0)) ((1-βℓ)In + βℓ W(ℓ))). αℓ is typically 0.1 or 0.2; βℓ = log(λ/(ℓ+1)) ≈ λ/ℓ."
+            },
+            {
+              "method_id": "M2",
+              "name": "GCNII*",
+              "protocol_description": "Variant of GCNII that uses different weight matrices for smoothed representation and initial residual: H(ℓ+1) = σ((1-αℓ)˜P H(ℓ) ((1-βℓ)In + βℓ W1(ℓ)) + αℓ H(0) ((1-βℓ)In + βℓ W2(ℓ)))."
+            }
+          ],
+          "name": "GCNII model proposal and theoretical analysis",
+          "results": [],
+          "unit_id": "su_f2957de71ce366009606927c"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4567 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7619 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7619 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7273 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8095 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8095 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8636 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8636 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5352 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4867 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6471 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6471 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[14].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7143 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4032 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7500 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8125 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8125 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6667 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6875 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7647 on attempt 2"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7011 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[3].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5116 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[4].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7782 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+{
+  "coverage_ledger": {
+    "0a834832e087ec51f57d": "extracted",
+    "0c5d2c8e7bfed2a69627": "not_selected",
+    "16757e4095359e40da6a": "extracted",
+    "585775d9d4ff3b4b7899": "not_selected",
+    "6bc2dcde52b94c3cd5e4": "not_selected",
+    "7ceff602d894614c5f95": "not_selected",
+    "81627746d2d757e1dea2": "extracted",
+    "b21b3b9cd6065162ded1": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The theoretical equivalence between GNNs and 1-WL holds for a broad class of architectures but assumes suitable parameter initialization.",
+    "k-GNN models have more parameters than 1-GNN; extending 1-GNN with additional layers to match parameters did not improve results.",
+    "The benefit of higher-order structure varies significantly across regression targets.",
+    "Experiments on graph classification used small benchmark datasets; recent advanced pooling techniques were not combined with k-GNN layers.",
+    "The QM9 experiments used only pairwise Euclidean distances for connected nodes, not a complete graph with distance annotations."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_5.pdf",
+    "source_sha256": "a5a38ff07296f51d8b8ba7aaea7fcf5ea0daffde400c9dc6848003bc94d62d4e"
+  },
+  "paper_id": "6_5",
+  "quality_assessment": {
+    "correct_item_count": 40,
+    "deterministic_rule_score": 0.951,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 40,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "Q1",
+      "statement": "How do hierarchical k-GNNs compare to kernel methods on graph classification benchmarks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3eb6c3f52568adf55765b58b",
+              "inference_basis_ids": [
+                "res_1b5eb954172f706e12d7d08f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the 1-2-3-GNN significantly outperforms the 1-GNN on all seven datasets"
+              },
+              "statement": "Higher-order GNNs (1-2-3-GNN) significantly outperform the 1-GNN baseline on all seven graph classification datasets."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5b5d957f3a2a22ed6ad3f201",
+              "inference_basis_ids": [
+                "res_e421c5850894b0af17c5f5c4"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the 1-GNN being the overall weakest method across all tasks"
+              },
+              "statement": "The 1-GNN is the weakest method across all graph classification tasks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_78f55796f4f8711eabe96481",
+              "inference_basis_ids": [
+                "res_0c7784789df5b49edce3eeab"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "optimizing the parameters of the aggregation function only leads to slight performance gains on two out of three datasets, and that no optimization even achieves better results on the PROTEINS benchmark dataset"
+              },
+              "statement": "Learning the aggregation function provides only marginal benefits on graph classification benchmarks, and sometimes hurts performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c5dc10564d991dbc3420cdd6",
+              "inference_basis_ids": [
+                "res_ff93767a3cd0880e2a8b9f6a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the hierarchical k-GNN is on par with the kernels despite the small dataset sizes"
+              },
+              "statement": "Hierarchical k-GNNs are competitive with kernel methods on small graph classification benchmarks."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Small graph classification datasets used for comparison against kernel methods.",
+              "name": "Graph classification benchmark datasets",
+              "version_or_split": "10-fold cross-validation with 10% validation per fold"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Graph classification on small benchmark datasets (PROTEINS, etc.) comparing hierarchical k-GNN against kernel methods."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Hierarchical k-GNN (1-2-3-GNN)",
+              "protocol_description": "Hierarchical k-GNN combining 1-2-GNN and 1-3-GNN features via concatenation, followed by global average pooling and a three-layer MLP with dropout (p=0.5 after first layer). Trained with Adam optimizer (initial lr=10^-2, adaptive decay to 10^-5) for 100 epochs."
+            },
+            {
+              "method_id": "M2",
+              "name": "1-GNN baseline",
+              "protocol_description": "Standard GNN with global average pooling and three-layer MLP, trained similarly."
+            },
+            {
+              "method_id": "M3",
+              "name": "Kernel methods (e.g., WL subtree kernel)",
+              "protocol_description": "Off-the-shelf graph kernels used as baselines."
+            }
+          ],
+          "name": "Graph classification benchmark comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "optimizing the parameters of the aggregation function only leads to slight performance gains on two out of three datasets, and that no optimization even achieves better results on the PROTEINS benchmark dataset"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0c7784789df5b49edce3eeab",
+              "unit": null,
+              "value_raw_text": "optimizing the parameters of the aggregation function only leads to slight performance gains on two out of three datasets, and that no optimization even achieves better results on the PROTEINS benchmark dataset"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the 1-2-3-GNN significantly outperforms the 1-GNN on all seven datasets"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1b5eb954172f706e12d7d08f",
+              "unit": null,
+              "value_raw_text": "1-2-3-GNN significantly outperforms the 1-GNN on all seven datasets"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the 1-GNN being the overall weakest method across all tasks"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e421c5850894b0af17c5f5c4",
+              "unit": null,
+              "value_raw_text": "1-GNN being the overall weakest method across all tasks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the hierarchical k-GNN is on par with the kernels despite the small dataset sizes"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ff93767a3cd0880e2a8b9f6a",
+              "unit": null,
+              "value_raw_text": "hierarchical k-GNN is on par with the kernels"
+            }
+          ],
+          "unit_id": "su_90b80e3cf57e1561ef498308"
+        }
+      ]
+    },
+    {
+      "question_id": "Q2",
+      "statement": "Do hierarchical k-GNNs outperform 1-GNNs on graph regression tasks (QM9)?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_681541352511dc5c47726b04",
+              "inference_basis_ids": [
+                "res_1c3d8edbfe20c745029ee45f"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the additional structural information extracted by the k-GNN layers does not serve all tasks equally, leading to huge differences in gains across the targets"
+              },
+              "statement": "The benefit of higher-order structure varies significantly across regression targets."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8253e8402486dad11d2c75b7",
+              "inference_basis_ids": [
+                "res_f1dea50154ef3e3ca56af454"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on eleven out of twelve targets all of our hierarchical variants beat the 1-GNN baseline"
+              },
+              "statement": "Hierarchical k-GNNs consistently outperform the 1-GNN baseline on QM9 regression tasks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bb8806c3720f9c22779662ee",
+              "inference_basis_ids": [
+                "res_a4ad1c6f9a80d82221bf3062"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on the target H we achieve a large improvement of 98.1% in MAE compared to the baseline"
+              },
+              "statement": "Hierarchical k-GNNs achieve a 98.1% MAE improvement over the baseline on the H target."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f4198198fb73f8fee7b87ec7",
+              "inference_basis_ids": [
+                "res_2cdec0f35c277588b4abd9ca"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on ten out of twelve datasets, the hierarchical k-GNNs beat the baselines from (Wu et al. 2018)"
+              },
+              "statement": "Hierarchical k-GNNs surpass MoleculeNet baselines on the majority of QM9 targets."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Quantum chemistry dataset with 12 regression targets. Only pairwise Euclidean distances for connected nodes used as input.",
+              "name": "QM9",
+              "version_or_split": "80% train, 10% validation, 10% test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Graph regression on QM9 dataset comparing hierarchical k-GNNs against 1-GNN baseline and MoleculeNet baselines."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Hierarchical k-GNN (1-2-3-GNN)",
+              "protocol_description": "Same architecture as SU1 but trained for 200 epochs with mean squared error loss."
+            },
+            {
+              "method_id": "M5",
+              "name": "1-GNN baseline",
+              "protocol_description": "Standard GNN trained similarly."
+            },
+            {
+              "method_id": "M6",
+              "name": "MoleculeNet baselines (Wu et al. 2018)",
+              "protocol_description": "Baseline neural architectures from MoleculeNet."
+            }
+          ],
+          "name": "QM9 regression comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error (MAE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "the additional structural information extracted by the k-GNN layers does not serve all tasks equally, leading to huge differences in gains across the targets"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1c3d8edbfe20c745029ee45f",
+              "unit": null,
+              "value_raw_text": "the additional structural information extracted by the k-GNN layers does not serve all tasks equally, leading to huge differences in gains across the targets"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error (MAE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on ten out of twelve datasets, the hierarchical k-GNNs beat the baselines from (Wu et al. 2018)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2cdec0f35c277588b4abd9ca",
+              "unit": null,
+              "value_raw_text": "on ten out of twelve datasets, the hierarchical k-GNNs beat the baselines from (Wu et al. 2018)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error (MAE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on the target H we achieve a large improvement of 98.1% in MAE compared to the baseline"
+              },
+              "quantitative_value": 98.1,
+              "result_id": "res_a4ad1c6f9a80d82221bf3062",
+              "unit": "% improvement",
+              "value_raw_text": "on the target H we achieve a large improvement of 98.1% in MAE compared to the baseline"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Mean Absolute Error (MAE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "on eleven out of twelve targets all of our hierarchical variants beat the 1-GNN baseline"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f1dea50154ef3e3ca56af454",
+              "unit": null,
+              "value_raw_text": "on eleven out of twelve targets all of our hierarchical variants beat the 1-GNN baseline"
+            }
+          ],
+          "unit_id": "su_9747a88cb27d27e3ed5ec307"
+        }
+      ]
+    },
+    {
+      "question_id": "Q3",
+      "statement": "Does learning the aggregation function improve performance over fixed aggregation?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2521fa554acad7fd95513582",
+              "inference_basis_ids": [
+                "res_aa8cfb96f5fefa2f386b31d4"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "optimizing the parameters of the aggregation function only leads to slight performance gains on two out of three datasets, and that no optimization even achieves better results on the PROTEINS benchmark dataset"
+              },
+              "statement": "Learning the aggregation function provides negligible benefit and can be detrimental on some datasets."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Three datasets used to evaluate effect of learning aggregation.",
+              "name": "Graph classification benchmark datasets (subset)",
+              "version_or_split": "10-fold cross-validation"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparison of learned vs. fixed aggregation on graph classification benchmarks."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "GNN with learned aggregation",
+              "protocol_description": "GNN where aggregation function parameters are optimized."
+            },
+            {
+              "method_id": "M8",
+              "name": "GNN with fixed aggregation",
+              "protocol_description": "GNN with non-learned aggregation (e.g., sum)."
+            }
+          ],
+          "name": "Aggregation learning ablation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Classification accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b21b3b9cd6065162ded1",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "optimizing the parameters of the aggregation function only leads to slight performance gains on two out of three datasets, and that no optimization even achieves better results on the PROTEINS benchmark dataset"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aa8cfb96f5fefa2f386b31d4",
+              "unit": null,
+              "value_raw_text": "optimizing the parameters of the aggregation function only leads to slight performance gains on two out of three datasets, and that no optimization even achieves better results on the PROTEINS benchmark dataset"
+            }
+          ],
+          "unit_id": "su_96180c135522d1ad03080e66"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

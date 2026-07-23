@@ -1,0 +1,493 @@
+{
+  "coverage_ledger": {
+    "04f99bae62086ec002ce": "not_selected",
+    "18dad266c52ca7df2cdc": "not_selected",
+    "1eabbb8d5058bb4c978c": "not_selected",
+    "23210bb15a242c6313e8": "not_selected",
+    "36cfed2ce901578c4df8": "extracted",
+    "3908b276aececbbf6cdf": "extracted",
+    "44335ff6c31fa25d3f34": "not_selected",
+    "64dd6f945846ac2ae1c5": "not_selected",
+    "836d477f8c0972af9818": "extracted",
+    "8fa82c6efc9e5ae2fa39": "not_selected",
+    "92d67c70bff40ba2ad0f": "not_selected",
+    "984754009a083f26d9db": "not_selected",
+    "98e0973ab333e5ed7bd2": "not_selected",
+    "ab6a964c0c67fb7dd5a0": "not_selected",
+    "ad92978d6973d970dd35": "not_selected",
+    "b935bf349e22897b35c8": "not_selected",
+    "bb0cf9e3a80f04c2fdcf": "extracted",
+    "c239443f5a61b38b01d0": "not_selected",
+    "c299e6bfb5c21bde0cc0": "not_selected",
+    "c3b538a1f8fad5a25e67": "not_selected",
+    "c9484f202c063fdc6b40": "not_selected",
+    "e0ca64ecfb2392fb8c66": "not_selected",
+    "eb9f44628e4604d37f45": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study is limited to zebrafish embryos; generalizability to other organisms is not established.",
+    "Optogenetic manipulations may introduce artifacts not present in endogenous regulation.",
+    "The theoretical model assumes that tissue porosity changes Nodal diffusivity; other factors such as receptor interactions may also contribute.",
+    "Sample sizes were not determined by statistical tests but were similar to previous publications; no blinding or randomization was applied.",
+    "The causal chain from rigidity transition to lefty1 expression timing is inferred from correlations and rescue experiments; direct molecular mechanism linking rigidity to transcriptional timing is not fully elucidated."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_16.pdf",
+    "source_sha256": "7ba071c3c49363828e1a7a76caf2e6b701b76972d4a93001ed0d1a8d5eeae380"
+  },
+  "paper_id": "4_16",
+  "quality_assessment": {
+    "correct_item_count": 38,
+    "deterministic_rule_score": 0.8903,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 38,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does a tissue-scale rigidity transition guide patterning by tuning the length scales and timescales of morphogen signalling?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_439e1e8a39c8bbd9072f8ac5",
+              "inference_basis_ids": [
+                "res_05af84155301c219e49782bb",
+                "res_38faa652b632786d6611949f",
+                "res_81c8174d5fba463e0b2ad925",
+                "res_f78a6121ce8487cceec5b952"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bb0cf9e3a80f04c2fdcf",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Strikingly, the rescue of the tissue rigidity pattern is sufficient to fully rescue nuclear Smad2 spatial and temporal dynamics, resembling those observed in wild-type embryos"
+              },
+              "statement": "Rescue of tissue rigidity pattern is sufficient to fully rescue nuclear Smad2 spatial and temporal dynamics."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "Strikingly, the rescue of the tissue rigidity pattern is sufficient to fully rescue nuclear Smad2 spatial and temporal dynamics, resembling those observed in wild-type embryos",
+              "provenance": {
+                "chunk_id": "bb0cf9e3a80f04c2fdcf",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Strikingly, the rescue of the tissue rigidity pattern is sufficient to fully rescue nuclear Smad2 spatial and temporal dynamics, resembling those observed in wild-type embryos"
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Quantification of nuclear Smad2 spatial and temporal dynamics in wild-type, MZoep, MZlefty1/2, Opto-zGrad, MZwnt11f2/slb, and MZwnt11f2/slb + Opto-RhoGEF embryos.",
+            "Rescue of tissue rigidity pattern in MZwnt11f2/slb embryos by optogenetic activation of RhoGEF (Opto-RhoGEF) to restore graded connectivity and polarized tissue rigidity."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Optogenetic activation of RhoGEF",
+              "protocol_description": "Opto-RhoGEF was used to increase cell–cell adhesion strength in MZwnt11f2/slb embryos, rescuing tissue rigidity."
+            },
+            {
+              "method_id": "M2",
+              "name": "Nuclear Smad2 quantification",
+              "protocol_description": "Nuclear Smad2 spatial and temporal dynamics were quantified by measuring the location of Smad2+ nuclei (distance from YSL) over time."
+            }
+          ],
+          "name": "Rigidity rescue restores Nodal signalling dynamics",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Nuclear Smad2 spatial and temporal dynamics",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb0cf9e3a80f04c2fdcf",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "fully rescue nuclear Smad2 spatial and temporal dynamics, resembling those observed in wild-type embryos"
+              },
+              "quantitative_value": null,
+              "result_id": "res_05af84155301c219e49782bb",
+              "unit": null,
+              "value_raw_text": "fully rescue nuclear Smad2 spatial and temporal dynamics, resembling those observed in wild-type embryos"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative surface tension α",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb0cf9e3a80f04c2fdcf",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "embryos decreases α in a graded manner, restoring levels comparable to those in wild-type embryos"
+              },
+              "quantitative_value": null,
+              "result_id": "res_38faa652b632786d6611949f",
+              "unit": null,
+              "value_raw_text": "decreases α in a graded manner, restoring levels comparable to those in wild-type embryos"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue rigidity polarization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb0cf9e3a80f04c2fdcf",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "polarizes tissue rigidity towards the YSL"
+              },
+              "quantitative_value": null,
+              "result_id": "res_81c8174d5fba463e0b2ad925",
+              "unit": null,
+              "value_raw_text": "polarizes tissue rigidity towards the YSL"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Normalized connectivity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bb0cf9e3a80f04c2fdcf",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "re-introduces a gradient in connectivity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f78a6121ce8487cceec5b952",
+              "unit": null,
+              "value_raw_text": "re-introduces a gradient in connectivity"
+            }
+          ],
+          "unit_id": "su_4d4083be1e1af2aa7ef44193"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ddfb2687d5818cab8bc2d53d",
+              "inference_basis_ids": [
+                "res_2679d12020a37ccfa697e72c",
+                "res_4da05b7344107065ef334edc",
+                "res_6fa0487ed737d84c4a1eb729",
+                "res_980aa3170ac106d19c0ff5ce",
+                "res_987ed773b8dcc5b58df8bf45"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the above changes in the Nodal ligand profile strongly suggest that tissue rigidification primarily physically restricts Nodal effective diffusivity"
+              },
+              "statement": "Tissue rigidification primarily physically restricts Nodal effective diffusivity."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "the above changes in the Nodal ligand profile strongly suggest that tissue rigidification primarily physically restricts Nodal effective diffusivity",
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the above changes in the Nodal ligand profile strongly suggest that tissue rigidification primarily physically restricts Nodal effective diffusivity"
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Expression of fluorescently-tagged Nodal ligand Squint in the YSL and quantification of its length scale in wild-type, MZwnt11f2/slb, and MZwnt11f2/slb + Opto-RhoGEF embryos.",
+            "Quantification of Nodal ligand dispersal in MZlefty1/2, MZoep, and MZoep + Opto-RhoGEF embryos.",
+            "Systematic analysis of spatial profile of Nodal ligand across conditions to extract decay length λ and amplitude C0."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Fluorescent Nodal ligand expression",
+              "protocol_description": "A fluorescently-tagged version of the Nodal ligand Squint was expressed in the YSL."
+            },
+            {
+              "method_id": "M4",
+              "name": "Ligand gradient quantification",
+              "protocol_description": "Length scale, decay length λ, and amplitude C0 of the Nodal ligand gradient were quantified from fluorescence images."
+            }
+          ],
+          "name": "Porosity-dependent Nodal ligand dispersal",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Decay length λ and amplitude C0",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "more porous and fluid-like embryos (MZwnt11f2/slb, MZoep) display increased λ and decreased C0 when compared with less porous and solid-like embryos (wild type, MZwnt11f2/slb +Opto-RhoGEF, MZoep +Opto-RhoGEF, MZlefty1/2)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2679d12020a37ccfa697e72c",
+              "unit": null,
+              "value_raw_text": "more porous and fluid-like embryos display increased λ and decreased C0 compared with less porous and solid-like embryos"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Decay length λ",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "λ changes as a function of porosity"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4da05b7344107065ef334edc",
+              "unit": null,
+              "value_raw_text": "λ changes as a function of porosity"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nodal ligand gradient length scale",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "This phenotype could be fully rescued by optogenetically inducing rigidification in the mutant, reverting Squint to a short-range ligand"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6fa0487ed737d84c4a1eb729",
+              "unit": null,
+              "value_raw_text": "reverted to short-range"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nodal ligand gradient length scale",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "In wild-type embryos, which rigidify and have reduced porosity, the Nodal ligand gradient is short range"
+              },
+              "quantitative_value": null,
+              "result_id": "res_980aa3170ac106d19c0ff5ce",
+              "unit": null,
+              "value_raw_text": "short range"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nodal ligand gradient length scale",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "in MZwnt11f2/slb embryos, where the tissue is more porous, the Nodal ligand becomes long range"
+              },
+              "quantitative_value": null,
+              "result_id": "res_987ed773b8dcc5b58df8bf45",
+              "unit": null,
+              "value_raw_text": "long range"
+            }
+          ],
+          "unit_id": "su_51ee88fa8b08454f000fb713"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e22491a5f798d862380cc5ef",
+              "inference_basis_ids": [
+                "res_0011dc7af26d9dfd3d05eb92",
+                "res_2b4998bcc7ea68d67c086a14",
+                "res_e175cfd716550219a93a0496",
+                "res_e6e93edcecd7b8c8d04dd818"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "These results indicate that tissue rigidification regulates the timing of lefty1 expression and, consequently, the strength of the Nodal–Lefty negative biochemical feedback."
+              },
+              "statement": "Tissue rigidification regulates the timing of lefty1 expression and, consequently, the strength of the Nodal–Lefty negative biochemical feedback."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Single-cell RNA sequencing data from wild-type and MZwnt11f2/slb mutant embryos, deposited in GEO (GSE299074, GSM9032491, GSM9032492).",
+              "name": "scRNA-seq of wild-type and MZwnt11f2/slb embryos",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "These results indicate that tissue rigidification regulates the timing of lefty1 expression and, consequently, the strength of the Nodal–Lefty negative biochemical feedback.",
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "These results indicate that tissue rigidification regulates the timing of lefty1 expression and, consequently, the strength of the Nodal–Lefty negative biochemical feedback."
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Quantification of Nodal activity (Smad2 N/C ratio) in wild-type, MZwnt11f2/slb, MZwnt11f2/slb + Opto-RhoGEF, and Opto-zGrad embryos.",
+            "Single-cell RNA sequencing in wild-type versus MZwnt11f2/slb mutant embryos to assess downstream consequences.",
+            "smFISH and ISH for lefty1 RNA in wild-type, MZwnt11f2/slb, MZwnt11f2/slb + Opto-RhoGEF, and Opto-zGrad embryos during specification."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Smad2 N/C ratio quantification",
+              "protocol_description": "Nodal activity was quantified by measuring the Smad2 nuclear/cytoplasmic ratio."
+            },
+            {
+              "method_id": "M6",
+              "name": "smFISH and ISH for lefty1",
+              "protocol_description": "Single-molecule fluorescent in situ hybridization and in situ hybridization for lefty1 RNA were performed during specification stages."
+            },
+            {
+              "method_id": "M7",
+              "name": "Single-cell RNA sequencing",
+              "protocol_description": "Single-cell RNA sequencing was performed on a NextSeq2000 P2 platform with 50-bp paired-end reads. Data were processed using CellRanger v7.1.0 and Monocle3 with standard workflow including batch correction."
+            }
+          ],
+          "name": "Rigidity transition times Nodal–Lefty dynamics",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Nodal activity gradient shallowness",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "cells further away from the YSL had higher Nodal activity in the fluidized embryos (Fig. 4g, asterisks), forming a shallower activity gradient"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0011dc7af26d9dfd3d05eb92",
+              "unit": null,
+              "value_raw_text": "cells further away from the YSL had higher Nodal activity in the fluidized embryos, forming a shallower activity gradient"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "lefty1 expression rescue",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "optogenetic rescue of tissue rigidity partially restores the early expression of the antagonist"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2b4998bcc7ea68d67c086a14",
+              "unit": null,
+              "value_raw_text": "optogenetic rescue of tissue rigidity partially restores the early expression of the antagonist"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Nodal activity peak near YSL",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the cells closer to the YSL in wild-type and MZwnt11f2/slb +Opto-RhoGEF embryos displayed a higher peak in Nodal activity, compared with MZwnt11f2/slb fluidized and optogenetically fluidized Opto-zGrad embryos"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e175cfd716550219a93a0496",
+              "unit": null,
+              "value_raw_text": "cells closer to the YSL in wild-type and MZwnt11f2/slb +Opto-RhoGEF embryos displayed a higher peak in Nodal activity, compared with MZwnt11f2/slb fluidized and optogenetically fluidized Opto-zGrad embryos"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "lefty1 expression timing",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "36cfed2ce901578c4df8",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "in rigid tissues of low porosity, lefty1 is sufficiently expressed early during specification... By contrast, in fluidized and highly porous earlier stage embryos, lefty1 expression is overall lower"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e6e93edcecd7b8c8d04dd818",
+              "unit": null,
+              "value_raw_text": "in rigid tissues of low porosity, lefty1 is sufficiently expressed early during specification; in fluidized and highly porous earlier stage embryos, lefty1 expression is overall lower"
+            }
+          ],
+          "unit_id": "su_5ee0d5bebdb9db8544e22933"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9429 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[2].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6061 on attempt 1"
+    }
+  ]
+}

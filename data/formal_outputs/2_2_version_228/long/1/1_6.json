@@ -1,0 +1,599 @@
+{
+  "coverage_ledger": {
+    "0432f46068034da510a0": "extracted",
+    "136f9dd25580eb793855": "not_selected",
+    "17761ab3f1f68a402cfe": "not_selected",
+    "19ae78d12c5aaf3ee82e": "extracted",
+    "1c39d6ec59b60021f7d7": "not_selected",
+    "2bd25d114a0d6d035e9b": "not_selected",
+    "46561160909319ef6c24": "not_selected",
+    "6f5a0b72b4236c7c3cb7": "extracted",
+    "764dd0491b83bc80897a": "not_selected",
+    "887825cb82dce421f0be": "not_selected",
+    "947488a591cd58ac4a8f": "not_selected",
+    "9e4da33181d505479437": "not_selected",
+    "a7ab5140c96624e0e5c6": "not_selected",
+    "c561120d189aea8f914d": "not_selected",
+    "cb6394355d64ce984279": "not_selected",
+    "ce6f8841f50bbfa76875": "not_selected",
+    "d13bc1ff1f3febda7cd4": "extracted",
+    "e0d01b77584306c60513": "not_selected",
+    "e7250c4783902e89599d": "not_selected",
+    "e96d580d739f917eb20c": "not_selected",
+    "ed8307c4f1c312f18684": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Generalization to glioblastoma patients is difficult due to small cohort size and high variance in individual responses.",
+    "Performance drops when perturbations are too strong, violating OT assumptions of minimal distributional change.",
+    "Predicting longer-range developmental dynamics is challenging; methods may fail to recover alignments over coarse time resolutions.",
+    "Rare cell types are poorly predicted due to sparse representation in the dataset.",
+    "Out-of-distribution predictions require similar samples in unperturbed state and perturbation response in training set."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_6.pdf",
+    "source_sha256": "7b86ba796307b4b4bb68d93a940a1785581776fa0a50312661d21f679a4c9c91"
+  },
+  "paper_id": "1_6",
+  "quality_assessment": {
+    "correct_item_count": 53,
+    "deterministic_rule_score": 0.8232,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 54,
+    "f1": 0.9298,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The provenance excerpt is a paraphrase that combines two separate sentences from the source chunk, and the second sentence about patient cohorts is unrelated to the melanoma drug response experiment. The claim that CellOT achieves lower MMD than baselines in this specific experiment is not directly supported by the provided excerpt.",
+        "item_id": "result:su_f206e551936c2502e7a4811b:res_a5f89c54bbc18884c58d5da4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "CellOT is benchmarked against PopAlign, a method based on aligning subpopulations of control and treated space approximated through a mixture of Gaussian densities.",
+        "item_id": null,
+        "source_chunk_id": "d13bc1ff1f3febda7cd4",
+        "source_excerpt": "We benchmarked CellOT against two autoencoder-based tools, scGEN13 and cAE12, as well as PopAlign32, a method based on aligning subpopulations of the control and treated space approximated through a mixture of Gaussian densities.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "For scRNA-seq data, CellOT is applied on latent representations learned by an autoencoder.",
+        "item_id": null,
+        "source_chunk_id": "d13bc1ff1f3febda7cd4",
+        "source_excerpt": "Due to the high-dimensional nature of scRNA-seq data, we apply CellOT on latent representations learned by an autoencoder.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "CellOT outperforms baselines in both ℓ2 mean and average correlation coefficient r² metrics across all treatments, typically by one order of magnitude.",
+        "item_id": null,
+        "source_chunk_id": "947488a591cd58ac4a8f",
+        "source_excerpt": "CellOT outperforms the baselines in both metrics across all treatments, typically by one order of magnitude.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The inter-feature correlation structure remains largely conserved between treated and untreated populations, a setting where OT approaches excel.",
+        "item_id": null,
+        "source_chunk_id": "947488a591cd58ac4a8f",
+        "source_excerpt": "This hypothesis is supported by the observation that the inter-feature correlation structure remains largely conserved between treated and untreated populations, thus depicting a setting where OT approaches excel.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "CellOT does not necessarily rely on learning meaningful low-dimensional embeddings in which perturbations are modeled as linear shifts, unlike autoencoder-based baselines.",
+        "item_id": null,
+        "source_chunk_id": "19ae78d12c5aaf3ee82e",
+        "source_excerpt": "Unlike current approaches comprising autoencoder-based baselines12–14, CellOT does not necessarily rely on learning meaningful low-dimensional embeddings in which perturbations are modeled as linear shifts.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "CellOT models cell responses as deterministic trajectories, despite the stochastic nature of cell-fate decisions.",
+        "item_id": null,
+        "source_chunk_id": "c561120d189aea8f914d",
+        "source_excerpt": "Despite the stochastic nature of cell-fate decisions and the fact that cellular dynamics are intrinsically noisy49, CellOT models cell responses as deterministic trajectories.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "CellOT's generalization capacity has been evaluated on relatively small datasets.",
+        "item_id": null,
+        "source_chunk_id": "c561120d189aea8f914d",
+        "source_excerpt": "Despite having provided a proof of concept of the capacity of CellOT to model various chemical perturbations for different data modalities through an in-depth analysis of the nature of the learned mapping as well as a demonstration of its versatility in a broad class of applications, CellOT’s generalization capacity has been evaluated on relatively small datasets.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9815,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8833
+  },
+  "quality_score": 0.9298,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a neural optimal transport framework (CellOT) learn single-cell perturbation responses from unpaired control and perturbed populations?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_27a39b7940e8c4f7f8f631c7",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d13bc1ff1f3febda7cd4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Based on recent developments in neural optimal transport18, CellOT learns an optimal transport map for each perturbation in a fully parameterized and highly scalable manner."
+              },
+              "statement": "CellOT learns a fully parameterized transport map that can be applied to unseen samples."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e880a6278e664749ca465a75",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d13bc1ff1f3febda7cd4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Instead of directly learning a transport map19–21, CellOT parameterizes a pair of dual potentials with input convex neural networks22. This choice induces an important theory-motivated inductive bias essential to model stability18."
+              },
+              "statement": "Parameterizing dual potentials with input convex neural networks induces a theory-motivated inductive bias essential to model stability."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learning a map T_k from unperturbed control population ρ_c to perturbed population ρ_k using optimal transport.",
+            "Parameterizing dual potentials with input convex neural networks to recover the optimal map via gradient of a convex function."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "CellOT",
+              "protocol_description": "CellOT learns an optimal transport map for each perturbation by parameterizing dual potentials with input convex neural networks. The map T_k is recovered as the gradient of a convex function g_k (∇g_k). This approach avoids direct parameterization of the primal map and provides an inductive bias for stability."
+            }
+          ],
+          "name": "CellOT framework description",
+          "results": [],
+          "unit_id": "su_749e6a758299305a274d62de"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "How does CellOT perform compared to state-of-the-art methods in predicting single-cell perturbation responses across different data modalities and generalization settings?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ea68968195a24c8f9961b19c",
+              "inference_basis_ids": [],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "0432f46068034da510a0",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "We repeat the same evaluation for a glioblastoma cohort consisting of seven patients44; however, generalization within this setting proved to be difficult for CellOT and all baselines, due to the small size of the cohort and high degree of variance within the responses of each individual."
+              },
+              "statement": "Generalization to glioblastoma patients is difficult for all methods due to small cohort size and high variance in individual responses."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_eaadba0e951adf7afa1071a6",
+              "inference_basis_ids": [
+                "res_28553a986b5ef2d89f93361c",
+                "res_aac8cfc46618fbb0b42cff09"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0432f46068034da510a0",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "These results suggest that the learned optimal transport maps correctly model the shift in the structures of the cellular subpopulation present in all patients, thus robustly performing o.o.s."
+              },
+              "statement": "CellOT generalizes well to unseen patients, maintaining high performance in out-of-sample predictions for lupus IFN-β responses."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS3",
+              "description": "Peripheral blood mononuclear cell droplet scRNA-seq dataset from Kang et al. characterizing cell-type specific response to IFN-β.",
+              "name": "Lupus IFN-β scRNA-seq dataset",
+              "version_or_split": "8 patients, holdout patient for o.o.s."
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "scRNA-seq dataset from glioblastoma patients treated with panobinostat.",
+              "name": "Glioblastoma panobinostat scRNA-seq dataset",
+              "version_or_split": "7 patients"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparing CellOT and baselines in i.i.d. and out-of-sample (o.o.s.) settings.",
+            "Predicting scRNA-seq responses of holdout patients with glioblastoma exposed to panobinostat.",
+            "Predicting scRNA-seq responses of holdout patients with lupus exposed to interferon-β."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "CellOT (generalized perturbation model T_L)",
+              "protocol_description": "A generalized perturbation model T_L is trained on the patient cohort and applied to control cells of the unseen patient to predict perturbed cells."
+            },
+            {
+              "method_id": "M7",
+              "name": "scGEN",
+              "protocol_description": "Autoencoder-based baseline."
+            },
+            {
+              "method_id": "M8",
+              "name": "cAE",
+              "protocol_description": "Autoencoder-based baseline."
+            }
+          ],
+          "name": "Generalization to unseen patients (lupus IFN-β and glioblastoma panobinostat)",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0432f46068034da510a0",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "CellOT outperforms previous baselines both in the i.i.d. and in the o.o.s. setting, while further showing a smaller performance drop when generalizing to the unseen patient."
+              },
+              "quantitative_value": null,
+              "result_id": "res_28553a986b5ef2d89f93361c",
+              "unit": null,
+              "value_raw_text": "CellOT outperforms baselines in both i.i.d. and o.o.s. settings with smaller performance drop when generalizing to unseen patient."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene expression marginal alignment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0432f46068034da510a0",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "In contrast to CellOT, the baselines do not accurately predict these large transcriptomic shifts of these genes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_aac8cfc46618fbb0b42cff09",
+              "unit": null,
+              "value_raw_text": "CellOT accurately predicts large transcriptomic shifts of marker genes (CXCL11, CCL2, APOBEC3A) compared to baselines."
+            }
+          ],
+          "unit_id": "su_0e3609ad8b467bc2e8d436e9"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_acb91e9a09d1aaccd4500187",
+              "inference_basis_ids": [
+                "res_7900e79f12f68a536a3a2e78"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "19ae78d12c5aaf3ee82e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "This suggests a potential limitation for all of these methods, which might be unable to recover alignments over coarse time resolutions... the performance of CellOT drops in terms of the MMD metric for those cell types that are only sparsely represented in the dataset (Fig. 4k)."
+              },
+              "statement": "Performance drops for all methods when predicting longer-range developmental dynamics or rare cell types."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f5c45fe744b7cd8fdfd1071d",
+              "inference_basis_ids": [
+                "res_33e1063e24bf0d02f5936e10",
+                "res_af3d417634f568e5654893c5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "19ae78d12c5aaf3ee82e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "CellOT outperforms current state-of-the-art methods in this i.i.d. setting... CellOT is able to generalize its predictions in one direction..."
+              },
+              "statement": "CellOT can model hematopoietic developmental trajectories and generalize across subpopulations in one direction, outperforming baselines."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS6",
+              "description": "Single-cell RNA-seq data of hematopoietic stem and progenitor cells differentiating over time.",
+              "name": "Hematopoiesis scRNA-seq dataset",
+              "version_or_split": "days 2, 4, 6; subpopulations: oligopotent, multipotent"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Learning differentiation process from day 2 to days 4 and 6 in hematopoiesis.",
+            "Testing generalization from one subpopulation (oligopotent or multipotent) to another (o.o.d. setting)."
+          ],
+          "methods": [
+            {
+              "method_id": "M12",
+              "name": "CellOT (maps T_o and T_m)",
+              "protocol_description": "Two maps trained: T_o on oligopotent cells, T_m on multipotent cells. i.i.d. versions trained on both subpopulations."
+            },
+            {
+              "method_id": "M13",
+              "name": "scGEN",
+              "protocol_description": "Autoencoder baseline."
+            },
+            {
+              "method_id": "M14",
+              "name": "cAE",
+              "protocol_description": "Autoencoder baseline."
+            }
+          ],
+          "name": "Modeling hematopoietic developmental trajectories",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19ae78d12c5aaf3ee82e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Comparing the distributional distance between predicted and observed differentiated cell states using the MMD metric, CellOT outperforms current state-of-the-art methods in this i.i.d. setting for both the oligopotent and the multipotent subsets (Fig. 4i)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_33e1063e24bf0d02f5936e10",
+              "unit": null,
+              "value_raw_text": "CellOT outperforms baselines in i.i.d. setting for both oligopotent and multipotent subsets."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD by time point",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19ae78d12c5aaf3ee82e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "It is evident that CellOT achieves better results when predicting short-range developmental dynamics instead of states further away in time (further results in Extended Data Fig. 5)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7900e79f12f68a536a3a2e78",
+              "unit": null,
+              "value_raw_text": "CellOT achieves better results for short-range developmental dynamics (day 4) than longer-range (day 6)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD (o.o.d.)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "19ae78d12c5aaf3ee82e",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Furthermore, while baselines struggle to perform in either o.o.d. setting, CellOT is able to generalize its predictions in one direction (from multipotent cells to the oligopotent setting)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_af3d417634f568e5654893c5",
+              "unit": null,
+              "value_raw_text": "CellOT generalizes from multipotent to oligopotent setting, but not vice versa; baselines struggle in both o.o.d. settings."
+            }
+          ],
+          "unit_id": "su_91e71c572515483d7545d59a"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e70dfee8e41ddb53cb8772eb",
+              "inference_basis_ids": [
+                "res_da93127d32a737bb8e4fd1aa",
+                "res_e38c3634f175ff3cf1576eb1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0432f46068034da510a0",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Indeed, CellOT accurately reconstructs the innate immune response in both mouse and rat in the i.i.d. and o.o.d. setting."
+              },
+              "statement": "CellOT accurately reconstructs innate immune responses in unseen species, outperforming baselines in both i.i.d. and o.o.d. settings."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS5",
+              "description": "scRNA-seq data of mononuclear phagocytes from different species stimulated with LPS, from Hagai et al.",
+              "name": "Cross-species LPS stimulation dataset",
+              "version_or_split": "species: pig, rabbit, mouse, rat; holdout: mouse or rat"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Reconstructing innate immune responses to LPS across species (pig, rabbit, mouse, rat).",
+            "Testing generalization to unseen species (mouse or rat as holdout) in out-of-distribution (o.o.d.) setting."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "scGEN",
+              "protocol_description": "Autoencoder baseline."
+            },
+            {
+              "method_id": "M11",
+              "name": "cAE",
+              "protocol_description": "Autoencoder baseline."
+            },
+            {
+              "method_id": "M9",
+              "name": "CellOT",
+              "protocol_description": "CellOT trained on multiple species and tested on holdout species."
+            }
+          ],
+          "name": "Cross-species innate immune response inference (LPS stimulation)",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MMD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0432f46068034da510a0",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "In particular, CellOT outperforms the baselines when analyzing how well each method captures the heterogeneity of innate immune responses in different species, as demonstrated by low levels of MMD (Fig. 4f)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_da93127d32a737bb8e4fd1aa",
+              "unit": null,
+              "value_raw_text": "CellOT shows low MMD, outperforming baselines in capturing heterogeneity of innate immune responses across species."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Average correlation coefficient r²",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0432f46068034da510a0",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "but also through the average correlation coefficient r2 computed between o.o.d. predictions and holdout observations across all genes (Fig. 4f)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e38c3634f175ff3cf1576eb1",
+              "unit": null,
+              "value_raw_text": "CellOT achieves higher average correlation coefficient r² between o.o.d. predictions and holdout observations across all genes."
+            }
+          ],
+          "unit_id": "su_c131e41a9b8d74ff69dda702"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fa5ccd449e0ca7a2f85627b9",
+              "inference_basis_ids": [
+                "res_a5f89c54bbc18884c58d5da4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d13bc1ff1f3febda7cd4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "CellOT outperforms state-of-the-art methods... While the autoencoder baselines tend to capture the mean of the treated cell population, they are less successful in matching all heterogeneous states of the perturbed population... CellOT, on the other hand, is able to capture these higher moments, yielding accurate and nuanced predictions."
+              },
+              "statement": "CellOT outperforms autoencoder-based baselines and PopAlign in predicting single-cell drug responses, capturing higher moments of the perturbed population."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Multiplexed protein-imaging data from two melanoma cell lines with 34 different drug treatments.",
+              "name": "4i proteomic dataset",
+              "version_or_split": "two melanoma cell lines M130219 and M130429, 34 treatments"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Single-cell RNA-sequencing dataset with 9 different treatments.",
+              "name": "scRNA-seq dataset",
+              "version_or_split": "9 treatments"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparing CellOT against autoencoder-based methods (scGEN, cAE) and PopAlign.",
+            "Predicting single-cell drug responses in melanoma cell lines using 4i proteomic data (34 treatments) and scRNA-seq data (9 treatments)."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "CellOT (applied to latent representations for scRNA-seq)",
+              "protocol_description": "For high-dimensional scRNA-seq data, CellOT is applied on latent representations learned by an autoencoder. For 4i data, CellOT is applied directly."
+            },
+            {
+              "method_id": "M3",
+              "name": "scGEN",
+              "protocol_description": "Autoencoder-based method that models perturbation effects through manipulation of a learned latent representation."
+            },
+            {
+              "method_id": "M4",
+              "name": "cAE",
+              "protocol_description": "Autoencoder-based method that adds perturbation effects in latent space."
+            },
+            {
+              "method_id": "M5",
+              "name": "PopAlign",
+              "protocol_description": "Method based on aligning subpopulations of control and treated space approximated through a mixture of Gaussian densities."
+            }
+          ],
+          "name": "Benchmarking on cancer drug responses (4i and scRNA-seq)",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Maximum Mean Discrepancy (MMD)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "d13bc1ff1f3febda7cd4",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": true,
+                "text_excerpt": "Low values of MMD imply that all moments of two distributions are matched and thus the entire distribution of perturbed cells is captured in fine detail, beyond the population average... The MMDs between the predicted and observed populations for the existing patient cohort enables inference of treatment responses for new (previously unseen) patients..."
+              },
+              "quantitative_value": null,
+              "result_id": "res_a5f89c54bbc18884c58d5da4",
+              "unit": null,
+              "value_raw_text": "CellOT achieves lower MMD than baselines, indicating better matching of the entire distribution of perturbed cells."
+            }
+          ],
+          "unit_id": "su_f206e551936c2502e7a4811b"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6696 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[3].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6595 on attempt 1"
+    }
+  ]
+}

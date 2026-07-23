@@ -1,0 +1,213 @@
+{
+  "coverage_ledger": {
+    "094671e4eeb8c2416be7": "extracted",
+    "6e98fea44e77f21536d0": "extracted",
+    "add592b8668b8ec852be": "extracted",
+    "d34e1834fbc3b2fa3a63": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study uses only two transfected L cell lines differing in P-cadherin expression; generalizability to other adhesion molecules or cell types is not tested.",
+    "The estimated 20-fold difference in P-cadherin expression is not directly quantified in this paper.",
+    "The experiments are performed in vitro; in vivo relevance remains to be demonstrated.",
+    "The study does not measure other potential contributing factors such as cell motility or contractility.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_2.pdf",
+    "source_sha256": "708cefedfbc26742547dd9652a5cc503cd6ed522f08b0743f97d9f5b0b0145d3"
+  },
+  "paper_id": "4_2",
+  "quality_assessment": {
+    "correct_item_count": 18,
+    "deterministic_rule_score": 0.9841,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 18,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can quantitative differences in expression of a single homophilic adhesion molecule cause cell sorting and specific spatial patterning?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_da90eebb479bbb329fb92d6c",
+              "inference_basis_ids": [
+                "res_5ec15fac0aeea7e1343749a0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6e98fea44e77f21536d0",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "When the two cell populations were first formed into separate aggregates which were subsequently allowed to fuse, the cell population expressing more P-cadherin was enveloped by its partner, which formed an external \"cortex.\""
+              },
+              "statement": "Quantitative differences in P-cadherin expression cause directed tissue spreading, resulting in the less cohesive PLs5 cells enveloping the more cohesive PLβ2 cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Form separate aggregates of PLβ2 and PLs5 cells, pair them, allow fusion in hanging drops, culture on agarose, observe spreading."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Aggregate fusion protocol",
+              "protocol_description": "Separate cell suspensions aggregated individually. Labeled and unlabeled aggregates of appropriate size fused in hanging drops, then transferred to agarose-coated Petri dishes."
+            }
+          ],
+          "name": "Aggregate fusion and tissue spreading assay",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Tissue spreading pattern",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "add592b8668b8ec852be",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "PLs5 aggregates were observed to spread progressively over the surfaces of the PLβ2 aggregates, completely enveloping the latter in many cases."
+              },
+              "quantitative_value": null,
+              "result_id": "res_5ec15fac0aeea7e1343749a0",
+              "unit": null,
+              "value_raw_text": "PLs5 aggregates spread progressively over the surfaces of the PLβ2 aggregates, completely enveloping the latter in many cases"
+            }
+          ],
+          "unit_id": "su_82d11446884eeb4de92b27b3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8ae8bb8b764a6fa9c0ee9f57",
+              "inference_basis_ids": [
+                "res_788465d017205c27a9f1e2c2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "094671e4eeb8c2416be7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Both the Ca²⁺ dependence of the transfected cells' adhesion and the greater expression of P-cadherin on PLβ2 cells than on PLs5 cells were confirmed by tests of the aggregation rate of both cell populations in normal- and low-calcium medium."
+              },
+              "statement": "PLβ2 cells express more P-cadherin than PLs5 cells, leading to faster calcium-dependent aggregation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare aggregation rates of PLβ2 and PLs5 cells in normal and low-calcium medium using light-scattering aggregometer."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Light-scattering cell aggregometry",
+              "protocol_description": "Nearly confluent cultures were trypsinized (0.05% trypsin, 0.53 mM EDTA in CF Hanks'), resuspended at 5×10^6 cells/ml in DMEM ± Ca²⁺ with 2% calf serum, DNase added. 0.55 ml suspension in cuvette with air bubble stirrer, rotated at 37°C. Aggregation monitored by decrease in low-angle light scattering."
+            }
+          ],
+          "name": "Aggregation rate assay",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Aggregation rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "094671e4eeb8c2416be7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "PLβ2 cells aggregated rapidly and PLs5 cells aggregated very slowly at normal calcium concentration, but neither cell line aggregated in low-Ca²⁺ medium"
+              },
+              "quantitative_value": null,
+              "result_id": "res_788465d017205c27a9f1e2c2",
+              "unit": null,
+              "value_raw_text": "PLβ2 cells aggregated rapidly and PLs5 cells aggregated very slowly at normal calcium concentration, but neither cell line aggregated in low-Ca²⁺ medium"
+            }
+          ],
+          "unit_id": "su_95338f109e5603fa76b6bf28"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bd25c78da2e7f865a872ef95",
+              "inference_basis_ids": [
+                "res_9807b826dbaeccab71a95b93"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6e98fea44e77f21536d0",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "When the two cell populations were intermixed, they segregated to approach a sphere-within-a-sphere configuration, the cell population expressing more P-cadherin forming islands which fused to become an internal \"medulla.\""
+              },
+              "statement": "Quantitative differences in P-cadherin expression are sufficient to cause cell sorting into a sphere-within-a-sphere configuration, with the less cohesive PLs5 cells enveloping the more cohesive PLβ2 cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Intermix DiI-labeled PLβ2 cells with unlabeled PLs5 cells, pellet, culture fragments on agarose for 4 days, observe sorting."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Cell sorting-out protocol",
+              "protocol_description": "Cells harvested with 0.01% trypsin + 1 mM Ca²⁺, resuspended in DMEM/2% calf serum, recovered 0.5–2 h. PLβ2 labeled with DiI. Mixed suspensions pelleted, incubated 3–22 h at 37°C to firm, cut into fragments (~0.15–0.3 mm), cultured on 1.25% agarose-coated dishes in DMEM/2% calf serum."
+            }
+          ],
+          "name": "Cell sorting-out assay",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Sorting pattern",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "094671e4eeb8c2416be7",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "PLβ2 cells sorted out to form many internal clusters which progressively fused to form an internal spheroidal core or medulla surrounded by a spheroidal shell or cortex of PLs5 cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9807b826dbaeccab71a95b93",
+              "unit": null,
+              "value_raw_text": "PLβ2 cells sorted out to form many internal clusters which progressively fused to form an internal spheroidal core or medulla surrounded by a spheroidal shell or cortex of PLs5 cells"
+            }
+          ],
+          "unit_id": "su_c38c2420a701dd667f8a02b8"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

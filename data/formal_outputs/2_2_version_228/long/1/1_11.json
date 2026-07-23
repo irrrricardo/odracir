@@ -1,0 +1,297 @@
+{
+  "coverage_ledger": {
+    "3d04217c6518d208a191": "not_selected",
+    "5347ea729b6cc735e934": "not_selected",
+    "5b27833d5590c3ab7ae6": "not_selected",
+    "6b2a7aa6833f6775839d": "extracted",
+    "ae0313d3caafbc4fcdf3": "not_selected",
+    "b075860377568b9135db": "not_selected",
+    "c91d3773bbbc4a4849a4": "extracted",
+    "e260cc631e67d0e645cd": "extracted",
+    "f8cd38ce362cc11f852c": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The paper does not report wet-lab validation of predicted perturbation effects.",
+    "The study is limited to the three datasets (RPE1, K562, Norman) and may not generalize to other cell types or perturbation types.",
+    "The model requires pre-trained gene embeddings (Gene2Vec) which may not be available for all organisms or gene sets.",
+    "The paper does not provide confidence intervals or statistical significance tests for the performance improvements over baselines.",
+    "The causal evidence chain is limited to computational prediction; no experimental perturbation or rescue experiments are performed.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_11.pdf",
+    "source_sha256": "a99a71bb4c554439ff6ed7e56529e91f57d5d8195509034b8ee08ec077da3937"
+  },
+  "paper_id": "1_11",
+  "quality_assessment": {
+    "correct_item_count": 26,
+    "deterministic_rule_score": 0.9462,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 26,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a multi-scale attention-based neural network accurately predict transcriptional responses to multiplexed genetic perturbations and generalize to unseen conditions?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6dbd393e3e3eaeb26d9369ea",
+              "inference_basis_ids": [
+                "res_55a75cf6742554944f954bc7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "AttentionPert not only outperforms existing state-of-the-art methods in terms of accuracy and handling diverse gene perturbations but also shows exceptional capability in predicting out-of-distribution scenarios where all simultaneously perturbed genes are unseen."
+              },
+              "statement": "AttentionPert shows exceptional capability in predicting out-of-distribution scenarios where all simultaneously perturbed genes are unseen."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b0f43e1162512954aa3afc18",
+              "inference_basis_ids": [
+                "res_234c8f42162a38ee0a273df3",
+                "res_55a75cf6742554944f954bc7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "AttentionPert not only outperforms existing state-of-the-art methods in terms of accuracy and handling diverse gene perturbations but also shows exceptional capability in predicting out-of-distribution scenarios"
+              },
+              "statement": "AttentionPert outperforms the state-of-the-art method GEARS in predicting differential gene expressions across multiple datasets."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b95ab3766939048a3656a6ec",
+              "inference_basis_ids": [
+                "res_55a75cf6742554944f954bc7",
+                "res_aeaa488e59b4106f0e5f9046"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Comparisons of AttentionPert with or without the NA-bias module shown in Tables 3 and 5 demonstrate that NA-bias inside PertLocal enhances the performance of AttentionPert."
+              },
+              "statement": "The NA-bias module inside PertLocal enhances the performance of AttentionPert."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e3c9ecb6902e1573ce36658a",
+              "inference_basis_ids": [
+                "res_0705d5f59f0e6065ce58950b",
+                "res_356d9ff44544be2d6584167f",
+                "res_aeaa488e59b4106f0e5f9046",
+                "res_b9fd95f34b05843e763cd97f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "The ablation study conclusively demonstrates that each component of AttentionPert contributes to its overall performance."
+              },
+              "statement": "Each component of AttentionPert (PertWeight, PertLocal, Gene2Vec, NA-bias) contributes to its overall performance."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "RPE1 dataset from Replogle et al. 2022, comprising >1000 single-gene perturbations.",
+              "name": "RPE1",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "K562 dataset from Replogle et al. 2022, comprising >1000 single-gene perturbations.",
+              "name": "K562",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Norman dataset from Norman et al. 2019, containing 131 two-gene perturbations.",
+              "name": "Norman",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "AttentionPert integrates global and local effects in a multi-scale model, representing both the nonuniform system-wide impact of the genetic perturbation and the localized disturbance in a network of gene–gene similarities.",
+              "provenance": {
+                "chunk_id": "c91d3773bbbc4a4849a4",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "AttentionPert integrates global and local effects in a multi-scale model, representing both the nonuniform system-wide impact of the genetic perturbation and the localized disturbance in a network of gene–gene similarities, enhancing its ability to predict nuanced transcriptional responses to both single and multi-gene perturbations."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "AttentionPert outperforms prior methods including the SOTA GEARS model on RPE1 and K562 datasets, each of which comprises >1000 single-gene perturbations, and on the Norman dataset containing 131 two-gene perturbations.",
+              "provenance": {
+                "chunk_id": "6b2a7aa6833f6775839d",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "AttentionPert outperforms prior methods including the SOTA GEARS model on RPE1 and K562 datasets (Replogle et al. 2022), each of which comprises >1000 single-gene perturbations, and on the Norman dataset containing 131 two-gene perturbations (Norman et al. 2019)."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Assess out-of-distribution generalization on novel multi-gene perturbations where none of the perturbed genes were seen during training.",
+            "Compare AttentionPert against state-of-the-art method GEARS and other baselines.",
+            "Develop AttentionPert, a multi-level deep-learning method integrating multi-head attention with graph neural networks on augmented gene interactions and pre-trained co-expressive gene representations.",
+            "Evaluate AttentionPert on RPE1, K562, and Norman datasets for predicting post-perturbation gene expression shifts.",
+            "Perform ablation studies to assess contribution of PertWeight, PertLocal, Gene2Vec initialization, and NA-bias module."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "AttentionPert",
+              "protocol_description": "AttentionPert takes perturbation condition c as input, represented as binary indicator vector zc. It feeds zc into PertWeight and PertLocal encoders, each outputting a matrix of encoding (HPW and HPL) of shape K x D. A gene-specific decoder sums the two encodings and generates predicted post-perturbation expression shift gθ(c). The shift is added to a random control sample xic to obtain predicted post-perturbation expression ŷθ(c)i = gθ(c) + xic. The model is trained using a combined auto-focus and direction-aware loss function. Gene embeddings are initialized with Gene2Vec pre-trained co-expression representations. PertWeight uses attention to learn weight matrices representing nonuniform gene-to-gene perturbational effects. PertLocal captures localized gene perturbation effects and includes an NA-bias module to model nonadditive effects of multi-gene perturbations."
+            }
+          ],
+          "name": "AttentionPert model development and evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE(DE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "PL ✓ ✓ ✓ 0.246 ± 0.002 0.388 ± 0.004 0.324 ± 0.002"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0705d5f59f0e6065ce58950b",
+              "unit": null,
+              "value_raw_text": "PertLocal only: 0.246 ± 0.002 (Seen 0/2), 0.388 ± 0.004 (Seen 1/2), 0.324 ± 0.002 (Seen 2/2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE(DE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GEARS ✓ 0.219 ± 0.011 0.221 ± 0.007 0.130 ± 0.007"
+              },
+              "quantitative_value": null,
+              "result_id": "res_234c8f42162a38ee0a273df3",
+              "unit": null,
+              "value_raw_text": "GEARS: 0.219 ± 0.011 (Seen 0/2), 0.221 ± 0.007 (Seen 1/2), 0.130 ± 0.007 (Seen 2/2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE(DE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "PW ✓ ✓ 0.172 ± 0.009 0.202 ± 0.004 0.120 ± 0.007"
+              },
+              "quantitative_value": null,
+              "result_id": "res_356d9ff44544be2d6584167f",
+              "unit": null,
+              "value_raw_text": "PertWeight only: 0.172 ± 0.009 (Seen 0/2), 0.202 ± 0.004 (Seen 1/2), 0.120 ± 0.007 (Seen 2/2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE(DE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Ours ✓ ✓ ✓ ✓ 0.159 ± 0.012 0.193 ± 0.003 0.097 ± 0.008"
+              },
+              "quantitative_value": null,
+              "result_id": "res_55a75cf6742554944f954bc7",
+              "unit": null,
+              "value_raw_text": "0.159 ± 0.012 (Seen 0/2), 0.193 ± 0.003 (Seen 1/2), 0.097 ± 0.008 (Seen 2/2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE(DE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "PL+PW ✓ ✓ ✓ 0.168 ± 0.009 0.196 ± 0.004 0.104 ± 0.010"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aeaa488e59b4106f0e5f9046",
+              "unit": null,
+              "value_raw_text": "AttentionPert without NA-bias: 0.168 ± 0.009 (Seen 0/2), 0.196 ± 0.004 (Seen 1/2), 0.104 ± 0.010 (Seen 2/2)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MSE(DE)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "f8cd38ce362cc11f852c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "PL+PW ✓ ✓ ✓ 0.189 ± 0.026 0.203 ± 0.009 0.105 ± 0.018"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b9fd95f34b05843e763cd97f",
+              "unit": null,
+              "value_raw_text": "AttentionPert without Gene2Vec: 0.189 ± 0.026 (Seen 0/2), 0.203 ± 0.009 (Seen 1/2), 0.105 ± 0.018 (Seen 2/2)"
+            }
+          ],
+          "unit_id": "su_b29787ce2808b25e8313e3c9"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

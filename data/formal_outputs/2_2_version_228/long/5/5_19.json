@@ -1,0 +1,297 @@
+{
+  "coverage_ledger": {
+    "25c39161ce92b258406f": "not_selected",
+    "3ecfbbdae31539fae3a4": "not_selected",
+    "449a5c923d2b6370563e": "extracted",
+    "45fae5c9620c2da979ed": "not_selected",
+    "515e63250b623c18005f": "not_selected",
+    "6e65967474e8baa12ef6": "not_selected",
+    "8cfa76a037a7bca9d92f": "not_selected",
+    "94973a4a99409a2af5aa": "extracted",
+    "95ce604a6fe62ddd5cf6": "not_selected",
+    "a86ec3e91c5e4aca7154": "extracted",
+    "aa28eba97ca870dce137": "not_selected",
+    "af23da146a550cf4b0b2": "extracted",
+    "ff6b4404a893a86032c0": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Assumes causal sufficiency (no hidden confounding variables).",
+    "Assumes samples for a given interventional distribution are independent and identically distributed.",
+    "Assumes causal relationships form an acyclic graph (no feedback loops).",
+    "Theoretical results are valid in the infinite-data regime.",
+    "Performance sensitive to hyperparameter controlling DAG sparsity; selected by maximizing held-out likelihood for score-based methods, but constraint-based methods use a fixed cutoff.",
+    "DCDI-DSF advantage over DCDI-G is marginal in the evaluated settings.",
+    "GIES outperforms DCDI on linear Gaussian data, which matches its assumptions.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_19.pdf",
+    "source_sha256": "6dc384002a4bd7c643ed19778d580c9f7dbaac85d7bbd5a040b3f2b7942d1290"
+  },
+  "paper_id": "5_19",
+  "quality_assessment": {
+    "correct_item_count": 29,
+    "deterministic_rule_score": 0.7406,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 29,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can a continuous-constrained optimization framework leverage interventional data to improve causal discovery?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1cb50b645bc50bdfadac3e2c",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "af23da146a550cf4b0b2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We illustrate the flexibility of the continuous-constrained framework by taking advantage of expressive neural architectures such as normalizing flows."
+              },
+              "statement": "The continuous-constrained framework is flexible and can take advantage of expressive neural architectures such as normalizing flows."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b8b10bf35f85c629e6eecfe9",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "af23da146a550cf4b0b2",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "This work constitutes a new step in this direction by proposing a theoretically-grounded method based on neural networks that can leverage interventional data."
+              },
+              "statement": "The proposed method can leverage interventional data to alleviate identifiability issues in causal discovery."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Propose a theoretically-grounded method based on neural networks that can leverage interventional data for causal discovery."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DCDI",
+              "protocol_description": "A continuous constrained optimization method for causal discovery from interventional data, using neural networks and normalizing flows. It reformulates the combinatorial DAG search as a continuous optimization problem solved via the augmented Lagrangian method, incorporating interventional data to improve identifiability."
+            }
+          ],
+          "name": "DCDI method proposal",
+          "results": [],
+          "unit_id": "su_138f3ea652149d97ff29e928"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_0f51df1058a4e062e6561062",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "In Appendix C.2, we show cases where DCDI-G fails to detect the right causal direction due to its lack of capacity, whereas DCDI-DSF systematically succeeds."
+              },
+              "statement": "DCDI-G fails to detect the right causal direction in some cases due to lack of capacity, whereas DCDI-DSF systematically succeeds."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4404353c1a3cdaf3e19837cc",
+              "inference_basis_ids": [],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "While the advantage of DCDI-DSF over DCDI-G is marginal, it might be explained by the fact that the densities can be sufficiently well modeled by DCDI-G."
+              },
+              "statement": "The advantage of DCDI-DSF over DCDI-G is marginal, possibly because densities can be sufficiently well modeled by DCDI-G."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_85122fa9b966417d272fd8b3",
+              "inference_basis_ids": [
+                "res_14a3b09038992ce1a0e091eb",
+                "res_450ee33bd9b7e8aeb26cfe64",
+                "res_47c9610a99629051ac5643e8",
+                "res_e5364f4b2b85720605315f09"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "For all intervention settings, DCDI has overall the best performance."
+              },
+              "statement": "DCDI has overall the best performance across all intervention settings."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Synthetic data generated from 20-node graphs with different intervention types (perfect, imperfect, perfect unknown) and varying edge densities (e=1, e=4).",
+              "name": "Synthetic interventional data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate DCDI against baseline methods on synthetic data with perfect, imperfect, and perfect unknown interventions."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "DCDI-G",
+              "protocol_description": "A variant of DCDI using Gaussian conditionals."
+            },
+            {
+              "method_id": "M3",
+              "name": "DCDI-DSF",
+              "protocol_description": "A variant of DCDI using deep sigmoidal flows for conditionals."
+            },
+            {
+              "method_id": "M4",
+              "name": "GIES",
+              "protocol_description": "Greedy Interventional Equivalence Search, a score-based method assuming linear Gaussian models and optimizing BIC over I-Markov equivalence classes."
+            },
+            {
+              "method_id": "M5",
+              "name": "CAM",
+              "protocol_description": "Causal Additive Models, modified to support interventions."
+            },
+            {
+              "method_id": "M6",
+              "name": "IGSP",
+              "protocol_description": "Interventional Greedy Sparsest Permutation, a constraint-based method using conditional independence tests."
+            },
+            {
+              "method_id": "M7",
+              "name": "UT-IGSP",
+              "protocol_description": "Unknown Target IGSP, an extension of IGSP for interventions with unknown targets."
+            }
+          ],
+          "name": "Experimental evaluation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "SID",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "For all conditions, DCDI-G and DCDI-DSF shows competitive results in term of SHD and SID. For graphs with a higher number of average edges, DCDI-G and DCDI-DSF outperform all methods."
+              },
+              "quantitative_value": null,
+              "result_id": "res_14a3b09038992ce1a0e091eb",
+              "unit": null,
+              "value_raw_text": "DCDI-G and DCDI-DSF show competitive results in term of SHD and SID. For graphs with a higher number of average edges, DCDI-G and DCDI-DSF outperform all methods."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "As shown in Figure 3, DCDI-G and DCDI-DSF show competitive results and outperform other methods for graphs with a higher connectivity."
+              },
+              "quantitative_value": null,
+              "result_id": "res_450ee33bd9b7e8aeb26cfe64",
+              "unit": null,
+              "value_raw_text": "DCDI-G and DCDI-DSF show competitive results and outperform other methods for graphs with a higher connectivity in imperfect interventions."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "For all conditions, DCDI-G and DCDI-DSF shows competitive results in term of SHD and SID. For graphs with a higher number of average edges, DCDI-G and DCDI-DSF outperform all methods."
+              },
+              "quantitative_value": null,
+              "result_id": "res_47c9610a99629051ac5643e8",
+              "unit": null,
+              "value_raw_text": "DCDI-G and DCDI-DSF show competitive results in term of SHD and SID. For graphs with a higher number of average edges, DCDI-G and DCDI-DSF outperform all methods."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "GIES often shows the best performance for the linear data set, which is not surprising given that it makes the right assumptions, i.e., linear functions with Gaussian noise."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d48228c59f7d53f3fd35649",
+              "unit": null,
+              "value_raw_text": "GIES often shows the best performance for the linear data set."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "SHD",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "a86ec3e91c5e4aca7154",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Except for linear data sets with sparse graphs, DCDI-G and DCDI-DSF show an overall better performance than UT-IGSP."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e5364f4b2b85720605315f09",
+              "unit": null,
+              "value_raw_text": "Except for linear data sets with sparse graphs, DCDI-G and DCDI-DSF show an overall better performance than UT-IGSP in perfect unknown interventions."
+            }
+          ],
+          "unit_id": "su_a522dbfb535cb13b3dd5ddc7"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

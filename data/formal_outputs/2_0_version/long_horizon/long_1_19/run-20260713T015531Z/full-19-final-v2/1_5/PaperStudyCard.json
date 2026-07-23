@@ -1,0 +1,262 @@
+{
+  "coverage_ledger": {
+    "23708d682c6d46937301": "extracted",
+    "61a8bafa6f05c204d9b9": "not_selected",
+    "68dcd5b6b4766677c5fd": "extracted",
+    "723258ed2cbaa4e2c4fa": "extracted",
+    "7391214264c6e828511c": "extracted",
+    "7df789d1238eb283fc2c": "not_selected",
+    "904374fd77ea212b9815": "extracted",
+    "9546ca9c9ee346a18038": "extracted",
+    "c72ceb96b26187d05270": "extracted",
+    "d943628211ec106f8108": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "scGen has been trained on relatively small data sets, which only reflect subsets of biological and transcriptional variability.",
+    "A trained model cannot be expected to be predictive beyond the domain of the training data.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "merge_decisions": [],
+  "metadata": {
+    "domain": "computational_biology",
+    "input_global_context_digest": "sha256:e16384fd13e7cdaf6502cdec0a08399c346f444409430908f35954fcf96e7b6d",
+    "input_global_context_through_batch": "3",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_5.pdf",
+    "source_sha256": "b7760838427b9a60f1f1319bcfbeef42b71511b4858defb4d922508cc247c224"
+  },
+  "paper_id": "1_5",
+  "quality_score": 0.9475,
+  "research_questions": [
+    {
+      "question_id": "rq_1",
+      "statement": "Can scGen accurately predict single-cell perturbation responses for phenomena absent from training data?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_11889695516eb7a1c7842f80",
+              "inference_basis_ids": [
+                "res_024add1f0203e8cdf8e38d46",
+                "res_47f9b933fef676aac3dd405b",
+                "res_67b0f9dd9deead1fe7753167",
+                "res_8aff10db47fb275a27831e69",
+                "res_8e6172b2121efe731029be83",
+                "res_b590c075cf43663b43fa8e16",
+                "res_ebd06b80bc8553611657a856"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9546ca9c9ee346a18038",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "scGen accurately models perturbation and infection response of cells across cell types, studies and species."
+              },
+              "statement": "scGen accurately predicts single-cell perturbation response out-of-sample across cell types, studies, and species."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds_1",
+              "description": null,
+              "name": "Kang et al. PBMC data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Predict IFN-β stimulation response in PBMC cell types held out during training using scGen, compared to other models."
+          ],
+          "methods": [
+            {
+              "method_id": "m_1",
+              "name": "scGen model",
+              "protocol_description": "scGen combines a variational autoencoder (VAE) with latent space vector arithmetics to predict perturbation response. The VAE models P(x_i|z_i, p_i) and vector arithmetics models dependence on perturbation condition p_i. δ vector is estimated as avg(z_condition=1) - avg(z_condition=0) in latent space."
+            }
+          ],
+          "name": "Out-of-sample perturbation prediction with scGen",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2) for top 100 DEGs cross-species",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7391214264c6e828511c",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "R2 top 100 DEGs = 0.74"
+              },
+              "quantitative_value": 0.74,
+              "result_id": "res_024add1f0203e8cdf8e38d46",
+              "unit": null,
+              "value_raw_text": "R2_top 100 DEGs = 0.74 for predicted vs real LPS-perturbed rat phagocytes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2) for predicted vs real infection response (Haber et al.)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "R2 all genes = 0.98 and R2 all genes = 0.98, respectively"
+              },
+              "quantitative_value": 0.98,
+              "result_id": "res_47f9b933fef676aac3dd405b",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.98 for TA.early cells after H. poly infection"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2) for mean gene expression",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "R2 all genes = 0.97"
+              },
+              "quantitative_value": 0.97,
+              "result_id": "res_67b0f9dd9deead1fe7753167",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.97 for predicted vs real stimulated CD4-T cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2) for cross-species prediction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7391214264c6e828511c",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "R2 all genes = 0.91"
+              },
+              "quantitative_value": 0.91,
+              "result_id": "res_8aff10db47fb275a27831e69",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.91 for predicted vs real LPS-perturbed rat phagocytes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2) for predicted vs real infection response (Haber et al.)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "R2 all genes = 0.98 and R2 all genes = 0.98, respectively"
+              },
+              "quantitative_value": 0.98,
+              "result_id": "res_8e6172b2121efe731029be83",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.98 for TA.early cells after Salmonella infection"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2) for cross-study prediction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c72ceb96b26187d05270",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "R2 all genes = 0.67"
+              },
+              "quantitative_value": 0.67,
+              "result_id": "res_b590c075cf43663b43fa8e16",
+              "unit": null,
+              "value_raw_text": "R2_all_genes = 0.67 for predicted vs real stimulated F-Mono cells from study B (Zheng et al.)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Squared Pearson correlation (R2) for top 100 DEGs",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "R2 top 100 DEGs = 0.97"
+              },
+              "quantitative_value": 0.97,
+              "result_id": "res_ebd06b80bc8553611657a856",
+              "unit": null,
+              "value_raw_text": "R2_top 100 DEGs = 0.97 for predicted vs real stimulated CD4-T cells"
+            }
+          ],
+          "unit_id": "su_0d9bbfc50c9960a7b13af707"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ee66297179bbe95b096cc483",
+              "inference_basis_ids": [
+                "res_3f045b178f697de02147a0d4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "scGen is able to capture both types of responses after stimulation by IFN-β when any of the cell types in the data is held out during training and subsequently predicted"
+              },
+              "statement": "scGen captures both shared and cell-type-specific perturbation responses."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "ds_2",
+              "description": null,
+              "name": "Kang et al. PBMC data (7 cell types)",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Predict IFN-β response for held-out cell types and evaluate shared vs. cell-type-specific marker genes."
+          ],
+          "methods": [],
+          "name": "scGen captures cell-type-specific and shared perturbation responses",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Observation: scGen predicts shared and cell-type-specific responses",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "68dcd5b6b4766677c5fd",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "scGen consistently makes good predictions not only of unperturbed and shared perturbation effects but also for cell type-specific ones."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3f045b178f697de02147a0d4",
+              "unit": null,
+              "value_raw_text": "scGen consistently makes good predictions of unperturbed, shared perturbation effects, and cell-type-specific effects for all 7 cell types."
+            }
+          ],
+          "unit_id": "su_8835c1a05c35e3d46251547b"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.0"
+}

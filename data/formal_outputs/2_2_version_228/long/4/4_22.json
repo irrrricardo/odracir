@@ -1,0 +1,417 @@
+{
+  "coverage_ledger": {
+    "0a9afef0602a667eefc9": "extracted",
+    "263779784e8825196ee9": "not_selected",
+    "2d069089ff4f355b13c3": "not_selected",
+    "2eeb844673d2f6547c54": "not_selected",
+    "3c3b9126decb239488e7": "not_selected",
+    "3d2d7fe492731a20b415": "not_selected",
+    "4453d50be3c9e6342f22": "not_selected",
+    "47c347a380de7f0ac01b": "extracted",
+    "4ab9fe7a73223e783af0": "not_selected",
+    "4ba728b29403dbbc6924": "not_selected",
+    "52786bb6c34eb8a27954": "not_selected",
+    "5435496c583cdd157f3f": "extracted",
+    "549cbf045ffc7d8784b5": "not_selected",
+    "55fb671c0ddc0f585c89": "not_selected",
+    "6434a83dbafd992ffd1a": "not_selected",
+    "64efe879c7cdd62fe66e": "not_selected",
+    "65246e134bde3f6d3531": "not_selected",
+    "6a3e1d4a67bb641aae94": "extracted",
+    "85e7079d4c453d31c16b": "not_selected",
+    "85e99ebbaef1d365df60": "not_selected",
+    "9bb2931cd98ce00eeb44": "not_selected",
+    "a7648110f9acc2580800": "not_selected",
+    "a88c5138e5e238ac1e5c": "not_selected",
+    "b07dbb49841b1a126f39": "not_selected",
+    "b092fe1f162740cd63a5": "not_selected",
+    "c6b75ac525bfe1703db7": "not_selected",
+    "c8f84ea4975dfabaa15e": "not_selected",
+    "cbe4536616eb4dc8a010": "not_selected",
+    "da18d2ef26a71c91533c": "not_selected",
+    "ec05f03c30d77742d5f7": "not_selected",
+    "fc913ace82c08e61819d": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Bistability without mechanosensing requires extreme fine-tuning of cellular tensions (σc 0.14–0.15), which would not ensure robustness given natural variabilities in myosin and tension levels.",
+    "Tension asymmetries ϵ in budded crypts are below the theoretical threshold required for organoids to stay within the budded or bistable region on lumen inflation, indicating additional mechanisms are needed.",
+    "The model assumes quasistatic conditions; inflation and myosin response occur in 15–30 min, faster than cell fate or lumen volume changes during morphogenesis.",
+    "The molecular mechanosensing mechanisms mediating feedback from crypt morphology to actomyosin localization remain unknown.",
+    "Further work needed to dissect whether additional feedback occurs on longer timescales (days) via cell fate maturation.",
+    "In vivo crypts may be subjected to other external forces (e.g., smooth muscle constriction, osmotic swelling of villus cells) not fully captured in the organoid model.",
+    "Theoretical analysis suggests similar bistability in open-tube geometries, but experimental validation in vivo is lacking."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "4_22.pdf",
+    "source_sha256": "14e6e6159985804ac7864dc5113b50edbf3a56667ad6f66c0282c4d1d162b35b"
+  },
+  "paper_id": "4_22",
+  "quality_assessment": {
+    "correct_item_count": 37,
+    "deterministic_rule_score": 0.863,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.25,
+      "sample_size_log_score": 0.3673,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 37,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do mechanosensitive feedback on cytoskeletal tension and lumen volume changes coordinate to ensure robust intestinal organoid morphogenesis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1333345967d7409ecc2b09de",
+              "inference_basis_ids": [
+                "res_bc4c837db0e9c24625c00181"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5435496c583cdd157f3f",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "a non-trivial prediction from this model is that crypt morphologies should first vary relatively little with increasing apical tension and decreasing volume, before abruptly changing at the critical transition point. ... plotting the crypt opening angles for different organoids as a function of time revealed a phase of abrupt closure (within 20 min; Fig. 4d)"
+              },
+              "statement": "Crypt budding transition is abrupt (snap-through bifurcation), occurring within 20 min despite gradual changes in tension and volume."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c9c0e16e9a881dacdf6b17b0",
+              "inference_basis_ids": [
+                "res_78290a822a06e1c0d36fdf0e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "5435496c583cdd157f3f",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "This provides further evidence that bistability confers history-dependent properties to crypt morphogenesis."
+              },
+              "statement": "Bistability confers history-dependent properties to crypt morphogenesis, as crypts do not revert to budded state after blebbistatin washout if lumen remains swollen."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Measure crypt opening angles over time to assess abruptness of budding transition.",
+            "Treat budded organoids with blebbistatin and PGE to induce swelling and crypt bulging.",
+            "Wash out blebbistatin while maintaining PGE to test reversibility of budding."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Pharmacological perturbation and washout",
+              "protocol_description": "Budded organoids treated with blebbistatin (myosin inhibitor) and PGE for 12 h to swell and bulge crypts. Blebbistatin washed out, PGE maintained. Crypt morphology monitored over time."
+            }
+          ],
+          "name": "Bistability and history-dependent crypt morphogenesis experiments",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Crypt morphology after blebbistatin washout with PGE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5435496c583cdd157f3f",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We then washed out the blebbistatin, but retained the PGE. Strikingly, organoids remained swollen for around 12–24 h, and crypts did not revert to their budded morphology despite the blebbistatin washout (Extended Data Fig. 3d), consistent with the model."
+              },
+              "quantitative_value": null,
+              "result_id": "res_78290a822a06e1c0d36fdf0e",
+              "unit": null,
+              "value_raw_text": "Organoids remained swollen for around 12–24 h, and crypts did not revert to their budded morphology despite blebbistatin washout."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Crypt budding transition speed",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "5435496c583cdd157f3f",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "plotting the crypt opening angles for different organoids as a function of time revealed a phase of abrupt closure (within 20 min; Fig. 4d)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bc4c837db0e9c24625c00181",
+              "unit": null,
+              "value_raw_text": "Crypt opening angles revealed a phase of abrupt closure within 20 min."
+            }
+          ],
+          "unit_id": "su_1043036dc6593ce143d56b50"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1754b8cabf01ce108c13b9db",
+              "inference_basis_ids": [
+                "res_827be194d4a79d408a2254d2",
+                "res_c28d39937e3d318eb320ec76"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "We then used this general relationship to quantitatively parameterize the mechanosensitive feedback between apicobasal tensions and geometry in the model (that is, ̄ϵ = ̄R^(-n)_c), leading to a fit for the mechanosensitivity factor of n = 1.0 ± 0.5"
+              },
+              "statement": "Mechanosensitive feedback between apicobasal tensions and geometry is quantitatively parameterized by n = 1.0 ± 0.5."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_405a29a1b95deb2a530c610a",
+              "inference_basis_ids": [
+                "res_9cd3a501a54874a3a2e5a4ce",
+                "res_d735bec18f3c81ecc351bc66"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "This argues that the changes in actomyosin localization in bulged crypts are not a secondary effect of osmotic changes on inflation, but are linked to changes in crypt geometry."
+              },
+              "statement": "Changes in actomyosin localization in bulged crypts are linked to changes in crypt geometry, not secondary osmotic effects."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_698c4ac3ce1b2ddde27b592a",
+              "inference_basis_ids": [
+                "res_9cd3a501a54874a3a2e5a4ce",
+                "res_d735bec18f3c81ecc351bc66"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "To test these predictions, we first experimentally validated the key modelling assumption that differential tension is dependent on crypt geometry and lumen volume. Thus, we increased the lumen volume in early bulged or late budded organoids by treatment with prostaglandin E2 (PGE). ... Importantly, we found that these volume perturbations resulted in very different consequences on the levels and localization of myosin in bulged versus budded crypts."
+              },
+              "statement": "Differential tension is dependent on crypt geometry and lumen volume, as shown by changes in myosin localization upon inflation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Fit mechanosensitivity factor n from experimental data.",
+            "Measure Myh9-GFP intensity ratio (apical-to-basal) in crypt cells before and after inflation.",
+            "Quantify relationship between normalized crypt radius and normalized intensity ratio.",
+            "Treat early bulged or late budded organoids with prostaglandin E2 (PGE) to increase lumen volume."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Lumen inflation assay",
+              "protocol_description": "Organoids treated with PGE to inflate lumen. Myh9-GFP live imaging to quantify apical and basal myosin intensities. Crypt radius measured from images. Normalized intensity ratio and radius computed relative to pre-inflation values."
+            }
+          ],
+          "name": "Experimental validation of mechanosensitive feedback on actomyosin localization",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Mechanosensitivity factor n",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "leading to a fit for the mechanosensitivity factor of n = 1.0 ± 0.5"
+              },
+              "quantitative_value": 1.0,
+              "result_id": "res_827be194d4a79d408a2254d2",
+              "unit": null,
+              "value_raw_text": "n = 1.0 ± 0.5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Apical-to-basal Myh9-GFP intensity ratio change in bulged crypts upon inflation",
+              "n_sample_size": 7,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "bulged crypts displayed lowered apical-to-basal myosin ratio on volume inflation in a dose-dependent manner (Fig. 3c)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9cd3a501a54874a3a2e5a4ce",
+              "unit": null,
+              "value_raw_text": "Bulged crypts displayed lowered apical-to-basal myosin ratio on volume inflation in a dose-dependent manner."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relationship between normalized crypt radius and normalized intensity ratio",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0a9afef0602a667eefc9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Experimental data (symbols, presented as mean values ± s.d.) and fitting (line) of mechanosensitivity, both apical-to-basal Myh9-GFP intensity ratio and crypt radius after lumen inflation are normalized by their values before inflation. Both bulged (N = 24) and budded (N = 28) samples are included. The fitting curve is y = x–b."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c28d39937e3d318eb320ec76",
+              "unit": null,
+              "value_raw_text": "Fitting curve is y = x^(-b) with b corresponding to n; consistent trend linking relative actomyosin intensity to crypt curvature."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Apical-to-basal Myh9-GFP intensity ratio change in budded crypts upon inflation",
+              "n_sample_size": 19,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "budded crypts did not show a consistent change (Fig. 3d)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d735bec18f3c81ecc351bc66",
+              "unit": null,
+              "value_raw_text": "Budded crypts did not show a consistent change in apical-to-basal myosin ratio on volume inflation."
+            }
+          ],
+          "unit_id": "su_14201d49ded09aadc1cda4c1"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1b45c25fe2908668366e56e3",
+              "inference_basis_ids": [
+                "res_ae9ef22d57131747c8c01af5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6a3e1d4a67bb641aae94",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We test key modelling assumptions via biophysical and pharmacological experiments to demonstrate how bistability can explain experimental observations, such as the importance of the timing of lumen shrinkage and robustness of the final morphogenetic state to mechanical perturbations."
+              },
+              "statement": "Bistability can explain experimental observations such as the importance of the timing of lumen shrinkage and robustness of the final morphogenetic state to mechanical perturbations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6102fb1cee58a6a1a9ee8b7f",
+              "inference_basis_ids": [
+                "res_ae9ef22d57131747c8c01af5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6a3e1d4a67bb641aae94",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Here we show how mechanosensitive feedback on cytoskeletal tension gives rise to morphological bistability in a minimal model of organoid morphogenesis."
+              },
+              "statement": "Mechanosensitive feedback on cytoskeletal tension gives rise to morphological bistability in organoid morphogenesis."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f94e1942dd586f48df2a411b",
+              "inference_basis_ids": [
+                "res_421bebafb8b47c9680992e79"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": true,
+                "text_excerpt": "On incorporation of this mechanosensitive coupling parameter, the theory predicted much broader regions of shape bistability ... which allows for a robust and irreversible budding of crypts with various intrinsic tensions."
+              },
+              "statement": "Mechanosensing broadens the bistable region, allowing robust and irreversible budding of crypts with various intrinsic tensions."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analyze phase diagram of crypt shapes (bulged vs. budded) as a function of lumen volume and differential tension.",
+            "Develop a minimal theoretical model of 3D epithelial monolayer shape incorporating mechanosensitive couplings between lumen volume, crypt geometry, and actomyosin tensions.",
+            "Test model predictions via biophysical and pharmacological experiments on intestinal organoids."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Theoretical modeling",
+              "protocol_description": "Minimal model of 3D epithelial monolayer shape with mechanosensitive feedback: crypt differential tension σc depends on intrinsic value σ and crypt radius of curvature Rc via σc = σ(Rc/˜R0)^(-n), where n is coupling strength. Lumen volume changes affect crypt geometry and tensions. Phase diagram computed for bulged vs. budded states."
+            }
+          ],
+          "name": "Minimal model of organoid morphogenesis with mechanosensitive feedback",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Bistability region width with mechanosensing",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "47c347a380de7f0ac01b",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "On incorporation of this mechanosensitive coupling parameter, the theory predicted much broader regions of shape bistability (Extended Data Fig. 5c,d; for instance, at v = 3, bistability occurs when σ is between 0.02 and 0.04—a range that is an order of magnitude broader than without mechanosensing), which allows for a robust and irreversible budding of crypts with various intrinsic tensions."
+              },
+              "quantitative_value": null,
+              "result_id": "res_421bebafb8b47c9680992e79",
+              "unit": null,
+              "value_raw_text": "Mechanosensing lowered the differential tension threshold for bistability and broadened the bistable region by an order of magnitude compared to without mechanosensing."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Bistability prediction",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6a3e1d4a67bb641aae94",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We find that both bulged and budded crypt states are possible and dependent on the history of volume changes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ae9ef22d57131747c8c01af5",
+              "unit": null,
+              "value_raw_text": "Both bulged and budded crypt states are possible and dependent on the history of volume changes."
+            }
+          ],
+          "unit_id": "su_c1af64b3d01be1c0b878aedb"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

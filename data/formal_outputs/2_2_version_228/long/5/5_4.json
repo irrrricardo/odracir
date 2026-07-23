@@ -1,0 +1,1307 @@
+{
+  "coverage_ledger": {
+    "00bc46caaffef8665f9e": "not_selected",
+    "02f8c79c30d6f1134610": "not_selected",
+    "039f43154f9c47eb337c": "not_selected",
+    "04a74ecab5fe881ef10c": "not_selected",
+    "0cb0697c5ef428d33f3c": "extracted",
+    "0f74ecb2c184d3a65c0e": "not_selected",
+    "130a412aeef3833c8d9d": "not_selected",
+    "156136d162aaa2f8c189": "not_selected",
+    "1da64a7d20b20a742223": "not_selected",
+    "1e7138481b509433d6df": "extracted",
+    "21d376ba690efd687270": "extracted",
+    "23884010e2d8bf7310a1": "not_selected",
+    "24ae121235388cc56579": "not_selected",
+    "2abf44719dc96eba0888": "not_selected",
+    "2d4fac778d557a74f08d": "not_selected",
+    "31801a6a58bb6ff66733": "not_selected",
+    "323f38420cf58d83e9a1": "not_selected",
+    "33382e67b4f66bd5fb2e": "not_selected",
+    "346d4a74f6feb0de83bc": "not_selected",
+    "34d940895df43583ca5c": "not_selected",
+    "3717774d4fec3cead884": "not_selected",
+    "37ae9342fd174d401ec7": "not_selected",
+    "381f1d4e6cb78d1c2ddb": "not_selected",
+    "4287b4e44c099f2f568b": "not_selected",
+    "4714e90bec19ed0624d5": "not_selected",
+    "4c1d707492cfab0da154": "not_selected",
+    "4ed1674df6d2b702219a": "not_selected",
+    "504491cc427e3516b4d5": "not_selected",
+    "539f6bcab27c02e92883": "not_selected",
+    "5b46e713d9586b79fa1c": "not_selected",
+    "66ec9e9717902c736c77": "not_selected",
+    "6b0327f20f38f7f4cd40": "not_selected",
+    "6b7980ea5eb8ab5d1d50": "not_selected",
+    "6ec4a52de2e916f6ef29": "not_selected",
+    "710fe07c673de9ecbf87": "not_selected",
+    "729d7eb4b46efa85a57e": "not_selected",
+    "79a49fc2cc7a0c1004c6": "not_selected",
+    "7a5fc7b3f9d46bbb8468": "not_selected",
+    "9cd91f8d7cf7dffe175a": "not_selected",
+    "9d0cd1be59bb327d973a": "not_selected",
+    "9ea400aa29692f63006c": "not_selected",
+    "a079c5f7ec16c4f0cf48": "not_selected",
+    "a98d02912d39c9fd8944": "not_selected",
+    "b3eb797a2e4dfa3d8899": "not_selected",
+    "b931355c2b3c5d1f7fa7": "extracted",
+    "bbc3239e0e09c5c77958": "not_selected",
+    "c0381f650934230d6046": "not_selected",
+    "c5820eac3f10481f71f5": "not_selected",
+    "d05cda78b9b151ee298f": "not_selected",
+    "d0914a86a1f51a2adbd0": "not_selected",
+    "d0b2fb2592e3c0000a52": "not_selected",
+    "d7c669b6566ff7a6d9f0": "not_selected",
+    "f769b9cc01026182169f": "not_selected",
+    "f9c7f5475a75f6ab5a31": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The experiments were done in the context of model selection, so the only real difference between the two spaces is connectivity.",
+    "The goal of the search algorithm is to identify the model with the highest possible score; comparing search algorithms based on a predictive score is somewhat misleading because differences in this score are dependent on the quality of the scoring criterion.",
+    "The degree to which multiple representations will be a problem is highly dependent on the states visited by the search algorithm.",
+    "The results are based on a greedy search algorithm; more sophisticated search algorithms are likely to benefit more from searching in E-space."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_4.pdf",
+    "source_sha256": "fd72e5a6dca01d7fe97708c287d3ff819a8890f62852fbf0e839428343e0e522"
+  },
+  "paper_id": "5_4",
+  "quality_assessment": {
+    "correct_item_count": 63,
+    "deterministic_rule_score": 0.8503,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 64,
+    "f1": 0.9333,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The extracted result for Media Metrix Rel. Imp. Holdout 0.0017 incorrectly includes an additional provenance excerpt from Nielsen. The source chunk shows only one value for Media Metrix Rel. Imp. Holdout, and the Nielsen value is separate. The additional provenance is unsupported.",
+        "item_id": "result:su_8cce0fff86b59452c15103a5:res_999f84aa47711dfc55f7f1ff",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "The scoring criterion used is the BDeu criterion with a prior equivalent sample size of ten and a structure prior of 0.001^f, where f is the number of free parameters.",
+        "item_id": null,
+        "source_chunk_id": "a079c5f7ec16c4f0cf48",
+        "source_excerpt": "We used a Bayesian scoring criterion for discrete variables in all of our experiments. The criterion, called the BDeu criterion, is derived by Heckerman et al. (1995).5 The criterion measures the relative posterior probability that the distribution from which the data was generated has the independence constraints given in the DAG. The BDeu criterion uses a parameter prior that has uniform means, and requires both a prior equivalence sample size and a structure prior. For all of our experiments, we used a prior equivalent sample size of ten, and a structure prior of 0.001f, where f is the number of free parameters in the DAG.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The search algorithm is greedy search, which always moves to the adjacent state that increases the score the most, terminating when no adjacent state has a higher score.",
+        "item_id": null,
+        "source_chunk_id": "a079c5f7ec16c4f0cf48",
+        "source_excerpt": "Greedy search is a simple algorithm that, given the current state, always moves to the adjacent state that increases the score the most. If no adjacent state has a higher score, the algorithm terminates.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The experiments were performed in the context of model selection, identifying a single equivalence class with a high score.",
+        "item_id": null,
+        "source_chunk_id": "a079c5f7ec16c4f0cf48",
+        "source_excerpt": "In all of our experiments, we used greedy search to perform model selection; that is, we identify a single equivalence class with a high score.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The holdout score is the average log probability that the selected model assigns to each case in the holdout set.",
+        "item_id": null,
+        "source_chunk_id": "21d376ba690efd687270",
+        "source_excerpt": "our holdout score is simply the average log probability that the selected model assigns to each case in the holdout set.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The datasets were split into training (70%) and test (30%) sets.",
+        "item_id": null,
+        "source_chunk_id": "21d376ba690efd687270",
+        "source_excerpt": "we first split each of the datasets into a training set and a test set, consisting of approximately 70 percent and 30 percent of the total data, respectively.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The search in E-space found a better local maximum than B-space for all datasets except Mushroom and HouseVotes; for HouseVotes, both methods identified the same model.",
+        "item_id": null,
+        "source_chunk_id": "b931355c2b3c5d1f7fa7",
+        "source_excerpt": "In all but the Mushroom and HouseVotes datasets, the search in E-space found a better local maximum—that is, the search identiﬁed a model with a higher value of the scoring criterion—than did the search in B-space; the two methods identiﬁed the same model for the HouseVotes datasets.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The number of DAGs per equivalence class encountered during greedy search can be enormous, with average lower bounds ranging from 8.5 to 9.7e19 and maximum lower bounds up to 7.1e21.",
+        "item_id": null,
+        "source_chunk_id": "5b46e713d9586b79fa1c",
+        "source_excerpt": "As we see from the table, the number of DAGs per equivalence class in those states that we encounter during our greedy search can be enormous for some of the datasets, and is signiﬁcant in all of them.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The experiments were limited to discrete variables.",
+        "item_id": null,
+        "source_chunk_id": "a079c5f7ec16c4f0cf48",
+        "source_excerpt": "For simplicity, we restrict our attention to domains in which all variables are discrete, but note that there exist score-equivalent scoring criteria for continuous variables.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9844,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8873
+  },
+  "quality_score": 0.9333,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Is searching among equivalence classes of Bayesian-network structures more effective than searching among individual structures when using a score-equivalent criterion?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_08bab0218a4ffebdae7f2a32",
+              "inference_basis_ids": [
+                "res_01e5cad53cc98b9eb9053257",
+                "res_766e999db5e1b02cbfa95c37"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "For both the EachMovie dataset and the Mushroom dataset, the search in E-space found a local maximum almost three times faster than the search in B-space."
+              },
+              "statement": "For both the EachMovie dataset and the Mushroom dataset, the search in E-space found a local maximum almost three times faster than the search in B-space."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_57ce7230e2a7978ab3a89acd",
+              "inference_basis_ids": [
+                "res_22e99523435ff8b53d3c3317",
+                "res_3cade0a368eaefdeedd960d8",
+                "res_3ec36e3278de806b0f95787d",
+                "res_5024007fae60eb7381cc2487",
+                "res_631140f122f85ab728bd4ada",
+                "res_810139c2ba56cba902685eff",
+                "res_9f18a1ab9741205ff0c33a9d",
+                "res_ade03f381d73687d5236545d",
+                "res_bf45ccf62b767af9356341f4",
+                "res_c3d7a0917c69aa46106b1b76",
+                "res_c5f0b6379bb58503a0bf2b9e",
+                "res_f8b9531ee128ce6a590926fd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "As shown by the holdout scores, the models with higher values of the particular scoring criterion we used in our experiments tended to have superior out-of-sample prediction accuracy as well."
+              },
+              "statement": "The models with higher values of the scoring criterion tended to have superior out-of-sample prediction accuracy."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_9259a4b37319abe367089993",
+              "inference_basis_ids": [
+                "res_6298762f9c6e8d7f5e843938",
+                "res_66f1c5b88d0da508c3e01bdd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "The search in E-space was also signiﬁcantly faster in both Media Metrics and HouseVotes."
+              },
+              "statement": "The search in E-space was also significantly faster in both Media Metrix and HouseVotes."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a06f8c457ef60e2e011229ad",
+              "inference_basis_ids": [
+                "res_6171da1ecdab8787c2faf456",
+                "res_ada3a66317585e4e1d9a0d51"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "For MSWeb and Nielsen, the search in E-space was roughly ﬁve percent slower than the search in B-space."
+              },
+              "statement": "For MSWeb and Nielsen, the search in E-space was roughly five percent slower than the search in B-space."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a8590c6f85ab42a5f3d31094",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "The reason the search algorithm can be faster in E-space is that it often has to score fewer operators."
+              },
+              "statement": "The reason the search algorithm can be faster in E-space is that it often has to score fewer operators."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a897f5d5d7e439ff778b359c",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0cb0697c5ef428d33f3c",
+                "page_end": 25,
+                "page_start": 25,
+                "paraphrased": false,
+                "text_excerpt": "This suggests that we can get signiﬁcant improvements in the running time of non-greedy search algorithms that can waste time in B-space traversing redundant representations of equivalence classes."
+              },
+              "statement": "We can get significant improvements in the running time of non-greedy search algorithms that can waste time in B-space traversing redundant representations of equivalence classes."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b95b720b419895692d758760",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0cb0697c5ef428d33f3c",
+                "page_end": 25,
+                "page_start": 25,
+                "paraphrased": false,
+                "text_excerpt": "Our experimental results do, however, demonstrate the eﬃciency of traversing through the space of equivalence classes."
+              },
+              "statement": "The experimental results demonstrate the efficiency of traversing through the space of equivalence classes."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ddac4807c182c87d8cdb5fdf",
+              "inference_basis_ids": [
+                "res_02a2e91364576e96b23d223c",
+                "res_25c394a5ba0352ebbe0006f7",
+                "res_27cc1d0af1813aa3b570ae6b",
+                "res_34ad2ba25ad33dabab5dfde6",
+                "res_6ce2cd81f3a8a711955e09a1",
+                "res_79302cb2438df9404a95216b",
+                "res_906c0d6a687839137f849f88",
+                "res_ad91f74ba22b2c2b18b1cc87",
+                "res_c3a19b5e148b04ceccf3f0f4",
+                "res_cae951422478c903fe0a50bc",
+                "res_e6cf81bff68fd6a59f36ce66",
+                "res_f7bff053b6a56fdd6faf975e"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "In all but the Mushroom and HouseVotes datasets, the search in E-space found a better local maximum—that is, the search identiﬁed a model with a higher value of the scoring criterion—than did the search in B-space; the two methods identiﬁed the same model for the HouseVotes datasets."
+              },
+              "statement": "In all but the Mushroom and HouseVotes datasets, the search in E-space found a better local maximum than the search in B-space."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ec7ae21503c4dfecccda10aa",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "21d376ba690efd687270",
+                "page_end": 21,
+                "page_start": 21,
+                "paraphrased": false,
+                "text_excerpt": "For all datasets, the search algorithm moves more quickly to higher-scoring equivalence classes in E-space."
+              },
+              "statement": "For all datasets, the search algorithm moves more quickly to higher-scoring equivalence classes in E-space."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Web usage data from Microsoft; used in experiments.",
+              "name": "MSWeb",
+              "version_or_split": "training (70%) and test (30%)"
+            },
+            {
+              "dataset_id": "D2",
+              "description": "Nielsen dataset; used in experiments.",
+              "name": "Nielsen",
+              "version_or_split": "training (70%) and test (30%)"
+            },
+            {
+              "dataset_id": "D3",
+              "description": "Viewer ratings on movies; 300 most popular movies by 61,265 viewers; rating 1-5 or missing.",
+              "name": "EachMovie",
+              "version_or_split": "training (70%) and test (30%)"
+            },
+            {
+              "dataset_id": "D4",
+              "description": "Demographic and internet-use data for 4808 individuals; 13 internet-use variables.",
+              "name": "Media Metrix",
+              "version_or_split": "training (70%) and test (30%)"
+            },
+            {
+              "dataset_id": "D5",
+              "description": "1984 US Congressional voting records for 435 representatives on 17 issues; votes yes/no/unknown.",
+              "name": "HouseVotes",
+              "version_or_split": "training (70%) and test (30%)"
+            },
+            {
+              "dataset_id": "D6",
+              "description": "Physical characteristics of 8124 mushrooms; 22 discrete attributes; poisonous/edible.",
+              "name": "Mushroom",
+              "version_or_split": "training (70%) and test (30%)"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Apply greedy search algorithm in B-space (individual DAGs) and E-space (equivalence classes) starting from the empty graph, using a score-equivalent criterion, on six datasets: MSWeb, Nielsen, EachMovie, Media Metrix, HouseVotes, Mushroom. Record score per training case, holdout score, and elapsed time at each step."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Greedy search in B-space",
+              "protocol_description": "Greedy search algorithm applied to the space of individual Bayesian-network structures (DAGs) using a score-equivalent criterion, starting from the empty graph. At each step, the algorithm considers local operators (edge addition, deletion, reversal) and moves to the highest-scoring neighbor."
+            },
+            {
+              "method_id": "M2",
+              "name": "Greedy search in E-space",
+              "protocol_description": "Greedy search algorithm applied to the space of equivalence classes of Bayesian-network structures, represented as PDAGs, using a score-equivalent criterion, starting from the empty graph. Operators are defined on equivalence classes (e.g., edge addition, deletion) and scored locally."
+            }
+          ],
+          "name": "Greedy search comparison in B-space vs E-space",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Time ratio (B-space / E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Mushroom Time Ratio 2.81"
+              },
+              "quantitative_value": 2.81,
+              "result_id": "res_01e5cad53cc98b9eb9053257",
+              "unit": null,
+              "value_raw_text": "2.81"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in holdout score (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Mushroom Rel. Imp. Holdout -0.1241"
+              },
+              "quantitative_value": -0.1241,
+              "result_id": "res_0258c72c03e99e44147a7f10",
+              "unit": null,
+              "value_raw_text": "-0.1241"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "MSWeb -10.2857"
+              },
+              "quantitative_value": -10.2857,
+              "result_id": "res_02a2e91364576e96b23d223c",
+              "unit": null,
+              "value_raw_text": "-10.2857"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in holdout score (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "MSWeb Rel. Imp. Holdout 0.0004"
+              },
+              "quantitative_value": 0.0004,
+              "result_id": "res_0b72949e9c2d083d69dd5a3d",
+              "unit": null,
+              "value_raw_text": "0.0004"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in score per training case (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Media Metrix Rel. Imp. 0.0002"
+              },
+              "quantitative_value": 0.0002,
+              "result_id": "res_0b7cf831d3a5349538af10c4",
+              "unit": null,
+              "value_raw_text": "0.0002"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Mushroom E-space Holdout -0.5563"
+              },
+              "quantitative_value": -0.5563,
+              "result_id": "res_22e99523435ff8b53d3c3317",
+              "unit": null,
+              "value_raw_text": "-0.5563"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "HouseVotes -12.7228"
+              },
+              "quantitative_value": -12.7228,
+              "result_id": "res_25c394a5ba0352ebbe0006f7",
+              "unit": null,
+              "value_raw_text": "-12.7228"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "Nielsen -42.0734"
+              },
+              "quantitative_value": -42.0734,
+              "result_id": "res_27cc1d0af1813aa3b570ae6b",
+              "unit": null,
+              "value_raw_text": "-42.0734"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "Media Metrix -9.7208"
+              },
+              "quantitative_value": -9.7208,
+              "result_id": "res_34ad2ba25ad33dabab5dfde6",
+              "unit": null,
+              "value_raw_text": "-9.7208"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Nielsen E-space Holdout -0.0909"
+              },
+              "quantitative_value": -0.0909,
+              "result_id": "res_3cade0a368eaefdeedd960d8",
+              "unit": null,
+              "value_raw_text": "-0.0909"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "HouseVotes E-space Holdout -0.6006"
+              },
+              "quantitative_value": -0.6006,
+              "result_id": "res_3ec36e3278de806b0f95787d",
+              "unit": null,
+              "value_raw_text": "-0.6006"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Media Metrix B-space Holdout -0.7278"
+              },
+              "quantitative_value": -0.7278,
+              "result_id": "res_5024007fae60eb7381cc2487",
+              "unit": null,
+              "value_raw_text": "-0.7278"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in score per training case (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Mushroom Rel. Imp. -0.0382"
+              },
+              "quantitative_value": -0.0382,
+              "result_id": "res_5ef0e2a97628fdc0f044ca04",
+              "unit": null,
+              "value_raw_text": "-0.0382"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time ratio (B-space / E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "MSWeb Time Ratio 0.95"
+              },
+              "quantitative_value": 0.95,
+              "result_id": "res_6171da1ecdab8787c2faf456",
+              "unit": null,
+              "value_raw_text": "0.95"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time ratio (B-space / E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Media Metrix Time Ratio 1.49"
+              },
+              "quantitative_value": 1.49,
+              "result_id": "res_6298762f9c6e8d7f5e843938",
+              "unit": null,
+              "value_raw_text": "1.49"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "EachMovie E-space Holdout -0.3763"
+              },
+              "quantitative_value": -0.3763,
+              "result_id": "res_631140f122f85ab728bd4ada",
+              "unit": null,
+              "value_raw_text": "-0.3763"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time ratio (B-space / E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "HouseVotes Time Ratio 1.27"
+              },
+              "quantitative_value": 1.27,
+              "result_id": "res_66f1c5b88d0da508c3e01bdd",
+              "unit": null,
+              "value_raw_text": "1.27"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in score per training case (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Nielsen Rel. Imp. 0.0039"
+              },
+              "quantitative_value": 0.0039,
+              "result_id": "res_6c5400d4b6af36037de3d5eb",
+              "unit": null,
+              "value_raw_text": "0.0039"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "EachMovie -116.4836"
+              },
+              "quantitative_value": -116.4836,
+              "result_id": "res_6ce2cd81f3a8a711955e09a1",
+              "unit": null,
+              "value_raw_text": "-116.4836"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in score per training case (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "HouseVotes Rel. Imp. 0.0000"
+              },
+              "quantitative_value": 0.0,
+              "result_id": "res_717caa88e4d67afe810cef87",
+              "unit": null,
+              "value_raw_text": "0.0000"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time ratio (B-space / E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "EachMovie Time Ratio 2.902"
+              },
+              "quantitative_value": 2.902,
+              "result_id": "res_766e999db5e1b02cbfa95c37",
+              "unit": null,
+              "value_raw_text": "2.902"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "EachMovie -116.6294"
+              },
+              "quantitative_value": -116.6294,
+              "result_id": "res_79302cb2438df9404a95216b",
+              "unit": null,
+              "value_raw_text": "-116.6294"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in holdout score (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "HouseVotes Rel. Imp. Holdout 0.0000"
+              },
+              "quantitative_value": 0.0,
+              "result_id": "res_79684e204c79bf99b8d06d07",
+              "unit": null,
+              "value_raw_text": "0.0000"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "EachMovie B-space Holdout -0.3745"
+              },
+              "quantitative_value": -0.3745,
+              "result_id": "res_810139c2ba56cba902685eff",
+              "unit": null,
+              "value_raw_text": "-0.3745"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Mushroom -13.8971"
+              },
+              "quantitative_value": -13.8971,
+              "result_id": "res_906c0d6a687839137f849f88",
+              "unit": null,
+              "value_raw_text": "-13.8971"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "b931355c2b3c5d1f7fa7",
+                  "page_end": 23,
+                  "page_start": 23,
+                  "paraphrased": true,
+                  "text_excerpt": "Nielsen Rel. Imp. Holdout 0.0017"
+                }
+              ],
+              "metric_name": "Relative improvement in holdout score (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Media Metrix Rel. Imp. Holdout 0.0017"
+              },
+              "quantitative_value": 0.0017,
+              "result_id": "res_999f84aa47711dfc55f7f1ff",
+              "unit": null,
+              "value_raw_text": "0.0017"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Media Metrix E-space Holdout -0.7265"
+              },
+              "quantitative_value": -0.7265,
+              "result_id": "res_9f18a1ab9741205ff0c33a9d",
+              "unit": null,
+              "value_raw_text": "-0.7265"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "HouseVotes -12.7228"
+              },
+              "quantitative_value": -12.7228,
+              "result_id": "res_ad91f74ba22b2c2b18b1cc87",
+              "unit": null,
+              "value_raw_text": "-12.7228"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Time ratio (B-space / E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Nielsen Time Ratio 0.96"
+              },
+              "quantitative_value": 0.96,
+              "result_id": "res_ada3a66317585e4e1d9a0d51",
+              "unit": null,
+              "value_raw_text": "0.96"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "MSWeb E-space Holdout -0.0339"
+              },
+              "quantitative_value": -0.0339,
+              "result_id": "res_ade03f381d73687d5236545d",
+              "unit": null,
+              "value_raw_text": "-0.0339"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in score per training case (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "EachMovie Rel. Imp. 0.0013"
+              },
+              "quantitative_value": 0.0013,
+              "result_id": "res_b04e9243335fc871f607c119",
+              "unit": null,
+              "value_raw_text": "0.0013"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Mushroom B-space Holdout -0.4873"
+              },
+              "quantitative_value": -0.4873,
+              "result_id": "res_bf45ccf62b767af9356341f4",
+              "unit": null,
+              "value_raw_text": "-0.4873"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "MSWeb -10.2801"
+              },
+              "quantitative_value": -10.2801,
+              "result_id": "res_c3a19b5e148b04ceccf3f0f4",
+              "unit": null,
+              "value_raw_text": "-10.2801"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "HouseVotes B-space Holdout -0.6006"
+              },
+              "quantitative_value": -0.6006,
+              "result_id": "res_c3d7a0917c69aa46106b1b76",
+              "unit": null,
+              "value_raw_text": "-0.6006"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "MSWeb B-space Holdout -0.0339"
+              },
+              "quantitative_value": -0.0339,
+              "result_id": "res_c5f0b6379bb58503a0bf2b9e",
+              "unit": null,
+              "value_raw_text": "-0.0339"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": false,
+                "text_excerpt": "Mushroom -13.3674"
+              },
+              "quantitative_value": -13.3674,
+              "result_id": "res_cae951422478c903fe0a50bc",
+              "unit": null,
+              "value_raw_text": "-13.3674"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in holdout score (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "EachMovie Rel. Imp. Holdout -0.0047"
+              },
+              "quantitative_value": -0.0047,
+              "result_id": "res_d91945cf57ec82974022ec75",
+              "unit": null,
+              "value_raw_text": "-0.0047"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Media Metrix -9.7192"
+              },
+              "quantitative_value": -9.7192,
+              "result_id": "res_e6cf81bff68fd6a59f36ce66",
+              "unit": null,
+              "value_raw_text": "-9.7192"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Score per training case (E-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Nielsen -41.9104"
+              },
+              "quantitative_value": -41.9104,
+              "result_id": "res_f7bff053b6a56fdd6faf975e",
+              "unit": null,
+              "value_raw_text": "-41.9104"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Holdout score (B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "Nielsen B-space Holdout -0.0911"
+              },
+              "quantitative_value": -0.0911,
+              "result_id": "res_f8b9531ee128ce6a590926fd",
+              "unit": null,
+              "value_raw_text": "-0.0911"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Relative improvement in score per training case (E-space vs B-space)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "b931355c2b3c5d1f7fa7",
+                "page_end": 23,
+                "page_start": 23,
+                "paraphrased": true,
+                "text_excerpt": "MSWeb Rel. Imp. 0.0005"
+              },
+              "quantitative_value": 0.0005,
+              "result_id": "res_fe9c6acd424454564875f147",
+              "unit": null,
+              "value_raw_text": "0.0005"
+            }
+          ],
+          "unit_id": "su_8cce0fff86b59452c15103a5"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[10].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5806 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[11].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5806 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[12].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[13].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5652 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[15].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8421 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[16].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[17].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5758 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[18].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5758 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[19].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8571 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[20].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[22].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[23].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5862 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[24].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5278 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[25].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5278 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[26].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5676 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[27].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5714 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4545 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[30].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5556 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[31].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[32].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[33].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[34].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5769 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[36].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8235 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[37].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5385 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[38].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5312 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[39].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5625 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5517 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[40].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5294 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[41].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5862 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6000 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.4762 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[8].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8125 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[9].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5000 on attempt 1"
+    }
+  ]
+}

@@ -1,0 +1,679 @@
+{
+  "coverage_ledger": {
+    "1697cec8c1358e92bb5d": "not_selected",
+    "2aaed971ebd9afbd8b6c": "extracted",
+    "34a0547c748fe47de963": "not_selected",
+    "3c4450c8b6870028c4be": "not_selected",
+    "427a138f388d4e027ffc": "not_selected",
+    "473949c20e1b2bfe4b17": "extracted",
+    "532689d6694c04b4fd76": "not_selected",
+    "539594a04b7f28ae9b64": "not_selected",
+    "83f558d1d4fc90c28d21": "not_selected",
+    "91c1b61f5f1733f41c90": "not_selected",
+    "987feaca88d4aa80859c": "extracted",
+    "996020603c3b0f98a7e6": "not_selected",
+    "bea901ae533fcdf9833e": "extracted",
+    "d2775d9861e54f2ffb29": "not_selected",
+    "f357d1384b2a5c4c0da8": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study uses a specific cell line (RPE1-hTERT) and inducible TRF2-DN to model telomere crisis; generalizability to other cell types or in vivo contexts is not addressed.",
+    "Chromothripsis and kataegis were observed in a subset of post-crisis clones; the factors determining which clones develop these features are not fully elucidated.",
+    "TREX1-independent mechanisms of bridge resolution exist but are not characterized.",
+    "The study does not directly demonstrate that chromothripsis and kataegis occur in the same cell that experienced a chromatin bridge, only that they are present in post-crisis populations.",
+    "The role of APOBEC enzymes in generating kataegis is inferred from mutation signatures but not directly tested.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_5.pdf",
+    "source_sha256": "c980a3d2c7a3e7ff97f695c13eef3df05c08c44cb330c8705837f233d01b4ef1"
+  },
+  "paper_id": "5_5",
+  "quality_assessment": {
+    "correct_item_count": 66,
+    "deterministic_rule_score": 0.9425,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.1875,
+      "sample_size_log_score": 0.3867,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 66,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do dicentric chromosomes formed during telomere crisis break in mitosis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_16e3f4072dbdc021566e20ad",
+              "inference_basis_ids": [
+                "res_0cf2ab72544fb2c51ab93702"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Thus, as is the case in budding yeast (Haber et al., 1984; Lopez et al., 2015; Hill and Bloom, 1989), mammalian dicentric chromosomes can withstand the forces of the mitotic spindle and do not break before cytokinesis."
+              },
+              "statement": "Mammalian dicentric chromosomes can withstand the forces of the mitotic spindle and do not break before cytokinesis."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Live-cell imaging of T2p1 cells with H2B-mCherry and myrPALM-mTurquoise2 to observe dicentric chromosome behavior during mitosis.",
+            "Treatment with actomyosin inhibitor blebbistatin to block cleavage furrow ingression."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Live-cell fluorescence microscopy",
+              "protocol_description": "Spinning-disk confocal imaging of T2p1 cells expressing H2B-mCherry and myrPALM-mTurquoise2. Blebbistatin used to inhibit actomyosin."
+            }
+          ],
+          "name": "Mitotic breakage of dicentric chromosomes",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Chromosome breakage during mitosis",
+              "n_sample_size": 24,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "when ingression was blocked with the actomyosin inhibitor blebbistatin (Straight et al., 2003), the dicentric chromosomes clearly remained intact (0/24 resolution events)"
+              },
+              "quantitative_value": 0.0,
+              "result_id": "res_0cf2ab72544fb2c51ab93702",
+              "unit": "resolution events",
+              "value_raw_text": "0/24 resolution events"
+            }
+          ],
+          "unit_id": "su_b8001add23baa0e0bc89282d"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "What is the fate of dicentric chromosomes after cytokinesis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_639f0913e4bbf0a657b0a940",
+              "inference_basis_ids": [
+                "res_066312b92490b982944fde89",
+                "res_94a360702bda6c4c2688a55a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The chromatin bridges remained intact for 3–20 hr with a median persistence time of ~9.3 hr"
+              },
+              "statement": "Dicentric chromosomes develop into long chromatin bridges that persist for hours after mitosis."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b157f36ea2a8f67d97e2b7b4",
+              "inference_basis_ids": [
+                "res_c54537ee3880a55d25db34c7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "Therefore, most chromatin bridges were resolved before DNA replication in the primary nuclei."
+              },
+              "statement": "Most chromatin bridges are resolved before DNA replication in the primary nuclei."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e1472141ff735755e1672f5c",
+              "inference_basis_ids": [
+                "res_d125056829a971ae110ad7c5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "~80% of the bridges contained RPA before and/or at the time of their resolution"
+              },
+              "statement": "Chromatin bridges accumulate RPA-coated ssDNA before resolution."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "EdU labeling to assess DNA replication on bridges.",
+            "Fixed-cell imaging with YOYO-1 to detect chromatin bridges.",
+            "Immunofluorescence for histones H2A, H2B, H4 on bridges.",
+            "Long-term live-cell imaging of T2p1 cells with H2B-mCherry using stitching microscopy to track chromatin bridges.",
+            "RPA imaging to detect ssDNA on bridges."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Stitching microscopy",
+              "protocol_description": "Spinning-disk confocal imaging of 108 adjacent fields at 10 min intervals for 24-48 hr, computationally joined to follow ~1,000 cells."
+            },
+            {
+              "method_id": "M3",
+              "name": "Immunofluorescence",
+              "protocol_description": "IF for histones, RPA, gH2AX, 53BP1, Mre11, LAP2, BAF1, Lamins A/C and B1, NPCs, SUN1, SUN2, MAD1."
+            }
+          ],
+          "name": "Chromatin bridge formation and persistence",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Chromatin bridge length",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The chromatin bridges, which were detectable with YOYO-1 in fixed samples (Figure 2C), developed with high frequency and measured 50–200 mm before breaking"
+              },
+              "quantitative_value": null,
+              "result_id": "res_066312b92490b982944fde89",
+              "unit": "mm",
+              "value_raw_text": "50–200 mm"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "EdU labeling on bridge DNA",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "EdU labeling showed no signal on the bridge DNA, suggesting that the chromatin bridges did not undergo aberrant premature DNA replication"
+              },
+              "quantitative_value": null,
+              "result_id": "res_328fb8b03a309a853dca8f35",
+              "unit": null,
+              "value_raw_text": "no signal on the bridge DNA"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Chromatin bridge persistence time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "The chromatin bridges remained intact for 3–20 hr with a median persistence time of ~9.3 hr"
+              },
+              "quantitative_value": 9.3,
+              "result_id": "res_94a360702bda6c4c2688a55a",
+              "unit": "hr",
+              "value_raw_text": "3–20 hr with a median persistence time of ~9.3 hr"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Bridge resolution before S phase",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "When >90% of the bridges were resolved at 20 hr, fewer than 20% of the primary nuclei showed the punctate RPA pattern indicative of S phase"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c54537ee3880a55d25db34c7",
+              "unit": null,
+              "value_raw_text": ">90% of the bridges were resolved at 20 hr, fewer than 20% of the primary nuclei showed the punctate RPA pattern indicative of S phase"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RPA accumulation on bridges",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "bea901ae533fcdf9833e",
+                "page_end": 4,
+                "page_start": 4,
+                "paraphrased": false,
+                "text_excerpt": "~80% of the bridges contained RPA before and/or at the time of their resolution"
+              },
+              "quantitative_value": 80.0,
+              "result_id": "res_d125056829a971ae110ad7c5",
+              "unit": "%",
+              "value_raw_text": "~80% of the bridges contained RPA before and/or at the time of their resolution"
+            }
+          ],
+          "unit_id": "su_6de4f1fa00b2cda9a8e0f0e0"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ3",
+      "statement": "Does nuclear envelope rupture occur in cells with chromatin bridges?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_68f4f3aeb9db777e45582af8",
+              "inference_basis_ids": [
+                "res_98e0adc92f10509937fa7f0f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2aaed971ebd9afbd8b6c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We conclude that telomere dysfunction in this cell system induces a significant increase in NERDI."
+              },
+              "statement": "Telomere dysfunction induces a significant increase in nuclear envelope rupture (NERDI) in cells with chromatin bridges."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_df536ef464450321693e8439",
+              "inference_basis_ids": [
+                "res_a78a3b8c810578e900d63f6f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "2aaed971ebd9afbd8b6c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Lamin B1 overexpression strongly diminished RPA accumulation on chromatin bridges suggesting that the formation of ssDNA on chromatin bridges depended on NERDI"
+              },
+              "statement": "Formation of ssDNA on chromatin bridges depends on NERDI."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunofluorescence for nuclear envelope components (LAP2, Lamins, NPCs, SUN1/2, MAD1) on chromatin bridges.",
+            "Live-cell imaging of NLS-3xTurquoise to detect nuclear envelope rupture (NERDI).",
+            "Overexpression of Lamin B1 or LAP2b to test suppression of NERDI.",
+            "Quantification of NERDI frequency in parental RPE1-hTERT and dox-induced T2p1 cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "Immunofluorescence and live-cell imaging",
+              "protocol_description": "IF for NE proteins; live imaging of NLS-3xTurquoise to monitor NE integrity."
+            }
+          ],
+          "name": "Nuclear envelope rupture in chromatin bridge cells",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "NERDI frequency in T2p1 daughter cells with chromatin bridges",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2aaed971ebd9afbd8b6c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "NERDI frequency increased to nearly 60% in dox-induced T2p1 daughter cells with chromatin bridges"
+              },
+              "quantitative_value": 60.0,
+              "result_id": "res_98e0adc92f10509937fa7f0f",
+              "unit": "%",
+              "value_raw_text": "nearly 60%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of Lamin B1 overexpression on RPA accumulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "2aaed971ebd9afbd8b6c",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Lamin B1 overexpression strongly diminished RPA accumulation on chromatin bridges suggesting that the formation of ssDNA on chromatin bridges depended on NERDI"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a78a3b8c810578e900d63f6f",
+              "unit": null,
+              "value_raw_text": "strongly diminished RPA accumulation on chromatin bridges"
+            }
+          ],
+          "unit_id": "su_7393c6ff79e24e9510f129b2"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ4",
+      "statement": "What is the role of TREX1 in generating ssDNA on chromatin bridges?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c035e1a9bf9c6b76f06ea455",
+              "inference_basis_ids": [
+                "res_3f21d47d4e11e45c132520f7",
+                "res_82bc9d5737524e73c658ae78",
+                "res_e1074132a111d1f1c0d8a782"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "IF showed a nearly complete abrogation of the accumulation of RPA on the chromatin bridges in the TREX1 KO cells. This absence of RPA accumulation could be reversed by reintroduction of wild-type TREX1, whereas the inactive TREX1-D18N did not have this effect."
+              },
+              "statement": "TREX1 is required for the generation of ssDNA on chromatin bridges."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fb6007b9f3e61dbf7972b8c9",
+              "inference_basis_ids": [
+                "res_978591dde6a00f1bb0e2ad64",
+                "res_fdc37c19fa750d05ad494d8c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Cells lacking TREX1 showed a significant delay in the resolution of chromatin bridges."
+              },
+              "statement": "TREX1 promotes the resolution of chromatin bridges."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "CRISPR/Cas9 knockout of TREX1 in T2p1 cells.",
+            "Immunofluorescence for TREX1 on chromatin bridges in T2p1 cells with and without dox.",
+            "Live-cell imaging of mTurq2-TREX1-D18N on chromatin bridges.",
+            "Quantification of RPA intensity on bridges in TREX1 KO and rescue lines.",
+            "Rescue experiments with wild-type and D18N mutant TREX1.",
+            "Timing of bridge resolution in TREX1 KO cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "CRISPR/Cas9 gene editing",
+              "protocol_description": "CRISPR/Cas9 used to derive TREX1 KO subclones from T2p1 telomere crisis cell line."
+            },
+            {
+              "method_id": "M6",
+              "name": "Immunoblotting and immunofluorescence",
+              "protocol_description": "Immunoblotting for endogenous and exogenous TREX1; IF for TREX1 and RPA."
+            }
+          ],
+          "name": "TREX1 localization and function on chromatin bridges",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "RPA accumulation rescue by wild-type TREX1",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "This absence of RPA accumulation could be reversed by reintroduction of wild-type TREX1"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3f21d47d4e11e45c132520f7",
+              "unit": null,
+              "value_raw_text": "reversed by reintroduction of wild-type TREX1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of TREX1-D18N on RPA accumulation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "whereas the inactive TREX1-D18N did not have this effect"
+              },
+              "quantitative_value": null,
+              "result_id": "res_82bc9d5737524e73c658ae78",
+              "unit": null,
+              "value_raw_text": "did not have this effect"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Chromatin bridge resolution at 20 hr post-anaphase in TREX1 KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "At 20 hr post-anaphase, only 15% of the chromatin bridges in the TREX1-proficient cells remained, whereas more than 40% of the bridges of the TREX1 KO cell line were still intact."
+              },
+              "quantitative_value": 40.0,
+              "result_id": "res_978591dde6a00f1bb0e2ad64",
+              "unit": "%",
+              "value_raw_text": "more than 40% of the bridges of the TREX1 KO cell line were still intact"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "RPA accumulation on chromatin bridges in TREX1 KO",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "IF showed a nearly complete abrogation of the accumulation of RPA on the chromatin bridges in the TREX1 KO cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e1074132a111d1f1c0d8a782",
+              "unit": null,
+              "value_raw_text": "nearly complete abrogation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Chromatin bridge resolution at 20 hr post-anaphase in TREX1-proficient cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "At 20 hr post-anaphase, only 15% of the chromatin bridges in the TREX1-proficient cells remained"
+              },
+              "quantitative_value": 15.0,
+              "result_id": "res_fdc37c19fa750d05ad494d8c",
+              "unit": "%",
+              "value_raw_text": "only 15% of the chromatin bridges remained"
+            }
+          ],
+          "unit_id": "su_5767a62ef417866f08920cf0"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ5",
+      "statement": "Does telomere crisis lead to chromothripsis and kataegis?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a7f602c4b4daaf75cb4630a8",
+              "inference_basis_ids": [
+                "res_5478106173cb98cf6d50afab",
+                "res_acc2233ea7694ac16836134c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "We observed 29 clusters of point mutations from seven of the ten post-crisis samples... These clusters exhibited the cardinal features of kataegis observed in human cancers."
+              },
+              "statement": "Kataegis, clusters of point mutations with APOBEC signature, accompanies chromothripsis in post-crisis cells."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_db69c4a0c9c6fd1090d15e11",
+              "inference_basis_ids": [
+                "res_afe45d138b5c91061c7f242f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Strikingly, five of ten post-telomere crisis lines showed clusters of genomic rearrangements affecting one or more chromosomes. These rearrangements exhibited the hallmarks of chromothripsis"
+              },
+              "statement": "Telomere crisis can lead to chromothripsis, characterized by clustered genomic rearrangements."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Whole-genome sequencing of 19 lines: 10 post-crisis clones, parental T2p1, one post-crisis subclone with parental karyotype (24.2), and seven control subclones from uninduced T2p1 cells.",
+              "name": "Whole-genome sequencing data",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Detection of clustered rearrangements (chromothripsis) and point mutation clusters (kataegis).",
+            "Isolation of post-crisis subclones from T2p1 and T2cl24.",
+            "Karyotyping and telomere fusion PCR to confirm telomere dysfunction.",
+            "Whole-genome sequencing of 10 post-crisis clones, parental T2p1, one post-crisis subclone with parental karyotype (24.2), and seven control subclones from uninduced T2p1 cells."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "Whole-genome sequencing",
+              "protocol_description": "Whole-genome sequencing performed on all 19 lines, comparing post-crisis data with parental lines to identify mutations acquired during telomere crisis."
+            }
+          ],
+          "name": "Genomic analysis of post-crisis clones",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Kataegis mutation signature",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "the clusters exhibited a pronounced preference for C>T and C>G mutations occurring in a TpC context"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5478106173cb98cf6d50afab",
+              "unit": null,
+              "value_raw_text": "preference for C>T and C>G mutations occurring in a TpC context"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Kataegis clusters in post-crisis samples",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "We observed 29 clusters of point mutations from seven of the ten post-crisis samples sequenced here that were absent from the parental cell lines."
+              },
+              "quantitative_value": 29.0,
+              "result_id": "res_acc2233ea7694ac16836134c",
+              "unit": "clusters",
+              "value_raw_text": "29 clusters of point mutations from seven of the ten post-crisis samples"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Frequency of chromothripsis in post-crisis clones",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "987feaca88d4aa80859c",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "five of ten post-telomere crisis lines showed clusters of genomic rearrangements affecting one or more chromosomes"
+              },
+              "quantitative_value": 5.0,
+              "result_id": "res_afe45d138b5c91061c7f242f",
+              "unit": "out of 10",
+              "value_raw_text": "five of ten post-telomere crisis lines showed clusters of genomic rearrangements"
+            }
+          ],
+          "unit_id": "su_db2321b348cdb750bb4ef7c7"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[3].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9231 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[4].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.8737 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[4].study_units[0].claims[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6474 on attempt 1"
+    }
+  ]
+}

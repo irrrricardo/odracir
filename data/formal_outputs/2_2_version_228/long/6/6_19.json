@@ -1,0 +1,772 @@
+{
+  "coverage_ledger": {
+    "0219174c62d1aa013a16": "extracted",
+    "0856b57d794edc692aa7": "not_selected",
+    "114eb9973e00e65e320e": "not_selected",
+    "1325b026cd2541ce54a2": "not_selected",
+    "1f4ee4d6ba829038a49b": "extracted",
+    "23c9ed34e4382be5e95a": "not_selected",
+    "2bf7ea4f7787b52d130b": "extracted",
+    "4a6975f5ae526acd7a41": "not_selected",
+    "721c57793ad637a6aa1e": "not_selected",
+    "9b779be8191ce3d004de": "extracted",
+    "9c2eba410606dca35d3c": "extracted",
+    "a29e68bb4b458598be91": "not_selected",
+    "a5172c9017b4a4bd8b75": "not_selected",
+    "c4911cc728f08d120957": "extracted",
+    "cc25fbdbbaac73a6f5a8": "extracted",
+    "ce5aa4d698c70d8dfa6a": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Training very deep GCNs requires more GPU memory and time, potentially increasing energy consumption.",
+    "Numerical issues in PyTorch prevented using larger p values for PowerMean_Agg.",
+    "Full-batch training is infeasible for very deep GCNs on dense large graphs like ogbn-proteins; random partition mini-batching was used.",
+    "The study is limited to four OGB datasets; generalization to other graph tasks is not evaluated.",
+    "The dynamic aggregator learning may suffer from instability (e.g., missing values due to numerical issues)."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_19.pdf",
+    "source_sha256": "155f71f75f278c2f6f2627953168a8ed58336f3bea9dab077abaedffcf86d138"
+  },
+  "paper_id": "6_19",
+  "quality_assessment": {
+    "correct_item_count": 31,
+    "deterministic_rule_score": 0.921,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 46,
+    "f1": 0.6813,
+    "incorrect_item_count": 15,
+    "incorrect_items": [
+      {
+        "description": "The extracted result claims '0.845 (average PowerMean_Agg best)' with provenance paraphrased from 'PowerMean_Agg with p = 5 reaches the best result'. The source chunk (1f4ee4d6ba829038a49b) shows in Table 3 that the best average ROC-AUC for PowerMean_Agg is 0.845 (at p=5), but the extracted value 0.845 is labeled as 'average PowerMean_Agg best', which is ambiguous. However, the quantitative_value is 0.845, and the provenance excerpt is 'PowerMean_Agg with p = 5 reaches the best result'. The table shows that the best result (not average) at p=5 is 0.857 at 112 layers, and the average is 0.845. The extracted text says '0.845 (average PowerMean_Agg best)', which could be interpreted as the best average. The source excerpt does not explicitly state 'average', but the table shows average 0.845. The paraphrased provenance is acceptable. However, the extracted result_id is res_de062689b80fc6a64784f446, and the provenance is paraphrased as true. The source excerpt is 'PowerMean_Agg with p = 5 reaches the best result'. The extracted value_raw_text is '0.845 (average PowerMean_Agg best)'. The source does not say 'average' in that sentence; it says 'best result'. The table shows that the best result at p=5 is 0.857 (at 112 layers), not 0.845. The average is 0.845. The extracted item incorrectly attributes the value 0.845 to the 'best result' when the source says 'best result' for p=5 is 0.857. The paraphrased provenance is misleading. Therefore, this item is incorrect because it misstates the value as the best result when the source indicates the best result is 0.857, and the average is 0.845. The extracted quantitative_value is 0.845, but the provenance excerpt does not support that as the best result; it supports the average. The item is incorrect due to factual error in the value_raw_text and quantitative_value relative to the provenance.",
+        "item_id": "result:su_6c02fb2b5d44c1ebad9cd2ee:res_de062689b80fc6a64784f446",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted result combines multiple values into one item with value_raw_text '0.651 (GCN), 0.777 (GraphSAGE), 0.780 (GaAN)' and quantitative_value null. The source chunk (1f4ee4d6ba829038a49b) shows these values in Table 5 for ogbn-proteins. The extraction is a faithful abstraction of the table. However, the item is a single result with multiple values, which is acceptable. No factual error.",
+        "item_id": "result:su_b4bdcfb4fbd5bbf379d20b53:res_1902655ee2457704996554c1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Similar to above, combines multiple values. Acceptable.",
+        "item_id": "result:su_b4bdcfb4fbd5bbf379d20b53:res_65dfaa82350a9788a0270f3d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Combines multiple values. Acceptable.",
+        "item_id": "result:su_b4bdcfb4fbd5bbf379d20b53:res_e7733157a334ceb5d54d6d07",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "Combines multiple values. Acceptable.",
+        "item_id": "result:su_b4bdcfb4fbd5bbf379d20b53:res_fa7f3f52ee6d051d0102467c",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Pre-activation residual connections (ResGCN+) consistently improve performance over standard residual connections (ResGCN) for deep GCNs.' The provenance excerpt says 'The average results show a consistent improvement of ResGCN+ for the three aggregators (Sum, Mean and Max). This validates the effectiveness of pre-activation residual connections.' The claim is supported by the source. No error.",
+        "item_id": "claim:su_6c02fb2b5d44c1ebad9cd2ee:clm_5493c81c6d031d136bed8636",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Learning dynamic aggregators (DyResGEN) improves average performance and avoids expensive hyperparameter search.' The provenance excerpt says 'Trying out every possible aggregator or searching hyper-parameters is computationally expensive. Therefore, we propose DyResGEN to explore the potential of learning dynamic aggregators... we find that learning β or β&s of SoftMax_Agg boosts the average performance from 0.838 to 0.850.' The claim is supported. No error.",
+        "item_id": "claim:su_6c02fb2b5d44c1ebad9cd2ee:clm_84c35320f86d5face65ea874",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'Generalized message aggregators (SoftMax_Agg and PowerMean_Agg) can achieve performance at least as good as Mean and Max aggregations through interpolation.' The provenance excerpt says 'As both of them are generalized mean-max aggregations, they can theoretically achieve a performance that is at least as good as Mean and Max aggregations through interpolation.' The claim is supported. No error.",
+        "item_id": "claim:su_6c02fb2b5d44c1ebad9cd2ee:clm_a7fb80d6145ef824f530830d",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'The improvement is substantial on ogbn-proteins and ogbg-ppa.' The provenance excerpt says 'In two of these datasets (ogbn-proteins and ogbg-ppa), the improvement is substantial.' Supported. No error.",
+        "item_id": "claim:su_b4bdcfb4fbd5bbf379d20b53:clm_3437b0c1024858e553921533",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The claim states 'DeeperGCN outperforms state-of-the-art methods on all four OGB datasets.' The provenance excerpt says 'It is clear that our proposed GCN models outperform SOTA in all four datasets.' Supported. No error.",
+        "item_id": "claim:su_b4bdcfb4fbd5bbf379d20b53:clm_34f594960e719046ba9dd8ba",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'Training very deep GCNs requires more GPU memory and time, potentially increasing energy consumption.' The source chunk (c4911cc728f08d120957) says 'making GCNs go such deep does require more GPUs memory resources and consume more time. Training such deep models will potentially increase the energy consumption.' Supported. No error.",
+        "item_id": "boundary:1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'Numerical issues in PyTorch prevented using larger p values for PowerMean_Agg.' The source chunk (ce5aa4d698c70d8dfa6a) says 'However, due to the numerical issues in PyTorch, we are not able to use larger p.' Supported. No error.",
+        "item_id": "boundary:2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'Full-batch training is infeasible for very deep GCNs on dense large graphs like ogbn-proteins; random partition mini-batching was used.' The source chunk (ce5aa4d698c70d8dfa6a) says 'Since the ogbn-proteins dataset is very dense and comparably large, full-batch training is infeasible when considering very deep GCNs. We simply apply a random partition to generate batches for both mini-batch training and test.' Supported. No error.",
+        "item_id": "boundary:3",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The study is limited to four OGB datasets; generalization to other graph tasks is not evaluated.' The source does not explicitly state this as a limitation, but it is a reasonable inference from the experiments being on four datasets. However, the extraction protocol requires strict factual support. The source does not state that generalization is not evaluated; it simply presents results on four datasets. The boundary is an overstatement. The source does not claim that the study is limited or that generalization is not evaluated. Therefore, this boundary is incorrect because it is not directly supported by the source text. The source only describes experiments on four datasets, but does not state that generalization is not evaluated. The boundary is a material overstatement. Thus, it is incorrect.",
+        "item_id": "boundary:4",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The boundary states 'The dynamic aggregator learning may suffer from instability (e.g., missing values due to numerical issues).' The source chunk (1f4ee4d6ba829038a49b) says 'The dash in the table denotes missing values due to numerical issues.' This indicates instability. Supported. No error.",
+        "item_id": "boundary:5",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 14,
+    "missed_core_items": [
+      {
+        "description": "The paper proposes a novel normalization layer called MsgNorm.",
+        "item_id": null,
+        "source_chunk_id": "114eb9973e00e65e320e",
+        "source_excerpt": "we also propose a message normalization (MsgNorm) layer, which can significantly boost the performance of networks with under-performing aggregation functions.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports improvement over SOTA by 7.8%, 0.2%, 6.7% and 0.9% on ogbn-proteins, ogbn-arxiv, ogbg-ppa and ogbg-molhiv, respectively.",
+        "item_id": null,
+        "source_chunk_id": "2bf7ea4f7787b52d130b",
+        "source_excerpt": "we improve current state-of-the-art performance by 7.8%, 0.2%, 6.7% and 0.9% on ogbn-proteins, ogbn-arxiv, ogbg-ppa and ogbg-molhiv, respectively.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper uses an Adam optimizer with a learning rate of 0.01 for all ablated models on ogbn-proteins.",
+        "item_id": null,
+        "source_chunk_id": "ce5aa4d698c70d8dfa6a",
+        "source_excerpt": "An Adam optimizer with a learning rate of 0.01 is used to train models for 1000 epochs.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper uses a hidden channel size of 64 for all ablated models on ogbn-proteins.",
+        "item_id": null,
+        "source_chunk_id": "ce5aa4d698c70d8dfa6a",
+        "source_excerpt": "A hidden channel size of 64 is used for all the ablated models.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper uses random partition with 10 partitions for training and 5 for test on ogbn-proteins.",
+        "item_id": null,
+        "source_chunk_id": "ce5aa4d698c70d8dfa6a",
+        "source_excerpt": "We set the number of partitions to be 10 for training and 5 for test, and we set the batch size to 1 subgraph.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that the Max aggregator performs best among Sum, Mean, Max in the ablation study.",
+        "item_id": null,
+        "source_chunk_id": "ce5aa4d698c70d8dfa6a",
+        "source_excerpt": "We also find that the Max aggregator performs best.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that ResGCN+ reaches 0.858 ROC-AUC with 112 layers, which is 0.7% higher than ResGCN.",
+        "item_id": null,
+        "source_chunk_id": "ce5aa4d698c70d8dfa6a",
+        "source_excerpt": "ResGCN+ reaches 0.858 ROC-AUC with 112 layers, which is 0.7% higher than the counterpart in ResGCN.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that learning β or β&s of SoftMax_Agg boosts the average performance from 0.838 to 0.850.",
+        "item_id": null,
+        "source_chunk_id": "1f4ee4d6ba829038a49b",
+        "source_excerpt": "we find that learning β or β&s of SoftMax_Agg boosts the average performance from 0.838 to 0.850.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that DyResGEN achieves 0.860 when β is learned.",
+        "item_id": null,
+        "source_chunk_id": "1f4ee4d6ba829038a49b",
+        "source_excerpt": "DyResGEN achieves 0.860 when β is learned.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that the proposed GCN models outperform SOTA in all four datasets.",
+        "item_id": null,
+        "source_chunk_id": "1f4ee4d6ba829038a49b",
+        "source_excerpt": "It is clear that our proposed GCN models outperform SOTA in all four datasets.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that the improvement is substantial on ogbn-proteins and ogbg-ppa.",
+        "item_id": null,
+        "source_chunk_id": "1f4ee4d6ba829038a49b",
+        "source_excerpt": "In two of these datasets (ogbn-proteins and ogbg-ppa), the improvement is substantial.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that the results on each dataset are obtained by averaging the results from 10 independent runs.",
+        "item_id": null,
+        "source_chunk_id": "1f4ee4d6ba829038a49b",
+        "source_excerpt": "The provided results on each dataset are obtained by averaging the results from 10 independent runs.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports that the proposed DeeperGCN models significantly outperform all the SOTA on the biological and chemical graph datasets of OGB.",
+        "item_id": null,
+        "source_chunk_id": "c4911cc728f08d120957",
+        "source_excerpt": "The proposed DeeperGCN models significantly outperform all the SOTA on the biological and chemical graph datasets of OGB.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The paper reports that making GCNs go deep requires more GPUs memory resources and consume more time, potentially increasing energy consumption.",
+        "item_id": null,
+        "source_chunk_id": "c4911cc728f08d120957",
+        "source_excerpt": "making GCNs go such deep does require more GPUs memory resources and consume more time. Training such deep models will potentially increase the energy consumption.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.6739,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.6889
+  },
+  "quality_score": 0.6813,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can we train very deep GCNs successfully and reliably on large-scale graphs?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5493c81c6d031d136bed8636",
+              "inference_basis_ids": [
+                "res_ca29983d9222299b3374e414"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ce5aa4d698c70d8dfa6a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The average results show a consistent improvement of ResGCN+ for the three aggregators (Sum, Mean and Max). This validates the effectiveness of pre-activation residual connections."
+              },
+              "statement": "Pre-activation residual connections (ResGCN+) consistently improve performance over standard residual connections (ResGCN) for deep GCNs."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_84c35320f86d5face65ea874",
+              "inference_basis_ids": [
+                "res_417de49d9a5d7f5c18c3f020",
+                "res_60416fbbc1b331e5a2d5e019"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Trying out every possible aggregator or searching hyper-parameters is computationally expensive. Therefore, we propose DyResGEN to explore the potential of learning dynamic aggregators... we find that learning β or β&s of SoftMax_Agg boosts the average performance from 0.838 to 0.850."
+              },
+              "statement": "Learning dynamic aggregators (DyResGEN) improves average performance and avoids expensive hyperparameter search."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a7fb80d6145ef824f530830d",
+              "inference_basis_ids": [
+                "res_417de49d9a5d7f5c18c3f020",
+                "res_de062689b80fc6a64784f446"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "ce5aa4d698c70d8dfa6a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "As both of them are generalized mean-max aggregations, they can theoretically achieve a performance that is at least as good as Mean and Max aggregations through interpolation."
+              },
+              "statement": "Generalized message aggregators (SoftMax_Agg and PowerMean_Agg) can achieve performance at least as good as Mean and Max aggregations through interpolation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Undirected, weighted, typed protein-protein association network with 132,534 nodes and 39,561,252 edges. Node features: 8-dim one-hot species indicator. Edge features: 8-dim. Task: multi-label node property prediction. Metric: ROC-AUC.",
+              "name": "ogbn-proteins",
+              "version_or_split": "OGB default split"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Ablation study on generalized message aggregators (SoftMax_Agg and PowerMean_Agg) with different hyperparameters.",
+            "Ablation study on learning dynamic aggregators (DyResGEN) with learnable parameters β, p, and s.",
+            "Ablation study on residual connections, model depth, and aggregators on ogbn-proteins node property prediction."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "PlainGCN",
+              "protocol_description": "Baseline GCN stacking layers without skip connections. Each layer uses Sum, Mean, or Max aggregation. Layer normalization before ReLU. Depths: 3, 7, 14, 28, 56, 112."
+            },
+            {
+              "method_id": "M2",
+              "name": "ResGCN",
+              "protocol_description": "PlainGCN with residual connections in order: GraphConv → Normalization → ReLU → Addition."
+            },
+            {
+              "method_id": "M3",
+              "name": "ResGCN+",
+              "protocol_description": "Pre-activation residual connections: Normalization → ReLU → GraphConv → Addition."
+            },
+            {
+              "method_id": "M4",
+              "name": "ResGEN",
+              "protocol_description": "ResGCN+ with generalized message aggregators (SoftMax_Agg_β or PowerMean_Agg_p) instead of Sum/Mean/Max. β and p are fixed hyperparameters."
+            },
+            {
+              "method_id": "M5",
+              "name": "DyResGEN",
+              "protocol_description": "ResGEN with learnable parameters β, p, and optionally s (norm scaling factor in MsgNorm). Parameters initialized to 1 and learned dynamically per layer."
+            }
+          ],
+          "name": "Ablation study on ogbn-proteins",
+          "results": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "1f4ee4d6ba829038a49b",
+                  "page_end": 8,
+                  "page_start": 8,
+                  "paraphrased": true,
+                  "text_excerpt": "DyResGEN achieves 0.860 when β is learned"
+                }
+              ],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce5aa4d698c70d8dfa6a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "112-layer ResGEN with SoftMax_Agg reaches the best ROC-AUC at 0.860 when β = 10^4"
+              },
+              "quantitative_value": 0.86,
+              "result_id": "res_417de49d9a5d7f5c18c3f020",
+              "unit": null,
+              "value_raw_text": "0.860"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "learning β or β&s of SoftMax_Agg boosts the average performance from 0.838 to 0.850"
+              },
+              "quantitative_value": 0.85,
+              "result_id": "res_60416fbbc1b331e5a2d5e019",
+              "unit": null,
+              "value_raw_text": "0.850 (average)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce5aa4d698c70d8dfa6a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN+ reaches 0.858 ROC-AUC with 112 layers"
+              },
+              "quantitative_value": 0.858,
+              "result_id": "res_7073a4990f036709a73558d4",
+              "unit": null,
+              "value_raw_text": "0.858 (ResGCN+ Max 112 layers)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce5aa4d698c70d8dfa6a",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "ResGCN+ reaches 0.858 ROC-AUC with 112 layers"
+              },
+              "quantitative_value": 0.858,
+              "result_id": "res_ca29983d9222299b3374e414",
+              "unit": null,
+              "value_raw_text": "0.858"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "PowerMean_Agg with p = 5 reaches the best result"
+              },
+              "quantitative_value": 0.845,
+              "result_id": "res_de062689b80fc6a64784f446",
+              "unit": null,
+              "value_raw_text": "0.845 (average PowerMean_Agg best)"
+            }
+          ],
+          "unit_id": "su_6c02fb2b5d44c1ebad9cd2ee"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3437b0c1024858e553921533",
+              "inference_basis_ids": [
+                "res_678863e70cfd8dcb956ee369",
+                "res_c7e729652de1c3be99d82853"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "In two of these datasets (ogbn-proteins and ogbg-ppa), the improvement is substantial."
+              },
+              "statement": "The improvement is substantial on ogbn-proteins and ogbg-ppa."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_34f594960e719046ba9dd8ba",
+              "inference_basis_ids": [
+                "res_678863e70cfd8dcb956ee369",
+                "res_c7e729652de1c3be99d82853",
+                "res_c81a05fc3f166087a8c29e67",
+                "res_d4cbd395747778c976f7c2b4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "It is clear that our proposed GCN models outperform SOTA in all four datasets."
+              },
+              "statement": "DeeperGCN outperforms state-of-the-art methods on all four OGB datasets."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS2",
+              "description": "Multi-label node classification, ROC-AUC metric.",
+              "name": "ogbn-proteins",
+              "version_or_split": "OGB default split"
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Directed citation network, 169,343 nodes, 1,166,243 edges. Node features: 128-dim. Task: multi-class node classification. Metric: accuracy.",
+              "name": "ogbn-arxiv",
+              "version_or_split": "OGB default split"
+            },
+            {
+              "dataset_id": "DS4",
+              "description": "Biological subgraphs, 158,100 graphs. Task: multi-class graph classification. Metric: accuracy.",
+              "name": "ogbg-ppa",
+              "version_or_split": "OGB default split"
+            },
+            {
+              "dataset_id": "DS5",
+              "description": "Molecular graphs, 41,127 graphs. Task: binary graph classification. Metric: ROC-AUC.",
+              "name": "ogbg-molhiv",
+              "version_or_split": "OGB default split"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Graph property prediction on ogbg-ppa and ogbg-molhiv.",
+            "Node property prediction on ogbn-proteins and ogbn-arxiv."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "GIN*",
+              "protocol_description": "GIN with virtual nodes."
+            },
+            {
+              "method_id": "M11",
+              "name": "GaAN",
+              "protocol_description": "Gated Attention Network (Zhang et al., 2018)."
+            },
+            {
+              "method_id": "M12",
+              "name": "GatedGCN",
+              "protocol_description": "Gated Graph Convolutional Network (Bresson & Laurent, 2018)."
+            },
+            {
+              "method_id": "M6",
+              "name": "DeeperGCN (Ours)",
+              "protocol_description": "Proposed GEN framework with generalized aggregators, pre-activation residual connections, and MsgNorm. Results averaged over 10 independent runs."
+            },
+            {
+              "method_id": "M7",
+              "name": "GCN",
+              "protocol_description": "Standard Graph Convolutional Network (Kipf & Welling, 2016)."
+            },
+            {
+              "method_id": "M8",
+              "name": "GraphSAGE",
+              "protocol_description": "GraphSAGE with mean/max/LSTM aggregators (Hamilton et al., 2017)."
+            },
+            {
+              "method_id": "M9",
+              "name": "GIN",
+              "protocol_description": "Graph Isomorphism Network (Xu et al., 2019b)."
+            }
+          ],
+          "name": "Comparison with SOTA on OGB benchmarks",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbn-proteins GCN 0.651, GraphSAGE 0.777, GaAN 0.780"
+              },
+              "quantitative_value": null,
+              "result_id": "res_1902655ee2457704996554c1",
+              "unit": null,
+              "value_raw_text": "0.651 (GCN), 0.777 (GraphSAGE), 0.780 (GaAN)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbn-arxiv GCN 0.717, GraphSAGE 0.715"
+              },
+              "quantitative_value": null,
+              "result_id": "res_65dfaa82350a9788a0270f3d",
+              "unit": null,
+              "value_raw_text": "0.717 (GCN), 0.715 (GraphSAGE)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbg-ppa ... Ours 0.771"
+              },
+              "quantitative_value": 0.771,
+              "result_id": "res_678863e70cfd8dcb956ee369",
+              "unit": null,
+              "value_raw_text": "0.771"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbn-proteins ... Ours 0.858"
+              },
+              "quantitative_value": 0.858,
+              "result_id": "res_c7e729652de1c3be99d82853",
+              "unit": null,
+              "value_raw_text": "0.858"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbn-arxiv ... Ours 0.719"
+              },
+              "quantitative_value": 0.719,
+              "result_id": "res_c81a05fc3f166087a8c29e67",
+              "unit": null,
+              "value_raw_text": "0.719"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbg-molhiv ... Ours 0.786"
+              },
+              "quantitative_value": 0.786,
+              "result_id": "res_d4cbd395747778c976f7c2b4",
+              "unit": null,
+              "value_raw_text": "0.786"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "ROC-AUC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbg-molhiv GCN 0.761, GIN 0.756, GIN* 0.771, GatedGCN 0.777"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e7733157a334ceb5d54d6d07",
+              "unit": null,
+              "value_raw_text": "0.761 (GCN), 0.756 (GIN), 0.771 (GIN*), 0.777 (GatedGCN)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1f4ee4d6ba829038a49b",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "ogbg-ppa GCN 0.684, GIN 0.689, GIN* 0.704"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fa7f3f52ee6d051d0102467c",
+              "unit": null,
+              "value_raw_text": "0.684 (GCN), 0.689 (GIN), 0.704 (GIN*)"
+            }
+          ],
+          "unit_id": "su_b4bdcfb4fbd5bbf379d20b53"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].claims[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7649 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[0].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5833 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6786 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[1].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6800 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[2].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6087 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[3].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7308 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[4].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6154 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.5946 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[6].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6585 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[7].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.6167 on attempt 1"
+    }
+  ]
+}

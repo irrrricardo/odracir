@@ -1,0 +1,1204 @@
+{
+  "coverage_ledger": {
+    "0d42a91a7c5e13e41ecf": "not_selected",
+    "2613a8efd0ad80425674": "not_selected",
+    "3c7fd6720a5ae84e9b56": "extracted",
+    "4585bd6de5a99e8b6216": "extracted",
+    "66e3b34b021baca2aad3": "extracted",
+    "699112b788ed1ed8b1dd": "extracted",
+    "9eca8efb570795d825c4": "not_selected",
+    "9f933a28b269e14b50c1": "extracted",
+    "a2b91b9ea987370e7528": "not_selected",
+    "af8dfd8d7e61225ffc0d": "extracted",
+    "be988515bc368c7c3630": "not_selected",
+    "c63657884e7a558cf2b7": "extracted",
+    "ce42ff343c438f542740": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "Despite large number of attempts per theorem, proving the entirety of datasets like miniF2F remains elusive.",
+    "Generating data from proof-search on currently available corpora will likely be insufficient in the long term.",
+    "Manually annotated formal datasets are limited."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "9_2.pdf",
+    "source_sha256": "fdb5b6e158478e3bb4e8f35f3c1cb9299e0fffc678fca31dd354c1c4dafd5153"
+  },
+  "paper_id": "9_2",
+  "quality_assessment": {
+    "correct_item_count": 69,
+    "deterministic_rule_score": 0.978,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 70,
+    "f1": 0.9388,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The claim states 'Learning only from minimal proofs always leads to improved performance.' The source text says 'Learning only from minimal proofs always leads to improved performance, regardless of the selected roots.' However, the extracted claim is too absolute; the source qualifies it with 'regardless of the selected roots' and the context shows it's within the ablation study, not an unconditional universal statement. The claim as stated is materially overstated.",
+        "item_id": "claim:su_f189713f4924cdd0c084460a:clm_ddd256ad77efb23a317a1222",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 8,
+    "missed_core_items": [
+      {
+        "description": "The paper introduces a new environment called Equations for prototyping and understanding model behavior.",
+        "item_id": null,
+        "source_chunk_id": "4585bd6de5a99e8b6216",
+        "source_excerpt": "A new environment (Equations) to easily prototype and understand the behavior of the models we train and our proof search.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The model is an encoder-decoder transformer with shared weights for policy and critic.",
+        "item_id": null,
+        "source_chunk_id": "0d42a91a7c5e13e41ecf",
+        "source_excerpt": "Both the policy model Pθ and the critic model cθ are encoder-decoder transformers [23] with shared weights θ",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The supervised model on Metamath validation achieves pass@32 of 65.4%, compared to GPT-f's 56.5% after expert iteration.",
+        "item_id": null,
+        "source_chunk_id": "3c7fd6720a5ae84e9b56",
+        "source_excerpt": "The supervised model obtains a pass@32 accuracy of 65.4% (resp. 61.2%) on the validation (resp. test) splits, compared to GPT-f’s 56.5% (resp. 56.2%) after expert iteration.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "On Equations, Evariste proved complex statements like sinh(x/2) = sinh(x)/sqrt(2(1+cosh(x))) requiring 82 proof steps.",
+        "item_id": null,
+        "source_chunk_id": "3c7fd6720a5ae84e9b56",
+        "source_excerpt": "Evariste managed to find the proof of complex mathematical statements, such as sinh(x/2) = sinh(x)/ p 2(1 + cosh(x)) and tan(3x)(1 −3(tan(x))2) = 3 tan(x) − (tan(x))2 tan(x) that required 82 and 117 proof steps respectively",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper reports a 10x training time speed-up over GPT-f on miniF2F-test.",
+        "item_id": null,
+        "source_chunk_id": "3c7fd6720a5ae84e9b56",
+        "source_excerpt": "Our model outperforms GPT-f on miniF2F-test, with an approximately 10× training time speed-up.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Without synthetic data co-training, performance drops to 54.9% cumulative pass rate on miniF2F-valid and 38.5% pass@64 on miniF2F-test.",
+        "item_id": null,
+        "source_chunk_id": "3c7fd6720a5ae84e9b56",
+        "source_excerpt": "Without the synthetic data co-training task, the performance drops to 54.9% cumulative pass rate on the miniF2F-valid split, and 38.5% pass@64 on the miniF2F-test split.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper states that generating data from proof-search on currently available corpora will likely be insufficient in the long term.",
+        "item_id": null,
+        "source_chunk_id": "c63657884e7a558cf2b7",
+        "source_excerpt": "generating data from proof-search on the currently available corpora will likely be insufficient in the long term",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The paper mentions that manually annotated formal datasets are limited.",
+        "item_id": null,
+        "source_chunk_id": "c63657884e7a558cf2b7",
+        "source_excerpt": "As manually annotated formal datasets are limited",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9857,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.8961
+  },
+  "quality_score": 0.9388,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does the proposed HyperTree Proof Search (HTPS) algorithm and online training procedure improve automated theorem proving across multiple environments?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_60098bf5dc93880da9813d5c",
+              "inference_basis_ids": [
+                "res_16e2568a3b574ad09613914f",
+                "res_86a4f4c99ebf6e9f5ebbad01"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "using hard critic targets gives worse performances than having no critic model at all"
+              },
+              "statement": "In Equations, using hard critic targets gives worse performance than having no critic model at all."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_61ba6cddd03e584f14a12363",
+              "inference_basis_ids": [
+                "res_8797508e55192e56b0d6586f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "online training provides large speed-ups over expert iteration"
+              },
+              "statement": "Online training provides large speed-ups over expert iteration."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_64d1ce3a42be7175fb3b0588",
+              "inference_basis_ids": [
+                "res_8dccbfd003af22863c9e790b"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "only learning from the root’s minimal proof gives the best result on the valid set, reaching a pass@8 of 68.6%"
+              },
+              "statement": "On Metamath, learning from the root's minimal proof gives the best result on the valid set, reaching pass@8 of 68.6%."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7eed80f97d40ccc09f1a1952",
+              "inference_basis_ids": [
+                "res_86a4f4c99ebf6e9f5ebbad01",
+                "res_8dccbfd003af22863c9e790b",
+                "res_c1933cc53cea096bf8e5168a",
+                "res_cb1431dfe0f5f0989695f9bf"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "using a critic model improves the performance significantly, by 5.2% and 12.5% on Metamath and Equations respectively"
+              },
+              "statement": "Using a critic model improves performance significantly, by 5.2% on Metamath and 12.5% on Equations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8b51643f94e456a3268673cf",
+              "inference_basis_ids": [
+                "res_a0302df1fac2f687be0f241f"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "cumulative pass rate of 82.6%"
+              },
+              "statement": "Online training dramatically improves Metamath validation performance to 82.6% cumulative pass rate."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_939f6abfd58dc29b6f3c5ef2",
+              "inference_basis_ids": [
+                "res_73ff9bd96a4ccb7c1a3f267f",
+                "res_9fd0b3dd1a7a4e97418bcb26"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "obtaining 58.6% cumulative pass rate"
+              },
+              "statement": "Evariste with online training achieves 58.6% cumulative pass rate on miniF2F-valid, outperforming GPT-f."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_a990f33669a9593c57247cde",
+              "inference_basis_ids": [
+                "res_5c4cee4724735badd14f0b73",
+                "res_64c146b7f06aa224cdee91bc"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "reaching 41% pass@64, against 36.6% for GPT-f"
+              },
+              "statement": "Evariste reaches 41% pass@64 on miniF2F-test, compared to 36.6% for GPT-f."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_caa95c4e22f8214b089749d5",
+              "inference_basis_ids": [
+                "res_8dccbfd003af22863c9e790b",
+                "res_c1933cc53cea096bf8e5168a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "HTPS critic targets allow Evariste to reach its best performance"
+              },
+              "statement": "HTPS soft critic targets allow Evariste to reach its best performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ddd256ad77efb23a317a1222",
+              "inference_basis_ids": [
+                "res_8dccbfd003af22863c9e790b",
+                "res_93445ae696b2ef04a8b8bed1",
+                "res_c1933cc53cea096bf8e5168a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "Learning only from minimal proofs always leads to improved performance"
+              },
+              "statement": "Learning only from minimal proofs always leads to improved performance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ee93f8f895e420c7f8826b4e",
+              "inference_basis_ids": [
+                "res_855b5d9cfec973cc3e4a2614",
+                "res_c4537bda39b33fbdf38d4f56"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "reaches a cumulative pass rate of 91.3% on the Identities split, while a supervised model never exceeds 36%"
+              },
+              "statement": "Evariste achieves 91.3% cumulative pass rate on Equations Identities, far exceeding the supervised baseline of 36%."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Compare Evariste with soft critic, no critic, hard critic, and fixed search parameters.",
+            "Compare filtering methods for tactic training data: all nodes vs. minimal proofs of solved nodes vs. minimal proofs of root only.",
+            "Compare online training with different model refresh rates: 5 min, 1 hour, 6 hours, and no updates.",
+            "Evaluate Evariste (HTPS + online training) on Lean miniF2F-valid and miniF2F-test splits, comparing to GPT-f.",
+            "Evaluate Evariste on Equations Identities split, comparing to supervised baseline.",
+            "Evaluate Evariste on Metamath validation and test splits, comparing to supervised baseline and GPT-f."
+          ],
+          "methods": [],
+          "name": "Provisional flat extraction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "57.2"
+              },
+              "quantitative_value": 57.2,
+              "result_id": "res_12015a86e245d2e8ad7da967",
+              "unit": "%",
+              "value_raw_text": "57.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "63.1"
+              },
+              "quantitative_value": 63.1,
+              "result_id": "res_16e2568a3b574ad09613914f",
+              "unit": "%",
+              "value_raw_text": "63.1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "65.6%"
+              },
+              "quantitative_value": 65.6,
+              "result_id": "res_1b5ac8cf87cfcdd11dacb1bb",
+              "unit": "%",
+              "value_raw_text": "65.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "35.3"
+              },
+              "quantitative_value": 35.3,
+              "result_id": "res_1c4007461b5039132e6ba3d8",
+              "unit": "%",
+              "value_raw_text": "35.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "30.6"
+              },
+              "quantitative_value": 30.6,
+              "result_id": "res_1e2c8c2888095c5d04fa03fe",
+              "unit": "%",
+              "value_raw_text": "30.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "67.6"
+              },
+              "quantitative_value": 67.6,
+              "result_id": "res_2a226797667d873a262d9e05",
+              "unit": "%",
+              "value_raw_text": "67.6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "54.4"
+              },
+              "quantitative_value": 54.4,
+              "result_id": "res_3a1546186b6ccc24e5bdc9e9",
+              "unit": "%",
+              "value_raw_text": "54.4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "32.1"
+              },
+              "quantitative_value": 32.1,
+              "result_id": "res_3ecc00a7ca1484cfce3da456",
+              "unit": "%",
+              "value_raw_text": "32.1%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "71.3"
+              },
+              "quantitative_value": 71.3,
+              "result_id": "res_4ac9c493a7f1cbdc6f1c70c9",
+              "unit": "%",
+              "value_raw_text": "71.3"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "40.6"
+              },
+              "quantitative_value": 40.6,
+              "result_id": "res_510460dff830d9947be1e4cf",
+              "unit": "%",
+              "value_raw_text": "40.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "38.5"
+              },
+              "quantitative_value": 38.5,
+              "result_id": "res_53d115358a4b86a296826155",
+              "unit": "%",
+              "value_raw_text": "38.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "42.5†"
+              },
+              "quantitative_value": 42.5,
+              "result_id": "res_557b699910bbda4f9158c79e",
+              "unit": "%",
+              "value_raw_text": "42.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "reaching 41% pass@64"
+              },
+              "quantitative_value": 41.0,
+              "result_id": "res_5c4cee4724735badd14f0b73",
+              "unit": "%",
+              "value_raw_text": "41%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "ce42ff343c438f542740",
+                  "page_end": 6,
+                  "page_start": 6,
+                  "paraphrased": false,
+                  "text_excerpt": "36.6"
+                }
+              ],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "against 36.6% for GPT-f"
+              },
+              "quantitative_value": 36.6,
+              "result_id": "res_64c146b7f06aa224cdee91bc",
+              "unit": "%",
+              "value_raw_text": "36.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "37.5"
+              },
+              "quantitative_value": 37.5,
+              "result_id": "res_69e8622723611df1c99752ee",
+              "unit": "%",
+              "value_raw_text": "37.5"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "52.2"
+              },
+              "quantitative_value": 52.2,
+              "result_id": "res_6a175346cf3b0710a2fa4c7b",
+              "unit": "%",
+              "value_raw_text": "52.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@32",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "72.4%"
+              },
+              "quantitative_value": 72.4,
+              "result_id": "res_6b9a708647bcc1245007ee37",
+              "unit": "%",
+              "value_raw_text": "72.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "40.6"
+              },
+              "quantitative_value": 40.6,
+              "result_id": "res_6d6d52bd84267102125a664c",
+              "unit": "%",
+              "value_raw_text": "40.6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "obtaining 58.6% cumulative pass rate"
+              },
+              "quantitative_value": 58.6,
+              "result_id": "res_73ff9bd96a4ccb7c1a3f267f",
+              "unit": "%",
+              "value_raw_text": "58.6%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "c63657884e7a558cf2b7",
+                  "page_end": 9,
+                  "page_start": 9,
+                  "paraphrased": false,
+                  "text_excerpt": "57.4"
+                }
+              ],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "57.4"
+              },
+              "quantitative_value": 57.4,
+              "result_id": "res_7576021247e576ae1998c277",
+              "unit": "%",
+              "value_raw_text": "57.4"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "41.0"
+              },
+              "quantitative_value": 41.0,
+              "result_id": "res_7899c3e6e348c72ac0eb992a",
+              "unit": "%",
+              "value_raw_text": "41.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "61.0%"
+              },
+              "quantitative_value": 61.0,
+              "result_id": "res_7900d3b6a4f3bbe2657ba002",
+              "unit": "%",
+              "value_raw_text": "61.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "reaches a cumulative pass rate of 91.3%"
+              },
+              "quantitative_value": 91.3,
+              "result_id": "res_855b5d9cfec973cc3e4a2614",
+              "unit": "%",
+              "value_raw_text": "91.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "65.6"
+              },
+              "quantitative_value": 65.6,
+              "result_id": "res_86a4f4c99ebf6e9f5ebbad01",
+              "unit": "%",
+              "value_raw_text": "65.6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "The higher the refresh rate, the better the cumulative pass rate over time"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8797508e55192e56b0d6586f",
+              "unit": null,
+              "value_raw_text": "higher refresh rate leads to better cumulative pass rate"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "c63657884e7a558cf2b7",
+                  "page_end": 9,
+                  "page_start": 9,
+                  "paraphrased": false,
+                  "text_excerpt": "68.6"
+                }
+              ],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "68.6"
+              },
+              "quantitative_value": 68.6,
+              "result_id": "res_8dccbfd003af22863c9e790b",
+              "unit": "%",
+              "value_raw_text": "68.6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "58.8"
+              },
+              "quantitative_value": 58.8,
+              "result_id": "res_8ddfc3f6b89eff1561d44244",
+              "unit": "%",
+              "value_raw_text": "58.8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@32",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "61.2%"
+              },
+              "quantitative_value": 61.2,
+              "result_id": "res_8e4ad17d1d998cb8e5fd97a4",
+              "unit": "%",
+              "value_raw_text": "61.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "65"
+              },
+              "quantitative_value": 65.0,
+              "result_id": "res_93445ae696b2ef04a8b8bed1",
+              "unit": "%",
+              "value_raw_text": "65"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "47.5"
+              },
+              "quantitative_value": 47.5,
+              "result_id": "res_96044e6721674d9e8be54b38",
+              "unit": "%",
+              "value_raw_text": "47.5%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@32",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "65.4%"
+              },
+              "quantitative_value": 65.4,
+              "result_id": "res_9d32a5953a0169a3e754c76d",
+              "unit": "%",
+              "value_raw_text": "65.4%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "58.6†"
+              },
+              "quantitative_value": 58.6,
+              "result_id": "res_9fd0b3dd1a7a4e97418bcb26",
+              "unit": "%",
+              "value_raw_text": "58.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "cumulative pass rate of 82.6%"
+              },
+              "quantitative_value": 82.6,
+              "result_id": "res_a0302df1fac2f687be0f241f",
+              "unit": "%",
+              "value_raw_text": "82.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "51.6"
+              },
+              "quantitative_value": 51.6,
+              "result_id": "res_b12697ca6e134a1935c19571",
+              "unit": "%",
+              "value_raw_text": "51.6"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "47.3"
+              },
+              "quantitative_value": 47.3,
+              "result_id": "res_b1c4f9d540c61f164c96a3cb",
+              "unit": "%",
+              "value_raw_text": "47.3%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "54.8"
+              },
+              "quantitative_value": 54.8,
+              "result_id": "res_b1fc30c9cd2ce13f159a8e31",
+              "unit": "%",
+              "value_raw_text": "54.8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "55.8%"
+              },
+              "quantitative_value": 55.8,
+              "result_id": "res_bc488c954bb582ffa63bd599",
+              "unit": "%",
+              "value_raw_text": "55.8%"
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "c63657884e7a558cf2b7",
+                  "page_end": 9,
+                  "page_start": 9,
+                  "paraphrased": false,
+                  "text_excerpt": "78.1"
+                }
+              ],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "78.1"
+              },
+              "quantitative_value": 78.1,
+              "result_id": "res_c1933cc53cea096bf8e5168a",
+              "unit": "%",
+              "value_raw_text": "78.1"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "a supervised model never exceeds 36%"
+              },
+              "quantitative_value": 36.0,
+              "result_id": "res_c4537bda39b33fbdf38d4f56",
+              "unit": "%",
+              "value_raw_text": "36%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "38.9"
+              },
+              "quantitative_value": 38.9,
+              "result_id": "res_c59c16a8c851999a26b5ffae",
+              "unit": "%",
+              "value_raw_text": "38.9%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "64.8"
+              },
+              "quantitative_value": 64.8,
+              "result_id": "res_cb1431dfe0f5f0989695f9bf",
+              "unit": "%",
+              "value_raw_text": "64.8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "20.8"
+              },
+              "quantitative_value": 20.8,
+              "result_id": "res_cba39a322e802189423781e7",
+              "unit": "%",
+              "value_raw_text": "20.8%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@32",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "81.2%"
+              },
+              "quantitative_value": 81.2,
+              "result_id": "res_cc878748e0b3fb6f6c43c2d7",
+              "unit": "%",
+              "value_raw_text": "81.2%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "69.8"
+              },
+              "quantitative_value": 69.8,
+              "result_id": "res_cf0724a654da9b5533c5ff9e",
+              "unit": "%",
+              "value_raw_text": "69.8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3c7fd6720a5ae84e9b56",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "81.0%"
+              },
+              "quantitative_value": 81.0,
+              "result_id": "res_cf92277c85a6a04098138f43",
+              "unit": "%",
+              "value_raw_text": "81.0%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "699112b788ed1ed8b1dd",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "61.2"
+              },
+              "quantitative_value": 61.2,
+              "result_id": "res_d83ea319739d6bb29e306c34",
+              "unit": "%",
+              "value_raw_text": "61.2"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cumulative pass rate",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "73.8"
+              },
+              "quantitative_value": 73.8,
+              "result_id": "res_d8892fd3a781121ee47a5c73",
+              "unit": "%",
+              "value_raw_text": "73.8"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "46.7"
+              },
+              "quantitative_value": 46.7,
+              "result_id": "res_dae1c2d3e5ecb5c15ae4b8d9",
+              "unit": "%",
+              "value_raw_text": "46.7%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@64",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "ce42ff343c438f542740",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "33.6†"
+              },
+              "quantitative_value": 33.6,
+              "result_id": "res_eb24a3d7c35f023c9f41b92e",
+              "unit": "%",
+              "value_raw_text": "33.6%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "pass@8",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c63657884e7a558cf2b7",
+                "page_end": 9,
+                "page_start": 9,
+                "paraphrased": false,
+                "text_excerpt": "56.2"
+              },
+              "quantitative_value": 56.2,
+              "result_id": "res_fdaea4e98e3f43992b0d7ef1",
+              "unit": "%",
+              "value_raw_text": "56.2"
+            }
+          ],
+          "unit_id": "su_f189713f4924cdd0c084460a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.flat_fallback",
+      "json_path": "$.research_questions[0].study_units[0]",
+      "message": "The hierarchical output retained structural ID conflicts after its retry budget; a strictly validated flat extraction was used.",
+      "repair": "flattened supported results, claims, and evidence into Provisional flat extraction"
+    }
+  ]
+}

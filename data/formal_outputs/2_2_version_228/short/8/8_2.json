@@ -1,0 +1,274 @@
+{
+  "coverage_ledger": {
+    "0d918ad4970d44d98af7": "extracted",
+    "0e947be7dc1a008f7a44": "not_selected",
+    "107b8383d714f1bb4170": "extracted",
+    "37b75d4e1b2f18320930": "not_selected",
+    "4509e8cd13a31757b2a8": "not_selected",
+    "50ae37803232dd42e2f4": "not_selected",
+    "5118d744104ec10a56ae": "not_selected",
+    "7d6106a3af5435a9c35d": "not_selected",
+    "9b3174554264cedb3295": "extracted",
+    "b5a7fe27bdc0e595a772": "not_selected",
+    "d7ed1c32b219cbc804ef": "extracted",
+    "da0ec7f3b24edb962fba": "not_selected",
+    "e9b4a9b94f00188d041e": "not_selected",
+    "f22084bd5d219ab7eb43": "not_selected",
+    "fdae3b731d14359e7d5e": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "DeepONet accuracy is bounded by the numerical solver used to generate training data.",
+    "Training DeepONets is computationally intensive because the dataset size is the product of the number of input functions and evaluation locations.",
+    "Theoretical understanding of why DeepONets induce small generalization errors is lacking.",
+    "No theoretical bounds on network size for operator approximation are available.",
+    "The study uses fully connected subnetworks; other architectures like CNNs or attention may improve accuracy but are not fully explored.",
+    "The work focuses on operators with known mathematical forms; discovering operators from multi-fidelity or heterogeneous data is left for future work."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "8_2.pdf",
+    "source_sha256": "1aab1ef2236f2ba0888829aec87e786b4737289cb76b4dc138b26581a8381a14"
+  },
+  "paper_id": "8_2",
+  "quality_assessment": {
+    "correct_item_count": 23,
+    "deterministic_rule_score": 0.9023,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.25,
+      "sample_size_log_score": 0.3471,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 23,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How can deep neural networks be designed to accurately learn linear and nonlinear operators mapping input functions to output functions?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_2237f296f698c61bbf9f17f5",
+              "inference_basis_ids": [
+                "res_4eee59508ba95cee0642f678",
+                "res_bb6eb8466f0015d3ef302987",
+                "res_bfcb47e7d77edf06e6c501dd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "d7ed1c32b219cbc804ef",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We demonstrate that DeepONet can learn various explicit operators, such as integrals and fractional Laplacians, as well as implicit operators that represent deterministic and stochastic differential equations."
+              },
+              "statement": "DeepONet can learn various explicit and implicit operators, including integrals, fractional Laplacians, and deterministic and stochastic differential equations."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_519635027cdb0bc884942ad3",
+              "inference_basis_ids": [
+                "res_bfcb47e7d77edf06e6c501dd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0d918ad4970d44d98af7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Theorem 2 (Generalized Universal Approximation Theorem for Operator). ... Then, for any ϵ > 0, there exist positive integers m, p, continuous vector functions g : Rm → Rp, f : Rd → Rp, and x1, x2, ..., xm ∈ K1, such that ||G(u)(y) − ⟨g(u(x1), u(x2), · · · , u(xm)), f(y)⟩|| < ϵ holds for all u ∈ V and y ∈ K2."
+              },
+              "statement": "DeepONet is a universal approximator for nonlinear operators."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_720e5c882dcc464a17ae5813",
+              "inference_basis_ids": [
+                "res_e039e21f3cc7ec66d249e1fb"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "9b3174554264cedb3295",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "the computational cost of running inference of DeepONet is substantially lower than for the numerical solver."
+              },
+              "statement": "DeepONet inference is substantially faster than numerical solvers."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7c2b74d3fb0a7ee6f54b9316",
+              "inference_basis_ids": [
+                "res_bb6eb8466f0015d3ef302987"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0d918ad4970d44d98af7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We will demonstrate that, unlike fully connected neural networks (FNNs) and residual neural networks (ResNets), DeepONet substantially improves generalization based on a design of two subnetworks, the branch net for the input function and the trunk net for the locations to evaluate the output function."
+              },
+              "statement": "DeepONet substantially improves generalization compared to FNNs and ResNets."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Includes integrals, Legendre transforms, fractional derivatives, nonlinear ODEs and PDEs, and stochastic ODEs and PDEs. Training data generated from numerical solvers.",
+              "name": "16 diverse operator test cases",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "DeepONet consists of a branch net for the input function and a trunk net for the output locations.",
+              "provenance": {
+                "chunk_id": "0d918ad4970d44d98af7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the branch net for the input function and the trunk net for the locations to evaluate the output function."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "We propose a general deep learning framework, DeepONet, to learn diverse continuous nonlinear operators.",
+              "provenance": {
+                "chunk_id": "d7ed1c32b219cbc804ef",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "In this Article, we propose a general deep learning framework, DeepONet, to learn diverse continuous nonlinear operators."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "We study different formulations of the input function space and its effect on the generalization error for 16 different diverse applications.",
+              "provenance": {
+                "chunk_id": "d7ed1c32b219cbc804ef",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We study different formulations of the input function space and its effect on the generalization error for 16 different diverse applications."
+              },
+              "span_id": "ES3"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Design two versions of DeepONet: stacked and unstacked, with branch and trunk subnetworks.",
+            "Evaluate DeepONet on 16 test cases including integrals, Legendre transforms, fractional derivatives, nonlinear ODEs/PDEs, and stochastic ODEs/PDEs.",
+            "Propose a general deep learning framework, DeepONet, to learn diverse continuous nonlinear operators.",
+            "Prove a generalized universal approximation theorem for operators (Theorem 2) that allows deep branch/trunk networks."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DeepONet",
+              "protocol_description": "DeepONet consists of a branch net encoding the discrete input function [u(x1),...,u(xm)] and a trunk net encoding the output location y. The output is the dot product of branch and trunk outputs plus a bias. Two versions: stacked (p separate branch nets) and unstacked (single branch net outputting p-dimensional vector). Loss function is mean squared error between true G(u)(y) and prediction. Implemented in DeepXDE."
+            },
+            {
+              "method_id": "M2",
+              "name": "Fully connected neural network (FNN) baseline",
+              "protocol_description": "Classical FNN that concatenates [u(x1),...,u(xm), y] as input."
+            },
+            {
+              "method_id": "M3",
+              "name": "Residual neural network (ResNet) baseline",
+              "protocol_description": "ResNet that concatenates [u(x1),...,u(xm), y] as input."
+            }
+          ],
+          "name": "DeepONet framework and architecture",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Prediction accuracy on stochastic elliptic equation",
+              "n_sample_size": 10,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9b3174554264cedb3295",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The DeepONet prediction (symbols) is very close to the reference solution for 10 different random samples (five in each panel) from b(x; ω) with l = 1.5."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4eee59508ba95cee0642f678",
+              "unit": null,
+              "value_raw_text": "DeepONet prediction is very close to the reference solution for 10 different random samples."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Generalization error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0d918ad4970d44d98af7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We will demonstrate that, unlike fully connected neural networks (FNNs) and residual neural networks (ResNets), DeepONet substantially improves generalization based on a design of two subnetworks, the branch net for the input function and the trunk net for the locations to evaluate the output function."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bb6eb8466f0015d3ef302987",
+              "unit": null,
+              "value_raw_text": "DeepONet substantially improves generalization based on a design of two subnetworks, the branch net for the input function and the trunk net for the locations to evaluate the output function."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Approximation error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0d918ad4970d44d98af7",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "Theorem 2 (Generalized Universal Approximation Theorem for Operator). ... Then, for any ϵ > 0, there exist positive integers m, p, continuous vector functions g : Rm → Rp, f : Rd → Rp, and x1, x2, ..., xm ∈ K1, such that ||G(u)(y) − ⟨g(u(x1), u(x2), · · · , u(xm)), f(y)⟩|| < ϵ holds for all u ∈ V and y ∈ K2."
+              },
+              "quantitative_value": null,
+              "result_id": "res_bfcb47e7d77edf06e6c501dd",
+              "unit": null,
+              "value_raw_text": "DeepONet is a universal approximator for nonlinear operators (Theorem 2)."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Computational cost",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "9b3174554264cedb3295",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "the computational cost of running inference of DeepONet is substantially lower than for the numerical solver."
+              },
+              "quantitative_value": null,
+              "result_id": "res_e039e21f3cc7ec66d249e1fb",
+              "unit": null,
+              "value_raw_text": "The computational cost of running inference of DeepONet is substantially lower than for the numerical solver."
+            }
+          ],
+          "unit_id": "su_2b85b066fea145f3a85ff052"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

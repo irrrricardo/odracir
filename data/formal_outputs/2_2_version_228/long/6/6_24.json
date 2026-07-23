@@ -1,0 +1,287 @@
+{
+  "coverage_ledger": {
+    "34a62925ed85a214d2f7": "extracted",
+    "39889b6bccdc07e3f253": "not_selected",
+    "3c659ef2c1f329c96497": "not_selected",
+    "53239ee8f5ab5b49fa58": "not_selected",
+    "569a51a2f9e7a8412940": "not_selected",
+    "64e774b9590b7ed21d80": "not_selected",
+    "6ebb40e690c14df30c77": "extracted",
+    "6ff38d8137bba4076b0b": "extracted",
+    "79a8781624420bc1b509": "not_selected",
+    "7b27b5cff2c87be1e897": "not_selected",
+    "8f1a90fb2a5076c47c37": "not_selected",
+    "97be02975daf64920bdf": "not_selected",
+    "a0d9f2b000e86283ee86": "not_selected",
+    "ba317a21c5b806e20d87": "not_selected",
+    "c153e9ad087e688b0570": "extracted",
+    "df94e363d1e6220b00a1": "not_selected",
+    "e37c1659e62786bf3a98": "not_selected",
+    "ee42860ffcf78d7482ef": "not_selected",
+    "f5e35d6dac9af4ac244f": "not_selected",
+    "fac0678b31aff58ec8b4": "not_selected",
+    "fe52ecbcf914228bda07": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Analysis applies to MPNNs that weigh each edge contribution equally, up to degree normalization; attention/gating mechanisms may alter over-squashing but are not fully analyzed.",
+    "Determining when sensitivity is 'too' small depends on readout resolution, which is not considered.",
+    "Theorem 5.5 holds in expectation over nonlinearity and encodes average behavior; a more refined exact analysis is left for future work."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_24.pdf",
+    "source_sha256": "9da9b08c94691c92d2f406f19413a1b2037b3cf05edf2d3eea1c2577bc32f9ea"
+  },
+  "paper_id": "6_24",
+  "quality_assessment": {
+    "correct_item_count": 18,
+    "deterministic_rule_score": 0.8696,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 18,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "What is the impact of width, depth, and graph topology on over-squashing in Message Passing Neural Networks?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6fb6f1825ab00399736261da",
+              "inference_basis_ids": [
+                "res_326e502b8cbb7874a7c07a5d"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c153e9ad087e688b0570",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Rayleigh’s monotonicity principle asserts that the total effective resistance decreases when adding new edges – which offer a new interpretation as to why spatial methods help combat over-squashing."
+              },
+              "statement": "Spatial rewiring methods mitigate over-squashing by reducing effective resistance."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_760033c25bdbf740c8d59ee3",
+              "inference_basis_ids": [
+                "res_347ad639ae222ed542689c0c"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "6ebb40e690c14df30c77",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The graph topology plays the greatest role, since over-squashing occurs between nodes at high commute time."
+              },
+              "statement": "Graph topology is the most important factor; over-squashing occurs between nodes with high commute time."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b23d4d1136ad6fd84e78bef4",
+              "inference_basis_ids": [
+                "res_c9b07f6d7bb4f43feb2d5be2"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "6ebb40e690c14df30c77",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Neural network width can mitigate over-squashing, but at the cost of making the whole network more sensitive."
+              },
+              "statement": "Width can mitigate over-squashing but increases overall network sensitivity."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b399d2fa6e9d561dcf74e0a6",
+              "inference_basis_ids": [
+                "res_6ccfe860378d3d8424082b78"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "6ebb40e690c14df30c77",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Depth cannot help mitigate over-squashing: increasing the number of layers leads to over-squashing being dominated by vanishing gradients."
+              },
+              "statement": "Depth cannot mitigate over-squashing; increasing layers leads to vanishing gradients dominating."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b58f89ca01d5da63c5430c31",
+              "inference_basis_ids": [
+                "res_3c68b8e527ecb9f147798b78"
+              ],
+              "polarity": "neutral",
+              "provenance": {
+                "chunk_id": "c153e9ad087e688b0570",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Theorem 5.5 implies that nodes at small commute time will exchange information better in an MPNN and conversely for those at high commute time."
+              },
+              "statement": "The symmetric Jacobian obstruction is bounded by commute time, independent of depth."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fedbcec627658d7e3a82afeb",
+              "inference_basis_ids": [
+                "res_72c0a74a10f414b358c32fb5"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "c153e9ad087e688b0570",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": true,
+                "text_excerpt": "Corollary 5.6 essentially tells us that the obstruction among all pairs of nodes decreases (so better information flow) if the MPNN operates on a graph G with larger Cheeger constant."
+              },
+              "statement": "Spectral rewiring methods mitigate over-squashing by increasing the Cheeger constant."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Theoretical investigation of how width, depth, and graph topology affect over-squashing in MPNNs."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Sensitivity analysis of MPNNs",
+              "protocol_description": "Analysis of the Jacobian of node features to study over-squashing, with assumptions on weight matrices, graph operators, and activation functions."
+            }
+          ],
+          "name": "Theoretical analysis of width, depth, and topology",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Effective resistance and over-squashing",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c153e9ad087e688b0570",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "nodes at high effective resistance struggle to exchange information in an MPNN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_326e502b8cbb7874a7c07a5d",
+              "unit": null,
+              "value_raw_text": "Nodes at high effective resistance struggle to exchange information in an MPNN."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Over-squashing and graph topology",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ebb40e690c14df30c77",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The graph topology plays the greatest role, since over-squashing occurs between nodes at high commute time."
+              },
+              "quantitative_value": null,
+              "result_id": "res_347ad639ae222ed542689c0c",
+              "unit": null,
+              "value_raw_text": "The graph topology plays the greatest role, since over-squashing occurs between nodes at high commute time."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Sensitivity bound via commute time",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c153e9ad087e688b0570",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "ϵG(1 −o(m)) ρ\nνca\nτ(v, u)\n2|E|\n≤˜O(m)(v, u) ≤\nρ\nµca\nτ(v, u)\n2|E|"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3c68b8e527ecb9f147798b78",
+              "unit": null,
+              "value_raw_text": "ϵG(1 − o(m)) ρ/(ν ca) τ(v,u)/(2|E|) ≤ ˜O(m)(v,u) ≤ ρ/(µ ca) τ(v,u)/(2|E|)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Over-squashing mitigation by depth",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ebb40e690c14df30c77",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Depth cannot help mitigate over-squashing: increasing the number of layers leads to over-squashing being dominated by vanishing gradients."
+              },
+              "quantitative_value": null,
+              "result_id": "res_6ccfe860378d3d8424082b78",
+              "unit": null,
+              "value_raw_text": "Depth cannot help mitigate over-squashing: increasing the number of layers leads to over-squashing being dominated by vanishing gradients."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Over-squashing and Cheeger constant",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "c153e9ad087e688b0570",
+                "page_end": 8,
+                "page_start": 8,
+                "paraphrased": false,
+                "text_excerpt": "˜O(m)(v, u) ≤\n4\nρµca\n1\nh2\nCheeg"
+              },
+              "quantitative_value": null,
+              "result_id": "res_72c0a74a10f414b358c32fb5",
+              "unit": null,
+              "value_raw_text": "˜O(m)(v,u) ≤ 4/(ρ µ ca) 1/h^2_Cheeg"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Over-squashing mitigation by width",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ebb40e690c14df30c77",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Neural network width can mitigate over-squashing, but at the cost of making the whole network more sensitive."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c9b07f6d7bb4f43feb2d5be2",
+              "unit": null,
+              "value_raw_text": "Neural network width can mitigate over-squashing, but at the cost of making the whole network more sensitive."
+            }
+          ],
+          "unit_id": "su_1f0c9ce6b1f5f456b5b13913"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

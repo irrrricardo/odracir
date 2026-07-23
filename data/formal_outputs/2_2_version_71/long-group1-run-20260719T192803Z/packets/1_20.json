@@ -1,0 +1,406 @@
+{
+  "coverage_ledger": {
+    "078e2b9e6c19359df594": "not_selected",
+    "084ce9a7945f4dc2129d": "not_selected",
+    "0b50b7653af3de6f1386": "not_selected",
+    "1009288bba2711e427c9": "not_selected",
+    "1057fad6d830fc2c3982": "not_selected",
+    "212f281690c0a3a3f676": "not_selected",
+    "441d9345dd35f1b19e8b": "not_selected",
+    "4ad6ff5e3367d27b4075": "not_selected",
+    "4fe789e51fc13f3e3f94": "extracted",
+    "525a7f0953b06182b9e9": "not_selected",
+    "5adee703b8fedd77dab5": "not_selected",
+    "5c2f276a9da57cafb1f8": "not_selected",
+    "6e2d1555eeff6bef7328": "not_selected",
+    "7806866023721a2d78da": "not_selected",
+    "85f1422facb19c395d61": "not_selected",
+    "8890ecf2f4865d1f26dd": "extracted",
+    "8c19d6d7ce00b7e00ae8": "not_selected",
+    "9ef48fb9c502cb259750": "not_selected",
+    "b37a399a7dc721560fb6": "not_selected",
+    "c6d5b4fe475d233bc572": "not_selected",
+    "ccd6a38bf0d4fb9aff48": "not_selected",
+    "cd8d61e167e7df68f95d": "not_selected",
+    "e10a189b9b8621d6df23": "not_selected",
+    "e56cfc5e39ac6c32593e": "extracted",
+    "f2f1d49756cdf05c19a7": "not_selected",
+    "fc4f5c1d4ef021835bf6": "not_selected",
+    "fc718c9c87c6ed145338": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The atlas uses cancer models and pharmacological compounds, but is designed as a broadly applicable perturbation atlas.",
+    "Single-cell resolution reveals heterogeneity within genetically uniform cell lines, with multiple transcriptional substates exhibiting different drug susceptibilities."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_20.pdf",
+    "source_sha256": "ca4942e913ba0c26bc2da82e466edbb2c81988b819adaa9cd70f3052339244d1"
+  },
+  "paper_id": "1_20",
+  "quality_assessment": {
+    "correct_item_count": 22,
+    "deterministic_rule_score": 0.7923,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.2857
+    },
+    "extracted_item_count": 22,
+    "f1": 0.8148,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 10,
+    "missed_core_items": [
+      {
+        "description": "The extraction omits the key quantitative result that the dataset contains 379 distinct drugs and 1,135 drug-dose combinations.",
+        "item_id": null,
+        "source_chunk_id": "084ce9a7945f4dc2129d",
+        "source_excerpt": "Taken together, after applying our QC filtering, we obtained a dataset comprising 47 cell lines, 379 drugs, 1,135 drug-dose combinations and 52,886 unique cell line-drug-dose conditions, with a median of 1,287 cells per condition.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key quantitative result that the dataset contains 52,886 unique cell line-drug-dose conditions with a median of 1,287 cells per condition.",
+        "item_id": null,
+        "source_chunk_id": "084ce9a7945f4dc2129d",
+        "source_excerpt": "Taken together, after applying our QC filtering, we obtained a dataset comprising 47 cell lines, 379 drugs, 1,135 drug-dose combinations and 52,886 unique cell line-drug-dose conditions, with a median of 1,287 cells per condition.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key result that the Mosaic platform uses a cell village approach with 50 cancer cell lines per Mosaic tumor and 24-hour drug treatment.",
+        "item_id": null,
+        "source_chunk_id": "6e2d1555eeff6bef7328",
+        "source_excerpt": "We leveraged our Mosaic platform to measure the transcriptomic responses to drug treatments across a panel of 50 established and commercially-available cancer cell lines (Figure 1A). For this, we cultured spheroids consisting of a mixture of cell lines in suspension and subjected each spheroid to individual treatments, including DMSO vehicle controls. After 24 hours of drug treatment, spheroids were dissociated, fixed, and profiled using the Parse GigaLab kit, a scalable scRNA-seq assay enabled by combinatorial barcoding (Rosenberg et al. 2018).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key result that the dataset includes a biological replicate (Plate 14 as replicate of Plate 6) with high correlation between matched conditions.",
+        "item_id": null,
+        "source_chunk_id": "084ce9a7945f4dc2129d",
+        "source_excerpt": "To highlight the reproducibility of the Mosaic platform, we included Plate 14 as a biological replicate of Plate 6. Using the untransformed gene expression matrices from these plates, we performed a pseudobulk grouping of all cells belonging to the same plate, cell line, and drug concentration treatment and calculated the Pearson correlation across these pseudobulk gene expression vectors. Reassuringly, we observed higher correlation between conditions with matched treatment and cell identity (estimate q25: 0.97, median: 0.975, q75: 0.98) compared to unmatched comparisons between the two plates (estimate q25: 0.892, median: 0.915, q75: 0.929) (Figure 3D).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key result that the dataset includes 180 drugs classified into 25 mechanisms of action (MOA) with a median of 5 unique drugs per MOA.",
+        "item_id": null,
+        "source_chunk_id": "5adee703b8fedd77dab5",
+        "source_excerpt": "Across all 379 distinct drugs used in the atlas, 180 are classified into 25 mechanisms of action (MOA), with a median of 5 unique drugs per MOA (maximum 27, minimum 3) (Figure 2B-C).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key result that the dataset captures 17,813 unique cell line-drug conditions, representing a 31-fold increase over SciPlex3 and a 29-fold increase in observations per condition over Replogle et al.",
+        "item_id": null,
+        "source_chunk_id": "5adee703b8fedd77dab5",
+        "source_excerpt": "This dataset captures 17,813 unique cell line-drug conditions, representing a 31-fold increase in the number of drug-perturbed conditions compared to a benchmark single-cell drug screen (Srivatsan et al. 2020) and a 29-fold increase in the number of observations per condition compared to a benchmark genetic perturbation screen (Replogle et al. 2022) (Figure 2D).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key result that the dataset includes 1.4 trillion raw sequencing reads representing 153 million cells, with 100.6 million cells passing minimal filters and 95.6 million passing full filters.",
+        "item_id": null,
+        "source_chunk_id": "6e2d1555eeff6bef7328",
+        "source_excerpt": "After sequencing, we obtained ~1.4 trillion raw sequencing reads representing a total of 153 million cells (between 8.2 and 14.5 million cells from each plate). Cells had a mean of 2,288 transcripts (median of 1,890) with some variation at per-sublibrary level based on sequencing depth. After processing with Vevo’s filtering criteria (Methods), we recovered 100.6 million cells that pass minimal filters and 95.6 million cells that pass full filters (Methods; Figure 1C).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key result that the dataset includes 1,786 sublibraries from 14 96-well plates.",
+        "item_id": null,
+        "source_chunk_id": "6e2d1555eeff6bef7328",
+        "source_excerpt": "We processed a range of between 72 to 165 sublibraries per 96-well plate of spheroids, resulting in a total of 1,786 sublibraries (Table 1).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key result that the drugs target 325 genes, with 120 genes targeted by more than one drug.",
+        "item_id": null,
+        "source_chunk_id": "5adee703b8fedd77dab5",
+        "source_excerpt": "These drugs reportedly target 325 genes (Methods), with 120 genes being targeted by more than one drug (Figure 2C).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key result that the majority (69%) of drugs are approved agents.",
+        "item_id": null,
+        "source_chunk_id": "5adee703b8fedd77dab5",
+        "source_excerpt": "The majority (69%) of these drugs are approved agents and the compound classes target a large diversity of cancer-relevant pathways.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.6875
+  },
+  "quality_score": 0.8148,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do small-molecule perturbations impact cellular transcriptomes across diverse genetic backgrounds?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7278ba15f210fee10fb29a71",
+              "inference_basis_ids": [
+                "res_a97e6e970a95c61f605d0087"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fc718c9c87c6ed145338",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "As the largest single-cell dataset to date, Tahoe-100M enables artificial-intelligence (AI)-driven models to learn context-dependent functions"
+              },
+              "statement": "Tahoe-100M is the largest single-cell dataset to date."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_87c35259a465816e0a150bd5",
+              "inference_basis_ids": [],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fc718c9c87c6ed145338",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Our high-throughput Mosaic platform, composed of a highly diverse and optimally balanced 'cell village', reduces batch effects and enables parallel profiling of thousands of conditions at single-cell resolution at an unprecedented scale."
+              },
+              "statement": "The Mosaic platform reduces batch effects and enables parallel profiling at single-cell resolution."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Single-cell atlas of 100 million transcriptomic profiles measuring responses to 1,100 small-molecule perturbations across 50 cancer cell lines.",
+              "name": "Tahoe-100M",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "High-throughput Mosaic platform using a diverse and balanced 'cell village' to profile 1,100 small-molecule perturbations across 50 cancer cell lines at single-cell resolution."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Mosaic platform",
+              "protocol_description": "High-throughput platform using a cell village approach to reduce batch effects and enable parallel profiling of thousands of conditions at single-cell resolution."
+            }
+          ],
+          "name": "Tahoe-100M Atlas Construction",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of cell lines",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc718c9c87c6ed145338",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "50 cancer cell lines"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_885660ee5bc21ced2c3e21a8",
+              "unit": "cell lines",
+              "value_raw_text": "50 cancer cell lines"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of perturbations",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc718c9c87c6ed145338",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "1,100 small-molecule perturbations"
+              },
+              "quantitative_value": 1100.0,
+              "result_id": "res_917d4c7690b7d7a495a062ed",
+              "unit": "perturbations",
+              "value_raw_text": "1,100 small-molecule perturbations"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Number of transcriptomic profiles",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fc718c9c87c6ed145338",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Tahoe-100M, a giga-scale single-cell atlas of 100 million transcriptomic profiles measuring how each of 1,100 small-molecule perturbations impact cells across 50 cancer cell lines."
+              },
+              "quantitative_value": 100000000.0,
+              "result_id": "res_a97e6e970a95c61f605d0087",
+              "unit": "cells",
+              "value_raw_text": "100 million single-cell transcriptomes"
+            }
+          ],
+          "unit_id": "su_b31248d5cd7b96a44dbdd699"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_17544e5e730683ca6d1f1f14",
+              "inference_basis_ids": [
+                "res_d67d7e2a345d5ce82e677313"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Notably, treatment with Dabrafenib elicited the most pronounced effect in cell lines harboring BRAF mutations, as evidenced by significantly lower scores at both the lowest (P = 0.0013, Welch’s t-test) and highest (P = 0.00023, Welch’s t-test) doses, whereas KRAS-mutated lines showed minimal change"
+              },
+              "statement": "Dabrafenib treatment reduces RAS/RAF pathway activity most strongly in BRAF-mutated cell lines."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_360bcdbf8df8669be8225131",
+              "inference_basis_ids": [
+                "res_882e7d038dc67e99d13ed71a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Within the HDAC inhibitors, Belinostat and Panobinostat predominantly drove this G2/M enrichment, in contrast to Carbamazepine—which, despite its role as a histone deacetylase modulator, showed little enrichment—and Tucidinostat (Chidamide), which demonstrated a negative enrichment"
+              },
+              "statement": "HDAC inhibitors Belinostat and Panobinostat induce G2/M arrest, while Carbamazepine does not and Tucidinostat reduces G2/M proportion."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_b150c560cad37c70071291b1",
+              "inference_basis_ids": [
+                "res_e70fd42c937eb18fd05c59b7"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "These results underscore the KRAS-specific action of RMC-6236, which reduces KRAS signaling in KRAS-mutated cell lines."
+              },
+              "statement": "RMC-6236 reduces KRAS signaling specifically in KRAS-mutated cell lines."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_eb984ecebc6077af6d27aeb2",
+              "inference_basis_ids": [
+                "res_80e71bf242313aa458b4a277"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Palbociclib and Dinaciclib exhibited distinct enrichments, with Palbociclib showing enrichment in the G1 phase and Dinaciclib in the G2/M phase (Figure 6C). This is in contrast to the other CDK inhibitors — Abemaciclib, AT5719, and Ribociclib — which displayed little to no enrichment."
+              },
+              "statement": "Palbociclib induces G1 phase arrest while Dinaciclib induces G2/M phase arrest, unlike other CDK inhibitors."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Computed differential scores between aggregated treatment and control conditions for a MSigDB.c6 gene-set signature of RAS/RAF pathway activity.",
+            "Investigated transcriptional effects of drugs targeting the RAS/RAF pathway using Vision gene-set expression scores."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Vision",
+              "protocol_description": "Compute gene-set expression scores at the cell level and differential scores between aggregated treatment and control conditions."
+            }
+          ],
+          "name": "RAS/RAF Pathway Inhibition Analysis",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Log2-odds ratio of cell cycle phase enrichment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Palbociclib and Dinaciclib exhibited distinct enrichments, with Palbociclib showing enrichment in the G1 phase and Dinaciclib in the G2/M phase (Figure 6C). This is in contrast to the other CDK inhibitors — Abemaciclib, AT5719, and Ribociclib — which displayed little to no enrichment."
+              },
+              "quantitative_value": null,
+              "result_id": "res_80e71bf242313aa458b4a277",
+              "unit": null,
+              "value_raw_text": "Palbociclib showed enrichment in G1 phase; Dinaciclib showed enrichment in G2/M phase; other CDK inhibitors showed little to no enrichment."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Log2-odds ratio of G2/M phase enrichment",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Further investigation of the G2/M phase enrichment revealed that HDAC and microtubule inhibitors induced the greatest G2/M arrest. Within the HDAC inhibitors, Belinostat and Panobinostat predominantly drove this G2/M enrichment, in contrast to Carbamazepine—which, despite its role as a histone deacetylase modulator, showed little enrichment—and Tucidinostat (Chidamide), which demonstrated a negative enrichment"
+              },
+              "quantitative_value": null,
+              "result_id": "res_882e7d038dc67e99d13ed71a",
+              "unit": null,
+              "value_raw_text": "HDAC and microtubule inhibitors induced greatest G2/M arrest; Belinostat and Panobinostat drove G2/M enrichment; Carbamazepine showed little enrichment; Tucidinostat showed negative enrichment."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Differential Vision score for RAS/RAF signature",
+              "n_sample_size": null,
+              "p_value": 0.0013,
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Notably, treatment with Dabrafenib elicited the most pronounced effect in cell lines harboring BRAF mutations, as evidenced by significantly lower scores at both the lowest (P = 0.0013, Welch’s t-test) and highest (P = 0.00023, Welch’s t-test) doses"
+              },
+              "quantitative_value": null,
+              "result_id": "res_d67d7e2a345d5ce82e677313",
+              "unit": null,
+              "value_raw_text": "Dabrafenib elicited most pronounced effect in BRAF-mutated cell lines with significantly lower scores at lowest dose (P = 0.0013) and highest dose (P = 0.00023)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Differential Vision score for RAS/RAF signature",
+              "n_sample_size": null,
+              "p_value": 0.065,
+              "provenance": {
+                "chunk_id": "8890ecf2f4865d1f26dd",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "treatment with RMC-6236, a pan-RAS inhibitor, produced the greatest effect in the KRAS-mutated group, with the most substantial difference in Vision scores observed at the lowest (p = 0.065, Welch’s t-test) and intermediate (p = 0.063, Welch’s t-test) doses compared to the unmutated RAS group"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e70fd42c937eb18fd05c59b7",
+              "unit": null,
+              "value_raw_text": "RMC-6236 produced greatest effect in KRAS-mutated group with most substantial difference at lowest (p = 0.065) and intermediate (p = 0.063) doses"
+            }
+          ],
+          "unit_id": "su_d8016f7862db788832821372"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

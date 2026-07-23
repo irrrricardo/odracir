@@ -1,0 +1,460 @@
+{
+  "coverage_ledger": {
+    "035fc79c1c1a93081852": "not_selected",
+    "074e390f08f90424d56e": "not_selected",
+    "0b8b8c056ea6f9ca60fd": "not_selected",
+    "0d082a02c84222c06ec2": "not_selected",
+    "193a140cf28ad972f1ff": "not_selected",
+    "1bf733d287f142fd489c": "extracted",
+    "1fb069e4f0aada5c8711": "extracted",
+    "271db4385d2bea4b088a": "extracted",
+    "273679e5a63d05c69a72": "not_selected",
+    "2964fa676833b9cec9b4": "not_selected",
+    "3268302ec1ce199c7b23": "not_selected",
+    "49fc71ae0e1db1dc81a6": "not_selected",
+    "540e7fec8ae34d339e9b": "not_selected",
+    "5a3d2f92557440f0c4be": "not_selected",
+    "606eec22436dca1b7a4d": "not_selected",
+    "69f2c7e71df04410ec81": "not_selected",
+    "7624e9579b02a78e9f0d": "not_selected",
+    "867f39d85ffcb858e8c0": "not_selected",
+    "9365084fc5cc4bd471d8": "not_selected",
+    "9e6e0e0e73d547dc36f3": "extracted",
+    "a93d14e66cc2918abdd9": "not_selected",
+    "b28612e5cc00d1de2137": "not_selected",
+    "ed8ff018d8946ebe725a": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Suboptimal performance in predicting combined-perturbation effects; scouter improvement over baseline limited.",
+    "Limited generalizability of deep learning and foundation models.",
+    "Chemical perturbation prediction, especially combination effects, remains underdeveloped."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "1_19.pdf",
+    "source_sha256": "eaeaeef08d3b63b2edaf48afb9a451978617c8bed88a5da9498b2989172039ca"
+  },
+  "paper_id": "1_19",
+  "quality_assessment": {
+    "correct_item_count": 36,
+    "deterministic_rule_score": 0.4603,
+    "evidence_strength_observability": {
+      "sample_size_coverage": null,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": null
+    },
+    "extracted_item_count": 36,
+    "f1": 0.7347,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 26,
+    "missed_core_items": [
+      {
+        "description": "The paper states that 27 methods were evaluated across 29 datasets, but the extraction lists 14 methods for cellular context generalization and 18 for perturbation generalization, totaling 32 method entries (with overlap). The correct total number of unique methods is 27, and the total number of datasets is 29. This discrepancy is a core factual omission.",
+        "item_id": null,
+        "source_chunk_id": "9e6e0e0e73d547dc36f3",
+        "source_excerpt": "Here, we present a comprehensive benchmark of 27 methods for single-cell perturbation response prediction, evaluated across 29 datasets using 6 complementary performance metrics.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the cellular context generalization scenario, all methods performed poorly when predicting perturbations in a new cellular context that is quite different from the training datasets, even worse than baseline models.",
+        "item_id": null,
+        "source_chunk_id": "867f39d85ffcb858e8c0",
+        "source_excerpt": "Specifically, when predicting the effects of perturbations in a new cellular context that is quite different from the training datasets, all methods performed poorly, even worse than the baseline models;",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the perturbation generalization scenario, baseline models tend to perform better on smaller training datasets, while foundation models perform better when fine-tuning datasets are sufficiently large.",
+        "item_id": null,
+        "source_chunk_id": "867f39d85ffcb858e8c0",
+        "source_excerpt": "By analyzing datasets of varying sizes, it is found that baseline models tend to perform better on smaller training datasets. In contrast, foundation models tend to perform better in terms of both prediction accuracy and generalizability, when the fine-tuning datasets are sufficiently large.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that a cellular context embedding strategy was explored and found to improve perturbation effect prediction in the evaluation.",
+        "item_id": null,
+        "source_chunk_id": "867f39d85ffcb858e8c0",
+        "source_excerpt": "we explored a cellular context embedding strategy as a potential approach to enhance generalization. This strategy was found to improve perturbation effect prediction in our evaluation.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that in the cellular context generalization scenario, trVAE, CellOT and inVAE achieved the best overall performance.",
+        "item_id": null,
+        "source_chunk_id": "3268302ec1ce199c7b23",
+        "source_excerpt": "In the o.o.d. scenario, trVAE, CellOT and inVAE achieved the best overall performance (Fig. 2b).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the genetic perturbation setting, GenePert, scGPT and scouter demonstrated the best overall performance across single-perturbation datasets.",
+        "item_id": null,
+        "source_chunk_id": "7624e9579b02a78e9f0d",
+        "source_excerpt": "Across the 9 single-perturbation datasets, GenePert, scGPT and scouter demonstrated the best overall performance (Fig. 4a).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that for chemical single-perturbation datasets, chemCPA achieved the best performance on population-average metrics.",
+        "item_id": null,
+        "source_chunk_id": "1bf733d287f142fd489c",
+        "source_excerpt": "For the three single-perturbation datasets, chemCPA achieved the best performance on the population-average metrics, outperforming the baseline model by a substantial margin (Fig. 5a).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the chemical combination perturbation dataset, baseReg outperformed CPA on all six metrics.",
+        "item_id": null,
+        "source_chunk_id": "1bf733d287f142fd489c",
+        "source_excerpt": "In the combined-perturbation dataset, baseReg outperformed CPA on all six metrics, highlighting the current gap in methods for chemical perturbation prediction, particularly in combinatorial contexts (Fig. 5b).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that the performance advantage of CPA over trainMean increased as the similarity between test and training perturbations decreased.",
+        "item_id": null,
+        "source_chunk_id": "7624e9579b02a78e9f0d",
+        "source_excerpt": "Further analysis revealed that the performance advantage of CPA over trainMean increased as the similarity between the test and training perturbations decreased (Fig. 4c).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that for combined-perturbation datasets, linearModel and scouter achieved the highest overall accuracy across all categories.",
+        "item_id": null,
+        "source_chunk_id": "7624e9579b02a78e9f0d",
+        "source_excerpt": "linearModel and scouter achieved the highest overall accuracy across all categories (Fig. 4d).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that the performance of all methods is highly dependent on inter-heterogeneity, and when predicting in a new cellular context that differs substantially from training, all methods performed unsatisfactorily.",
+        "item_id": null,
+        "source_chunk_id": "7624e9579b02a78e9f0d",
+        "source_excerpt": "When predicting perturbation effects in a new cellular context that differs substantially from the training datasets, all methods likely performed unsatisfactorily, highlighting their limited generalizability.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the perturbation generalization scenario, model performance declined on perturbations with high inter-heterogeneity, suggesting generalization is more influenced by data quality than dataset size.",
+        "item_id": null,
+        "source_chunk_id": "49fc71ae0e1db1dc81a6",
+        "source_excerpt": "Further analysis revealed that model performance declined on perturbations with high inter-heterogeneity, suggesting that generalization is more strongly influenced by data quality—particularly the similarity between training and testing perturbations—than by dataset size (Supplementary Fig. 29).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that strong perturbations were associated with increased MSE, E-distance and Wasserstein values, indicating greater difficulty in accurately capturing their expression responses.",
+        "item_id": null,
+        "source_chunk_id": "49fc71ae0e1db1dc81a6",
+        "source_excerpt": "As shown in Fig. 5e, strong perturbations were associated with increased MSE, E-distance and Wasserstein values, suggesting greater difficulty in accurately capturing their expression responses (Supplementary Note 11 and Supplementary Figs. 15–17).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that all methods performed poorly on population-distribution metrics, especially Common-DEGs; in genetic single-perturbation datasets, even the best model identified fewer than 10 of 100 true most differentially expressed genes.",
+        "item_id": null,
+        "source_chunk_id": "49fc71ae0e1db1dc81a6",
+        "source_excerpt": "We observed that all methods likely performed poorly on population-distribution metrics especially on the Common-DEGs metric in genetic perturbation scenarios. For instance, in genetic single-perturbation datasets, even the best-performing model, baseMLP, identified fewer than 10 of 100 true most differentially expressed genes (Fig. 5f).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that the performance advantage of GenePert and scouter likely stems from LLM-derived embeddings rather than model complexity.",
+        "item_id": null,
+        "source_chunk_id": "7624e9579b02a78e9f0d",
+        "source_excerpt": "This suggests that the performance advantage likely stems from the rich biological priors embedded in LLM-derived embeddings, rather than model complexity or architecture.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that in the cellular context generalization scenario, biolord and scDisInFact did not outperform tools that did not incorporate covariates on multi-condition datasets.",
+        "item_id": null,
+        "source_chunk_id": "3268302ec1ce199c7b23",
+        "source_excerpt": "However, biolord and scDisInFact did not outperform the tools that did not incorporate covariates on these datasets (Fig. 2c).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that scVIDR achieved the best overall performance on the TCDD dataset and ranked second on sciPlex3, making it optimal for datasets with perturbation dosage information.",
+        "item_id": null,
+        "source_chunk_id": "3268302ec1ce199c7b23",
+        "source_excerpt": "The scVIDR method achieved the best overall performance on the TCDD dataset and ranked second on the sciPlex3 dataset. Therefore, for a dataset that includes perturbation dosage information, scVIDR is an optimal choice.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the cellular context generalization scenario, all algorithms' performance was more sensitive to data sparsity than to noise.",
+        "item_id": null,
+        "source_chunk_id": "3268302ec1ce199c7b23",
+        "source_excerpt": "We also noted that the performance of the algorithms deteriorated more severely for high-sparsity data, indicating that their performance is more sensitive to data sparsity (Fig. 2b).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the perturbation generalization scenario, all algorithms' performance was affected by data noise and sparsity, with greater sensitivity to sparsity.",
+        "item_id": null,
+        "source_chunk_id": "7624e9579b02a78e9f0d",
+        "source_excerpt": "All the algorithms’ performance was affected by data noise and sparsity, with greater sensitivity to sparsity (Fig. 4a,j).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that in the chemical perturbation setting, PRnet and chemCPA were most stable to sparsity, and PRnet and cycleCDR were most stable to noise.",
+        "item_id": null,
+        "source_chunk_id": "1bf733d287f142fd489c",
+        "source_excerpt": "Regarding the impact of sparsity, PRnet and chemCPA were the most stable. Regarding the impact of noise, PRnet and cycleCDR were the most stable (Fig. 5a,d).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the cellular context generalization scenario, none of the algorithms encountered out-of-memory issues and runtimes were acceptable except for CellOT.",
+        "item_id": null,
+        "source_chunk_id": "3268302ec1ce199c7b23",
+        "source_excerpt": "In terms of scalability (Supplementary Note 8), none of the algorithms encountered out-of-memory issues, and their runtimes were within acceptable limits, except for CellOT (Fig. 2h).",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that in the perturbation generalization scenario, none of the algorithms encountered out-of-memory issues and runtimes were acceptable except for scFoundation.",
+        "item_id": null,
+        "source_chunk_id": "7624e9579b02a78e9f0d",
+        "source_excerpt": "In terms of scalability, none of the algorithms encountered out-of-memory issues, and their runtimes were within acceptable limits, except for scFoundation (Fig. 4i).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that in the chemical perturbation setting, none of the algorithms encountered out-of-memory issues and runtimes were acceptable.",
+        "item_id": null,
+        "source_chunk_id": "1bf733d287f142fd489c",
+        "source_excerpt": "In terms of scalability (Fig. 5c), none of the algorithms encountered out-of-memory issues, and their runtimes were within acceptable limits.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "The extraction omits the key finding that the study provides user guidance for method selection based on dataset characteristics (Fig. 3g and Fig. 5g).",
+        "item_id": null,
+        "source_chunk_id": "3268302ec1ce199c7b23",
+        "source_excerpt": "Finally, user guidance is provided regarding the benchmark analysis of the cellular context generalization scenario (Fig. 3g).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that the study proposes incorporating prior knowledge through cell-line embeddings to improve model generalizability as a proof-of-concept.",
+        "item_id": null,
+        "source_chunk_id": "49fc71ae0e1db1dc81a6",
+        "source_excerpt": "To alleviate this, we propose incorporating prior knowledge through cell-line embeddings, which can improve model generalizability (Supplementary Notes 12 and 13 and Supplementary Figs. 27, 28 and 38).",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The extraction omits the key finding that the study identifies several limitations of current research, including insufficient datasets in certain scenarios, applicability only to cell-line-derived contexts, limited improvements from the embedding strategy, and lack of addressing poor performance on population-distribution metrics.",
+        "item_id": null,
+        "source_chunk_id": "49fc71ae0e1db1dc81a6",
+        "source_excerpt": "There are several limitations of our current research. (1) In certain test scenarios, the available datasets are currently insufficient, which may lead to bias in the conclusions drawn; (2) Our proposed cellular context embedding strategy is currently applicable only to cell-line-derived contexts and cannot be directly applied to patient-derived contexts (Supplementary Note 12); (3) While the proposed cellular context embedding strategy represents a conceptually promising direction, its current performance demonstrates only limited improvements—mainly in the PCC-delta and Common-DEGs metrics—and does not consistently surpass baseline methods across evaluation metrics on all the evaluated datasets. ... (4) Our current work does not address the challenge of poor performance on population-distribution metrics, which reflect a model’s ability to capture intracellular heterogeneity.",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.5806
+  },
+  "quality_score": 0.7347,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "How do computational methods for single-cell perturbation response prediction perform in terms of generalizability across diverse cellular contexts and perturbation scenarios?",
+      "study_units": [
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "ds1",
+              "description": "Human PBMCs from eight donors stimulated with interferon-beta and controls (GSE96583).",
+              "name": "kangCrossCell",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds10",
+              "description": "Expression data from mouse, rat, rabbit, and pig.",
+              "name": "CrossSpecies",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds11",
+              "description": "Perturbation dataset from biolord tutorial.",
+              "name": "Afriat",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds2",
+              "description": "Human PBMCs from eight donors stimulated with interferon-beta and controls (GSE96583).",
+              "name": "kangCrossPatient",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds3",
+              "description": "Intestinal epithelial cells infected with bacterial and helminth infections (GSE92332).",
+              "name": "Haber",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds4",
+              "description": "Overexpression data for eight transcription factors across three cell lines.",
+              "name": "Parekh",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds5",
+              "description": "Single-cell perturbation data for six patients in response to Panobinostat and Etoposide.",
+              "name": "CrossPatient",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds6",
+              "description": "Three human cancer cell lines (A549, MCF7, K562) perturbed with 188 chemicals at four dosages; only nine most effective chemicals used for testing.",
+              "name": "sciPlex3",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds7",
+              "description": "PBMCs from three donors, five cell types exposed to 144 chemicals.",
+              "name": "KaggleCrossPatient",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds8",
+              "description": "PBMCs from three donors, five cell types exposed to 144 chemicals.",
+              "name": "KaggleCrossCell",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds9",
+              "description": "Six human cancer cell lines exposed to 11 chemicals.",
+              "name": "McFarland",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate 14 methods (biolord, CellOT, inVAE, scDisInFact, scGen, scPRAM, scPreGAN, SCREEN, scVIDR, trVAE, and 4 baseline models) on 12 datasets covering various cell types, species, and individuals."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "Benchmark methods for cellular context generalization",
+              "protocol_description": "14 methods including biolord, CellOT, inVAE, scDisInFact, scGen, scPRAM, scPreGAN, SCREEN, scVIDR, trVAE, and 4 baseline models. Parameters set per official guidelines."
+            }
+          ],
+          "name": "Cellular context generalization scenario",
+          "results": [],
+          "unit_id": "su_0fb9889ce0d53afa10e1a8f1"
+        },
+        {
+          "claims": [],
+          "datasets": [
+            {
+              "dataset_id": "ds12",
+              "description": "Chemical combination perturbation dataset.",
+              "name": "sciPlex3-comb",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds13",
+              "description": "Genetic perturbation dataset.",
+              "name": "Adamson3",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds14",
+              "description": "Genetic perturbation dataset.",
+              "name": "Frangieh45",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds15",
+              "description": "CRISPR activation experiment.",
+              "name": "TianActivation",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds16",
+              "description": "CRISPR inhibition experiment.",
+              "name": "TianInhibition",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds17",
+              "description": "Single-cell perturbation data from Replogle et al.",
+              "name": "Replogle-exp6",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds18",
+              "description": "Single-cell perturbation data from Replogle et al.",
+              "name": "Replogle-exp7",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds19",
+              "description": "Single-cell perturbation data from Replogle et al.",
+              "name": "Replogle-exp8",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds20",
+              "description": "Genetic perturbation dataset.",
+              "name": "Papalexi42",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds21",
+              "description": "RPE1 cell line essential genes.",
+              "name": "Replogle-RPE1essential",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds22",
+              "description": "K562 cell line essential genes.",
+              "name": "Replogle-K562essential",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds23",
+              "description": "Combined perturbation dataset with gene interaction types.",
+              "name": "Norman40",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds24",
+              "description": "Genetic perturbation dataset.",
+              "name": "Wessels39",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds25",
+              "description": "CRISPR activation and interference screens in primary human T cells.",
+              "name": "Schmidt38",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds26",
+              "description": "A549 cell line chemical perturbation.",
+              "name": "sciPlex-A549",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds27",
+              "description": "K562 cell line chemical perturbation.",
+              "name": "sciPlex3-K562",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "ds28",
+              "description": "MCF7 cell line chemical perturbation.",
+              "name": "sciPlex3-MCF7",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Evaluate 18 methods (AttentionPert, biolord, CPA, GEARS, GenePert, linearModel, scFoundation, scGPT, chemCPA, scouter, scELMo, GeneCompass, PRnet, cycleCDR, and 4 baseline models) on 17 datasets (13 genetic, 4 chemical)."
+          ],
+          "methods": [
+            {
+              "method_id": "m2",
+              "name": "Benchmark methods for perturbation generalization",
+              "protocol_description": "18 methods including AttentionPert, biolord, CPA, GEARS, GenePert, linearModel, scFoundation, scGPT, chemCPA, scouter, scELMo, GeneCompass, PRnet, cycleCDR, and 4 baseline models. Parameters set per official guidelines."
+            }
+          ],
+          "name": "Perturbation generalization scenario",
+          "results": [],
+          "unit_id": "su_5ce576b01493afac6923e70d"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

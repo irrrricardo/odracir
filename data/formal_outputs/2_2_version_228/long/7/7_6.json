@@ -1,0 +1,201 @@
+{
+  "coverage_ledger": {
+    "122d4b0cef65b669f099": "not_selected",
+    "3afe960eb4089172c768": "extracted",
+    "479ba563fd8134579222": "not_selected",
+    "49ff1aa227b2a7b7cb87": "not_selected",
+    "4be725c513c3e6fee6bc": "not_selected",
+    "6250b3148d751a5ccaa4": "not_selected",
+    "69efe5ff73dfc042d3b6": "not_selected",
+    "6ce1719379f7b9bdc9c9": "not_selected",
+    "76ac72ab57998ae9b11c": "not_selected",
+    "8ce761789ce957533cb5": "extracted",
+    "8f5050db88e05495d9d8": "not_selected",
+    "95d89d31588f3008067d": "not_selected",
+    "a2534fefc706d2064b70": "extracted",
+    "a342cd9bd6ad9152d38d": "not_selected",
+    "a87ca6830905c99431c0": "not_selected",
+    "b4d492b6133d8a21d0d7": "extracted",
+    "bcd27d97ce947d72ac80": "not_selected",
+    "c19a4296fefccbff75b3": "not_selected",
+    "c7fedad53489ffcf8175": "not_selected",
+    "caf22d47ccebcaaf05c4": "not_selected",
+    "e80cea1d3984bdabd1ab": "not_selected",
+    "fe7b88648e22aca0f195": "not_selected"
+  },
+  "limitations_and_boundaries": [],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "methodological",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "7_6.pdf",
+    "source_sha256": "4b0bea3d69cbcb044b4e6b754de87ad3dc6efe7e5f2606cb090bca0e00bbad4a"
+  },
+  "paper_id": "7_6",
+  "quality_assessment": {
+    "correct_item_count": 12,
+    "deterministic_rule_score": 0.705,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 12,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Can deep operator networks (DeepONets) learn nonlinear operators accurately and efficiently from relatively small datasets?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_44183a9d98bb39b5be132a88",
+              "inference_basis_ids": [
+                "res_7af5d5aa67f024c1634d08d4",
+                "res_b120ce112e7f6f23f6e60550"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8ce761789ce957533cb5",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Therefore, unstacked DeepONets with bias achieve the best performance."
+              },
+              "statement": "Unstacked DeepONets with bias achieve the best performance among tested DeepONet variants."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_97505f3be8ebcaaba70c2981",
+              "inference_basis_ids": [
+                "res_0ade44c123eb798035d09336",
+                "res_7d2b7247b5130d30e03dd465"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "a2534fefc706d2064b70",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We perform systematic simulations for identifying two types of operators, i.e., dynamic systems and partial differential equations, and demonstrate that DeepONet significantly reduces the generalization error compared to the fully-connected networks."
+              },
+              "statement": "DeepONets significantly reduce generalization error compared to fully-connected networks."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "Synthetic dataset for learning the antiderivative operator. Input functions u are sampled from a Gaussian random field with length scale 0.2, evaluated at 100 fixed sensors. Output functions are the antiderivative evaluated at random y points. Training set size 10000, test set size 100000.",
+              "name": "Antiderivative operator dataset",
+              "version_or_split": "GRF l=0.2, 100 sensors, 10000 training, 100000 test"
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Comparing stacked and unstacked DeepONets with and without bias against fully-connected neural networks (FNNs) as baseline.",
+            "Learning the antiderivative operator G: u(x) -> s(x) = integral_0^x u(tau) dtau, with input functions u sampled from a Gaussian random field (GRF) with length scale l=0.2, using 100 sensors, 10000 training points, 100000 test points, and 50000 iterations."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "DeepONet (stacked and unstacked)",
+              "protocol_description": "DeepONet consists of a trunk network taking y as input and outputting [t1,...,tp], and branch network(s) taking [u(x1),...,u(xm)] as input and outputting [b1,...,bp]. The output is sum_{k=1}^p b_k t_k, optionally with bias b0. Stacked DeepONet uses p separate branch networks; unstacked DeepONet uses a single branch network outputting a vector. Trunk depth 3, width 40; branch depth 2, width 40. Activation functions applied in last layer of trunk. Trained with Adam optimizer for 50000 iterations."
+            },
+            {
+              "method_id": "M2",
+              "name": "Fully-connected neural network (FNN) baseline",
+              "protocol_description": "FNN takes concatenated input [u(x1),...,u(xm), y] and outputs G(u)(y). Hyperparameters grid searched: depth 2-4, width 10-2560, learning rate 0.0001-0.01. Best performance: depth 2, width 2560, learning rate 0.001."
+            }
+          ],
+          "name": "DeepONet architecture and baseline comparison",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Test MSE",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ce761789ce957533cb5",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Among all these hyperparameters, the smallest test error ∼10−4 is obtained for the network with depth 2, width 2560, and learning rate 0.001."
+              },
+              "quantitative_value": 0.0001,
+              "result_id": "res_0ade44c123eb798035d09336",
+              "unit": null,
+              "value_raw_text": "~10^{-4}"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test error comparison: unstacked vs stacked",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ce761789ce957533cb5",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "Compared to stacked DeepONets, although unstacked DeepONets have larger training error, the test error is smaller, due to the smaller generalization error."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7af5d5aa67f024c1634d08d4",
+              "unit": null,
+              "value_raw_text": "unstacked DeepONets have larger training error, the test error is smaller, due to the smaller generalization error"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Generalization error",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ce761789ce957533cb5",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "The training trajectory of an unstacked DeepONet with bias is shown in Fig. 3A, and the generalization error is negligible."
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d2b7247b5130d30e03dd465",
+              "unit": null,
+              "value_raw_text": "negligible"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Test error reduction with bias",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "8ce761789ce957533cb5",
+                "page_end": 7,
+                "page_start": 7,
+                "paraphrased": false,
+                "text_excerpt": "We observe that for both stacked and unstacked DeepONets, adding bias to branch networks and Eq. (2) reduces both training and test errors (Fig. 3B); DeepONets with bias also have smaller uncertainty, i.e., more stable for training from random initialization (Fig. 3B)."
+              },
+              "quantitative_value": null,
+              "result_id": "res_b120ce112e7f6f23f6e60550",
+              "unit": null,
+              "value_raw_text": "adding bias to branch networks and Eq. (2) reduces both training and test errors"
+            }
+          ],
+          "unit_id": "su_b96c0c483677d3a4beb976b1"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

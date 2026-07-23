@@ -1,0 +1,495 @@
+{
+  "coverage_ledger": {
+    "005ded825b556b27065d": "extracted",
+    "056073c4e4387c04c3a0": "extracted",
+    "0bee3c0f70c411b7964c": "not_selected",
+    "0e26b9b28cbd902c5cd5": "not_selected",
+    "0ea528598e84bcd3c5e2": "not_selected",
+    "1773eeec2fadcd826e38": "not_selected",
+    "200463d4d5f96ea7f1e7": "not_selected",
+    "25ceefbd458defcecc53": "extracted",
+    "262f71d5ddc482331fa4": "not_selected",
+    "2b767c171f0905831cbc": "not_selected",
+    "2d14e649a91447535952": "extracted",
+    "4105299a7654d37b9f1f": "not_selected",
+    "4d34a744344e3798323b": "not_selected",
+    "68dc3edea33d8d77aa69": "not_selected",
+    "7ae9237e678e24f56fb0": "not_selected",
+    "81c4fa9eca24bdbbe65e": "not_selected",
+    "851d87b84c0340167bbf": "not_selected",
+    "9519288c487ec7d9ca59": "not_selected",
+    "bbe1693a6165492a7a1b": "extracted",
+    "bce6a3110ca4cf58d598": "not_selected",
+    "bf5239f1a6ae609e29f6": "not_selected",
+    "c2b7cf29532734ad6fba": "not_selected",
+    "c2f63057d5e33672065d": "extracted",
+    "c6b58fe380875e278115": "not_selected",
+    "ca8247b8170103d608f1": "not_selected",
+    "ce724178247f6e8e29af": "not_selected",
+    "cfe25a1aade5945863f9": "not_selected",
+    "e641cff44b8275a6e200": "extracted",
+    "ead7114294298c5fe642": "extracted",
+    "f119389312ee7aebd3df": "not_selected",
+    "faf8c7e260414ae4b6e2": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "Counterfactual inference accuracy results are not detailed in the provided chunks.",
+    "Performance evaluations for optimal product mix problem are not discussed due to data confidentiality.",
+    "Time taken for structure learning exceeds 24 hours and inferencing algorithms crash for large networks on the specified hardware.",
+    "The study is limited to the algorithms and datasets included; generalizability to other domains or larger networks is not established.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "computational_biology",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_24.pdf",
+    "source_sha256": "eb24db8c8f5a55d0ff5f12f2c2c0929b84f2bb97cd0aba65ad4808d379fdcacf"
+  },
+  "paper_id": "5_24",
+  "quality_assessment": {
+    "correct_item_count": 33,
+    "deterministic_rule_score": 0.8647,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 35,
+    "f1": 0.88,
+    "incorrect_item_count": 2,
+    "incorrect_items": [
+      {
+        "description": "The extracted item claims evaluation of counterfactual inference accuracy is not detailed in provided chunks, but the source chunks do contain details on counterfactual accuracy evaluation (Section 6.3.3, chunk cfe25a1aade5945863f9).",
+        "item_id": "task:su_36130cf1bff2c5a94a3caa7a:2",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      },
+      {
+        "description": "The extracted boundary states counterfactual inference accuracy results are not detailed in the provided chunks, but the source chunks do contain such details (Section 6.3.3, chunk cfe25a1aade5945863f9).",
+        "item_id": "boundary:1",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 7,
+    "missed_core_items": [
+      {
+        "description": "Counterfactual accuracy results: PC, GES, and RFCI have errors close to the original graph, while FCI, FCI+, MMHC have higher errors.",
+        "item_id": null,
+        "source_chunk_id": "851d87b84c0340167bbf",
+        "source_excerpt": "Figure 4 shows that errors in PC, GES, and RFCI are close to those when the actual graph was used to compute counterfactual expectation (which is, in some sense, the best possible), whereas, errors in FCI, FCI+, MMHC are high as compared to original graph.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "For large dataset (simulated), PC outperforms all other algorithms in every performance measure (NRMSE, F-score, AUC, SHD, SID, counterfactual error).",
+        "item_id": null,
+        "source_chunk_id": "c2b7cf29532734ad6fba",
+        "source_excerpt": "Figure 5 shows that PC outperforms rest of the algorithms in every perform measure.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "For small datasets, active learning algorithm outperforms in AUC and F-score, MMHC and PC in SHD and SID, GES in predictive accuracy; for medium, FCI+ outperforms in all structural and predictive metrics; for large, PC outperforms in all metrics.",
+        "item_id": null,
+        "source_chunk_id": "c6b58fe380875e278115",
+        "source_excerpt": "From Table 4, we observe that for small sized dataset active learning based algorithm outperforms rest of the algorithms in terms of AUC and F-score, whereas, in terms of SHD and SID MMHC and PC perform better. For predictive accuracy, GES outperforms rest of the algorithm. For medium sized dataset, FCI+ outperform in all performance metrics of structural accuracy and predictive accuracy. For large dataset, PC outperforms everything else in all performance metrics.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "For medium and large datasets, algorithms with better structural accuracy also perform best for predictive and counterfactual accuracy, but this does not hold for small datasets.",
+        "item_id": null,
+        "source_chunk_id": "c6b58fe380875e278115",
+        "source_excerpt": "Thus, better structure leads to a better predictive accuracy for medium to large datasets but this does not holds for small-sized datasets.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Structures learned using mix of observation and intervention data outperform those using only observation data (e.g., GIES outperforms GES).",
+        "item_id": null,
+        "source_chunk_id": "7ae9237e678e24f56fb0",
+        "source_excerpt": "Structures learned using mix of observation and intervention data outperform the algorithms using observation data only. For example, GIES algorithm which uses both intervention and observation data outperform GES algorithm which uses only observation data.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "PC outperforms other algorithms in every performance measure if the underlying data generation model is linear Gaussian and data size is large.",
+        "item_id": null,
+        "source_chunk_id": "7ae9237e678e24f56fb0",
+        "source_excerpt": "Also, we have learned that PC outperforms other algorithms in terms of every performance measure if the underlying model of data generation is linear Gaussian and data size is large.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "None of the existing state-of-the-art causal structure learning algorithms can capture causal relations for datasets with a large number of nodes.",
+        "item_id": null,
+        "source_chunk_id": "7ae9237e678e24f56fb0",
+        "source_excerpt": "Also, none of the existing state of the art causal structure learning algorithms are able to capture the causal relations for the datasets having large number of nodes.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9429,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.825
+  },
+  "quality_score": 0.88,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How do prominent causal discovery algorithms compare in terms of structural accuracy, standard predictive accuracy, and counterfactual inference accuracy across datasets of varying sample sizes?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_164113ff38b2c2181f1a5ade",
+              "inference_basis_ids": [
+                "res_c2b813b50501e5956814ae86"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "bbe1693a6165492a7a1b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Experiments show that structural accuracy of a technique does not necessarily correlate with higher accuracy of inferencing tasks."
+              },
+              "statement": "Structural accuracy of a causal discovery technique does not necessarily correlate with higher accuracy of inferencing tasks."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5fa1bba5ba55d16b75efa502",
+              "inference_basis_ids": [
+                "res_14d5b6ce99bc6fe94754b045",
+                "res_4c385820b21ff870f5c95ff9"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "Hence, current state-of-the-art causal structure learning algorithms do not work well for large node networks, present especially in biological domain."
+              },
+              "statement": "Current state-of-the-art causal structure learning algorithms do not work well for large node networks, present especially in biological domain."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bd4170ed47eeedb6bc3b4f11",
+              "inference_basis_ids": [
+                "res_14d5b6ce99bc6fe94754b045",
+                "res_4c385820b21ff870f5c95ff9"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "bbe1693a6165492a7a1b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Further, surveyed structure learning algorithms do not perform well in terms of structural accuracy in case of datasets having large number of variables."
+              },
+              "statement": "Surveyed structure learning algorithms do not perform well in terms of structural accuracy in case of datasets having large number of variables."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "DS1",
+              "description": "In-silico gene regulatory network data with 10-node networks (1 wild type, 10 multi-factorial perturbation observational samples; 20 intervention samples: 1 knockout and 1 knockdown per gene) and 100-node networks (201 samples: 1 wildtype, 100 knockdown, 100 knockout).",
+              "name": "DREAM4",
+              "version_or_split": "10-node and 100-node networks"
+            },
+            {
+              "dataset_id": "DS2",
+              "description": "Observational data of 11 phosphoprotein expression levels in human primary T cells, 1756 samples.",
+              "name": "Sachs",
+              "version_or_split": null
+            },
+            {
+              "dataset_id": "DS3",
+              "description": "Randomly generated from a 10-node Gaussian Bayesian network with edge weights uniformly sampled from (-1,-0.25) U (0.25,1), base levels from (50,500), noise levels from (5,100). 10,000 observational samples and knockout intervention data.",
+              "name": "Simulated",
+              "version_or_split": "10-node Gaussian Bayesian network"
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "Experiments show that structural accuracy of a technique does not necessarily correlate with higher accuracy of inferencing tasks.",
+              "provenance": {
+                "chunk_id": "bbe1693a6165492a7a1b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Experiments show that structural accuracy of a technique does not necessarily correlate with higher accuracy of inferencing tasks."
+              },
+              "span_id": "ES1"
+            },
+            {
+              "content": "Further, surveyed structure learning algorithms do not perform well in terms of structural accuracy in case of datasets having large number of variables.",
+              "provenance": {
+                "chunk_id": "bbe1693a6165492a7a1b",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Further, surveyed structure learning algorithms do not perform well in terms of structural accuracy in case of datasets having large number of variables."
+              },
+              "span_id": "ES2"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Comparative benchmarking of causal discovery algorithms on two real datasets (DREAM4, Sachs) and one simulated dataset with different sample sizes (small, medium, large).",
+            "Evaluation of counterfactual inference accuracy (not detailed in provided chunks).",
+            "Evaluation of predictive accuracy using NRMSE averaged across all nodes (NRMSEav).",
+            "Evaluation of structural accuracy using AUC, F-score, SHD, and SID."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "PC algorithm",
+              "protocol_description": "Constraint-based algorithm that starts with a complete undirected graph, tests conditional independence for each edge with increasing conditioning set size, deletes edges when independence is found, and applies edge orientation rules to output a CPDAG."
+            },
+            {
+              "method_id": "M2",
+              "name": "GES algorithm",
+              "protocol_description": "Score-based algorithm that searches over equivalence classes of DAGs using a greedy approach to optimize a score (e.g., BIC)."
+            },
+            {
+              "method_id": "M3",
+              "name": "GIES algorithm",
+              "protocol_description": "Extension of GES that incorporates interventional data to learn interventional Markov equivalence classes."
+            },
+            {
+              "method_id": "M4",
+              "name": "FCI+ algorithm",
+              "protocol_description": "Constraint-based algorithm that allows latent variables and selection bias; extends FCI with additional orientation rules."
+            },
+            {
+              "method_id": "M5",
+              "name": "MMHC algorithm",
+              "protocol_description": "Hybrid algorithm combining constraint-based (max-min parents and children) and score-based (hill-climbing) approaches."
+            },
+            {
+              "method_id": "M6",
+              "name": "Active learning algorithm",
+              "protocol_description": "Active learning for Gaussian Bayesian networks that selects most informative interventions based on Bayesian inference over graph structures."
+            },
+            {
+              "method_id": "M7",
+              "name": "GBN learned on observation data",
+              "protocol_description": "Gaussian Bayesian network structure learned from observational data."
+            }
+          ],
+          "name": "Benchmarking of causal discovery algorithms",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Predictive accuracy (NRMSEav) for small dataset",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "In terms of predictive accuracy, GES outperforms all other algorithms for small dataset"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0a3d65ec19757d05f90a1b32",
+              "unit": null,
+              "value_raw_text": "GES outperforms all other algorithms for small dataset"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Scalability limitation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "Time taken for execution of structure learning exceeds 24 hour and inferencing algorithms crash for large networks on i7-4600U CPU @ 2.10GHz × 4 system with 8GB RAM."
+              },
+              "quantitative_value": null,
+              "result_id": "res_14d5b6ce99bc6fe94754b045",
+              "unit": null,
+              "value_raw_text": "Time taken for execution of structure learning exceeds 24 hour and inferencing algorithms crash for large networks"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural accuracy (AUC, F-score) for large dataset (DREAM4 100-node)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "Table 2 shows the structural accuracy of networks having large number of nodes, 100 in this case. It shows that GES outperforms other algorithms in terms of AUC and F-score."
+              },
+              "quantitative_value": null,
+              "result_id": "res_2adc123e9c96bf11adeaf2fd",
+              "unit": null,
+              "value_raw_text": "GES outperforms other algorithms in terms of AUC and F-score"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural accuracy (all four measures) for medium dataset (Sachs)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "For medium-sized dataset, i.e., Sachs data, FCI+ seems to outperform every other algorithm in terms of all four structural measures."
+              },
+              "quantitative_value": null,
+              "result_id": "res_3f44a7410ebcb8b1305fe3cf",
+              "unit": null,
+              "value_raw_text": "FCI+ seems to outperform every other algorithm in terms of all four structural measures"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Overall predictive accuracy (NRMSEav) across all datasets",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "Overall NRMSEav of GES for all six dataset is 8.845"
+              },
+              "quantitative_value": 8.845,
+              "result_id": "res_43c34ecf6ce5262c611329af",
+              "unit": null,
+              "value_raw_text": "Overall NRMSEav of GES for all six dataset is 8.845"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural performance drop for large networks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "As evident from Table 2, structural performance drops drastically in case of networks with higher number of nodes."
+              },
+              "quantitative_value": null,
+              "result_id": "res_4c385820b21ff870f5c95ff9",
+              "unit": null,
+              "value_raw_text": "structural performance drops drastically in case of networks with higher number of nodes"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Intervention data benefit",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "Algorithms which utilize intervention data (GIES) significantly perform better than their counterparts (GES) which use only observational data."
+              },
+              "quantitative_value": null,
+              "result_id": "res_519aaa6ddf006beb75a5adb7",
+              "unit": null,
+              "value_raw_text": "Algorithms which utilize intervention data (GIES) significantly perform better than their counterparts (GES) which use only observational data"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Predictive accuracy ranking",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "followed by GBN learned on observation data and structure learning algorithms taking hidden nodes into account."
+              },
+              "quantitative_value": null,
+              "result_id": "res_925d405213ff900f5562609f",
+              "unit": null,
+              "value_raw_text": "followed by GBN learned on observation data and structure learning algorithms taking hidden nodes into account"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between structural and predictive accuracy",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "From Table 1 and 3, it is seen that algorithms having high structural AUC and F-score do not necessary have high inferencing capability."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c2b813b50501e5956814ae86",
+              "unit": null,
+              "value_raw_text": "algorithms having high structural AUC and F-score do not necessary have high inferencing capability"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural accuracy (SHD, SID) for small dataset (DREAM4 10-node)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "while MMHC and PC outperform others in terms of SHD and SID"
+              },
+              "quantitative_value": null,
+              "result_id": "res_fb34040da6a4f069a07d8a2b",
+              "unit": null,
+              "value_raw_text": "MMHC and PC outperform others in terms of SHD and SID"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Predictive accuracy (NRMSEav) for medium dataset",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "and does equally good as PC for medium size dataset."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ff49cbe489d3b846178376f5",
+              "unit": null,
+              "value_raw_text": "GES does equally good as PC for medium size dataset"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Structural accuracy (AUC, F-score) for small dataset (DREAM4 10-node)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "e641cff44b8275a6e200",
+                "page_end": 18,
+                "page_start": 18,
+                "paraphrased": false,
+                "text_excerpt": "It is seen that active learning algorithm outperforms all other algorithms for Dream4 datasets (small) in terms of AUC and F-score"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ffd143ad55e9d12584076e18",
+              "unit": null,
+              "value_raw_text": "Active learning algorithm outperforms all other algorithms for Dream4 datasets (small) in terms of AUC and F-score"
+            }
+          ],
+          "unit_id": "su_36130cf1bff2c5a94a3caa7a"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

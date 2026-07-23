@@ -1,0 +1,752 @@
+{
+  "coverage_ledger": {
+    "0198f6b5d91615315bcd": "not_selected",
+    "11b119d57174641db65d": "not_selected",
+    "15e20321f67c3bc420e0": "not_selected",
+    "3a9cfb54bb9dc267ac58": "not_selected",
+    "579e3eb5889b98753e6a": "extracted",
+    "5d1240e5a3c763cb0c19": "not_selected",
+    "6a3678ed29a9342dfe9b": "not_selected",
+    "6c13d60c456492508e4a": "not_selected",
+    "8280c1a60876ba694fc6": "extracted",
+    "8f91ea6de2c2e607e10e": "not_selected",
+    "9782f8adae5b09f2bb4a": "not_selected",
+    "d6924d72037a700d2f81": "not_selected",
+    "de1e991f73880470aca9": "extracted",
+    "fcc462caaef6a5ab048f": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "MN disruption frequency was assessed in a limited set of cell lines; generalizability to all cell types is not established.",
+    "The study focuses on lagging chromosomes giving rise to whole-chromosome MN; broken-chromosome MN were not separately analyzed in depth.",
+    "The mechanism of LmnB1 depletion in MN is not fully elucidated.",
+    "The role of MN disruption in chromothripsis is correlative and not directly demonstrated.",
+    "Tumor analysis was limited to NSCLC; applicability to other solid tumors remains to be tested.",
+    "The selected source chunks do not report a rescue, reconstitution, reversal, or epistasis experiment; that rung of the causal evidence chain remains untested within this extraction scope."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_3.pdf",
+    "source_sha256": "8542c61bb44e1e77dec9d5d71178d21a07db24e19302345a392079f513cd544e"
+  },
+  "paper_id": "5_3",
+  "quality_assessment": {
+    "correct_item_count": 62,
+    "deterministic_rule_score": 0.9573,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.2381,
+      "sample_size_log_score": 0.8261,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 63,
+    "f1": 0.9538,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The claim states 'MN disruption is caused by NE collapse, not NPC loss.' The source excerpt in the claim's provenance is 'the loss of compartmentalization in disrupted MN was the result of NPC loss', which is the opposite of the claim. The source text actually says: 'We first asked whether the loss of compartmentalization in disrupted MN was the result of NPC loss. We examined the levels of NPC components in intact and disrupted MN by immunofluorescence and found that the core nucleoporins recognized by mAb414 are present at similar levels in both disrupted and intact MN (Figures S2A and S2B), suggesting that a loss of NPC proteins is not driving compartmentalization loss.' Thus, the claim is contradicted by the source.",
+        "item_id": "claim:su_6fd64b0a57a50bd7f4d2b7bd:clm_4076a0451f4647b5c3a92fb8",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 5,
+    "missed_core_items": [
+      {
+        "description": "MN disruption is characterized by chromatin compaction and a failure to exclude ER tubules from the chromatin mass.",
+        "item_id": null,
+        "source_chunk_id": "8f91ea6de2c2e607e10e",
+        "source_excerpt": "Taken together, these data indicate that MN disruption is caused by NE collapse, which is characterized by chromatin compaction and a failure to exclude ER tubules from the chromatin mass.",
+        "source_excerpt_verified": true
+      },
+      {
+        "description": "Disrupted MN are present in both major subtypes of human non-small-cell lung cancer.",
+        "item_id": null,
+        "source_chunk_id": "8280c1a60876ba694fc6",
+        "source_excerpt": "We identified disrupted MN in both major subtypes of human non-small-cell lung cancer, suggesting that disrupted MN could be a useful objective biomarker for genomic instability in solid tumors.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "MN disruption results in a global cessation of nuclear functions including replication, transcription, and DNA-damage recognition and repair.",
+        "item_id": null,
+        "source_chunk_id": "6a3678ed29a9342dfe9b",
+        "source_excerpt": "Loss of NE integrity arrests basic nuclear functions including replication, transcription, and DNA-damage recognition and repair.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The mechanism of LmnB1 depletion in MN is not fully elucidated; it is unclear what causes discontinuities to form specifically in the MN lamina.",
+        "item_id": null,
+        "source_chunk_id": "6a3678ed29a9342dfe9b",
+        "source_excerpt": "However, it is unclear what causes discontinuities to form specifically in the MN lamina.",
+        "source_excerpt_verified": false
+      },
+      {
+        "description": "The study focuses on lagging chromosomes giving rise to whole-chromosome MN; broken-chromosome MN were not separately analyzed in depth.",
+        "item_id": null,
+        "source_chunk_id": "8280c1a60876ba694fc6",
+        "source_excerpt": "In this study, we will focus conceptually on lagging chromosomes, which give rise to MN containing a whole chromosome.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9841,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9254
+  },
+  "quality_score": 0.9538,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Why do micronuclei (MN) exhibit broad functional defects compared to primary nuclei?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4076a0451f4647b5c3a92fb8",
+              "inference_basis_ids": [
+                "res_a1bed7c8c0141ff273fe2e82"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "the loss of compartmentalization in disrupted MN was the result of NPC loss"
+              },
+              "statement": "MN disruption is caused by NE collapse, not NPC loss."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_54c7f9ddc7ce8821ac0df8b9",
+              "inference_basis_ids": [
+                "res_ae8e99e3a031cfdd277affb0"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "increasing lamin B levels can prevent disruption"
+              },
+              "statement": "Increasing lamin B levels can prevent MN disruption."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_de26a5fecf2cc0e541434e5c",
+              "inference_basis_ids": [
+                "res_0cf0d90dea805012c09b130e",
+                "res_69feed10072357218cf92af4",
+                "res_92fa17f20a85a4faaf035615",
+                "res_97ed93fc4469e4d7d93d59a8",
+                "res_aaa7c448b861339a0664aec6"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "MN disruption results from lamina disorganization and specifically decreased LmnB1 levels"
+              },
+              "statement": "MN disruption is linked to LmnB1 depletion and lamina disorganization."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Depletion of LmnB2 and LmnA/C as controls.",
+            "Immunofluorescence for LmnB1 morphology in MN.",
+            "Immunofluorescence for NPC components (mAb414) in intact and disrupted MN.",
+            "LmnB1 depletion by siRNA in U2OS cells and quantification of MN integrity.",
+            "Overexpression of LmnB2 to test inhibition of MN disruption.",
+            "Rescue experiment with nondegradable LmnB1.",
+            "Superresolution microscopy (SIM) of LmnB1 organization in intact MN."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "siRNA transfection",
+              "protocol_description": "siRNAs transfected with RNAimax according to manufacturer's instructions. Cells analyzed at least 2 days post-transfection."
+            },
+            {
+              "method_id": "M7",
+              "name": "Structured illumination microscopy (SIM)",
+              "protocol_description": "Zeiss Elyra PS.1 Super-Resolution microscope with 63x/1.4NA oil immersion objective. Images acquired and processed with Zen 2012 software."
+            }
+          ],
+          "name": "NE collapse and lamina defects cause MN disruption",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Rescue of MN disruption by nondegradable LmnB1",
+              "n_sample_size": 300,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "Expression of nondegradable LmnB1 reduced MN disruption to control levels"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0cf0d90dea805012c09b130e",
+              "unit": null,
+              "value_raw_text": "Expression of nondegradable LmnB1 reduced MN disruption to control levels"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of LmnB2 or LmnA/C depletion on MN disruption",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "This effect was not seen upon depletion of either LmnB2 or LmnA/C"
+              },
+              "quantitative_value": null,
+              "result_id": "res_69feed10072357218cf92af4",
+              "unit": null,
+              "value_raw_text": "This effect was not seen upon depletion of either LmnB2 or LmnA/C"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of LmnB1 depletion on MN disruption",
+              "n_sample_size": 300,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "a significant increase in the proportion of disrupted MN in LmnB1-depleted cells compared to controls"
+              },
+              "quantitative_value": null,
+              "result_id": "res_92fa17f20a85a4faaf035615",
+              "unit": null,
+              "value_raw_text": "a significant increase in the proportion of disrupted MN in LmnB1-depleted cells compared to controls"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of collapsed lamin morphology with disrupted MN",
+              "n_sample_size": 300,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "the collapsed lamin morphology was strongly correlated with disrupted MN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_97ed93fc4469e4d7d93d59a8",
+              "unit": null,
+              "value_raw_text": "the collapsed lamin morphology was strongly correlated with disrupted MN"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "NPC levels in disrupted vs intact MN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "core nucleoporins recognized by mAb414 are present at similar levels in both disrupted and intact MN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a1bed7c8c0141ff273fe2e82",
+              "unit": null,
+              "value_raw_text": "core nucleoporins recognized by mAb414 are present at similar levels in both disrupted and intact MN"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "LmnB1 organization in intact MN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": true,
+                "text_excerpt": "LmnB1 organization in intact MN was characterized by large holes in the lamina"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aaa7c448b861339a0664aec6",
+              "unit": null,
+              "value_raw_text": "LmnB1 organization in intact MN was characterized by large holes in the lamina"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Effect of LmnB2 overexpression on MN disruption",
+              "n_sample_size": 300,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "de1e991f73880470aca9",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "a significant increase in intact MN in cells expressing LmnB2 compared to control cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_ae8e99e3a031cfdd277affb0",
+              "unit": null,
+              "value_raw_text": "a significant increase in intact MN in cells expressing LmnB2 compared to control cells"
+            }
+          ],
+          "unit_id": "su_6fd64b0a57a50bd7f4d2b7bd"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_4ecf86a36f0a618a7841f582",
+              "inference_basis_ids": [
+                "res_0b23c4e12b79046187bc9a29",
+                "res_82b33900746442c28d442894"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "These data confirm that disrupted MN have completely lost compartmentalization."
+              },
+              "statement": "MN disruption is a complete loss of compartmentalization, as evidenced by mislocalization of nuclear and cytoplasmic reporters and loss of endogenous nuclear proteins."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_70358d2af984f501d4e4df0f",
+              "inference_basis_ids": [
+                "res_41d07cf87e40d81386250a90",
+                "res_c0ed5f5e7d8e7045f7b1dc44"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the amount of chromatin and presence of a centromere are not significant factors in MN fate"
+              },
+              "statement": "Chromatin amount and centromere presence do not significantly affect MN disruption."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_8f83fea7f7630a0c0053a38f",
+              "inference_basis_ids": [
+                "res_4311c7eb03f05332dcbbb953",
+                "res_5b547c23c83b8d904e8b1de4",
+                "res_6fc0bbd9ac89b4a3d58cd8dd"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "MN disruption frequency is cell cycle independent and that the proportion of disrupted MN increases as interphase is extended"
+              },
+              "statement": "MN disruption is cell cycle independent and increases with extended interphase."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_d263188c8596a7c5a4e94332",
+              "inference_basis_ids": [
+                "res_4dbc1c178b333c07f15c7523"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8280c1a60876ba694fc6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "over 60% of MN undergo an irreversible loss of compartmentalization during interphase due to NE collapse"
+              },
+              "statement": "Over 60% of micronuclei undergo irreversible loss of compartmentalization during interphase due to NE collapse."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fe4f7aa1d927adb78135b829",
+              "inference_basis_ids": [
+                "res_0113a27100a3b052959c562f",
+                "res_2d8d5224dc5756882506d916"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "MN disruption occurs frequently in both normal and transformed cells"
+              },
+              "statement": "MN disruption occurs frequently in both normal and transformed cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of MN disruption frequency in cancer cell lines (U2OS, DU145, HeLa, MDA-MB-231) and nontransformed cell lines (RPE-1, IMR90).",
+            "Cell cycle synchronization and arrest experiments (mitotic shake-off, HU, RO-3306, G1 arrest) to assess cell cycle dependence of MN disruption.",
+            "Correlation of MN disruption with chromatin amount (size) and centromere presence.",
+            "Expression of NES-tdTom-NLS shuttling construct with nuclear export block to test active nuclear import in disrupted MN.",
+            "Immunofluorescence for endogenous nuclear proteins Rb and LSD-1 in MN.",
+            "Quantification of MN fate by time-lapse imaging of U2OS cells expressing GFP-IBB and H2B-mCherry.",
+            "Time-lapse microscopy of U2OS cells expressing RFP-NLS and GFP-NES reporters to monitor nuclear compartmentalization."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Time-lapse fluorescence microscopy",
+              "protocol_description": "U2OS cells expressing fluorescent reporters were imaged on a Zeiss Axioscope/Yokagawa spinning disk confocal microscope with 63x/1.4NA oil or 20x/0.8NA air objectives at 37°C and 10% CO2. Images captured with EM CCD camera using AxioVision software."
+            },
+            {
+              "method_id": "M2",
+              "name": "Immunofluorescence",
+              "protocol_description": "Cells fixed in 4% PFA in PBS for 10 min at RT, blocked in 3% BSA in PBS + 0.1% Triton X-100, incubated with primary and secondary antibodies, stained with DAPI, and mounted in Vectashield."
+            },
+            {
+              "method_id": "M3",
+              "name": "Cell synchronization by mitotic shake-off",
+              "protocol_description": "Cells incubated in 100 ng/ml nocodazole for up to 6 hr, then mitotic cells collected by shake-off onto coverslips in fresh medium."
+            },
+            {
+              "method_id": "M4",
+              "name": "EdU pulse-labeling",
+              "protocol_description": "EdU added to medium at 10 µM for pulse-labeling to identify S phase cells."
+            },
+            {
+              "method_id": "M5",
+              "name": "Drug treatments for cell cycle arrest",
+              "protocol_description": "Hydroxyurea (HU) at 2 mM for S phase arrest; RO-3306 (Cdk1 inhibitor) at 10 µM for G2 arrest."
+            }
+          ],
+          "name": "MN compartmentalization loss during interphase",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "MN disruption frequency in nontransformed cells",
+              "n_sample_size": 300,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "around 50% of the MN were disrupted 24 hr after mitosis"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_0113a27100a3b052959c562f",
+              "unit": "%",
+              "value_raw_text": "around 50% of the MN were disrupted 24 hr after mitosis"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of endogenous nuclear proteins with MN integrity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "LSD-1 and Rb labeling of MN was strongly correlated with the presence of the NLS reporter and that these proteins were rarely present in disrupted MN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_0b23c4e12b79046187bc9a29",
+              "unit": null,
+              "value_raw_text": "LSD-1 and Rb labeling of MN was strongly correlated with the presence of the NLS reporter and that these proteins were rarely present in disrupted MN"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Disrupted MN rejoining PN after mitosis",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "disrupted MN rejoined the PN chromatin at least 50% of the time"
+              },
+              "quantitative_value": 50.0,
+              "result_id": "res_27437280574d5c8468d657d4",
+              "unit": "%",
+              "value_raw_text": "disrupted MN rejoined the PN chromatin at least 50% of the time"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MN disruption frequency in cancer cell lines",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "a similar proportion of intact and disrupted MN as in U2OS cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2d8d5224dc5756882506d916",
+              "unit": null,
+              "value_raw_text": "a similar proportion of intact and disrupted MN as in U2OS cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of MN disruption with chromatin amount",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "no correlation between MN disruption and chromatin amount"
+              },
+              "quantitative_value": null,
+              "result_id": "res_41d07cf87e40d81386250a90",
+              "unit": null,
+              "value_raw_text": "no correlation between MN disruption and chromatin amount"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MN disruption in S and G2 arrest",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "a gradual decrease in the proportion of intact MN in both S and G2 phase arrests"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4311c7eb03f05332dcbbb953",
+              "unit": null,
+              "value_raw_text": "a gradual decrease in the proportion of intact MN in both S and G2 phase arrests"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MN disruption frequency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "over 65% of the total MN observed became disrupted"
+              },
+              "quantitative_value": 65.0,
+              "result_id": "res_4dbc1c178b333c07f15c7523",
+              "unit": "%",
+              "value_raw_text": "over 65% of the total MN observed became disrupted"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MN disruption in G1 arrest",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the proportion of intact MN also decreases during G1 arrest"
+              },
+              "quantitative_value": null,
+              "result_id": "res_5b547c23c83b8d904e8b1de4",
+              "unit": null,
+              "value_raw_text": "the proportion of intact MN also decreases during G1 arrest"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MN disruption over interphase",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "the proportion of intact MN decreased steadily throughout interphase"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6fc0bbd9ac89b4a3d58cd8dd",
+              "unit": null,
+              "value_raw_text": "the proportion of intact MN decreased steadily throughout interphase"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MN repair frequency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "only a small percentage were able to repair the NE and reaccumulate GFP-IBB prior to mitosis"
+              },
+              "quantitative_value": null,
+              "result_id": "res_75e80e6e6e6413464f22f80d",
+              "unit": null,
+              "value_raw_text": "only a small percentage were able to repair the NE and reaccumulate GFP-IBB prior to mitosis"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Active nuclear import in disrupted MN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "NES-tdTom-NLS accumulated in both the PN and intact MN, but not in the disrupted MN"
+              },
+              "quantitative_value": null,
+              "result_id": "res_82b33900746442c28d442894",
+              "unit": null,
+              "value_raw_text": "NES-tdTom-NLS accumulated in both the PN and intact MN, but not in the disrupted MN"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "MN disruption frequency by centromere presence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "579e3eb5889b98753e6a",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "no difference in disruption frequency in MN that had a centromere (whole-chromosome origin) or in MN that lacked a centromere (broken-chromosome origin)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_c0ed5f5e7d8e7045f7b1dc44",
+              "unit": null,
+              "value_raw_text": "no difference in disruption frequency in MN that had a centromere (whole-chromosome origin) or in MN that lacked a centromere (broken-chromosome origin)"
+            }
+          ],
+          "unit_id": "su_9f61bfc6d106a8b1dfdebad5"
+        }
+      ]
+    },
+    {
+      "question_id": "RQ2",
+      "statement": "What are the consequences of MN disruption for DNA damage and cancer?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1badd6370dbaea04dc33fdf8",
+              "inference_basis_ids": [
+                "res_aff0bff7438a3a017dbb8829"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "fcc462caaef6a5ab048f",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": true,
+                "text_excerpt": "Disrupted MN are readily identifiable in 5 µm-thick NSCLC sections... could be a useful objective biomarker for genomic instability in solid tumors"
+              },
+              "statement": "Disrupted MN are present in human NSCLC and could serve as a biomarker for genomic instability in solid tumors."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_7f453c0711dbf389a15984eb",
+              "inference_basis_ids": [
+                "res_3cc7ef29104dd1b1eb153ca4"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "8280c1a60876ba694fc6",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": true,
+                "text_excerpt": "can trigger massive DNA damage"
+              },
+              "statement": "NE collapse in MN leads to massive DNA damage."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Analysis of DNA damage (γ-H2AX) in disrupted MN.",
+            "Examination of disrupted MN in human non-small-cell lung cancer (NSCLC) tumor sections."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "Immunofluorescence on tumor sections",
+              "protocol_description": "Human NSCLC resection specimens fixed in formalin, paraffin-embedded, sectioned at 5 µm, rehydrated, antigen retrieval by boiling in 0.01 M citric acid pH 6, blocked in 3% BSA + 4% goat serum, incubated with antibodies and DAPI, mounted in ProLong Gold."
+            }
+          ],
+          "name": "DNA damage and cancer relevance of disrupted MN",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "DNA damage in disrupted MN",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fcc462caaef6a5ab048f",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "strong correlation between NE collapse in MN and the accumulation of DNA damage"
+              },
+              "quantitative_value": null,
+              "result_id": "res_3cc7ef29104dd1b1eb153ca4",
+              "unit": null,
+              "value_raw_text": "strong correlation between NE collapse in MN and the accumulation of DNA damage"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Identification of disrupted MN in NSCLC",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "fcc462caaef6a5ab048f",
+                "page_end": 11,
+                "page_start": 11,
+                "paraphrased": false,
+                "text_excerpt": "Disrupted MN are readily identifiable in 5 µm-thick NSCLC sections by fluorescent microscopy even at low magnification due to their characteristic accumulation of γ-H2AX"
+              },
+              "quantitative_value": null,
+              "result_id": "res_aff0bff7438a3a017dbb8829",
+              "unit": null,
+              "value_raw_text": "Disrupted MN are readily identifiable in 5 µm-thick NSCLC sections by fluorescent microscopy even at low magnification due to their characteristic accumulation of γ-H2AX"
+            }
+          ],
+          "unit_id": "su_07cba121771515ac4407f9f2"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": [
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[0].study_units[1].results[5].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.7692 on attempt 1"
+    },
+    {
+      "code": "extraction.provenance_paraphrase_corrected",
+      "json_path": "$.research_questions[1].study_units[0].claims[0].provenance.paraphrased",
+      "message": "A below-threshold excerpt labelled non-paraphrased was conservatively marked as paraphrased.",
+      "repair": "paraphrased false -> true; best-local similarity 0.9333 on attempt 1"
+    }
+  ]
+}

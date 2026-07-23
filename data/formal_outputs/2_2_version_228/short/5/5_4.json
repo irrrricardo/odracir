@@ -1,0 +1,616 @@
+{
+  "coverage_ledger": {
+    "0cd507dd9c371cb7f961": "not_selected",
+    "10a1a79ac5f40a0d46d5": "not_selected",
+    "1628ab12c67788adaec1": "not_selected",
+    "1790e6f725132f9566a8": "not_selected",
+    "276b67860a63402d373a": "extracted",
+    "27b67e73c66dfa9294d9": "not_selected",
+    "290b031f5ed4faab1bfb": "not_selected",
+    "36a68ce2b722f10dd99d": "not_selected",
+    "3e8d470d03931109fb39": "not_selected",
+    "3f335b7c545d0dde7f0a": "not_selected",
+    "3f3a96a64be523900451": "not_selected",
+    "46bad56aeb328a7a7838": "extracted",
+    "53cf1d62b8f58dd757c1": "not_selected",
+    "53e371f525a5d164a1b0": "not_selected",
+    "6b2d6cd50724c8678b45": "not_selected",
+    "873b478813735d7d990e": "extracted",
+    "ac70d7044fbe214b3dbc": "not_selected",
+    "ccb0b7099821263a0ae9": "not_selected",
+    "e52e749e61d1b818359d": "not_selected",
+    "e8e680da1a670da5037f": "not_selected",
+    "edf951e77233fd2fec9d": "not_selected",
+    "fadbc4b6016fe87384e6": "extracted"
+  },
+  "limitations_and_boundaries": [
+    "The study primarily uses mouse embryonic fibroblasts and human U2OS cells; generalizability to other cell types or in vivo contexts requires further investigation.",
+    "The causal link between micronuclear envelope rupture and cGAS activation is based on live-cell imaging correlations; direct perturbation of rupture is not performed.",
+    "The single-cell transcriptomics experiment has a limited sample size (32 micronucleated cells and 28 control cells).",
+    "The study does not directly demonstrate that cGAS activation by micronuclei leads to downstream interferon responses in vivo beyond correlation."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "5_4.pdf",
+    "source_sha256": "351b6205e9379e3a7e20760e63a2918d08b4fa9491da0254efd8125855356fa5"
+  },
+  "paper_id": "5_4",
+  "quality_assessment": {
+    "correct_item_count": 46,
+    "deterministic_rule_score": 0.9028,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0667
+    },
+    "extracted_item_count": 47,
+    "f1": 0.9787,
+    "incorrect_item_count": 1,
+    "incorrect_items": [
+      {
+        "description": "The result states 'Cycling and G0-arrested cells exhibit the same level of DNA damage, as measured by formation of γH2AX foci.' The source excerpt says 'Cycling and G0-arrested cells exhibit the same level of DNA damage, as measured by formation of γH2AX foci.' However, the source chunk (873b478813735d7d990e) also includes a note: 'Only 1 Gy quantified, as γH2AX foci overlapped substantially at 5 Gy; see Extended Data Fig. 6).' The extracted result does not mention this limitation, but the statement itself is directly supported by the excerpt. The result is correct as it matches the source. No incorrectness found.",
+        "item_id": "result:su_04ed21d51df86c4b8b039f7b:res_d6b984bf70026cdfd37df17c",
+        "source_chunk_id": null,
+        "source_excerpt": null,
+        "source_excerpt_verified": null
+      }
+    ],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 1,
+    "missed_core_items": [
+      {
+        "description": "The study does not directly demonstrate that cGAS activation by micronuclei leads to downstream interferon responses in vivo beyond correlation.",
+        "item_id": null,
+        "source_chunk_id": "e8e680da1a670da5037f",
+        "source_excerpt": "Therefore, while micronuclei provide a substantial source of immunostimulatory DNA, in other pathological contexts additional mechanisms that impair nuclear compartment integrity may play a role.",
+        "source_excerpt_verified": true
+      }
+    ],
+    "precision": 0.9787,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9787
+  },
+  "quality_score": 0.9787,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "How does cellular DNA gain access to the cytoplasm to activate cGAS?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_57d11b4ee32ceb5183ed11b9",
+              "inference_basis_ids": [
+                "res_22d573f2601c35ca4dfcc87d",
+                "res_8d1d2ccd939d4f8c5bf804a7",
+                "res_d6b984bf70026cdfd37df17c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Therefore, DNA damage is not sufficient by itself to generate innate immune activation in response to ionizing radiation; with the dependence on cell-cycle progression consistent with mis-segregated DNA at mitosis being the origin of cGAS activation."
+              },
+              "statement": "DNA damage-induced innate immune activation is cell-cycle dependent and requires mitosis."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Serum starvation to arrest MEFs in G0, followed by irradiation and measurement of CCL5 production, micronucleus frequency, and γH2AX foci"
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "Serum starvation and irradiation",
+              "protocol_description": "C57BL/6J (Trp53+/+) MEFs were seeded, medium replaced with low-serum medium (0.25% FBS) for serum starvation or fresh medium (10% FBS) for asynchronous cells. After 24 h, cells were irradiated with 1 or 5 Gy. After 48 h, supernatants and cells were harvested for CCL5 ELISA and RT–qPCR."
+            }
+          ],
+          "name": "Cell-cycle dependence of DNA damage-induced immune activation",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "CCL5 production",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "CCL5 production is significantly increased after irradiation in cycling (asynchronous) cells, but not in cells arrested in G0 after serum starvation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_22d573f2601c35ca4dfcc87d",
+              "unit": null,
+              "value_raw_text": "CCL5 production is significantly increased after irradiation in cycling (asynchronous) cells, but not in cells arrested in G0 after serum starvation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micronucleus frequency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "The percentage of cells containing micronuclei is increased after irradiation in cycling but not G0-arrested cells."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8d1d2ccd939d4f8c5bf804a7",
+              "unit": null,
+              "value_raw_text": "The percentage of cells containing micronuclei is increased after irradiation in cycling but not G0-arrested cells"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "γH2AX foci",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Cycling and G0-arrested cells exhibit the same level of DNA damage, as measured by formation of γH2AX foci."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d6b984bf70026cdfd37df17c",
+              "unit": null,
+              "value_raw_text": "Cycling and G0-arrested cells exhibit the same level of DNA damage, as measured by formation of γH2AX foci"
+            }
+          ],
+          "unit_id": "su_04ed21d51df86c4b8b039f7b"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ffedad447a792de63d4ee10d",
+              "inference_basis_ids": [
+                "res_b4971420203dfc5621d98f4f",
+                "res_eeb63187965a6527d5c67051"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "cGAS localizes to micronuclei arising from genome instability in a mouse model of monogenic autoinflammation, after exogenous DNA damage and spontaneously in human cancer cells."
+              },
+              "statement": "cGAS localizes to micronuclei arising from genome instability."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Immunofluorescence detection of endogenous cGAS in U2OS cells",
+            "Immunofluorescence detection of GFP-cGAS in Rnaseh2b−/− MEFs"
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "Immunofluorescence",
+              "protocol_description": "Cells were grown on glass coverslips, fixed in 4% paraformaldehyde, permeabilized with 0.5% Triton X-100, blocked with 1% BSA, incubated with primary antibody for 1 h, followed by secondary antibody for 45 min, and mounted with Vectashield Antifade Mounting Medium with DAPI."
+            }
+          ],
+          "name": "cGAS localization to micronuclei",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "cGAS localization",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "endogenous cGAS was detected by immunofluorescence in spontaneously formed micronuclei"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b4971420203dfc5621d98f4f",
+              "unit": null,
+              "value_raw_text": "endogenous cGAS was detected by immunofluorescence in spontaneously formed micronuclei"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Percentage of micronuclei positive for GFP-cGAS",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "83.3 ±​ 1.4% of micronuclei were GFP–cGAS-positive"
+              },
+              "quantitative_value": 83.3,
+              "result_id": "res_eeb63187965a6527d5c67051",
+              "unit": "%",
+              "value_raw_text": "83.3 ±​ 1.4% of micronuclei were GFP–cGAS-positive"
+            }
+          ],
+          "unit_id": "su_1ba07f8f34416bfbcd6f796c"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_f3b70b581dd2e25de41b090f",
+              "inference_basis_ids": [
+                "res_7d29a21cd5f608bfd68ab9a0",
+                "res_8411e26efa6f4b333247ce50"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "confirming that micronuclei arise as a result of RNase H2 deficiency both in vitro and in vivo, irrespective of p53 status."
+              },
+              "statement": "RNase H2 deficiency leads to increased micronuclei formation both in vitro and in vivo, irrespective of p53 status."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Erythrocyte micronucleus assay in Rnaseh2bA174T/A174T mice versus wild-type controls",
+            "Quantification of micronuclei frequency in Rnaseh2b−/− Trp53−/− MEFs versus Rnaseh2b+/+ Trp53−/− MEFs"
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Micronucleus frequency determination",
+              "protocol_description": "After fixation and DAPI staining, the percentage of cells with micronuclei was determined by microscopy under blinded conditions. Micronuclei were defined as discrete DNA aggregates separate from the primary nucleus in cells where interphase primary nuclear morphology was normal. Cells with an apoptotic appearance were excluded."
+            },
+            {
+              "method_id": "M2",
+              "name": "Erythrocyte micronucleus assay",
+              "protocol_description": "Blood from female Rnaseh2bA174T/A174T mice and age-matched (7–8 months old) and sex-matched control C57BL/6J mice was collected into heparin solution, fixed in methanol, stained with anti-CD71-FITC and propidium iodide, and analyzed by flow cytometry."
+            }
+          ],
+          "name": "Micronuclei formation in RNase H2 deficiency",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Micronucleus frequency",
+              "n_sample_size": null,
+              "p_value": 0.003,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Increased micronuclei formation was also observed in Rnaseh2bA174T/A174T mice (P =​ 0.003; Extended Data Fig. 1c, d)"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7d29a21cd5f608bfd68ab9a0",
+              "unit": null,
+              "value_raw_text": "Increased micronuclei formation was also observed in Rnaseh2bA174T/A174T mice (P =​ 0.003)"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micronucleus frequency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Micronuclei occur at a high frequency in Rnaseh2b−/− Trp53−/− mouse embryonic fibroblasts (MEFs) compared with Rnaseh2b+/+ Trp53−/− MEFs"
+              },
+              "quantitative_value": null,
+              "result_id": "res_8411e26efa6f4b333247ce50",
+              "unit": null,
+              "value_raw_text": "Micronuclei occur at a high frequency in Rnaseh2b−/− Trp53−/− MEFs compared with Rnaseh2b+/+ Trp53−/− MEFs"
+            }
+          ],
+          "unit_id": "su_67f8ce130326356064730b75"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_c53091ca12d8894fc0ea39c2",
+              "inference_basis_ids": [
+                "res_08c085f2ec263fb442087dda",
+                "res_2a8f84dca7619675bbd136b3",
+                "res_f6ab1903a95de25136ed9829"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "After 1 Gy irradiation, we observed frequent localization of cGAS to micronuclei (Fig. 1e), along with a cGAS-dependent proinflammatory response."
+              },
+              "statement": "Exogenous DNA damage induces cGAS localization to micronuclei and a cGAS-dependent proinflammatory response."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Irradiation of GFP-cGAS-expressing MEFs with 1 Gy and immunofluorescence detection",
+            "Measurement of CCL5 secretion and micronucleus frequency in Trp53+/+ and Trp53−/− MEFs after irradiation"
+          ],
+          "methods": [
+            {
+              "method_id": "M4",
+              "name": "X-ray irradiation",
+              "protocol_description": "Cells were irradiated for 1 min at a dose rate of 1 Gy per min using an X-ray irradiation system (Faxitron 43855D) operated at 130 kVp."
+            },
+            {
+              "method_id": "M5",
+              "name": "CCL5 ELISA",
+              "protocol_description": "The concentration of CCL5 in supernatants was determined by ELISA (R&D Systems)."
+            }
+          ],
+          "name": "cGAS localization after exogenous DNA damage",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "cGAS localization to micronuclei after irradiation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "After 1 Gy irradiation, we observed frequent localization of cGAS to micronuclei"
+              },
+              "quantitative_value": null,
+              "result_id": "res_08c085f2ec263fb442087dda",
+              "unit": null,
+              "value_raw_text": "After 1 Gy irradiation, we observed frequent localization of cGAS to micronuclei"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CCL5 secretion and micronucleus frequency correlation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Increased secretion of CCL5 (a robust indicator of cGAS-dependent ISG responses in MEFs5) correlated with increased frequency of micronuclei in both Trp53+/+ and Trp53−/− MEFs"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2a8f84dca7619675bbd136b3",
+              "unit": null,
+              "value_raw_text": "Increased secretion of CCL5 correlated with increased frequency of micronuclei in both Trp53+/+ and Trp53−/− MEFs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Micronucleus formation and CCL5 production in Trp53−/− vs Trp53+/+ after irradiation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "both micronucleus formation (P =​ 0.0078) and CCL5 production (P =​ 0.020) were significantly enhanced compared with Trp53+/+ cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f6ab1903a95de25136ed9829",
+              "unit": null,
+              "value_raw_text": "both micronucleus formation (P =​ 0.0078) and CCL5 production (P =​ 0.020) were significantly enhanced compared with Trp53+/+ cells"
+            }
+          ],
+          "unit_id": "su_8d47d47f291ee2362ceb7010"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3cc225116f95ed3cbb479abb",
+              "inference_basis_ids": [
+                "res_89dc9200578a5a3673710dae",
+                "res_e7d7ad8cf9e194abc67c60d2"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We therefore conclude that nuclear envelope rupture results in exposure of DNA to the cytoplasmic compartment, leading to relocalization of cGAS to micronuclear chromatin."
+              },
+              "statement": "Micronuclear envelope rupture exposes DNA to the cytoplasm, leading to cGAS relocalization to micronuclear chromatin."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Live-cell imaging of U2OS cells expressing GFP-cGAS and mCherry-NLS to monitor micronuclear envelope rupture and cGAS accumulation"
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Live cell imaging",
+              "protocol_description": "U2OS cells stably expressing GFP–cGAS and mCherry–NLS were treated with 200 ng/ml nocodazole for 12 h, stained with SiR-DNA, and imaged every 1.5 min over a 4-h period using a fluorescence microscope."
+            }
+          ],
+          "name": "Micronuclear envelope rupture and cGAS relocalization",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Loss of micronuclear integrity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "integrity, as measured by loss of micronuclear mCherry–NLS"
+              },
+              "quantitative_value": null,
+              "result_id": "res_89dc9200578a5a3673710dae",
+              "unit": null,
+              "value_raw_text": "loss of micronuclear mCherry–NLS"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "cGAS accumulation after micronuclear envelope rupture",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "Breakdown of the micronuclear envelope, a process associated with chromothripsis7, leads to rapid accumulation of cGAS"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e7d7ad8cf9e194abc67c60d2",
+              "unit": null,
+              "value_raw_text": "Breakdown of the micronuclear envelope leads to rapid accumulation of cGAS"
+            }
+          ],
+          "unit_id": "su_9f7d4be086743c2b10a7dece"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_38eb6491fe56e2227b9b47e6",
+              "inference_basis_ids": [
+                "res_bd498bebbe8c3a339dad1e55"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "276b67860a63402d373a",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "As micronuclei formed from lagging chromosomes also activate this pathway, recognition of micronuclei by cGAS may act as a cell-intrinsic immune surveillance mechanism that detects a range of neoplasia-inducing processes."
+              },
+              "statement": "Micronuclei formed from lagging chromosomes also activate the cGAS pathway."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Nocodazole treatment to induce lagging chromosomes and micronuclei in MEFs and U2OS cells, followed by cGAS localization and CCL5 measurement"
+          ],
+          "methods": [
+            {
+              "method_id": "M9",
+              "name": "Chromosome mis-segregation assay",
+              "protocol_description": "MEFs were treated with 100 ng/ml nocodazole for 6 h, mitotic cells harvested by shake-off, washed, and plated. After 48 h, culture medium was removed for ELISA and cells on coverslips fixed for imaging to determine micronucleus frequency."
+            }
+          ],
+          "name": "cGAS activation by micronuclei from lagging chromosomes",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "cGAS-positive micronucleated cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": true,
+                "text_excerpt": "The number of cGAS-positive micronucleated cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_bd498bebbe8c3a339dad1e55",
+              "unit": null,
+              "value_raw_text": "The number of cGAS-positive micronucleated cells increased"
+            }
+          ],
+          "unit_id": "su_ac39f82314ea34e6985a9dd3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_fc133f8d6f66d5958a4575d2",
+              "inference_basis_ids": [
+                "res_6d871c2764c294c3ebfa5112",
+                "res_d5900423291aa5684a7e5a45"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "We therefore conclude that cGAS can bind to and be activated by chromatin."
+              },
+              "statement": "cGAS can be activated by chromatin and does not require free DNA ends."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "In vitro cGAS activity assay with circular and fragmented plasmid DNA",
+            "In vitro cGAS activity assay with synthetic chromatin"
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "In vitro cGAS activity assay",
+              "protocol_description": "Reactions were carried out at 37°C in 10 μl with 2 μM recombinant cGAS (amino acids 157–522), 100 ng DNA (or equivalent chromatin), 1 mM GTP and 10 μCi [α-32P]-ATP. cGAMP production was measured by thin layer chromatography (TLC)."
+            }
+          ],
+          "name": "cGAS activation by chromatin",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "cGAMP production",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "cGAMP production was similar in the presence of either circular DNA or fragmented plasmid DNA"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6d871c2764c294c3ebfa5112",
+              "unit": null,
+              "value_raw_text": "cGAMP production was similar in the presence of either circular DNA or fragmented plasmid DNA"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "cGAMP production by chromatin",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "873b478813735d7d990e",
+                "page_end": 3,
+                "page_start": 3,
+                "paraphrased": false,
+                "text_excerpt": "Synthetic chromatin activates cGAS at the same level as herring testis (HT) DNA, but slightly less than the corresponding naked 601 DNA."
+              },
+              "quantitative_value": null,
+              "result_id": "res_d5900423291aa5684a7e5a45",
+              "unit": null,
+              "value_raw_text": "Synthetic chromatin activates cGAS at the same level as herring testis (HT) DNA, but slightly less than the corresponding naked 601 DNA"
+            }
+          ],
+          "unit_id": "su_fcc4c44739f8b22b732c49a7"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

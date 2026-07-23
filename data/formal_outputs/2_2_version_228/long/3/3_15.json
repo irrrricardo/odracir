@@ -1,0 +1,763 @@
+{
+  "coverage_ledger": {
+    "0439c572e793ca4fd6fe": "not_selected",
+    "0b3b2864bdca06cd081f": "not_selected",
+    "0e1ef433842cb987cfa8": "extracted",
+    "19ef51cf3ec7140bf683": "extracted",
+    "5a87e3f7544135023c3d": "not_selected",
+    "6e6d43f4f18194920e31": "extracted",
+    "7783713662d6147cf103": "extracted",
+    "947de16680fbfa4b69d7": "not_selected",
+    "a9dc3f3458c6d8a0ba97": "not_selected",
+    "b5817950d07c58e06f37": "extracted",
+    "c31429032ec035f21ea3": "extracted",
+    "c4ef223590f3d5c6bbaf": "extracted",
+    "c5fa9651c8b5a5a195a6": "extracted",
+    "f015776dc0582855ea30": "not_selected",
+    "fc80fc4e0ca8b4b6604b": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The negative correlation between collagen density and CD8+ T cell abundance in breast cancer samples did not reach statistical significance due to limited sample size (n=20).",
+    "The study primarily uses in vitro 3D collagen matrices, which may not fully recapitulate the complex tumor microenvironment in vivo.",
+    "T cell stimulation in most experiments was performed with PMA/ionomycin, bypassing TCR signaling, which may not reflect physiological activation.",
+    "The cytotoxicity assays were performed with a single patient-derived T cell and melanoma line (MM33), limiting generalizability.",
+    "The study does not directly demonstrate that collagen density-induced T cell modulation occurs in vivo or affects tumor progression."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_15.pdf",
+    "source_sha256": "e85f894f073555b6950a70afb397c3738f372c9413403dfc9f90e47a18ad11ac"
+  },
+  "paper_id": "3_15",
+  "quality_assessment": {
+    "correct_item_count": 69,
+    "deterministic_rule_score": 0.9517,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.2273,
+      "sample_size_log_score": 0.2733,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 69,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Does collagen density in the tumor microenvironment directly regulate T cell activity and anti-tumor function?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_5c504fee4e4fd75c98ce5f62",
+              "inference_basis_ids": [
+                "res_415bb6821af1ba8e8223b5ac"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "after prolonged 3D culture of T cells for 5 days, the ratio of CD4+ cells to CD8+ cells was higher in a high-density matrix compared to a low-density matrix"
+              },
+              "statement": "Prolonged culture in high-density collagen favors CD4+ T cells over CD8+ T cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "CD4+ and CD8+ T cell ratios were analyzed by flow cytometry.",
+            "T cell differentiation subsets were analyzed after 5 days of culture.",
+            "T cells were cultured in high- or low-density collagen matrices for 2 or 5 days."
+          ],
+          "methods": [
+            {
+              "method_id": "M5",
+              "name": "Flow cytometry for CD4/CD8 ratio",
+              "protocol_description": "Cells were stained with anti-CD4-PE and anti-CD8-FITC antibodies and analyzed by flow cytometry."
+            }
+          ],
+          "name": "CD4/CD8 ratio and T cell subsets after prolonged 3D culture",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "CD4/CD8 ratio after 5 days",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "after prolonged 3D culture of T cells for 5 days, the ratio of CD4+ cells to CD8+ cells was higher in a high-density matrix compared to a low-density matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_415bb6821af1ba8e8223b5ac",
+              "unit": null,
+              "value_raw_text": "higher in a high-density matrix compared to a low-density matrix"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CD4/CD8 ratio after 2 days",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "the different culture conditions did not change the ratio of CD4+ cells to CD8+ cells after 2 days in culture"
+              },
+              "quantitative_value": null,
+              "result_id": "res_72a0e2b1b7cd3ee8932b0df0",
+              "unit": null,
+              "value_raw_text": "did not change"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "T cell differentiation subsets",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "suggested an increase in effector memory T cells and a decrease in central memory T cells after 3D culture in a high-density collagen matrix compared to a low-density collagen matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a6094dd78cf590724fb08fca",
+              "unit": null,
+              "value_raw_text": "increase in effector memory T cells and decrease in central memory T cells in high-density collagen"
+            }
+          ],
+          "unit_id": "su_1d6a5f6f8390302881def5b5"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_32cbee5ca972d8b1688b8913",
+              "inference_basis_ids": [
+                "res_2481f021ee236e364d7ef64c",
+                "res_38e9106bef25357e10e93219"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we also observed a smaller but still significant reduction in proliferation when T cells were cultured in a high-density collagen matrix compared to a low-density collagen matrix"
+              },
+              "statement": "High collagen density reduces T cell proliferation compared to low collagen density."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_ae01dd2125e00e9354c6ff5e",
+              "inference_basis_ids": [
+                "res_446b658421dd07b3a774254c"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we did not observe that proliferation of cancer cell lines was similarly impaired in a high-density collagen matrix"
+              },
+              "statement": "Cancer cell proliferation is not affected by collagen density."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Cancer cell proliferation was assessed in similar 3D conditions using BrdU incorporation after 5 days.",
+            "Proliferation was also measured by BrdU incorporation after 3 days of culture.",
+            "Proliferation was measured by CTV dilution in CD3+ cells via flow cytometry.",
+            "T cells from healthy donors were transiently stimulated with PMA and ionomycin, labeled with CellTrace Violet (CTV), and cultured in high-density (4 mg/ml) or low-density (1 mg/ml) collagen matrices or on plastic (2D) for 5 days."
+          ],
+          "methods": [
+            {
+              "method_id": "M3",
+              "name": "CellTrace Violet proliferation assay",
+              "protocol_description": "T cells were labeled with CellTrace Violet dye, cultured for 5 days, extracted from collagen gels by collagenase treatment, stained with anti-CD3-APC, and analyzed by flow cytometry for CTV dilution."
+            },
+            {
+              "method_id": "M4",
+              "name": "BrdU proliferation assay",
+              "protocol_description": "T cells were cultured for 3 days, pulsed with 10 μM BrdU for 90 min, extracted, stained with anti-BrdU antibody and surface markers, and analyzed by flow cytometry."
+            }
+          ],
+          "name": "T cell proliferation in different collagen densities",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "T cell proliferation (CTV dilution)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "Flow cytometry-based analysis of CTV dilution in CD3+ cells showed a clear reduction in proliferation when cells were cultured in 3D compared to 2D. Interestingly, we also observed a smaller but still significant reduction in proliferation when T cells were cultured in a high-density collagen matrix compared to a low-density collagen matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_2481f021ee236e364d7ef64c",
+              "unit": null,
+              "value_raw_text": "clear reduction in proliferation when cells were cultured in 3D compared to 2D; significant reduction in high-density vs low-density collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "T cell proliferation (BrdU)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "This result was confirmed using a BrdU-based proliferation assay"
+              },
+              "quantitative_value": null,
+              "result_id": "res_38e9106bef25357e10e93219",
+              "unit": null,
+              "value_raw_text": "confirmed reduction in high-density vs low-density collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer cell proliferation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "we did not observe that proliferation of cancer cell lines was similarly impaired in a high-density collagen matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_446b658421dd07b3a774254c",
+              "unit": null,
+              "value_raw_text": "proliferation of cancer cell lines was not similarly impaired in a high-density collagen matrix"
+            }
+          ],
+          "unit_id": "su_31c6aee7c61212ffb155e6a9"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_14b9ee694afa622f0198656d",
+              "inference_basis_ids": [
+                "res_9276c549fab4e3fa23b94063"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "indicating that T cells are directly affected by the surrounding collagen density"
+              },
+              "statement": "T cells are directly regulated by surrounding collagen density, independent of other cell types."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Single-cell RNA sequencing dataset of head and neck tumors from 18 patients, used to correlate COL1A1 expression with T cell activation markers.",
+              "name": "GSE103322",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "A panel of six genes (two upregulated, four downregulated in RNAseq) was analyzed by qRT-PCR in PBMCs enriched for T cells, purified T cells, purified CD8+ T cells, and TCR-transduced T cells co-cultured with melanoma cells, all cultured in high- or low-density collagen for 2 days.",
+            "Correlation of gene expression with COL1A1 levels was analyzed in a single-cell RNAseq dataset (GSE103322)."
+          ],
+          "methods": [
+            {
+              "method_id": "M8",
+              "name": "qRT-PCR",
+              "protocol_description": "RNA was extracted, reverse transcribed, and analyzed by qRT-PCR using SYBR Green with primers listed in Additional file 1: Table S2. Normalized to ACTB, ΔΔCT method."
+            }
+          ],
+          "name": "Validation of collagen density-regulated genes by qRT-PCR",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "qRT-PCR validation of six-gene panel in PBMCs enriched for T cells",
+              "n_sample_size": 4,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "A panel of six transcripts, which were significantly regulated by collagen-density in the RNA sequencing experiments (two upregulated and four downregulated), were analyzed by qRT-PCR and compared to the RNA sequencing data (Fig. 5a-b). The gene-regulations followed the same pattern as observed in the RNA sequencing experiments, with four of the six genes showing a statistically significant regulation."
+              },
+              "quantitative_value": null,
+              "result_id": "res_8c8561c568c501636d07c805",
+              "unit": null,
+              "value_raw_text": "four of the six genes showing a statistically significant regulation"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "qRT-PCR validation in purified T cells",
+              "n_sample_size": 4,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The purified T cells were again transiently PMA/ionomycin-stimulated and cultured in high-density collagen or low-density collagen. Analysis by qRT-PCR of the six-gene panel showed a similar pattern of gene-regulations, indicating that T cells are directly affected by the surrounding collagen density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9276c549fab4e3fa23b94063",
+              "unit": null,
+              "value_raw_text": "similar pattern of gene-regulations, indicating T cells are directly affected"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "qRT-PCR validation in TCR-transduced T cells co-cultured with melanoma cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Analysis of the same six-gene panel showed a similar response as observed for the purified T cells stimulated with PMA/ionomycin"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b267ef0d594421701027e542",
+              "unit": null,
+              "value_raw_text": "similar response as observed for purified T cells stimulated with PMA/ionomycin"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "qRT-PCR validation in purified CD8+ T cells",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "Analysis of purified CD8+ T cells after culture in collagen of high or low density showed that cytotoxic CD8-positive T cells responded to the surrounding collagen matrix in a comparable manner as observed for total CD3+ T cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b7747bb8c54e8e729f912a2a",
+              "unit": null,
+              "value_raw_text": "responded in a comparable manner as total CD3+ T cells"
+            }
+          ],
+          "unit_id": "su_44a0dd3a230d1e591e8208e8"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_195951fe82cc7ef78ac27089",
+              "inference_basis_ids": [
+                "res_365cf158e2fc1f065aa68cf1"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "A high viability of more than 95% was observed in both 2D culture and in 3D culture in different collagen densities."
+              },
+              "statement": "T cell viability is not compromised by 3D culture in collagen matrices of different densities."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Morphology was visualized by confocal fluorescent microscopy.",
+            "T cells from healthy donors were transiently stimulated with PMA and ionomycin, embedded in collagen matrices of high (4 mg/ml) or low (1 mg/ml) density, or seeded on tissue culture plastic (2D), and cultured for 5 days.",
+            "Viability was assessed by live/dead staining and flow cytometry."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Flow cytometry viability assay",
+              "protocol_description": "Cells were extracted from collagen matrices by collagenase treatment, stained with Live/Dead Fixable Near-IR Dead cell stain, and analyzed by flow cytometry."
+            },
+            {
+              "method_id": "M2",
+              "name": "Confocal fluorescent microscopy",
+              "protocol_description": "Purified T cells embedded in collagen matrices were imaged by confocal fluorescent microscopy to visualize morphology and collagen fiber structure."
+            }
+          ],
+          "name": "T cell viability and morphology in 3D collagen matrices",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "T cell viability",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "A high viability of more than 95% was observed in both 2D culture and in 3D culture in different collagen densities."
+              },
+              "quantitative_value": 95.0,
+              "result_id": "res_365cf158e2fc1f065aa68cf1",
+              "unit": "%",
+              "value_raw_text": ">95%"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "T cell morphology",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "no apparent morphological changes were observed between T cells in 3D culture of high or low collagen density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_9120e9db7d09ff03e3831c91",
+              "unit": null,
+              "value_raw_text": "no apparent morphological changes"
+            }
+          ],
+          "unit_id": "su_7aadd91c487592ec547c0c69"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_6bbe498d10f91ea788279f91",
+              "inference_basis_ids": [
+                "res_36b72d5113c9dae61704a7a4",
+                "res_4690cc3030342e9cd0941fff"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "cytotoxicity was particularly low for T cells cultured in high-density collagen matrix"
+              },
+              "statement": "High collagen density impairs the cytotoxic activity of tumor-infiltrating T cells against autologous cancer cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "IFN-γ secretion was measured in conditioned media.",
+            "Tumor-infiltrating T cells from melanoma patient MM33 were transiently PMA/ionomycin stimulated or unstimulated, cultured in high- or low-density collagen matrices or on plastic for 3 days, then assayed for cytotoxicity against autologous MM33 melanoma cells using a 4-hour 51Cr-release assay."
+          ],
+          "methods": [
+            {
+              "method_id": "M10",
+              "name": "IFN-γ ELISA",
+              "protocol_description": "IFN-γ levels in conditioned media were measured by ELISA."
+            },
+            {
+              "method_id": "M9",
+              "name": "51Cr-release cytotoxicity assay",
+              "protocol_description": "Target MM33 melanoma cells were labeled with 51Cr, incubated with effector T cells at various E:T ratios for 4 hours, and specific lysis calculated from released 51Cr."
+            }
+          ],
+          "name": "Cytotoxicity of tumor-infiltrating T cells after 3D culture",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "IFN-γ secretion (PMA/ionomycin stimulated)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The collagen density-induced regulation of T cell cytotoxicity was also reflected in a reduced level of secreted IFN-γ for the MM33 T cells cultured in a high-density collagen matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_26817d2ea990a4be64551012",
+              "unit": null,
+              "value_raw_text": "reduced level of secreted IFN-γ for T cells cultured in high-density collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cytotoxicity without stimulation",
+              "n_sample_size": 5,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "we also observed a reduced cytotoxic activity of the T cells cultured in a high-density collagen matrix compared to the T cells cultured in a low-density collagen matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_36b72d5113c9dae61704a7a4",
+              "unit": null,
+              "value_raw_text": "reduced cytotoxic activity in high-density collagen compared to low-density collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cytotoxicity after PMA/ionomycin stimulation",
+              "n_sample_size": 3,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "the cytotoxic activity of the T cells was impaired after 3D culture compared to 2D culture. Strikingly, cytotoxicity was particularly low for T cells cultured in high-density collagen matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_4690cc3030342e9cd0941fff",
+              "unit": null,
+              "value_raw_text": "cytotoxic activity impaired after 3D culture compared to 2D; particularly low for T cells cultured in high-density collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "IFN-γ secretion (unstimulated)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6e6d43f4f18194920e31",
+                "page_end": 10,
+                "page_start": 10,
+                "paraphrased": false,
+                "text_excerpt": "The reduced cytotoxicity was again accompanied by reduced secretion of IFN-γ, although it should be noted that IFN-γ levels were much lower than for the PMA/ionomycin treated T cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_e7fed0799d9736ea3c0563cb",
+              "unit": null,
+              "value_raw_text": "reduced secretion of IFN-γ in high-density collagen, though levels much lower than stimulated"
+            }
+          ],
+          "unit_id": "su_8ff341484cfb1b4b08a7c6a3"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_bc75d57119a1d2d0b87b1135",
+              "inference_basis_ids": [
+                "res_13934bcf88bc888ee39a2b8a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0e1ef433842cb987cfa8",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "identify decreased activity of E2F motifs and increased activity of transcription factor motifs downstream of TGF-β signaling"
+              },
+              "statement": "Collagen density-induced transcriptional changes involve decreased E2F activity and increased TGF-β signaling."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e92f2d8c7d3305b8cba04d66",
+              "inference_basis_ids": [
+                "res_41cd394d1f1408d6146af2d1",
+                "res_f72a448da7712f9c0f95bb8c"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "0e1ef433842cb987cfa8",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "markers of cytotoxic T cell activity were clearly downregulated by a high-density collagen matrix compared to a low-density matrix whereas markers of Tregs were upregulated"
+              },
+              "statement": "High collagen density downregulates cytotoxic T cell activity markers and upregulates regulatory T cell markers."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Differential expression analysis was performed using DESeq2.",
+            "Gene ontology analysis was conducted on differentially expressed genes.",
+            "T cells were cultured in low- or high-density collagen matrices or on plastic for 2 days and subjected to RNA sequencing.",
+            "Transcription factor motif analysis was performed to identify regulators."
+          ],
+          "methods": [
+            {
+              "method_id": "M7",
+              "name": "RNA sequencing and differential expression analysis",
+              "protocol_description": "Total RNA was isolated, libraries prepared with NEBNext RNA Library Preparation Kit, sequenced on HiSeq1500 (50 bp reads), aligned to hg19 with STAR, quantified with HOMER, and differential expression analyzed with DESeq2."
+            }
+          ],
+          "name": "Transcriptional profiling of T cells in different collagen densities",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Transcription factor motif activity",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e1ef433842cb987cfa8",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "identify decreased activity of E2F motifs and increased activity of transcription factor motifs downstream of TGF-β signaling"
+              },
+              "quantitative_value": null,
+              "result_id": "res_13934bcf88bc888ee39a2b8a",
+              "unit": null,
+              "value_raw_text": "decreased E2F motifs, increased TGF-β signaling motifs"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Regulatory T cell markers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e1ef433842cb987cfa8",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "markers of Tregs were upregulated"
+              },
+              "quantitative_value": null,
+              "result_id": "res_41cd394d1f1408d6146af2d1",
+              "unit": null,
+              "value_raw_text": "upregulated by high-density collagen"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Differentially expressed genes (HD vs LD)",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e1ef433842cb987cfa8",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "Culture of T cells within collagen-matrices of either high or low density resulted in fewer differentially regulated genes compared to the culture of T cells in 2D vs. 3D but nevertheless resulted in striking functional differences."
+              },
+              "quantitative_value": null,
+              "result_id": "res_48edfb2dd1057919f7b7e685",
+              "unit": null,
+              "value_raw_text": "fewer differentially regulated genes compared to 2D vs 3D but striking functional differences"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Cytotoxic activity markers",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "0e1ef433842cb987cfa8",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "markers of cytotoxic T cell activity were clearly downregulated by a high-density collagen matrix compared to a low-density matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_f72a448da7712f9c0f95bb8c",
+              "unit": null,
+              "value_raw_text": "downregulated by high-density collagen"
+            }
+          ],
+          "unit_id": "su_b8885755b9b6119bb54861da"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_223172b5d7ff6203f49c24fa",
+              "inference_basis_ids": [
+                "res_407c2c42698150b19616ac9e",
+                "res_b16d98a8e796ce6b9538ee76"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "samples that contained a high collagen density often had fewer infiltrating CD8+ T cells"
+              },
+              "statement": "High collagen density in breast tumors is associated with reduced CD8+ T cell infiltration."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "20 resected triple-negative breast cancer samples (histological grade 3, diameter 10-20 mm) were immunostained for CD8 and picrosirius red-stained for fibrillar collagen.",
+            "Correlation between collagen density and CD8+ T cell abundance was analyzed.",
+            "Intratumoral regions of high and low collagen density within each sample were compared for CD8+ T cell numbers."
+          ],
+          "methods": [
+            {
+              "method_id": "M6",
+              "name": "Immunohistochemistry and picrosirius red staining",
+              "protocol_description": "Samples were immunostained for CD8 and picrosirius red-stained for fibrillar collagen; correlation was analyzed by Pearson correlation."
+            }
+          ],
+          "name": "CD8+ T cell abundance in triple-negative breast cancer samples",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation between collagen density and CD8+ T cell abundance",
+              "n_sample_size": 20,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "samples that contained a high collagen density often had fewer infiltrating CD8+ T cells, although this negative correlation failed to reach statistically significance with this limited material"
+              },
+              "quantitative_value": null,
+              "result_id": "res_407c2c42698150b19616ac9e",
+              "unit": null,
+              "value_raw_text": "negative correlation but failed to reach statistical significance"
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "CD8+ T cells in intratumoral regions of high vs low collagen density",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "7783713662d6147cf103",
+                "page_end": 5,
+                "page_start": 5,
+                "paraphrased": false,
+                "text_excerpt": "revealed a tendency of fewer CD8+ T cells in regions of high collagen density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_b16d98a8e796ce6b9538ee76",
+              "unit": null,
+              "value_raw_text": "tendency of fewer CD8+ T cells in regions of high collagen density"
+            }
+          ],
+          "unit_id": "su_d41fd1da31d95ad6917a3970"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

@@ -1,0 +1,369 @@
+{
+  "coverage_ledger": {
+    "0e2a796df16b7ff001ba": "not_selected",
+    "1304ec2477a2e67c436e": "extracted",
+    "1739d2664e30c149d99d": "not_selected",
+    "1957465be616c1d30464": "not_selected",
+    "267e70c5d9cf0bea6216": "not_selected",
+    "30074e2abde0027789a1": "not_selected",
+    "32a2068ff918ffa99292": "not_selected",
+    "3cace3b03786707c8e68": "extracted",
+    "528337bf1f9657576ff5": "not_selected",
+    "585afaaddc78b1ce636d": "not_selected",
+    "5be82368d673b483e3d4": "not_selected",
+    "5e835694a2727766f34d": "not_selected",
+    "621e4d357a15415ed74a": "not_selected",
+    "6f9a2eccd69cc7104d55": "not_selected",
+    "72e6818d9d38d74ef1ba": "extracted",
+    "793e14c14b89ae602b90": "not_selected",
+    "84dbd4c2913e65ca5939": "extracted",
+    "9bacd3978f9f06600eea": "not_selected",
+    "9cbaf8fa02c485c22684": "not_selected",
+    "a333f7aeb21a40d7feec": "not_selected",
+    "aa99c892863d5fca97d7": "not_selected",
+    "bcdf6206dcfa516ce5b4": "not_selected",
+    "bf6fb33a8f168b072719": "not_selected",
+    "df6490b9b84000928439": "not_selected",
+    "e459206a7e64575cbc71": "not_selected",
+    "e72b7a124cc79a4a18c0": "not_selected",
+    "ea1c27c33c60a1303b4e": "not_selected",
+    "ed8465ef49fec8bf27fe": "not_selected",
+    "f92bd3ae19d5c1194c64": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "A large effective rank or numerical rank does not necessarily correspond to good network performance; some smoothing can be beneficial, and random features can have high rank but no pattern.",
+    "When residual connections or other components alleviate oversmoothing, all oversmoothing metrics correlate poorly with accuracy, making them less informative.",
+    "Theoretical rank decay proof is restricted to linear GNNs and nonlinear non-negative GNNs where the eigenvector of the message-passing matrix is also an eigenvector of the activation function."
+  ],
+  "metadata": {
+    "domain": "general_method",
+    "logic_mode": "contrastive",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "6_16.pdf",
+    "source_sha256": "a84bfafd2b9a54503ee76abd9d9a37db6c141650792a71a6cfbcc2d918c894ba"
+  },
+  "paper_id": "6_16",
+  "quality_assessment": {
+    "correct_item_count": 20,
+    "deterministic_rule_score": 0.86,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 20,
+    "f1": 1.0,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-v4-pro",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 0,
+    "missed_core_items": [],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 1.0
+  },
+  "quality_score": 1.0,
+  "research_questions": [
+    {
+      "question_id": "RQ1",
+      "statement": "Do traditional Dirichlet-like oversmoothing metrics reliably capture oversmoothing in GNNs, and can rank-based metrics serve as a better alternative?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_852866b4e4e93a3d3fcc77b8",
+              "inference_basis_ids": [
+                "res_419679b3c16145f5454a9e69"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "1304ec2477a2e67c436e",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In practice, measuring oversmoothing in terms of a continuous approximation of the rank helps to address the limitations of Dirichlet-like measures. Specifically, it offers the following advantages: (a) it is scale-invariant, meaning it remains informative even when the feature matrix converges to zero or explodes to infinity; (b) it does not rely on a fixed, predetermined eigenspace but instead captures convergence of the feature matrix toward an arbitrary lower-dimensional subspace; (c) it allows for the detection of oversmoothing in shallow networks without requiring exact convergence to rank one."
+              },
+              "statement": "Rank-based metrics, such as numerical rank and effective rank, provide a more reliable measure of oversmoothing because they capture convergence to a low-rank subspace without requiring exact alignment."
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "84dbd4c2913e65ca5939",
+                  "page_end": 2,
+                  "page_start": 2,
+                  "paraphrased": false,
+                  "text_excerpt": "However, when nonlinear activation functions or biases are used, the dominant eigenspace may change, causing these oversmoothing metrics to fail and give false negative signals about the oversmoothing state of the learned features."
+                }
+              ],
+              "claim_id": "clm_c2f6058c3937f44755e9589e",
+              "inference_basis_ids": [
+                "res_c836baa7ae0b6119c8eefa24"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Furthermore, we argue that these metrics can only indicate oversmoothing when their values converge exactly to zero, corresponding to either an exact alignment to the dominant eigenspace or to the feature representation matrix collapsing to the all-zero matrix."
+              },
+              "statement": "Traditional Dirichlet-like oversmoothing metrics are unreliable because they fail when nonlinear activations or biases are present and only indicate oversmoothing at exact convergence to zero."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [
+            {
+              "content": "For these models, we prove that the numerical rank of the features converges exactly to one.",
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "For these models, we prove that the numerical rank of the features converges exactly to one."
+              },
+              "span_id": "ES3"
+            },
+            {
+              "content": "Furthermore, we argue that these metrics can only indicate oversmoothing when their values converge exactly to zero, corresponding to either an exact alignment to the dominant eigenspace or to the feature representation matrix collapsing to the all-zero matrix.",
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Furthermore, we argue that these metrics can only indicate oversmoothing when their values converge exactly to zero, corresponding to either an exact alignment to the dominant eigenspace or to the feature representation matrix collapsing to the all-zero matrix."
+              },
+              "span_id": "ES2"
+            },
+            {
+              "content": "In linear GNNs without bias terms, this eigenspace is often known and easily computable via e.g. the power method. However, when nonlinear activation functions or biases are used, the dominant eigenspace may change, causing these oversmoothing metrics to fail and give false negative signals about the oversmoothing state of the learned features.",
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "In linear GNNs without bias terms, this eigenspace is often known and easily computable via e.g. the power method. However, when nonlinear activation functions or biases are used, the dominant eigenspace may change, causing these oversmoothing metrics to fail and give false negative signals about the oversmoothing state of the learned features."
+              },
+              "span_id": "ES1"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Prove that the numerical rank of feature representations collapses to one for a broad family of GNN architectures.",
+            "Review popular oversmoothing metrics and simplify their theoretical analysis from the perspective of nonlinear activation eigenvectors."
+          ],
+          "methods": [
+            {
+              "method_id": "M1",
+              "name": "Theoretical analysis",
+              "protocol_description": "Analyze Dirichlet energy and projection energy metrics, showing they rely on alignment with a fixed dominant eigenspace. Prove rank decay for linear GNNs and nonlinear non-negative GNNs where the eigenvector of the message-passing matrix is also an eigenvector of the activation function."
+            }
+          ],
+          "name": "Theoretical analysis of oversmoothing metrics",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Numerical rank convergence",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "For these models, we prove that the numerical rank of the features converges exactly to one."
+              },
+              "quantitative_value": null,
+              "result_id": "res_419679b3c16145f5454a9e69",
+              "unit": null,
+              "value_raw_text": "For linear GNNs and nonlinear non-negative GNNs, the numerical rank of features converges exactly to one."
+            },
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "84dbd4c2913e65ca5939",
+                  "page_end": 2,
+                  "page_start": 2,
+                  "paraphrased": false,
+                  "text_excerpt": "In linear GNNs without bias terms, this eigenspace is often known and easily computable via e.g. the power method. However, when nonlinear activation functions or biases are used, the dominant eigenspace may change, causing these oversmoothing metrics to fail and give false negative signals about the oversmoothing state of the learned features."
+                }
+              ],
+              "metric_name": "Theoretical limitation of Dirichlet-like metrics",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Furthermore, we argue that these metrics can only indicate oversmoothing when their values converge exactly to zero, corresponding to either an exact alignment to the dominant eigenspace or to the feature representation matrix collapsing to the all-zero matrix."
+              },
+              "quantitative_value": null,
+              "result_id": "res_c836baa7ae0b6119c8eefa24",
+              "unit": null,
+              "value_raw_text": "Dirichlet-like metrics fail when nonlinear activations or biases change the dominant eigenspace, and they only indicate oversmoothing when values converge exactly to zero."
+            }
+          ],
+          "unit_id": "su_7143d6dee13262095c944427"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [
+                {
+                  "chunk_id": "84dbd4c2913e65ca5939",
+                  "page_end": 2,
+                  "page_start": 2,
+                  "paraphrased": false,
+                  "text_excerpt": "However, as we show in Section 6, the performance degradation of GNNs trained on real datasets often happens well before any noticeable decay in these oversmoothing metrics can be observed."
+                }
+              ],
+              "claim_id": "clm_8206c0ee22df5fac9d808ab6",
+              "inference_basis_ids": [
+                "res_a47aab84d326fa75713b3398",
+                "res_ac36b8834b3f2501a4573716"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "1304ec2477a2e67c436e",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "In Figure 1, we present a toy example illustrating that classical oversmoothing metrics fail to correctly capture oversmoothing unless the features are perfectly aligned."
+              },
+              "statement": "Traditional oversmoothing metrics fail to capture oversmoothing in shallow networks and provide false negative signals."
+            },
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e504f1e24079ead1497f2e2a",
+              "inference_basis_ids": [
+                "res_ac36b8834b3f2501a4573716",
+                "res_dd24c8e9128ffdb74c2d2a7a"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Indeed, our experimental evaluation across various GNN architectures trained for node classification demonstrates that continuous rank relaxations, such as the numerical rank and the effective rank, correlate strongly with performance degradation in independently trained GNNs—even in settings where popular energy-like metrics show little to no correlation."
+              },
+              "statement": "Rank-based metrics (numerical rank, effective rank) correlate strongly with performance degradation in independently trained GNNs, even when popular energy-like metrics show little to no correlation."
+            }
+          ],
+          "datasets": [
+            {
+              "dataset_id": "D1",
+              "description": "Diverse graph datasets used for node classification (not explicitly named in provided chunks).",
+              "name": "Real-world graph datasets",
+              "version_or_split": null
+            }
+          ],
+          "evidence_spans": [
+            {
+              "content": "However, as we show in Section 6, the performance degradation of GNNs trained on real datasets often happens well before any noticeable decay in these oversmoothing metrics can be observed.",
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "However, as we show in Section 6, the performance degradation of GNNs trained on real datasets often happens well before any noticeable decay in these oversmoothing metrics can be observed."
+              },
+              "span_id": "ES5"
+            },
+            {
+              "content": "Indeed, our experimental evaluation across various GNN architectures trained for node classification demonstrates that continuous rank relaxations, such as the numerical rank and the effective rank, correlate strongly with performance degradation in independently trained GNNs—even in settings where popular energy-like metrics show little to no correlation.",
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "Indeed, our experimental evaluation across various GNN architectures trained for node classification demonstrates that continuous rank relaxations, such as the numerical rank and the effective rank, correlate strongly with performance degradation in independently trained GNNs—even in settings where popular energy-like metrics show little to no correlation."
+              },
+              "span_id": "ES6"
+            },
+            {
+              "content": "We provide extensive numerical evaluation across diverse graph architectures and datasets to show that rank-based metrics consistently capture oversmoothing, whereas energy-based metrics often fail. Notably, we reveal that drops in the rank align closely with performance degradation, even in scenarios where energy metrics remain unchanged.",
+              "provenance": {
+                "chunk_id": "3cace3b03786707c8e68",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We provide extensive numerical evaluation across diverse graph architectures and datasets to show that rank-based metrics consistently capture oversmoothing, whereas energy-based metrics often fail. Notably, we reveal that drops in the rank align closely with performance degradation, even in scenarios where energy metrics remain unchanged."
+              },
+              "span_id": "ES4"
+            }
+          ],
+          "experiments_or_tasks": [
+            "Compare correlation of metrics with performance degradation across various GNN architectures and datasets.",
+            "Evaluate Dirichlet energy, projection energy, MAD, numerical rank, and effective rank on toy scenarios and real GNNs trained for node classification."
+          ],
+          "methods": [
+            {
+              "method_id": "M2",
+              "name": "Empirical comparison",
+              "protocol_description": "Train GNNs of varying depths with proper weight initialization. Compute oversmoothing metrics (Dirichlet energy, projection energy, MAD, numerical rank, effective rank) on learned features. Measure correlation with test accuracy."
+            }
+          ],
+          "name": "Empirical evaluation of oversmoothing metrics",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Toy example metric values",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "1304ec2477a2e67c436e",
+                "page_end": 6,
+                "page_start": 6,
+                "paraphrased": false,
+                "text_excerpt": "# 1\n# 2\n# 3\n# 4\nEDir\n0\n0\n13.25 77.78\nEProj\n0\n0\n0.83\n0.97\nMAD\n0\n0.81\n0.81\n0.57\nNumRank\n1\n1\n1.01\n1.78\nErank\n1\n1\n1.36\n1.99"
+              },
+              "quantitative_value": null,
+              "result_id": "res_a47aab84d326fa75713b3398",
+              "unit": null,
+              "value_raw_text": "In toy scenario #3 (features aligned except one point), EDir=0, EProj=0.83, MAD=0.81, NumRank=1.01, Erank=1.36. In scenario #4 (uniform), EDir=0, EProj=0.97, MAD=0.57, NumRank=1.78, Erank=1.99."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Failure of energy-based metrics in shallow networks",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "84dbd4c2913e65ca5939",
+                "page_end": 2,
+                "page_start": 2,
+                "paraphrased": false,
+                "text_excerpt": "However, as we show in Section 6, the performance degradation of GNNs trained on real datasets often happens well before any noticeable decay in these oversmoothing metrics can be observed."
+              },
+              "quantitative_value": null,
+              "result_id": "res_ac36b8834b3f2501a4573716",
+              "unit": null,
+              "value_raw_text": "Performance degradation in GNNs trained on real datasets often occurs before any noticeable decay in Dirichlet-like energy metrics."
+            },
+            {
+              "additional_provenance": [],
+              "metric_name": "Correlation of rank-based metrics with performance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "3cace3b03786707c8e68",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "We provide extensive numerical evaluation across diverse graph architectures and datasets to show that rank-based metrics consistently capture oversmoothing, whereas energy-based metrics often fail. Notably, we reveal that drops in the rank align closely with performance degradation, even in scenarios where energy metrics remain unchanged."
+              },
+              "quantitative_value": null,
+              "result_id": "res_dd24c8e9128ffdb74c2d2a7a",
+              "unit": null,
+              "value_raw_text": "Rank-based metrics consistently capture oversmoothing and align closely with performance degradation, even when energy-based metrics remain unchanged."
+            }
+          ],
+          "unit_id": "su_d65414cec5507a35c789b8b7"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}

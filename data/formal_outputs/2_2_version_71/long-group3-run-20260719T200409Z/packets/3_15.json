@@ -1,0 +1,382 @@
+{
+  "coverage_ledger": {
+    "05b5d7761bfc8b344c66": "not_selected",
+    "11f397fd42ec84738081": "not_selected",
+    "121fec421c588be65505": "not_selected",
+    "27c920ce7ad072edbe8e": "extracted",
+    "2cb9616bd4002d92e0cf": "not_selected",
+    "333785a5ff26a5922de9": "not_selected",
+    "3a3dd92d9ded30ec1b4b": "extracted",
+    "55e6168a65b7efd80966": "not_selected",
+    "6528114bdddb093752b5": "extracted",
+    "6ebc8cd73f2ec0cbcd05": "extracted",
+    "bd0c1d0a18aaf256aa6d": "not_selected",
+    "cba91e5bc9bab7a8975d": "not_selected",
+    "e4d71f12b932a3fc7cea": "not_selected",
+    "eb470848b154b4905333": "not_selected",
+    "f23ee280235d318b76fc": "not_selected"
+  },
+  "limitations_and_boundaries": [
+    "The study used a limited number of triple-negative breast cancer samples for the correlation between collagen density and CD8+ T cell abundance.",
+    "The study did not address whether collagen density affects T cell migration in addition to activity.",
+    "The study focused on direct effects of collagen on T cells; indirect effects via other cell types (e.g., macrophages) were not investigated."
+  ],
+  "metadata": {
+    "domain": "wet_lab_molecular",
+    "logic_mode": "causal_validation",
+    "source_chunk_schema_version": "0.1",
+    "source_file": "3_15.pdf",
+    "source_sha256": "e85f894f073555b6950a70afb397c3738f372c9413403dfc9f90e47a18ad11ac"
+  },
+  "paper_id": "3_15",
+  "quality_assessment": {
+    "correct_item_count": 27,
+    "deterministic_rule_score": 0.8989,
+    "evidence_strength_observability": {
+      "sample_size_coverage": 0.0,
+      "sample_size_log_score": null,
+      "statistical_support_coverage": 0.0
+    },
+    "extracted_item_count": 27,
+    "f1": 0.9818,
+    "incorrect_item_count": 0,
+    "incorrect_items": [],
+    "judge_model": "deepseek-chat",
+    "judge_provider": "deepseek",
+    "missed_core_item_count": 1,
+    "missed_core_items": [
+      {
+        "description": "The study used a limited number of triple-negative breast cancer samples (n=20) for the correlation between collagen density and CD8+ T cell abundance, and the negative correlation did not reach statistical significance.",
+        "item_id": null,
+        "source_chunk_id": "2cb9616bd4002d92e0cf",
+        "source_excerpt": "Consistent with our 3D culture data, samples that contained a high collagen density often had fewer infiltrating CD8+ T cells, although this negative correlation failed to reach statistically significance with this limited material (Fig. 2e).",
+        "source_excerpt_verified": false
+      }
+    ],
+    "precision": 1.0,
+    "protocol": "semantic-prf-v1",
+    "recall": 0.9643
+  },
+  "quality_score": 0.9818,
+  "research_questions": [
+    {
+      "question_id": "q1",
+      "statement": "Does a high-density tumor-specific extracellular matrix influence the activity of T cells?",
+      "study_units": [
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_56e7f5da49ea377f1a6f8e24",
+              "inference_basis_ids": [
+                "res_7dd669e41004c7d2a1351130"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we observed a reduction in the number of infiltrating CD8+ T-cells in mammary tumors with high collagen-density"
+              },
+              "statement": "High collagen density is associated with reduced CD8+ T cell abundance in human breast cancer."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Triple-negative breast cancer specimens were analyzed for the number of infiltrating CD8+ T cells and collagen density."
+          ],
+          "methods": [],
+          "name": "CD8+ T cell abundance in human breast cancer samples",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "CD8+ T cell abundance",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "we observed a reduction in the number of infiltrating CD8+ T-cells in mammary tumors with high collagen-density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_7dd669e41004c7d2a1351130",
+              "unit": null,
+              "value_raw_text": "we observed a reduction in the number of infiltrating CD8+ T-cells in mammary tumors with high collagen-density"
+            }
+          ],
+          "unit_id": "su_62506e47b111536f993667bb"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_1247e10adba743a3e54e40f5",
+              "inference_basis_ids": [
+                "res_42bcb9e042697ec8ec07c38e"
+              ],
+              "polarity": "negative",
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The proliferation of cancer cells was unaffected by the surrounding collagen-density"
+              },
+              "statement": "Collagen density does not affect proliferation of breast cancer cell lines."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Three different breast cancer cell lines were cultured in low or high density collagen gels for 5 days and proliferation was measured by BrdU incorporation."
+          ],
+          "methods": [
+            {
+              "method_id": "m4",
+              "name": "Cancer cell proliferation assay",
+              "protocol_description": "50,000 cells were cultured in 3D collagen gels for 5 days. BrdU was added for 45 min, cells were extracted, stained with viability dye, and analyzed for BrdU incorporation by flow cytometry."
+            }
+          ],
+          "name": "Cancer cell proliferation in different collagen densities",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Cancer cell proliferation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "The proliferation of cancer cells was unaffected by the surrounding collagen-density"
+              },
+              "quantitative_value": null,
+              "result_id": "res_42bcb9e042697ec8ec07c38e",
+              "unit": null,
+              "value_raw_text": "The proliferation of cancer cells was unaffected by the surrounding collagen-density"
+            }
+          ],
+          "unit_id": "su_80479a553dca7e49c0f90b83"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_39dac691a1233b7d048cefd2",
+              "inference_basis_ids": [
+                "res_6781e4f4f286adab6217b913"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6ebc8cd73f2ec0cbcd05",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "tumor-infiltrating T cells were indeed less efficient at killing the melanoma cells after culture in a high-density collagen matrix compared to a low-density collagen matrix"
+              },
+              "statement": "High collagen density impairs the cytotoxic activity of tumor-infiltrating T cells against autologous cancer cells."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Tumor-infiltrating T cells and autologous melanoma cells were co-cultured after T cells were cultured in low or high density collagen gels. Killing efficiency was measured."
+          ],
+          "methods": [],
+          "name": "Impaired killing of cancer cells by T cells after culture in high-density collagen",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "T cell killing efficiency",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6ebc8cd73f2ec0cbcd05",
+                "page_end": 13,
+                "page_start": 13,
+                "paraphrased": false,
+                "text_excerpt": "tumor-infiltrating T cells were indeed less efficient at killing the melanoma cells after culture in a high-density collagen matrix compared to a low-density collagen matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_6781e4f4f286adab6217b913",
+              "unit": null,
+              "value_raw_text": "tumor-infiltrating T cells were indeed less efficient at killing the melanoma cells after culture in a high-density collagen matrix compared to a low-density collagen matrix"
+            }
+          ],
+          "unit_id": "su_8f027bbc79ed5c3e92a9df8f"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_3c5d6b5270bbbdfec630d8f0",
+              "inference_basis_ids": [
+                "res_41d2dcf3758e6f1855b0ac47"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "T cell proliferation was significantly reduced in a high-density matrix compared to a low-density matrix"
+              },
+              "statement": "High collagen density reduces T cell proliferation."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "T cells from healthy donors were transiently stimulated with PMA and ionomycin, labelled with CellTrace Violet, and cultured for 5 days in 3D collagen gels of low density (1 mg/ml) or high density (4 mg/ml) collagen type I. Proliferation was measured by flow cytometry using CellTrace Violet dilution and BrdU incorporation."
+          ],
+          "methods": [
+            {
+              "method_id": "m1",
+              "name": "3D collagen gel culture",
+              "protocol_description": "Type I collagen gels were prepared with rat tail collagen type I. Low density (LD) gels contained 1 mg/ml collagen, high density (HD) gels contained 4 mg/ml collagen. Cells were resuspended in collagen solution and seeded on top of a pre-polymerized collagen layer. After polymerization, culture media was added."
+            },
+            {
+              "method_id": "m2",
+              "name": "T cell proliferation assay",
+              "protocol_description": "T cells were stimulated with 10 nM PMA and 175 nM ionomycin, labelled with CellTrace Violet, and cultured for 5 days. Cells were extracted from gels using collagenase, stained with anti-CD3, anti-CD4, anti-CD8 antibodies and Live/Dead stain, and analyzed by flow cytometry. BrdU incorporation was also measured after 3 days of culture."
+            }
+          ],
+          "name": "T cell proliferation in high vs low collagen density",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "T cell proliferation",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "T cell proliferation was significantly reduced in a high-density matrix compared to a low-density matrix"
+              },
+              "quantitative_value": null,
+              "result_id": "res_41d2dcf3758e6f1855b0ac47",
+              "unit": null,
+              "value_raw_text": "T cell proliferation was significantly reduced in a high-density matrix compared to a low-density matrix"
+            }
+          ],
+          "unit_id": "su_97b8dd3a5c42d95cd3951955"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_e881f92c332b99de77fd3b55",
+              "inference_basis_ids": [
+                "res_869174b5b6d04e3f49290680"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "a high-density matrix induces downregulation of cytotoxic activity markers and upregulation of regulatory T cell markers"
+              },
+              "statement": "High collagen density induces transcriptional changes in T cells: downregulation of cytotoxic markers and upregulation of regulatory T cell markers."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "Whole-transcriptome analysis of T cells cultured for 2 days in low or high density collagen gels."
+          ],
+          "methods": [
+            {
+              "method_id": "m5",
+              "name": "RNA sequencing",
+              "protocol_description": "Total RNA was purified from T cells cultured in collagen gels for 2 days. RNA quality was assessed, and libraries were sequenced."
+            }
+          ],
+          "name": "Transcriptomic changes in T cells induced by high-density collagen",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "Gene expression changes",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "a high-density matrix induces downregulation of cytotoxic activity markers and upregulation of regulatory T cell markers"
+              },
+              "quantitative_value": null,
+              "result_id": "res_869174b5b6d04e3f49290680",
+              "unit": null,
+              "value_raw_text": "a high-density matrix induces downregulation of cytotoxic activity markers and upregulation of regulatory T cell markers"
+            }
+          ],
+          "unit_id": "su_9a2644e93cb1ad370ddfed66"
+        },
+        {
+          "claims": [
+            {
+              "additional_provenance": [],
+              "claim_id": "clm_24ae35619c9c5be53828b7d9",
+              "inference_basis_ids": [
+                "res_70cfc151eb2b22f030f4bfca"
+              ],
+              "polarity": "positive",
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "prolonged culture in a high-density matrix led to a higher ratio of CD4+ to CD8+ T cells"
+              },
+              "statement": "High collagen density favors CD4+ T cells over CD8+ T cells after prolonged culture."
+            }
+          ],
+          "datasets": [],
+          "evidence_spans": [],
+          "experiments_or_tasks": [
+            "T cells were cultured for 5 days in low or high density collagen gels and the ratio of CD4+ to CD8+ T cells was measured by flow cytometry."
+          ],
+          "methods": [
+            {
+              "method_id": "m3",
+              "name": "Flow cytometry for T cell subsets",
+              "protocol_description": "After 5 days of culture, cells were extracted from collagen gels, stained with anti-CD3, anti-CD4, anti-CD8 antibodies, and analyzed by flow cytometry."
+            }
+          ],
+          "name": "CD4+ to CD8+ T cell ratio after prolonged culture in high-density matrix",
+          "results": [
+            {
+              "additional_provenance": [],
+              "metric_name": "CD4+ to CD8+ T cell ratio",
+              "n_sample_size": null,
+              "p_value": null,
+              "provenance": {
+                "chunk_id": "6528114bdddb093752b5",
+                "page_end": 1,
+                "page_start": 1,
+                "paraphrased": false,
+                "text_excerpt": "prolonged culture in a high-density matrix led to a higher ratio of CD4+ to CD8+ T cells"
+              },
+              "quantitative_value": null,
+              "result_id": "res_70cfc151eb2b22f030f4bfca",
+              "unit": null,
+              "value_raw_text": "prolonged culture in a high-density matrix led to a higher ratio of CD4+ to CD8+ T cells"
+            }
+          ],
+          "unit_id": "su_e7189452bd843c89c35331f3"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2.2",
+  "validation_warnings": []
+}
