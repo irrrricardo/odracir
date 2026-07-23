@@ -4,9 +4,10 @@
   "delivery_complete": true,
   "extra_outputs": [],
   "final_delivery_source_counts": {
-    "initial": 192,
+    "initial": 191,
     "preflight_smoke": 1,
-    "recovery": 35
+    "recovery": 35,
+    "source_replacement": 1
   },
   "final_manifest_csv": "data/formal_outputs/2_2_version_228/reports/final_manifest.csv",
   "final_manifest_jsonl": "data/formal_outputs/2_2_version_228/reports/final_manifest.jsonl",
@@ -92,6 +93,7 @@
     "wall_seconds": 2580.770046
   },
   "input_pdf_count": 228,
+  "last_updated_at": "2026-07-23T11:49:02.771376+00:00",
   "missing_outputs": [],
   "models": [
     "deepseek-v4-pro"
@@ -121,6 +123,13 @@
     "validated_count": 228
   },
   "schema_version": "odracir-2.2-final-delivery/1",
+  "source_replacements": {
+    "audit_csv": "data/formal_outputs/2_2_version_228/reports/source_replacement_attempts.csv",
+    "audit_manifest": "data/formal_outputs/2_2_version_228/reports/source_replacement_manifest.json",
+    "latest_completed_at": "2026-07-23T11:49:02.771376+00:00",
+    "replacement_count": 1,
+    "status": "completed"
+  },
   "timing": {
     "formal_started_at": "2026-07-22T18:06:35.152014+00:00",
     "formal_to_final_wall_seconds": 4789.408876,
@@ -209,35 +218,43 @@
         "run_record_count": 53,
         "total_tokens_recorded": 3173837,
         "unmetered_record_count": 2
+      },
+      "source_replacement": {
+        "completion_tokens_recorded": 11412,
+        "known_cost_usd": 0.06905843,
+        "prompt_tokens_recorded": 135931,
+        "run_record_count": 1,
+        "total_tokens_recorded": 147343,
+        "unmetered_record_count": 0
       }
     },
-    "completion_tokens_recorded": 2206585,
+    "completion_tokens_recorded": 2217997,
     "currency": "USD",
     "estimated_total_cost_usd_using_observed_call_costs": {
-      "central": 6.98588038,
+      "central": 7.05564462,
       "interquartile_range": [
-        6.94448056,
-        7.04789871
+        7.01373396,
+        7.11759594
       ],
       "is_invoice_total": false
     },
     "is_lower_bound": true,
-    "known_cost_per_delivered_pdf_usd": 0.0295967,
-    "known_cost_usd_lower_bound": 6.74804674,
+    "known_cost_per_delivered_pdf_usd": 0.02989958,
+    "known_cost_usd_lower_bound": 6.81710517,
     "note": "Some failed provider/schema paths did not retain token usage, so the recorded cost is a lower bound rather than the provider invoice total.",
     "observed_metered_cost_per_call_usd": {
-      "median": 0.01081062,
-      "p25": 0.00892881,
-      "p75": 0.01362963,
-      "sample_count": 273
+      "median": 0.0108427,
+      "p25": 0.00893767,
+      "p75": 0.01365867,
+      "sample_count": 274
     },
     "pricing": {
       "input_usd_per_million_tokens": 0.435,
       "output_usd_per_million_tokens": 0.87,
       "pricing_as_of": "2026-07-22"
     },
-    "prompt_tokens_recorded": 11099581,
-    "total_tokens_recorded": 13306166,
+    "prompt_tokens_recorded": 11235512,
+    "total_tokens_recorded": 13453509,
     "unmetered_api_call_lower_bound": 22,
     "unmetered_record_count": 9
   }
