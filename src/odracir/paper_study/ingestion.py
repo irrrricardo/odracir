@@ -62,6 +62,51 @@ def _ingest_pdf(
     source_sha256: str,
     target: Path,
 ) -> Path:
+    extracted_source_sha256, pages, chunks = extract_pdf_page_chunks(pdf_path)
+    if extracted_source_sha256 != source_sha256:
+        raise ValueError(f"PDF changed while it was being ingested: {pdf_path}")
+
+    text_path = paper_folder / ".odracir" / "texts" / f"{paper_id}.json"
+    text_payload = {
+        "schema_version": "1.0",
+        "paper_id": paper_id,
+        "source_file": str(pdf_path.relative_to(paper_folder)),
+        "source_sha256": source_sha256,
+        "pages": list(pages),
+    }
+    _write_json(text_payload, text_path)
+    text_sha256 = _sha256_file(text_path)
+    artifact = ChunkArtifact(
+        schema_version="0.1",
+        paper_id=paper_id,
+        source_file=str(pdf_path.relative_to(paper_folder)),
+        source_sha256=source_sha256,
+        text_artifact=str(text_path.relative_to(paper_folder)),
+        text_artifact_sha256=text_sha256,
+        chunker="odracir.pdf-page",
+        chunker_version="1.0",
+        chunked_at=datetime.now(timezone.utc).isoformat(),
+        chunk_count=len(chunks),
+        chunks=list(chunks),
+    )
+    _write_json(artifact.model_dump(mode="json", by_alias=True), target)
+    return target
+
+
+def extract_pdf_page_chunks(
+    pdf_path: str | Path,
+) -> tuple[str, tuple[dict[str, object], ...], tuple[SourceChunk, ...]]:
+    """Read a PDF into deterministic page chunks without writing artifacts.
+
+    The returned chunk identifiers use the same frozen namespace as
+    :func:`ensure_pdf_chunk_artifacts`.  Exporters can therefore materialize
+    additional evidence packages without invoking a model or mutating the
+    source corpus.
+    """
+
+    source = Path(pdf_path).expanduser().resolve()
+    if not source.is_file():
+        raise ValueError(f"PDF does not exist: {source}")
     try:
         import fitz
     except ImportError as exc:  # pragma: no cover - packaging/environment guard
@@ -69,9 +114,10 @@ def _ingest_pdf(
             "PyMuPDF is required to prepare bare PDFs; install the project dependencies"
         ) from exc
 
+    source_sha256 = _sha256_file(source)
     pages: list[dict[str, object]] = []
     chunks: list[SourceChunk] = []
-    with fitz.open(pdf_path) as document:
+    with fitz.open(source) as document:
         for page_index, page in enumerate(document, start=1):
             text = page.get_text("text").strip()
             if not text:
@@ -98,34 +144,9 @@ def _ingest_pdf(
             )
     if not chunks:
         raise ValueError(
-            f"PDF contains no extractable text and requires OCR before ingestion: {pdf_path}"
+            f"PDF contains no extractable text and requires OCR before ingestion: {source}"
         )
-
-    text_path = paper_folder / ".odracir" / "texts" / f"{paper_id}.json"
-    text_payload = {
-        "schema_version": "1.0",
-        "paper_id": paper_id,
-        "source_file": str(pdf_path.relative_to(paper_folder)),
-        "source_sha256": source_sha256,
-        "pages": pages,
-    }
-    _write_json(text_payload, text_path)
-    text_sha256 = _sha256_file(text_path)
-    artifact = ChunkArtifact(
-        schema_version="0.1",
-        paper_id=paper_id,
-        source_file=str(pdf_path.relative_to(paper_folder)),
-        source_sha256=source_sha256,
-        text_artifact=str(text_path.relative_to(paper_folder)),
-        text_artifact_sha256=text_sha256,
-        chunker="odracir.pdf-page",
-        chunker_version="1.0",
-        chunked_at=datetime.now(timezone.utc).isoformat(),
-        chunk_count=len(chunks),
-        chunks=chunks,
-    )
-    _write_json(artifact.model_dump(mode="json", by_alias=True), target)
-    return target
+    return source_sha256, tuple(pages), tuple(chunks)
 
 
 def _paper_ids(pdfs: tuple[Path, ...], root: Path) -> tuple[str, ...]:

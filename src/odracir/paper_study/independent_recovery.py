@@ -21,7 +21,7 @@ from odracir.paper_study.independent import (
 )
 from odracir.paper_study.ingestion import ensure_pdf_chunk_artifacts
 from odracir.paper_study.models import PaperStudyPacketV2, StrictModel
-from odracir.paper_study.pipeline import discover_paper_entries
+from odracir.paper_study.inputs import discover_paper_entries
 from odracir.paper_study.run_reporting import PaperRunRecord, PricingSnapshot
 
 

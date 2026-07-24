@@ -8,10 +8,14 @@ import sys
 from pathlib import Path
 from typing import Sequence, TextIO
 
+from odracir.paper_study.ablation_evidence import (
+    AblationEvidenceExportSummary,
+    export_ablation_evidence_bundle,
+)
 from odracir.paper_study.extraction import DeepSeekJsonProvider, JsonCompletionProvider
 from odracir.paper_study.independent import IndependentRunSummary, run_independent_extractions
 from odracir.paper_study.ingestion import ensure_pdf_chunk_artifacts
-from odracir.paper_study.pipeline import discover_paper_entries
+from odracir.paper_study.inputs import discover_paper_entries
 from odracir.paper_study.run_reporting import PricingSnapshot
 
 
@@ -20,17 +24,36 @@ def main(argv: Sequence[str] | None = None) -> int:
     if not arguments or arguments[0] in {"-h", "--help"}:
         _print_root_help()
         return 0
-    if arguments[0] != "extract-paper-study":
+    if arguments[0] not in {"extract-paper-study", "export-ablation-evidence"}:
         print(f"Unknown command: {arguments[0]}\n", file=sys.stderr)
         _print_root_help(file=sys.stderr)
         return 2
     try:
-        summary = run_extract_paper_study(arguments[1:])
+        if arguments[0] == "extract-paper-study":
+            summary = run_extract_paper_study(arguments[1:])
+        else:
+            summary = run_export_ablation_evidence(arguments[1:])
     except (OSError, RuntimeError, ValueError) as exc:
         print(json.dumps({"status": "failed", "error": str(exc)}), file=sys.stderr)
         return 1
     print(json.dumps(summary.model_dump(mode="json"), ensure_ascii=False))
-    return 0 if summary.failed == 0 else 1
+    return 0 if not isinstance(summary, IndependentRunSummary) or summary.failed == 0 else 1
+
+
+def run_export_ablation_evidence(
+    argv: Sequence[str],
+) -> AblationEvidenceExportSummary:
+    """Run the deterministic, API-free Ablation Lab evidence exporter."""
+
+    args = _ablation_evidence_parser().parse_args(list(argv))
+    return export_ablation_evidence_bundle(
+        args.corpus_root,
+        args.packets_root,
+        args.output_folder,
+        horizon=args.horizon,
+        group=args.group,
+        paper_id=args.paper_id,
+    )
 
 
 def run_extract_paper_study(
@@ -94,6 +117,23 @@ def _parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _ablation_evidence_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="odracir export-ablation-evidence",
+        description=(
+            "Create namespaced packet/chunk/locator-crosswalk bundles for "
+            "SciEngram Ablation Lab without calling a model."
+        ),
+    )
+    parser.add_argument("--corpus-root", required=True)
+    parser.add_argument("--packets-root", required=True)
+    parser.add_argument("--output-folder", required=True)
+    parser.add_argument("--horizon", choices=("long", "short"))
+    parser.add_argument("--group")
+    parser.add_argument("--paper-id")
+    return parser
+
+
 def _positive_int(value: str) -> int:
     parsed = int(value)
     if parsed < 1:
@@ -126,7 +166,8 @@ def _print_root_help(*, file: TextIO = sys.stdout) -> None:
     print(
         "usage: odracir <command> [options]\n\n"
         "commands:\n"
-        "  extract-paper-study  Convert each PDF independently to one JSON\n",
+        "  extract-paper-study        Convert each PDF independently to one JSON\n"
+        "  export-ablation-evidence  Export API-free SciEngram evidence bundles\n",
         file=file,
     )
 
