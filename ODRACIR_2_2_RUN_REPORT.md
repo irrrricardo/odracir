@@ -1,5 +1,9 @@
 # Odracir 2.2 run reports
 
+For the API-free packet/chunk/locator-crosswalk package consumed by SciEngram
+Ablation Lab, see
+[`docs/ODRACIR_2_2_ABLATION_EVIDENCE_EXPORT.md`](docs/ODRACIR_2_2_ABLATION_EVIDENCE_EXPORT.md).
+
 Packet output and run telemetry use separate, non-nested directories:
 
 ```bash

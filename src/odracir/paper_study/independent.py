@@ -37,7 +37,7 @@ from odracir.paper_study.run_reporting import (
     write_run_report,
 )
 from odracir.paper_study.semantic_quality import evaluate_semantic_extraction_quality
-from odracir.paper_study.scheduler import PaperIndexEntry
+from odracir.paper_study.inputs import PaperIndexEntry
 
 
 _SAFE_PAPER_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
